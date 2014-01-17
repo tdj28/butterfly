@@ -1,0 +1,11 @@
+SEE LICENSE FILE ENCLOSED IN THIS FOLDER FOR LICENSE INFORMATION
+
+TO COMPILE, RUN:
+
+make
+
+TO RUN PROGRAM, e.g.:
+
+mpiexec.hydra -f ~/hosts -n 2 ./coparam 0.25 0.34 0.2 5.0 15.0
+
+
