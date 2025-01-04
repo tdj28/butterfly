@@ -1,7 +1,8 @@
 #include "cuda_defs.cuh"
 
 __device__ void advance(double *x, double y[], double dydx[], double yout[], float h,
-                       float a, float b, float c) {
+                       double a, double b, double c) {
+
     for(int i2 = 0; i2 <= 5000; i2++) {
         *x = i2 * h;
         derivs(*x, y, dydx, a, b, c);

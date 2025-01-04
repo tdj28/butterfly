@@ -1,7 +1,7 @@
 #include "cuda_defs.cuh"
 
 __device__ void rk4_step(double y[], double dydx[], int n, double x, double h, double yout[],
-                        float a, float b, float c) {
+                        double a, double b, double c) {
     double xh, hh, h6;
     double dym[3], dyt[3], yt[3];
 

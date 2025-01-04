@@ -8,44 +8,40 @@ void launch_cuda_computation(const char* filename, double *y_init, float amin, f
     // Allocate device memory
     double *d_y_init;
     int *d_periods, *h_periods;
-    float *d_params, *h_params;
+    double *d_params, *h_params;  // Changed to double
     
     cudaMalloc(&d_y_init, 3 * sizeof(double));
     cudaMalloc(&d_periods, param_count * sizeof(int));
-    cudaMalloc(&d_params, param_count * 2 * sizeof(float));
+    cudaMalloc(&d_params, param_count * 2 * sizeof(double));  // Changed to double
     
     h_periods = (int*)malloc(param_count * sizeof(int));
-    h_params = (float*)malloc(param_count * 2 * sizeof(float));
+    h_params = (double*)malloc(param_count * 2 * sizeof(double));  // Changed to double
     
-    // Copy initial conditions to device
     cudaMemcpy(d_y_init, y_init, 3 * sizeof(double), cudaMemcpyHostToDevice);
     
-    // Set h value
     float h_val = 0.01f;
     
-    // Generate parameter combinations
-    float adiff = (amax - amin) / (res - 1);
-    float cdiff = (cmax - cmin) / (res - 1);
+    // Match original MPI parameter generation exactly
+    double adiff = amax - amin;  // Changed to double
+    double cdiff = cmax - cmin;  // Changed to double
     
-    int ii = 0, jj = 0;
-    for (int i = 0; i < param_count; i++) {
-        h_params[i*2] = amin + adiff * (1.0f * ii / (1.0f * res));
-        h_params[i*2+1] = cmin + cdiff * (1.0f * jj / (1.0f * res));
-        
-        jj++;
-        if(jj == res) {
-            jj = 0;
-            ii++;
+    // Generate parameters using double arithmetic exactly as MPI does
+    for (int ii = 0; ii < res; ii++) {
+        for (int jj = 0; jj < res; jj++) {
+            int idx = ii * res + jj;
+            // Match MPI ordering: iterate jj in inner loop, increment when jj==res
+            h_params[idx*2] = amin + adiff * (1.0 * ii / (1.0 * res));      // Match MPI division
+            h_params[idx*2+1] = cmin + cdiff * (1.0 * jj / (1.0 * res));    // Match MPI division
         }
     }
+
     
-    // Copy parameters to device
-    cudaMemcpy(d_params, h_params, param_count * 2 * sizeof(float), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_params, h_params, param_count * 2 * sizeof(double), cudaMemcpyHostToDevice);
     
-    // Launch kernel
     int threadsPerBlock = 256;
     int blocks = (param_count + threadsPerBlock - 1) / threadsPerBlock;
-    compute_periods<<<blocks, threadsPerBlock>>>(d_y_init, d_periods, d_params, b_val, h_val, param_count);
+    compute_periods<<<blocks, threadsPerBlock>>>(d_y_init, d_periods, d_params, 
+                                               (double)b_val, h_val, param_count);  // Cast b_val to double
     
     // Check for errors
     cudaError_t err = cudaGetLastError();
@@ -60,16 +56,24 @@ void launch_cuda_computation(const char* filename, double *y_init, float amin, f
     // Copy results back
     cudaMemcpy(h_periods, d_periods, param_count * sizeof(int), cudaMemcpyDeviceToHost);
     
-    // Write results to file
+    // Write results to file using the same format as original
     FILE *fp = fopen(filename, "w");
     if (fp == NULL) {
         printf("Error opening file %s\n", filename);
         return;
     }
     
+    // Fixed output ordering to match MPI
     for (int i = 0; i < param_count; i++) {
-        fprintf(fp, "%d %f %f %f %d\n", i % res, h_params[i*2], b_val, h_params[i*2+1], h_periods[i]);
+        int jj = i % res;  // x-index comes from column (jj) like MPI
+        fprintf(fp, "%d %f %f %f %d\n", 
+                jj,                    // Use jj as x-index like MPI
+                h_params[i*2],         // a value
+                b_val,                 // b value
+                h_params[i*2+1],       // c value
+                h_periods[i]);         // period
     }
+    
     fclose(fp);
     
     // Cleanup
