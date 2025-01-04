@@ -1,7 +1,0 @@
-# running examples
-
-mpiexec.hydra -f ~/hosts -n 24 ./tiger2013 0.05 0.34 0.2 3.0 120.0
-mpiexec.hydra -f ~/hosts -n 32 ./tiger2014 0.179 0.188 0.2 8.9 10.31
-mpicc -o tiger2014 tiger.c -lm -I/usr/include/mysql -DBIG_JOINS=1 -fno-strict-aliasing -g -DNDEBUG -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl
-mpicc -o tiger2014 tiger.c -lm `mysql_config --cflags --libs`
-mysqldump -u root -p shrimp > shrimpbackup.sql
