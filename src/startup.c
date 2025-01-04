@@ -1,5 +1,3 @@
-#define DEFINE_VARIABLES
-
 #include <init.h>
 void startup(int my_rank, int size){
 

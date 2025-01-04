@@ -6,6 +6,6 @@ make
 
 TO RUN PROGRAM, e.g.:
 
-mpiexec.hydra -f ~/hosts -n 2 ./coparam 0.25 0.34 0.2 5.0 15.0
+mpiexec.hydra -n 25 ./coparam 0.1 0.22 0.2 5.0 25.0
 
 

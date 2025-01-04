@@ -1,4 +1,3 @@
-#define DEFINE_VARIABLES
 #include <init.h>
 #include <stdlib.h>
 #include <math.h>

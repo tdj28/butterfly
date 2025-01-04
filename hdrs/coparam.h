@@ -1,4 +1,4 @@
-#ifdef COPARAM_H_INCLUDED
+#ifndef COPARAM_H_INCLUDED
 #define COPARAM_H_INCLUDED
 
 #include <mpi.h>

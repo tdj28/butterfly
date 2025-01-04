@@ -1,2 +1,6 @@
 *#
 *.o
+ti_*
+*.png
+combined.md
+.depend
