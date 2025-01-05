@@ -2,4 +2,4 @@
 
 make
 
-./cuda_coparam 0.25 0.34 0.2 5.0 15.0
+./cuda_coparam 0.1 0.22 0.2 5.0 15.0

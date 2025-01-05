@@ -9,7 +9,7 @@ from matplotlib.colors import ListedColormap, BoundaryNorm
 #  rank   a     b     c     period
 #   0     1     2     3       4
 
-data = np.loadtxt("ti_0.1_0.22_0.2_5.0_25.0", skiprows=1)
+data = np.loadtxt("ti_0.1_0.22_0.2_5.0_15.0", skiprows=1)
 
 x = data[:, 1]  # a
 y = data[:, 3]  # c
