@@ -1,8 +1,11 @@
 #include "cuda_defs.cuh"
 
+#define MAX_INTERSECTIONS 200
 __device__ void poincare(double *x, double y[], double dydx[], double yout[], bool processflag,
-                        float h, double a, double b, double c) {
+                        double h, double a, double b, double c) {
     double y0 = 4.0;  // Match MPI initial value exactly
+    double xx[MAX_INTERSECTIONS];
+    double xxp[MAX_INTERSECTIONS];
     
     // Fixed point calculation matching MPI exactly
     double fixedx = c/2.0 - sqrt(c*c - 4.0 * a * b)/2.0;
@@ -15,10 +18,7 @@ __device__ void poincare(double *x, double y[], double dydx[], double yout[], bo
     double xxmax = -10000000.0;
     int count = 0;
     double xpre, ypre, zpre;
-    
-    // Use fixed size arrays instead of dynamic allocation
-    double xx[200];    // Sized for max count in processflag case
-    double xxp[200];
+
     
     *x = 0.0;
     
@@ -33,13 +33,21 @@ __device__ void poincare(double *x, double y[], double dydx[], double yout[], bo
         
         if(fabs(y[0]) > 100.0) break;
         
-        // Key fix: Match MPI's intersection detection exactly
+        // if(!poinflag) {
+        //     double y0_diff = y0 - fixedy;
+        //     double y1_diff = y[1] - fixedy;
+        //     if((y0_diff * y1_diff < 0.0) && (y[0] < fixedx)) {
+        //         poinflag = true;
+        //     }
+        // }
+        
         if(!poinflag) {
-            if(((y0-fixedy)*(y[1]-fixedy) < 0.0) && (y[0] < fixedx)) {
+            // Only accept "stable" looking intersections
+            if(((y0-fixedy)*(y[1]-fixedy) < 0) && (y[0]< fixedx) && fabs(y[0]) > 1e-6) {
                 poinflag = true;
             }
         }
-        
+
         if(poinflag && !recflag) {
             recflag = true;
             poinflag = false;
@@ -49,7 +57,7 @@ __device__ void poincare(double *x, double y[], double dydx[], double yout[], bo
         }
         
         if(poinflag && recflag) {
-            if(count < 200) {  // Safety bound
+            if(count < MAX_INTERSECTIONS) {
                 xx[count] = xpre;
                 xxp[count] = y[0];
                 if(xpre < xxmin) xxmin = xpre;

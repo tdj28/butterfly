@@ -1,8 +1,15 @@
 #include "cuda_defs.cuh"
 #include <stdio.h>
 
-void launch_cuda_computation(const char* filename, double *y_init, float amin, float amax, 
-                           float cmin, float cmax, int res, float b_val) {
+void launch_cuda_computation(const char* filename, 
+                           double *y_init,
+                           double amin,     // Change to double
+                           double amax,     // Change to double
+                           double cmin,     // Change to double
+                           double cmax,     // Change to double
+                           int res,
+                           double b_val)    // Change to double 
+                           {
     int param_count = res * res;
     
     // Allocate device memory
@@ -19,7 +26,7 @@ void launch_cuda_computation(const char* filename, double *y_init, float amin, f
     
     cudaMemcpy(d_y_init, y_init, 3 * sizeof(double), cudaMemcpyHostToDevice);
     
-    float h_val = 0.01f;
+    double h_val = 0.01f;
     
     // Match original MPI parameter generation exactly
     double adiff = amax - amin;  // Changed to double
@@ -29,9 +36,9 @@ void launch_cuda_computation(const char* filename, double *y_init, float amin, f
     for (int ii = 0; ii < res; ii++) {
         for (int jj = 0; jj < res; jj++) {
             int idx = ii * res + jj;
-            // Match MPI ordering: iterate jj in inner loop, increment when jj==res
-            h_params[idx*2] = amin + adiff * (1.0 * ii / (1.0 * res));      // Match MPI division
-            h_params[idx*2+1] = cmin + cdiff * (1.0 * jj / (1.0 * res));    // Match MPI division
+            // Use exact MPI arithmetic
+            h_params[idx*2] = (double)amin + ((double)adiff * ((double)ii / (double)res));
+            h_params[idx*2+1] = (double)cmin + ((double)cdiff * ((double)jj / (double)res));
         }
     }
 
@@ -90,11 +97,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    float amin = atof(argv[1]);
-    float amax = atof(argv[2]);
-    float b_val = atof(argv[3]);
-    float cmin = atof(argv[4]);
-    float cmax = atof(argv[5]);
+    double amin = atof(argv[1]);
+    double amax = atof(argv[2]);
+    double b_val = atof(argv[3]);
+    double cmin = atof(argv[4]);
+    double cmax = atof(argv[5]);
     
     double y_init[3] = {-12.0, 1.13, 0.34};
     int res = 500;

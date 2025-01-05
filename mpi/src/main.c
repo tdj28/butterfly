@@ -86,34 +86,95 @@ checkin(my_rank,size);
         MPI_Recv(&aa, 1, MPI_FLOAT, 0, 1, MPI_COMM_WORLD, &stat);
         MPI_Recv(&cc, 1, MPI_FLOAT, 0, 1, MPI_COMM_WORLD, &stat);
     }
-  if(my_rank > 0){  a =aa; c  = cc;}
+
+
+  ///////////////////////////////////////////////////////////////////////
+  // DEBUG CODE
+
+  double trail[11];  // Array to store intersection points
+  double close;      // For period checking
+  bool debug;        // For debug printing
+
+  if(my_rank > 0) {
+    a = aa;
+    c = cc;
+  }
+
+  // Add debug condition
+
+  const double EPSILON = 1e-8;  // More permissive tolerance
+  printf("initial params: (%f, %f, %f)\n", a, b, c);
+  debug = (fabs(a - 0.1) < EPSILON && 
+          fabs(b - 0.2) < EPSILON && 
+          fabs(c - 5.0) < EPSILON);
+  printf("Debug values: a=%20.15f, b=%20.15f, c=%20.15f\n", a, b, c);
+  printf("Debug: %d (differences: %e, %e, %e)\n", debug, 
+       fabs(a - 0.1), fabs(b - 0.2), fabs(c - 5.0));
+  printf("Debug: %d\n", debug);
+  if(debug) printf("\nMPI Initial conditions: (%f, %f, %f)\n", y[0], y[1], y[2]);
+
+  // Clear transients, get on attractor
+  advance(x,y,dydx,yout);
+  if(debug) printf("After advance: (%f, %f, %f)\n", y[0], y[1], y[2]);
+
+  advancem(x,y,dydx,yout);
+  if(debug) printf("After advancem: gxmin=%f, gxmax=%f\n", gxmin, gxmax);
+
+  if(debug) printf("\nBuilding trail array:\n");
+  for(n=0; n<=10; n++){
+      poincare(x,y,dydx,yout,processflag);
+      trail[10-n]=y[0];
+      if(debug) printf("Trail[%d] = %f\n", 10-n, trail[10-n]);
+  }
+
+  float width=gxmax-gxmin;
+  if(debug) printf("\nWidth for normalization: %f\n", width);
+
+  poincare(x,y,dydx,yout,processflag);
+  if(debug) printf("Check point: %f\n", y[0]);
+
+  if(debug) printf("\nChecking periods:\n");
+  period=0;
+  for(n=0; n<=10; n++){
+      close = fabs(trail[10-n]-y[0])/width;
+      if(debug) printf("n=%d: comparing %f to %f (close=%f)\n", 
+                      n, trail[10-n], y[0], close);
+      if(close<0.003){
+          period = 10-n+1;
+          if(debug) printf("Found period: %d\n", period);
+          break;
+      }
+  }
+
+  // if(my_rank > 0){  a =aa; c  = cc;}
 
 
 
-  //Clear transients, get on attractor
-   advance(x,y,dydx,yout);
-   //Assuming we are on attractor, get width of x on left side
-   advancem(x,y,dydx,yout);
-   //printf("xmin xmax %f %f\n",gxmin,gxmax);
-   //printf("Poin start\n");
-   int n;
-   double trail[11];
-   for(n=0; n<=10; n++){
-     poincare(x,y,dydx,yout,processflag);
-     trail[10-n]=y[0];
-                      }
-   float width=gxmax-gxmin;
-   float close;
+  // //Clear transients, get on attractor
+  //  advance(x,y,dydx,yout);
+  //  //Assuming we are on attractor, get width of x on left side
+  //  advancem(x,y,dydx,yout);
+  //  //printf("xmin xmax %f %f\n",gxmin,gxmax);
+  //  //printf("Poin start\n");
+  //  int n;
+  //  double trail[11];
+  //  for(n=0; n<=10; n++){
+  //    poincare(x,y,dydx,yout,processflag);
+  //    trail[10-n]=y[0];
+  //                     }
+  //  float width=gxmax-gxmin;
+  //  float close;
  
 
-   poincare(x,y,dydx,yout,processflag);
-   period=0;
-   for(n=0; n<=10; n++){
-      close = fabs(trail[10-n]-y[0])/width;
-      if(close<0.003){period = 10-n+1;}// printf("%i %f\n",period,close);}
-   }
+  //  poincare(x,y,dydx,yout,processflag);
+  //  period=0;
+  //  for(n=0; n<=10; n++){
+  //     close = fabs(trail[10-n]-y[0])/width;
+  //     if(close<0.003){period = 10-n+1;}// printf("%i %f\n",period,close);}
+  //  }
 
-
+  ///////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////
 
    /// Now repeat to confirm
 

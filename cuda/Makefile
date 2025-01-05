@@ -11,7 +11,8 @@ BIN_DIR       = bin
 NVCC          = nvcc
 # Enable relocatable device code (-rdc=true) for both compile & link.
 # "-Xcompiler -fPIC" is often needed to ensure position-independent code for linking.
-NVCC_FLAGS    = -O3 -I$(HDR_DIR) -rdc=true -Xcompiler -fPIC
+#NVCC_FLAGS    = -O3 -I$(HDR_DIR) -rdc=true -Xcompiler -fPIC
+NVCC_FLAGS = -O3 -I$(HDR_DIR) -rdc=true -Xcompiler -fPIC --fmad=false --prec-div=true --prec-sqrt=true
 NVCC_LINK_FLAGS = -O3 -rdc=true -Xcompiler -fPIC
 
 # Source files (all .cu in src/)
