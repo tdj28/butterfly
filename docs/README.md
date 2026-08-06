@@ -46,6 +46,8 @@ what must be narrowed, and what is false or unresolved.
   full variational-equation/QR Lyapunov spectrum and convergence boundary.
 - [`experiments/EXP-005-published-classifier-controls.md`](experiments/EXP-005-published-classifier-controls.md):
   real chaotic/periodic positive controls from the 2012 PRL.
+- [`experiments/EXP-006-resolved-hub-pilot.md`](experiments/EXP-006-resolved-hub-pilot.md):
+  first small hub-region atlas with combined recurrence/Lyapunov evidence.
 
 ## Evidence states
 

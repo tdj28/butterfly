@@ -34,6 +34,18 @@ def tiny_manifest() -> dict:
     }
 
 
+def tiny_resolved_manifest() -> dict:
+    manifest = tiny_manifest()
+    manifest["schema"] = "butterfly.scan-manifest.v2"
+    manifest["lyapunov"] = {
+        "transient": 1.0,
+        "duration": 2.0,
+        "qr_interval": 0.5,
+        "blocks": 2,
+    }
+    return manifest
+
+
 def test_plan_hash_is_stable() -> None:
     first = ScanManifest.from_dict(tiny_manifest())
     second = ScanManifest.from_dict(json.loads(json.dumps(tiny_manifest())))
@@ -53,3 +65,28 @@ def test_execute_scan_writes_hash_verified_artifacts(tmp_path: Path) -> None:
     assert receipt["result_sha256"] == sha256_bytes(result_bytes)
     assert (output / "manifest.normalized.json").exists()
     assert (output / "receipt.json").exists()
+
+
+def test_resolved_scan_records_lyapunov_evidence(tmp_path: Path) -> None:
+    manifest_path = tmp_path / "manifest.json"
+    manifest_path.write_text(
+        json.dumps(tiny_resolved_manifest()) + "\n", encoding="utf-8"
+    )
+    output = tmp_path / "output"
+    execute_scan(manifest_path, output)
+    row = json.loads((output / "result.json").read_bytes())["rows"][0]
+    assert row["lyapunov_success"] is True
+    assert len(row["lyapunov_exponents"]) == 3
+    assert len(row["lyapunov_block_standard_error"]) == 3
+    assert row["classification_reason"]
+
+
+def test_v2_manifest_requires_complete_lyapunov_configuration() -> None:
+    manifest = tiny_manifest()
+    manifest["schema"] = "butterfly.scan-manifest.v2"
+    try:
+        ScanManifest.from_dict(manifest)
+    except ValueError as error:
+        assert "require Lyapunov" in str(error)
+    else:
+        raise AssertionError("v2 manifest without Lyapunov configuration was accepted")

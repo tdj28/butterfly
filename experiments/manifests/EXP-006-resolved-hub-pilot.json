@@ -1,0 +1,33 @@
+{
+  "schema": "butterfly.scan-manifest.v2",
+  "experiment_id": "EXP-006",
+  "grid": {
+    "a": {"min": 0.175, "max": 0.185, "count": 5},
+    "b": 0.2,
+    "c": {"min": 10.1, "max": 10.5, "count": 5}
+  },
+  "integration": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 500.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 96,
+    "solver": {
+      "method": "DOP853",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.05
+    }
+  },
+  "classifier": {
+    "max_period": 24,
+    "required_repeats": 5,
+    "atol": 1e-6,
+    "rtol": 1e-7
+  },
+  "lyapunov": {
+    "transient": 300.0,
+    "duration": 600.0,
+    "qr_interval": 0.5,
+    "blocks": 6
+  }
+}

@@ -15,8 +15,13 @@ from typing import Any
 import numpy as np
 import scipy
 
-from .classify import classify_fundamental_period
+from .classify import (
+    OrbitLabel,
+    classify_fundamental_period,
+    classify_with_lyapunov,
+)
 from .integrate import SolverConfig
+from .lyapunov import LyapunovConfig, lyapunov_block_estimates, lyapunov_spectrum
 from .models import RosslerParameters
 from .poincare import collect_crossings, legacy_rossler_section
 
@@ -57,15 +62,23 @@ class ScanManifest:
     classifier_required_repeats: int
     classifier_atol: float
     classifier_rtol: float
+    lyapunov_transient: float | None = None
+    lyapunov_duration: float | None = None
+    lyapunov_qr_interval: float | None = None
+    lyapunov_blocks: int | None = None
 
     @classmethod
     def from_dict(cls, value: dict[str, Any]) -> "ScanManifest":
-        if value.get("schema") != "butterfly.scan-manifest.v1":
+        schema = value.get("schema")
+        if schema not in ("butterfly.scan-manifest.v1", "butterfly.scan-manifest.v2"):
             raise ValueError("unsupported or missing scan manifest schema")
         grid = value["grid"]
         integration = value["integration"]
         classifier = value["classifier"]
         solver = SolverConfig(**integration["solver"])
+        lyapunov = value.get("lyapunov")
+        if schema == "butterfly.scan-manifest.v2" and lyapunov is None:
+            raise ValueError("v2 scan manifests require Lyapunov configuration")
         manifest = cls(
             experiment_id=str(value["experiment_id"]),
             a_min=float(grid["a"]["min"]),
@@ -84,6 +97,18 @@ class ScanManifest:
             classifier_required_repeats=int(classifier["required_repeats"]),
             classifier_atol=float(classifier["atol"]),
             classifier_rtol=float(classifier["rtol"]),
+            lyapunov_transient=(
+                float(lyapunov["transient"]) if lyapunov is not None else None
+            ),
+            lyapunov_duration=(
+                float(lyapunov["duration"]) if lyapunov is not None else None
+            ),
+            lyapunov_qr_interval=(
+                float(lyapunov["qr_interval"]) if lyapunov is not None else None
+            ),
+            lyapunov_blocks=(
+                int(lyapunov["blocks"]) if lyapunov is not None else None
+            ),
         )
         manifest.validate()
         return manifest
@@ -105,6 +130,29 @@ class ScanManifest:
             raise ValueError("invalid integration horizons")
         if self.max_crossings < 1:
             raise ValueError("max_crossings must be positive")
+        lyapunov_values = (
+            self.lyapunov_transient,
+            self.lyapunov_duration,
+            self.lyapunov_qr_interval,
+            self.lyapunov_blocks,
+        )
+        if any(value is not None for value in lyapunov_values):
+            if any(value is None for value in lyapunov_values):
+                raise ValueError("Lyapunov scan configuration must be complete")
+            assert self.lyapunov_transient is not None
+            assert self.lyapunov_duration is not None
+            assert self.lyapunov_qr_interval is not None
+            assert self.lyapunov_blocks is not None
+            if (
+                self.lyapunov_transient < 0.0
+                or self.lyapunov_duration <= 0.0
+                or self.lyapunov_qr_interval <= 0.0
+                or self.lyapunov_blocks < 2
+            ):
+                raise ValueError("invalid Lyapunov scan configuration")
+            available_steps = self.lyapunov_duration / self.lyapunov_qr_interval
+            if available_steps < self.lyapunov_blocks:
+                raise ValueError("Lyapunov duration cannot supply the requested blocks")
 
     def canonical_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -140,28 +188,91 @@ def run_scan(manifest: ScanManifest) -> list[dict[str, Any]]:
                 max_crossings=manifest.max_crossings,
                 config=manifest.solver,
             )
-            classification = classify_fundamental_period(
+            recurrence = classify_fundamental_period(
                 crossings.states,
                 max_period=manifest.classifier_max_period,
                 required_repeats=manifest.classifier_required_repeats,
                 atol=manifest.classifier_atol,
                 rtol=manifest.classifier_rtol,
             )
-            rows.append(
-                {
-                    "a": parameters.a,
-                    "b": parameters.b,
-                    "c": parameters.c,
-                    "label": classification.label.value,
-                    "fundamental_period": classification.fundamental_period,
-                    "confidence": classification.confidence,
-                    "recurrence_error": classification.recurrence_error,
-                    "recurrence_tolerance": classification.recurrence_tolerance,
-                    "crossing_count": len(crossings.times),
-                    "integration_success": crossings.integration_success,
-                    "integration_message": crossings.integration_message,
-                }
-            )
+            row: dict[str, Any] = {
+                "a": parameters.a,
+                "b": parameters.b,
+                "c": parameters.c,
+                "label": recurrence.label.value,
+                "fundamental_period": recurrence.fundamental_period,
+                "confidence": recurrence.confidence,
+                "classification_reason": recurrence.reason,
+                "classification_evidence": ["period-recurrence"],
+                "recurrence_label": recurrence.label.value,
+                "recurrence_error": recurrence.recurrence_error,
+                "recurrence_tolerance": recurrence.recurrence_tolerance,
+                "crossing_count": len(crossings.times),
+                "integration_success": crossings.integration_success,
+                "integration_message": crossings.integration_message,
+                "lyapunov_success": None,
+                "lyapunov_exponents": None,
+                "lyapunov_block_standard_error": None,
+                "lyapunov_trace_identity_error": None,
+            }
+            if not crossings.integration_success:
+                row.update(
+                    {
+                        "label": OrbitLabel.NUMERICAL_FAILURE.value,
+                        "fundamental_period": None,
+                        "confidence": 0.0,
+                        "classification_reason": crossings.integration_message,
+                        "classification_evidence": ["crossing-integration-failure"],
+                    }
+                )
+            elif manifest.lyapunov_duration is not None:
+                assert manifest.lyapunov_transient is not None
+                assert manifest.lyapunov_qr_interval is not None
+                assert manifest.lyapunov_blocks is not None
+                spectrum = lyapunov_spectrum(
+                    parameters,
+                    manifest.initial_state,
+                    config=LyapunovConfig(
+                        transient=manifest.lyapunov_transient,
+                        duration=manifest.lyapunov_duration,
+                        qr_interval=manifest.lyapunov_qr_interval,
+                        solver=manifest.solver,
+                    ),
+                )
+                row["lyapunov_success"] = spectrum.success
+                row["lyapunov_trace_identity_error"] = spectrum.trace_identity_error
+                if spectrum.success and spectrum.qr_steps >= manifest.lyapunov_blocks:
+                    blocks = lyapunov_block_estimates(
+                        spectrum, blocks=manifest.lyapunov_blocks
+                    )
+                    standard_error = np.std(blocks, axis=0, ddof=1) / np.sqrt(
+                        len(blocks)
+                    )
+                    dynamics = classify_with_lyapunov(
+                        recurrence, spectrum.exponents, standard_error
+                    )
+                    row.update(
+                        {
+                            "label": dynamics.label.value,
+                            "fundamental_period": dynamics.fundamental_period,
+                            "confidence": dynamics.confidence,
+                            "classification_reason": dynamics.reason,
+                            "classification_evidence": list(dynamics.evidence),
+                            "lyapunov_exponents": spectrum.exponents.tolist(),
+                            "lyapunov_block_standard_error": standard_error.tolist(),
+                        }
+                    )
+                else:
+                    row.update(
+                        {
+                            "label": OrbitLabel.NUMERICAL_FAILURE.value,
+                            "fundamental_period": None,
+                            "confidence": 0.0,
+                            "classification_reason": spectrum.message,
+                            "classification_evidence": ["lyapunov-failure"],
+                        }
+                    )
+            rows.append(row)
     return rows
 
 
