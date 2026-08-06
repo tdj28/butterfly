@@ -22,5 +22,7 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-06-global-atlas-launch.md`](2026-08-06-global-atlas-launch.md)
+  — bounded high-`a` atlas design, EXP-013 preregistration, and compute ceiling.
 - [`2026-08-06-foundation-and-first-atlas.md`](2026-08-06-foundation-and-first-atlas.md)
   — repository audit through the first Lyapunov-resolved hub pilot.

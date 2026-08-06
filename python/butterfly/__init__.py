@@ -1,5 +1,7 @@
 """Reference numerical implementation for the Butterfly research program."""
 
+from .atlas import PeriodicComponent, periodic_components, ranked_recurrence_candidates
+
 from .candidates import CandidateSelection, select_low_score_with_neighbors
 from .classify import (
     DynamicsClassification,
@@ -46,6 +48,7 @@ from .tiles import (
 
 __all__ = [
     "OrbitLabel",
+    "PeriodicComponent",
     "CandidateSelection",
     "DynamicsClassification",
     "DynamicsThresholds",
@@ -79,6 +82,8 @@ __all__ = [
     "rossler_equilibria",
     "rossler_jacobian",
     "rossler_rhs",
+    "periodic_components",
+    "ranked_recurrence_candidates",
     "select_low_score_with_neighbors",
     "run_scan",
     "verify_completed_tile",

@@ -62,6 +62,8 @@ what must be narrowed, and what is false or unresolved.
   tighter multistability replication with independent chaos and Floquet checks.
 - [`experiments/EXP-012-transient-capture.md`](experiments/EXP-012-transient-capture.md):
   distinguishes persistent multistability from long transient periodic capture.
+- [`experiments/EXP-013-wide-plane-scout.md`](experiments/EXP-013-wide-plane-scout.md):
+  preregistered reconnaissance of the historical high-`a` domain beyond 0.22.
 
 ## Evidence states
 

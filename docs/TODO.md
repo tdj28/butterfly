@@ -39,6 +39,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   unresolved targets, and two apparent multistability candidates. EXP-012
   showed eventual capture into stable period-6 and period-8 windows; saddle
   reconstruction, focused orbit recovery, and local refinement are next.
+- [ ] **P0-010 — Bounded global-atlas reconnaissance.** EXP-013 is preregistered
+  over `a in [0.22,0.36]`, `c in [5,15]` and includes the recovered code's
+  historical high-`a` example. Extract candidate periodic components and
+  near-recurrences, then qualify spatially separated families with refinement,
+  basin/transient tests, Floquet analysis, and continuation.
 
 ## P1 — GPU qualification and bifurcation geometry
 
