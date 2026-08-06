@@ -1,6 +1,6 @@
 # EXP-016 — Period-12/period-3 coexistence and Floquet gate
 
-Status: preregistered; execution pending
+Status: passed; basin mapping and continuation pending
 Manifest: `experiments/manifests/EXP-016-periodic-coexistence-floquet.json`
 
 ## Purpose
@@ -25,3 +25,24 @@ Passing supports two stable coexisting periodic attractors for the sampled
 basins. Basin-boundary mapping, exact shooting/collocation correction,
 continuation of both families, and interval validation remain required for a
 world-class persistent-multistability claim.
+
+## Result
+
+The clean run from commit `8c4e1c3` passed every prospective gate.
+
+| Cycle | Period time | Flow closure error | Neutral multiplier | Leading transverse multiplier |
+| --- | ---: | ---: | ---: | ---: |
+| period 12 | 95.3558413 | `4.44e-12` | `0.999999999983` | `0.3140431051` |
+| period 3 | 16.7881107 | `6.73e-12` | `1.000000000007` | `-0.8806869672` |
+
+Both recurrence errors were approximately `1.5e-11`, and both nontrivial
+multiplier moduli were strictly below one. Together with EXP-015 persistence
+through transient 19,200, this is strong numerical evidence for two coexisting
+stable periodic attractors at `(a,b,c)=(0.245,0.2,5.75)` for the sampled
+basins.
+
+The extremely small third multipliers are below reliable direct determinant
+recovery in Float64; the divergence-integral determinant is therefore retained
+separately. This does not affect the resolved leading transverse stability.
+
+The checked-in receipt is [`receipts/EXP-016.json`](receipts/EXP-016.json).

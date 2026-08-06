@@ -114,8 +114,10 @@ persistent coexistence. EXP-015 subsequently resolved three of the four splits
 into common periodic capture. A fifth boundary case also reached common period
 2. The remaining point `(a,b,c)=(0.245,0.2,5.75)` retained distinct period-12
 and period-3 cycles for both sampled basins at every checkpoint through
-transient 19,200. EXP-016 now tests the closure and Floquet stability of both
-cycles; this candidate must not be conflated with the rejected Jones-hub cases.
+transient 19,200. EXP-016 subsequently passed closure and Floquet-stability
+gates for both cycles. This retained high-`a` coexistence result must not be
+conflated with the rejected Jones-hub cases; it is tracked separately as
+CLM-019 and still requires basin mapping and family continuation.
 
 The atlas classification hierarchy is therefore:
 

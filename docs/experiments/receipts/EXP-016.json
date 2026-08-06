@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.periodic-coexistence-summary-receipt.v1",
+  "experiment_id": "EXP-016",
+  "source": {
+    "commit": "8c4e1c3",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "parameters": {"a": 0.245, "b": 0.2, "c": 5.75},
+  "passed": true,
+  "cycles": [
+    {
+      "period": 12,
+      "period_time": 95.35584131952419,
+      "recurrence_error": 1.6951743253733683e-11,
+      "flow_closure_error": 4.4429244123907895e-12,
+      "neutral_multiplier": 0.9999999999833808,
+      "leading_transverse_multiplier": 0.31404310512863554
+    },
+    {
+      "period": 3,
+      "period_time": 16.788110651043098,
+      "recurrence_error": 1.4031252528996773e-11,
+      "flow_closure_error": 6.725410130753891e-12,
+      "neutral_multiplier": 1.0000000000065525,
+      "leading_transverse_multiplier": -0.8806869672304678
+    }
+  ],
+  "interpretation_limit": "Strong numerical coexistence for two sampled basins; basin geometry, family continuation, and interval certification remain."
+}

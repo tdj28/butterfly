@@ -48,7 +48,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   labels and a boundary capture case through transient 19,200: four collapse to
   common periodic capture, while `(a,c)=(0.245,5.75)` retains distinct period-12
   and period-3 cycles. EXP-016 tests both cycles' closure and Floquet stability
-  before basin mapping, refinement, and continuation.
+  and passes: flow closure is below `7e-12` and leading transverse multipliers
+  have moduli `0.3141` and `0.8807`. CLM-019 now requires basin mapping,
+  independent orbit correction, and continuation of both overlapping families.
 
 ## P1 — GPU qualification and bifurcation geometry
 
