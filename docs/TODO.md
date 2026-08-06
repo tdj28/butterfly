@@ -11,11 +11,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Jacobian, equilibria, and hub eigenstructure are implemented with unit tests.
 - [x] **P0-003 — Adaptive CPU integration baseline.** DOP853 path has declared
   tolerances, equilibrium-invariance test, and a short-horizon convergence test.
-- [ ] **P0-004 — Poincaré section object.** Oriented, interpolated events;
+- [x] **P0-004 — Poincaré section object.** Oriented, interpolated events;
   explicit section definition; section unit tests; legacy-section adapter.
-- [ ] **P0-005 — Fundamental-period classifier.** Recurrence candidates,
-  minimal-period rejection, periodic/chaotic/quasiperiodic/escape/failure/
-  unresolved labels, confidence, and synthetic-map tests.
+- [ ] **P0-005 — Fundamental-period classifier.** Minimal recurrence period,
+  escape/failure/unresolved labels, confidence, and synthetic tests exist;
+  Lyapunov/convergence rules for chaotic/quasiperiodic/multistable remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
   convergence diagnostics, and cross-check against an independent implementation.
 - [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, immutable

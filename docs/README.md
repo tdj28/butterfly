@@ -35,6 +35,8 @@ what must be narrowed, and what is false or unresolved.
   baseline audit of the recovered code.
 - [`experiments/EXP-001-reference-core.md`](experiments/EXP-001-reference-core.md):
   tested Rössler equations, equilibria, eigenstructure, and CPU integration path.
+- [`experiments/EXP-002-poincare-period-primitives.md`](experiments/EXP-002-poincare-period-primitives.md):
+  interpolated section crossings and conservative minimal-period detection.
 
 ## Evidence states
 

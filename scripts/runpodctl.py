@@ -61,7 +61,8 @@ def request_json(
     )
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
-            return json.load(response)
+            raw = response.read()
+            return None if not raw else json.loads(raw)
     except urllib.error.HTTPError as error:
         message = error.read().decode("utf-8", errors="replace")
         raise SystemExit(f"Runpod API returned HTTP {error.code}: {message}") from None
@@ -187,7 +188,29 @@ def launch(args: argparse.Namespace) -> None:
 
 
 def status(args: argparse.Namespace) -> None:
-    print_json(request_json("GET", f"{REST_BASE}/pods/{args.pod_id}"))
+    pod = request_json("GET", f"{REST_BASE}/pods/{args.pod_id}")
+    runtime = graphql(
+        "query { pod(input: {podId: "
+        + json.dumps(args.pod_id)
+        + "}) { runtime { uptimeInSeconds ports { ip isIpPublic privatePort publicPort type } "
+        + "gpus { id gpuUtilPercent memoryUtilPercent } "
+        + "container { cpuPercent memoryPercent } } } }"
+    )["pod"].get("runtime")
+    print_json(
+        {
+            "id": pod.get("id"),
+            "name": pod.get("name"),
+            "status": pod.get("desiredStatus"),
+            "cost_per_hour": pod.get("adjustedCostPerHr", pod.get("costPerHr")),
+            "gpu": (pod.get("gpu") or {}).get("displayName")
+            or (pod.get("machine") or {}).get("gpuDisplayName"),
+            "public_ip": pod.get("publicIp"),
+            "port_mappings": pod.get("portMappings"),
+            "machine_id": pod.get("machineId"),
+            "last_status_change": pod.get("lastStatusChange"),
+            "runtime": runtime,
+        }
+    )
 
 
 def terminate(args: argparse.Namespace) -> None:

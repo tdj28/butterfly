@@ -211,6 +211,15 @@ and Float32 CUDA RK4 endpoints against SciPy DOP853 on a frozen 16-point grid,
 then records raw ensemble throughput and the complete software/GPU environment.
 It explicitly does not claim Poincaré or period-classification parity.
 
+### First provisioning attempt
+
+The V100 and A5000 had no available instances. A community RTX 3090 was then
+created at $0.22/hour as pod `zjc8il0kri5fyf`, and its GPU/SSH endpoint were
+verified. Remote execution stopped before source transfer because the GitHub
+repository is private and GPU-spend authorization does not by itself authorize
+uploading private source to a third-party host. The idle pod was terminated and
+the account pod list was verified empty. No qualification result was produced.
+
 ## Runpod primary documentation
 
 - [Create a Pod](https://docs.runpod.io/api-reference/pods/POST/pods)
