@@ -23,12 +23,15 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   exist; a nonlinear two-trajectory largest-exponent cross-check passes, while
   a declared horizon/tolerance/QR sweep and second full-spectrum package remain.
 - [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, atomic local
-  result/receipt writes, hashes, and one-command tiny-grid scan exist; immutable
-  multi-shard storage, resume, schema files, and archival promotion remain.
+  result/receipt writes, hashes, one-command scans, and optional full-spectrum
+  evidence now exist; immutable multi-shard storage, resume, schema files, and
+  archival promotion remain.
 - [ ] **P0-008 — Legacy parity suite.** Recover representative legacy pixels and
   characterize discrepancies caused by fixed-step crossing/classifier logic.
 - [ ] **P0-009 — Primary hub reproduction.** Coarse adaptive atlas, convergence
-  sweeps, multiple initial conditions, and explicit unresolved regions.
+  sweeps, multiple initial conditions, and explicit unresolved regions. EXP-006
+  demonstrates that a uniform `5 x 5` grid is decisively but scientifically
+  under-resolved; fine periodic-candidate discovery is the next atlas step.
 
 ## P1 — GPU qualification and bifurcation geometry
 
