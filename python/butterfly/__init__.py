@@ -15,6 +15,7 @@ from .poincare import (
     collect_crossings,
     legacy_rossler_section,
 )
+from .scan import ScanManifest, execute_scan, run_scan
 
 __all__ = [
     "OrbitLabel",
@@ -23,13 +24,16 @@ __all__ = [
     "PoincareCrossings",
     "PoincareSection",
     "SolverConfig",
+    "ScanManifest",
     "Trajectory",
     "equilibrium_eigenvalues",
+    "execute_scan",
     "collect_crossings",
     "classify_fundamental_period",
     "integrate_trajectory",
     "rossler_equilibria",
     "rossler_jacobian",
     "rossler_rhs",
+    "run_scan",
     "legacy_rossler_section",
 ]

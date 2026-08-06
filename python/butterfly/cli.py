@@ -13,6 +13,7 @@ import scipy
 
 from .integrate import SolverConfig, integrate_trajectory
 from .models import RosslerParameters, equilibrium_eigenvalues, rossler_equilibria
+from .scan import execute_scan
 
 
 def _complex_rows(values: np.ndarray) -> list[list[dict[str, float]]]:
@@ -78,8 +79,15 @@ def main(argv: list[str] | None = None) -> int:
     subparsers = parser.add_subparsers(dest="command", required=True)
     verify_parser = subparsers.add_parser("verify", help="run the reference-core check")
     verify_parser.add_argument("--output", type=Path)
+    scan_parser = subparsers.add_parser("scan", help="execute a frozen CPU scan manifest")
+    scan_parser.add_argument("--manifest", type=Path, required=True)
+    scan_parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args(argv)
     if args.command == "verify":
         return verify(args.output)
+    if args.command == "scan":
+        receipt = execute_scan(args.manifest, args.output_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
     parser.error(f"unknown command: {args.command}")
     return 2

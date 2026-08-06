@@ -18,8 +18,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Lyapunov/convergence rules for chaotic/quasiperiodic/multistable remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
   convergence diagnostics, and cross-check against an independent implementation.
-- [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, immutable
-  shards, hashes, receipts, and one-command tiny-grid reproduction.
+- [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, atomic local
+  result/receipt writes, hashes, and one-command tiny-grid scan exist; immutable
+  multi-shard storage, resume, schema files, and archival promotion remain.
 - [ ] **P0-008 — Legacy parity suite.** Recover representative legacy pixels and
   characterize discrepancies caused by fixed-step crossing/classifier logic.
 - [ ] **P0-009 — Primary hub reproduction.** Coarse adaptive atlas, convergence

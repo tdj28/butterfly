@@ -37,6 +37,8 @@ what must be narrowed, and what is false or unresolved.
   tested Rössler equations, equilibria, eigenstructure, and CPU integration path.
 - [`experiments/EXP-002-poincare-period-primitives.md`](experiments/EXP-002-poincare-period-primitives.md):
   interpolated section crossings and conservative minimal-period detection.
+- [`experiments/EXP-003-tiny-hub-scan.md`](experiments/EXP-003-tiny-hub-scan.md):
+  frozen tiny-grid scan and hash-verifiable artifact receipt qualification.
 
 ## Evidence states
 
