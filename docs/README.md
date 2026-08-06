@@ -56,6 +56,8 @@ what must be narrowed, and what is false or unresolved.
   real local worker interruption and verified restart qualification.
 - [`experiments/EXP-009-fine-candidate-search.md`](experiments/EXP-009-fine-candidate-search.md):
   tiled `41 x 41` recurrence and near-recurrence candidate discovery run.
+- [`experiments/EXP-010-candidate-confirmation.md`](experiments/EXP-010-candidate-confirmation.md):
+  frozen candidate confirmation with spectra and two basin probes.
 
 ## Evidence states
 

@@ -1,5 +1,6 @@
 """Reference numerical implementation for the Butterfly research program."""
 
+from .candidates import CandidateSelection, select_low_score_with_neighbors
 from .classify import (
     DynamicsClassification,
     DynamicsThresholds,
@@ -44,6 +45,7 @@ from .tiles import (
 
 __all__ = [
     "OrbitLabel",
+    "CandidateSelection",
     "DynamicsClassification",
     "DynamicsThresholds",
     "LyapunovConfig",
@@ -74,6 +76,7 @@ __all__ = [
     "rossler_equilibria",
     "rossler_jacobian",
     "rossler_rhs",
+    "select_low_score_with_neighbors",
     "run_scan",
     "verify_completed_tile",
     "verify_completed_aggregate",

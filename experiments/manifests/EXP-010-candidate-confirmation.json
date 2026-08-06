@@ -1,0 +1,37 @@
+{
+  "schema": "butterfly.candidate-confirmation-manifest.v1",
+  "experiment_id": "EXP-010",
+  "source_result": {
+    "experiment_id": "EXP-009",
+    "sha256": "80296d185fddf2038fd3a93af180030ab8ec770aae45305ff30124051abd59b5"
+  },
+  "selection": {
+    "finite_score_fraction": 0.01,
+    "neighbor_radius": 1
+  },
+  "initial_states": [
+    [0.0, 4.0, 0.0],
+    [1.0, 1.0, 1.0]
+  ],
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "crossings": {
+    "transient": 800.0,
+    "observation_horizon": 1200.0,
+    "max_crossings": 128,
+    "max_period": 24,
+    "required_repeats": 6,
+    "atol": 1e-6,
+    "rtol": 1e-7
+  },
+  "lyapunov": {
+    "transient": 400.0,
+    "duration": 800.0,
+    "qr_interval": 0.5,
+    "blocks": 6
+  }
+}
