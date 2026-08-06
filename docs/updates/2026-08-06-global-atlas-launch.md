@@ -53,3 +53,10 @@ EXP-014 now binds the exact aggregate hash and freezes 39 targets across the
 diagonal, isolated high-`a` detections, boundaries, and top unresolved
 near-recurrences. Its stronger tests use two initial conditions, longer
 transients, and full Lyapunov spectra.
+
+EXP-014 qualified 26 consensus-periodic targets and sent four finite-time
+multistability labels to EXP-015. Long-transient checkpoints rejected three of
+those and confirmed common capture at a fourth boundary case. One candidate at
+`(a,b,c)=(0.245,0.2,5.75)` retained distinct period-12 and period-3 endpoints
+through transient 19,200. EXP-016 now asks whether both cycles are transversely
+stable under independent Floquet diagnostics.

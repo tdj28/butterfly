@@ -12,6 +12,9 @@ what must be narrowed, and what is false or unresolved.
 
 ## Documents
 
+- [`findings/FND-001-apparent-multistability-is-transient-capture.md`](findings/FND-001-apparent-multistability-is-transient-capture.md):
+  centralized account of the long chaotic-transient capture finding, its
+  implications for Jones and Barrio, and the remaining proof boundary.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.
@@ -68,6 +71,8 @@ what must be narrowed, and what is false or unresolved.
   stronger basin and Lyapunov tests for spatially diverse EXP-013 targets.
 - [`experiments/EXP-015-high-a-transient-checkpoints.md`](experiments/EXP-015-high-a-transient-checkpoints.md):
   long-transient resolution of apparent high-`a` multistability and capture.
+- [`experiments/EXP-016-periodic-coexistence-floquet.md`](experiments/EXP-016-periodic-coexistence-floquet.md):
+  closure and Floquet gate for the retained period-12/period-3 coexistence case.
 
 ## Evidence states
 
@@ -105,6 +110,7 @@ evidence states.
 ## Naming
 
 - Claims: `CLM-###`
+- Findings: `FND-###`
 - Experiments: `EXP-###`
 - Datasets: `DATA-###`
 - Figures: `FIG-###`

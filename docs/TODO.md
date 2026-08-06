@@ -45,8 +45,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   periods 1, 2, 3, 4, 5, 6, 8, and 12; eight touch a search boundary. EXP-014
   qualified 26 consensus-periodic targets, retained nine unresolved cases, and
   produced four finite-time multistability labels. EXP-015 now tests those
-  labels and a boundary capture case through transient 19,200 before refinement,
-  Floquet analysis, and continuation.
+  labels and a boundary capture case through transient 19,200: four collapse to
+  common periodic capture, while `(a,c)=(0.245,5.75)` retains distinct period-12
+  and period-3 cycles. EXP-016 tests both cycles' closure and Floquet stability
+  before basin mapping, refinement, and continuation.
 
 ## P1 — GPU qualification and bifurcation geometry
 
