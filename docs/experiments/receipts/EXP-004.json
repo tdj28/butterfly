@@ -47,10 +47,32 @@
         "elapsed": 1500.0,
         "exponents": [0.10432204433324734, 0.0013989147525090184, -10.09162455256304]
       }
+    ],
+    "block_estimates": [
+      [0.12683024658834743, 0.003661801322576836, -10.097917720638135],
+      [0.0961568599665542, 0.0008200821387605419, -10.085028855774558],
+      [0.11512465384228761, 0.0077582413918281905, -10.077756783601147],
+      [0.11646706600279827, -0.0028926875407463515, -10.063332404922086],
+      [0.0950016279170536, -0.004091658523961056, -10.163537733701],
+      [0.07635181168244287, 0.00313770972659595, -10.062173816741312]
+    ],
+    "block_standard_error": [
+      0.007542526996457343,
+      0.001802631328909295,
+      0.015399912636643122
     ]
   },
+  "independent_largest_exponent": {
+    "method": "two-nonlinear-trajectory Benettin renormalization",
+    "success": true,
+    "message": "completed two-trajectory largest-exponent estimate",
+    "exponent": 0.09554162724323917,
+    "perturbation": 1e-8,
+    "renormalizations": 3000,
+    "difference_from_variational": -0.008780417090008166
+  },
   "source": {
-    "commit": "ffaf901bc26e5666ed7d260a96b675643f32ee6d",
+    "commit": "9ee604e11cef0e8cef9e002429bc69bfc0ea3c86",
     "branch": "feat/modernize-shrimp-findings",
     "dirty": false
   },
@@ -60,5 +82,5 @@
     "numpy": "2.5.1",
     "scipy": "1.18.0"
   },
-  "artifact_sha256": "91900209075f581baa746578f5424bb7ba510921d5bf2b5a05b307536678ad9b"
+  "artifact_sha256": "15dcbee792e60af4e4dbb2ced923eef9598705dff31deb2a57e0c1d299da12c7"
 }

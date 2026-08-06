@@ -57,11 +57,11 @@ deviation `0.0185` (naive block standard error `0.0075`). This material sampling
 variation is why the current number remains a finite-time estimate rather than
 a final reported invariant.
 
-The clean 1500-unit receipt is checked in at
+The clean cross-checked 1500-unit receipt is checked in at
 [`receipts/EXP-004.json`](receipts/EXP-004.json). It is bound to source commit
-`ffaf901bc26e5666ed7d260a96b675643f32ee6d`; the complete local artifact's
+`9ee604e11cef0e8cef9e002429bc69bfc0ea3c86`; the complete local artifact's
 independently checked SHA-256 is
-`91900209075f581baa746578f5424bb7ba510921d5bf2b5a05b307536678ad9b`.
+`15dcbee792e60af4e4dbb2ced923eef9598705dff31deb2a57e0c1d299da12c7`.
 
 ## Reproducible command
 
