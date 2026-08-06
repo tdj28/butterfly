@@ -34,6 +34,7 @@ from .poincare import (
     collect_crossings,
     legacy_rossler_section,
 )
+from .periodic import MonodromyResult, flow_monodromy
 from .scan import ScanManifest, execute_scan, run_scan
 from .tiles import (
     TileSpec,
@@ -50,6 +51,7 @@ __all__ = [
     "DynamicsThresholds",
     "LyapunovConfig",
     "LyapunovResult",
+    "MonodromyResult",
     "LargestLyapunovResult",
     "PeriodClassification",
     "RecurrenceCandidate",
@@ -64,6 +66,7 @@ __all__ = [
     "equilibrium_eigenvalues",
     "execute_scan",
     "execute_scan_tile",
+    "flow_monodromy",
     "collect_crossings",
     "classify_fundamental_period",
     "classify_with_lyapunov",

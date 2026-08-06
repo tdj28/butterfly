@@ -58,6 +58,8 @@ what must be narrowed, and what is false or unresolved.
   tiled `41 x 41` recurrence and near-recurrence candidate discovery run.
 - [`experiments/EXP-010-candidate-confirmation.md`](experiments/EXP-010-candidate-confirmation.md):
   frozen candidate confirmation with spectra and two basin probes.
+- [`experiments/EXP-011-focused-multistability.md`](experiments/EXP-011-focused-multistability.md):
+  tighter multistability replication with independent chaos and Floquet checks.
 
 ## Evidence states
 
