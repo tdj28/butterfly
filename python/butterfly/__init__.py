@@ -1,6 +1,7 @@
 """Reference numerical implementation for the Butterfly research program."""
 
 from .atlas import PeriodicComponent, periodic_components, ranked_recurrence_candidates
+from .basins import BasinPlaneManifest, evaluate_initial_condition, initial_condition_grid
 
 from .candidates import CandidateSelection, select_low_score_with_neighbors
 from .classify import (
@@ -50,6 +51,7 @@ __all__ = [
     "OrbitLabel",
     "PeriodicComponent",
     "CandidateSelection",
+    "BasinPlaneManifest",
     "DynamicsClassification",
     "DynamicsThresholds",
     "LyapunovConfig",
@@ -67,6 +69,7 @@ __all__ = [
     "TileSpec",
     "aggregate_scan_tiles",
     "equilibrium_eigenvalues",
+    "evaluate_initial_condition",
     "execute_scan",
     "execute_scan_tile",
     "flow_monodromy",
@@ -76,6 +79,7 @@ __all__ = [
     "combine_initial_conditions",
     "closest_recurrence_candidate",
     "integrate_trajectory",
+    "initial_condition_grid",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",
     "lyapunov_block_estimates",

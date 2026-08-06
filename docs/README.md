@@ -76,6 +76,8 @@ what must be narrowed, and what is false or unresolved.
   long-transient resolution of apparent high-`a` multistability and capture.
 - [`experiments/EXP-016-periodic-coexistence-floquet.md`](experiments/EXP-016-periodic-coexistence-floquet.md):
   closure and Floquet gate for the retained period-12/period-3 coexistence case.
+- [`experiments/EXP-017-periodic-coexistence-basin.md`](experiments/EXP-017-periodic-coexistence-basin.md):
+  declared initial-condition basin section for the two stable cycles.
 
 ## Evidence states
 

@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.basin-plane-manifest.v1",
+  "experiment_id": "EXP-017",
+  "parameters": {"a": 0.245, "b": 0.2, "c": 5.75},
+  "plane": {
+    "x": {"min": -10.0, "max": 10.0, "count": 21},
+    "y": {"min": -10.0, "max": 10.0, "count": 21},
+    "z": 0.0
+  },
+  "integration": {
+    "transient": 4800.0,
+    "observation_horizon": 1600.0,
+    "max_crossings": 192,
+    "solver": {
+      "method": "DOP853",
+      "rtol": 1e-9,
+      "atol": 1e-11,
+      "max_step": 0.1
+    }
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 1e-6,
+    "rtol": 1e-7
+  }
+}
