@@ -52,6 +52,8 @@ what must be narrowed, and what is false or unresolved.
   first small hub-region atlas with combined recurrence/Lyapunov evidence.
 - [`experiments/EXP-007-tiled-resume.md`](experiments/EXP-007-tiled-resume.md):
   immutable tile, verified resume, corruption, and aggregation qualification.
+- [`experiments/EXP-008-forced-resume.md`](experiments/EXP-008-forced-resume.md):
+  real local worker interruption and verified restart qualification.
 
 ## Evidence states
 

@@ -23,9 +23,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   exist; a nonlinear two-trajectory largest-exponent cross-check passes, while
   a declared horizon/tolerance/QR sweep and second full-spectrum package remain.
 - [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, atomic local
-  result/receipt writes, hashes, one-command scans, and optional full-spectrum
-  evidence now exist; immutable multi-shard storage, resume, schema files, and
-  archival promotion remain.
+  result/receipt writes, hashes, one-command scans, optional full-spectrum
+  evidence, immutable tiles, verified resume, and deterministic aggregation now
+  exist; standalone schema files and archival promotion remain.
 - [ ] **P0-008 — Legacy parity suite.** Recover representative legacy pixels and
   characterize discrepancies caused by fixed-step crossing/classifier logic.
 - [ ] **P0-009 — Primary hub reproduction.** Coarse adaptive atlas, convergence
@@ -43,7 +43,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P1-003 — Cheap NVIDIA qualification.** One cost-capped pod, environment
   receipt, measured throughput, artifact retrieval, hash verification, teardown.
 - [ ] **P1-004 — Forced-kill/resume test.** Immutable tile IDs, atomic completion,
-  verified restart before interruptible production use.
+  corruption rejection, simulated interrupted-write recovery, and verified
+  completed-tile restart pass locally. An actual mid-tile process kill and the
+  remote-stack repetition remain required before interruptible production use.
 - [ ] **P1-005 — Continuation layer.** Hopf/equilibrium/periodic-orbit branches,
   Floquet multipliers, TBA/TTL curve, topology-change locus, independent cross-check.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and

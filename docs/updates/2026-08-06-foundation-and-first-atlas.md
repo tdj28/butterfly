@@ -55,9 +55,10 @@ return-map critical structure, and validated numerics also remain open.
 
 ## Next execution item
 
-Implement immutable scan tiles with verified resume and deterministic
-aggregation. Then run a finer recurrence candidate search and apply the costly
-full-spectrum calculation selectively to candidates and boundary points.
+Immutable scan tiles, verified resume, corruption rejection, and deterministic
+aggregation now pass EXP-007. The next execution item is to freeze and run a
+finer recurrence candidate search, then apply the costly full-spectrum
+calculation selectively to candidates and boundary points.
 
 GPU spending remains behind the written cost gate. Transfer of private source
 to a third-party worker also remains prohibited without explicit approval.
