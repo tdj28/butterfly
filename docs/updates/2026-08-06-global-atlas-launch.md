@@ -1,7 +1,7 @@
 # Global-atlas launch
 
 Date: 2026-08-06
-Status: implementation and preregistration checkpoint
+Status: first reconnaissance complete; qualification launched
 
 ## Scientific decision
 
@@ -40,3 +40,16 @@ Run EXP-013 locally, summarize every component and near-recurrence, then select
 spatially separated high-`a` candidates for convergence and basin qualification.
 In parallel in the implementation sequence, upgrade the CUDA path from endpoint
 parity to Poincare-crossing and period-classification parity.
+
+## EXP-013 result
+
+The clean `29 x 41` scan completed all 1,189 points with 82 periodic detections,
+1,107 unresolved points, and no numerical failures. It produced 52 coarse
+same-period components spanning periods 1, 2, 3, 4, 5, 6, 8, and 12. Eight
+components touch a rectangle boundary. The first provenance-bound `(a,c)`
+figure exposes a diagonal low-period band and separated islands at higher `a`.
+
+EXP-014 now binds the exact aggregate hash and freezes 39 targets across the
+diagonal, isolated high-`a` detections, boundaries, and top unresolved
+near-recurrences. Its stronger tests use two initial conditions, longer
+transients, and full Lyapunov spectra.

@@ -18,6 +18,7 @@ import numpy as np
 import scipy
 
 from butterfly import (
+    CandidateSelection,
     DynamicsClassification,
     LyapunovConfig,
     OrbitLabel,
@@ -80,6 +81,40 @@ def tile_directory(output_root: Path, index: int, count: int) -> Path:
 
 def confirmation_plan_hash(raw_manifest: bytes) -> str:
     return sha256_bytes(raw_manifest)
+
+
+def selection_for_manifest(
+    manifest: dict[str, Any], source_result: dict[str, Any]
+) -> CandidateSelection:
+    """Resolve either score-based discovery or an explicitly frozen target set."""
+
+    selection_config = manifest["selection"]
+    explicit = selection_config.get("point_indices")
+    if explicit is None:
+        return select_low_score_with_neighbors(
+            source_result,
+            fraction=float(selection_config["finite_score_fraction"]),
+            neighbor_radius=int(selection_config["neighbor_radius"]),
+        )
+    if (
+        not isinstance(explicit, list)
+        or not explicit
+        or not all(isinstance(index, int) for index in explicit)
+        or len(set(explicit)) != len(explicit)
+    ):
+        raise ValueError("selection.point_indices must be unique nonempty integers")
+    total = int(source_result["shape"][0]) * int(source_result["shape"][1])
+    if any(index < 0 or index >= total for index in explicit):
+        raise ValueError("explicit confirmation point index is outside source grid")
+    by_index = {row.get("point_index") for row in source_result["rows"]}
+    if any(index not in by_index for index in explicit):
+        raise ValueError("explicit confirmation point is missing from source result")
+    ordered = tuple(explicit)
+    return CandidateSelection(
+        core_indices=ordered,
+        selected_indices=tuple(sorted(ordered)),
+        parent_core_indices={index: (index,) for index in sorted(ordered)},
+    )
 
 
 def target_classification(
@@ -223,12 +258,7 @@ def evaluate_target(
 def execute_tile(args: argparse.Namespace, *, require_clean: bool) -> dict[str, Any]:
     manifest, source_result, raw_manifest = load_inputs(args.manifest, args.source_result)
     source = source_state(require_clean)
-    selection_config = manifest["selection"]
-    selection = select_low_score_with_neighbors(
-        source_result,
-        fraction=float(selection_config["finite_score_fraction"]),
-        neighbor_radius=int(selection_config["neighbor_radius"]),
-    )
+    selection = selection_for_manifest(manifest, source_result)
     positions = partition(len(selection.selected_indices), args.tile_index, args.tile_count)
     target_indices = tuple(selection.selected_indices[position] for position in positions)
     plan_hash = confirmation_plan_hash(raw_manifest)
@@ -316,12 +346,7 @@ def execute_tile(args: argparse.Namespace, *, require_clean: bool) -> dict[str, 
 def aggregate(args: argparse.Namespace, *, require_clean: bool) -> dict[str, Any]:
     manifest, source_result, raw_manifest = load_inputs(args.manifest, args.source_result)
     source = source_state(require_clean)
-    selection_config = manifest["selection"]
-    selection = select_low_score_with_neighbors(
-        source_result,
-        fraction=float(selection_config["finite_score_fraction"]),
-        neighbor_radius=int(selection_config["neighbor_radius"]),
-    )
+    selection = selection_for_manifest(manifest, source_result)
     rows = []
     tile_receipts = []
     for tile_index in range(args.tile_count):

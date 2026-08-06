@@ -40,10 +40,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   showed eventual capture into stable period-6 and period-8 windows; saddle
   reconstruction, focused orbit recovery, and local refinement are next.
 - [ ] **P0-010 — Bounded global-atlas reconnaissance.** EXP-013 is preregistered
-  over `a in [0.22,0.36]`, `c in [5,15]` and includes the recovered code's
-  historical high-`a` example. Extract candidate periodic components and
-  near-recurrences, then qualify spatially separated families with refinement,
-  basin/transient tests, Floquet analysis, and continuation.
+  over `a in [0.22,0.36]`, `c in [5,15]` and completed all 1,189 points without
+  numerical failure. Its 82 periodic pixels form 52 coarse components across
+  periods 1, 2, 3, 4, 5, 6, 8, and 12; eight touch a search boundary. EXP-014
+  freezes 39 spatially diverse targets for basin/Lyapunov qualification before
+  refinement, transient tests, Floquet analysis, and continuation.
 
 ## P1 — GPU qualification and bifurcation geometry
 

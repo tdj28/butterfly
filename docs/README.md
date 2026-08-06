@@ -63,7 +63,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-012-transient-capture.md`](experiments/EXP-012-transient-capture.md):
   distinguishes persistent multistability from long transient periodic capture.
 - [`experiments/EXP-013-wide-plane-scout.md`](experiments/EXP-013-wide-plane-scout.md):
-  preregistered reconnaissance of the historical high-`a` domain beyond 0.22.
+  completed reconnaissance of the historical high-`a` domain beyond 0.22.
+- [`experiments/EXP-014-wide-target-qualification.md`](experiments/EXP-014-wide-target-qualification.md):
+  stronger basin and Lyapunov tests for spatially diverse EXP-013 targets.
 
 ## Evidence states
 
