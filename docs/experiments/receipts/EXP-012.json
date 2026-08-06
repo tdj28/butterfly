@@ -1,0 +1,56 @@
+{
+  "schema": "butterfly.transient-capture-receipt.v1",
+  "experiment_id": "EXP-012",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "e688a660a35a45533bd220c3314d7e364520b8a7",
+    "dirty": false
+  },
+  "manifest_sha256": "b57e02063c71cb40a45d1cedc307beae472bd7626af5b7b0143871a40052b6a0",
+  "wall_seconds": 96.46,
+  "results": [
+    {
+      "id": "period8-window",
+      "parameters": {"a": 0.17675, "b": 0.2, "c": 10.42},
+      "expected_period": 8,
+      "initial_conditions": [
+        {
+          "initial_state": [0.0, 4.0, 0.0],
+          "labels": ["unresolved", "unresolved", "unresolved", "periodic", "periodic"],
+          "periods": [null, null, null, 8, 8],
+          "final_recurrence_error": 7.788324160230614e-9
+        },
+        {
+          "initial_state": [1.0, 1.0, 1.0],
+          "labels": ["periodic", "periodic", "periodic", "periodic", "periodic"],
+          "periods": [8, 8, 8, 8, 8],
+          "final_recurrence_error": 2.4626759688479095e-9
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "period6-window",
+      "parameters": {"a": 0.18475, "b": 0.2, "c": 10.35},
+      "expected_period": 6,
+      "initial_conditions": [
+        {
+          "initial_state": [0.0, 4.0, 0.0],
+          "labels": ["unresolved", "unresolved", "periodic", "periodic", "periodic"],
+          "periods": [null, null, 6, 6, 6],
+          "final_recurrence_error": 2.7213524220773957e-10
+        },
+        {
+          "initial_state": [1.0, 1.0, 1.0],
+          "labels": ["periodic", "periodic", "periodic", "periodic", "periodic"],
+          "periods": [6, 6, 6, 6, 6],
+          "final_recurrence_error": 2.7187565521699613e-10
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "artifact_sha256": "e46908bce9c51a77537497bb5e381a06d01af8ae1a1cfe0669234ef78934e7d5",
+  "interpretation": "Both initial states eventually reach the same stable periodic attractor at each parameter point; persistent multistability is rejected. Long chaotic-transient capture is supported, while the nonattracting saddle itself remains uncomputed."
+}

@@ -81,6 +81,11 @@ periodic-orbit continuations. The next experiment must extend horizons, sample
 additional initial conditions, recover the exact periodic orbits, and compute
 Floquet multipliers.
 
+Successor correction: EXP-012 shows that both initial conditions eventually
+converge to the same period-8 or period-6 attractor. The finite-time
+`multistable` labels here are therefore rejected as persistent multistability
+and reinterpreted as long transient capture.
+
 The two unresolved points were `(0.17775,10.24)` and `(0.1845,10.4)`; the latter
 retained a period-12 near-recurrence for `(1,1,1)` but did not pass the declared
 threshold.

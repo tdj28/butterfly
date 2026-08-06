@@ -17,8 +17,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   escape/failure/unresolved labels, uncertainty-aware full-spectrum rules for
   chaos/quasiperiodicity, multistability aggregation, conflict detection, and
   synthetic tests exist. EXP-005 passes four frozen published chaotic/periodic
-  controls. EXP-010 found two finite-time periodic/chaotic multistability
-  candidates; focused replication and a real torus control remain.
+  controls. EXP-010's two finite-time multistability candidates were rejected
+  by EXP-012 as long transient capture; real persistent multistable and torus
+  controls remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
   running convergence diagnostics, equilibrium validation, and trace identity
   exist; a nonlinear two-trajectory largest-exponent cross-check passes, while
@@ -35,8 +36,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   demonstrates that a uniform `5 x 5` grid is decisively but scientifically
   under-resolved. EXP-009 completed a `41 x 41` near-recurrence ranking and
   retained 17 prospective targets. EXP-010 confirmed 135 chaotic targets, two
-  unresolved targets, and two periodic/chaotic multistability candidates;
-  focused orbit recovery and local refinement are next.
+  unresolved targets, and two apparent multistability candidates. EXP-012
+  showed eventual capture into stable period-6 and period-8 windows; saddle
+  reconstruction, focused orbit recovery, and local refinement are next.
 
 ## P1 — GPU qualification and bifurcation geometry
 

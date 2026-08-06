@@ -61,9 +61,12 @@ EXP-008. EXP-009 completed a clean `41 x 41` search in 212 seconds with four
 workers; all strict labels remained unresolved, while three near-recurrences
 were sharply separated from the bulk. EXP-010 then evaluated the frozen
 lowest-1%-plus-neighbors set with spectra and two basin probes: 135 targets were
-chaotic, two unresolved, and two periodic/chaotic multistability candidates.
-The next execution item is focused longer-horizon replication, periodic-orbit
-recovery, and Floquet analysis at those two candidates.
+chaotic, two unresolved, and two apparent multistability candidates. EXP-011
+failed its persistence gate but recovered a strongly stable period-6 orbit with
+Floquet data. EXP-012 then showed that both initial conditions eventually enter
+the same period-6 or period-8 attractor after long unresolved/chaotic windows.
+Persistent multistability is rejected; direct chaotic-saddle reconstruction is
+the next execution item.
 
 GPU spending remains behind the written cost gate. Transfer of private source
 to a third-party worker also remains prohibited without explicit approval.
