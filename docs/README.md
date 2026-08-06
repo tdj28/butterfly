@@ -60,6 +60,8 @@ what must be narrowed, and what is false or unresolved.
   frozen candidate confirmation with spectra and two basin probes.
 - [`experiments/EXP-011-focused-multistability.md`](experiments/EXP-011-focused-multistability.md):
   tighter multistability replication with independent chaos and Floquet checks.
+- [`experiments/EXP-012-transient-capture.md`](experiments/EXP-012-transient-capture.md):
+  distinguishes persistent multistability from long transient periodic capture.
 
 ## Evidence states
 
