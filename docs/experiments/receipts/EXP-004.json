@@ -1,0 +1,64 @@
+{
+  "schema": "butterfly.lyapunov-receipt.v1",
+  "parameters": {
+    "system": "rossler",
+    "a": 0.1798,
+    "b": 0.2,
+    "c": 10.3084
+  },
+  "initial_state": [0.0, 4.0, 0.0],
+  "config": {
+    "transient": 500.0,
+    "duration": 1500.0,
+    "qr_interval": 0.5,
+    "solver": {
+      "method": "DOP853",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.05
+    }
+  },
+  "result": {
+    "success": true,
+    "message": "completed requested finite-time spectrum",
+    "exponents": [
+      0.10432204433324734,
+      0.0013989147525090184,
+      -10.09162455256304
+    ],
+    "mean_divergence": -9.985903594887318,
+    "trace_identity_error": 1.4100347556222914e-9,
+    "elapsed": 1500.0,
+    "qr_steps": 3000,
+    "convergence_checkpoints": [
+      {
+        "elapsed": 167.0,
+        "exponents": [0.1356614053895638, 0.014146141316976286, -10.098361573411902]
+      },
+      {
+        "elapsed": 500.0,
+        "exponents": [0.11149355327745082, 0.002240941730668689, -10.091473288206346]
+      },
+      {
+        "elapsed": 1000.0,
+        "exponents": [0.11364470659999688, 0.0023368593281048043, -10.081008941233982]
+      },
+      {
+        "elapsed": 1500.0,
+        "exponents": [0.10432204433324734, 0.0013989147525090184, -10.09162455256304]
+      }
+    ]
+  },
+  "source": {
+    "commit": "ffaf901bc26e5666ed7d260a96b675643f32ee6d",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0"
+  },
+  "artifact_sha256": "91900209075f581baa746578f5424bb7ba510921d5bf2b5a05b307536678ad9b"
+}

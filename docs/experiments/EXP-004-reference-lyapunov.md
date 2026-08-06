@@ -45,6 +45,12 @@ yet establish converged headline values: the largest exponent still shows
 material finite-time variation. The next qualification is a declared
 transient/horizon/QR/tolerance sweep plus an independent implementation.
 
+The clean 1500-unit receipt is checked in at
+[`receipts/EXP-004.json`](receipts/EXP-004.json). It is bound to source commit
+`ffaf901bc26e5666ed7d260a96b675643f32ee6d`; the complete local artifact's
+independently checked SHA-256 is
+`91900209075f581baa746578f5424bb7ba510921d5bf2b5a05b307536678ad9b`.
+
 ## Reproducible command
 
 ```sh
