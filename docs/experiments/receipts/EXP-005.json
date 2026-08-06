@@ -1,0 +1,72 @@
+{
+  "schema": "butterfly.classifier-controls-receipt.v1",
+  "experiment_id": "EXP-005",
+  "paper_source": {
+    "paper": "Barrio, Blesa, and Serrano, Physical Review Letters 108, 214102 (2012)",
+    "doi": "10.1103/PhysRevLett.108.214102",
+    "figure": "Figure 2"
+  },
+  "fixed_parameters": {
+    "b": 0.2,
+    "c": 20.0
+  },
+  "all_expected_labels_matched": true,
+  "results": [
+    {
+      "a": 0.11,
+      "paper_role": "chaotic attractor",
+      "expected_label": "chaotic",
+      "observed_label": "chaotic",
+      "fundamental_period": null,
+      "lyapunov_exponents": [0.07806200244283087, 0.0018590168641649777, -19.796311290563015],
+      "lyapunov_block_standard_error": [0.008240253564730451, 0.0024614532809553195, 0.04656933060573962],
+      "trace_identity_error": 0.000002636382699705564,
+      "match": true
+    },
+    {
+      "a": 0.118,
+      "paper_role": "stable orbit with chaotic saddle",
+      "expected_label": "periodic",
+      "observed_label": "periodic",
+      "fundamental_period": 4,
+      "recurrence_error": 3.768764755168994e-12,
+      "recurrence_tolerance": 0.0000037083885270911657,
+      "lyapunov_exponents": [0.0009852744494020147, -0.14126345553757205, -19.649704147191972],
+      "lyapunov_block_standard_error": [0.003955896525610569, 0.000988374588969927, 0.008111224284886915],
+      "trace_identity_error": 0.0000028042907054270927,
+      "match": true
+    },
+    {
+      "a": 0.149,
+      "paper_role": "stable orbit with chaotic saddle",
+      "expected_label": "periodic",
+      "observed_label": "periodic",
+      "fundamental_period": 4,
+      "recurrence_error": 5.953597469944605e-12,
+      "recurrence_tolerance": 0.00000378729417079832,
+      "lyapunov_exponents": [0.0015990024811673176, -0.04184232553191007, -19.615980504561026],
+      "lyapunov_block_standard_error": [0.001906102646209682, 0.003570911721354456, 0.03488258218892825],
+      "trace_identity_error": 0.0000028892667387481197,
+      "match": true
+    },
+    {
+      "a": 0.2,
+      "paper_role": "chaotic attractor",
+      "expected_label": "chaotic",
+      "observed_label": "chaotic",
+      "fundamental_period": null,
+      "lyapunov_exponents": [0.09999857074356429, 0.00032428737592370865, -19.39521207433232],
+      "lyapunov_block_standard_error": [0.006838311596712212, 0.0022814970839041887, 0.03896387993607266],
+      "trace_identity_error": 0.0000037499524907502746,
+      "match": true
+    }
+  ],
+  "source": {
+    "commit": "d76c7afe303ee0112608eaf3164d55db0ec9ecc9",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "manifest_sha256": "529fba1a094dd0b72666a9c19152b9a27dd6db9125c6bf23d0963eb87c8ab1bc",
+  "artifact_sha256": "e086a14ff6f5b6f54674acbf5813278b040b272fea441d574e3ce351fc652a95",
+  "limitation": "Attracting-state qualification only; coexisting nonattracting chaotic saddles were not reconstructed."
+}

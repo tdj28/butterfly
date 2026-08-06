@@ -16,7 +16,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P0-005 — Fundamental-period classifier.** Minimal recurrence period,
   escape/failure/unresolved labels, uncertainty-aware full-spectrum rules for
   chaos/quasiperiodicity, multistability aggregation, conflict detection, and
-  synthetic tests exist; real frozen periodic/torus/multistable cases remain.
+  synthetic tests exist. EXP-005 passes four frozen published chaotic/periodic
+  controls; real torus and multistable controls remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
   running convergence diagnostics, equilibrium validation, and trace identity
   exist; a nonlinear two-trajectory largest-exponent cross-check passes, while
