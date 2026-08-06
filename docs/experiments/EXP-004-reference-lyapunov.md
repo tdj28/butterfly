@@ -30,6 +30,8 @@ The running finite-time estimates are retained as convergence diagnostics.
 3. Invalid states and failed integrations produce explicit failures.
 4. A chaotic trajectory has one positive, one near-zero, and one negative
    exponent, subject to a horizon sweep before freezing numerical values.
+5. A separate two-nearby-trajectory Benettin estimator checks the largest
+   exponent without using the analytic Jacobian or tangent equations.
 
 ## Initial observations
 
@@ -45,6 +47,16 @@ yet establish converged headline values: the largest exponent still shows
 material finite-time variation. The next qualification is a declared
 transient/horizon/QR/tolerance sweep plus an independent implementation.
 
+The nonlinear two-trajectory estimator at the 1500-unit horizon produced
+largest-exponent estimates `0.10090`, `0.09554`, and `0.10563` for perturbation
+sizes `1e-7`, `1e-8`, and `1e-9`. These bracket the variational estimate and
+validate its positive sign and scale using an algorithmically independent path.
+
+Six nonoverlapping 250-unit variational blocks had largest-exponent standard
+deviation `0.0185` (naive block standard error `0.0075`). This material sampling
+variation is why the current number remains a finite-time estimate rather than
+a final reported invariant.
+
 The clean 1500-unit receipt is checked in at
 [`receipts/EXP-004.json`](receipts/EXP-004.json). It is bound to source commit
 `ffaf901bc26e5666ed7d260a96b675643f32ee6d`; the complete local artifact's
@@ -59,6 +71,7 @@ independently checked SHA-256 is
   --initial-state 0 4 0 \
   --transient 500 --duration 1500 --qr-interval 0.5 \
   --rtol 1e-10 --atol 1e-12 --max-step 0.05 \
+  --blocks 6 --two-trajectory --perturbation 1e-8 \
   --output artifacts/EXP-004/hub-lyapunov.json
 ```
 

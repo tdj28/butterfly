@@ -2,7 +2,14 @@
 
 from .classify import OrbitLabel, PeriodClassification, classify_fundamental_period
 from .integrate import SolverConfig, Trajectory, integrate_trajectory
-from .lyapunov import LyapunovConfig, LyapunovResult, lyapunov_spectrum
+from .lyapunov import (
+    LargestLyapunovResult,
+    LyapunovConfig,
+    LyapunovResult,
+    largest_lyapunov_two_trajectory,
+    lyapunov_block_estimates,
+    lyapunov_spectrum,
+)
 from .models import (
     RosslerParameters,
     equilibrium_eigenvalues,
@@ -22,6 +29,7 @@ __all__ = [
     "OrbitLabel",
     "LyapunovConfig",
     "LyapunovResult",
+    "LargestLyapunovResult",
     "PeriodClassification",
     "RosslerParameters",
     "PoincareCrossings",
@@ -35,6 +43,8 @@ __all__ = [
     "classify_fundamental_period",
     "integrate_trajectory",
     "lyapunov_spectrum",
+    "largest_lyapunov_two_trajectory",
+    "lyapunov_block_estimates",
     "rossler_equilibria",
     "rossler_jacobian",
     "rossler_rhs",

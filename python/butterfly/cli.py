@@ -12,7 +12,12 @@ import numpy as np
 import scipy
 
 from .integrate import SolverConfig, integrate_trajectory
-from .lyapunov import LyapunovConfig, lyapunov_spectrum
+from .lyapunov import (
+    LyapunovConfig,
+    largest_lyapunov_two_trajectory,
+    lyapunov_block_estimates,
+    lyapunov_spectrum,
+)
 from .models import RosslerParameters, equilibrium_eigenvalues, rossler_equilibria
 from .scan import atomic_write, canonical_json, execute_scan, git_value
 
@@ -90,6 +95,11 @@ def lyapunov_receipt(args: argparse.Namespace) -> tuple[dict, bool]:
         solver=solver,
     )
     result = lyapunov_spectrum(parameters, args.initial_state, config=config)
+    block_estimates = (
+        lyapunov_block_estimates(result, blocks=args.blocks)
+        if result.success and result.qr_steps >= args.blocks
+        else np.empty((0, 3), dtype=np.float64)
+    )
     checkpoint_count = min(10, len(result.running_exponents))
     if checkpoint_count:
         indices = np.unique(
@@ -134,6 +144,12 @@ def lyapunov_receipt(args: argparse.Namespace) -> tuple[dict, bool]:
             "qr_steps": result.qr_steps,
             "final_state": result.final_state.tolist(),
             "convergence_checkpoints": checkpoints,
+            "block_estimates": block_estimates.tolist(),
+            "block_standard_error": (
+                (np.std(block_estimates, axis=0, ddof=1) / np.sqrt(len(block_estimates))).tolist()
+                if len(block_estimates) > 1
+                else None
+            ),
         },
         "source": {
             "commit": git_value("rev-parse", "HEAD"),
@@ -147,6 +163,26 @@ def lyapunov_receipt(args: argparse.Namespace) -> tuple[dict, bool]:
             "scipy": scipy.__version__,
         },
     }
+    if args.two_trajectory:
+        independent = largest_lyapunov_two_trajectory(
+            parameters,
+            args.initial_state,
+            config=config,
+            perturbation=args.perturbation,
+        )
+        receipt["independent_largest_exponent"] = {
+            "method": "two-nonlinear-trajectory Benettin renormalization",
+            "success": independent.success,
+            "message": independent.message,
+            "exponent": independent.exponent,
+            "perturbation": independent.perturbation,
+            "renormalizations": independent.renormalizations,
+            "difference_from_variational": (
+                independent.exponent - float(result.exponents[0])
+                if independent.success and result.success
+                else None
+            ),
+        }
     return receipt, result.success
 
 
@@ -174,6 +210,9 @@ def main(argv: list[str] | None = None) -> int:
     lyapunov_parser.add_argument("--rtol", type=float, default=1e-10)
     lyapunov_parser.add_argument("--atol", type=float, default=1e-12)
     lyapunov_parser.add_argument("--max-step", type=float, default=0.05)
+    lyapunov_parser.add_argument("--blocks", type=int, default=6)
+    lyapunov_parser.add_argument("--two-trajectory", action="store_true")
+    lyapunov_parser.add_argument("--perturbation", type=float, default=1e-8)
     lyapunov_parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
     if args.command == "verify":

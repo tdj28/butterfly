@@ -18,7 +18,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Lyapunov/convergence rules for chaotic/quasiperiodic/multistable remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
   running convergence diagnostics, equilibrium validation, and trace identity
-  exist; declared horizon/tolerance sweep and independent cross-check remain.
+  exist; a nonlinear two-trajectory largest-exponent cross-check passes, while
+  a declared horizon/tolerance/QR sweep and second full-spectrum package remain.
 - [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, atomic local
   result/receipt writes, hashes, and one-command tiny-grid scan exist; immutable
   multi-shard storage, resume, schema files, and archival promotion remain.
