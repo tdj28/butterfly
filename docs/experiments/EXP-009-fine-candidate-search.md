@@ -31,11 +31,13 @@ The grid is split into 32 immutable tiles of 52 or 53 points:
   --manifest experiments/manifests/EXP-009-fine-candidates.json \
   --output-root artifacts/EXP-009 \
   --tile-count 32 \
+  --workers 4 \
   --resume
 ```
 
 Individual tiles may be executed with `--tile-index N`. Aggregation occurs only
-after all 32 verified completion markers exist.
+after all 32 verified completion markers exist. `--workers` controls bounded
+local process-level tile parallelism; workers never share an output shard.
 
 ## Prospective selection rule
 

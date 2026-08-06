@@ -25,7 +25,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, atomic local
   result/receipt writes, hashes, one-command scans, optional full-spectrum
   evidence, immutable tiles, verified resume, and deterministic aggregation now
-  exist; standalone schema files and archival promotion remain.
+  exist. Bounded local processes operate only on unique shards; standalone
+  schema files and archival promotion remain.
 - [ ] **P0-008 — Legacy parity suite.** Recover representative legacy pixels and
   characterize discrepancies caused by fixed-step crossing/classifier logic.
 - [ ] **P0-009 — Primary hub reproduction.** Coarse adaptive atlas, convergence

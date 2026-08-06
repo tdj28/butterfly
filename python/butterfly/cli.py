@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import json
 import platform
+import subprocess
 import sys
 from pathlib import Path
 
@@ -202,6 +204,9 @@ def main(argv: list[str] | None = None) -> int:
     tiled_parser.add_argument("--output-root", type=Path, required=True)
     tiled_parser.add_argument("--tile-count", type=int, required=True)
     tiled_parser.add_argument("--tile-index", type=int)
+    tiled_parser.add_argument(
+        "--workers", type=int, default=1, help="local tile processes (default: 1)"
+    )
     tiled_parser.add_argument("--resume", action="store_true")
     tiled_parser.add_argument("--allow-dirty", action="store_true")
     lyapunov_parser = subparsers.add_parser(
@@ -233,7 +238,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "tiled-scan":
         require_clean = not args.allow_dirty
+        if args.workers < 1:
+            parser.error("--workers must be positive")
         if args.tile_index is not None:
+            if args.workers != 1:
+                parser.error("--workers applies only when executing all tiles")
             receipt = execute_scan_tile(
                 args.manifest,
                 args.output_root,
@@ -243,15 +252,51 @@ def main(argv: list[str] | None = None) -> int:
                 require_clean=require_clean,
             )
         else:
-            for tile_index in range(args.tile_count):
-                execute_scan_tile(
-                    args.manifest,
-                    args.output_root,
-                    tile_index=tile_index,
-                    tile_count=args.tile_count,
-                    resume=args.resume,
-                    require_clean=require_clean,
-                )
+            if args.workers == 1:
+                for tile_index in range(args.tile_count):
+                    execute_scan_tile(
+                        args.manifest,
+                        args.output_root,
+                        tile_index=tile_index,
+                        tile_count=args.tile_count,
+                        resume=args.resume,
+                        require_clean=require_clean,
+                    )
+            else:
+                def run_tile_process(tile_index: int) -> None:
+                    command = [
+                        sys.executable,
+                        "-m",
+                        "butterfly",
+                        "tiled-scan",
+                        "--manifest",
+                        str(args.manifest),
+                        "--output-root",
+                        str(args.output_root),
+                        "--tile-count",
+                        str(args.tile_count),
+                        "--tile-index",
+                        str(tile_index),
+                    ]
+                    if args.resume:
+                        command.append("--resume")
+                    if args.allow_dirty:
+                        command.append("--allow-dirty")
+                    completed = subprocess.run(
+                        command, capture_output=True, text=True, check=False
+                    )
+                    if completed.returncode != 0:
+                        raise RuntimeError(
+                            f"tile {tile_index} failed: {completed.stderr.strip()}"
+                        )
+
+                with ThreadPoolExecutor(max_workers=args.workers) as executor:
+                    futures = [
+                        executor.submit(run_tile_process, tile_index)
+                        for tile_index in range(args.tile_count)
+                    ]
+                    for future in futures:
+                        future.result()
             receipt = aggregate_scan_tiles(
                 args.manifest,
                 args.output_root,
