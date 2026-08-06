@@ -32,7 +32,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P0-009 — Primary hub reproduction.** Coarse adaptive atlas, convergence
   sweeps, multiple initial conditions, and explicit unresolved regions. EXP-006
   demonstrates that a uniform `5 x 5` grid is decisively but scientifically
-  under-resolved; fine periodic-candidate discovery is the next atlas step.
+  under-resolved. EXP-009 completed a `41 x 41` near-recurrence ranking and
+  retained 17 prospective targets; full-spectrum, basin, and local refinement
+  confirmation is next.
 
 ## P1 — GPU qualification and bifurcation geometry
 

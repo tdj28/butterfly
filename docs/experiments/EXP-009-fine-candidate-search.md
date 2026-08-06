@@ -1,6 +1,6 @@
 # EXP-009 — Fine recurrence candidate search
 
-Status: prospective tiled discovery run
+Status: completed discovery run; confirmation pending
 Manifest: `experiments/manifests/EXP-009-fine-candidates.json`
 Claim target: discovery stage for P0-009 and CLM-001
 
@@ -54,3 +54,52 @@ All 1,681 point indices must appear once in the verified aggregate. The report
 must include period counts, candidate-score quantiles, selected coordinates,
 tile/source hashes, and elapsed CPU cost. Scientific hub reproduction remains
 open until the selected targets pass the confirmation stage.
+
+## Result
+
+The clean run from commit `b991b91e1c840a5854fa54193f89341d33ee5787`
+completed all 32 tiles and all 1,681 unique point indices:
+
+- wall time with four worker processes: 212.1 seconds;
+- summed tile time: 834.4 seconds;
+- tile elapsed range: 24.63 to 26.66 seconds;
+- integration failures: zero;
+- strict periodic classifications: zero; and
+- unresolved recurrence-only labels: 1,681.
+
+The lack of strict periodic labels means no sampled point converged to the
+declared `~1e-6` recurrence scale during this discovery horizon. It does not
+mean the score was uninformative. The normalized-error distribution was:
+
+| Quantile | Normalized error |
+| --- | ---: |
+| minimum | 97.02 |
+| 1% | 492,271.53 |
+| 5% | 1,350,964.74 |
+| median | 3,613,759.84 |
+| 95% | 5,308,961.13 |
+| maximum | 5,869,086.44 |
+
+The three strongest near-recurrences are sharply separated from the bulk:
+
+| `a` | `c` | candidate period | normalized error |
+| ---: | ---: | ---: | ---: |
+| 0.18475 | 10.35 | 6 | 97.02 |
+| 0.18450 | 10.40 | 12 | 101.64 |
+| 0.17675 | 10.42 | 8 | 568.72 |
+
+All 17 prospectively selected lowest-1% points are retained in
+[`receipts/EXP-009.json`](receipts/EXP-009.json); none is promoted to a
+periodic finding here.
+
+Aggregate result SHA-256:
+`80296d185fddf2038fd3a93af180030ab8ec770aae45305ff30124051abd59b5`.
+Independent `shasum -a 256` verification matched it.
+
+## Next confirmation
+
+Generate the frozen lowest-1%-plus-neighbors target set bound to the aggregate
+hash. Rerun those coordinates with a longer transient, longer crossing record,
+full Lyapunov spectrum, and multiple initial conditions. The three pronounced
+low-score points above receive no special evidentiary status beyond priority
+within that already-frozen set.

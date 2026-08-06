@@ -57,9 +57,11 @@ return-map critical structure, and validated numerics also remain open.
 
 Immutable scan tiles, verified resume, corruption rejection, and deterministic
 aggregation now pass EXP-007. A real local worker kill and verified restart pass
-EXP-008. The next execution item is to freeze and run a finer recurrence
-candidate search, then apply the costly full-spectrum calculation selectively
-to candidates and boundary points.
+EXP-008. EXP-009 completed a clean `41 x 41` search in 212 seconds with four
+workers; all strict labels remained unresolved, while three near-recurrences
+were sharply separated from the bulk. The next execution item is to generate
+the frozen lowest-1%-plus-neighbors confirmation set and apply longer records,
+full spectra, and multiple initial conditions.
 
 GPU spending remains behind the written cost gate. Transfer of private source
 to a third-party worker also remains prohibited without explicit approval.

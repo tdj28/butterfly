@@ -1,0 +1,50 @@
+{
+  "schema": "butterfly.candidate-search-receipt.v1",
+  "experiment_id": "EXP-009",
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "b991b91e1c840a5854fa54193f89341d33ee5787",
+    "dirty": false
+  },
+  "manifest_sha256": "c5ea46d995407acc6baeb488729d115a007bf56f5d7d58ab7b3168d08d474d65",
+  "plan_hash": "46ad3bbae3f032e63ec3c49b384e469e40c5f46bc81e67795e8afe8070b2e1e9",
+  "tile_count": 32,
+  "row_count": 1681,
+  "wall_seconds": 212.10,
+  "summed_tile_seconds": 834.3884181664325,
+  "tile_elapsed_range": [24.631869374774396, 26.661216500215232],
+  "label_counts": {
+    "unresolved": 1681
+  },
+  "candidate_normalized_error_quantiles": {
+    "minimum": 97.02331296207925,
+    "p01": 492271.5292426241,
+    "p05": 1350964.7378097626,
+    "median": 3613759.842477048,
+    "p95": 5308961.13282629,
+    "maximum": 5869086.440045699
+  },
+  "selected_lowest_1pct": [
+    {"point_index": 1624, "a": 0.18475, "c": 10.35, "candidate_period": 6, "normalized_error": 97.02331296207925},
+    {"point_index": 1588, "a": 0.1845, "c": 10.4, "candidate_period": 12, "normalized_error": 101.64120691563933},
+    {"point_index": 319, "a": 0.17675, "c": 10.42, "candidate_period": 8, "normalized_error": 568.7182846610485},
+    {"point_index": 465, "a": 0.17775, "c": 10.24, "candidate_period": 8, "normalized_error": 13053.90365689769},
+    {"point_index": 922, "a": 0.1805, "c": 10.3, "candidate_period": 1, "normalized_error": 163383.254494858},
+    {"point_index": 877, "a": 0.18025, "c": 10.26, "candidate_period": 1, "normalized_error": 208981.80983151574},
+    {"point_index": 1065, "a": 0.18125, "c": 10.5, "candidate_period": 1, "normalized_error": 286900.44752277853},
+    {"point_index": 880, "a": 0.18025, "c": 10.29, "candidate_period": 1, "normalized_error": 291404.5499067706},
+    {"point_index": 1032, "a": 0.18125, "c": 10.17, "candidate_period": 1, "normalized_error": 316729.3338198906},
+    {"point_index": 1092, "a": 0.1815, "c": 10.36, "candidate_period": 1, "normalized_error": 327197.45931104256},
+    {"point_index": 1541, "a": 0.18425, "c": 10.34, "candidate_period": 1, "normalized_error": 327531.580400296},
+    {"point_index": 1079, "a": 0.1815, "c": 10.23, "candidate_period": 1, "normalized_error": 408560.2078652892},
+    {"point_index": 694, "a": 0.179, "c": 10.48, "candidate_period": 3, "normalized_error": 423619.20751166466},
+    {"point_index": 1532, "a": 0.18425, "c": 10.25, "candidate_period": 1, "normalized_error": 468434.0424057955},
+    {"point_index": 655, "a": 0.17875, "c": 10.5, "candidate_period": 1, "normalized_error": 477783.6460651293},
+    {"point_index": 1297, "a": 0.18275, "c": 10.36, "candidate_period": 1, "normalized_error": 483944.4504251099},
+    {"point_index": 1249, "a": 0.1825, "c": 10.29, "candidate_period": 1, "normalized_error": 492271.5292426241}
+  ],
+  "aggregate_result_sha256": "80296d185fddf2038fd3a93af180030ab8ec770aae45305ff30124051abd59b5",
+  "aggregate_receipt_sha256": "7d5ceca2510af098cc189799249b86f9e9e8dceb2320dacd565d26a298c6341f",
+  "aggregate_completion_sha256": "0d1bd72132d79c0767b65a3b82f26269d481143724786ad35bd2c673e61b7706",
+  "interpretation_limit": "Near-recurrence ranking only; no point passed the strict periodic classifier and none is a confirmed periodic orbit."
+}
