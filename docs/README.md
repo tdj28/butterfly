@@ -66,6 +66,8 @@ what must be narrowed, and what is false or unresolved.
   completed reconnaissance of the historical high-`a` domain beyond 0.22.
 - [`experiments/EXP-014-wide-target-qualification.md`](experiments/EXP-014-wide-target-qualification.md):
   stronger basin and Lyapunov tests for spatially diverse EXP-013 targets.
+- [`experiments/EXP-015-high-a-transient-checkpoints.md`](experiments/EXP-015-high-a-transient-checkpoints.md):
+  long-transient resolution of apparent high-`a` multistability and capture.
 
 ## Evidence states
 

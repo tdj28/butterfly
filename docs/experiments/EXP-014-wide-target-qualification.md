@@ -1,6 +1,6 @@
 # EXP-014 — Spatially diverse high-`a` target qualification
 
-Status: preregistered; execution pending
+Status: completed finite-time qualification; transient successor pending
 Manifest: `experiments/manifests/EXP-014-wide-target-qualification.json`
 Source: EXP-013 aggregate result SHA-256
 `58aa45114962c285edff6deab08915f89f953b5b7437996b82bb9a7ad6e50e3d`
@@ -39,3 +39,28 @@ Every target must retain both initial-condition results or an explicit numerical
 failure. Agreement of both probes on a stable period promotes a point to exact
 periodic-orbit recovery and Floquet analysis. Chaos is only a finite-time label;
 EXP-012 requires long transient checkpoints before an asymptotic claim.
+
+## Result
+
+The clean run from commit `fc64ad7c52f95e8344449d5e247a264ad79cfbef`
+completed all 39 targets and 78 initial-condition integrations without a
+numerical failure. The combined labels were 26 periodic, nine unresolved, and
+four finite-time multistable. The summed tile runtime was 590.2 seconds.
+
+The four distinct finite-time outcomes were:
+
+| `(a,c)` | Initial `(0,4,0)` | Initial `(1,1,1)` |
+| --- | --- | --- |
+| `(0.245,5.75)` | period 12 | period 3 |
+| `(0.255,12.5)` | period 2 | period 1 |
+| `(0.26,11.75)` | chaotic | period 7 |
+| `(0.35,10.25)` | chaotic | period 2 |
+
+These are not promoted to persistent multistability. EXP-015 freezes checkpoint
+tests through transient 19,200. The 26 consensus-periodic targets support the
+existence of periodic structure throughout the high-`a` rectangle and become
+candidates for exact orbit/Floquet recovery.
+
+Aggregate result SHA-256:
+`85f8553ce644dd13b96e7596a7b85b613a8f2a233fd3147a3643ce28e898d75b`.
+The checked-in receipt is [`receipts/EXP-014.json`](receipts/EXP-014.json).

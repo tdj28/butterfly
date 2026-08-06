@@ -1,0 +1,65 @@
+{
+  "schema": "butterfly.atlas-transient-manifest.v1",
+  "experiment_id": "EXP-015",
+  "source_result": {
+    "experiment_id": "EXP-014",
+    "sha256": "85f8553ce644dd13b96e7596a7b85b613a8f2a233fd3147a3643ce28e898d75b"
+  },
+  "transient_checkpoints": [1200.0, 2400.0, 4800.0, 9600.0, 19200.0],
+  "observation_horizon": 1600.0,
+  "max_crossings": 192,
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 1e-6,
+    "rtol": 1e-7
+  },
+  "cases": [
+    {
+      "id": "period12-versus-period3",
+      "point_index": 208,
+      "a": 0.245,
+      "b": 0.2,
+      "c": 5.75,
+      "initial_states": [[0.0, 4.0, 0.0], [1.0, 1.0, 1.0]]
+    },
+    {
+      "id": "period2-versus-period1",
+      "point_index": 317,
+      "a": 0.255,
+      "b": 0.2,
+      "c": 12.5,
+      "initial_states": [[0.0, 4.0, 0.0], [1.0, 1.0, 1.0]]
+    },
+    {
+      "id": "chaos-versus-period7",
+      "point_index": 355,
+      "a": 0.26,
+      "b": 0.2,
+      "c": 11.75,
+      "initial_states": [[0.0, 4.0, 0.0], [1.0, 1.0, 1.0]]
+    },
+    {
+      "id": "chaos-versus-period2",
+      "point_index": 1087,
+      "a": 0.35,
+      "b": 0.2,
+      "c": 10.25,
+      "initial_states": [[0.0, 4.0, 0.0], [1.0, 1.0, 1.0]]
+    },
+    {
+      "id": "boundary-period2-capture",
+      "point_index": 1148,
+      "a": 0.36,
+      "b": 0.2,
+      "c": 5.0,
+      "initial_states": [[0.0, 4.0, 0.0], [1.0, 1.0, 1.0]]
+    }
+  ]
+}

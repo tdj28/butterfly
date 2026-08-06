@@ -43,8 +43,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   over `a in [0.22,0.36]`, `c in [5,15]` and completed all 1,189 points without
   numerical failure. Its 82 periodic pixels form 52 coarse components across
   periods 1, 2, 3, 4, 5, 6, 8, and 12; eight touch a search boundary. EXP-014
-  freezes 39 spatially diverse targets for basin/Lyapunov qualification before
-  refinement, transient tests, Floquet analysis, and continuation.
+  qualified 26 consensus-periodic targets, retained nine unresolved cases, and
+  produced four finite-time multistability labels. EXP-015 now tests those
+  labels and a boundary capture case through transient 19,200 before refinement,
+  Floquet analysis, and continuation.
 
 ## P1 — GPU qualification and bifurcation geometry
 
