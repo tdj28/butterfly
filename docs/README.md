@@ -37,6 +37,9 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-001-independent-codiscovery.md`](decisions/DEC-001-independent-codiscovery.md):
   project wording for the relationship between the Jones and
   Barrio-Blesa-Serrano 2012 results.
+- [`findings/FND-001-apparent-multistability-is-transient-capture.md`](findings/FND-001-apparent-multistability-is-transient-capture.md):
+  durable interpretation of long chaotic transients versus persistent
+  multistability in the Jones-hub and expanded-atlas cases.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):
