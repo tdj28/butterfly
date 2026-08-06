@@ -220,6 +220,21 @@ repository is private and GPU-spend authorization does not by itself authorize
 uploading private source to a third-party host. The idle pod was terminated and
 the account pod list was verified empty. No qualification result was produced.
 
+### EXP-018 production-observable attempt
+
+After CPU evidence established a concrete need for accelerated basin-boundary
+scaling and multi-`b` atlas frames, EXP-018 added a frozen Triton Float64 kernel
+for interpolated Poincare crossings and period-label parity. A V100 PCIe failed
+the runtime-readiness gate. A V100 SXM2 then became healthy and was hardware-
+verified, but the private source archive was not uploaded because compute-spend
+authorization does not by itself authorize private-repository export to a
+third-party host. Both pods were terminated, the account list was verified
+empty, and estimated exposure remained below USD 0.02.
+
+Resume requires explicit private-source export authorization or a separately
+authorized repository-free image/publication channel. The scientific parity
+gate itself has not run and remains open.
+
 ## Runpod primary documentation
 
 - [Create a Pod](https://docs.runpod.io/api-reference/pods/POST/pods)

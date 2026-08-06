@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.runpod-provisioning-attempt.v1",
+  "experiment_id": "EXP-018",
+  "date_utc": "2026-08-06",
+  "source_commit": "7eff7c7",
+  "source_archive_sha256": "dcb5d2de84bbba7d4d65cc66398c01da613dad02d599183a593b0ee80305201d",
+  "source_archive_bytes": 163840,
+  "attempts": [
+    {
+      "pod_id": "s6c6jezd9s97bo",
+      "gpu_requested": "Tesla V100-PCIE-16GB",
+      "cost_per_hour_usd": 0.19,
+      "outcome": "no runtime or SSH endpoint before no-progress teardown",
+      "source_uploaded": false,
+      "terminated": true
+    },
+    {
+      "pod_id": "ko268u67p1sal0",
+      "gpu_requested": "Tesla V100-SXM2-16GB",
+      "gpu_verified": "Tesla V100-SXM2-16GB, 16384 MiB, compute capability 7.0",
+      "cost_per_hour_usd": 0.23,
+      "outcome": "healthy runtime; private-source upload blocked pending explicit authorization",
+      "source_uploaded": false,
+      "terminated": true
+    }
+  ],
+  "account_pod_list_verified_empty": true,
+  "scientific_workload_started": false,
+  "scientific_receipt_produced": false,
+  "estimated_total_exposure_usd_upper_bound": 0.02,
+  "blocker": "Explicit owner authorization is required to upload this private repository's frozen source archive to a third-party Runpod host."
+}
