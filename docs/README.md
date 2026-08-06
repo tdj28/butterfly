@@ -44,6 +44,8 @@ what must be narrowed, and what is false or unresolved.
   frozen tiny-grid scan and hash-verifiable artifact receipt qualification.
 - [`experiments/EXP-004-reference-lyapunov.md`](experiments/EXP-004-reference-lyapunov.md):
   full variational-equation/QR Lyapunov spectrum and convergence boundary.
+- [`experiments/EXP-005-published-classifier-controls.md`](experiments/EXP-005-published-classifier-controls.md):
+  real chaotic/periodic positive controls from the 2012 PRL.
 
 ## Evidence states
 

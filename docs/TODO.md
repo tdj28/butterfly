@@ -14,8 +14,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [x] **P0-004 — Poincaré section object.** Oriented, interpolated events;
   explicit section definition; section unit tests; legacy-section adapter.
 - [ ] **P0-005 — Fundamental-period classifier.** Minimal recurrence period,
-  escape/failure/unresolved labels, confidence, and synthetic tests exist;
-  Lyapunov/convergence rules for chaotic/quasiperiodic/multistable remain.
+  escape/failure/unresolved labels, uncertainty-aware full-spectrum rules for
+  chaos/quasiperiodicity, multistability aggregation, conflict detection, and
+  synthetic tests exist; real frozen periodic/torus/multistable cases remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
   running convergence diagnostics, equilibrium validation, and trace identity
   exist; a nonlinear two-trajectory largest-exponent cross-check passes, while

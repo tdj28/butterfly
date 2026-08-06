@@ -1,6 +1,12 @@
 import numpy as np
 
-from butterfly.classify import OrbitLabel, classify_fundamental_period
+from butterfly.classify import (
+    DynamicsClassification,
+    OrbitLabel,
+    classify_fundamental_period,
+    classify_with_lyapunov,
+    combine_initial_conditions,
+)
 
 
 def test_exact_fundamental_period_three() -> None:
@@ -45,3 +51,55 @@ def test_insufficient_crossings_are_unresolved() -> None:
     result = classify_fundamental_period(((1.0,), (1.0,), (1.0,)))
     assert result.label == OrbitLabel.UNRESOLVED
     assert "insufficient" in result.reason
+
+
+def test_uncertainty_aware_chaos_signature() -> None:
+    recurrence = classify_fundamental_period(np.arange(100.0), max_period=8)
+    result = classify_with_lyapunov(
+        recurrence,
+        (0.104, 0.0014, -10.09),
+        (0.0075, 0.0018, 0.0154),
+    )
+    assert result.label == OrbitLabel.CHAOTIC
+    assert "three-exponent-chaos-signature" in result.evidence
+
+
+def test_quasiperiodic_signature_requires_two_decisive_zeros() -> None:
+    recurrence = classify_fundamental_period(np.arange(100.0), max_period=8)
+    resolved = classify_with_lyapunov(
+        recurrence,
+        (5e-4, -4e-4, -2.0),
+        (5e-4, 5e-4, 0.01),
+    )
+    uncertain = classify_with_lyapunov(
+        recurrence,
+        (0.002, 0.0, -2.0),
+        (0.002, 0.001, 0.01),
+    )
+    assert resolved.label == OrbitLabel.QUASIPERIODIC
+    assert uncertain.label == OrbitLabel.UNRESOLVED
+
+
+def test_conflicting_period_and_positive_exponent_stays_unresolved() -> None:
+    motif = np.tile(((1.0,), (-1.0,)), (10, 1))
+    recurrence = classify_fundamental_period(motif, max_period=4)
+    result = classify_with_lyapunov(
+        recurrence,
+        (0.1, 0.0, -2.0),
+        (0.001, 0.001, 0.01),
+    )
+    assert recurrence.label == OrbitLabel.PERIODIC
+    assert result.label == OrbitLabel.UNRESOLVED
+    assert "conflicts" in result.reason
+
+
+def test_distinct_initial_condition_periods_are_multistable() -> None:
+    period_two = DynamicsClassification(
+        OrbitLabel.PERIODIC, 2, 0.9, "period two", ("test",)
+    )
+    period_three = DynamicsClassification(
+        OrbitLabel.PERIODIC, 3, 0.8, "period three", ("test",)
+    )
+    result = combine_initial_conditions([period_two, period_three])
+    assert result.label == OrbitLabel.MULTISTABLE
+    assert set(result.evidence) == {"periodic:p2", "periodic:p3"}

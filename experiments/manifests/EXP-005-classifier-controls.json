@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.classifier-controls.v1",
+  "experiment_id": "EXP-005",
+  "source": {
+    "paper": "Barrio, Blesa, and Serrano, Physical Review Letters 108, 214102 (2012)",
+    "figure": "Figure 2",
+    "doi": "10.1103/PhysRevLett.108.214102"
+  },
+  "fixed_parameters": {"b": 0.2, "c": 20.0},
+  "initial_state": [0.0, 4.0, 0.0],
+  "cases": [
+    {"a": 0.11, "expected_label": "chaotic", "paper_role": "chaotic attractor"},
+    {"a": 0.118, "expected_label": "periodic", "paper_role": "stable orbit with chaotic saddle"},
+    {"a": 0.149, "expected_label": "periodic", "paper_role": "stable orbit with chaotic saddle"},
+    {"a": 0.2, "expected_label": "chaotic", "paper_role": "chaotic attractor"}
+  ],
+  "crossings": {
+    "transient": 1000.0,
+    "observation_horizon": 1000.0,
+    "max_crossings": 120,
+    "max_period": 24,
+    "required_repeats": 5,
+    "atol": 1e-6,
+    "rtol": 1e-7
+  },
+  "lyapunov": {
+    "transient": 1000.0,
+    "duration": 1000.0,
+    "qr_interval": 0.5,
+    "blocks": 5
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  }
+}

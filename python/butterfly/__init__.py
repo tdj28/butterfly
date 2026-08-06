@@ -1,6 +1,14 @@
 """Reference numerical implementation for the Butterfly research program."""
 
-from .classify import OrbitLabel, PeriodClassification, classify_fundamental_period
+from .classify import (
+    DynamicsClassification,
+    DynamicsThresholds,
+    OrbitLabel,
+    PeriodClassification,
+    classify_fundamental_period,
+    classify_with_lyapunov,
+    combine_initial_conditions,
+)
 from .integrate import SolverConfig, Trajectory, integrate_trajectory
 from .lyapunov import (
     LargestLyapunovResult,
@@ -27,6 +35,8 @@ from .scan import ScanManifest, execute_scan, run_scan
 
 __all__ = [
     "OrbitLabel",
+    "DynamicsClassification",
+    "DynamicsThresholds",
     "LyapunovConfig",
     "LyapunovResult",
     "LargestLyapunovResult",
@@ -41,6 +51,8 @@ __all__ = [
     "execute_scan",
     "collect_crossings",
     "classify_fundamental_period",
+    "classify_with_lyapunov",
+    "combine_initial_conditions",
     "integrate_trajectory",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",
