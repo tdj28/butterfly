@@ -19,6 +19,9 @@ what must be narrowed, and what is false or unresolved.
   roadmap.
 - [`world-class-roadmap.md`](world-class-roadmap.md): long-range scientific and
   platform program, including multi-attractor expansion.
+- [`ai-research-program.md`](ai-research-program.md): gated topology-aware AI
+  program for quotient discovery, active search, symbolic rules, and selective
+  certification.
 - [`compute/runpod-strategy.md`](compute/runpod-strategy.md): GPU workload,
   provenance, cost-gate, resumability, and teardown design for rented compute.
 - [`reviews/2026-08-06-paper-evaluation.md`](reviews/2026-08-06-paper-evaluation.md):
@@ -39,6 +42,8 @@ what must be narrowed, and what is false or unresolved.
   interpolated section crossings and conservative minimal-period detection.
 - [`experiments/EXP-003-tiny-hub-scan.md`](experiments/EXP-003-tiny-hub-scan.md):
   frozen tiny-grid scan and hash-verifiable artifact receipt qualification.
+- [`experiments/EXP-004-reference-lyapunov.md`](experiments/EXP-004-reference-lyapunov.md):
+  full variational-equation/QR Lyapunov spectrum and convergence boundary.
 
 ## Evidence states
 

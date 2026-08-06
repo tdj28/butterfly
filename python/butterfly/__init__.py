@@ -2,6 +2,7 @@
 
 from .classify import OrbitLabel, PeriodClassification, classify_fundamental_period
 from .integrate import SolverConfig, Trajectory, integrate_trajectory
+from .lyapunov import LyapunovConfig, LyapunovResult, lyapunov_spectrum
 from .models import (
     RosslerParameters,
     equilibrium_eigenvalues,
@@ -19,6 +20,8 @@ from .scan import ScanManifest, execute_scan, run_scan
 
 __all__ = [
     "OrbitLabel",
+    "LyapunovConfig",
+    "LyapunovResult",
     "PeriodClassification",
     "RosslerParameters",
     "PoincareCrossings",
@@ -31,6 +34,7 @@ __all__ = [
     "collect_crossings",
     "classify_fundamental_period",
     "integrate_trajectory",
+    "lyapunov_spectrum",
     "rossler_equilibria",
     "rossler_jacobian",
     "rossler_rhs",

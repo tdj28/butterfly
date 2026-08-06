@@ -17,7 +17,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   escape/failure/unresolved labels, confidence, and synthetic tests exist;
   Lyapunov/convergence rules for chaotic/quasiperiodic/multistable remain.
 - [ ] **P0-006 — Lyapunov spectrum.** Variational equations, QR cadence,
-  convergence diagnostics, and cross-check against an independent implementation.
+  running convergence diagnostics, equilibrium validation, and trace identity
+  exist; declared horizon/tolerance sweep and independent cross-check remain.
 - [ ] **P0-007 — Reproducible scan artifacts.** Frozen manifests, atomic local
   result/receipt writes, hashes, and one-command tiny-grid scan exist; immutable
   multi-shard storage, resume, schema files, and archival promotion remain.
@@ -54,6 +55,28 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   chaotic flows before scaling the registry.
 - [ ] **P2-005 — Dozens-system atlas.** Curated systems, prospective parameter
   planes, negative results retained, uniform provenance and publication pipeline.
+
+## AI gates — structure discovery, not diagram decoration
+
+- [ ] **AI-000 — Numerical-oracle gate.** Complete P0 plus continuation of the
+  known two-to-three transition, unstable periodic orbits, and chaotic saddles.
+- [ ] **AI-001 — Quotient plausibility.** Test dimensional separation,
+  invariant fibers/cones, transverse contraction, section robustness, local
+  chart overlap, and parameter gauge alignment. Permit a negative result.
+- [ ] **AI-002 — Constrained quotient baselines.** Compare fixed projections,
+  principal/local manifold coordinates, constrained splines, and sparse maps
+  before an invertible neural model.
+- [ ] **AI-003 — Parameterized quotient positive control.** Recover the known
+  transition on contiguous held-out regions without hallucinated branches.
+- [ ] **AI-004 — Calibrated active search.** Beat or add information beyond
+  uniform grids, quadtrees, continuation, GP level sets, and unconstrained ML.
+- [ ] **AI-005 — Prospective symbolic grammar.** Commit held-out itinerary
+  predictions, then verify them with exact orbit continuation.
+- [ ] **AI-006 — New structure and certification.** Require a genuinely new
+  prospectively verified branch/symbolic/global-bifurcation result and certify
+  a decisive subset with validated numerics.
+- [ ] **AI-007 — Optional observation-only study.** Partial/noisy observations,
+  delay-coordinate sections, and later circuit data; not a core dependency.
 
 ## Checkpoint policy
 
