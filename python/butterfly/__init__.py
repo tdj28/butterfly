@@ -5,8 +5,10 @@ from .classify import (
     DynamicsThresholds,
     OrbitLabel,
     PeriodClassification,
+    RecurrenceCandidate,
     classify_fundamental_period,
     classify_with_lyapunov,
+    closest_recurrence_candidate,
     combine_initial_conditions,
 )
 from .integrate import SolverConfig, Trajectory, integrate_trajectory
@@ -48,6 +50,7 @@ __all__ = [
     "LyapunovResult",
     "LargestLyapunovResult",
     "PeriodClassification",
+    "RecurrenceCandidate",
     "RosslerParameters",
     "PoincareCrossings",
     "PoincareSection",
@@ -63,6 +66,7 @@ __all__ = [
     "classify_fundamental_period",
     "classify_with_lyapunov",
     "combine_initial_conditions",
+    "closest_recurrence_candidate",
     "integrate_trajectory",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",

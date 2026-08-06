@@ -5,8 +5,20 @@ from butterfly.classify import (
     OrbitLabel,
     classify_fundamental_period,
     classify_with_lyapunov,
+    closest_recurrence_candidate,
     combine_initial_conditions,
 )
+
+
+def test_closest_recurrence_candidate_finds_exact_fundamental_pattern() -> None:
+    pattern = np.array([[0.0, 0.0], [1.0, 0.5], [-0.5, 0.25]])
+    crossings = np.tile(pattern, (6, 1))
+    candidate = closest_recurrence_candidate(
+        crossings, max_period=8, required_repeats=4
+    )
+    assert candidate is not None
+    assert candidate.period == 3
+    assert candidate.normalized_error == 0.0
 
 
 def test_exact_fundamental_period_three() -> None:

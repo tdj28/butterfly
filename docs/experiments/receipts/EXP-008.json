@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.forced-resume-qualification.v1",
+  "experiment_id": "EXP-008",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "7704ab4acd479f8a80b79ef4c30922b27b6447c6",
+    "dirty": false
+  },
+  "manifest_sha256": "7a78bdb10213053c11699f354b17c8221afe78a6f6a38c17eaa31f1782d4d11d",
+  "plan_hash": "06c27707114bf99190344252980444be72e3f8cf72a99af9f58c10af615ed555",
+  "tile_id": "a4aefca1e203009a89239a053229fea296a9537f1a69054a94bd5b2d273f5a63",
+  "tile_index": 0,
+  "tile_count": 2,
+  "point_indices": [0, 1],
+  "kill_after_seconds": 0.5,
+  "killed_worker_returncode": -9,
+  "completion_existed_after_kill": false,
+  "restart_returncode": 0,
+  "restart_elapsed_seconds": 5.470333917066455,
+  "restart_row_count": 2,
+  "result_sha256": "97b7fc00628286ac193c2d44c52bb681be1f63c90277cf693e224d697601f272",
+  "completion_sha256": "12c0bb76b9d5939688d55b1d76c46c1143a3aeb5f51aa45ac03544a9d6831017",
+  "artifact_sha256": "93122df414dea4606b7aacf063bb292d24ac7dbb86c73aa70ef91b9a2c59fc0b",
+  "limitation": "Local process-kill path only; remote container and storage repetition remains required."
+}

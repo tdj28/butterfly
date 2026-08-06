@@ -79,6 +79,8 @@ def test_resolved_scan_records_lyapunov_evidence(tmp_path: Path) -> None:
     assert len(row["lyapunov_exponents"]) == 3
     assert len(row["lyapunov_block_standard_error"]) == 3
     assert row["classification_reason"]
+    assert row["candidate_period"] is not None
+    assert row["candidate_normalized_error"] is not None
 
 
 def test_v2_manifest_requires_complete_lyapunov_configuration() -> None:

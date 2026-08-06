@@ -19,6 +19,7 @@ from .classify import (
     OrbitLabel,
     classify_fundamental_period,
     classify_with_lyapunov,
+    closest_recurrence_candidate,
 )
 from .integrate import SolverConfig
 from .lyapunov import LyapunovConfig, lyapunov_block_estimates, lyapunov_spectrum
@@ -212,6 +213,13 @@ def run_scan(
             atol=manifest.classifier_atol,
             rtol=manifest.classifier_rtol,
         )
+        candidate = closest_recurrence_candidate(
+            crossings.states,
+            max_period=manifest.classifier_max_period,
+            required_repeats=manifest.classifier_required_repeats,
+            atol=manifest.classifier_atol,
+            rtol=manifest.classifier_rtol,
+        )
         row: dict[str, Any] = {
             "a": parameters.a,
             "b": parameters.b,
@@ -224,6 +232,16 @@ def run_scan(
             "recurrence_label": recurrence.label.value,
             "recurrence_error": recurrence.recurrence_error,
             "recurrence_tolerance": recurrence.recurrence_tolerance,
+            "candidate_period": candidate.period if candidate is not None else None,
+            "candidate_recurrence_error": (
+                candidate.error if candidate is not None else None
+            ),
+            "candidate_recurrence_tolerance": (
+                candidate.tolerance if candidate is not None else None
+            ),
+            "candidate_normalized_error": (
+                candidate.normalized_error if candidate is not None else None
+            ),
             "crossing_count": len(crossings.times),
             "integration_success": crossings.integration_success,
             "integration_message": crossings.integration_message,

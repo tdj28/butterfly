@@ -43,9 +43,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P1-003 — Cheap NVIDIA qualification.** One cost-capped pod, environment
   receipt, measured throughput, artifact retrieval, hash verification, teardown.
 - [ ] **P1-004 — Forced-kill/resume test.** Immutable tile IDs, atomic completion,
-  corruption rejection, simulated interrupted-write recovery, and verified
-  completed-tile restart pass locally. An actual mid-tile process kill and the
-  remote-stack repetition remain required before interruptible production use.
+  corruption rejection, simulated interrupted-write recovery, and an actual
+  mid-computation process kill/restart pass locally. Remote container/storage
+  repetition remains required before interruptible production use.
 - [ ] **P1-005 — Continuation layer.** Hopf/equilibrium/periodic-orbit branches,
   Floquet multipliers, TBA/TTL curve, topology-change locus, independent cross-check.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and

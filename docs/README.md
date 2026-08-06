@@ -54,6 +54,8 @@ what must be narrowed, and what is false or unresolved.
   immutable tile, verified resume, corruption, and aggregation qualification.
 - [`experiments/EXP-008-forced-resume.md`](experiments/EXP-008-forced-resume.md):
   real local worker interruption and verified restart qualification.
+- [`experiments/EXP-009-fine-candidate-search.md`](experiments/EXP-009-fine-candidate-search.md):
+  tiled `41 x 41` recurrence and near-recurrence candidate discovery run.
 
 ## Evidence states
 

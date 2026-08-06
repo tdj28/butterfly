@@ -31,6 +31,14 @@ class PeriodClassification:
 
 
 @dataclass(frozen=True, slots=True)
+class RecurrenceCandidate:
+    period: int
+    error: float
+    tolerance: float
+    normalized_error: float
+
+
+@dataclass(frozen=True, slots=True)
 class DynamicsThresholds:
     chaos_min: float = 1e-3
     zero_tolerance: float = 5e-3
@@ -153,6 +161,45 @@ def classify_fundamental_period(
         len(values),
         "no fundamental period passed; chaos/quasiperiodicity not inferred",
     )
+
+
+def closest_recurrence_candidate(
+    crossings: ArrayLike,
+    *,
+    max_period: int = 64,
+    required_repeats: int = 4,
+    atol: float = 1e-7,
+    rtol: float = 1e-7,
+) -> RecurrenceCandidate | None:
+    """Return the best normalized near-recurrence without declaring a period.
+
+    This diagnostic is intended for candidate prioritization. A small ratio is
+    not itself a periodic classification and must be confirmed at a longer
+    horizon and with stability evidence.
+    """
+
+    values = np.asarray(crossings, dtype=np.float64)
+    if values.ndim == 1:
+        values = values[:, None]
+    if values.ndim != 2:
+        raise ValueError("crossings must be a one- or two-dimensional sequence")
+    if max_period < 1 or required_repeats < 2 or atol <= 0.0 or rtol < 0.0:
+        raise ValueError("invalid recurrence candidate configuration")
+    if len(values) == 0 or not np.all(np.isfinite(values)):
+        return None
+    largest_testable = min(max_period, len(values) // (required_repeats + 1))
+    best: RecurrenceCandidate | None = None
+    for period in range(1, largest_testable + 1):
+        samples_used = period * (required_repeats + 1)
+        tail = values[-samples_used:]
+        differences = tail[period:] - tail[:-period]
+        error = float(np.max(np.linalg.norm(differences, axis=1)))
+        scale = max(float(np.max(np.linalg.norm(tail, axis=1))), 1.0)
+        tolerance = float(atol + rtol * scale)
+        candidate = RecurrenceCandidate(period, error, tolerance, error / tolerance)
+        if best is None or candidate.normalized_error < best.normalized_error:
+            best = candidate
+    return best
 
 
 def classify_with_lyapunov(
