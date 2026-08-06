@@ -173,106 +173,125 @@ def git_value(*arguments: str) -> str | None:
         return None
 
 
-def run_scan(manifest: ScanManifest) -> list[dict[str, Any]]:
+def parameter_grid(manifest: ScanManifest) -> list[RosslerParameters]:
+    """Return the deterministic row-major parameter grid."""
+
+    return [
+        RosslerParameters(a=float(a), b=manifest.b, c=float(c))
+        for a in np.linspace(manifest.a_min, manifest.a_max, manifest.a_count)
+        for c in np.linspace(manifest.c_min, manifest.c_max, manifest.c_count)
+    ]
+
+
+def run_scan(
+    manifest: ScanManifest, point_indices: tuple[int, ...] | None = None
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    for a in np.linspace(manifest.a_min, manifest.a_max, manifest.a_count):
-        for c in np.linspace(manifest.c_min, manifest.c_max, manifest.c_count):
-            parameters = RosslerParameters(a=float(a), b=manifest.b, c=float(c))
-            section = legacy_rossler_section(parameters)
-            crossings = collect_crossings(
+    grid = parameter_grid(manifest)
+    selected = tuple(range(len(grid))) if point_indices is None else point_indices
+    if len(set(selected)) != len(selected):
+        raise ValueError("point indices must be unique")
+    if any(index < 0 or index >= len(grid) for index in selected):
+        raise ValueError("point index outside manifest grid")
+    for point_index in selected:
+        parameters = grid[point_index]
+        section = legacy_rossler_section(parameters)
+        crossings = collect_crossings(
+            parameters,
+            manifest.initial_state,
+            section,
+            transient=manifest.transient,
+            observation_horizon=manifest.observation_horizon,
+            max_crossings=manifest.max_crossings,
+            config=manifest.solver,
+        )
+        recurrence = classify_fundamental_period(
+            crossings.states,
+            max_period=manifest.classifier_max_period,
+            required_repeats=manifest.classifier_required_repeats,
+            atol=manifest.classifier_atol,
+            rtol=manifest.classifier_rtol,
+        )
+        row: dict[str, Any] = {
+            "a": parameters.a,
+            "b": parameters.b,
+            "c": parameters.c,
+            "label": recurrence.label.value,
+            "fundamental_period": recurrence.fundamental_period,
+            "confidence": recurrence.confidence,
+            "classification_reason": recurrence.reason,
+            "classification_evidence": ["period-recurrence"],
+            "recurrence_label": recurrence.label.value,
+            "recurrence_error": recurrence.recurrence_error,
+            "recurrence_tolerance": recurrence.recurrence_tolerance,
+            "crossing_count": len(crossings.times),
+            "integration_success": crossings.integration_success,
+            "integration_message": crossings.integration_message,
+            "lyapunov_success": None,
+            "lyapunov_exponents": None,
+            "lyapunov_block_standard_error": None,
+            "lyapunov_trace_identity_error": None,
+        }
+        if point_indices is not None:
+            row["point_index"] = point_index
+        if not crossings.integration_success:
+            row.update(
+                {
+                    "label": OrbitLabel.NUMERICAL_FAILURE.value,
+                    "fundamental_period": None,
+                    "confidence": 0.0,
+                    "classification_reason": crossings.integration_message,
+                    "classification_evidence": ["crossing-integration-failure"],
+                }
+            )
+        elif manifest.lyapunov_duration is not None:
+            assert manifest.lyapunov_transient is not None
+            assert manifest.lyapunov_qr_interval is not None
+            assert manifest.lyapunov_blocks is not None
+            spectrum = lyapunov_spectrum(
                 parameters,
                 manifest.initial_state,
-                section,
-                transient=manifest.transient,
-                observation_horizon=manifest.observation_horizon,
-                max_crossings=manifest.max_crossings,
-                config=manifest.solver,
+                config=LyapunovConfig(
+                    transient=manifest.lyapunov_transient,
+                    duration=manifest.lyapunov_duration,
+                    qr_interval=manifest.lyapunov_qr_interval,
+                    solver=manifest.solver,
+                ),
             )
-            recurrence = classify_fundamental_period(
-                crossings.states,
-                max_period=manifest.classifier_max_period,
-                required_repeats=manifest.classifier_required_repeats,
-                atol=manifest.classifier_atol,
-                rtol=manifest.classifier_rtol,
-            )
-            row: dict[str, Any] = {
-                "a": parameters.a,
-                "b": parameters.b,
-                "c": parameters.c,
-                "label": recurrence.label.value,
-                "fundamental_period": recurrence.fundamental_period,
-                "confidence": recurrence.confidence,
-                "classification_reason": recurrence.reason,
-                "classification_evidence": ["period-recurrence"],
-                "recurrence_label": recurrence.label.value,
-                "recurrence_error": recurrence.recurrence_error,
-                "recurrence_tolerance": recurrence.recurrence_tolerance,
-                "crossing_count": len(crossings.times),
-                "integration_success": crossings.integration_success,
-                "integration_message": crossings.integration_message,
-                "lyapunov_success": None,
-                "lyapunov_exponents": None,
-                "lyapunov_block_standard_error": None,
-                "lyapunov_trace_identity_error": None,
-            }
-            if not crossings.integration_success:
+            row["lyapunov_success"] = spectrum.success
+            row["lyapunov_trace_identity_error"] = spectrum.trace_identity_error
+            if spectrum.success and spectrum.qr_steps >= manifest.lyapunov_blocks:
+                blocks = lyapunov_block_estimates(
+                    spectrum, blocks=manifest.lyapunov_blocks
+                )
+                standard_error = np.std(blocks, axis=0, ddof=1) / np.sqrt(
+                    len(blocks)
+                )
+                dynamics = classify_with_lyapunov(
+                    recurrence, spectrum.exponents, standard_error
+                )
+                row.update(
+                    {
+                        "label": dynamics.label.value,
+                        "fundamental_period": dynamics.fundamental_period,
+                        "confidence": dynamics.confidence,
+                        "classification_reason": dynamics.reason,
+                        "classification_evidence": list(dynamics.evidence),
+                        "lyapunov_exponents": spectrum.exponents.tolist(),
+                        "lyapunov_block_standard_error": standard_error.tolist(),
+                    }
+                )
+            else:
                 row.update(
                     {
                         "label": OrbitLabel.NUMERICAL_FAILURE.value,
                         "fundamental_period": None,
                         "confidence": 0.0,
-                        "classification_reason": crossings.integration_message,
-                        "classification_evidence": ["crossing-integration-failure"],
+                        "classification_reason": spectrum.message,
+                        "classification_evidence": ["lyapunov-failure"],
                     }
                 )
-            elif manifest.lyapunov_duration is not None:
-                assert manifest.lyapunov_transient is not None
-                assert manifest.lyapunov_qr_interval is not None
-                assert manifest.lyapunov_blocks is not None
-                spectrum = lyapunov_spectrum(
-                    parameters,
-                    manifest.initial_state,
-                    config=LyapunovConfig(
-                        transient=manifest.lyapunov_transient,
-                        duration=manifest.lyapunov_duration,
-                        qr_interval=manifest.lyapunov_qr_interval,
-                        solver=manifest.solver,
-                    ),
-                )
-                row["lyapunov_success"] = spectrum.success
-                row["lyapunov_trace_identity_error"] = spectrum.trace_identity_error
-                if spectrum.success and spectrum.qr_steps >= manifest.lyapunov_blocks:
-                    blocks = lyapunov_block_estimates(
-                        spectrum, blocks=manifest.lyapunov_blocks
-                    )
-                    standard_error = np.std(blocks, axis=0, ddof=1) / np.sqrt(
-                        len(blocks)
-                    )
-                    dynamics = classify_with_lyapunov(
-                        recurrence, spectrum.exponents, standard_error
-                    )
-                    row.update(
-                        {
-                            "label": dynamics.label.value,
-                            "fundamental_period": dynamics.fundamental_period,
-                            "confidence": dynamics.confidence,
-                            "classification_reason": dynamics.reason,
-                            "classification_evidence": list(dynamics.evidence),
-                            "lyapunov_exponents": spectrum.exponents.tolist(),
-                            "lyapunov_block_standard_error": standard_error.tolist(),
-                        }
-                    )
-                else:
-                    row.update(
-                        {
-                            "label": OrbitLabel.NUMERICAL_FAILURE.value,
-                            "fundamental_period": None,
-                            "confidence": 0.0,
-                            "classification_reason": spectrum.message,
-                            "classification_evidence": ["lyapunov-failure"],
-                        }
-                    )
-            rows.append(row)
+        rows.append(row)
     return rows
 
 

@@ -32,6 +32,13 @@ from .poincare import (
     legacy_rossler_section,
 )
 from .scan import ScanManifest, execute_scan, run_scan
+from .tiles import (
+    TileSpec,
+    aggregate_scan_tiles,
+    execute_scan_tile,
+    verify_completed_aggregate,
+    verify_completed_tile,
+)
 
 __all__ = [
     "OrbitLabel",
@@ -47,8 +54,11 @@ __all__ = [
     "SolverConfig",
     "ScanManifest",
     "Trajectory",
+    "TileSpec",
+    "aggregate_scan_tiles",
     "equilibrium_eigenvalues",
     "execute_scan",
+    "execute_scan_tile",
     "collect_crossings",
     "classify_fundamental_period",
     "classify_with_lyapunov",
@@ -61,5 +71,7 @@ __all__ = [
     "rossler_jacobian",
     "rossler_rhs",
     "run_scan",
+    "verify_completed_tile",
+    "verify_completed_aggregate",
     "legacy_rossler_section",
 ]

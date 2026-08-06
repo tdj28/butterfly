@@ -20,6 +20,7 @@ from .lyapunov import (
 )
 from .models import RosslerParameters, equilibrium_eigenvalues, rossler_equilibria
 from .scan import atomic_write, canonical_json, execute_scan, git_value
+from .tiles import aggregate_scan_tiles, execute_scan_tile
 
 
 def _complex_rows(values: np.ndarray) -> list[list[dict[str, float]]]:
@@ -194,6 +195,15 @@ def main(argv: list[str] | None = None) -> int:
     scan_parser = subparsers.add_parser("scan", help="execute a frozen CPU scan manifest")
     scan_parser.add_argument("--manifest", type=Path, required=True)
     scan_parser.add_argument("--output-dir", type=Path, required=True)
+    tiled_parser = subparsers.add_parser(
+        "tiled-scan", help="execute or resume immutable scan tiles"
+    )
+    tiled_parser.add_argument("--manifest", type=Path, required=True)
+    tiled_parser.add_argument("--output-root", type=Path, required=True)
+    tiled_parser.add_argument("--tile-count", type=int, required=True)
+    tiled_parser.add_argument("--tile-index", type=int)
+    tiled_parser.add_argument("--resume", action="store_true")
+    tiled_parser.add_argument("--allow-dirty", action="store_true")
     lyapunov_parser = subparsers.add_parser(
         "lyapunov", help="compute a variational-equation/QR Lyapunov receipt"
     )
@@ -219,6 +229,35 @@ def main(argv: list[str] | None = None) -> int:
         return verify(args.output)
     if args.command == "scan":
         receipt = execute_scan(args.manifest, args.output_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+    if args.command == "tiled-scan":
+        require_clean = not args.allow_dirty
+        if args.tile_index is not None:
+            receipt = execute_scan_tile(
+                args.manifest,
+                args.output_root,
+                tile_index=args.tile_index,
+                tile_count=args.tile_count,
+                resume=args.resume,
+                require_clean=require_clean,
+            )
+        else:
+            for tile_index in range(args.tile_count):
+                execute_scan_tile(
+                    args.manifest,
+                    args.output_root,
+                    tile_index=tile_index,
+                    tile_count=args.tile_count,
+                    resume=args.resume,
+                    require_clean=require_clean,
+                )
+            receipt = aggregate_scan_tiles(
+                args.manifest,
+                args.output_root,
+                tile_count=args.tile_count,
+                require_clean=require_clean,
+            )
         print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
     if args.command == "lyapunov":

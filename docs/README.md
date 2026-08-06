@@ -12,6 +12,8 @@ what must be narrowed, and what is false or unresolved.
 
 ## Documents
 
+- [`updates/`](updates/): dated progress summaries, evidence, limits, source
+  checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.
 - [`claim-ledger.md`](claim-ledger.md): authoritative list of scientific claims,
   their present evidence state, and their acceptance tests.
@@ -48,6 +50,8 @@ what must be narrowed, and what is false or unresolved.
   real chaotic/periodic positive controls from the 2012 PRL.
 - [`experiments/EXP-006-resolved-hub-pilot.md`](experiments/EXP-006-resolved-hub-pilot.md):
   first small hub-region atlas with combined recurrence/Lyapunov evidence.
+- [`experiments/EXP-007-tiled-resume.md`](experiments/EXP-007-tiled-resume.md):
+  immutable tile, verified resume, corruption, and aggregation qualification.
 
 ## Evidence states
 
