@@ -60,3 +60,9 @@ those and confirmed common capture at a fourth boundary case. One candidate at
 `(a,b,c)=(0.245,0.2,5.75)` retained distinct period-12 and period-3 endpoints
 through transient 19,200. EXP-016 now asks whether both cycles are transversely
 stable under independent Floquet diagnostics.
+
+EXP-016 passed both Floquet gates. EXP-017 then sampled a declared `21 x 21`
+initial-condition plane: all 441 seeds converged, with 282 period-12 and 159
+period-3 outcomes. Nearly half of four-neighbor edges switch basin at this
+coarse scale. The next basin task is scale-dependent uncertainty measurement,
+not a premature fractal/riddled label.

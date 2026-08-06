@@ -51,6 +51,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   and passes: flow closure is below `7e-12` and leading transverse multipliers
   have moduli `0.3141` and `0.8807`. CLM-019 now requires basin mapping,
   independent orbit correction, and continuation of both overlapping families.
+  EXP-017 resolves all 441 basin-plane seeds into periods 12 or 3 and finds a
+  `0.47024` discordant-neighbor fraction; uncertainty-exponent scaling is next,
+  without prematurely calling the boundary fractal or riddled.
 
 ## P1 — GPU qualification and bifurcation geometry
 
