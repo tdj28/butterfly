@@ -78,6 +78,8 @@ what must be narrowed, and what is false or unresolved.
   closure and Floquet gate for the retained period-12/period-3 coexistence case.
 - [`experiments/EXP-017-periodic-coexistence-basin.md`](experiments/EXP-017-periodic-coexistence-basin.md):
   declared initial-condition basin section for the two stable cycles.
+- [`experiments/EXP-018-gpu-crossing-parity.md`](experiments/EXP-018-gpu-crossing-parity.md):
+  paid Float64 GPU parity gate for Poincare crossings and period labels.
 
 ## Evidence states
 

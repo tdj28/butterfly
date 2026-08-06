@@ -60,8 +60,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [x] **P1-001 — Safe Runpod control script.** API key remains outside Git;
   list/catalog/launch/status/terminate commands; duplicate and hourly-cost gates.
 - [ ] **P1-002 — GPU ensemble kernel.** Short-horizon endpoint kernel and parity
-  gate exist; still required: manifest binding, compact Poincaré/classification
-  observables, and deterministic production inputs.
+  gate exist. EXP-018 adds a manifest-bound Triton Float64 kernel for compact
+  interpolated Poincare crossings and recurrence-period parity on six stable
+  controls; paid qualification remains.
 - [ ] **P1-003 — Cheap NVIDIA qualification.** One cost-capped pod, environment
   receipt, measured throughput, artifact retrieval, hash verification, teardown.
 - [ ] **P1-004 — Forced-kill/resume test.** Immutable tile IDs, atomic completion,
