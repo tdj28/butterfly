@@ -1,0 +1,12 @@
+{
+  "schema":"butterfly.identity-constrained-b-continuation-manifest.v1",
+  "experiment_id":"EXP-050",
+  "source_orbit_receipt_sha256":"bc0f1501e96f8f5cf1a08173ea392c4abcb4f5f717de2b8f60e9af23f5679d28",
+  "source_family_id":"persistent-period5-middle-c",
+  "seed":{"a":0.245,"b":0.2,"c":5.1},
+  "expected_crossing_count":5,
+  "solver":{"method":"DOP853","rtol":1e-11,"atol":1e-13,"max_step":0.02},
+  "corrector":{"max_evaluations":80,"tolerance":1e-10},
+  "continuation":{"b_min":0.12,"b_max":0.30,"nominal_step":0.0025,"minimum_step":0.00001953125},
+  "acceptance":{"minimum_accepted_points":10,"minimum_points_each_direction":2,"minimum_rejected_identity_trials":1,"max_closure_error":1e-8}
+}
