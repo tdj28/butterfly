@@ -120,6 +120,8 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-039-separated-normal-form.md`](experiments/EXP-039-separated-normal-form.md):
   separated-point branch identity and prospective normal-form scaling on the
   event surface.
+- [`experiments/EXP-040-fold-normal-form.md`](experiments/EXP-040-fold-normal-form.md):
+  the same prospective qualification at the event curve's minimum-`b` fold.
 
 ## Evidence states
 

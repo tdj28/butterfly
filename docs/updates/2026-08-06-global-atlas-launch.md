@@ -194,3 +194,13 @@ frozen offset, separation scales with exponent `0.4986728`
 pitchfork-like quotient normal form is therefore supported at two separated
 surface points. Symmetry proof and behavior near the folded portion remain
 open.
+
+EXP-040 moved the identical qualification to the minimum-`b` fold of the
+fixed-`c` event curve at `(a,b,c)=(0.2185131,0.2031698,5.1)`. It again recovered
+one secondary geometric cycle from two phase representations, all-point
+stability exchange, separation exponent `0.4928778` (`R^2=0.9999691`), and
+median multiplier ratio `1.99691`. The fold therefore changes slice
+multiplicity without destroying the tested local mechanism. The outstanding
+theory problem is why the phase-fixed shooting system realizes this
+pitchfork-like square-root structure despite no established exact spatial
+symmetry.

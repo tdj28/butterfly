@@ -98,6 +98,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `R^2=0.9999989`, multiplier ratio `1.9851`, and stability exchange at every
   frozen offset. The pitchfork-like mechanism now persists at two surface
   points; qualification near a fold and validated local reduction remain.
+  EXP-040 passes the same gates at the event curve's minimum-`b` fold:
+  exponent `0.49288`, `R^2=0.9999691`, ratio `1.99691`, and all-point stability
+  exchange. The next theoretical target is the phase/gauge or symmetry
+  structure behind the square-root normal form, followed by validated samples.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -1,6 +1,6 @@
 # EXP-040 — Normal-form qualification at the event-curve b fold
 
-Status: preregistered; pending clean local execution
+Status: executed; passed
 Manifest: `experiments/manifests/EXP-040-fold-normal-form.json`
 Claim target: persistence or change of the pitchfork-like mechanism near a fold
 
@@ -29,3 +29,34 @@ Passing supports persistence of the local mechanism at the surface fold.
 Failure may instead reveal a changed unfolding, wrong positive control side,
 or a branch-switch resolution problem; those possibilities must be separated
 before interpreting a failed gate as changed dynamics.
+
+## Result
+
+The clean run at commit `f48476b6ec0b72786d19c69a8f57a8f137ced4c2`
+passed all frozen gates. Both coordinate directions supplied all 24 switched
+points. At the largest offset the representations align to phase-invariant RMS
+`7.56e-8`; stability exchange holds at all five offsets; maximum closure is
+`1.05e-12`.
+
+The separation exponent is `0.49287781` with `R^2=0.99996910`. The multiplier-
+deviation ratio has median `1.99691` and range `[1.98817,1.99922]`, even closer
+to the cubic normal-form value two than at the two nonfold samples. The complete
+receipt SHA-256 is
+`d2a143549fe085c16ce318c8178ff659541469fc87c83bea2ed67aac8b20cd28`.
+
+The three-point comparison is
+`artifacts/EXP-040/EXP-031-039-040-normal-form-comparison.png` (SHA-256
+`5838e807b172fcdb30254320852c68edf80451f467804409b232f86e1b9233c8`).
+
+## Decision
+
+Accept persistence of the supercritical pitchfork-like quotient normal form at
+the event-curve minimum in `b`. The fold changes how the event set intersects
+parameter slices but does not destroy the observed branch opening or stability
+exchange. This directly supports a mechanism for repeated windows: one folded
+event set can produce multiple slice crossings, each carrying the same local
+stability-exchange structure.
+
+The word “pitchfork-like” remains essential. The two switched coordinates are
+phase copies of one secondary geometric cycle, and the exact symmetry or gauge
+structure behind the square-root normal form has not been derived.

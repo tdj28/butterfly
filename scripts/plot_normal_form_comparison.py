@@ -27,7 +27,7 @@ def scaling_rows(receipt: dict) -> list[dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--receipts", type=Path, nargs=2, required=True)
+    parser.add_argument("--receipts", type=Path, nargs="+", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--dpi", type=int, default=300)
     args = parser.parse_args()
@@ -43,7 +43,7 @@ def main() -> int:
     fig, (separation_axis, ratio_axis) = plt.subplots(
         1, 2, figsize=(10.5, 4.5), constrained_layout=True
     )
-    colors = ("tab:blue", "tab:orange")
+    colors = plt.colormaps["tab10"](np.linspace(0.0, 0.8, len(receipts)))
     for color, receipt in zip(colors, receipts, strict=True):
         rows = scaling_rows(receipt)
         mu = np.asarray([row["mu"] for row in rows], dtype=float)
@@ -52,9 +52,12 @@ def main() -> int:
         fit = receipt["separation_power_law"]
         predicted = np.exp(float(fit["intercept"])) * mu ** float(fit["exponent"])
         if "event" in receipt:
-            label = f"{receipt['experiment_id']}: c={receipt['event']['c']:.1f}"
+            label = (
+                f"{receipt['experiment_id']}: "
+                f"a={receipt['event']['a']:.4f}, c={receipt['event']['c']:.1f}"
+            )
         else:
-            label = f"{receipt['experiment_id']}: c=5.1"
+            label = f"{receipt['experiment_id']}: a=0.2450, c=5.1"
         separation_axis.loglog(mu, separation, "o", color=color, label=label)
         separation_axis.loglog(
             mu,
