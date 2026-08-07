@@ -156,6 +156,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-079-multiple-shooting-conditioning.md`](experiments/EXP-079-multiple-shooting-conditioning.md):
   32-segment recovery of the high-period flip singularity, establishing the
   numerical basis for the next multiple-shooting corrector.
+- [`experiments/EXP-093-scan-period640-predicted-flip.md`](experiments/EXP-093-scan-period640-predicted-flip.md):
+  prospective signed-Floquet confirmation of the frozen period-640 flip target
+  inside a `1e-8` bracket.
 
 ## Evidence states
 

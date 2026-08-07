@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.period640-block-floquet-scan-summary.v1",
+  "experiment_id": "EXP-093",
+  "passed": true,
+  "source_commit": "7b33167c940d2b02a057b402aba387e60cadd5d9",
+  "manifest_sha256": "bac32c0bfd3cd364cb02a2126151fc71732e24a41094df02302d29efa2382403",
+  "full_receipt_sha256": "759affdd469eac535c8ea46a7665e8265a7843db011da5dcf9e34ff5191cecc3",
+  "predicted_b": 0.17971219644700012,
+  "bracket": {
+    "upper_b": 0.1797122,
+    "lower_b": 0.17971219,
+    "width": 9.999999994736442e-9,
+    "midpoint": 0.179712195,
+    "prediction_error": -1.447000130827547e-9,
+    "upper_multiplier": -0.9741424958621526,
+    "lower_multiplier": -1.0467621112408927
+  },
+  "maximum_matching_residual": 1.7162342215578754e-12,
+  "minimum_half_node_rms": 0.00028506694065448713,
+  "interpretation": "the frozen period-640 prediction prospectively brackets a real signed -1 crossing; event refinement and a period-1280 child remain unestablished"
+}

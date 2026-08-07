@@ -157,7 +157,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   before allocating GPU spend.
   EXP-090/091 now switch and independently qualify a stable period-640 child.
   EXP-092 freezes the 640→1280 prediction at `b=0.1797121964470`; EXP-093 is
-  preregistered with bound source receipts and a signed 64-segment scan.
+  passed with a signed `-1` bracket `[0.17971219,0.17971220]` whose midpoint
+  misses the frozen prediction by `1.447e-9`. Refine the event with a bound
+  signed residual before attempting a period-1280 branch switch.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

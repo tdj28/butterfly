@@ -108,3 +108,11 @@ acceptance thresholds are frozen in
 `experiments/manifests/EXP-093-scan-period640-predicted-flip.json`. Passing
 requires a real signed `-1` bracket no wider than `2e-8`; neither a crossing of
 the multiplier modulus nor visual proximity to the prediction is sufficient.
+
+EXP-093 passed on the clean preregistration commit. The signed multiplier moves
+from `-0.97414250` at `b=0.17971220` to `-1.04676211` at
+`b=0.17971219`, while all nine matching residuals remain below `1.72e-12`.
+The `1e-8` bracket midpoint is only `1.447e-9` below the frozen prediction,
+about `0.49%` of the predicted event spacing. This is the third successful
+prospective cascade prediction, but it is still a bracket rather than a
+corrected eighth event. EXP-094 must refine the event before branch switching.

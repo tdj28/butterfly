@@ -1,6 +1,6 @@
 # EXP-093 — Scan the predicted period-640 flip
 
-Status: preregistered; not executed
+Status: executed; passed
 
 Bind the independently qualified EXP-091 period-640 orbit and the prospective
 EXP-092 period-640-to-1280 prediction by their full receipt hashes. Continue
@@ -23,3 +23,14 @@ Passing will establish only a prospective period-640 flip bracket. It will not
 establish the event at corrected precision or a period-1280 child. Those
 require an independently bound event refinement, branch switch, common-
 parameter identity comparison, and block-Floquet stability qualification.
+
+The clean run at `7b33167c940d2b02a057b402aba387e60cadd5d9` passed. All
+nine matching residuals are below `1.72e-12`, and every orbit stays distinct
+from its half-period representation by node RMS at least `2.85e-4`. The real
+dominant multiplier changes from `-0.97414250` at `b=0.17971220` to
+`-1.04676211` at `b=0.17971219`. The `1e-8` bracket midpoint misses the
+prospectively frozen prediction by only `1.447e-9`. Full receipt SHA-256:
+`759affdd469eac535c8ea46a7665e8265a7843db011da5dcf9e34ff5191cecc3`.
+
+EXP-094 must bind this bracket and refine the signed `-1` residual before any
+period-1280 branch switch is attempted.
