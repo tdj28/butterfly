@@ -25,8 +25,12 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.period640-segmented-qualification-manifest.v1":
-        raise SystemExit("unsupported period-640 qualification manifest")
+    supported_schemas = {
+        "butterfly.period640-segmented-qualification-manifest.v1",
+        "butterfly.segmented-child-qualification-manifest.v1",
+    }
+    if manifest.get("schema") not in supported_schemas:
+        raise SystemExit("unsupported segmented child qualification manifest")
     candidate_bytes = args.candidate.read_bytes()
     if sha256_bytes(candidate_bytes) != manifest["candidate_receipt_sha256"]:
         raise SystemExit("candidate receipt hash mismatch")
@@ -140,7 +144,9 @@ def main() -> int:
     moduli = [row["floquet"]["dominant_nontrivial_modulus"] for row in corrected_rows]
     acceptance = manifest["acceptance"]
     output = {
-        "schema": "butterfly.period640-segmented-qualification.v1",
+        "schema": manifest.get(
+            "output_schema", "butterfly.period640-segmented-qualification.v1"
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source": source,
