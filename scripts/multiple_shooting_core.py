@@ -142,3 +142,69 @@ def correct_arclength(
         "phase_residual": float(abs(residual[3 * segment_count])),
         "arclength_residual": float(abs(residual[-1])),
     }
+
+
+def correct_fixed_b(
+    initial_variables,
+    fixed_b,
+    *,
+    segment_count,
+    a,
+    c,
+    phase,
+    phase_reference,
+    solver,
+    tolerance,
+    max_evaluations,
+):
+    """Correct cyclic nodes and total duration while holding ``b`` fixed."""
+    cached_variables = None
+    cached_residual = None
+    cached_jacobian = None
+
+    def evaluate(variables):
+        nonlocal cached_variables, cached_residual, cached_jacobian
+        if cached_variables is not None and np.array_equal(variables, cached_variables):
+            return cached_residual, cached_jacobian
+        extended = np.r_[variables, fixed_b]
+        residual, jacobian = base_system(
+            extended,
+            segment_count=segment_count,
+            a=a,
+            c=c,
+            phase=phase,
+            phase_reference=phase_reference,
+            solver=solver,
+        )
+        cached_variables = variables.copy()
+        cached_residual = residual
+        cached_jacobian = jacobian[:, :-1]
+        return cached_residual, cached_jacobian
+
+    lower = np.full(len(initial_variables), -np.inf)
+    upper = np.full(len(initial_variables), np.inf)
+    lower[3 * segment_count] = 1e-12
+    solution = least_squares(
+        lambda value: evaluate(value)[0],
+        initial_variables,
+        jac=lambda value: evaluate(value)[1],
+        bounds=(lower, upper),
+        xtol=tolerance,
+        ftol=tolerance,
+        gtol=tolerance,
+        max_nfev=max_evaluations,
+        x_scale="jac",
+    )
+    residual, _ = evaluate(solution.x)
+    matching = residual[: 3 * segment_count]
+    return solution.x, {
+        "success": bool(
+            solution.success
+            and np.linalg.norm(matching) <= 1e-8
+            and abs(residual[-1]) <= 1e-8
+        ),
+        "message": solution.message,
+        "evaluations": int(solution.nfev),
+        "matching_residual": float(np.linalg.norm(matching)),
+        "phase_residual": float(abs(residual[-1])),
+    }

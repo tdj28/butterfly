@@ -1,7 +1,7 @@
 # High-period cascade frontier
 
 Date: 2026-08-07
-Status: multiple-shooting branch-switch validated; period-320 switch next
+Status: period-320 candidates found; independent stability qualification next
 
 ## Verified result entering this checkpoint
 
@@ -41,15 +41,21 @@ with full closure below `1.37e-12` and whole-orbit RMS between `2.57e-8` and
 `3.43e-6`. The segmented equations, event-nullspace split, branch predictor,
 and corrector are therefore validated before use at period 320.
 
+EXP-082 then passed at the 160→320 event. All eight 32-segment corrections
+converged below `1.90e-12`; four candidates in the frozen near-event window are
+distinct from the double-covered parent by two independent half-period tests.
+Both nullspace signs succeed, and the child/parent period ratio agrees with two
+to `2.53e-8`. This is the first reliable period-320 candidate set in the
+program. EXP-083 now freezes common-parameter orbit identity and a segmented
+Floquet calculation, validated first against the known period-80 child.
+
 ## Execution order
 
-1. Apply the validated segmented algorithm with 32 segments at the
-   precision-consistent 160→320 event.
-2. Continue and qualify any period-320 candidate independently; do not call the
-   sixth rung supercritical from branch switching alone.
-3. Feed the extended event sequence into a prospective accumulation-point and
+1. Require EXP-083 to identify both switch signs as one stable period-320
+   orbit using independently fixed-parameter segmented corrections.
+2. Feed the extended event sequence into a prospective accumulation-point and
    scaling analysis.
-4. In parallel with later computation, continue orbit-defined flip and
+3. In parallel with later computation, continue orbit-defined flip and
    return-section topology surfaces across the multi-`b` atlas. Raster shrimp
    morphology remains discovery evidence, not a substitute for continuation.
 

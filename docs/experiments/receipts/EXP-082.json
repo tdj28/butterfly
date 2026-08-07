@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.high-period-multiple-shooting-switch-summary.v1",
+  "experiment_id": "EXP-082",
+  "passed": true,
+  "source_commit": "130c641faf5df95f496b24882f18cf0ab6754bdb",
+  "manifest_sha256": "34c3d8866999787c4b241762df6f32ea7b4f2a9f9f5f697e7c05b82655697b31",
+  "full_receipt_sha256": "3f0c0b4290d93c4942455d3eb202ccb69c624f38e10f3077e53a4696f70981cd",
+  "segment_count": 32,
+  "attempt_count": 8,
+  "successful_correction_count": 8,
+  "accepted_candidate_count": 4,
+  "event_matching_residual": 2.2048870471761478e-9,
+  "event_smallest_singular_value": 8.50866829389637e-10,
+  "maximum_accepted_matching_residual": 9.977165674510772e-13,
+  "minimum_accepted_half_period_closure": 0.00012859024726392972,
+  "minimum_accepted_half_node_rms": 0.0005045761966373865,
+  "maximum_accepted_period_ratio_error": 2.5296146060054263e-8,
+  "interpretation": "validated segmented switching produces four distinct period-320 candidates; stability remains prospective"
+}
