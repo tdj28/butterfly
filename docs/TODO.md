@@ -72,8 +72,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P1-005 — Continuation layer.** Hopf/equilibrium/periodic-orbit branches,
   Floquet multipliers, TBA/TTL curve, topology-change locus, independent cross-check.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
-  brackets three `-1` and one `+1` multiplier crossings; fold-safe pseudo-
-  arclength, coupled boundary solves, equilibrium/Hopf, and TBA remain open.
+  brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
+  three period-doubling seeds but rejects the `+1` scalar solve because of
+  branch switching; fold-safe pseudo-arclength, coupled boundary solves,
+  equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.floquet-boundary-refinement-summary.v1",
+  "experiment_id": "EXP-024",
+  "passed": false,
+  "source_commit": "1715c1ebb89bd470c2ea955b48ca8fdce88c2a30",
+  "manifest_sha256": "963284e7173b19c68185983f3170e88e9369c0f08730749c86043a417e3be1ff",
+  "source_continuation_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "full_receipt_sha256": "e9d3250cd368c8110b61dc78ed52d673e1ef28c2e0ae4dfcaaaff379fc2e9ab8",
+  "results": [
+    {
+      "id": "period3-pd",
+      "type": "period-doubling",
+      "passed": true,
+      "b_estimate": 0.17682798296213148,
+      "bracket_width": 5.960464621868056E-10,
+      "multiplier_residual": -3.039380169767014E-8,
+      "closure_error": 5.968685537462527E-14
+    },
+    {
+      "id": "period5-pd-low",
+      "type": "period-doubling",
+      "passed": true,
+      "b_estimate": 0.14431134194135664,
+      "bracket_width": 5.9604643443123E-10,
+      "multiplier_residual": -2.8863214929231162E-8,
+      "closure_error": 2.3447634720679014E-14
+    },
+    {
+      "id": "period5-pd-middle",
+      "type": "period-doubling",
+      "passed": true,
+      "b_estimate": 0.1834675905108452,
+      "bracket_width": 5.9604643443123E-10,
+      "multiplier_residual": 5.165734395795596E-9,
+      "closure_error": 1.3696351639452595E-13
+    },
+    {
+      "id": "period5-sn-high",
+      "type": "unresolved +1 branch interaction",
+      "passed": false,
+      "rejected_bisection_center": 0.2780908182263375,
+      "bracket_width": 5.960464899423812E-10,
+      "best_multiplier_residual": 0.5299885560451423,
+      "closure_error": 1.2481141442192303E-14
+    }
+  ],
+  "interpretation": "Three -1 crossings are refined boundary seeds. The +1 scalar solve failed through branch switching; its apparent narrow b bracket is rejected pending pseudo-arclength."
+}

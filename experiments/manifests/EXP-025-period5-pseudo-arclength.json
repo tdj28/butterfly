@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.periodic-pseudo-arclength-manifest.v1",
+  "experiment_id": "EXP-025",
+  "source_continuation_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "family_id": "period5-fixed-ac",
+  "seed_b_values": [0.265, 0.27],
+  "solver": {"method": "DOP853", "rtol": 1E-10, "atol": 1E-12, "max_step": 0.05},
+  "corrector": {"max_evaluations": 30, "tolerance": 1E-10},
+  "continuation": {
+    "steps": 60,
+    "step_scale": 1.0,
+    "b_guard_min": 0.20,
+    "b_guard_max": 0.35
+  },
+  "acceptance": {"minimum_points": 20, "max_closure_error": 1E-8}
+}
