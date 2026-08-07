@@ -36,31 +36,49 @@ def block_floquet(nodes, duration, parameters, solver):
         target = (index + 1) % segment_count
         block_map[3 * target : 3 * target + 3, 3 * index : 3 * index + 3] = transition
     eigenvalues = np.linalg.eigvals(block_map)
-    radii = np.sort(np.abs(eigenvalues))
+    order = np.argsort(np.abs(eigenvalues))
+    ordered_eigenvalues = eigenvalues[order]
+    radii = np.abs(ordered_eigenvalues)
     clusters = []
     for index in range(3):
-        values = radii[index * segment_count : (index + 1) * segment_count]
+        cluster_eigenvalues = ordered_eigenvalues[
+            index * segment_count : (index + 1) * segment_count
+        ]
+        values = np.abs(cluster_eigenvalues)
         root_radius = float(np.median(values))
+        powered = cluster_eigenvalues**segment_count
         clusters.append(
             {
                 "root_radius_median": root_radius,
                 "root_radius_minimum": float(np.min(values)),
                 "root_radius_maximum": float(np.max(values)),
                 "floquet_modulus": float(root_radius**segment_count),
+                "floquet_multiplier": {
+                    "real": float(np.median(powered.real)),
+                    "imag": float(np.median(powered.imag)),
+                },
+                "powered_root_maximum_deviation": float(
+                    np.max(np.abs(powered - np.median(powered)))
+                ),
             }
         )
     neutral_index = int(
         np.argmin([abs(item["floquet_modulus"] - 1.0) for item in clusters])
     )
     nontrivial = [
-        item["floquet_modulus"]
+        (index, item["floquet_modulus"])
         for index, item in enumerate(clusters)
         if index != neutral_index
     ]
+    dominant_index = max(nontrivial, key=lambda item: item[1])[0]
     return {
         "clusters": clusters,
         "neutral_cluster_index": neutral_index,
-        "dominant_nontrivial_modulus": float(max(nontrivial)),
+        "dominant_nontrivial_modulus": float(clusters[dominant_index]["floquet_modulus"]),
+        "dominant_nontrivial_cluster_index": dominant_index,
+        "dominant_nontrivial_multiplier": clusters[dominant_index][
+            "floquet_multiplier"
+        ],
     }
 
 
