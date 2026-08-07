@@ -99,3 +99,12 @@ EXP-092 consumes all seven verified event receipts and freezes the next
 accumulation estimate is `0.1797121153539`. The next required evidence is a
 signed 64-segment Floquet scan across this prediction; period 1280 is not yet
 claimed.
+
+## Frozen period-640 scan
+
+EXP-093 binds the full EXP-091 period-640 qualification and EXP-092 prediction
+receipts before execution. Its nine `b` values, correction settings, and
+acceptance thresholds are frozen in
+`experiments/manifests/EXP-093-scan-period640-predicted-flip.json`. Passing
+requires a real signed `-1` bracket no wider than `2e-8`; neither a crossing of
+the multiplier modulus nor visual proximity to the prediction is sufficient.

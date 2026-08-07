@@ -155,6 +155,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   multiple-shooting corrector, validate on a known lower-period child, then
   retry period 320. Parallelize segment/tolerance audits on remote CPU; profile
   before allocating GPU spend.
+  EXP-090/091 now switch and independently qualify a stable period-640 child.
+  EXP-092 freezes the 640→1280 prediction at `b=0.1797121964470`; EXP-093 is
+  preregistered with bound source receipts and a signed 64-segment scan.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
