@@ -222,8 +222,16 @@ def main():
                         "direction": branch["direction"],
                         "points": branch["point_count"],
                         "distance": branch["endpoint_distance_from_doubled_parent"],
-                        "endpoint_half_period_closure": branch["rows"][-1]["half_period_closure"],
-                        "endpoint_modulus": branch["rows"][-1]["max_nontrivial_multiplier_modulus"],
+                        "endpoint_half_period_closure": (
+                            branch["rows"][-1]["half_period_closure"]
+                            if branch["rows"]
+                            else None
+                        ),
+                        "endpoint_modulus": (
+                            branch["rows"][-1]["max_nontrivial_multiplier_modulus"]
+                            if branch["rows"]
+                            else None
+                        ),
                     }
                     for branch in branches
                 ],
