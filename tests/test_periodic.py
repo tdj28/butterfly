@@ -4,6 +4,7 @@ from butterfly import (
     RosslerParameters,
     SolverConfig,
     correct_periodic_orbit,
+    correct_unit_multiplier_orbit,
     flow_monodromy,
     rossler_equilibria,
     rossler_jacobian,
@@ -47,3 +48,24 @@ def test_periodic_shooting_corrects_perturbed_period3_cycle() -> None:
     assert correction.closure_error < 1e-9
     assert correction.phase_residual < 1e-10
     assert abs(correction.period_time - 16.788110651043098) < 1e-5
+
+
+def test_coupled_unit_multiplier_correction_excludes_flow_mode() -> None:
+    correction = correct_unit_multiplier_orbit(
+        a=0.245,
+        c=5.1,
+        initial_b=0.27204621592418715,
+        initial_state=np.asarray(
+            [-4.176536702108349, -0.03577455846005116, 0.029480289783174195]
+        ),
+        period_time=33.78616265748715,
+        config=SolverConfig(rtol=1e-10, atol=1e-12, max_step=0.05),
+        tolerance=1e-9,
+    )
+
+    assert correction.success
+    assert abs(correction.b - 0.27228) < 5e-4
+    assert correction.closure_error < 1e-7
+    assert correction.eigen_residual < 1e-7
+    assert correction.flow_orthogonality_residual < 1e-7
+    assert correction.normalization_residual < 1e-7

@@ -40,6 +40,25 @@ class PeriodicOrbitCorrection:
     message: str
 
 
+@dataclass(frozen=True, slots=True)
+class UnitMultiplierCorrection:
+    """Coupled periodic-orbit and nontrivial +1 Floquet correction."""
+
+    initial_state: NDArray[np.float64]
+    period_time: float
+    b: float
+    eigenvector: NDArray[np.float64]
+    closure_error: float
+    phase_residual: float
+    eigen_residual: float
+    normalization_residual: float
+    flow_orthogonality_residual: float
+    multipliers: NDArray[np.complex128]
+    evaluations: int
+    success: bool
+    message: str
+
+
 def correct_periodic_orbit(
     parameters: RosslerParameters,
     initial_state: ArrayLike,
@@ -215,4 +234,141 @@ def flow_monodromy(
         computed_determinant=float(np.linalg.det(monodromy)),
         success=bool(integration.success),
         message=str(integration.message),
+    )
+
+
+def correct_unit_multiplier_orbit(
+    *,
+    a: float,
+    c: float,
+    initial_b: float,
+    initial_state: ArrayLike,
+    period_time: float,
+    config: SolverConfig = SolverConfig(),
+    max_evaluations: int = 120,
+    tolerance: float = 1e-10,
+) -> UnitMultiplierCorrection:
+    """Solve a periodic orbit together with a nontrivial +1 multiplier.
+
+    The unknowns are initial state, flow period, ``b``, and a real Floquet
+    eigenvector. Flow closure and a fixed phase condition are coupled to
+    ``(M-I)q=0``. Unit normalization fixes the scale of ``q`` and Euclidean
+    orthogonality to the flow direction excludes the autonomous neutral mode.
+    The resulting nine-residual/eight-unknown system is intentionally
+    overdetermined: away from a second unit multiplier the eigenvector and
+    orthogonality conditions cannot both vanish.
+    """
+
+    reference = np.asarray(initial_state, dtype=np.float64)
+    if reference.shape != (3,) or not np.all(np.isfinite(reference)):
+        raise ValueError("initial_state must contain three finite values")
+    if not np.isfinite(initial_b) or not np.isfinite(a) or not np.isfinite(c):
+        raise ValueError("parameters must be finite")
+    if not np.isfinite(period_time) or period_time <= 0.0:
+        raise ValueError("period_time must be positive and finite")
+    if max_evaluations < 1 or tolerance <= 0.0:
+        raise ValueError("invalid corrector configuration")
+
+    seed_parameters = RosslerParameters(a=a, b=initial_b, c=c)
+    periodic_seed = correct_periodic_orbit(
+        seed_parameters,
+        reference,
+        period_time,
+        config=config,
+        max_evaluations=max(20, max_evaluations // 3),
+        tolerance=min(tolerance, 1e-11),
+    )
+    if not periodic_seed.success:
+        raise RuntimeError(f"initial periodic correction failed: {periodic_seed.message}")
+    reference = periodic_seed.initial_state
+    phase_direction = rossler_rhs(0.0, reference, seed_parameters)
+    phase_direction = phase_direction / np.linalg.norm(phase_direction)
+    seed_monodromy = flow_monodromy(
+        seed_parameters, reference, periodic_seed.period_time, config=config
+    )
+    eigenvalues, eigenvectors = np.linalg.eig(seed_monodromy.monodromy)
+    neutral_index = int(np.argmin(np.abs(eigenvalues - 1.0)))
+    candidate_indices = [index for index in range(3) if index != neutral_index]
+    event_index = min(candidate_indices, key=lambda index: abs(eigenvalues[index] - 1.0))
+    event_vector = eigenvectors[:, event_index]
+    if np.max(np.abs(event_vector.imag)) > 1e-7:
+        raise ValueError("nearest nontrivial unit-multiplier seed is not real")
+    eigenvector = np.asarray(event_vector.real, dtype=np.float64)
+    eigenvector -= float(np.dot(eigenvector, phase_direction)) * phase_direction
+    eigenvector_norm = float(np.linalg.norm(eigenvector))
+    if eigenvector_norm <= 1e-10:
+        raise ValueError("unit-multiplier eigenvector seed is degenerate")
+    eigenvector /= eigenvector_norm
+
+    seed = np.concatenate(
+        (
+            reference,
+            (float(periodic_seed.period_time), float(initial_b)),
+            eigenvector,
+        )
+    )
+    cache_variables: NDArray[np.float64] | None = None
+    cache_residual: NDArray[np.float64] | None = None
+    cache_monodromy: MonodromyResult | None = None
+
+    def evaluate(
+        variables: NDArray[np.float64],
+    ) -> tuple[NDArray[np.float64], MonodromyResult]:
+        nonlocal cache_variables, cache_residual, cache_monodromy
+        if cache_variables is not None and np.array_equal(variables, cache_variables):
+            assert cache_residual is not None
+            assert cache_monodromy is not None
+            return cache_residual, cache_monodromy
+        state = variables[:3]
+        duration = float(variables[3])
+        b = float(variables[4])
+        vector = variables[5:8]
+        parameters = RosslerParameters(a=a, b=b, c=c)
+        monodromy = flow_monodromy(parameters, state, duration, config=config)
+        local_flow = rossler_rhs(0.0, state, parameters)
+        local_flow = local_flow / np.linalg.norm(local_flow)
+        residual = np.concatenate(
+            (
+                monodromy.final_state - state,
+                (float(np.dot(phase_direction, state - reference)),),
+                (monodromy.monodromy - np.eye(3)) @ vector,
+                (float(np.dot(vector, vector) - 1.0),),
+                (float(np.dot(vector, local_flow)),),
+            )
+        )
+        cache_variables = variables.copy()
+        cache_residual = residual
+        cache_monodromy = monodromy
+        return residual, monodromy
+
+    lower = np.full(8, -np.inf)
+    lower[3] = 1e-12
+    solution = least_squares(
+        lambda variables: evaluate(variables)[0],
+        seed,
+        bounds=(lower, np.full(8, np.inf)),
+        xtol=tolerance,
+        ftol=tolerance,
+        gtol=tolerance,
+        max_nfev=max_evaluations,
+        x_scale="jac",
+    )
+    residual, monodromy = evaluate(solution.x)
+    closure_error = float(np.linalg.norm(residual[:3]))
+    eigen_residual = float(np.linalg.norm(residual[4:7]))
+    success_threshold = max(100.0 * tolerance, 1e-8)
+    return UnitMultiplierCorrection(
+        initial_state=np.asarray(solution.x[:3], dtype=np.float64),
+        period_time=float(solution.x[3]),
+        b=float(solution.x[4]),
+        eigenvector=np.asarray(solution.x[5:8], dtype=np.float64),
+        closure_error=closure_error,
+        phase_residual=float(abs(residual[3])),
+        eigen_residual=eigen_residual,
+        normalization_residual=float(abs(residual[7])),
+        flow_orthogonality_residual=float(abs(residual[8])),
+        multipliers=monodromy.multipliers,
+        evaluations=int(solution.nfev),
+        success=bool(solution.success and np.linalg.norm(residual) <= success_threshold),
+        message=str(solution.message),
     )

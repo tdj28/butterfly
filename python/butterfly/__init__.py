@@ -45,7 +45,9 @@ from .poincare import (
 from .periodic import (
     MonodromyResult,
     PeriodicOrbitCorrection,
+    UnitMultiplierCorrection,
     correct_periodic_orbit,
+    correct_unit_multiplier_orbit,
     flow_monodromy,
 )
 from .scan import ScanManifest, execute_scan, run_scan
@@ -68,6 +70,7 @@ __all__ = [
     "LyapunovResult",
     "MonodromyResult",
     "PeriodicOrbitCorrection",
+    "UnitMultiplierCorrection",
     "LargestLyapunovResult",
     "PeriodClassification",
     "RecurrenceCandidate",
@@ -90,6 +93,7 @@ __all__ = [
     "classify_with_lyapunov",
     "combine_initial_conditions",
     "correct_periodic_orbit",
+    "correct_unit_multiplier_orbit",
     "closest_recurrence_candidate",
     "integrate_trajectory",
     "initial_condition_grid",
