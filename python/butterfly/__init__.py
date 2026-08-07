@@ -47,6 +47,7 @@ from .poincare import (
     collect_crossings,
     legacy_rossler_section,
 )
+from .return_map import ReturnMapBranchResult, infer_return_map_branches
 from .periodic import (
     MonodromyResult,
     PeriodicOrbitCorrection,
@@ -79,6 +80,7 @@ __all__ = [
     "LargestLyapunovResult",
     "PeriodClassification",
     "RecurrenceCandidate",
+    "ReturnMapBranchResult",
     "RosslerParameters",
     "PoincareCrossings",
     "PoincareSection",
@@ -103,6 +105,7 @@ __all__ = [
     "closest_recurrence_candidate",
     "integrate_trajectory",
     "initial_condition_grid",
+    "infer_return_map_branches",
     "integrate_flip_segment",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",

@@ -196,8 +196,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 
 ## P2 — topology, validation, and atlas expansion
 
-- [ ] **P2-001 — Return-map topology.** Critical points, branch count, symbolic
-  partitions, kneading data, entropy, and coordinate/section sensitivity.
+- [ ] **P2-001 — Return-map topology.** DEC-004 now defines a gated scalar
+  return-map oracle with graph-likeness, domain coverage, critical-point
+  prominence, bootstrap uncertainty, and explicit unresolved results. Synthetic
+  one/two/three-branch and multivalued controls pass. Freeze the first Rössler
+  section/coordinate calibration, then add partitions, kneading data, entropy,
+  and coordinate/section sensitivity.
 - [ ] **P2-002 — Global bifurcations.** Homoclinic/heteroclinic boundary-value
   problems and bounded focal-point uniqueness claim.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
@@ -223,9 +227,11 @@ exposition requirements.
   referee-named sources are now resolved in `paper/references.bib`, cited in
   the draft, and tracked by `paper/reference-ledger.md`; close reading and the
   full novelty matrix remain open.
-- [ ] **RVR-003 — Two/three-branch oracle.** Critical-point uncertainty,
-  invariant-domain relevance, branch classification, transition continuation,
-  and section-perturbation robustness.
+- [ ] **RVR-003 — Two/three-branch oracle.** The DEC-004 implementation now
+  supplies critical-point prominence, invariant-domain coverage, graph-
+  likeness rejection, bootstrap branch classification, and synthetic controls.
+  Rössler calibration, transition continuation, and section-perturbation
+  robustness remain open.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
