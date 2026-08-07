@@ -76,8 +76,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   three period-doubling seeds but rejects the `+1` scalar solve because of
   branch switching. EXP-025 through EXP-027 reproduce the same smooth period-5
   `+1` crossing near `b=0.272283` at three pseudo-arclength resolutions with no
-  `b` turn, rejecting a saddle-node of the traced branch. Coupled `+1`
-  eigenvector/second-branch solves, equilibrium/Hopf, and TBA remain open.
+  `b` turn, rejecting a saddle-node of the traced branch. EXP-028 solves the
+  coupled nontrivial unit-multiplier condition; EXP-029 switches coordinates;
+  and EXP-030 phase-invariantly confirms a distinct stable secondary cycle
+  alongside the unstable primary above the event. Local normal-form scaling,
+  equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.periodic-orbit-identity-summary.v1",
+  "experiment_id": "EXP-030",
+  "passed": true,
+  "source_commit": "1f7d88679d7ab73d2bf42f0b78dbb1a4ca66acde",
+  "manifest_sha256": "58c51992d4f9c8b5442560561e8a485a8f178db0193527f3eece23fcc6e3b30e",
+  "branch_receipt_sha256": "eb03f92d7577a866413d756e491f1a114b7e180643aba0bbd525700214298aee",
+  "primary_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "full_receipt_sha256": "924f9211ad5f98a6fb2a2ddb066e45dac199128e90fdf5040a271f1da3942be5",
+  "parameters": {"a": 0.245, "b": 0.273, "c": 5.1},
+  "secondary_arm_rms": 5.428644579734396e-7,
+  "primary_secondary_rms": [0.20026758572874848, 0.2002675857350493],
+  "primary_secondary_period_gaps": [0.010784923905475807, 0.010784923906058452],
+  "primary_multiplier_modulus": 1.062084868247856,
+  "secondary_multiplier_modulus": 0.8786982427488131,
+  "interpretation": "Two phase-distinct switched coordinates represent one stable secondary cycle, which is invariantly distinct from the unstable primary cycle above the +1 event."
+}

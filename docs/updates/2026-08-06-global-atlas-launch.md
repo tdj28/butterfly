@@ -128,3 +128,18 @@ left the declared guard, so its formal gate remains failed. The replicated
 smooth geometry nevertheless rejects a saddle-node of the traced branch and
 turns the next task into a coupled `+1` eigencondition plus explicit
 second-branch calculation. The generic interaction type remains unresolved.
+
+EXP-028 then solved the orbit and nontrivial `+1` eigencondition together at
+`b=0.272284059793`, explicitly excluding the autonomous flow-neutral mode.
+EXP-029 used the resulting two-dimensional shooting null space to switch and
+continue both coordinate signs. Its preregistered gates passed, but a
+post-result phase check exposed that coordinate distance alone double-counted
+one orbit at different phases.
+
+EXP-030 corrected that weakness prospectively at a fresh `b=0.2730`. The two
+switched representations align to whole-trajectory RMS `5.43e-7`, while the
+primary-secondary RMS is `0.2003` and their periods differ by `0.01078`. The
+primary multiplier is `1.0621` and the secondary multiplier `0.8787`. This
+establishes two distinct invariant cycles and a stability exchange above the
+event. EXP-031 now freezes the square-root branch-separation and multiplier-
+ratio tests needed for a supercritical pitchfork-like normal-form assessment.
