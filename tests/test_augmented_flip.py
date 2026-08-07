@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import numpy as np
 
 from butterfly import (
@@ -9,6 +12,9 @@ from butterfly import (
     integrate_flip_segment,
     rossler_hessian_action,
 )
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from solve_analytic_augmented_flip import receipt_seed  # noqa: E402
 
 
 SOLVER = SolverConfig(method="DOP853", rtol=1e-11, atol=1e-13, max_step=0.02)
@@ -96,3 +102,27 @@ def test_augmented_flip_jacobian_matches_finite_differences() -> None:
             2.0 * epsilon
         )
     np.testing.assert_allclose(analytic, numerical, rtol=3e-7, atol=3e-9)
+
+
+def test_analytic_receipt_seed_preserves_tangent_field() -> None:
+    receipt = {
+        "schema": "butterfly.analytic-augmented-flip.v1",
+        "nodes": [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]],
+        "period_time": 7.0,
+        "corrected_b": 0.18,
+        "tangent_nodes": [[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]],
+        "flip_spectrum": {"direct_flip_median": -0.999},
+    }
+    nodes, duration, b, tangents, multiplier = receipt_seed(
+        receipt,
+        source_schema="butterfly.analytic-augmented-flip.v1",
+        seed_b_offset=1e-6,
+        solver=SOLVER,
+        a=PARAMETERS.a,
+        c=PARAMETERS.c,
+    )
+    np.testing.assert_allclose(nodes, receipt["nodes"])
+    np.testing.assert_allclose(tangents, receipt["tangent_nodes"])
+    assert duration == 7.0
+    assert b == 0.180001
+    assert multiplier == complex(-0.999)

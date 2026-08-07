@@ -58,6 +58,31 @@ def flip_spectrum_metrics(floquet):
     }
 
 
+def receipt_seed(receipt, *, source_schema, seed_b_offset, solver, a, c):
+    """Extract a fresh or resumed augmented-flip seed from a bound receipt."""
+
+    if receipt.get("schema") != source_schema:
+        raise SystemExit("bound source schema mismatch")
+    if source_schema == "butterfly.period320-block-flip-resume.v1":
+        seed = receipt["best_evaluation"]
+        nodes = np.asarray(seed["nodes"], dtype=float)
+        duration = float(seed["period_time"])
+        seed_b = float(seed["b"]) + seed_b_offset
+        parameters = RosslerParameters(a=a, b=seed_b, c=c)
+        tangent_nodes, seed_multiplier = initial_tangent_nodes(
+            nodes, duration, parameters, solver
+        )
+        return nodes, duration, seed_b, tangent_nodes, seed_multiplier
+    if source_schema == "butterfly.analytic-augmented-flip.v1":
+        nodes = np.asarray(receipt["nodes"], dtype=float)
+        duration = float(receipt["period_time"])
+        seed_b = float(receipt["corrected_b"]) + seed_b_offset
+        tangent_nodes = np.asarray(receipt["tangent_nodes"], dtype=float)
+        multiplier = receipt["flip_spectrum"]["direct_flip_median"]
+        return nodes, duration, seed_b, tangent_nodes, complex(multiplier)
+    raise SystemExit("unsupported bound source schema")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -86,25 +111,24 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
     source_receipt = json.loads(source_bytes)
-    if source_receipt.get("schema") != manifest["source_schema"]:
-        raise SystemExit("bound source schema mismatch")
-    seed = source_receipt["best_evaluation"]
-    nodes = np.asarray(seed["nodes"], dtype=float)
-    segment_count = len(nodes)
-    if segment_count != manifest["segment_count"]:
-        raise SystemExit("source segment count mismatch")
-    duration = float(seed["period_time"])
-    seed_b = float(seed["b"]) + float(manifest["seed_b_offset"])
-    lower_b, upper_b = map(float, manifest["b_bounds"])
-    if not lower_b < seed_b < upper_b:
-        raise SystemExit("offset seed lies outside frozen bounds")
     a = float(manifest["fixed_a"])
     c = float(manifest["fixed_c"])
     solver = SolverConfig(**manifest["solver"])
-    seed_parameters = RosslerParameters(a=a, b=seed_b, c=c)
-    tangent_nodes, seed_multiplier = initial_tangent_nodes(
-        nodes, duration, seed_parameters, solver
+    nodes, duration, seed_b, tangent_nodes, seed_multiplier = receipt_seed(
+        source_receipt,
+        source_schema=manifest["source_schema"],
+        seed_b_offset=float(manifest["seed_b_offset"]),
+        solver=solver,
+        a=a,
+        c=c,
     )
+    segment_count = len(nodes)
+    if segment_count != manifest["segment_count"]:
+        raise SystemExit("source segment count mismatch")
+    lower_b, upper_b = map(float, manifest["b_bounds"])
+    if not lower_b < seed_b < upper_b:
+        raise SystemExit("offset seed lies outside frozen bounds")
+    seed_parameters = RosslerParameters(a=a, b=seed_b, c=c)
     phase_reference = nodes[0].copy()
     phase = rossler_rhs(0.0, phase_reference, seed_parameters)
     phase /= np.linalg.norm(phase)
