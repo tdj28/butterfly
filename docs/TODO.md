@@ -231,7 +231,9 @@ exposition requirements.
   supplies critical-point prominence, invariant-domain coverage, graph-
   likeness rejection, bootstrap branch classification, and synthetic controls.
   Rössler calibration, transition continuation, and section-perturbation
-  robustness remain open.
+  robustness remain open. EXP-106 freezes the first calibration on the
+  published chaotic `(a,b,c)=(0.2,0.2,20)` control across three nearby section
+  offsets, prospectively expecting a robust two-branch relation.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

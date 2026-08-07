@@ -272,3 +272,10 @@ dominant moduli are `0.4261745532` and `0.4261741560`. The stable period-1280
 child is established, closing the eighth local supercritical rung. The active
 frontier now returns to continuation of flip/grazing sets, reinjection, and
 global parameter-plane topology.
+
+DEC-004 now makes the next frontier executable: a scalar return-map branch
+oracle must pass graph-likeness, domain coverage, critical-point prominence,
+and bootstrap gates or return `unresolved`. Synthetic one/two/three-branch and
+multivalued controls pass. EXP-106 freezes the first real Rössler calibration
+on the published chaotic `(0.2,0.2,20)` control and three nearby section
+offsets; it prospectively expects a robust two-branch relation.
