@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.multiple-shooting-switch-validation-summary.v1",
+  "experiment_id": "EXP-081",
+  "passed": true,
+  "source_commit": "98d6d2eb17688e322741aa5f2336a21be7b94047",
+  "manifest_sha256": "ccdcbd76baad34208507dff30275c16f1c03e184e5058a9bc359acc6efcfd6fd",
+  "full_receipt_sha256": "0092fe285d5320e534f1f2b1a1ad8ea5ebe7fbe4256baa490867bba32df4217d",
+  "segment_count": 8,
+  "event_smallest_singular_value": 8.818023481706805e-11,
+  "absolute_tangent_dot": 1.6653345369377348e-16,
+  "attempt_count": 8,
+  "successful_correction_count": 8,
+  "accepted_candidate_count": 3,
+  "maximum_matching_residual": 6.148535272720256e-13,
+  "minimum_accepted_single_shooting_closure": 6.050808038556246e-14,
+  "minimum_accepted_identity_rms": 2.574534174024373e-8,
+  "interpretation": "the segmented corrector and secondary nullspace direction recover the independently continued period-80 child"
+}

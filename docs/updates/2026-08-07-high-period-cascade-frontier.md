@@ -1,7 +1,7 @@
 # High-period cascade frontier
 
 Date: 2026-08-07
-Status: multiple-shooting branch-switch validation in progress
+Status: multiple-shooting branch-switch validated; period-320 switch next
 
 ## Verified result entering this checkpoint
 
@@ -35,16 +35,21 @@ branch's parameter range. The experiment failed its identity gate honestly.
 Its measured amplitude and parameter displacement motivate the prospectively
 frozen, larger-scale EXP-081 recovery without changing acceptance thresholds.
 
+EXP-081 passed. All eight larger-scale corrections converged below
+`6.15e-13`, and three candidates independently match the known period-80 child
+with full closure below `1.37e-12` and whole-orbit RMS between `2.57e-8` and
+`3.43e-6`. The segmented equations, event-nullspace split, branch predictor,
+and corrector are therefore validated before use at period 320.
+
 ## Execution order
 
-1. Require EXP-081 to recover the known period-80 child by whole-orbit identity.
-2. If it passes, apply the same segmented algorithm with 32 segments at the
+1. Apply the validated segmented algorithm with 32 segments at the
    precision-consistent 160→320 event.
-3. Continue and qualify any period-320 candidate independently; do not call the
+2. Continue and qualify any period-320 candidate independently; do not call the
    sixth rung supercritical from branch switching alone.
-4. Feed the extended event sequence into a prospective accumulation-point and
+3. Feed the extended event sequence into a prospective accumulation-point and
    scaling analysis.
-5. In parallel with later computation, continue orbit-defined flip and
+4. In parallel with later computation, continue orbit-defined flip and
    return-section topology surfaces across the multi-`b` atlas. Raster shrimp
    morphology remains discovery evidence, not a substitute for continuation.
 
