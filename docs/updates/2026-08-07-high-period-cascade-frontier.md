@@ -180,3 +180,9 @@ solves all orbit nodes, total period, `b`, and transported tangent nodes with
 an anti-periodic boundary condition. The implementation must recover the known
 EXP-089 period-320 event before it is allowed to decide the period-640 event.
 Period 1280 remains unclaimed.
+
+EXP-100 is preregistered as the mandatory known-event validation. It perturbs
+the passed EXP-089 period-320 source by `5e-9` in `b` and solves the 194-variable
+augmented orbit/tangent system with a sparse local-dependency Jacobian. The
+implementation is not allowed to touch the period-640 target unless it recovers
+the known event and passes independent block/direct-product spectral gates.
