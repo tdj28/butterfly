@@ -27,6 +27,14 @@ $b=0.17971219$ and $b=0.17971220$; the bracket midpoint differs from the
 prediction by $1.447\times10^{-9}$.  This third test has not yet passed event
 refinement or period-1280 child qualification.
 
+Subsequent baseline and tighter-solver scalar refinements retain a signed
+interval only $3.22\times10^{-15}$ wide, but the closest precision-audited
+point has multiplier residual $1.70\times10^{-8}$ and therefore misses the
+preregistered $10^{-8}$ equality gate.  The block-cyclic multiplier and direct
+monodromy products agree near $10^{-13}$, so the interval is retained as strong
+event evidence but is not promoted to a corrected eighth event.  A coupled
+orbit--parameter--eigenvector solve is required before branch switching.
+
 \subsection{Flow bifurcation versus section geometry}
 
 After the period-5 to period-10 flip, the stable period-10 child changes its

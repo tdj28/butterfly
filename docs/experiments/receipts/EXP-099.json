@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.precision-audited-flip-resume-summary.v1",
+  "experiment_id": "EXP-099",
+  "passed": false,
+  "source_commit": "51fb11ca9acd11716b5507091c676252b5aacee8",
+  "manifest_sha256": "f1cb6f13565df64588e82abdc62c26d2812f0dfc23e1c59570d35fe579fd6a78",
+  "full_receipt_sha256": "1d14204e6227fee99d8dec32c8208b185cd76ec35e39bba28c9f3b6260ad2015",
+  "b_estimate": 0.17971219643223532,
+  "prediction_error": -1.4764800493338726e-11,
+  "matching_residual": 1.4159826798985057e-12,
+  "multiplier_residual": 1.6974485816945162e-8,
+  "estimated_b_uncertainty": 3.917396249354786e-16,
+  "block_product_difference": 8.737455203799982e-14,
+  "cyclic_product_spread": 3.9968028886505635e-15,
+  "retained_bracket": {
+    "lower_b": 0.1797121964322321,
+    "upper_b": 0.17971219643223532,
+    "width": 3.219646771412954e-15,
+    "lower_residual": -1.225361609957787e-7,
+    "upper_residual": 1.6974485816945162e-8
+  },
+  "failed_gate": "absolute multiplier residual exceeds 1e-8",
+  "interpretation": "the precision-audited scalar refinement path is closed; retain an exceptionally tight signed bracket and replace the outer scalar solve with a validated augmented multiple-shooting eigencondition"
+}

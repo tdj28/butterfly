@@ -159,7 +159,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-092 freezes the 640→1280 prediction at `b=0.1797121964470`; EXP-093 is
   passed with a signed `-1` bracket `[0.17971219,0.17971220]` whose midpoint
   misses the frozen prediction by `1.447e-9`. Refine the event with a bound
-  signed residual before attempting a period-1280 branch switch.
+  signed residual before attempting a period-1280 branch switch. EXP-094
+  through EXP-096 and the precision-audited EXP-098/099 honestly miss the
+  frozen pointwise residual gate despite a final `3.22e-15` sign bracket.
+  Implement DEC-003's augmented anti-periodic multiple-shooting solve, validate
+  it on EXP-089, and only then decide the period-640 event.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

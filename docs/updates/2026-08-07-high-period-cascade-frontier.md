@@ -168,3 +168,15 @@ The trial sequence shows the `1%` safeguard forced midpoint evaluations after
 an endpoint-near positive trial. EXP-099 binds the exact `9.91e-11` sign
 bracket, admits the slope-indicated secant point with a `0.01%` numerical
 margin, and leaves every scientific gate unchanged.
+
+EXP-099 also failed, narrowly but decisively: its best tight-solver multiplier
+residual is `1.697e-8` against the frozen `1e-8` gate. Matching residual,
+parameter uncertainty, prediction error, block/product agreement, and cyclic
+spread all pass. The retained sign bracket is `3.22e-15` wide. Per its stopping
+rule, scalar refinement is closed and the result remains bracket-level evidence.
+
+DEC-003 adopts the replacement: a square augmented multiple-shooting system
+solves all orbit nodes, total period, `b`, and transported tangent nodes with
+an anti-periodic boundary condition. The implementation must recover the known
+EXP-089 period-320 event before it is allowed to decide the period-640 event.
+Period 1280 remains unclaimed.

@@ -48,6 +48,9 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-002-multiple-shooting-high-period.md`](decisions/DEC-002-multiple-shooting-high-period.md):
   evidence-based transition from full-period to segmented shooting after the
   period-320 switch conditioning limit.
+- [`decisions/DEC-003-augmented-segmented-flip-solve.md`](decisions/DEC-003-augmented-segmented-flip-solve.md):
+  replaces ulp-scale outer scalar refinement with a directly coupled
+  anti-periodic tangent/orbit/parameter solve, validated first at period 320.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):
@@ -159,6 +162,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-093-scan-period640-predicted-flip.md`](experiments/EXP-093-scan-period640-predicted-flip.md):
   prospective signed-Floquet confirmation of the frozen period-640 flip target
   inside a `1e-8` bracket.
+- [`experiments/EXP-097-audit-period640-floquet-precision.md`](experiments/EXP-097-audit-period640-floquet-precision.md):
+  solver/representation audit proving block and direct-product agreement while
+  identifying integration accuracy as the pointwise event shift.
 
 ## Evidence states
 
