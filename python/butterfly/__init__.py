@@ -1,6 +1,11 @@
 """Reference numerical implementation for the Butterfly research program."""
 
 from .atlas import PeriodicComponent, periodic_components, ranked_recurrence_candidates
+from .augmented_flip import (
+    augmented_flip_system,
+    integrate_flip_segment,
+    rossler_hessian_action,
+)
 from .basins import (
     BasinPlaneManifest,
     evaluate_initial_condition,
@@ -82,6 +87,7 @@ __all__ = [
     "Trajectory",
     "TileSpec",
     "aggregate_scan_tiles",
+    "augmented_flip_system",
     "equilibrium_eigenvalues",
     "evaluate_initial_condition",
     "fit_uncertainty_exponent",
@@ -97,11 +103,13 @@ __all__ = [
     "closest_recurrence_candidate",
     "integrate_trajectory",
     "initial_condition_grid",
+    "integrate_flip_segment",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",
     "lyapunov_block_estimates",
     "rossler_equilibria",
     "rossler_jacobian",
+    "rossler_hessian_action",
     "rossler_rhs",
     "periodic_components",
     "ranked_recurrence_candidates",
