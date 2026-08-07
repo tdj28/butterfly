@@ -1,6 +1,6 @@
 # Reproduction and validation plan
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 This document covers the Rössler reproduction and claim-validation program. The
 broader platform and multi-attractor program is in
@@ -11,6 +11,13 @@ broader platform and multi-attractor program is in
 Build a reproducible computational account of the Rössler periodicity hub, then
 subject the 2012 paper's distinctive claims to stronger tests than were
 available in the original work.
+
+The original referee reports are now an explicit acceptance source. The
+binding traceability matrix is in
+[`reviews/2026-08-07-jones-peer-review-gap-audit.md`](reviews/2026-08-07-jones-peer-review-gap-audit.md).
+In particular, deep periodic-orbit continuation cannot be used to claim that
+the two/three-branch, finite-ordering, reinjection, or unfolded-spiral gaps are
+closed.
 
 ## Phase 0 - Reproducible foundation
 
@@ -113,3 +120,6 @@ bounds and independent computational support.
 - Claim-ledger updates linked to the supporting experiments.
 - A revised manuscript that clearly distinguishes reproduction, new evidence,
   conjecture, and rigorous result.
+- A referee-response appendix mapping every original concern to a manuscript
+  change, primary citation, experiment/figure receipt, or explicit unresolved
+  limitation.

@@ -37,6 +37,9 @@ what must be narrowed, and what is false or unresolved.
 - [`reviews/2026-08-06-jones-barrio-comparison.md`](reviews/2026-08-06-jones-barrio-comparison.md):
   scoped comparison of the shared 2012 result and each paper's distinct
   extensions.
+- [`reviews/2026-08-07-jones-peer-review-gap-audit.md`](reviews/2026-08-07-jones-peer-review-gap-audit.md):
+  binding traceability matrix from the original referee reports to explicit
+  scientific, attribution, figure, and manuscript closure gates.
 - [`decisions/DEC-001-independent-codiscovery.md`](decisions/DEC-001-independent-codiscovery.md):
   project wording for the relationship between the Jones and
   Barrio-Blesa-Serrano 2012 results.

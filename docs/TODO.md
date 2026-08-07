@@ -171,6 +171,38 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 - [ ] **P2-005 — Dozens-system atlas.** Curated systems, prospective parameter
   planes, negative results retained, uniform provenance and publication pipeline.
 
+## Original peer-review closure gates
+
+These gates are binding consequences of the LN13044/Jones referee reports. See
+the full [`peer-review gap audit`](reviews/2026-08-07-jones-peer-review-gap-audit.md).
+High-period cascade evidence does not substitute for these topology and
+exposition requirements.
+
+- [ ] **RVR-001 — Terminology and mathematical objects.** Define the flow,
+  section, two-dimensional return map, invariant domain, quotient, and finite
+  symbolic comparison separately; enforce the terminology in the manuscript.
+- [ ] **RVR-002 — Attribution and novelty.** Primary-source verification of the
+  earlier TTL/TBA result, Jones Ref. 6, Holmes, Lefranc, homoclinic foundation,
+  and the precise 2012 co-discovery boundary; publish a novelty matrix.
+- [ ] **RVR-003 — Two/three-branch oracle.** Critical-point uncertainty,
+  invariant-domain relevance, branch classification, transition continuation,
+  and section-perturbation robustness.
+- [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
+  period-through-seven permutations and kneading data; prospectively locate
+  the first higher-period disagreement or establish a declared finite bound.
+- [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
+  a robust invariant, test coordinate/section sensitivity, and compare its
+  predictions with TBA and homoclinic-sheaf alternatives.
+- [ ] **RVR-006 — Unfolded spiral.** Replace Fig. 6 with a machine-generated,
+  receipt-bound explanation of branch count, critical values, symbolic words,
+  and `p -> p+1` transitions over complete spiral turns.
+- [ ] **RVR-007 — Exploit/generalize.** Make held-out symbolic/curve predictions
+  on Rössler, then freeze the qualified method on two structurally different
+  flows before claiming broad generality.
+- [ ] **RVR-008 — Manuscript exposition.** Equations and definitions first;
+  complete citations; plain-language mechanism; claim/evidence/limitations
+  conclusion; independent readability review.
+
 ## AI gates — structure discovery, not diagram decoration
 
 - [ ] **AI-000 — Numerical-oracle gate.** Complete P0 plus continuation of the
