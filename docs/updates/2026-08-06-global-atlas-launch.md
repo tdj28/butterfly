@@ -152,3 +152,14 @@ points show the primary unstable and secondary stable, with closure below
 `1.21e-13`. The result is strong numerical evidence for a supercritical
 pitchfork normal form after quotienting flow phase. Project prose retains
 “pitchfork-like” pending symmetry identification and validated local reduction.
+
+EXP-032 through EXP-034 began lifting the isolated event into parameter space.
+EXP-032 solved nine smooth points but honestly failed a narrowly frozen lower
+`b` guard. EXP-033 showed that doubling the natural `a` step loses the branch.
+EXP-034 restored the qualified `0.0025` spacing: thirteen coupled events pass
+from `(a,b)=(0.235,0.238415)` through the source to
+`(0.265,0.347875)` at fixed `c=5.1`, with residuals near `1e-12`. Its declared
+seventeen-point gate remains failed because the downward corrector at
+`a=0.2325` is invalid. The accepted bounded curve is now evidence; continuation
+below it and surface construction in `c` require full event-system pseudo-
+arclength rather than further natural-step tuning.

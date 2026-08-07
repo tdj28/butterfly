@@ -83,7 +83,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   square-root branch opening (`0.49896`, `R^2=0.9999992`) and the cubic
   multiplier ratio (`1.9805` median), strongly supporting a supercritical
   pitchfork-like normal form in the phase quotient. Symmetry/validated local
-  reduction, equilibrium/Hopf, and TBA remain open.
+  reduction, equilibrium/Hopf, and TBA remain open. EXP-032 through EXP-034
+  resolve thirteen coupled `+1` events on a smooth fixed-`c=5.1` curve over
+  `a in [0.235,0.265]`, reaching `b=0.347875`; natural continuation fails below
+  `a=0.235`, so full event-system pseudo-arclength and continuation in `c` are
+  the next surface-building steps.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

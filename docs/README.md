@@ -104,6 +104,10 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-031-period5-normal-form-scaling.md`](experiments/EXP-031-period5-normal-form-scaling.md):
   prospective square-root and Floquet scaling test for the local pitchfork-like
   normal form.
+- [`experiments/EXP-032-period5-unit-event-a-curve.md`](experiments/EXP-032-period5-unit-event-a-curve.md),
+  [`EXP-033`](experiments/EXP-033-expanded-period5-unit-event-a-curve.md), and
+  [`EXP-034`](experiments/EXP-034-resolved-period5-unit-event-a-curve.md):
+  honest domain/resolution tests and the accepted bounded fixed-`c` event curve.
 
 ## Evidence states
 

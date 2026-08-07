@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.unit-event-curve-summary.v1",
+  "experiment_id": "EXP-034",
+  "passed": false,
+  "source_commit": "d3cb2d92a7033fffa6e3a31217fe9eeee757a30c",
+  "manifest_sha256": "7132f2492e5084eae74b6051666c05761d947a22a01d924133d06e92262c7da2",
+  "source_event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "full_receipt_sha256": "e3a885710e71ede1e52fe1bcb090b08fd843eab9d189a696ca8c19e6eaa688cf",
+  "point_count": 14,
+  "valid_point_count": 13,
+  "rejected_point_count": 1,
+  "accepted_a_range": [0.235, 0.265],
+  "accepted_b_range": [0.23841498417841053, 0.34787536925353335],
+  "rejected_a": 0.2325,
+  "rejected_closure_error": 0.2869595434481897,
+  "rejected_eigen_residual": 0.10497505899292094,
+  "figure": {
+    "path": "artifacts/EXP-034/EXP-034-period5-unit-event-curve.png",
+    "sha256": "606a18b49220b48736ed187afd33d5d310416236acee2a8ab9cfc0ad95544067"
+  },
+  "interpretation": "Thirteen coupled events resolve a smooth fixed-c curve over a in [0.235,0.265], but the declared wider-domain gate failed at a=0.2325. Full event-system pseudo-arclength is required below that natural-continuation boundary."
+}
