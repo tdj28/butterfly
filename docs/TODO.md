@@ -74,8 +74,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
-  branch switching; fold-safe pseudo-arclength, coupled boundary solves,
-  equilibrium/Hopf, and TBA remain open.
+  branch switching. EXP-025 through EXP-027 reproduce the same smooth period-5
+  `+1` crossing near `b=0.272283` at three pseudo-arclength resolutions with no
+  `b` turn, rejecting a saddle-node of the traced branch. Coupled `+1`
+  eigenvector/second-branch solves, equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

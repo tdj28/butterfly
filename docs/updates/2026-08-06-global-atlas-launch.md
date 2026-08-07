@@ -110,3 +110,21 @@ within `1.4e-10`, and remained transversely stable. This directly supports two
 persistent periodic families along moving `(a,c)` paths for `b in [0.1,0.3]`.
 Pseudo-arclength continuation of orbit and bifurcation boundaries remains
 necessary before claiming a unique hub drift or global organizing surface.
+
+## First continuation geometry
+
+EXP-023 naturally continued fixed-`(a,c)` period-3 and period-5 cycles in `b`.
+EXP-024 refined three period-doubling crossings at `b=0.17682798` for period 3
+and `b=0.14431134`, `0.18346759` for period 5. A scalar period-5 `+1` solve
+switched orbit branches and was rejected rather than reported as a false
+boundary.
+
+EXP-025 through EXP-027 then traced the local period-5 family with exact
+state-transition and parameter-sensitivity Jacobians at three successively
+finer pseudo-arclength steps. Their descriptive `+1` estimates converge from
+`0.27219295` to `0.27227869` to `0.27228272`; every trace has zero reversals in
+`b`. EXP-027 missed its frozen 40-point threshold by three points because it
+left the declared guard, so its formal gate remains failed. The replicated
+smooth geometry nevertheless rejects a saddle-node of the traced branch and
+turns the next task into a coupled `+1` eigencondition plus explicit
+second-branch calculation. The generic interaction type remains unresolved.

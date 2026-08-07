@@ -88,6 +88,14 @@ what must be narrowed, and what is false or unresolved.
   296,241-point period-atlas sweep and animation across eleven `b` values.
 - [`experiments/EXP-022-raster-family-orbits.md`](experiments/EXP-022-raster-family-orbits.md):
   shooting/Floquet confirmation of period-3 and period-5 cross-`b` families.
+- [`experiments/EXP-023-periodic-b-continuation.md`](experiments/EXP-023-periodic-b-continuation.md):
+  natural continuation and multiplier-crossing brackets for two orbit families.
+- [`experiments/EXP-024-floquet-boundary-refinement.md`](experiments/EXP-024-floquet-boundary-refinement.md):
+  three refined period-doubling seeds and one honestly rejected scalar solve.
+- [`experiments/EXP-025-period5-pseudo-arclength.md`](experiments/EXP-025-period5-pseudo-arclength.md),
+  [`EXP-026`](experiments/EXP-026-period5-local-pseudo-arclength.md), and
+  [`EXP-027`](experiments/EXP-027-period5-resolved-pseudo-arclength.md):
+  three-resolution fold-safe analysis of the period-5 `+1` branch interaction.
 
 ## Evidence states
 
