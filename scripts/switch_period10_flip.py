@@ -177,8 +177,12 @@ def main():
     all_rows = [row for branch in branches for row in branch["rows"]]
     acceptance = manifest["acceptance"]
     output = {
-        "schema": "butterfly.period10-flip-branch-switch.v1",
+        "schema": manifest.get(
+            "output_schema", "butterfly.period10-flip-branch-switch.v1"
+        ),
         "experiment_id": manifest["experiment_id"],
+        "parent_period_label": manifest.get("parent_period_label", 10),
+        "child_period_label": manifest.get("child_period_label", 20),
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "parent_branch_receipt_sha256": sha256_bytes(branch_bytes),
