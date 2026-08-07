@@ -79,7 +79,7 @@ def main():
             "asymptotic convergence or Feigenbaum universality."
         ),
     }
-    output["passed"] = (
+    output["passed"] = bool(
         np.all(np.diff(b_values) < 0.0)
         and np.all(np.diff(spacings) < 0.0)
         and np.all(ratios >= acceptance["minimum_spacing_ratio"])
