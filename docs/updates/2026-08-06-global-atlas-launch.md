@@ -233,3 +233,15 @@ global continuation and atlas/TBA overlays follow.
 
 Full EXP-041 receipt SHA-256:
 `66cc557c0c554d2c47ea1fe42cf2ff274840f13ca2d9c230257c331bc84b5e88`.
+
+EXP-042 then performed the frozen off-event check at `b-b*=0.0004`. All three
+parents close at half-period below `4.87e-12` and have unstable fundamental
+transverse moduli from `1.00505` to `1.01713`. The three children miss
+half-period closure by `0.15867` to `0.23338`, close at full period below
+`2.35e-13`, have stable moduli from `0.93178` to `0.97979`, and have
+child/parent-fundamental period ratios from `1.999642` to `2.000004`. The local
+supercritical period-doubling classification is therefore independently closed
+at the source, separated point, and projection fold.
+
+Full EXP-042 receipt SHA-256:
+`51b4d48b2f6711d7e18655339c3c6639d373120341f81b757aab6917aaae0eff`.

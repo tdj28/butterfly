@@ -125,6 +125,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-041-double-cover-audit.md`](experiments/EXP-041-double-cover-audit.md):
   half-period closure, `-1` multiplier, and monodromy-square audit decisively
   reclassifying the surface as a fundamental period-doubling surface.
+- [`experiments/EXP-042-period-doubled-offspring-audit.md`](experiments/EXP-042-period-doubled-offspring-audit.md):
+  direct off-event confirmation of unstable fundamental parents and stable
+  period-doubled children at all three qualified surface points.
 
 ## Evidence states
 

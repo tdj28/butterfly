@@ -100,8 +100,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   each stored parent closes at half-period, has a fundamental multiplier `-1`,
   and its doubled monodromy produces the observed `+1`. The object is therefore
   a fundamental period-doubling surface, not an unexplained spatial pitchfork.
-  A direct offspring-period audit, fold-safe surface extension, validated
-  samples, equilibrium/Hopf, and TBA remain open.
+  EXP-042 directly confirms the off-event outcome at all three points: unstable
+  fundamental parents, stable children that fail half-period closure, and
+  child/parent period ratios within `0.00036` of two. Local classification is
+  closed numerically. Fold-safe surface extension, validated samples,
+  equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

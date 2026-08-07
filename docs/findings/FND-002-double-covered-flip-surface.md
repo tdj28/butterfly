@@ -1,8 +1,9 @@
 # FND-002 — The apparent unit-multiplier surface is a fundamental flip surface
 
-Status: reproduced at three separated points, including a parameter-space fold
+Status: reproduced at three separated points, including a parameter-space fold;
+off-event parent/offspring periods independently confirmed
 Last updated: 2026-08-06
-Primary evidence: EXP-028 through EXP-041
+Primary evidence: EXP-028 through EXP-042
 Related claims: CLM-012 and CLM-020
 
 ## Headline finding
@@ -51,6 +52,13 @@ events. At all three:
 - no tested divisor from three through ten produces another closure.
 
 This is an algebraic and dynamical identity, not merely a visual resemblance.
+
+EXP-042 then moved a frozen distance `b-b*=0.0004` beyond every event and
+corrected parent and child independently. Each parent still closes at its
+fundamental half-period and is unstable. Each child misses half-period closure
+by at least `0.158`, closes fully below `2.35e-13`, is stable, and has period
+ratio within `0.00036` of two. This verifies the actual off-event
+period-doubled offspring, not only the critical multiplier at the event.
 
 ## Why the earlier measurements looked like a pitchfork
 
@@ -113,17 +121,17 @@ Established numerically:
 
 Not yet established:
 
-- direct half/full-period classification of the offspring on both sides at all
-  three points;
+- equivalent parent/offspring audits on the opposite side and on additional
+  surface points;
 - rigorous or interval validation of a flip point;
 - uniform bifurcation type over the full surface;
 - global continuation or the number/connectivity of flip surfaces;
 - alignment with TBA, TTL, caustics, and window boundaries; or
 - sufficiency of these surfaces to explain the entire `(a,c)` atlas.
 
-The immediate independent check is a frozen offspring-period audit. The next
-global step is fold-safe continuation of flip surfaces and their overlays on
-the multi-`b` atlas.
+The immediate independent offspring-period check has passed as EXP-042. The
+next global step is fold-safe continuation of flip surfaces and their overlays
+on the multi-`b` atlas.
 
 ## Source records
 
@@ -140,3 +148,5 @@ the multi-`b` atlas.
   folded curve and local surface geometry.
 - [`EXP-041`](../experiments/EXP-041-double-cover-audit.md): decisive
   half-period closure, flip multiplier, and monodromy-square audit.
+- [`EXP-042`](../experiments/EXP-042-period-doubled-offspring-audit.md): direct
+  off-event unstable-parent/stable-period-doubled-child audit.
