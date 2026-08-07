@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.separated-normal-form-manifest.v1",
+  "experiment_id": "EXP-040",
+  "source_surface_receipt_sha256": "ad7d09afa45068dbb41252ebaa7de93259302d3aff8d1824a908e7e62c9ad555",
+  "event_coordinate": {"a": 0.21851312809543263, "c": 5.1},
+  "primary_tangent_offset": 0.0005,
+  "switch": {"step_length": 0.005, "steps_per_direction": 24},
+  "mu_offsets": [0.00005, 0.0001, 0.0002, 0.0004, 0.0008],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"max_evaluations": 50, "tolerance": 1e-11},
+  "comparison": {"phase_samples": 256, "coarse_shifts": 256, "shift_tolerance": 1e-10},
+  "acceptance": {
+    "minimum_branch_points_per_direction": 12,
+    "max_closure_error": 1e-8,
+    "max_secondary_arm_rms": 1e-5,
+    "minimum_primary_secondary_rms": 1e-2,
+    "separation_exponent_min": 0.4,
+    "separation_exponent_max": 0.6,
+    "minimum_separation_r_squared": 0.98,
+    "multiplier_ratio_median_min": 1.5,
+    "multiplier_ratio_median_max": 2.5,
+    "require_stability_exchange_at_all_points": true
+  }
+}

@@ -101,7 +101,8 @@ def main() -> int:
     event = next(
         row
         for row in surface["rows"]
-        if abs(row["a"] - a) < 1e-12 and abs(row["c"] - c) < 1e-12
+        if abs(row["a"] - a) < 1e-12
+        and abs(float(row.get("c", surface.get("fixed_c"))) - c) < 1e-12
     )
     b_star = float(event["b"])
     event_state = np.asarray(event["initial_state"], dtype=float)
