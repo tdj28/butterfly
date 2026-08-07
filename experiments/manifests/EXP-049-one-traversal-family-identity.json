@@ -1,0 +1,1 @@
+{"schema":"butterfly.one-traversal-crossing-manifest.v1","experiment_id":"EXP-049","source_continuation_receipt_sha256":"e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb","family_id":"period5-fixed-ac","solver":{"method":"DOP853","rtol":1e-12,"atol":1e-14,"max_step":0.01},"acceptance":{"initial_count":5,"final_count":6,"minimum_each":5}}
