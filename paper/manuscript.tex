@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{A Reproducible Computational Reassessment of Periodicity-Hub Dynamics in the R{\"o}ssler Flow}
+\author{Timothy D. Jones}
+\date{Working draft --- \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We reassess and extend the proposed dynamical explanation of periodicity hubs
+in the R{\"o}ssler flow.  The computational program separates finite-time
+parameter rasters from invariant periodic orbits, flow bifurcations from
+return-section geometry, and established results from topology hypotheses.
+At fixed $(a,c)=(0.245,5.1)$, identity-safe continuation and segmented
+multiple shooting resolve seven supercritical period doublings from period 5
+through a stable period-640 child.  Two event locations predicted before their
+refinement agree with the subsequently resolved values.  Separately, a change
+in the historical section-crossing count is caused by a section-boundary
+grazing rather than another flow-orbit bifurcation.  These results strengthen
+the finite cascade and expose an important measurement distinction, but they
+do not yet establish the proposed global two/three-branch transition,
+third-branch reinjection mechanism, logistic conjugacy, or an explanation of
+the entire parameter plane.  We state the experiments required to decide
+those remaining claims and preserve their provenance in a reproducible
+research record.
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-mathematical-objects}
+\input{sections/03-methods}
+\input{sections/04-results}
+\input{sections/05-topology-tests}
+\input{sections/06-discussion}
+\input{sections/07-conclusion}
+
+\appendix
+\input{sections/a-reviewer-closure}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

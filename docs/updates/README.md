@@ -22,6 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-paper-workspace-and-referee-citations.md`](2026-08-07-paper-workspace-and-referee-citations.md)
+  — compile-ready manuscript, verified referee citations, and automated
+  BibTeX/citation traceability gate.
+- [`2026-08-07-high-period-cascade-frontier.md`](2026-08-07-high-period-cascade-frontier.md)
+  — identity-safe cascade through a stable period-640 child and the frozen
+  640-to-1280 event prediction.
 - [`2026-08-06-global-atlas-launch.md`](2026-08-06-global-atlas-launch.md)
   — bounded high-`a` atlas design, EXP-013 preregistration, and compute ceiling.
 - [`2026-08-06-foundation-and-first-atlas.md`](2026-08-06-foundation-and-first-atlas.md)

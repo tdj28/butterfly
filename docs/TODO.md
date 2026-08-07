@@ -183,7 +183,10 @@ exposition requirements.
   symbolic comparison separately; enforce the terminology in the manuscript.
 - [ ] **RVR-002 — Attribution and novelty.** Primary-source verification of the
   earlier TTL/TBA result, Jones Ref. 6, Holmes, Lefranc, homoclinic foundation,
-  and the precise 2012 co-discovery boundary; publish a novelty matrix.
+  and the precise 2012 co-discovery boundary; publish a novelty matrix. The
+  referee-named sources are now resolved in `paper/references.bib`, cited in
+  the draft, and tracked by `paper/reference-ledger.md`; close reading and the
+  full novelty matrix remain open.
 - [ ] **RVR-003 — Two/three-branch oracle.** Critical-point uncertainty,
   invariant-domain relevance, branch classification, transition continuation,
   and section-perturbation robustness.

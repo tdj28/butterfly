@@ -70,6 +70,12 @@ Verify the earlier TTL/TBA source, Jones Ref. 6, Holmes (1984), Lefranc et al.
 source novelty matrix distinguishing prior knowledge, co-discovery, Jones-only
 hypotheses, reproduction, correction, and genuinely new results.
 
+Checkpoint (2026-08-07): Jones Ref. 6 is resolved as Barrio et al., *Physical
+Review E* **84**, 035201 (2011). Publisher-verified BibTeX for that paper,
+Holmes (1984), and Lefranc et al. (1994) is now required and cited by the draft
+under `paper/`. Claim-level close reading, the homoclinic-source expansion, and
+the complete novelty matrix remain open, so RVR-002 is not closed.
+
 ### RVR-003 — Two-to-three branch return-map oracle
 
 Freeze a Poincaré section and relevant invariant domain. Detect critical points

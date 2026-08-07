@@ -1,0 +1,28 @@
+\section{Computational methods and provenance}
+
+Finite-time $(a,c)$ rasters are used for discovery, not for declaring invariant
+bifurcations.  Candidate periodic states are corrected by shooting equations
+with an explicit phase condition.  Stability is computed from the variational
+flow and nontrivial Floquet multipliers.  Every continuation correction is
+checked against the intended minimal-period orbit identity so that a
+double-covered parent cannot be mislabeled as a doubled child.
+
+At high period, full-period shooting becomes poorly conditioned and can lose
+the flip direction.  We therefore divide an orbit into multiple shooting
+segments, enforce continuity between segment endpoints, and obtain the
+monodromy action from the product of the segment variational maps.  Child
+identity is tested at a common parameter by phase-aligning the entire orbit and
+comparing against the double-covered parent, rather than by comparing one
+section point.
+
+Numerical tolerances, frozen predictors, failed acceptance gates, hashes, and
+output paths are recorded in experiment receipts in the accompanying
+repository.  Event predictions used as prospective tests are frozen before the
+subsequent crossing scan and refinement.  This separation prevents an
+after-the-fact fit from being reported as prediction.
+
+The return-map topology work uses a stricter protocol that is not yet complete.
+It must freeze $\Sigma$, $U$, the coordinate or quotient, and the critical-point
+criterion before classifying two versus three branches.  The classification
+must then survive declared section and coordinate perturbations.  This is the
+acceptance boundary for the topology claims below.

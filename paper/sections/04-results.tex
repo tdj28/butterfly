@@ -1,0 +1,46 @@
+\section{Established computational results}
+
+\subsection{Identity-safe local cascade}
+
+At fixed $(a,c)=(0.245,5.1)$, the true period-5 family undergoes seven resolved
+supercritical flips.  The first six parent-event values are
+\begin{equation}
+\begin{split}
+b_1&=0.1834675907716,\quad b_2=0.1805372082024,\\
+b_3&=0.1798912237616,\quad b_4=0.1797506213663,\\
+b_5&=0.1797203688505,\quad b_6=0.1797138833005,
+\end{split}
+\end{equation}
+and the resolved period-320 to period-640 event is
+$b_7=0.17971249399393$.  The associated finite spacing ratios are
+$4.5363$, $4.5944$, $4.6476$, $4.6646$, and $4.6682$.  Multiple shooting,
+block-Floquet stability, and whole-orbit identity establish a stable period-640
+child.  These are finite numerical observations; proximity of the ratios to a
+classical constant is not presented as a universality proof.
+
+Two event locations were predicted from earlier rungs before their dedicated
+refinement.  The frozen period-80 to period-160 prediction missed the resolved
+event by $1.398\times10^{-7}$.  The frozen period-320 to period-640 prediction
+missed by $3.00\times10^{-10}$.  The next period-640 to period-1280 prediction
+is frozen at $b=0.1797121964470$ but has not yet passed the event and child
+qualification gates.
+
+\subsection{Flow bifurcation versus section geometry}
+
+After the period-5 to period-10 flip, the stable period-10 child changes its
+crossing count on the historical return section near
+$b=0.181750232321$.  Continuous tangency refinement identifies this as a
+section-boundary grazing.  It is therefore not another bifurcation of the flow
+orbit.  This result is directly relevant to branch-count studies: an apparent
+change in a scalar return plot can originate in the measurement construction,
+so a topology-transition classifier must include section-robustness tests.
+
+\subsection{Long transient capture}
+
+Cases that initially appeared to show coexistence of a chaotic attractor and a
+stable periodic attractor were followed for longer horizons and with multiple
+initial conditions.  The trajectories eventually entered the stable periodic
+windows.  Persistent multistability is rejected for those tested cases; the
+evidence instead supports long chaotic-transient capture, consistent with a
+nonattracting chaotic-saddle mechanism.  Computing the saddle itself remains a
+separate acceptance test.

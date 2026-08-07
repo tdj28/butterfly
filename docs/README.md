@@ -12,6 +12,8 @@ what must be narrowed, and what is false or unresolved.
 
 ## Documents
 
+- [`../paper/`](../paper/): continuously updated manuscript, authoritative
+  BibTeX database, reference ledger, and referee-to-paper traceability checks.
 - [`findings/FND-001-apparent-multistability-is-transient-capture.md`](findings/FND-001-apparent-multistability-is-transient-capture.md):
   centralized account of the long chaotic-transient capture finding, its
   implications for Jones and Barrio, and the remaining proof boundary.
