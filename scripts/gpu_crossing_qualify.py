@@ -32,6 +32,36 @@ except ImportError as error:  # pragma: no cover - executed on the GPU worker
 
 
 @triton.jit
+def _hermite_root_step(alpha, previous_y, y, k1y, end_dy, section_y, dt: tl.constexpr):
+    """Apply one bounded Newton step to a cubic-Hermite section root."""
+    alpha2 = alpha * alpha
+    alpha3 = alpha2 * alpha
+    h00 = 2.0 * alpha3 - 3.0 * alpha2 + 1.0
+    h10 = alpha3 - 2.0 * alpha2 + alpha
+    h01 = -2.0 * alpha3 + 3.0 * alpha2
+    h11 = alpha3 - alpha2
+    value = (
+        h00 * previous_y
+        + h10 * dt * k1y
+        + h01 * y
+        + h11 * dt * end_dy
+        - section_y
+    )
+    derivative = (
+        (6.0 * alpha2 - 6.0 * alpha) * previous_y
+        + (3.0 * alpha2 - 4.0 * alpha + 1.0) * dt * k1y
+        + (-6.0 * alpha2 + 6.0 * alpha) * y
+        + (3.0 * alpha2 - 2.0 * alpha) * dt * end_dy
+    )
+    refined = tl.where(
+        tl.abs(derivative) > 1.0e-15,
+        alpha - value / derivative,
+        alpha,
+    )
+    return tl.maximum(0.0, tl.minimum(1.0, refined))
+
+
+@triton.jit
 def _rk4_crossing_chunk(
     states,
     parameters,
@@ -107,32 +137,20 @@ def _rk4_crossing_chunk(
             end_dx = -y - z
             end_dy = x + a * y
             end_dz = b + z * (x - c)
-            for _ in tl.static_range(0, 4):
-                alpha2 = alpha * alpha
-                alpha3 = alpha2 * alpha
-                h00 = 2.0 * alpha3 - 3.0 * alpha2 + 1.0
-                h10 = alpha3 - 2.0 * alpha2 + alpha
-                h01 = -2.0 * alpha3 + 3.0 * alpha2
-                h11 = alpha3 - alpha2
-                value = (
-                    h00 * previous_y
-                    + h10 * dt * k1y
-                    + h01 * y
-                    + h11 * dt * end_dy
-                    - section_y
-                )
-                derivative = (
-                    (6.0 * alpha2 - 6.0 * alpha) * previous_y
-                    + (3.0 * alpha2 - 4.0 * alpha + 1.0) * dt * k1y
-                    + (-6.0 * alpha2 + 6.0 * alpha) * y
-                    + (3.0 * alpha2 - 2.0 * alpha) * dt * end_dy
-                )
-                refined = tl.where(
-                    tl.abs(derivative) > 1.0e-15,
-                    alpha - value / derivative,
-                    alpha,
-                )
-                alpha = tl.maximum(0.0, tl.minimum(1.0, refined))
+            # Keep the four iterations explicitly unrolled. Triton 3.3 cannot
+            # lower a nested ``tl.static_range`` inside this runtime step loop.
+            alpha = _hermite_root_step(
+                alpha, previous_y, y, k1y, end_dy, section_y, dt
+            )
+            alpha = _hermite_root_step(
+                alpha, previous_y, y, k1y, end_dy, section_y, dt
+            )
+            alpha = _hermite_root_step(
+                alpha, previous_y, y, k1y, end_dy, section_y, dt
+            )
+            alpha = _hermite_root_step(
+                alpha, previous_y, y, k1y, end_dy, section_y, dt
+            )
 
             alpha2 = alpha * alpha
             alpha3 = alpha2 * alpha
