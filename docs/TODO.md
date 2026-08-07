@@ -183,7 +183,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `b=0.17971219643223899` with prediction error `1.476e-11` and direct flip
   residual `1.90e-10`. Next freeze a period-1280 branch switch, then require
   independent common-parameter identity and Floquet stability before adding an
-  eighth supercritical rung.
+  eighth supercritical rung. EXP-104 freezes the tangent-informed 128-segment
+  switch at two amplitudes and both signs.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

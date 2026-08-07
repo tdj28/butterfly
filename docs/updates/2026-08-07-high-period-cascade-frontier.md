@@ -244,3 +244,9 @@ the eighth parent event and completes the third prospective prediction test.
 The new finite spacing ratio is `4.6689869`. It does not yet add an eighth
 supercritical rung: period-1280 switching, common-parameter identity, and
 Floquet stability are the next locked steps.
+
+EXP-104 freezes the switch. It doubles EXP-103's orbit nodes and constructs the
+secondary direction directly from the passed anti-periodic tangent field, with
+a repeated flow component enforcing the phase row. Two amplitudes and both
+signs are attempted with 128-segment tight multiple shooting. Passing creates
+candidates only; stability and an eighth supercritical rung remain locked.
