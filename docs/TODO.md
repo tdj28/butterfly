@@ -145,6 +145,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-073/074 then switch and qualify the stable period-160 child. Refine the
   bracketed 160→320 event, but require a separate period-320 qualification
   before extending the supercritical cascade claim.
+  EXP-077 resolves that event at `b=0.179713883301`; its spacing ratio is
+  `4.664603`. Next switch and independently qualify period 320. Before going
+  materially higher, benchmark multiple-shooting/collocation and remote CPU
+  parallelism because single-shooting orbit duration has reached `~2092`.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

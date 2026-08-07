@@ -63,3 +63,9 @@ EXP-073/074 then switch and independently recover the stable period-160 child,
 establishing the fifth supercritical rung, 80→160. The child period is about
 `1045.88` flow-time units, yet closure remains `1.02e-12` and perturbed-orbit
 identity RMS `2.22e-7`.
+
+EXP-077 locates the next `-1` event on that period-160 parent at
+`b=0.179713883300532`. The fourth observed spacing ratio is `4.664603`, within
+`0.0985%` of the frozen period-doubling reference. This is the closest ratio so
+far, but period-320 existence and a validated asymptotic statement remain
+open.
