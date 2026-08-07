@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.unit-event-surface-patch-manifest.v1",
+  "experiment_id": "EXP-038",
+  "source_spine_receipt_sha256": "5ced7a162409846449bf1b51015b9a6f5b19826aac6b042b1de334ed34176ba1",
+  "a_values": [0.24, 0.24125, 0.2425, 0.24375, 0.245, 0.24625, 0.2475, 0.24875, 0.25],
+  "c_values": [4.9, 5.0, 5.1, 5.2, 5.3],
+  "b_guard": [0.15, 0.4],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 120, "tolerance": 1e-10},
+  "acceptance": {
+    "required_points": 45,
+    "max_closure_error": 1e-8,
+    "max_eigen_residual": 1e-8,
+    "max_flow_orthogonality_residual": 1e-8,
+    "max_adjacent_b_jump": 0.015
+  }
+}
