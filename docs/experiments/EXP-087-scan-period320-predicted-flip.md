@@ -1,6 +1,6 @@
 # EXP-087 — Scan the predicted period-320 flip
 
-Status: preregistered after EXP-086; pending clean execution
+Status: executed; passed
 
 Continue one independently qualified EXP-083 period-320 representation through
 nine frozen `b` values from `0.1797132` to `0.1797122`, densely sampling the
@@ -15,3 +15,13 @@ remains distinct from its half-period parent by node RMS `>=1e-5`, and a real
 frozen prediction. Passing creates a prospective refinement bracket; it does
 not establish period 640 until branch switching and independent qualification
 also pass.
+
+The clean run at `bf4661d9dfeb73da8e3e4729bd62551e68e3a281` passed. All
+nine corrections have matching residual below `1.01e-12`. The real dominant
+multiplier changes from `-0.99066886` at `b=0.17971250` to `-1.06854231` at
+`b=0.17971245`. The bracket width is `5e-8`, and its midpoint misses the
+frozen EXP-086 prediction by only `1.93e-8`. Full receipt SHA-256:
+`1351d98012678006f951e1480f214197a66abaeffa07fdecaecdf3288d12ecd4`.
+
+EXP-088 binds the full scan and refines the signed `-1` residual before any
+period-640 branch switch is attempted.

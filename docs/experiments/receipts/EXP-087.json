@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.period320-block-floquet-scan-summary.v1",
+  "experiment_id": "EXP-087",
+  "passed": true,
+  "source_commit": "bf4661d9dfeb73da8e3e4729bd62551e68e3a281",
+  "manifest_sha256": "141dbb5e6989f641f279c37f3999a7b59fa97cb7c3a47c3f788627b29bd621fa",
+  "full_receipt_sha256": "1351d98012678006f951e1480f214197a66abaeffa07fdecaecdf3288d12ecd4",
+  "predicted_b": 0.17971249429433594,
+  "flip_bracket": [
+    0.17971245,
+    0.1797125
+  ],
+  "bracket_midpoint_prediction_error": -1.9294335962261044e-8,
+  "endpoint_multipliers": [
+    -1.0685423125648636,
+    -0.9906688570575851
+  ],
+  "maximum_matching_residual": 1.0095967374840863e-12,
+  "interpretation": "signed segmented Floquet continuation brackets the predicted period-320 minus-one event"
+}
