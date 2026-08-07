@@ -50,3 +50,11 @@ the stable child is recovered from a perturbed trajectory and has Floquet
 modulus `0.005536`. The independently frozen next-event prediction lies inside
 the prospective period-80 `-1` bracket, enabling a genuine out-of-sample
 scaling test rather than a post-hoc fit.
+
+EXP-072 passes that test: the verified 80→160 event is
+`b=0.1797203688505`, only `1.398e-7` from the precommitted prediction. The new
+spacing ratio is `4.64763`, closer again to the frozen reference. This is
+strong numerical evidence for a classical period-doubling scaling regime on
+this local flow-orbit family, but the project still withholds an asymptotic
+universality claim pending more rungs, precision studies, and independent
+methods.

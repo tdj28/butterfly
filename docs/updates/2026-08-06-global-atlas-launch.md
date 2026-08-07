@@ -326,3 +326,20 @@ silently repaired. Its uncontaminated prefix and the original EXP-052 branch
 both prospectively bracket the child's first `-1` multiplier crossing at
 `b=[0.180320828520,0.180788459850]`. That candidate is upstream of the branch
 hop and is the next independent refinement target.
+
+## Verified local cascade and prospective scaling (EXP-057–072)
+
+The true period-10 child undergoes its own flip at `b=0.180537208202`.
+Branch switching, phase-invariant comparison, and perturbed-attractor recovery
+then establish supercritical 10→20, 20→40, and 40→80 rungs. The next verified
+event parameters are `0.179891223762`, `0.179750621366`, and
+`0.179720368850`.
+
+EXP-066 used only the first four event receipts to freeze an out-of-sample
+80→160 prediction `b=0.179720508641`. EXP-072 subsequently locates the event
+only `1.398e-7` away. The observed spacing ratios `4.5363`, `4.5944`, and
+`4.6476` move toward the standard period-doubling reference. This is strong
+evidence for a local classical scaling regime, not yet an asymptotic
+universality proof. Crucially, the section-boundary grazing at
+`b=0.181750232321` remains a distinct representation event between the first
+two flow bifurcations.
