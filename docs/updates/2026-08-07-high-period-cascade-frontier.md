@@ -250,3 +250,11 @@ secondary direction directly from the passed anti-periodic tangent field, with
 a repeated flow component enforcing the phase row. Two amplitudes and both
 signs are attempted with 128-segment tight multiple shooting. Passing creates
 candidates only; stability and an eighth supercritical rung remain locked.
+
+EXP-104 passed all four attempts. Its tangent-informed direction has null
+residual `1.38e-12`; both signs converge at both amplitudes with matching
+residuals below `2.24e-12`. Half-node RMS and half-period closure both double
+when the predictor doubles, while the period ratio remains within `9.45e-10`
+of two. A distinct period-1280 candidate branch is established. Common-
+parameter identity and 128-block Floquet stability remain the final gates for
+an eighth supercritical rung.

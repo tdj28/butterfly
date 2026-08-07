@@ -184,7 +184,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   residual `1.90e-10`. Next freeze a period-1280 branch switch, then require
   independent common-parameter identity and Floquet stability before adding an
   eighth supercritical rung. EXP-104 freezes the tangent-informed 128-segment
-  switch at two amplitudes and both signs.
+  switch at two amplitudes and both signs. All four candidates pass, with
+  matching residuals below `2.24e-12` and amplitude-scaling distinctness.
+  Freeze the independent common-parameter identity and 128-block Floquet
+  qualification next.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
