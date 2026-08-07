@@ -132,6 +132,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   strongly stable. Next extend the period-10 child without using raw crossing
   count as an identity gate, then continue both the flip and grazing conditions
   in `(a,b,c)`.
+  EXP-056's long extension detects and quarantines a one-row hop to the
+  double-covered parent. Its uncontaminated prefix exposes the next child
+  event; EXP-057 refines the true period-10 `-1` crossing to
+  `b=0.180537208202`. Switch and qualify the period-20 child next.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
