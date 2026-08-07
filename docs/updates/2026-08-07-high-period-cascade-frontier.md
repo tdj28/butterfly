@@ -129,3 +129,11 @@ matching residual `1.41e-12`, but multiplier residual `3.57e-8` exceeds the
 unchanged `1e-8` gate. The retained signed bracket is `6.02e-12` wide.
 EXP-095 binds that failed receipt and permits four more trials with a smaller
 endpoint margin; it does not relax any scientific acceptance criterion.
+
+EXP-095 also failed the unchanged `1e-8` multiplier gate, but its four new
+positive residuals decrease monotonically from `2.20e-5` to `2.85e-6` while
+the negative endpoint remains at `-3.57e-8`. The `1%` safeguard forced
+midpoints because the secant root is endpoint-near; this is not evidence of a
+Floquet noise floor. EXP-096 binds the resulting `3.77e-13` signed bracket and
+changes only the numerical endpoint margin to `0.1%`. Scientific gates remain
+unchanged, and a further failure will trigger a precision/segmentation audit.
