@@ -198,10 +198,10 @@ def main() -> int:
     statuses = []
     started = time.perf_counter()
     step_scale = float(manifest["continuation"]["step_scale"])
+    step_length = step_scale * np.linalg.norm(points[-1] - points[-2])
     for step_index in range(int(manifest["continuation"]["steps"])):
         tangent = points[-1] - points[-2]
         tangent = tangent / np.linalg.norm(tangent)
-        step_length = step_scale * np.linalg.norm(points[-1] - points[-2])
         predictor = points[-1] + step_length * tangent
         corrected, status = correct_arclength(
             predictor,
