@@ -116,3 +116,9 @@ The `1e-8` bracket midpoint is only `1.447e-9` below the frozen prediction,
 about `0.49%` of the predicted event spacing. This is the third successful
 prospective cascade prediction, but it is still a bracket rather than a
 corrected eighth event. EXP-094 must refine the event before branch switching.
+
+EXP-094 is now preregistered against the full EXP-093 receipt. It permits eight
+safeguarded secant trials and keeps the same `1e-8` multiplier residual,
+`1e-11` parameter uncertainty, and `5e-8` prospective prediction-error gates
+used to decide whether a corrected event exists. A period-1280 branch is out of
+scope until this event gate passes.
