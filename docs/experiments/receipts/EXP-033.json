@@ -1,0 +1,14 @@
+{
+  "schema": "butterfly.unit-event-curve-summary.v1",
+  "experiment_id": "EXP-033",
+  "passed": false,
+  "source_commit": "a1de99ba6548ba1aacf95b75f088a30051acc7ab",
+  "manifest_sha256": "a5a433e07546f1b8ae8cc51a0f0d7a11cb7bd5f4f9d6e20a4c75a1e48fd3976b",
+  "source_event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "full_receipt_sha256": "8953304eb9ffbe613d52de9a4121ed2d8baffe0a08e647416755f747729e4e49",
+  "point_count": 4,
+  "valid_point_count": 3,
+  "max_closure_error": 0.39148890165247335,
+  "failure_mode": "Natural a-step 0.005 jumped to a spurious high-residual solution downward and lost the periodic seed upward.",
+  "interpretation": "The experiment is rejected as an event curve. It establishes a continuation-resolution limit, not a mathematical curve endpoint."
+}
