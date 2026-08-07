@@ -1,6 +1,6 @@
 # EXP-083 — Independently qualify the period-320 candidate
 
-Status: preregistered after EXP-082; pending clean execution
+Status: executed; failed discrete-node identity gate
 
 First validate a block-cyclic Floquet calculation against the ordinary
 monodromy result for the independently established period-80 child at
@@ -20,3 +20,19 @@ Passing would establish a stable, geometrically identified period-320 cycle
 on the supercritical side of the EXP-077 flip. It would close the sixth local
 cascade rung numerically; it would still not constitute a rigorous
 universality proof.
+
+The clean run at `04fffd6832624ab5856a4f3db84127ab8c81ad44` failed only
+the frozen discrete-node identity threshold. The block-Floquet method passed
+its independent calibration, reproducing the known period-80 modulus with
+absolute error `4.07e-8`. Both fixed-parameter period-320 corrections converge
+below `9.90e-13`, agree in period within `2.3e-11`, retain half-period
+distinctness, and have strongly stable dominant nontrivial moduli `0.05496991`
+and `0.05496954`. However, the best of only 32 cyclic node shifts has RMS
+`1.376e-4`, above `1e-5`. Full receipt SHA-256:
+`99441eaee59c718fa853e090a608fff9da0e5562ce9cac42dbfc54cfee307d93`.
+
+The two solutions' nearly identical periods, stability, and half-orbit
+amplitudes suggest a fractional phase offset that a node-only comparison
+cannot resolve. EXP-084 prospectively replaces only that coarse identity
+metric with continuous phase alignment built from dense output on each
+well-conditioned segment. The original failed gate remains recorded.
