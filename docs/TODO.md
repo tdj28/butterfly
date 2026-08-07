@@ -187,7 +187,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   switch at two amplitudes and both signs. All four candidates pass, with
   matching residuals below `2.24e-12` and amplitude-scaling distinctness.
   EXP-105 freezes the independent common-parameter identity and 128-block
-  Floquet qualification at `b=0.17971215`.
+  Floquet qualification at `b=0.17971215`. It passes with whole-orbit RMS
+  `3.94e-8` and stable moduli near `0.426174`, closing the eighth local
+  supercritical rung. Return the primary execution frontier to orbit-defined
+  flip/grazing surfaces and the reviewer-identified global topology gaps.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

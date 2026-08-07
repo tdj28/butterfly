@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.period1280-segmented-qualification-summary.v1",
+  "experiment_id": "EXP-105",
+  "passed": true,
+  "source_commit": "42dee43051bb7d88bf6a8fff55839a0beaafd716",
+  "manifest_sha256": "76275d31d300968644ef8a44cded55c7cf57406bc26d3c2d074315046b841213",
+  "full_receipt_sha256": "e63a38618e1539d79942180539024b9c9ff4e1e10c2716da79d8890522013eaf",
+  "target_b": 0.17971215,
+  "period_time": 8367.041654978086,
+  "period_difference": 0.0,
+  "identity_phase_shift": 0.49999999917054083,
+  "identity_rms": 3.942664116096405e-8,
+  "maximum_segment_endpoint_error": 2.69978064955995e-12,
+  "dominant_nontrivial_moduli": [
+    0.42617455315324376,
+    0.426174155987543
+  ],
+  "modulus_difference": 3.9716570077175106e-7,
+  "interpretation": "both switch signs identify one stable period-1280 child, closing the eighth local supercritical cascade rung; global topology and universality remain separate claims"
+}

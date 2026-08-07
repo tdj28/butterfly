@@ -264,3 +264,11 @@ both EXP-104 signs from predictor `0.001`. It requires deterministic dense-
 orbit phase identity, period agreement, persistent half-period distinctness,
 and independently stable 128-block Floquet spectra. Only a pass closes the
 eighth supercritical rung.
+
+EXP-105 passed. Both signs correct to identical period `8367.041654978086` at
+`b=0.17971215`; phase-aligned whole-orbit RMS is `3.94e-8`, endpoint error is
+`2.70e-12`, and half-node RMS remains `1.086e-4`. Independent 128-block
+dominant moduli are `0.4261745532` and `0.4261741560`. The stable period-1280
+child is established, closing the eighth local supercritical rung. The active
+frontier now returns to continuation of flip/grazing sets, reinjection, and
+global parameter-plane topology.
