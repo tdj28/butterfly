@@ -98,3 +98,12 @@ the 320→640 event at `b=0.17971249399393`. The blind prediction missed by only
 ratio is `4.6681920`, closer again to the frozen reference. This verifies a
 second out-of-sample scaling prediction and establishes the seventh flip event;
 period-640 existence and stability remain separate prospective tests.
+
+EXP-090 switches that event with 64-segment shooting, and EXP-091 independently
+corrects both signs at common parameter. Their periods agree to machine
+precision, their stable block-Floquet moduli agree within `1.22e-7`, and dense
+whole-orbit alignment gives RMS `1.39e-8` at half-period phase shift. The
+period-640 child and seventh supercritical rung are therefore numerically
+established. This is unusually deep finite cascade evidence for a flow, while
+the distinction between finite numerical scaling and an asymptotic theorem
+remains explicit.

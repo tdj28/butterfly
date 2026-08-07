@@ -86,3 +86,9 @@ The period-320 parent event is therefore independently verified. EXP-090 now
 uses 64 segments to seek a period-640 child. As before, a switched candidate
 will not be called a stable cascade rung until fixed-parameter identity and
 segmented Floquet qualification also pass.
+
+EXP-090 produced six accepted period-640 candidates from both signs using 64
+segments. EXP-091 then passed the independent common-parameter test at
+`b=0.17971235`: stable moduli near `0.0707645`, identical periods, and
+phase-aligned whole-orbit RMS `1.39e-8`. The period-640 child is established,
+closing the seventh local supercritical rung.
