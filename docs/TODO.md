@@ -141,6 +141,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `b=0.179891223762`, including recovery from a perturbed trajectory. Refine
   the bracketed period-40 event, then estimate convergence of the cascade
   parameters without assuming Feigenbaum universality from three intervals.
+  EXP-072 validates the frozen period-80 event prediction within `1.398e-7`;
+  EXP-073/074 then switch and qualify the stable period-160 child. Refine the
+  bracketed 160→320 event, but require a separate period-320 qualification
+  before extending the supercritical cascade claim.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -58,3 +58,8 @@ strong numerical evidence for a classical period-doubling scaling regime on
 this local flow-orbit family, but the project still withholds an asymptotic
 universality claim pending more rungs, precision studies, and independent
 methods.
+
+EXP-073/074 then switch and independently recover the stable period-160 child,
+establishing the fifth supercritical rung, 80→160. The child period is about
+`1045.88` flow-time units, yet closure remains `1.02e-12` and perturbed-orbit
+identity RMS `2.22e-7`.
