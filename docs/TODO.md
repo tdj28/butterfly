@@ -170,6 +170,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   parameter error is `4.91e-9`. Implement the exact second-variational
   Jacobian, explicitly select the independent flip cluster by proximity to
   `-1`, and repeat the known-event validation before touching period 640.
+  EXP-101 freezes that analytic 32-segment rerun with the same perturbed source
+  and unchanged scientific gates.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

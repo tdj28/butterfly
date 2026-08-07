@@ -197,3 +197,10 @@ the near `+1` and `-1` roles at this collision; subsequent validation will
 select the flip cluster explicitly by distance to `-1`. The next frozen run
 will replace colored finite differences with the exact Rössler second-
 variational Jacobian while preserving the equations and scientific gates.
+
+EXP-101 now freezes that replacement. Segment-level and full-system analytic
+Jacobians pass centered finite-difference tests, and the run binds both the
+original EXP-089 source and failed EXP-100 baseline. It keeps the same seed,
+bounds, integrator, reference, and scientific gates, permits 20 exact
+residual/Jacobian evaluations, and selects the flip spectrum explicitly by
+distance to `-1`. Only a pass may unlock the 64-segment target application.
