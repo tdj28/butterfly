@@ -3,7 +3,7 @@
 Status: reproduced at three separated points, including a parameter-space fold;
 off-event parent/offspring periods independently confirmed
 Last updated: 2026-08-06
-Primary evidence: EXP-028 through EXP-042
+Primary evidence: EXP-028 through EXP-047
 Related claims: CLM-012 and CLM-020
 
 ## Headline finding
@@ -21,6 +21,10 @@ The defensible conclusion is:
 > two switched arms are the expected double-cover representation of a
 > supercritical flip and its single period-doubled offspring.
 
+EXP-047 further establishes the recurrence identity: this is specifically a
+period-3-to-period-6 flip surface. The earlier “period-5” label was inherited
+from a continuation that switched families before reaching the event.
+
 This is good news for the Jones program. It replaces an unexplained numerical
 symmetry with the standard local bifurcation at the heart of period-doubling
 cascades and gives the first explicit orbit-defined bifurcation surface in the
@@ -29,9 +33,10 @@ expanded `(a,b,c)` investigation.
 ## Evidence chain
 
 EXP-023 and EXP-024 first bracketed and refined several ordinary `-1`
-period-doubling events. EXP-025 through EXP-028 then isolated a smooth
-period-5-family event whose nontrivial multiplier appeared at `+1` when the
-orbit was represented with stored period about `33.8`.
+period-doubling events. EXP-025 through EXP-028 then isolated a smooth event
+whose nontrivial multiplier appeared at `+1` when the orbit was represented
+with stored period about `33.8`. It was initially called a period-5-family
+event; EXP-047 later proves that inherited identity false.
 
 EXP-029 and EXP-030 switched branches and demonstrated that, above the event,
 there are two distinct geometric cycles with a stability exchange. EXP-031,
@@ -66,6 +71,13 @@ Five independent fixed-`c` pseudo-arclength traces now reverse in `b` over
 `(a,b,c)=(0.230928,0.264619,4.9)` to
 `(0.207688,0.152777,5.3)`. Both fold coordinates decrease monotonically with
 `c`, and descriptive quadratic residuals remain below `4.8e-5`.
+
+EXP-046 honestly failed a preregistered period-5/10 atlas overlay. Its
+predictions instead fell systematically in an independently generated
+period-3/6 band. EXP-047 tested that post-result hypothesis directly on the
+corrected orbits: all three parents classify as period 3 and all children as
+period 6. The surface and fold are retained, but their family label is
+corrected.
 
 ## Why the earlier measurements looked like a pitchfork
 
@@ -122,6 +134,7 @@ made here.
 Established numerically:
 
 - the three tested `+1` events are double-covered fundamental flips;
+- their parent/child recurrence identity is period 3/6, not period 5/10;
 - the local branch opening is supercritical at those three points;
 - the event curve has projection folds; and
 - a 45-point local event-surface patch and a five-point smooth local fold line
@@ -162,3 +175,6 @@ on the multi-`b` atlas.
   [`EXP-044`](../experiments/EXP-044-extended-c53-flip-slice.md), and
   [`EXP-045`](../experiments/EXP-045-refined-flip-fold-line.md): fold-safe
   multi-`c` traces, boundary completion, and refined local fold line.
+- [`EXP-046`](../experiments/EXP-046-coarse-flip-fold-atlas-overlay.md) and
+  [`EXP-047`](../experiments/EXP-047-flip-recurrence-identity.md): honest 5/10
+  overlay failure and decisive period-3/6 recurrence reclassification.

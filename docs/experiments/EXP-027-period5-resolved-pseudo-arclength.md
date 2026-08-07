@@ -1,5 +1,8 @@
 # EXP-027 — Final resolved period-5 pseudo-arclength crossing test
 
+> **Identity warning after EXP-047.** This event neighborhood is fundamental
+> period 3. Numerical geometry is retained; family provenance remains open.
+
 Status: executed; closure passed; frozen point-count gate failed
 Manifest: `experiments/manifests/EXP-027-period5-resolved-pseudo-arclength.json`
 Claim target: period-5 `+1` crossing near `b=0.2723`

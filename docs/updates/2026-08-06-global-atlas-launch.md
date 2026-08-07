@@ -262,3 +262,16 @@ fits in full event-variable arclength. The fold line moves monotonically from
 residuals `7.93e-6` and `4.79e-5`. This establishes a smooth local fold line on
 the period-doubling surface; atlas-boundary alignment remains the next causal
 test.
+
+EXP-046 performed that independent screen and failed its preregistered
+period-5/10 hypothesis in all six frames. The orbit-defined predictions were
+`6.64`–`7.32` cells from period 5 and `7.22`–`8.59` cells from period 10; the
+plots instead placed every prediction in a period-3/6 band. EXP-047 froze that
+post-result alternative and passed directly: all three corrected parents are
+fundamental period 3 and all three children period 6, with recurrence errors
+below `1.65e-12`.
+
+The local flip, scaling, surface, and fold line are retained. Their family
+identity is corrected from period 5/10 to period 3/6. The continuation from the
+period-5 raster seed switched families before EXP-028; locating that first
+identity change is the next provenance task.

@@ -1,5 +1,8 @@
 # EXP-026 — Resolved local pseudo-arclength through the period-5 +1 crossing
 
+> **Identity warning after EXP-047.** The later event neighborhood is on the
+> fundamental period-3 component, not period 5.
+
 Status: executed; closure passed; frozen point-count gate failed
 Manifest: `experiments/manifests/EXP-026-period5-local-pseudo-arclength.json`
 Claim target: EXP-024/025 period-5 `+1` branch interaction

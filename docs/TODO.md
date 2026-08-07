@@ -111,6 +111,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   with monotone drift and quadratic descriptive fits above `R^2=0.9999992`.
   Independent atlas-boundary overlays, global surface continuation, validated
   samples, equilibrium/Hopf, and TBA remain open.
+  EXP-046's independent atlas overlay rejects the inherited period-5/10
+  identity and reveals period-3/6 alignment instead. EXP-047 directly confirms
+  all tested parents as period 3 and all children as period 6. The surface/fold
+  geometry is retained and reclassified; locating the earlier continuation
+  family switch is now mandatory.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

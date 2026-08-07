@@ -1,5 +1,9 @@
 # EXP-035 — Full unit-event pseudo-arclength below a=0.235
 
+> **Identity correction after EXP-047.** This is a double-covered
+> period-3-to-period-6 flip curve. Its inherited period-5 identity is false;
+> the corrected geometry and residuals remain valid.
+
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-035-event-pseudo-arclength.json`
 Claim target: lower-`a` continuation boundary in EXP-034

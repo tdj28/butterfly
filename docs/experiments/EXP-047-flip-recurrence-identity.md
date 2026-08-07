@@ -1,6 +1,6 @@
 # EXP-047 — Fundamental recurrence identity of the flip component
 
-Status: preregistered after EXP-046; pending clean execution
+Status: executed; passed
 Manifest: `experiments/manifests/EXP-047-flip-recurrence-identity.json`
 Claim target: determine whether the continued flip is period 3→6 rather than period 5→10
 
@@ -25,3 +25,20 @@ families before the event; locating that switch remains a separate audit.
 Failure leaves the EXP-046 raster mismatch unresolved and triggers direct
 section-crossing counts and section-sensitivity checks rather than a label
 change.
+
+## Result and decision
+
+The clean run at commit `012cb53fa8b38642fedad69fb64443efe1a0b369`
+passed all six frozen classifications. At the source, separated-`c`, and
+minimum-`b` fold samples, every parent is fundamental period 3 and every child
+is fundamental period 6. Parent recurrence errors are `1.24e-13` to
+`1.65e-12`; child errors are `2.51e-13` to `3.26e-13`.
+
+The complete receipt SHA-256 is
+`9f450b853543d7f84549a5d190932dfbcdd8f8d55350983ca60a243cd7a18889`.
+
+Reclassify the local object as a supercritical period-3-to-period-6 flip
+surface with a smooth projection fold line. All numerical geometry from
+EXP-028 through EXP-045 remains valid; the “period-5” family identity does not.
+The period-5 source continuation switched to the period-3 family before the
+event. A separate provenance audit must locate the first identity change.

@@ -1,5 +1,10 @@
 # EXP-028 — Coupled period-5 nontrivial +1 multiplier solve
 
+> **Identity correction after EXP-047.** The event below is on a fundamental
+> period-3 family represented twice, not the period-5 family named in this
+> historical title. The solve remains valid; the continuation switched
+> families before this event.
+
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-028-period5-unit-multiplier.json`
 Claim target: EXP-025 through EXP-027 period-5 branch interaction

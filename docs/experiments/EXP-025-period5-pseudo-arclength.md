@@ -1,5 +1,9 @@
 # EXP-025 — Fold-safe period-5 pseudo-arclength continuation
 
+> **Identity warning after EXP-047.** The trace reaches a fundamental period-3
+> component despite originating from a period-5 seed. Its geometry is retained,
+> but the family-switch location must be audited.
+
 Status: executed; resolution gate failed; no b turn observed
 Manifest: `experiments/manifests/EXP-025-period5-pseudo-arclength.json`
 Claim target: failed EXP-024 `+1` refinement and P1-005

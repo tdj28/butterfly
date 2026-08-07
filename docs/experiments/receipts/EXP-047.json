@@ -1,0 +1,14 @@
+{
+  "schema": "butterfly.flip-recurrence-identity-summary.v1",
+  "experiment_id": "EXP-047",
+  "passed": true,
+  "source_commit": "012cb53fa8b38642fedad69fb64443efe1a0b369",
+  "manifest_sha256": "d705f5a95c4deccd97ad4b24ed2c5e31f69d1a3ba76c01ce4c4178ef481580e2",
+  "full_receipt_sha256": "9f450b853543d7f84549a5d190932dfbcdd8f8d55350983ca60a243cd7a18889",
+  "event_count": 3,
+  "parent_period": 3,
+  "child_period": 6,
+  "parent_recurrence_error_range": [1.2350649359676112e-13, 1.6467956022618166e-12],
+  "child_recurrence_error_range": [2.5133027044049384e-13, 3.2596282141348756e-13],
+  "interpretation": "The qualified folded surface is a period-3-to-period-6 supercritical flip component. Its inherited period-5 label is false and indicates an earlier continuation family switch."
+}

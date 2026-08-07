@@ -1,5 +1,8 @@
 # EXP-041 — Double-cover and fundamental flip audit
 
+> **Identity refinement after EXP-047.** The fundamental parent/child periods
+> are 3 and 6 under the legacy Poincare section.
+
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-041-double-cover-audit.json`
 Claim target: correct classification of the EXP-028/031/039/040 event

@@ -133,6 +133,10 @@ what must be narrowed, and what is false or unresolved.
   [`EXP-045`](experiments/EXP-045-refined-flip-fold-line.md): honest first-gate
   limitation, targeted boundary completion, and a five-point smooth local fold
   line on the period-doubling surface.
+- [`experiments/EXP-046-coarse-flip-fold-atlas-overlay.md`](experiments/EXP-046-coarse-flip-fold-atlas-overlay.md)
+  and [`EXP-047`](experiments/EXP-047-flip-recurrence-identity.md): failed
+  period-5/10 atlas alignment followed by direct reclassification as a
+  period-3-to-period-6 flip component.
 
 ## Evidence states
 

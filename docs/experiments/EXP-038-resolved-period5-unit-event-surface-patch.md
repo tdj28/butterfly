@@ -1,5 +1,9 @@
 # EXP-038 — Resolved period-5 unit-event surface patch
 
+> **Identity correction after EXP-047.** This patch belongs to the
+> period-3-to-period-6 flip surface. The historical title preserves chronology;
+> all 45 corrected event points remain valid.
+
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-038-resolved-period5-unit-event-surface-patch.json`
 Claim target: resolution qualification of the EXP-037 surface domain
