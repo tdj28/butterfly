@@ -104,17 +104,41 @@ def main() -> int:
     values = np.asarray([rms(shift) for shift in shifts])
     best = int(np.argmin(values))
     spacing = 1.0 / manifest["coarse_shifts"]
-    refinement = minimize_scalar(
-        lambda shift: rms(shift % 1.0),
-        bounds=(float(shifts[best] - spacing), float(shifts[best] + spacing)),
-        method="bounded",
-        options={"xatol": manifest["shift_tolerance"]},
-    )
+    refinement_history = []
+    if "refinement_stages" in manifest:
+        center = float(shifts[best])
+        half_width = spacing
+        for stage in range(manifest["refinement_stages"]):
+            stage_shifts = center + np.linspace(
+                -half_width, half_width, manifest["refinement_points"]
+            )
+            stage_values = np.asarray([rms(shift % 1.0) for shift in stage_shifts])
+            stage_best = int(np.argmin(stage_values))
+            center = float(stage_shifts[stage_best])
+            grid_spacing = 2.0 * half_width / (manifest["refinement_points"] - 1)
+            refinement_history.append(
+                {
+                    "stage": stage + 1,
+                    "phase_shift": float(center % 1.0),
+                    "rms": float(stage_values[stage_best]),
+                    "grid_spacing": grid_spacing,
+                }
+            )
+            half_width = grid_spacing
+    else:
+        legacy = minimize_scalar(
+            lambda shift: rms(shift % 1.0),
+            bounds=(float(shifts[best] - spacing), float(shifts[best] + spacing)),
+            method="bounded",
+            options={"xatol": manifest["shift_tolerance"]},
+        )
+        center = float(legacy.x)
     identity = {
-        "rms": float(refinement.fun),
-        "phase_shift": float(refinement.x % 1.0),
+        "rms": rms(center % 1.0),
+        "phase_shift": float(center % 1.0),
         "coarse_rms": float(values[best]),
         "coarse_phase_shift": float(shifts[best]),
+        "refinement_history": refinement_history,
     }
     acceptance = manifest["acceptance"]
     moduli = [

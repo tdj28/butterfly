@@ -1,0 +1,14 @@
+{
+  "schema": "butterfly.segmented-orbit-identity-summary.v1",
+  "experiment_id": "EXP-084",
+  "passed": false,
+  "source_commit": "7e085885a9b36e33fe6b7566ccc9beb2dba80fe5",
+  "manifest_sha256": "84153ecb484964bd8a22d5d45b1112e1337abaa7546be6d623707d441bb15495",
+  "full_receipt_sha256": "3869c79bc62f767b6b96fb4ad52ad540729139212159f0f36555ed11773f5f5a",
+  "maximum_segment_endpoint_error": 5.99081399617616e-11,
+  "coarse_phase_shift": 0.5,
+  "coarse_identity_rms": 0.0003169998685630541,
+  "failed_refined_phase_shift": 0.5028604116789519,
+  "failed_refined_identity_rms": 4.7000073846171455,
+  "diagnosis": "bounded scalar minimization assumed a unimodal phase interval and jumped away from the narrow best coarse basin"
+}
