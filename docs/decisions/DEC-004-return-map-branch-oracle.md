@@ -1,7 +1,7 @@
 # DEC-004 — Define branch count as a gated scalar return-map observable
 
 Date: 2026-08-07
-Status: adopted; synthetic calibration passed, Rössler application pending
+Status: adopted; first Rössler prediction failed with robust three-branch result
 
 ## Context
 
@@ -43,6 +43,13 @@ transient, sample count, binning, smoothing, prominence, graph-likeness,
 coverage, and bootstrap thresholds. It must include at least one section
 perturbation and retain unresolved outcomes. Only after calibration may the
 oracle be continued as a transition curve across parameter space.
+
+EXP-106 performs that first application and falsifies its frozen two-branch
+expectation: all three nearby section offsets robustly return three branches
+with full coverage and 100/100 bootstrap agreement. This supports a sharp,
+reproducible local three-branch result but does not yet validate coordinate,
+orientation, threshold, or parameter robustness. Those sensitivities are
+mandatory before transition continuation.
 
 ## Consequences
 

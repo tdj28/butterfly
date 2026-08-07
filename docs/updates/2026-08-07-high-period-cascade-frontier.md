@@ -279,3 +279,11 @@ and bootstrap gates or return `unresolved`. Synthetic one/two/three-branch and
 multivalued controls pass. EXP-106 freezes the first real Rössler calibration
 on the published chaotic `(0.2,0.2,20)` control and three nearby section
 offsets; it prospectively expects a robust two-branch relation.
+
+EXP-106 fails that expectation cleanly: all three offset sections resolve as
+three branches with full domain coverage, conditional spread `0.01832027`, and
+100/100 bootstrap agreement. Both critical points drift by only about
+`2.2e-6` across the offset family. This is the first modern section-robust local
+three-branch evidence relevant to Jones, but it is not yet a two/three-branch
+transition or reinjection result. Coordinate, orientation, threshold, and
+nearby-parameter sensitivity are now the binding next audit.

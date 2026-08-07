@@ -233,7 +233,11 @@ exposition requirements.
   Rössler calibration, transition continuation, and section-perturbation
   robustness remain open. EXP-106 freezes the first calibration on the
   published chaotic `(a,b,c)=(0.2,0.2,20)` control across three nearby section
-  offsets, prospectively expecting a robust two-branch relation.
+  offsets, prospectively expecting a robust two-branch relation. It fails that
+  expectation because all three sections give three branches with 100/100
+  bootstrap agreement and critical-point drift only `~2.2e-6`. Freeze a
+  coordinate/orientation/threshold/nearby-parameter sensitivity audit before
+  continuing any transition curve.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
