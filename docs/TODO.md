@@ -178,7 +178,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   orbit and tangent state under unchanged scientific thresholds. It passes at
   `b=0.17971249399303613` with `8.94e-13` reference error, orbit/tangent
   residuals `9.21e-13`/`1.01e-11`, and block/direct agreement `8.88e-15`.
-  Freeze the validated 64-segment application to the period-640 source next.
+  EXP-103 freezes the validated 64-segment application to EXP-099's period-640
+  source inside the audited EXP-093 signed bracket.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

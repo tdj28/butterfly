@@ -228,3 +228,10 @@ is `1.67e-15`. DEC-003's known-event gate is therefore closed, and the
 validated exact formulation is now authorized for a separately frozen
 64-segment period-640 application. No eighth event or period-1280 child is yet
 claimed.
+
+EXP-103 is the now-authorized target application. It binds EXP-099's tight
+64-node period-640 state and EXP-102's passed validation, uses the audited
+EXP-093 bracket `[0.17971219,0.17971220]` as hard bounds, and retains the frozen
+prediction solely as a `5e-8` comparison gate. Passing would correct the eighth
+parent event, but a period-1280 child and supercriticality remain separate
+future qualifications.
