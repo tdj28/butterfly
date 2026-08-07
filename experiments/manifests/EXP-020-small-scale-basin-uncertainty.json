@@ -1,0 +1,29 @@
+{
+  "schema": "butterfly.basin-uncertainty-manifest.v1",
+  "experiment_id": "EXP-020",
+  "parameters": {"a": 0.245, "b": 0.2, "c": 5.75},
+  "plane": {"x": [-10.0, 10.0], "y": [-10.0, 10.0], "z": 0.0},
+  "target_periods": [3, 12],
+  "sampling": {
+    "epsilons": [0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125],
+    "pairs_per_seed_and_scale": 4096,
+    "seeds": [20260809, 20260810],
+    "pair_geometry": "uniform center with random direction and endpoints separated by epsilon"
+  },
+  "integration": {
+    "transient": 4800.0,
+    "observation_horizon": 1600.0,
+    "max_crossings": 192,
+    "dt": 0.005,
+    "chunk_steps": 4096,
+    "dtype": "float64"
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1E-7
+  },
+  "analysis": {"bootstrap_samples": 5000, "bootstrap_seed": 20020},
+  "acceptance": {"minimum_resolved_fraction": 0.98}
+}

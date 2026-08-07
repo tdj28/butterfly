@@ -80,6 +80,10 @@ what must be narrowed, and what is false or unresolved.
   declared initial-condition basin section for the two stable cycles.
 - [`experiments/EXP-018-gpu-crossing-parity.md`](experiments/EXP-018-gpu-crossing-parity.md):
   paid Float64 GPU parity gate for Poincare crossings and period labels.
+- [`experiments/EXP-019-basin-uncertainty.md`](experiments/EXP-019-basin-uncertainty.md):
+  first scale-dependent uncertainty measurement for the period-12/period-3 basins.
+- [`experiments/EXP-020-small-scale-basin-uncertainty.md`](experiments/EXP-020-small-scale-basin-uncertainty.md):
+  prospective extension of the candidate fractal basin-boundary scaling window.
 
 ## Evidence states
 
