@@ -184,3 +184,13 @@ program. Near the source, `b*` rises steeply with `a` and falls with `c`; a
 descriptive quadratic fits the patch with `R^2=0.999818`. The patch does not yet
 show that the EXP-031 pitchfork-like normal form persists everywhere, nor does
 it identify the return-map TBA surface.
+
+EXP-039 tested whether that mechanism persists at a separated point of the
+surface rather than being exceptional at `c=5.1`. At
+`(a,b,c)=(0.245,0.2975539193,4.9)`, both switched coordinates again identify
+one secondary cycle, the primary/secondary stability exchange holds at every
+frozen offset, separation scales with exponent `0.4986728`
+(`R^2=0.9999989`), and the median multiplier ratio is `1.9851`. The
+pitchfork-like quotient normal form is therefore supported at two separated
+surface points. Symmetry proof and behavior near the folded portion remain
+open.

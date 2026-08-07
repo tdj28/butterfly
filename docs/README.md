@@ -117,6 +117,9 @@ what must be narrowed, and what is false or unresolved.
   and [`EXP-038`](experiments/EXP-038-resolved-period5-unit-event-surface-patch.md):
   honest resolution failure followed by the first accepted 45-point local
   event-surface patch.
+- [`experiments/EXP-039-separated-normal-form.md`](experiments/EXP-039-separated-normal-form.md):
+  separated-point branch identity and prospective normal-form scaling on the
+  event surface.
 
 ## Evidence states
 

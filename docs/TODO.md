@@ -94,7 +94,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fails at one coarse corner; EXP-038 resolves the same domain at half-step and
   passes all 45 coupled events, establishing the first local `b*(a,c)` surface
   patch. Fold-safe surface extension and separated-point normal-form tests are
-  next.
+  next. EXP-039 qualifies the separated `c=4.9` point: exponent `0.49867`,
+  `R^2=0.9999989`, multiplier ratio `1.9851`, and stability exchange at every
+  frozen offset. The pitchfork-like mechanism now persists at two surface
+  points; qualification near a fold and validated local reduction remain.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
