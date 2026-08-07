@@ -60,6 +60,13 @@ by at least `0.158`, closes fully below `2.35e-13`, is stable, and has period
 ratio within `0.00036` of two. This verifies the actual off-event
 period-doubled offspring, not only the critical multiplier at the event.
 
+EXP-043 through EXP-045 extend the geometry beyond the original graph patch.
+Five independent fixed-`c` pseudo-arclength traces now reverse in `b` over
+`c in [4.9,5.3]`. Seven-point local refinements locate a smooth fold line from
+`(a,b,c)=(0.230928,0.264619,4.9)` to
+`(0.207688,0.152777,5.3)`. Both fold coordinates decrease monotonically with
+`c`, and descriptive quadratic residuals remain below `4.8e-5`.
+
 ## Why the earlier measurements looked like a pitchfork
 
 For a fundamental Poincare return map, a flip has the local form
@@ -117,7 +124,8 @@ Established numerically:
 - the three tested `+1` events are double-covered fundamental flips;
 - the local branch opening is supercritical at those three points;
 - the event curve has projection folds; and
-- a 45-point local event-surface patch has been corrected successfully.
+- a 45-point local event-surface patch and a five-point smooth local fold line
+  have been corrected successfully.
 
 Not yet established:
 
@@ -150,3 +158,7 @@ on the multi-`b` atlas.
   half-period closure, flip multiplier, and monodromy-square audit.
 - [`EXP-042`](../experiments/EXP-042-period-doubled-offspring-audit.md): direct
   off-event unstable-parent/stable-period-doubled-child audit.
+- [`EXP-043`](../experiments/EXP-043-fold-safe-flip-surface-slices.md),
+  [`EXP-044`](../experiments/EXP-044-extended-c53-flip-slice.md), and
+  [`EXP-045`](../experiments/EXP-045-refined-flip-fold-line.md): fold-safe
+  multi-`c` traces, boundary completion, and refined local fold line.

@@ -128,6 +128,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-042-period-doubled-offspring-audit.md`](experiments/EXP-042-period-doubled-offspring-audit.md):
   direct off-event confirmation of unstable fundamental parents and stable
   period-doubled children at all three qualified surface points.
+- [`experiments/EXP-043-fold-safe-flip-surface-slices.md`](experiments/EXP-043-fold-safe-flip-surface-slices.md),
+  [`EXP-044`](experiments/EXP-044-extended-c53-flip-slice.md), and
+  [`EXP-045`](experiments/EXP-045-refined-flip-fold-line.md): honest first-gate
+  limitation, targeted boundary completion, and a five-point smooth local fold
+  line on the period-doubling surface.
 
 ## Evidence states
 

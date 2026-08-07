@@ -103,8 +103,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-042 directly confirms the off-event outcome at all three points: unstable
   fundamental parents, stable children that fail half-period closure, and
   child/parent period ratios within `0.00036` of two. Local classification is
-  closed numerically. Fold-safe surface extension, validated samples,
-  equilibrium/Hopf, and TBA remain open.
+  closed numerically. EXP-043 then traces five fold-safe fixed-`c` sections: its
+  formal gate fails because the `c=4.9` curve itself reverses before a frozen
+  minimum-`a` reach, while four sections show the target `b` reversal. EXP-044
+  extends the unresolved `c=5.3` section and finds its reversal. EXP-045
+  refines all five minima into a smooth local fold line over `c in [4.9,5.3]`,
+  with monotone drift and quadratic descriptive fits above `R^2=0.9999992`.
+  Independent atlas-boundary overlays, global surface continuation, validated
+  samples, equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

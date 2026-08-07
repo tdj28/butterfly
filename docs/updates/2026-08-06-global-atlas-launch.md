@@ -245,3 +245,20 @@ at the source, separated point, and projection fold.
 
 Full EXP-042 receipt SHA-256:
 `51b4d48b2f6711d7e18655339c3c6639d373120341f81b757aab6917aaae0eff`.
+
+EXP-043 next traced 60 full coupled-event pseudo-arclength points at each of
+five fixed `c` values. It remains formally failed: although four slices
+reversed in `b`, the `c=4.9` curve reversed in `a` at `a=0.226896` before the
+separately frozen `a<=0.225` gate, and `c=5.3` had not reversed within its
+first 60 steps. Residuals remained below `3.80e-12` for closure and
+`8.01e-13` for the eigencondition. EXP-044 prospectively extended only the
+unresolved `c=5.3` trace by 30 points and passed, locating its `b` reversal.
+
+EXP-045 then refined all five sampled minima with seven-point local quadratic
+fits in full event-variable arclength. The fold line moves monotonically from
+`(a,b,c)=(0.2309284,0.2646192,4.9)` to
+`(0.2076878,0.1527765,5.3)`. Descriptive quadratic fits have
+`R^2=0.99999956` for `a_fold(c)` and `0.99999929` for `b_fold(c)`, with maximum
+residuals `7.93e-6` and `4.79e-5`. This establishes a smooth local fold line on
+the period-doubling surface; atlas-boundary alignment remains the next causal
+test.
