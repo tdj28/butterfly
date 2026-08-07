@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.flip-surface-slices-manifest.v1",
+  "experiment_id": "EXP-043",
+  "source_surface_receipt_sha256": "a7b28b07943ef746d8907b0e7f9259b56bee676b5571580e4b1b302f6ff7a3be",
+  "c_values": [4.9, 5.0, 5.1, 5.2, 5.3],
+  "seed_a_values": [0.24125, 0.24],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 60, "tolerance": 1e-10},
+  "continuation": {
+    "steps": 60,
+    "step_scale": 0.5,
+    "a_guard": [0.18, 0.27],
+    "b_guard": [0.1, 0.5]
+  },
+  "acceptance": {
+    "minimum_points_per_slice": 30,
+    "required_maximum_min_a": 0.225,
+    "minimum_slices_with_b_reversal": 4,
+    "max_closure_error": 1e-8,
+    "max_eigen_residual": 1e-8,
+    "max_flow_orthogonality_residual": 1e-8,
+    "max_arclength_residual": 1e-8
+  }
+}
