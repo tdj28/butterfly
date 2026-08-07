@@ -18,3 +18,8 @@ Remote compute should parallelize independent segment-count, tolerance, and
 parameter tasks. A GPU is not assumed beneficial for the sparse nonlinear
 solve until profiling identifies a batchable integration or linear-algebra
 kernel.
+
+EXP-079 validates this decision quantitatively: 32 segments reduce the event's
+smallest singular value from `7.75e-7` to `9.07e-10` (factor `854`) while
+retaining `1.25e-9` matching residual. Proceed with the block corrector; do not
+return to full-period predictor tuning at this rung.

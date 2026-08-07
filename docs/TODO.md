@@ -149,6 +149,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `4.664603`. Next switch and independently qualify period 320. Before going
   materially higher, benchmark multiple-shooting/collocation and remote CPU
   parallelism because single-shooting orbit duration has reached `~2092`.
+  EXP-078 confirms the single-shooting branch switch is ill-conditioned.
+  EXP-079 passes a 1/2/4/8/16/32-segment audit: 32 segments improve the event
+  singular value by `854x` at `1.25e-9` matching residual. Implement the sparse
+  multiple-shooting corrector, validate on a known lower-period child, then
+  retry period 320. Parallelize segment/tolerance audits on remote CPU; profile
+  before allocating GPU spend.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

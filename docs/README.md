@@ -40,6 +40,9 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-001-independent-codiscovery.md`](decisions/DEC-001-independent-codiscovery.md):
   project wording for the relationship between the Jones and
   Barrio-Blesa-Serrano 2012 results.
+- [`decisions/DEC-002-multiple-shooting-high-period.md`](decisions/DEC-002-multiple-shooting-high-period.md):
+  evidence-based transition from full-period to segmented shooting after the
+  period-320 switch conditioning limit.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):
@@ -145,6 +148,9 @@ what must be narrowed, and what is false or unresolved.
   a verified supercritical period-5-to-period-10 flip followed by a distinct
   stable-orbit grazing of the historical section boundary; the sequence is
   summarized in [`FND-003`](findings/FND-003-period5-flip-and-section-grazing.md).
+- [`experiments/EXP-079-multiple-shooting-conditioning.md`](experiments/EXP-079-multiple-shooting-conditioning.md):
+  32-segment recovery of the high-period flip singularity, establishing the
+  numerical basis for the next multiple-shooting corrector.
 
 ## Evidence states
 
