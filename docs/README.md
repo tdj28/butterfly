@@ -15,6 +15,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-001-apparent-multistability-is-transient-capture.md`](findings/FND-001-apparent-multistability-is-transient-capture.md):
   centralized account of the long chaotic-transient capture finding, its
   implications for Jones and Barrio, and the remaining proof boundary.
+- [`findings/FND-002-double-covered-flip-surface.md`](findings/FND-002-double-covered-flip-surface.md):
+  decisive reclassification of the apparent `+1` event as a double-covered
+  fundamental period-doubling surface and its implications for Jones.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.
@@ -37,9 +40,6 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-001-independent-codiscovery.md`](decisions/DEC-001-independent-codiscovery.md):
   project wording for the relationship between the Jones and
   Barrio-Blesa-Serrano 2012 results.
-- [`findings/FND-001-apparent-multistability-is-transient-capture.md`](findings/FND-001-apparent-multistability-is-transient-capture.md):
-  durable interpretation of long chaotic transients versus persistent
-  multistability in the Jones-hub and expanded-atlas cases.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):
@@ -102,8 +102,8 @@ what must be narrowed, and what is false or unresolved.
   and [`EXP-030`](experiments/EXP-030-period5-orbit-identity.md): branch switching
   followed by phase-invariant identification of the primary and secondary cycles.
 - [`experiments/EXP-031-period5-normal-form-scaling.md`](experiments/EXP-031-period5-normal-form-scaling.md):
-  prospective square-root and Floquet scaling test for the local pitchfork-like
-  normal form.
+  prospective square-root and Floquet scaling test for the local second-iterate
+  normal form, subsequently reclassified as a fundamental flip.
 - [`experiments/EXP-032-period5-unit-event-a-curve.md`](experiments/EXP-032-period5-unit-event-a-curve.md),
   [`EXP-033`](experiments/EXP-033-expanded-period5-unit-event-a-curve.md), and
   [`EXP-034`](experiments/EXP-034-resolved-period5-unit-event-a-curve.md):
@@ -122,6 +122,9 @@ what must be narrowed, and what is false or unresolved.
   event surface.
 - [`experiments/EXP-040-fold-normal-form.md`](experiments/EXP-040-fold-normal-form.md):
   the same prospective qualification at the event curve's minimum-`b` fold.
+- [`experiments/EXP-041-double-cover-audit.md`](experiments/EXP-041-double-cover-audit.md):
+  half-period closure, `-1` multiplier, and monodromy-square audit decisively
+  reclassifying the surface as a fundamental period-doubling surface.
 
 ## Evidence states
 

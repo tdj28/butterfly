@@ -204,3 +204,32 @@ multiplicity without destroying the tested local mechanism. The outstanding
 theory problem is why the phase-fixed shooting system realizes this
 pitchfork-like square-root structure despite no established exact spatial
 symmetry.
+
+### EXP-041 correction: the surface is a fundamental flip surface
+
+A post-EXP-040 diagnostic exposed closure at half the stored parent period. We
+therefore froze EXP-041 before the decisive calculation and audited the source,
+separated-`c`, and minimum-`b` fold events. All three passed. Half-period
+closures are at most `5.17e-10`; the nontrivial half-period multipliers are
+`-1` to within `3.87e-10`; the doubled-period multipliers are `+1` to within
+`2.57e-11`; and doubled monodromy agrees with the square of half-period
+monodromy to at most `1.19e-9`. Closures at all other tested divisors `3..10`
+remain above `2.92`.
+
+This supersedes the earlier “pitchfork-like pending symmetry” interpretation.
+The stored parent was traversed twice. Its fundamental flip multiplier `-1`
+squares to the observed `+1`; the two switched arms are half-period phase
+copies of one period-doubled child. The square-root opening, ratio-two scaling,
+and stability exchange measured in EXP-031/039/040 are retained and now have
+the standard second-iterate explanation.
+
+The scientific object produced by EXP-035/036/038 is therefore an
+orbit-defined period-doubling surface component with projection folds. This is
+stronger and more directly aligned with Jones's period-doubling organization
+than the provisional pitchfork language. It does not yet show that this single
+component explains every shrimp or the full `(a,c)` superstructure. The next
+frozen check audits parent and offspring fundamental periods off the surface;
+global continuation and atlas/TBA overlays follow.
+
+Full EXP-041 receipt SHA-256:
+`66cc557c0c554d2c47ea1fe42cf2ff274840f13ca2d9c230257c331bc84b5e88`.

@@ -2,7 +2,11 @@
 
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-040-fold-normal-form.json`
-Claim target: persistence or change of the pitchfork-like mechanism near a fold
+Claim target: persistence or change of the local mechanism near a fold; reclassified by EXP-041
+
+> **Reclassification after EXP-041.** The measurements below remain valid. At
+> this fold, too, the stored parent closes at half-period with multiplier `-1`;
+> the apparent full-period `+1` event is a double-covered fundamental flip.
 
 ## Hypothesis and method
 
@@ -50,13 +54,14 @@ The three-point comparison is
 
 ## Decision
 
-Accept persistence of the supercritical pitchfork-like quotient normal form at
-the event-curve minimum in `b`. The fold changes how the event set intersects
-parameter slices but does not destroy the observed branch opening or stability
-exchange. This directly supports a mechanism for repeated windows: one folded
-event set can produce multiple slice crossings, each carrying the same local
-stability-exchange structure.
+Accept persistence of the supercritical square-root second-iterate normal form
+at the event-curve minimum in `b`. EXP-041 subsequently identifies the event as
+a double-covered fundamental flip. The fold changes how the event set
+intersects parameter slices but does not destroy the observed branch opening
+or stability exchange. This directly supports a mechanism for repeated
+windows: one folded flip surface can produce multiple slice crossings, each
+carrying the same local stability-exchange structure.
 
-The word “pitchfork-like” remains essential. The two switched coordinates are
-phase copies of one secondary geometric cycle, and the exact symmetry or gauge
-structure behind the square-root normal form has not been derived.
+The former “pitchfork-like” qualifier is superseded by EXP-041. The two
+switched coordinates are half-period phase copies of one period-doubled child
+cycle; no unknown spatial symmetry is needed to explain them.

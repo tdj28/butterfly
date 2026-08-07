@@ -2,7 +2,11 @@
 
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-039-separated-normal-form.json`
-Claim target: persistence of EXP-031's pitchfork-like mechanism on EXP-038
+Claim target: persistence of EXP-031's local mechanism on EXP-038; reclassified by EXP-041
+
+> **Reclassification after EXP-041.** The measurements below remain valid. The
+> apparent `+1` event is the doubled-period representation of a fundamental
+> `-1` flip, not evidence for an unknown spatial pitchfork symmetry.
 
 ## Hypothesis and method
 
@@ -51,11 +55,12 @@ The comparison with EXP-031 is
 
 ## Decision
 
-Accept that the supercritical pitchfork-like quotient normal form persists at
-two separated points of the event surface, `c=5.1` and `c=4.9`, at fixed
-`a=0.245`. The near-identical exponents and multiplier ratios make an isolated
-degeneracy explanation implausible.
+Accept that the supercritical square-root second-iterate normal form persists
+at two separated points of the event surface, `c=5.1` and `c=4.9`, at fixed
+`a=0.245`. EXP-041 subsequently verifies that both are double-covered
+fundamental flips. The near-identical exponents and multiplier ratios make an
+isolated degeneracy explanation implausible.
 
-This remains a numerical local-normal-form classification, not an exact
-symmetry theorem. Surface-wide uniformity, changes near folds, and independent
+This remains a numerical local-normal-form classification, not a validated
+bifurcation proof. Surface-wide uniformity, changes near folds, and independent
 validated calculations remain open.

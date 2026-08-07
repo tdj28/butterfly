@@ -2,7 +2,12 @@
 
 Status: executed; passed
 Manifest: `experiments/manifests/EXP-031-period5-normal-form-scaling.json`
-Claim target: supercritical pitchfork-like classification of EXP-028
+Claim target: local square-root classification of EXP-028; reclassified by EXP-041
+
+> **Reclassification after EXP-041.** The measurements below remain valid, but
+> their mechanism is now known: the parent was represented over twice its
+> fundamental period. The apparent `+1` pitchfork-like branch point is the
+> second-iterate representation of a fundamental supercritical flip at `-1`.
 
 ## Hypothesis and method
 
@@ -50,9 +55,9 @@ The provenance-bound figure is
 
 ## Decision
 
-Accept strong finite-range numerical support for a supercritical pitchfork
-normal form in the quotient by flow phase at fixed `(a,c)=(0.245,5.1)`, with
-`b*=0.272284059793`. Use “pitchfork-like branch point” in scientific prose
-until an exact or approximate symmetry is identified and a local reduction is
-validated. This result replaces the earlier unresolved `+1`/fold ambiguity; it
-does not establish a global organizing surface or classify other shrimp.
+Accept strong finite-range numerical support for a square-root second-iterate
+normal form at fixed `(a,c)=(0.245,5.1)`, with `b*=0.272284059793`. EXP-041
+subsequently identifies it as a double-covered fundamental supercritical flip,
+so current scientific prose should use “period-doubling” or “flip,” not infer
+an unknown spatial pitchfork symmetry. This result does not establish a global
+organizing surface or classify other shrimp.

@@ -19,5 +19,5 @@
     "path": "artifacts/EXP-039/EXP-031-039-normal-form-comparison.png",
     "sha256": "d1cd5f32e3ebbf279c058ca89e3224f1ccf9cda165bfc14a2160e3beaf684c24"
   },
-  "interpretation": "A separated surface point reproduces phase-invariant branch identity, stability exchange, square-root opening, and the cubic multiplier ratio. Pitchfork-like persistence is supported at two c values."
+  "interpretation": "A separated surface point reproduces phase-invariant branch identity, stability exchange, square-root opening, and ratio-two scaling. EXP-041 subsequently verifies a double-covered fundamental flip at both c values."
 }

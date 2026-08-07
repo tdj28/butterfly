@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.double-cover-audit-summary.v1",
+  "experiment_id": "EXP-041",
+  "passed": true,
+  "source_commit": "447540551612e776bc0fbb06846b392da9f88a40",
+  "manifest_sha256": "8125ffa075d0975ffebf8d42919283da2888019eb786218b6b1159730775c756",
+  "full_receipt_sha256": "66cc557c0c554d2c47ea1fe42cf2ff274840f13ca2d9c230257c331bc84b5e88",
+  "event_count": 3,
+  "all_events_passed": true,
+  "half_period_closure_range": [1.9564562015769935e-11, 5.16436138329426e-10],
+  "half_period_distance_to_minus_one_range": [1.823208251039432e-12, 3.860409769629314e-10],
+  "full_period_distance_to_plus_one_max": 2.568418996193394e-11,
+  "monodromy_square_residual_max": 1.186030413195034e-9,
+  "minimum_other_divisor_closure": 2.9277448361889835,
+  "interpretation": "The apparent nontrivial +1 surface is the doubled-period representation of a fundamental flip surface: the parent closes at half the stored period with multiplier -1, which squares to +1 over the stored full period."
+}

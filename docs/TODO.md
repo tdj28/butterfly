@@ -80,10 +80,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   coupled nontrivial unit-multiplier condition; EXP-029 switches coordinates;
   and EXP-030 phase-invariantly confirms a distinct stable secondary cycle
   alongside the unstable primary above the event. EXP-031 prospectively finds
-  square-root branch opening (`0.49896`, `R^2=0.9999992`) and the cubic
-  multiplier ratio (`1.9805` median), strongly supporting a supercritical
-  pitchfork-like normal form in the phase quotient. Symmetry/validated local
-  reduction, equilibrium/Hopf, and TBA remain open. EXP-032 through EXP-034
+  square-root branch opening (`0.49896`, `R^2=0.9999992`) and ratio-two
+  multiplier scaling (`1.9805` median). EXP-032 through EXP-034
   resolve thirteen coupled `+1` events on a smooth fixed-`c=5.1` curve over
   `a in [0.235,0.265]`, reaching `b=0.347875`; natural continuation fails below
   `a=0.235`. EXP-035's full event-system pseudo-arclength crosses that boundary
@@ -93,15 +91,17 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-036 supplies a thirteen-point transverse `c` spine. EXP-037 honestly
   fails at one coarse corner; EXP-038 resolves the same domain at half-step and
   passes all 45 coupled events, establishing the first local `b*(a,c)` surface
-  patch. Fold-safe surface extension and separated-point normal-form tests are
-  next. EXP-039 qualifies the separated `c=4.9` point: exponent `0.49867`,
+  patch. EXP-039 qualifies the separated `c=4.9` point: exponent `0.49867`,
   `R^2=0.9999989`, multiplier ratio `1.9851`, and stability exchange at every
-  frozen offset. The pitchfork-like mechanism now persists at two surface
-  points; qualification near a fold and validated local reduction remain.
+  frozen offset.
   EXP-040 passes the same gates at the event curve's minimum-`b` fold:
   exponent `0.49288`, `R^2=0.9999691`, ratio `1.99691`, and all-point stability
-  exchange. The next theoretical target is the phase/gauge or symmetry
-  structure behind the square-root normal form, followed by validated samples.
+  exchange. EXP-041 resolves the formerly open mechanism at all three points:
+  each stored parent closes at half-period, has a fundamental multiplier `-1`,
+  and its doubled monodromy produces the observed `+1`. The object is therefore
+  a fundamental period-doubling surface, not an unexplained spatial pitchfork.
+  A direct offspring-period audit, fold-safe surface extension, validated
+  samples, equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

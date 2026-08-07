@@ -19,5 +19,5 @@
     "path": "artifacts/EXP-040/EXP-031-039-040-normal-form-comparison.png",
     "sha256": "5838e807b172fcdb30254320852c68edf80451f467804409b232f86e1b9233c8"
   },
-  "interpretation": "The pitchfork-like branch opening and stability exchange persist at the minimum-b fold of the event curve. The fold changes slice multiplicity, not the tested local normal form."
+  "interpretation": "The square-root branch opening and stability exchange persist at the minimum-b fold. EXP-041 subsequently verifies the event is a double-covered fundamental flip; the fold changes slice multiplicity, not the local flip mechanism."
 }

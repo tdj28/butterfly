@@ -20,5 +20,5 @@
     "path": "artifacts/EXP-031/EXP-031-period5-normal-form.png",
     "sha256": "d3c05ef050a7ee0c8c801164682521b76b1735ecc4db46234fbad06983425264"
   },
-  "interpretation": "Prospective square-root separation and Floquet-deviation scaling strongly support a supercritical pitchfork normal form in the flow-phase quotient; symmetry and validated-reduction proofs remain open."
+  "interpretation": "Prospective square-root separation and Floquet-deviation scaling establish the second-iterate local form; EXP-041 subsequently reclassifies it as a double-covered fundamental supercritical flip."
 }
