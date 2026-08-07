@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.unit-event-pseudo-arclength-manifest.v1",
+  "experiment_id": "EXP-035",
+  "source_curve_receipt_sha256": "e3a885710e71ede1e52fe1bcb090b08fd843eab9d189a696ca8c19e6eaa688cf",
+  "fixed_c": 5.1,
+  "seed_a_values": [0.2375, 0.235],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 40, "tolerance": 1e-10},
+  "continuation": {
+    "steps": 30,
+    "step_scale": 0.5,
+    "a_guard": [0.19, 0.245],
+    "b_guard": [0.1, 0.4]
+  },
+  "acceptance": {
+    "minimum_corrected_points": 12,
+    "required_minimum_a": 0.232,
+    "max_closure_error": 1e-8,
+    "max_eigen_residual": 1e-8,
+    "max_flow_orthogonality_residual": 1e-8,
+    "max_arclength_residual": 1e-8
+  }
+}
