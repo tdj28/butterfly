@@ -75,7 +75,7 @@ def main():
             "prediction_basis": "last verified spacing divided by frozen reference delta",
         },
         "interpretation_limit": (
-            "Two spacing ratios are descriptive and prospective; they do not establish "
+            "Finite spacing ratios are descriptive and prospective; they do not establish "
             "asymptotic convergence or Feigenbaum universality."
         ),
     }
