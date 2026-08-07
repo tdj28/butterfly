@@ -95,8 +95,57 @@ def _rk4_crossing_chunk(
             crossed = previous_value * current_value < 0.0
             denominator = previous_value - current_value
             alpha = tl.where(crossed, previous_value / denominator, 0.0)
-            cross_x = previous_x + alpha * (x - previous_x)
-            cross_z = previous_z + alpha * (z - previous_z)
+
+            # A linearly interpolated section point is only second-order
+            # accurate even though the state step is RK4.  That bias is large
+            # enough to defeat the deliberately strict recurrence classifier.
+            # Refine the root of y(t) - section_y with the cubic Hermite dense
+            # interpolant formed from the state and vector field at both ends
+            # of the step.  Four bounded Newton iterations retain the crossing
+            # bracket and make the recorded x/z section point commensurate
+            # with the fourth-order state integration.
+            end_dx = -y - z
+            end_dy = x + a * y
+            end_dz = b + z * (x - c)
+            for _ in tl.static_range(0, 4):
+                alpha2 = alpha * alpha
+                alpha3 = alpha2 * alpha
+                h00 = 2.0 * alpha3 - 3.0 * alpha2 + 1.0
+                h10 = alpha3 - 2.0 * alpha2 + alpha
+                h01 = -2.0 * alpha3 + 3.0 * alpha2
+                h11 = alpha3 - alpha2
+                value = (
+                    h00 * previous_y
+                    + h10 * dt * k1y
+                    + h01 * y
+                    + h11 * dt * end_dy
+                    - section_y
+                )
+                derivative = (
+                    (6.0 * alpha2 - 6.0 * alpha) * previous_y
+                    + (3.0 * alpha2 - 4.0 * alpha + 1.0) * dt * k1y
+                    + (-6.0 * alpha2 + 6.0 * alpha) * y
+                    + (3.0 * alpha2 - 2.0 * alpha) * dt * end_dy
+                )
+                refined = tl.where(
+                    tl.abs(derivative) > 1.0e-15,
+                    alpha - value / derivative,
+                    alpha,
+                )
+                alpha = tl.maximum(0.0, tl.minimum(1.0, refined))
+
+            alpha2 = alpha * alpha
+            alpha3 = alpha2 * alpha
+            h00 = 2.0 * alpha3 - 3.0 * alpha2 + 1.0
+            h10 = alpha3 - 2.0 * alpha2 + alpha
+            h01 = -2.0 * alpha3 + 3.0 * alpha2
+            h11 = alpha3 - alpha2
+            cross_x = (
+                h00 * previous_x + h10 * dt * k1x + h01 * x + h11 * dt * end_dx
+            )
+            cross_z = (
+                h00 * previous_z + h10 * dt * k1z + h01 * z + h11 * dt * end_dz
+            )
             accepted = valid & crossed & (cross_x < gate_x) & (count < max_crossings)
             slot = offsets * max_crossings * 3 + count * 3
             tl.store(crossings + slot, cross_x, mask=accepted)
