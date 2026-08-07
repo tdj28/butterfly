@@ -136,6 +136,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   double-covered parent. Its uncontaminated prefix exposes the next child
   event; EXP-057 refines the true period-10 `-1` crossing to
   `b=0.180537208202`. Switch and qualify the period-20 child next.
+  EXP-059/060 complete that period-20 qualification. EXP-062/064 then locate
+  and independently qualify the supercritical period-20-to-period-40 rung at
+  `b=0.179891223762`, including recovery from a perturbed trajectory. Refine
+  the bracketed period-40 event, then estimate convergence of the cascade
+  parameters without assuming Feigenbaum universality from three intervals.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -32,3 +32,10 @@ period-20 child below it. Thus two successive supercritical rungs, 5→10 and
 10→20, are now reproduced with phase-invariant child identity and Floquet
 stability exchange. The section grazing lies between their event parameters
 but is not either bifurcation.
+
+EXP-062/064 add a third supercritical rung, 20→40, at
+`b=0.1798912237616`. The stable period-40 orbit is also recovered from a
+frozen perturbed trajectory, matching the shooting solution to phase-aligned
+RMS `1.19e-8`. The emerging cascade is therefore a property of the flow-orbit
+families, whereas the intervening 10→11 section-count change remains a
+separate representation event.
