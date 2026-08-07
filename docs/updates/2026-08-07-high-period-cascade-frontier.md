@@ -213,3 +213,9 @@ is `3.20e-14`. This is `11.4x` faster than EXP-100, and explicit proximity-to-
 failure is the solver-success flag and reference error `1.086e-9` against the
 frozen `5e-10` gate. The next experiment will bind the full state and continue
 the exact solve under unchanged scientific thresholds.
+
+EXP-102 freezes that single continuation. It binds EXP-101's stored orbit,
+period, `b`, and tangent nodes with zero offset, changes only the phase gauge to
+the stored first node, and permits 20 more exact evaluations. A failure closes
+the current unscaled trust-region path; a pass unlocks—but does not itself
+perform—the period-640 target solve.

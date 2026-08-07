@@ -174,7 +174,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   and unchanged scientific gates. It fails at the 20-evaluation cap but reaches
   orbit/tangent residuals `1.78e-9`/`1.77e-10`, corrects the spectrum-label
   bug, and runs `11.4x` faster; its `1.086e-9` reference error still misses the
-  `5e-10` gate. Freeze one exact-Jacobian resume from the full EXP-101 state.
+  `5e-10` gate. EXP-102 freezes one exact-Jacobian resume from the full EXP-101
+  orbit and tangent state under unchanged scientific thresholds.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
