@@ -224,16 +224,28 @@ the account pod list was verified empty. No qualification result was produced.
 
 After CPU evidence established a concrete need for accelerated basin-boundary
 scaling and multi-`b` atlas frames, EXP-018 added a frozen Triton Float64 kernel
-for interpolated Poincare crossings and period-label parity. A V100 PCIe failed
-the runtime-readiness gate. A V100 SXM2 then became healthy and was hardware-
-verified, but the private source archive was not uploaded because compute-spend
-authorization does not by itself authorize private-repository export to a
-third-party host. Both pods were terminated, the account list was verified
-empty, and estimated exposure remained below USD 0.02.
+for Poincare crossings and period-label parity. The owner subsequently gave
+explicit authorization to upload tracked-file-only frozen source archives to
+task-owned Runpod hosts.
 
-Resume requires explicit private-source export authorization or a separately
-authorized repository-free image/publication channel. The scientific parity
-gate itself has not run and remains open.
+The first authorized scientific run on an A40 correctly failed the gate. Linear
+event interpolation preserved broad orbit geometry but introduced second-order
+crossing bias large enough to defeat the strict recurrence classifier. The code
+was repaired with cubic-Hermite dense output and bounded Newton event
+localization; the scientific tolerances were not loosened. A Triton 3.3 nested-
+loop compiler incompatibility was then removed by explicitly unrolling the four
+Newton updates.
+
+The final L4 run at commit `20bd0b6` passed all six period controls at both
+`dt=0.005` and `dt=0.0025`. Its raw 32,768-trajectory Float64 benchmark measured
+717.1 million state-steps/second. Remote and local receipt SHA-256 values
+matched, the host was terminated, and the account pod list was verified empty.
+All EXP-018 provisioning and execution is conservatively bounded below USD
+0.25; provider billing remains authoritative.
+
+The production-observable periodic gate is therefore open for separately
+frozen basin-scaling and multi-`b` atlas work. Chaotic identity, Lyapunov parity,
+continuation, and validated numerics still require independent qualification.
 
 ## Runpod primary documentation
 

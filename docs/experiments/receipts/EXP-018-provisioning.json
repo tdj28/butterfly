@@ -1,10 +1,8 @@
 {
-  "schema": "butterfly.runpod-provisioning-attempt.v1",
+  "schema": "butterfly.runpod-provisioning-history.v2",
   "experiment_id": "EXP-018",
-  "date_utc": "2026-08-06",
-  "source_commit": "7eff7c7",
-  "source_archive_sha256": "dcb5d2de84bbba7d4d65cc66398c01da613dad02d599183a593b0ee80305201d",
-  "source_archive_bytes": 163840,
+  "dates_utc": ["2026-08-06", "2026-08-07"],
+  "private_source_export_authorized": true,
   "attempts": [
     {
       "pod_id": "s6c6jezd9s97bo",
@@ -19,14 +17,70 @@
       "gpu_requested": "Tesla V100-SXM2-16GB",
       "gpu_verified": "Tesla V100-SXM2-16GB, 16384 MiB, compute capability 7.0",
       "cost_per_hour_usd": 0.23,
-      "outcome": "healthy runtime; private-source upload blocked pending explicit authorization",
+      "outcome": "healthy runtime; terminated before explicit private-source-export authorization",
       "source_uploaded": false,
+      "terminated": true
+    },
+    {
+      "pod_id": "gcose225qn13fv",
+      "gpu_requested": "Tesla V100-SXM2-16GB",
+      "cost_per_hour_usd": 0.23,
+      "outcome": "authorized archive hash verified; installed PyTorch build rejected compute capability 7.0",
+      "source_uploaded": true,
+      "scientific_receipt_produced": false,
+      "terminated": true
+    },
+    {
+      "pod_id": "yxsypwy0tvl8up",
+      "gpu_requested": "NVIDIA GeForce RTX 3090",
+      "cost_per_hour_usd": 0.22,
+      "outcome": "runtime and SSH endpoint did not become available before teardown",
+      "source_uploaded": false,
+      "terminated": true
+    },
+    {
+      "pod_id": null,
+      "gpu_requested": "NVIDIA GeForce RTX 4090 and NVIDIA RTX A6000",
+      "outcome": "catalog advertised stock but allocation failed before pod creation",
+      "source_uploaded": false,
+      "terminated": true
+    },
+    {
+      "pod_id": "1q98rbz2vdfe0s",
+      "gpu_requested": "NVIDIA A40",
+      "cost_per_hour_usd": 0.44,
+      "source_commit": "7eff7c70b425738b2070aef6f713eb57da2af7db",
+      "source_archive_sha256": "dcb5d2de84bbba7d4d65cc66398c01da613dad02d599183a593b0ee80305201d",
+      "outcome": "scientific gate failed period parity and exposed second-order linear event-interpolation bias",
+      "source_uploaded": true,
+      "scientific_receipt_sha256": "96a2e3fc5b0af79442a6015e62da2590b4ef1b0cf54aae3ad6969b4637be9d93",
+      "terminated": true
+    },
+    {
+      "pod_id": "dxwvu4l2y89xn9",
+      "gpu_requested": "NVIDIA L4",
+      "cost_per_hour_usd": 0.49,
+      "source_commit": "facf4b0038a02347949da5dcc58a12641f8a82ee",
+      "source_archive_sha256": "878baa348cd6256a83da392c82c6da367b9001d9eb1804e77a3a69e93240c57a",
+      "outcome": "cubic-Hermite code reached Triton compilation; nested static loop was unsupported; no receipt",
+      "source_uploaded": true,
+      "scientific_receipt_produced": false,
+      "terminated": true
+    },
+    {
+      "pod_id": "qjkgax93s53sef",
+      "gpu_requested": "NVIDIA L4",
+      "cost_per_hour_usd": 0.49,
+      "source_commit": "20bd0b61865f9569e4d0cd8e3ffd2a70ea84bfdd",
+      "source_archive_sha256": "3e15a7e177e259c64dce401300e085261b200fcb231177c2543e8478f5d390e3",
+      "outcome": "all frozen period and orbit-error gates passed at both timesteps",
+      "source_uploaded": true,
+      "scientific_receipt_sha256": "880ad141085f1a81aa0a7f93aa38e3fe408a92df498f4716a74fe7321d1bcca6",
       "terminated": true
     }
   ],
   "account_pod_list_verified_empty": true,
-  "scientific_workload_started": false,
-  "scientific_receipt_produced": false,
-  "estimated_total_exposure_usd_upper_bound": 0.02,
-  "blocker": "Explicit owner authorization is required to upload this private repository's frozen source archive to a third-party Runpod host."
+  "scientific_workload_passed": true,
+  "estimated_total_exposure_usd_upper_bound": 0.25,
+  "provider_billing_is_authoritative": true
 }

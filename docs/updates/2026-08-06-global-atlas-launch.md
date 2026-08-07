@@ -66,3 +66,20 @@ initial-condition plane: all 441 seeds converged, with 282 period-12 and 159
 period-3 outcomes. Nearly half of four-neighbor edges switch basin at this
 coarse scale. The next basin task is scale-dependent uncertainty measurement,
 not a premature fractal/riddled label.
+
+## EXP-018 GPU qualification
+
+The owner authorized tracked-file-only frozen source export to task-owned
+Runpod hosts. The first complete A40 run failed exact period parity and exposed
+a numerical weakness: linear section interpolation reduced an RK4 trajectory
+to second-order crossing accuracy. We retained the strict recurrence tolerance
+and replaced the event calculation with cubic-Hermite dense output plus bounded
+Newton refinement.
+
+The corrected NVIDIA L4 run passed every period-1/2/3/7/12 control at
+`dt=0.005` and `dt=0.0025`; maximum cyclic orbit errors were `4.633e-6` and
+`2.922e-7`, respectively. A 32,768-trajectory raw benchmark sustained 717.1
+million Float64 state-steps/second. The final receipt and archive hashes matched
+across the local and remote copies, and all pods were terminated. The periodic
+Poincare GPU path is now qualified for the next basin-scaling and multi-`b`
+atlas experiments, but not for chaotic identity or Lyapunov claims.

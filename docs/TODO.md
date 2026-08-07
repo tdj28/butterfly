@@ -59,12 +59,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
 
 - [x] **P1-001 — Safe Runpod control script.** API key remains outside Git;
   list/catalog/launch/status/terminate commands; duplicate and hourly-cost gates.
-- [ ] **P1-002 — GPU ensemble kernel.** Short-horizon endpoint kernel and parity
-  gate exist. EXP-018 adds a manifest-bound Triton Float64 kernel for compact
-  interpolated Poincare crossings and recurrence-period parity on six stable
-  controls; paid qualification remains.
-- [ ] **P1-003 — Cheap NVIDIA qualification.** One cost-capped pod, environment
-  receipt, measured throughput, artifact retrieval, hash verification, teardown.
+- [x] **P1-002 — GPU ensemble kernel.** EXP-018's manifest-bound Triton Float64
+  RK4 kernel uses cubic-Hermite section localization and passes Poincare-orbit
+  and recurrence-period parity on six stable controls at two timesteps.
+- [x] **P1-003 — Cheap NVIDIA qualification.** The final NVIDIA L4 receipt binds
+  commit `20bd0b6`, records 717.1 million raw Float64 state-steps/second, matches
+  remote/local hashes, and ends with every task-owned pod terminated.
 - [ ] **P1-004 — Forced-kill/resume test.** Immutable tile IDs, atomic completion,
   corruption rejection, simulated interrupted-write recovery, and an actual
   mid-computation process kill/restart pass locally. Remote container/storage

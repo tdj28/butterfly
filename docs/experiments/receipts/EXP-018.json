@@ -1,0 +1,57 @@
+{
+  "schema": "butterfly.gpu-crossing-qualification-summary.v1",
+  "experiment_id": "EXP-018",
+  "passed": true,
+  "source_commit": "20bd0b61865f9569e4d0cd8e3ffd2a70ea84bfdd",
+  "source_archive_bytes": 166124,
+  "source_archive_sha256": "3e15a7e177e259c64dce401300e085261b200fcb231177c2543e8478f5d390e3",
+  "manifest_sha256": "075504ebe772302f895a104697b2c0e16eb0951d83882db0c99630fd3b9f30ef",
+  "full_receipt_sha256": "880ad141085f1a81aa0a7f93aa38e3fe408a92df498f4716a74fe7321d1bcca6",
+  "remote_local_receipt_hash_match": true,
+  "gpu": {
+    "name": "NVIDIA L4",
+    "compute_capability": [8, 9],
+    "memory_bytes": 23669637120,
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.14.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "cuda": "12.8",
+    "triton": "3.3.0"
+  },
+  "controls": [
+    {"id": "high-a-period12", "expected_period": 12},
+    {"id": "high-a-period3", "expected_period": 3},
+    {"id": "captured-period1-low-a", "expected_period": 1},
+    {"id": "captured-period7", "expected_period": 7},
+    {"id": "captured-period1-high-a", "expected_period": 1},
+    {"id": "boundary-period2", "expected_period": 2}
+  ],
+  "runs": [
+    {
+      "dt": 0.005,
+      "passed": true,
+      "recovered_periods": [12, 3, 1, 7, 1, 2],
+      "maximum_cyclic_orbit_error": 0.000004632627124333749,
+      "state_steps_per_second_for_six_controls": 1407437.0287663927
+    },
+    {
+      "dt": 0.0025,
+      "passed": true,
+      "recovered_periods": [12, 3, 1, 7, 1, 2],
+      "maximum_cyclic_orbit_error": 0.0000002921774064729115,
+      "state_steps_per_second_for_six_controls": 1554929.9674227473
+    }
+  ],
+  "benchmark": {
+    "batch": 32768,
+    "dt": 0.005,
+    "horizon": 50.0,
+    "dtype": "float64",
+    "state_steps_per_second": 717090882.076717,
+    "scope": "raw fixed-step ensemble throughput; no classification"
+  },
+  "account_pod_list_verified_empty": true,
+  "estimated_total_exposure_usd_upper_bound": 0.25,
+  "scientific_scope": "Stable-periodic Float64 RK4 Poincare crossing geometry and recurrence-period parity only; chaotic identity, Lyapunov parity, continuation, and validation are not claimed."
+}
