@@ -210,7 +210,7 @@ def main():
         "branches": branches,
         "elapsed_seconds": time.perf_counter() - started,
     }
-    output["passed"] = (
+    output["passed"] = bool(
         singular_values[-1] <= acceptance["max_small_singular_value"]
         and output["absolute_tangent_dot"] <= acceptance["max_tangent_dot"]
         and len(qualified_branches) >= manifest.get("required_distinct_arms", 2)
