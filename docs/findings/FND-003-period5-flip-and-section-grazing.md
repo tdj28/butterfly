@@ -24,3 +24,11 @@ shrimp, or prove coordinate-independent topology. It also exposes a numerical
 hazard: a standard sign-change event detector can skip both members of the
 close crossing pair near grazing. Section counts must be converged in maximum
 step or replaced by extremum-aware detection.
+
+The flow-orbit cascade continues independently of that representation change.
+EXP-057 locates the stable period-10 child's next `-1` event at
+`b=0.1805372082024`; EXP-059/060 switch and independently qualify a stable
+period-20 child below it. Thus two successive supercritical rungs, 5→10 and
+10→20, are now reproduced with phase-invariant child identity and Floquet
+stability exchange. The section grazing lies between their event parameters
+but is not either bifurcation.
