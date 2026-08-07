@@ -1,6 +1,6 @@
 # EXP-044 — Extended c=5.3 flip-surface slice
 
-Status: preregistered after EXP-043; pending clean execution
+Status: executed; passed
 Manifest: `experiments/manifests/EXP-044-extended-c53-flip-slice.json`
 Claim target: resolve the only EXP-043 slice without a `b`-projection reversal
 
@@ -20,3 +20,19 @@ Passing, combined with the four reversals already observed by EXP-043, supports
 a local fold line across all five sampled `c` values. It does not retroactively
 make EXP-043 pass its independent `a<=0.225` gate, and it does not establish
 the global topology of the surface.
+
+## Result and decision
+
+The clean run at commit `ce4b32ddc2ec57b32a6ad4109d3ffd641537f5fb`
+passed every gate. All 30 new points corrected, for 90 combined points. The
+combined trace reverses once in `b`, with its sampled minimum at
+`(a,b,c)=(0.20771620,0.15277672,5.3)`. Maximum new-point closure is
+`2.45e-12`, eigen residual `4.12e-13`, and arclength residual `3.34e-15`.
+
+The complete receipt SHA-256 is
+`5973d62aa29a701eef3f0b389d0061ba62bfbc7ff3daec1fcf166580d8463dcc`.
+
+Accept local fold persistence at the fifth sampled `c` value. Combined with
+EXP-043, all five sections now reverse in `b`. EXP-043 remains formally failed
+under its original independent reach gate; EXP-044 supplies new successor
+evidence rather than altering that record.

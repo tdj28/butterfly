@@ -1,0 +1,15 @@
+{
+  "schema": "butterfly.flip-surface-slice-extension-summary.v1",
+  "experiment_id": "EXP-044",
+  "passed": true,
+  "source_commit": "ce4b32ddc2ec57b32a6ad4109d3ffd641537f5fb",
+  "manifest_sha256": "0f4068e56dbfe5aca5495bcf906c27df9850e6c37cf63ac718ffa942d8e0bb02",
+  "source_slices_receipt_sha256": "f0ed9a040a89a97bcc07a8d47673c39e775afa9ac3f3f78e31f36cb106c3de6d",
+  "full_receipt_sha256": "5973d62aa29a701eef3f0b389d0061ba62bfbc7ff3daec1fcf166580d8463dcc",
+  "new_point_count": 30,
+  "combined_point_count": 90,
+  "combined_b_reversals": 1,
+  "minimum_b_coordinate": {"a": 0.20771619530094662, "b": 0.15277672281335228, "c": 5.3},
+  "max_closure_error": 2.44265529116521e-12,
+  "interpretation": "The c=5.3 boundary slice reverses in b after extension. Together with EXP-043, all five sampled c sections support a local flip-surface fold line."
+}
