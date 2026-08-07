@@ -160,3 +160,11 @@ shifts the center multiplier by `7.750e-6`, diagnosing integration accuracy—no
 the multiplier representation—as the prior pointwise limit. EXP-098 now binds
 the audit and freezes a tight-solver event refinement on the wide bracket with
 independent block/product agreement gates.
+
+EXP-098 failed only the unchanged pointwise multiplier gate after eight tight-
+solver trials. Its best residual is `1.376e-7`; matching, parameter uncertainty,
+block/product agreement, cyclic spread, and prediction-error gates all pass.
+The trial sequence shows the `1%` safeguard forced midpoint evaluations after
+an endpoint-near positive trial. EXP-099 binds the exact `9.91e-11` sign
+bracket, admits the slope-indicated secant point with a `0.01%` numerical
+margin, and leaves every scientific gate unchanged.
