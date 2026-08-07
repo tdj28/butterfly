@@ -1,0 +1,36 @@
+{
+  "schema": "butterfly.raster-family-orbit-summary.v1",
+  "experiment_id": "EXP-022",
+  "passed": true,
+  "source_commit": "45e8eaff2d25efdd808a1305bb079096652f4844",
+  "manifest_sha256": "fa05f42bfd0cfb83017ee60f0d46c87164be092fcde1b351f19eb3119b3a718e",
+  "full_receipt_sha256": "bc0f1501e96f8f5cf1a08173ea392c4abcb4f5f717de2b8f60e9af23f5679d28",
+  "elapsed_seconds": 50.974509625229985,
+  "families": [
+    {
+      "id": "persistent-period3-low-c",
+      "raster_component_id": 803,
+      "period": 3,
+      "point_count": 11,
+      "b_range": [0.1, 0.3],
+      "closure_error_range": [7.266241257738285E-15, 4.020980712521981E-12],
+      "neutral_multiplier_error_range": [7.69362351604741E-12, 4.884426196838376E-11],
+      "max_transverse_multiplier_modulus_range": [0.025278448869314962, 0.4148376107478048],
+      "flow_period_range": [19.66016906738915, 19.933667587308264],
+      "passed": true
+    },
+    {
+      "id": "persistent-period5-middle-c",
+      "raster_component_id": 2208,
+      "period": 5,
+      "point_count": 11,
+      "b_range": [0.1, 0.3],
+      "closure_error_range": [9.946090564536893E-15, 9.533371478937524E-12],
+      "neutral_multiplier_error_range": [2.330646786674606E-11, 1.3072254390067428E-10],
+      "max_transverse_multiplier_modulus_range": [0.050947519039309434, 0.6430470091061187],
+      "flow_period_range": [32.147379068418644, 32.717159688492956],
+      "passed": true
+    }
+  ],
+  "interpretation": "Corrected stable cycles support two persistent cross-b periodic families along representative moving (a,c) paths; boundary continuation is not yet claimed."
+}

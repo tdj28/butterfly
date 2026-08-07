@@ -101,3 +101,12 @@ low-period band, nested shells, organizing spine, and higher-period windows.
 The Jones section/recurrence method therefore scales to bounded 3-D atlas
 reconnaissance. Same-period component tracking and true continuation are next;
 the raster is not itself a bifurcation explanation.
+
+EXP-021's 3-D same-period adjacency produced 5,142 raster components; 46 span
+all eleven frames. EXP-022 selected internal period-3 and period-5 candidates
+and replaced pixel evidence with phase-conditioned shooting. All 22 sampled
+cycles corrected below `9.6e-12` flow closure, recovered neutral multipliers
+within `1.4e-10`, and remained transversely stable. This directly supports two
+persistent periodic families along moving `(a,c)` paths for `b in [0.1,0.3]`.
+Pseudo-arclength continuation of orbit and bifurcation boundaries remains
+necessary before claiming a unique hub drift or global organizing surface.

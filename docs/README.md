@@ -86,6 +86,8 @@ what must be narrowed, and what is false or unresolved.
   prospective extension of the candidate fractal basin-boundary scaling window.
 - [`experiments/EXP-021-multi-b-ac-atlas.md`](experiments/EXP-021-multi-b-ac-atlas.md):
   296,241-point period-atlas sweep and animation across eleven `b` values.
+- [`experiments/EXP-022-raster-family-orbits.md`](experiments/EXP-022-raster-family-orbits.md):
+  shooting/Floquet confirmation of period-3 and period-5 cross-`b` families.
 
 ## Evidence states
 
