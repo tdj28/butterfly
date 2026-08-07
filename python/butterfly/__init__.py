@@ -1,7 +1,12 @@
 """Reference numerical implementation for the Butterfly research program."""
 
 from .atlas import PeriodicComponent, periodic_components, ranked_recurrence_candidates
-from .basins import BasinPlaneManifest, evaluate_initial_condition, initial_condition_grid
+from .basins import (
+    BasinPlaneManifest,
+    evaluate_initial_condition,
+    fit_uncertainty_exponent,
+    initial_condition_grid,
+)
 
 from .candidates import CandidateSelection, select_low_score_with_neighbors
 from .classify import (
@@ -70,6 +75,7 @@ __all__ = [
     "aggregate_scan_tiles",
     "equilibrium_eigenvalues",
     "evaluate_initial_condition",
+    "fit_uncertainty_exponent",
     "execute_scan",
     "execute_scan_tile",
     "flow_monodromy",

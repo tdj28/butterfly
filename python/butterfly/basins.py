@@ -13,6 +13,71 @@ from .models import RosslerParameters
 from .poincare import collect_crossings, legacy_rossler_section
 
 
+def fit_uncertainty_exponent(
+    epsilons: np.ndarray,
+    uncertain_counts: np.ndarray,
+    resolved_counts: np.ndarray,
+    *,
+    bootstrap_samples: int = 5000,
+    bootstrap_seed: int = 0,
+) -> dict[str, Any]:
+    """Fit ``f(epsilon) ~ epsilon**alpha`` with binomial bootstrap intervals.
+
+    A Jeffreys half-count keeps the logarithm defined without silently dropping
+    a scale whose observed uncertain count is zero. The bootstrap quantifies
+    pair-sampling uncertainty; sensitivity to region, direction, integration
+    horizon, and scale range remains a separate scientific check.
+    """
+
+    epsilons = np.asarray(epsilons, dtype=float)
+    uncertain_counts = np.asarray(uncertain_counts, dtype=np.int64)
+    resolved_counts = np.asarray(resolved_counts, dtype=np.int64)
+    if not (
+        epsilons.ndim == uncertain_counts.ndim == resolved_counts.ndim == 1
+        and len(epsilons) == len(uncertain_counts) == len(resolved_counts)
+        and len(epsilons) >= 3
+    ):
+        raise ValueError("uncertainty fit requires at least three aligned scales")
+    if np.any(epsilons <= 0.0) or np.any(resolved_counts <= 0):
+        raise ValueError("epsilons and resolved counts must be positive")
+    if np.any(uncertain_counts < 0) or np.any(uncertain_counts > resolved_counts):
+        raise ValueError("uncertain counts must lie between zero and resolved counts")
+    if bootstrap_samples < 100:
+        raise ValueError("at least 100 bootstrap samples are required")
+
+    fractions = (uncertain_counts + 0.5) / (resolved_counts + 1.0)
+    log_epsilon = np.log(epsilons)
+    log_fraction = np.log(fractions)
+    alpha, intercept = np.polyfit(log_epsilon, log_fraction, 1)
+    predicted = intercept + alpha * log_epsilon
+    residual_sum = float(np.sum((log_fraction - predicted) ** 2))
+    total_sum = float(np.sum((log_fraction - np.mean(log_fraction)) ** 2))
+    r_squared = 1.0 if total_sum == 0.0 else 1.0 - residual_sum / total_sum
+
+    rng = np.random.default_rng(bootstrap_seed)
+    bootstrap_alphas = np.empty(bootstrap_samples, dtype=float)
+    for index in range(bootstrap_samples):
+        samples = rng.binomial(resolved_counts, fractions)
+        sampled_fractions = (samples + 0.5) / (resolved_counts + 1.0)
+        bootstrap_alphas[index] = np.polyfit(
+            log_epsilon, np.log(sampled_fractions), 1
+        )[0]
+    lower, upper = np.quantile(bootstrap_alphas, (0.025, 0.975))
+    return {
+        "alpha": float(alpha),
+        "alpha_bootstrap_95_interval": [float(lower), float(upper)],
+        "boundary_dimension_estimate": float(2.0 - alpha),
+        "intercept": float(intercept),
+        "r_squared": r_squared,
+        "epsilons": epsilons.tolist(),
+        "uncertain_fractions_jeffreys": fractions.tolist(),
+        "bootstrap_samples": bootstrap_samples,
+        "bootstrap_seed": bootstrap_seed,
+        "fit_space": "ordinary least squares in log(epsilon), log(Jeffreys fraction)",
+        "uncertainty_scope": "binomial pair sampling only",
+    }
+
+
 @dataclass(frozen=True, slots=True)
 class BasinPlaneManifest:
     experiment_id: str
