@@ -84,6 +84,8 @@ what must be narrowed, and what is false or unresolved.
   first scale-dependent uncertainty measurement for the period-12/period-3 basins.
 - [`experiments/EXP-020-small-scale-basin-uncertainty.md`](experiments/EXP-020-small-scale-basin-uncertainty.md):
   prospective extension of the candidate fractal basin-boundary scaling window.
+- [`experiments/EXP-021-multi-b-ac-atlas.md`](experiments/EXP-021-multi-b-ac-atlas.md):
+  296,241-point period-atlas sweep and animation across eleven `b` values.
 
 ## Evidence states
 

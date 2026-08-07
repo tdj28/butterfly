@@ -83,3 +83,21 @@ million Float64 state-steps/second. The final receipt and archive hashes matched
 across the local and remote copies, and all pods were terminated. The periodic
 Poincare GPU path is now qualified for the next basin-scaling and multi-`b`
 atlas experiments, but not for chaotic identity or Lyapunov claims.
+
+## Basin scaling and multi-b atlas
+
+EXP-019 resolved all 57,344 period-3/period-12 uncertainty pairs but showed
+coarse-scale saturation. Its disclosed four-smallest-scale fit suggested a
+fractal boundary. EXP-020 then prospectively froze seven smaller scales and new
+seeds: 57,342/57,344 pairs resolved, uncertain fractions fell from `0.3236` to
+`0.05657`, and the all-scale fit gave `alpha=0.4264`, pair-bootstrap interval
+`[0.4094,0.4442]`, and `R^2=0.9976`. This supports a fractal, non-riddled basin
+boundary in the declared plane; the numerical dimension remains provisional.
+
+EXP-021 completed 296,241 `(a,b,c)` points across eleven `b` frames from 0.10
+through 0.30. All frames passed, with a single numerical-failure pixel in the
+entire slab. The fixed-color contact sheet and GIF show coherent motion of the
+low-period band, nested shells, organizing spine, and higher-period windows.
+The Jones section/recurrence method therefore scales to bounded 3-D atlas
+reconnaissance. Same-period component tracking and true continuation are next;
+the raster is not itself a bifurcation explanation.
