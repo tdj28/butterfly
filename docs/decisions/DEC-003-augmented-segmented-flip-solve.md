@@ -1,7 +1,7 @@
 # DEC-003 — Replace outer scalar refinement with an augmented segmented flip solve
 
 Date: 2026-08-07
-Status: adopted; finite-difference validation failed, analytic Jacobian pending
+Status: adopted; exact-Jacobian known-event validation passed
 
 ## Context
 
@@ -93,6 +93,13 @@ residuals `1.78e-9`/`1.77e-10`; direct and block flip multipliers agree within
 `1.086e-9`, above the `5e-10` known-event gate. The analytic formulation is
 therefore numerically supported but not yet validated. One receipt-bound resume
 is allowed before changing scaling or nonlinear solver.
+
+EXP-102 binds that full state and passes. It recovers the known event at
+`b=0.17971249399303613`, `8.94e-13` from EXP-089, with orbit/tangent residuals
+`9.21e-13`/`1.01e-11` and block/direct flip agreement `8.88e-15`. The
+analytic augmented formulation is validated at period 320. Validation order
+now permits a frozen 64-segment application to period 640; it still forbids a
+period-1280 branch switch until the target event itself passes.
 
 ## Consequences
 

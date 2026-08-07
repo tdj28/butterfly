@@ -175,7 +175,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   orbit/tangent residuals `1.78e-9`/`1.77e-10`, corrects the spectrum-label
   bug, and runs `11.4x` faster; its `1.086e-9` reference error still misses the
   `5e-10` gate. EXP-102 freezes one exact-Jacobian resume from the full EXP-101
-  orbit and tangent state under unchanged scientific thresholds.
+  orbit and tangent state under unchanged scientific thresholds. It passes at
+  `b=0.17971249399303613` with `8.94e-13` reference error, orbit/tangent
+  residuals `9.21e-13`/`1.01e-11`, and block/direct agreement `8.88e-15`.
+  Freeze the validated 64-segment application to the period-640 source next.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

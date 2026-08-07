@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.analytic-augmented-flip-summary.v1",
+  "experiment_id": "EXP-102",
+  "passed": true,
+  "source_commit": "812b26bcec8d230632b064c566fdf0e0da5e66d1",
+  "manifest_sha256": "96a990a1ea0e9beed4d3d467e4ccacbc775685aa3f50bd0d665d44eb210115a0",
+  "full_receipt_sha256": "040085a791de6940be4ab4111d8a45f69bb7e8d50cf14b7611e047d181472410",
+  "corrected_b": 0.17971249399303613,
+  "reference_error": -8.936185125207885e-13,
+  "orbit_matching_residual": 9.20561885336097e-13,
+  "tangent_transport_residual": 1.0071473092353556e-11,
+  "phase_residual": 1.624087834459539e-18,
+  "normalization_residual": 1.1102230246251565e-16,
+  "direct_flip_multiplier": -0.9999999768243135,
+  "block_product_difference": 8.881784197001252e-15,
+  "cyclic_product_spread": 1.6653345369377348e-15,
+  "evaluations": 20,
+  "elapsed_seconds": 254.05336420796812,
+  "interpretation": "DEC-003's exact augmented flip formulation passes its mandatory known period-320 event validation and is authorized for a separately frozen period-640 target application"
+}

@@ -219,3 +219,12 @@ period, `b`, and tangent nodes with zero offset, changes only the phase gauge to
 the stored first node, and permits 20 more exact evaluations. A failure closes
 the current unscaled trust-region path; a pass unlocks—but does not itself
 perform—the period-640 target solve.
+
+EXP-102 passed. It terminates successfully at
+`b=0.17971249399303613`, only `8.94e-13` from EXP-089, with orbit and tangent
+residuals `9.21e-13` and `1.01e-11`. The independent direct flip is
+`-0.99999997682431`; block/direct difference is `8.88e-15` and cyclic spread
+is `1.67e-15`. DEC-003's known-event gate is therefore closed, and the
+validated exact formulation is now authorized for a separately frozen
+64-segment period-640 application. No eighth event or period-1280 child is yet
+claimed.
