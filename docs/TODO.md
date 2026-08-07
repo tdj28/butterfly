@@ -116,6 +116,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   all tested parents as period 3 and all children as period 6. The surface/fold
   geometry is retained and reclassified; locating the earlier continuation
   family switch is now mandatory.
+  EXP-048's long-horizon audit fails methodologically on unstable cycles.
+  EXP-049's one-traversal invariant count then shows EXP-023 was never one
+  period-5 family: 40/46 rows are double-covered period 3, five are period 5,
+  and one is period 4. Rebuild identity-constrained continuation from the last
+  verified EXP-022 period-5 seed; do not reuse EXP-023 as a family branch.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

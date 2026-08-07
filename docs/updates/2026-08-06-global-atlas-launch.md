@@ -275,3 +275,17 @@ The local flip, scaling, surface, and fold line are retained. Their family
 identity is corrected from period 5/10 to period 3/6. The continuation from the
 period-5 raster seed switched families before EXP-028; locating that first
 identity change is the next provenance task.
+
+EXP-048 attempted that audit with multi-period recurrence and failed because
+unstable exact cycles shed roundoff over the observation horizon. EXP-049
+replaced it with accepted section counts during exactly one stored closed
+traversal. The result is decisive: EXP-023's named period-5 trace contains 40
+six-crossing rows, five five-crossing rows (`b=0.175..0.195`), and one
+four-crossing row (`b=0.2`). Its first corrected row is already six-crossing.
+
+Therefore EXP-023's period-5 continuation claim is rejected: the unconstrained
+corrector hopped among nearby closed orbits. Downstream global provenance from
+that trace is invalid. The local period-3/6 flip surface remains supported by
+its later independent recurrence, scaling, stability, and multi-point checks.
+The next implementation must enforce recurrence identity at every accepted
+continuation step.
