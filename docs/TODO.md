@@ -124,6 +124,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-050 completes that rebuild: 19 identity-safe period-5 points span
   `b=0.173669..0.204808`, wrong-family six-crossing roots are rejected at both
   ends, and a genuine `-1` crossing is bracketed at `[0.1825,0.185]`.
+  EXP-051 refines the flip to `b=0.183467590772`. EXP-052/053 switch and
+  independently qualify its stable period-10 child, proving a supercritical
+  period-5-to-period-10 flip. EXP-054 rejects a step-size-dependent crossing
+  count as a transition estimate; EXP-055 instead refines the continuous
+  section-boundary grazing at `b=0.181750232321` while the child remains
+  strongly stable. Next extend the period-10 child without using raw crossing
+  count as an identity gate, then continue both the flip and grazing conditions
+  in `(a,b,c)`.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -140,6 +140,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-050-identity-constrained-period5-continuation.md`](experiments/EXP-050-identity-constrained-period5-continuation.md):
   clean rebuild of the distinct period-5 branch with recurrence identity
   enforced after every correction.
+- [`experiments/EXP-051-refined-true-period5-flip.md`](experiments/EXP-051-refined-true-period5-flip.md)
+  through [`EXP-055`](experiments/EXP-055-refined-legacy-section-grazing.md):
+  a verified supercritical period-5-to-period-10 flip followed by a distinct
+  stable-orbit grazing of the historical section boundary; the sequence is
+  summarized in [`FND-003`](findings/FND-003-period5-flip-and-section-grazing.md).
 
 ## Evidence states
 

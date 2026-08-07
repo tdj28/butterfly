@@ -297,3 +297,23 @@ below `9.30e-12`, spanning `b=0.173669..0.204808` at fixed
 recorded and rejected. The rebuilt branch has a genuine `-1` Floquet bracket
 `[0.1825,0.185]`. Thus the period-5 branch and the separately validated
 period-3/6 folded surface are distinct dynamical objects.
+
+## True period-5 flip and section grazing (EXP-051–055)
+
+EXP-051 refines the rebuilt branch's fundamental `-1` event to
+`b=0.1834675907716`. EXP-052 switches the twice-period shooting equations;
+EXP-053 independently shows the two switch arms are one geometric period-10
+child and confirms the supercritical outcome at `b=0.1825`: unstable period-5
+parent (modulus `1.16299`), stable period-10 child (modulus `0.362719`).
+
+The first attempt to locate the later 10/11 accepted-section-count change
+(EXP-054) failed honestly. Its apparent boundary moved with integrator maximum
+step because a sign-change event detector can step over both members of a
+close intersection pair. Replacing the discrete count with the continuous
+local-maximum condition resolves the physics. EXP-055 passes at
+`b=0.1817502323206`: the stable child grazes `y=y_eq` exactly at `x=x_eq`, as
+forced by `dy/dt=x+a y`, with `z≈17.29455` and Floquet modulus `0.141731`.
+This is a return-section topology event on a smooth stable orbit, not a
+periodic-orbit bifurcation. It provides direct local support for studying
+Jones-style branch/reinjection geometry, without yet identifying the global
+TBA curve.
