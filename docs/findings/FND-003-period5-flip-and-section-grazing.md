@@ -44,3 +44,9 @@ The first three flip spacings yield descriptive ratios `4.5363` and `4.5944`.
 EXP-066 freezes a prospective next-event prediction at `b=0.1797205086405`;
 only an independently found period-80 event can test it. With only two ratios,
 the project explicitly does not claim Feigenbaum universality.
+
+EXP-068/070 establish a fourth supercritical rung, 40→80. At `b=0.179735`
+the stable child is recovered from a perturbed trajectory and has Floquet
+modulus `0.005536`. The independently frozen next-event prediction lies inside
+the prospective period-80 `-1` bracket, enabling a genuine out-of-sample
+scaling test rather than a post-hoc fit.

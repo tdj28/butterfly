@@ -126,6 +126,14 @@ def main():
         "evaluations": evaluations,
         "elapsed_seconds": time.perf_counter() - started,
     }
+    if "prospective_prediction" in manifest:
+        prediction = manifest["prospective_prediction"]
+        signed_error = output["b_estimate"] - prediction["predicted_b"]
+        output["prospective_prediction"] = {
+            **prediction,
+            "signed_error": signed_error,
+            "absolute_error": abs(signed_error),
+        }
     output["passed"] = (
         output["bracket_width"] <= acceptance["max_b_bracket_width"]
         and abs(best["multiplier_residual"])
