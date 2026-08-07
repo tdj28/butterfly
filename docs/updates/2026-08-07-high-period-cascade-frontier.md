@@ -152,3 +152,11 @@ and the final EXP-096 center, compares baseline and tenfold-tighter integration,
 and evaluates both the 64-block cyclic spectrum and direct 3-by-3 monodromy
 products at four cyclic basepoints. Six corrections run across three local CPU
 workers. No GPU or Runpod funds are required for this diagnostic.
+
+EXP-097 passed. Baseline and tight profiles both retain the wide signed
+bracket, while block-cyclic and direct-product multipliers agree within
+`5.83e-14` and cyclic-basepoint spread is below `6.00e-15`. The tight solver
+shifts the center multiplier by `7.750e-6`, diagnosing integration accuracy—not
+the multiplier representation—as the prior pointwise limit. EXP-098 now binds
+the audit and freezes a tight-solver event refinement on the wide bracket with
+independent block/product agreement gates.
