@@ -1,7 +1,7 @@
 # DEC-003 — Replace outer scalar refinement with an augmented segmented flip solve
 
 Date: 2026-08-07
-Status: adopted; implementation and validation pending
+Status: adopted; finite-difference validation failed, analytic Jacobian pending
 
 ## Context
 
@@ -67,6 +67,24 @@ If a finite-difference sparse Jacobian is used initially, its sparsity pattern
 must reflect the local segment dependencies and the result must be repeated at
 a tighter differencing scale. An analytic or automatic-differentiation
 second-variational implementation remains the preferred production endpoint.
+
+## First implementation result
+
+EXP-100 implemented the square system with a colored sparse finite-difference
+Jacobian. It exhausted 30 evaluations after `2367.32 s`; tangent transport
+fell to `2.14e-9`, but orbit matching stopped at `1.73e-7` and the known event
+was missed by `4.91e-9`. Direct monodromy products give
+`-0.99999998557114`, so the anti-periodic equation is acting on the intended
+flip direction, but the corrector does not pass.
+
+The next implementation will integrate the Rössler flow, first variation,
+parameter sensitivity, tangent transport, and Hessian-vector action together.
+Because the Rössler Hessian has only the bilinear third-component coupling,
+this supplies the exact augmented Jacobian with one integration per segment
+and removes the colored finite-difference multiplier. Independent validation
+will identify the flip cluster by proximity to `-1`; EXP-100 showed that the
+generic neutral/nontrivial block labels are ambiguous at the simultaneous
+`+1`/`-1` unit-circle collision.
 
 ## Consequences
 

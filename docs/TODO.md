@@ -164,7 +164,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   frozen pointwise residual gate despite a final `3.22e-15` sign bracket.
   Implement DEC-003's augmented anti-periodic multiple-shooting solve, validate
   it on EXP-089, and only then decide the period-640 event. EXP-100 freezes the
-  32-segment known-event validation with a deliberately perturbed seed.
+  32-segment known-event validation with a deliberately perturbed seed. It
+  fails at the 30-evaluation cap after `2367 s`: the anti-periodic tangent
+  residual reaches `2.14e-9`, but orbit matching remains `1.73e-7` and the
+  parameter error is `4.91e-9`. Implement the exact second-variational
+  Jacobian, explicitly select the independent flip cluster by proximity to
+  `-1`, and repeat the known-event validation before touching period 640.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

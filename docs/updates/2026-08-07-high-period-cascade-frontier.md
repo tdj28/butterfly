@@ -186,3 +186,14 @@ the passed EXP-089 period-320 source by `5e-9` in `b` and solves the 194-variabl
 augmented orbit/tangent system with a sparse local-dependency Jacobian. The
 implementation is not allowed to touch the period-640 target unless it recovers
 the known event and passes independent block/direct-product spectral gates.
+
+EXP-100 failed at its frozen 30-evaluation cap after `2367.32 s`. The tangent
+condition improved by five orders of magnitude to `2.14e-9`, and four cyclic
+direct products independently give `-0.9999999856`, but orbit matching remains
+`1.73e-7` and the recovered `b` remains `4.91e-9` from EXP-089. The experiment
+therefore does not validate the augmented solver and cannot unlock the
+period-640 target. It also found that the generic block-cluster labeling swaps
+the near `+1` and `-1` roles at this collision; subsequent validation will
+select the flip cluster explicitly by distance to `-1`. The next frozen run
+will replace colored finite differences with the exact Rössler second-
+variational Jacobian while preserving the equations and scientific gates.
