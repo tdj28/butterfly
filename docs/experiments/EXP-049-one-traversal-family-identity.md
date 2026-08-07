@@ -21,3 +21,10 @@ Reject EXP-023's period-5-family continuation claim and all downstream claims
 that depend on that provenance. Retain the local period-3/6 surface because it
 was independently requalified by EXP-039 through EXP-047. Rebuild global
 continuation with recurrence identity enforced at every corrector step.
+
+> **Method refinement after EXP-050.** EXP-049 shortened the traversal slightly
+> to avoid double-counting an endpoint; for phase choices returning exactly at
+> the endpoint this can undercount by one (including the verified `b=0.2`
+> seed). EXP-050 uses a slightly extended traversal, removes a possible initial
+> event, and supersedes individual EXP-049 counts. Its central conclusion—many
+> EXP-023 rows are wrong-family roots—remains valid.

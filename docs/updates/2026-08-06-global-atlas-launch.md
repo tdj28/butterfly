@@ -289,3 +289,11 @@ that trace is invalid. The local period-3/6 flip surface remains supported by
 its later independent recurrence, scaling, stability, and multi-point checks.
 The next implementation must enforce recurrence identity at every accepted
 continuation step.
+
+EXP-050 implemented that safeguard from the independently verified EXP-022
+period-5 seed. All 19 accepted points have exactly five crossings and closure
+below `9.30e-12`, spanning `b=0.173669..0.204808` at fixed
+`(a,c)=(0.245,5.1)`. Repeated six-crossing corrector roots at both ends are
+recorded and rejected. The rebuilt branch has a genuine `-1` Floquet bracket
+`[0.1825,0.185]`. Thus the period-5 branch and the separately validated
+period-3/6 folded surface are distinct dynamical objects.

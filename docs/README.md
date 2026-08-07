@@ -137,6 +137,9 @@ what must be narrowed, and what is false or unresolved.
   and [`EXP-047`](experiments/EXP-047-flip-recurrence-identity.md): failed
   period-5/10 atlas alignment followed by direct reclassification as a
   period-3-to-period-6 flip component.
+- [`experiments/EXP-050-identity-constrained-period5-continuation.md`](experiments/EXP-050-identity-constrained-period5-continuation.md):
+  clean rebuild of the distinct period-5 branch with recurrence identity
+  enforced after every correction.
 
 ## Evidence states
 

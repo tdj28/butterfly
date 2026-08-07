@@ -121,6 +121,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   period-5 family: 40/46 rows are double-covered period 3, five are period 5,
   and one is period 4. Rebuild identity-constrained continuation from the last
   verified EXP-022 period-5 seed; do not reuse EXP-023 as a family branch.
+  EXP-050 completes that rebuild: 19 identity-safe period-5 points span
+  `b=0.173669..0.204808`, wrong-family six-crossing roots are rejected at both
+  ends, and a genuine `-1` crossing is bracketed at `[0.1825,0.185]`.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
