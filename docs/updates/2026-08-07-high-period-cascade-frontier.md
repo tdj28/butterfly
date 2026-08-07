@@ -137,3 +137,18 @@ midpoints because the secant root is endpoint-near; this is not evidence of a
 Floquet noise floor. EXP-096 binds the resulting `3.77e-13` signed bracket and
 changes only the numerical endpoint margin to `0.1%`. Scientific gates remain
 unchanged, and a further failure will trigger a precision/segmentation audit.
+
+EXP-096 reached that stopping rule. Its point estimate is still only
+`1.370e-11` from the blind prediction and has matching residual `1.40e-12`,
+but the closest real multiplier residual is `-3.60e-8`. The final nominal sign
+interval is `7.22e-16` wide, at which neighboring double-precision corrections
+no longer give a stable enough pointwise multiplier for the `1e-8` equality
+gate. The scalar resume path is closed. The next experiment must compare
+solver precision and multiplier representations on the wider EXP-093 bracket;
+it may not simply add more secant iterations.
+
+EXP-097 is preregistered as that audit. It binds the wide EXP-093 sign bracket
+and the final EXP-096 center, compares baseline and tenfold-tighter integration,
+and evaluates both the 64-block cyclic spectrum and direct 3-by-3 monodromy
+products at four cyclic basepoints. Six corrections run across three local CPU
+workers. No GPU or Runpod funds are required for this diagnostic.
