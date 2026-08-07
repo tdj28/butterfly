@@ -86,8 +86,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   reduction, equilibrium/Hopf, and TBA remain open. EXP-032 through EXP-034
   resolve thirteen coupled `+1` events on a smooth fixed-`c=5.1` curve over
   `a in [0.235,0.265]`, reaching `b=0.347875`; natural continuation fails below
-  `a=0.235`, so full event-system pseudo-arclength and continuation in `c` are
-  the next surface-building steps.
+  `a=0.235`. EXP-035's full event-system pseudo-arclength crosses that boundary
+  with thirty accepted points and finds one reversal in each of the `a` and `b`
+  projections. Continuation of this fold-safe set in `c`, plus normal-form
+  qualification away from the source, are the next surface-building steps.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

@@ -1,0 +1,25 @@
+{
+  "schema": "butterfly.unit-event-pseudo-arclength-summary.v1",
+  "experiment_id": "EXP-035",
+  "passed": true,
+  "source_commit": "3a7bbbe42fc046b25a10118f0aca1dd9f8282ee5",
+  "manifest_sha256": "28c860a970364e80110581a94aead764d6665350a552671249abdb2c719f77ab",
+  "source_curve_receipt_sha256": "e3a885710e71ede1e52fe1bcb090b08fd843eab9d189a696ca8c19e6eaa688cf",
+  "full_receipt_sha256": "ad7d09afa45068dbb41252ebaa7de93259302d3aff8d1824a908e7e62c9ad555",
+  "corrected_point_count": 30,
+  "a_range": [0.214319598774318, 0.2375],
+  "b_range": [0.2031697977265498, 0.24646014649748837],
+  "direction_reversals_in_a": 1,
+  "direction_reversals_in_b": 1,
+  "b_projection_minimum": {"a": 0.21851312809543263, "b": 0.2031697977265498},
+  "a_projection_minimum": {"a": 0.214319598774318, "b": 0.23169511677568166},
+  "max_closure_error": 1.863620514074998e-12,
+  "max_eigen_residual": 2.642726025818691e-13,
+  "max_flow_orthogonality_residual": 1.6583846316055133e-18,
+  "max_arclength_residual": 3.146571544987431e-15,
+  "figure": {
+    "path": "artifacts/EXP-035/EXP-035-event-pseudo-arclength.png",
+    "sha256": "49fbe50d1ccfe7a6a9fd3e7fcab2c0faf14e7d0afebc58b45abbea2198f7f589"
+  },
+  "interpretation": "Full event pseudo-arclength crosses the natural-correction boundary and reveals one reversal in each parameter projection. Multiple slice intersections are possible on the same fixed-c event curve."
+}

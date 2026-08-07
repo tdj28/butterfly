@@ -163,3 +163,12 @@ seventeen-point gate remains failed because the downward corrector at
 `a=0.2325` is invalid. The accepted bounded curve is now evidence; continuation
 below it and surface construction in `c` require full event-system pseudo-
 arclength rather than further natural-step tuning.
+
+EXP-035 implemented that full event-system pseudo-arclength. All thirty frozen
+steps passed below `1.9e-12` closure and crossed the failed fixed-`a` region.
+The curve reverses first in `b` near `(a,b)=(0.218513,0.203170)` and later in
+`a` near `(0.214320,0.231695)`. A single fixed-`c` event curve can therefore
+intersect constant-parameter slices multiple times, providing a concrete local
+mechanism for repeated stability exchanges in the larger shrimp
+superstructure. Normal-form identity away from the EXP-031 source and
+continuation under `c` remain prospective requirements.

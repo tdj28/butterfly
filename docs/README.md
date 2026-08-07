@@ -108,6 +108,9 @@ what must be narrowed, and what is false or unresolved.
   [`EXP-033`](experiments/EXP-033-expanded-period5-unit-event-a-curve.md), and
   [`EXP-034`](experiments/EXP-034-resolved-period5-unit-event-a-curve.md):
   honest domain/resolution tests and the accepted bounded fixed-`c` event curve.
+- [`experiments/EXP-035-event-pseudo-arclength.md`](experiments/EXP-035-event-pseudo-arclength.md):
+  full coupled-event pseudo-arclength through the natural-correction boundary,
+  revealing folds in both parameter projections.
 
 ## Evidence states
 
