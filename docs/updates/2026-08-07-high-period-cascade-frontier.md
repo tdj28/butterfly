@@ -258,3 +258,9 @@ when the predictor doubles, while the period ratio remains within `9.45e-10`
 of two. A distinct period-1280 candidate branch is established. Common-
 parameter identity and 128-block Floquet stability remain the final gates for
 an eighth supercritical rung.
+
+EXP-105 freezes those final gates at common parameter `b=0.17971215`, using
+both EXP-104 signs from predictor `0.001`. It requires deterministic dense-
+orbit phase identity, period agreement, persistent half-period distinctness,
+and independently stable 128-block Floquet spectra. Only a pass closes the
+eighth supercritical rung.

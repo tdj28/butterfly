@@ -186,8 +186,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   eighth supercritical rung. EXP-104 freezes the tangent-informed 128-segment
   switch at two amplitudes and both signs. All four candidates pass, with
   matching residuals below `2.24e-12` and amplitude-scaling distinctness.
-  Freeze the independent common-parameter identity and 128-block Floquet
-  qualification next.
+  EXP-105 freezes the independent common-parameter identity and 128-block
+  Floquet qualification at `b=0.17971215`.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
