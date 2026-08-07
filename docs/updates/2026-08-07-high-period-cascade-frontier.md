@@ -122,3 +122,10 @@ safeguarded secant trials and keeps the same `1e-8` multiplier residual,
 `1e-11` parameter uncertainty, and `5e-8` prospective prediction-error gates
 used to decide whether a corrected event exists. A period-1280 branch is out of
 scope until this event gate passes.
+
+EXP-094 exhausted all eight trials and failed honestly: its best event estimate
+`b=0.1797121964332984` is only `1.370e-11` from the frozen prediction and has
+matching residual `1.41e-12`, but multiplier residual `3.57e-8` exceeds the
+unchanged `1e-8` gate. The retained signed bracket is `6.02e-12` wide.
+EXP-095 binds that failed receipt and permits four more trials with a smaller
+endpoint margin; it does not relax any scientific acceptance criterion.
