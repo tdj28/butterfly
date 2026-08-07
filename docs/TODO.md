@@ -179,7 +179,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `b=0.17971249399303613` with `8.94e-13` reference error, orbit/tangent
   residuals `9.21e-13`/`1.01e-11`, and block/direct agreement `8.88e-15`.
   EXP-103 freezes the validated 64-segment application to EXP-099's period-640
-  source inside the audited EXP-093 signed bracket.
+  source inside the audited EXP-093 signed bracket. It passes at
+  `b=0.17971219643223899` with prediction error `1.476e-11` and direct flip
+  residual `1.90e-10`. Next freeze a period-1280 branch switch, then require
+  independent common-parameter identity and Floquet stability before adding an
+  eighth supercritical rung.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

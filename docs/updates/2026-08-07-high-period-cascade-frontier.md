@@ -235,3 +235,12 @@ EXP-093 bracket `[0.17971219,0.17971220]` as hard bounds, and retains the frozen
 prediction solely as a `5e-8` comparison gate. Passing would correct the eighth
 parent event, but a period-1280 child and supercriticality remain separate
 future qualifications.
+
+EXP-103 passed in three evaluations at `b=0.17971219643223899`. The frozen
+prediction misses by only `1.476e-11`; orbit/tangent residuals are
+`1.46e-12`/`7.81e-12`, the direct flip multiplier is
+`-0.999999999809874`, and block/direct agreement is `6.66e-15`. This corrects
+the eighth parent event and completes the third prospective prediction test.
+The new finite spacing ratio is `4.6689869`. It does not yet add an eighth
+supercritical rung: period-1280 switching, common-parameter identity, and
+Floquet stability are the next locked steps.

@@ -1,7 +1,7 @@
 # DEC-003 — Replace outer scalar refinement with an augmented segmented flip solve
 
 Date: 2026-08-07
-Status: adopted; exact-Jacobian known-event validation passed
+Status: completed; exact-Jacobian validation and target solve passed
 
 ## Context
 
@@ -100,6 +100,13 @@ EXP-102 binds that full state and passes. It recovers the known event at
 analytic augmented formulation is validated at period 320. Validation order
 now permits a frozen 64-segment application to period 640; it still forbids a
 period-1280 branch switch until the target event itself passes.
+
+EXP-103 applies the validated formulation to the 64-segment period-640 parent
+and passes at `b=0.17971219643223899`, with orbit/tangent residuals
+`1.46e-12`/`7.81e-12` and direct multiplier
+`-0.999999999809874`. DEC-003's event-solve objective is complete. Its final
+acceptance boundary now unlocks a separately frozen period-1280 branch switch
+and qualification; it does not itself establish the child or criticality.
 
 ## Consequences
 

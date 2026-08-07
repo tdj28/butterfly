@@ -1,6 +1,6 @@
 # EXP-103 — Exact augmented period-640 flip solve
 
-Status: preregistered; not executed
+Status: executed; passed
 
 Apply the EXP-102-validated exact augmented formulation to the unresolved
 period-640 parent. Bind the failed full EXP-099 receipt for its tight-solver
@@ -27,3 +27,19 @@ prospective event-location test. It does not establish supercriticality or a
 stable period-1280 child; those require a separately frozen branch switch and
 common-parameter identity/Floquet qualification. Failure retains only the
 EXP-093/099 bracket evidence and triggers diagnosis.
+
+The clean run at `859a3024c50c2c21d1c68dd48fbf10cfd7d32911` passed in three
+exact evaluations and `62.68 s`. It converged to
+`b=0.17971219643223899`, only `-1.476e-11` from the frozen prospective
+prediction. Orbit, tangent, phase, and normalization residuals are
+`1.46e-12`, `7.81e-12`, `1.95e-18`, and `2.22e-16`. Four direct products give
+`-0.999999999809874`, with block/direct difference `6.66e-15` and cyclic
+spread `2.66e-15`. Full receipt SHA-256:
+`ddc37ede99dce1070c1e00bdab30f21afeb1ec468679ebd903e4cc49beb618bb`.
+
+The corrected eighth event is established, and the third frozen prospective
+event-location test succeeds. The new finite spacing ratio is `4.6689869`.
+EXP-094 through EXP-096 and EXP-098/099 remain failed pointwise scalar
+experiments; EXP-103 shows that their limit was removed by solving the orbit
+and anti-periodic tangent together. A period-1280 child, its identity, and
+supercriticality remain unclaimed pending separate experiments.

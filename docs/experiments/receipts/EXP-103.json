@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.analytic-augmented-flip-summary.v1",
+  "experiment_id": "EXP-103",
+  "passed": true,
+  "source_commit": "859a3024c50c2c21d1c68dd48fbf10cfd7d32911",
+  "manifest_sha256": "eee433b62d1f82908232a7ce25240fc21a7261331c32fb207779de60f7136523",
+  "full_receipt_sha256": "ddc37ede99dce1070c1e00bdab30f21afeb1ec468679ebd903e4cc49beb618bb",
+  "corrected_b": 0.17971219643223899,
+  "prediction_error": -1.4761136757357463e-11,
+  "orbit_matching_residual": 1.4559137832420866e-12,
+  "tangent_transport_residual": 7.813557493787683e-12,
+  "direct_flip_multiplier": -0.9999999998098743,
+  "block_product_difference": 6.661338147750939e-15,
+  "cyclic_product_spread": 2.6645352591003757e-15,
+  "evaluations": 3,
+  "elapsed_seconds": 62.67509754141793,
+  "finite_spacing_ratio": 4.668986900243924,
+  "interpretation": "the corrected eighth parent flip event passes the validated exact augmented solve and the third frozen prospective event-location test; period-1280 child stability and supercriticality remain unclaimed"
+}

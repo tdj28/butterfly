@@ -18,14 +18,19 @@ block-Floquet stability, and whole-orbit identity establish a stable period-640
 child.  These are finite numerical observations; proximity of the ratios to a
 classical constant is not presented as a universality proof.
 
+The period-640 parent has a corrected eighth flip event at
+$b_8=0.1797121964322390$.  The resulting next finite spacing ratio is
+$4.66899$.  A period-1280 child and the criticality of this event have not yet
+been independently qualified, so this is not yet counted as an eighth
+supercritical rung.
+
 Three event locations were predicted from earlier rungs before their dedicated
 search.  The frozen period-80 to period-160 prediction missed the resolved
 event by $1.398\times10^{-7}$.  The frozen period-320 to period-640 prediction
 missed by $3.00\times10^{-10}$.  The period-640 to period-1280 prediction at
-$b=0.1797121964470$ prospectively brackets a real $-1$ crossing between
-$b=0.17971219$ and $b=0.17971220$; the bracket midpoint differs from the
-prediction by $1.447\times10^{-9}$.  This third test has not yet passed event
-refinement or period-1280 child qualification.
+$b=0.1797121964470$ differs from the corrected eighth event by only
+$1.476\times10^{-11}$.  All three frozen prospective event-location tests
+therefore succeed; period-1280 child qualification remains separate.
 
 Subsequent baseline and tighter-solver scalar refinements retain a signed
 interval only $3.22\times10^{-15}$ wide, but the closest precision-audited
@@ -36,8 +41,11 @@ event evidence but is not promoted to a corrected eighth event.  A coupled
 orbit--parameter--eigenvector solve with an exact second-variational Jacobian
 recovers the already resolved seventh event within $8.94\times10^{-13}$, with
 orbit and tangent residuals $9.21\times10^{-13}$ and $1.01\times10^{-11}$.
-This validates the event formulation on a known case; it must still pass at the
-period-640 parent before branch switching.
+Applied prospectively to the period-640 parent, the same formulation converges
+in three evaluations with orbit and tangent residuals $1.46\times10^{-12}$ and
+$7.81\times10^{-12}$; four direct monodromy products give
+$-0.999999999810$.  Thus the scalar failures diagnose a numerical formulation
+limit rather than absence of the crossing.
 
 \subsection{Flow bifurcation versus section geometry}
 
