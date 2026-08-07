@@ -42,7 +42,12 @@ from .poincare import (
     collect_crossings,
     legacy_rossler_section,
 )
-from .periodic import MonodromyResult, flow_monodromy
+from .periodic import (
+    MonodromyResult,
+    PeriodicOrbitCorrection,
+    correct_periodic_orbit,
+    flow_monodromy,
+)
 from .scan import ScanManifest, execute_scan, run_scan
 from .tiles import (
     TileSpec,
@@ -62,6 +67,7 @@ __all__ = [
     "LyapunovConfig",
     "LyapunovResult",
     "MonodromyResult",
+    "PeriodicOrbitCorrection",
     "LargestLyapunovResult",
     "PeriodClassification",
     "RecurrenceCandidate",
@@ -83,6 +89,7 @@ __all__ = [
     "classify_fundamental_period",
     "classify_with_lyapunov",
     "combine_initial_conditions",
+    "correct_periodic_orbit",
     "closest_recurrence_candidate",
     "integrate_trajectory",
     "initial_condition_grid",
