@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.cascade-scaling-analysis-summary.v1",
+  "experiment_id": "EXP-092",
+  "passed": true,
+  "source_commit": "bce8d802e6639ea039207d50e2ac7b75ea0f16da",
+  "manifest_sha256": "95f2cea52ad7a9465eae50097dcbfd457b872a86c676ecec40840f3d08f5219c",
+  "full_receipt_sha256": "3d3bd7a0e72320f14d078a3895f81291e20b82d8cdf5fb0655df53f1ae9cea08",
+  "spacing_ratios": [
+    4.536305186250418,
+    4.594405660654856,
+    4.647626535466122,
+    4.664602998096293,
+    4.668191999636573
+  ],
+  "predicted_period640_to_1280_b": 0.17971219644700012,
+  "predicted_spacing": 2.975469296144495e-7,
+  "accumulation_b": 0.17971211535390105,
+  "interpretation": "seven verified events define a prospective period-640 flip target; asymptotic universality remains unproved"
+}

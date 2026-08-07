@@ -92,3 +92,10 @@ segments. EXP-091 then passed the independent common-parameter test at
 `b=0.17971235`: stable moduli near `0.0707645`, identical periods, and
 phase-aligned whole-orbit RMS `1.39e-8`. The period-640 child is established,
 closing the seventh local supercritical rung.
+
+EXP-092 consumes all seven verified event receipts and freezes the next
+640→1280 prediction at `b=0.1797121964470`. The latest finite spacing ratio is
+`4.6681920`, only `0.0010096` from the unchanged reference, and the updated
+accumulation estimate is `0.1797121153539`. The next required evidence is a
+signed 64-segment Floquet scan across this prediction; period 1280 is not yet
+claimed.
