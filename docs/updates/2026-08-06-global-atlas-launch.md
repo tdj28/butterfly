@@ -317,3 +317,12 @@ This is a return-section topology event on a smooth stable orbit, not a
 periodic-orbit bifurcation. It provides direct local support for studying
 Jones-style branch/reinjection geometry, without yet identifying the global
 TBA curve.
+
+EXP-056 then attempts a long identity-safe continuation of the period-10
+child. It honestly fails because one of 72 shooting corrections jumps to a
+double-covered parent (half-period closure `8.50e-12`). The surrounding child
+solutions remain distinct, so the complete trace is quarantined rather than
+silently repaired. Its uncontaminated prefix and the original EXP-052 branch
+both prospectively bracket the child's first `-1` multiplier crossing at
+`b=[0.180320828520,0.180788459850]`. That candidate is upstream of the branch
+hop and is the next independent refinement target.
