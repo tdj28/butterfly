@@ -96,6 +96,14 @@ what must be narrowed, and what is false or unresolved.
   [`EXP-026`](experiments/EXP-026-period5-local-pseudo-arclength.md), and
   [`EXP-027`](experiments/EXP-027-period5-resolved-pseudo-arclength.md):
   three-resolution fold-safe analysis of the period-5 `+1` branch interaction.
+- [`experiments/EXP-028-period5-unit-multiplier.md`](experiments/EXP-028-period5-unit-multiplier.md):
+  coupled orbit/eigenvector localization of the nontrivial unit-multiplier event.
+- [`experiments/EXP-029-period5-branch-switch.md`](experiments/EXP-029-period5-branch-switch.md)
+  and [`EXP-030`](experiments/EXP-030-period5-orbit-identity.md): branch switching
+  followed by phase-invariant identification of the primary and secondary cycles.
+- [`experiments/EXP-031-period5-normal-form-scaling.md`](experiments/EXP-031-period5-normal-form-scaling.md):
+  prospective square-root and Floquet scaling test for the local pitchfork-like
+  normal form.
 
 ## Evidence states
 

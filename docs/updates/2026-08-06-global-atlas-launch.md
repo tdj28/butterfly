@@ -143,3 +143,12 @@ primary multiplier is `1.0621` and the secondary multiplier `0.8787`. This
 establishes two distinct invariant cycles and a stability exchange above the
 event. EXP-031 now freezes the square-root branch-separation and multiplier-
 ratio tests needed for a supercritical pitchfork-like normal-form assessment.
+
+EXP-031 passed that prospective assessment across six frozen offsets above the
+event. Phase-invariant branch separation scales with exponent `0.4989577` and
+`R^2=0.99999916`; the median ratio of secondary multiplier deficit to primary
+multiplier excess is `1.98050`, approaching two toward the event. All six
+points show the primary unstable and secondary stable, with closure below
+`1.21e-13`. The result is strong numerical evidence for a supercritical
+pitchfork normal form after quotienting flow phase. Project prose retains
+“pitchfork-like” pending symmetry identification and validated local reduction.

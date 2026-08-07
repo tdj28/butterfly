@@ -79,8 +79,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `b` turn, rejecting a saddle-node of the traced branch. EXP-028 solves the
   coupled nontrivial unit-multiplier condition; EXP-029 switches coordinates;
   and EXP-030 phase-invariantly confirms a distinct stable secondary cycle
-  alongside the unstable primary above the event. Local normal-form scaling,
-  equilibrium/Hopf, and TBA remain open.
+  alongside the unstable primary above the event. EXP-031 prospectively finds
+  square-root branch opening (`0.49896`, `R^2=0.9999992`) and the cubic
+  multiplier ratio (`1.9805` median), strongly supporting a supercritical
+  pitchfork-like normal form in the phase quotient. Symmetry/validated local
+  reduction, equilibrium/Hopf, and TBA remain open.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

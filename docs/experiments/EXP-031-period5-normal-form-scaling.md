@@ -1,6 +1,6 @@
 # EXP-031 — Local normal-form scaling of the period-5 branch point
 
-Status: preregistered; pending clean local execution
+Status: executed; passed
 Manifest: `experiments/manifests/EXP-031-period5-normal-form-scaling.json`
 Claim target: supercritical pitchfork-like classification of EXP-028
 
@@ -28,3 +28,31 @@ Passing supports a supercritical pitchfork normal form in the quotient by flow
 phase. It is still “pitchfork-like,” not a theorem: no exact system symmetry
 has been identified, the scaling is finite precision and finite range, and a
 validated local reduction remains future work.
+
+## Result
+
+The clean run at commit `2e97de92a21b6c567089bcae4b9c543ab13859ff`
+passed every frozen gate. Across all six offsets, closures stayed below
+`1.21e-13`, the primary cycle was unstable, and the secondary cycle was stable.
+
+The phase-aligned separation fit is
+`separation = exp(2.00494) * (b-b*)^0.4989577`, with
+`R^2=0.99999916`. The exponent is within `0.00105` of the pitchfork value
+one-half. The median multiplier-deviation ratio is `1.98050`, with range
+`[1.91079,1.99673]`, approaching the cubic normal-form value two toward the
+event.
+
+The complete receipt SHA-256 is
+`dd7fd933f00d1487d02636541cc5adb0c0a5f68b59e9a4716019026684d9c873`.
+The provenance-bound figure is
+`artifacts/EXP-031/EXP-031-period5-normal-form.png` (SHA-256
+`d3c05ef050a7ee0c8c801164682521b76b1735ecc4db46234fbad06983425264`).
+
+## Decision
+
+Accept strong finite-range numerical support for a supercritical pitchfork
+normal form in the quotient by flow phase at fixed `(a,c)=(0.245,5.1)`, with
+`b*=0.272284059793`. Use “pitchfork-like branch point” in scientific prose
+until an exact or approximate symmetry is identified and a local reduction is
+validated. This result replaces the earlier unresolved `+1`/fold ambiguity; it
+does not establish a global organizing surface or classify other shrimp.
