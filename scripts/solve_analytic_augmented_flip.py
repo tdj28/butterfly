@@ -63,7 +63,10 @@ def receipt_seed(receipt, *, source_schema, seed_b_offset, solver, a, c):
 
     if receipt.get("schema") != source_schema:
         raise SystemExit("bound source schema mismatch")
-    if source_schema == "butterfly.period320-block-flip-resume.v1":
+    if source_schema in {
+        "butterfly.period320-block-flip-resume.v1",
+        "butterfly.precision-audited-flip-resume.v1",
+    }:
         seed = receipt["best_evaluation"]
         nodes = np.asarray(seed["nodes"], dtype=float)
         duration = float(seed["period_time"])

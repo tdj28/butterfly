@@ -126,3 +126,27 @@ def test_analytic_receipt_seed_preserves_tangent_field() -> None:
     assert duration == 7.0
     assert b == 0.180001
     assert multiplier == complex(-0.999)
+
+
+def test_precision_audited_receipt_can_seed_fresh_tangent_field() -> None:
+    receipt = {
+        "schema": "butterfly.precision-audited-flip-resume.v1",
+        "best_evaluation": {
+            "nodes": [[0.4, -0.2, 0.3], [0.36, -0.12, 0.25]],
+            "period_time": 0.34,
+            "b": 0.18,
+        },
+    }
+    nodes, duration, b, tangents, multiplier = receipt_seed(
+        receipt,
+        source_schema="butterfly.precision-audited-flip-resume.v1",
+        seed_b_offset=0.0,
+        solver=SOLVER,
+        a=PARAMETERS.a,
+        c=PARAMETERS.c,
+    )
+    np.testing.assert_allclose(nodes, receipt["best_evaluation"]["nodes"])
+    assert tangents.shape == nodes.shape
+    assert duration == 0.34
+    assert b == 0.18
+    assert np.isfinite(multiplier.real)
