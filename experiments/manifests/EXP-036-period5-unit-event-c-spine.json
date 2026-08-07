@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.unit-event-c-spine-manifest.v1",
+  "experiment_id": "EXP-036",
+  "source_event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "fixed_a": 0.245,
+  "c_values": [4.8, 4.85, 4.9, 4.95, 5.0, 5.05, 5.1, 5.15, 5.2, 5.25, 5.3, 5.35, 5.4],
+  "b_guard": [0.1, 0.5],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 120, "tolerance": 1e-10},
+  "acceptance": {
+    "required_points": 13,
+    "max_closure_error": 1e-8,
+    "max_eigen_residual": 1e-8,
+    "max_flow_orthogonality_residual": 1e-8,
+    "max_adjacent_b_jump": 0.03
+  }
+}
