@@ -39,3 +39,8 @@ frozen perturbed trajectory, matching the shooting solution to phase-aligned
 RMS `1.19e-8`. The emerging cascade is therefore a property of the flow-orbit
 families, whereas the intervening 10→11 section-count change remains a
 separate representation event.
+
+The first three flip spacings yield descriptive ratios `4.5363` and `4.5944`.
+EXP-066 freezes a prospective next-event prediction at `b=0.1797205086405`;
+only an independently found period-80 event can test it. With only two ratios,
+the project explicitly does not claim Feigenbaum universality.

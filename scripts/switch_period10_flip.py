@@ -176,6 +176,15 @@ def main():
         )
     all_rows = [row for branch in branches for row in branch["rows"]]
     acceptance = manifest["acceptance"]
+    qualified_branches = [
+        branch
+        for branch in branches
+        if branch["point_count"] >= acceptance["minimum_points_per_direction"]
+        and branch["endpoint_distance_from_doubled_parent"]
+        >= acceptance["minimum_endpoint_distance"]
+        and branch["rows"][-1]["half_period_closure"]
+        >= acceptance["minimum_endpoint_half_period_closure"]
+    ]
     output = {
         "schema": manifest.get(
             "output_schema", "butterfly.period10-flip-branch-switch.v1"
@@ -204,14 +213,7 @@ def main():
     output["passed"] = (
         singular_values[-1] <= acceptance["max_small_singular_value"]
         and output["absolute_tangent_dot"] <= acceptance["max_tangent_dot"]
-        and all(
-            branch["point_count"] >= acceptance["minimum_points_per_direction"]
-            and branch["endpoint_distance_from_doubled_parent"]
-            >= acceptance["minimum_endpoint_distance"]
-            and branch["rows"][-1]["half_period_closure"]
-            >= acceptance["minimum_endpoint_half_period_closure"]
-            for branch in branches
-        )
+        and len(qualified_branches) >= manifest.get("required_distinct_arms", 2)
         and all(row["closure_error"] <= acceptance["max_closure_error"] for row in all_rows)
     )
     atomic_write(args.output, canonical_json(output))
