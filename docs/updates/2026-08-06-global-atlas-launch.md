@@ -172,3 +172,15 @@ intersect constant-parameter slices multiple times, providing a concrete local
 mechanism for repeated stability exchanges in the larger shrimp
 superstructure. Normal-form identity away from the EXP-031 source and
 continuation under `c` remain prospective requirements.
+
+EXP-036 continued the coupled event transversely at fixed `a=0.245`, passing
+thirteen `c` values from `4.8` to `5.4`. EXP-037 then attempted a first local
+surface graph and honestly failed one coarse lower-`a` corner. EXP-038 retained
+the same domain, halved the `a` step, and passed all 45 coupled events over
+`a in [0.24,0.25]`, `c in [4.9,5.3]`, with maximum closure `3.81e-12`.
+
+This is the first explicit orbit-defined bifurcation surface component in the
+program. Near the source, `b*` rises steeply with `a` and falls with `c`; a
+descriptive quadratic fits the patch with `R^2=0.999818`. The patch does not yet
+show that the EXP-031 pitchfork-like normal form persists everywhere, nor does
+it identify the return-map TBA surface.

@@ -90,6 +90,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   with thirty accepted points and finds one reversal in each of the `a` and `b`
   projections. Continuation of this fold-safe set in `c`, plus normal-form
   qualification away from the source, are the next surface-building steps.
+  EXP-036 supplies a thirteen-point transverse `c` spine. EXP-037 honestly
+  fails at one coarse corner; EXP-038 resolves the same domain at half-step and
+  passes all 45 coupled events, establishing the first local `b*(a,c)` surface
+  patch. Fold-safe surface extension and separated-point normal-form tests are
+  next.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 

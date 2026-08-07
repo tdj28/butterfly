@@ -111,6 +111,12 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-035-event-pseudo-arclength.md`](experiments/EXP-035-event-pseudo-arclength.md):
   full coupled-event pseudo-arclength through the natural-correction boundary,
   revealing folds in both parameter projections.
+- [`experiments/EXP-036-period5-unit-event-c-spine.md`](experiments/EXP-036-period5-unit-event-c-spine.md):
+  transverse continuation of the event under changes in `c`.
+- [`experiments/EXP-037-period5-unit-event-surface-patch.md`](experiments/EXP-037-period5-unit-event-surface-patch.md)
+  and [`EXP-038`](experiments/EXP-038-resolved-period5-unit-event-surface-patch.md):
+  honest resolution failure followed by the first accepted 45-point local
+  event-surface patch.
 
 ## Evidence states
 
