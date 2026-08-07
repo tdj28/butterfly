@@ -1,0 +1,46 @@
+{
+  "schema": "butterfly.periodic-b-continuation-summary.v1",
+  "experiment_id": "EXP-023",
+  "passed": true,
+  "source_commit": "5b334269fb5e769d72e2dc98b6341b7c21fcc678",
+  "manifest_sha256": "6522183ecc3c91c9c915f51a1db8e2877f3fc6f46e5d6581eb7015d7529ebcb8",
+  "full_receipt_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "elapsed_seconds": 31.37901912489906,
+  "families": [
+    {
+      "id": "period3-fixed-ac",
+      "period": 3,
+      "fixed_a": 0.3225,
+      "fixed_c": 3.0,
+      "point_count": 61,
+      "b_range": [0.05, 0.35],
+      "stable_point_count": 35,
+      "max_closure_error": 7.272501332342608E-12,
+      "period_time_range": [19.52957198566804, 21.401384000939487],
+      "candidate_crossings": [
+        {"target_multiplier": -1, "b_bracket": [0.175, 0.18], "linear_b_estimate": 0.1768254257260915}
+      ],
+      "reached_b_min": true,
+      "reached_b_max": true
+    },
+    {
+      "id": "period5-fixed-ac",
+      "period": 5,
+      "fixed_a": 0.245,
+      "fixed_c": 5.1,
+      "point_count": 46,
+      "b_range": [0.12749999999999995, 0.35],
+      "stable_point_count": 23,
+      "max_closure_error": 6.009010920881299E-12,
+      "period_time_range": [32.339176909018306, 34.58254729148028],
+      "candidate_crossings": [
+        {"target_multiplier": -1, "b_bracket": [0.14, 0.145]},
+        {"target_multiplier": -1, "b_bracket": [0.18, 0.185]},
+        {"target_multiplier": 1, "b_bracket": [0.275, 0.28]}
+      ],
+      "reached_b_min": false,
+      "reached_b_max": true
+    }
+  ],
+  "interpretation": "Natural b-continuation retains stable and unstable cycles and brackets four signed Floquet crossings; it is not fold-safe and all boundary labels remain candidates pending refined solves."
+}

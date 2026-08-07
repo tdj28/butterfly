@@ -1,6 +1,6 @@
 # EXP-023 — Natural continuation of periodic orbits in b
 
-Status: preregistered; pending clean local execution
+Status: executed; both natural-continuation gates passed
 Manifest: `experiments/manifests/EXP-023-periodic-b-continuation.json`
 Claim target: CLM-012 and P1-005
 
@@ -32,3 +32,41 @@ when a pseudo-arclength branch continues. Linear interpolation of a multiplier
 crossing is only a candidate boundary. Any detected crossing must be refined
 as a coupled boundary solve and checked with pseudo-arclength continuation
 before being identified as saddle-node, period-doubling, or Neimark-Sacker.
+
+## Result
+
+The clean run at commit `5b334269fb5e769d72e2dc98b6341b7c21fcc678`
+passed in 31.38 seconds.
+
+The fixed-`(a,c)=(0.3225,3.0)` period-3 branch reached both frozen limits,
+producing 61 corrected points over `b in [0.05,0.35]`. Maximum closure was
+`7.27e-12`; 35 points were stable. A real nontrivial multiplier crosses `-1`
+between `b=0.175` and `0.180`, with a preliminary linear estimate `0.17683`.
+This is a period-doubling boundary candidate.
+
+The fixed-`(a,c)=(0.245,5.1)` period-5 branch produced 46 corrected points over
+`b in [0.1275,0.35]`; maximum closure was `6.01e-12` and 23 points were stable.
+It reached the upper limit but adaptive natural continuation stopped below
+`b=0.1275` after exhausting the `0.0003125` minimum step. Three real-multiplier
+unit-circle crossings are bracketed:
+
+- a `-1` candidate in `[0.140,0.145]`;
+- a `-1` candidate in `[0.180,0.185]`; and
+- a `+1` candidate in `[0.275,0.280]`.
+
+The last is a saddle-node candidate; the first two are period-doubling
+candidates. The lower continuation stop has no nearby `+1` multiplier in the
+last accepted sample, so it is recorded as a conditioning/fold/branch-tracking
+problem rather than labeled a bifurcation.
+
+The receipt SHA-256 is
+`e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb`.
+
+## Decision
+
+The period-3 flow orbit persists throughout the declared `b` interval even
+when unstable. The period-5 orbit persists over most of it and exposes multiple
+stability changes. This is substantially stronger than atlas drift alone and
+provides concrete boundary brackets for refined solves. EXP-024 will refine
+the four signed multiplier crossings; pseudo-arclength is required to recover
+or diagnose the lower period-5 stop.
