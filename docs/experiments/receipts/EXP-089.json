@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.period320-block-flip-resume-summary.v1",
+  "experiment_id": "EXP-089",
+  "passed": true,
+  "source_commit": "0ca4463164f343e2a01a4953f10595260203b87a",
+  "manifest_sha256": "6f7ff8b5b940c05a5deafafff02e03518e8553c3dab7febc8cfa00dc58304644",
+  "full_receipt_sha256": "663aa90f447d7bb13c04dd04984cf441c03b0b17c3b8e246afb45da296a40dc2",
+  "b_estimate": 0.17971249399392974,
+  "prediction_error": -3.004061999156704e-10,
+  "prediction_error_fraction_of_spacing": 0.00021622743271109015,
+  "multiplier": -0.9999999924978165,
+  "matching_residual": 7.315020713078896e-13,
+  "estimated_b_uncertainty": 4.818703598889657e-15,
+  "new_spacing": 1.3893066025394418e-6,
+  "new_spacing_ratio": 4.668191999636573,
+  "interpretation": "the prospectively predicted period-320 minus-one event is independently resolved to high precision"
+}

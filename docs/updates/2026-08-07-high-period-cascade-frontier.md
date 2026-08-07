@@ -72,3 +72,17 @@ independently identified, closing the sixth supercritical rung numerically.
 No Runpod funds have been spent on this checkpoint. The current bottleneck is
 serial high-accuracy orbit integration and corrector design, so moving the same
 code to a GPU would not yet shorten the critical path.
+
+## Seventh event and second prospective prediction
+
+EXP-086 froze the 320→640 prediction at `b=0.1797124942943`. EXP-087 then
+bracketed a real `-1` crossing without using that value as a fitted target.
+EXP-088 honestly exhausted its refinement budget just outside the precision
+gate; EXP-089 resumed from the retained nodes and passed at
+`b=0.17971249399393`. The prediction error is `3.00e-10`, only `0.0216%` of
+the new spacing, and the new spacing ratio is `4.6681920`.
+
+The period-320 parent event is therefore independently verified. EXP-090 now
+uses 64 segments to seek a period-640 child. As before, a switched candidate
+will not be called a stable cascade rung until fixed-parameter identity and
+segmented Floquet qualification also pass.

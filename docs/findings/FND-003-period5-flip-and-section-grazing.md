@@ -90,3 +90,11 @@ prove asymptotic Feigenbaum universality, identify the global Jones TBA, or
 explain every shrimp in the `(a,c)` plane. Those require additional rungs,
 precision/error studies, and continuation of orbit and return-map structures
 across parameters rather than extrapolation from one slice.
+
+EXP-086 then made a new prospective prediction using all six verified event
+parameters. EXP-087 bracketed the next real `-1` crossing, and EXP-089 resolved
+the 320→640 event at `b=0.17971249399393`. The blind prediction missed by only
+`3.00e-10`, or `0.0216%` of the new event spacing. The fifth observed spacing
+ratio is `4.6681920`, closer again to the frozen reference. This verifies a
+second out-of-sample scaling prediction and establishes the seventh flip event;
+period-640 existence and stability remain separate prospective tests.
