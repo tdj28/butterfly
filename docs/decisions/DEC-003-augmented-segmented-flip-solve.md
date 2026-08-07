@@ -86,6 +86,14 @@ will identify the flip cluster by proximity to `-1`; EXP-100 showed that the
 generic neutral/nontrivial block labels are ambiguous at the simultaneous
 `+1`/`-1` unit-circle collision.
 
+EXP-101 implements that exact Jacobian and passes its finite-difference unit
+checks. Its first frozen run is `11.4x` faster and reaches orbit/tangent
+residuals `1.78e-9`/`1.77e-10`; direct and block flip multipliers agree within
+`3.20e-14`. It nevertheless exhausts 20 evaluations with parameter error
+`1.086e-9`, above the `5e-10` known-event gate. The analytic formulation is
+therefore numerically supported but not yet validated. One receipt-bound resume
+is allowed before changing scaling or nonlinear solver.
+
 ## Consequences
 
 - CLM-021 retains a prospectively successful signed bracket for the eighth

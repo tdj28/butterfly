@@ -204,3 +204,12 @@ original EXP-089 source and failed EXP-100 baseline. It keeps the same seed,
 bounds, integrator, reference, and scientific gates, permits 20 exact
 residual/Jacobian evaluations, and selects the flip spectrum explicitly by
 distance to `-1`. Only a pass may unlock the 64-segment target application.
+
+EXP-101 exhausted that cap and therefore fails, but it resolves both EXP-100
+diagnoses. In `207.38 s` it reaches orbit residual `1.78e-9`, tangent residual
+`1.77e-10`, and direct flip multiplier `-0.9999999763`; block/direct agreement
+is `3.20e-14`. This is `11.4x` faster than EXP-100, and explicit proximity-to-
+`-1` selection removes the false cluster-label discrepancy. The remaining
+failure is the solver-success flag and reference error `1.086e-9` against the
+frozen `5e-10` gate. The next experiment will bind the full state and continue
+the exact solve under unchanged scientific thresholds.

@@ -171,7 +171,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Jacobian, explicitly select the independent flip cluster by proximity to
   `-1`, and repeat the known-event validation before touching period 640.
   EXP-101 freezes that analytic 32-segment rerun with the same perturbed source
-  and unchanged scientific gates.
+  and unchanged scientific gates. It fails at the 20-evaluation cap but reaches
+  orbit/tangent residuals `1.78e-9`/`1.77e-10`, corrects the spectrum-label
+  bug, and runs `11.4x` faster; its `1.086e-9` reference error still misses the
+  `5e-10` gate. Freeze one exact-Jacobian resume from the full EXP-101 state.
 - [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
   caustic/window-order reconstruction.
 
