@@ -1,7 +1,7 @@
 # High-period cascade frontier
 
 Date: 2026-08-07
-Status: period-320 candidates found; independent stability qualification next
+Status: stable period-320 child independently qualified
 
 ## Verified result entering this checkpoint
 
@@ -49,12 +49,22 @@ to `2.53e-8`. This is the first reliable period-320 candidate set in the
 program. EXP-083 now freezes common-parameter orbit identity and a segmented
 Floquet calculation, validated first against the known period-80 child.
 
+EXP-083 calibrated the block-Floquet method to `4.07e-8` against the known
+period-80 multiplier and found both fixed-parameter period-320 candidates
+strongly stable near modulus `0.05497`. Its discrete 32-node identity metric
+failed because it could not represent a fractional phase shift. EXP-084 then
+exposed a non-unimodal phase objective, rather than hiding the failed optimizer.
+EXP-085 replaced it prospectively with deterministic multiresolution search
+and passed: phase shift `0.5000000198306`, whole-orbit RMS `1.19e-8`, and
+segment endpoint error `5.99e-11`. The stable period-320 child is now
+independently identified, closing the sixth supercritical rung numerically.
+
 ## Execution order
 
-1. Require EXP-083 to identify both switch signs as one stable period-320
-   orbit using independently fixed-parameter segmented corrections.
-2. Feed the extended event sequence into a prospective accumulation-point and
+1. Feed the extended event sequence into a prospective accumulation-point and
    scaling analysis.
+2. Continue the stable period-320 branch toward its predicted 320→640 event
+   using fixed-parameter segmented correction and block Floquet multipliers.
 3. In parallel with later computation, continue orbit-defined flip and
    return-section topology surfaces across the multi-`b` atlas. Raster shrimp
    morphology remains discovery evidence, not a substitute for continuation.

@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.segmented-orbit-identity-summary.v1",
+  "experiment_id": "EXP-085",
+  "passed": true,
+  "source_commit": "d4779509a4460ca2943d5f7b4e523917847668ea",
+  "manifest_sha256": "cbeb9d40addfdf80458323bbaea3bd71279c1ede96f1357178d2cddc00ede1a9",
+  "full_receipt_sha256": "cdd49f2a46bf659e3c54e64cd8da0cb303fce3e55191f0f0ce7e59373d47810f",
+  "target_b": 0.1797132,
+  "phase_shift": 0.5000000198306225,
+  "phase_aligned_identity_rms": 1.1916629810930702e-8,
+  "maximum_segment_endpoint_error": 5.99081399617616e-11,
+  "candidate_period_difference": 2.2737367544323206e-11,
+  "dominant_nontrivial_moduli": [
+    0.0549699092186917,
+    0.05496953721419016
+  ],
+  "block_validation_modulus_error": 4.070152412587874e-8,
+  "interpretation": "both switch signs are half-period phase representations of one strongly stable period-320 child"
+}

@@ -67,5 +67,26 @@ identity RMS `2.22e-7`.
 EXP-077 locates the next `-1` event on that period-160 parent at
 `b=0.179713883300532`. The fourth observed spacing ratio is `4.664603`, within
 `0.0985%` of the frozen period-doubling reference. This is the closest ratio so
-far, but period-320 existence and a validated asymptotic statement remain
-open.
+far.
+
+EXP-078 shows why ordinary shooting cannot safely cross that event: the
+duration-2092 doubled system loses the flip singular direction. EXP-079
+prospectively validates 32-segment multiple shooting, improving the relevant
+singular-value resolution by a factor of `854`. EXP-080/081 then calibrate the
+new branch-switch procedure against the independently known period-80 child
+before it is used at high period.
+
+EXP-082 produces period-320 candidates from both switch signs. EXP-083
+independently validates a block-cyclic Floquet calculation against the known
+period-80 multiplier to absolute error `4.07e-8`, then finds both fixed-`b`
+period-320 representations strongly stable with dominant nontrivial moduli
+near `0.05497`. EXP-085 resolves their fractional phase offset and aligns the
+whole orbits to RMS `1.19e-8` at phase shift `0.5000000198`. The sixth
+supercritical rung, 160→320, is therefore numerically established.
+
+This substantially strengthens the local classical-cascade result and the
+methodological case for segmented high-period continuation. It still does not
+prove asymptotic Feigenbaum universality, identify the global Jones TBA, or
+explain every shrimp in the `(a,c)` plane. Those require additional rungs,
+precision/error studies, and continuation of orbit and return-map structures
+across parameters rather than extrapolation from one slice.
