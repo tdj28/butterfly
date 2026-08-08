@@ -45,6 +45,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-014-held-out-saddle-path-and-conditioning-hole.md`](findings/FND-014-held-out-saddle-path-and-conditioning-hole.md):
   qualifies a blind two-branch saddle at `a=0.140`, narrows the finite-sample
   saddle bracket, and retains the unresolved `a=0.145` conditioning hole.
+- [`findings/FND-015-a150-chaos-and-resolution-dependent-branch-count.md`](findings/FND-015-a150-chaos-and-resolution-dependent-branch-count.md):
+  confirms persistent positive-Lyapunov chaos at `a=0.150` and diagnoses its
+  old two-branch label as a coarse-resolution/prominence artifact.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

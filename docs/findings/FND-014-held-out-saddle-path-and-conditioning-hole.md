@@ -56,5 +56,12 @@ bracket. It does not qualify `a=0.145`, pass the five-cell ordered-path gate,
 establish continuity, prove template equivalence, or explain the apparent
 `0.149`/`0.150` topology reversal.
 
+EXP-118 now resolves the immediate diagnostic priority without changing
+EXP-117's status. The `a=0.150` set persists as Lyapunov-positive chaos, but its
+branch label splits exactly by resolution: 20-bin variants see two while every
+resolved 30--80-bin variant sees three. The apparent reversal is therefore not
+qualified; FND-015 records the successor evidence and remaining convergence
+gate.
+
 Raw receipt SHA-256:
 `893c0a6d4983b3af5b59ce4f296d75eb174f65f3dd655a25150e356faed8da0f`.

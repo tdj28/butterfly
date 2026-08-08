@@ -171,3 +171,21 @@ also classify chaotic under eight-block variational spectra and agree with an
 independent two-trajectory largest exponent. This test decides persistence and
 local topology; it does not yet choose among a second crossing, crisis/set
 selection, or scalar-projection failure.
+
+## Adjacent invariant-set result: chaos passes, cross-resolution label fails
+
+EXP-118 completes from clean commit `3f351d9` in `214.11 s` and fails its full
+gate. All eight 1200-return datasets remain nonperiodic across burn-ins through
+10000 and four independent section seeds. Both variational spectra classify
+chaotic and their largest exponents agree with independent two-trajectory
+estimates within `0.00865`. The Lyapunov rows miss only the frozen `1e-6`
+trace-identity sub-gate, at `2.80e-6` and `2.74e-6`.
+
+The scalar topology disagreement is structured, not random. Forty-six of 48
+20-bin cells return two, while 189 of 192 30--80-bin cells return three; the
+remaining five are unresolved and no cell votes in the opposite resolution
+group. Thus EXP-109's nominal two at `a=0.150` is not robust to the qualified
+local oracle. The apparent `0.149/0.150` reversal is unsupported, which is good
+news for branch continuity, but EXP-118 cannot be relabeled three-branch.
+Freeze an independent resolution-convergence successor with the coarse result
+as a declared negative control and a tighter trace audit.

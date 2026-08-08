@@ -87,11 +87,12 @@ The first held-out continuation is informative precisely because it does not
 pass wholesale.  A new regular-window point at $a=0.140$ qualifies as
 two-branch and narrows the saddle bracket, whereas $a=0.145$ loses invariant-
 domain support before the strict oracle can decide.  More importantly, the
-qualified three-branch saddle at $a=0.149$ is adjacent to the earlier
-two-branch $a=0.150$ aperiodic candidate.  This may indicate invariant-set
-selection, another crossing, projection failure, or finite-horizon bias.  It
-must be resolved with burn-in, Lyapunov, initial-condition, and two-dimensional
-map tests rather than hidden by interpolation.
+qualified three-branch saddle at $a=0.149$ is adjacent to an earlier nominal
+two-branch $a=0.150$ candidate.  The audit finds that candidate to be persistent
+chaos, but its shallow extremum is suppressed only by the coarsest binning;
+every resolved 30--80-bin variant sees three branches.  This removes the basis
+for claiming an immediate topology reversal while requiring a prospective
+resolution model before continuity is asserted.
 
 The results do not yet explain every shrimp or hub in the full $(a,c)$ plane.
 They establish one local cascade at fixed $(a,c)$ and a set of computational

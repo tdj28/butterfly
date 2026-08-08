@@ -1,6 +1,6 @@
 # EXP-118 — Adjacent `a=0.150` invariant-set identity audit
 
-Status: preregistered; not executed
+Status: executed; failed full gate with persistent-chaos and resolution diagnosis
 
 ## Question
 
@@ -44,3 +44,21 @@ critical-drift, or Lyapunov gate.
 
 Immutable manifest:
 `experiments/manifests/EXP-118-a150-invariant-identity.json`.
+
+## Result
+
+The clean run at `3f351d9` completed in `214.11 s` and failed. All eight
+datasets integrate successfully, supply 1200 crossings, and remain
+nonperiodic. Both Lyapunov cases classify chaotic; variational largest
+exponents `0.06762,0.06204` agree with independent estimates
+`0.05974,0.07068` within `0.00865`. They miss only the frozen `1e-6`
+trace-identity sub-gate, with errors `2.80e-6,2.74e-6`.
+
+The full topology gate fails because bin resolutions disagree. The pattern is
+consistent across burn-in, seed, and coordinate: 46/48 20-bin cells return two,
+while 189/192 30--80-bin cells return three; the other five cells are
+unresolved, and no vote crosses those resolution groups in the opposite
+direction. The old `a=0.150` two-branch label is therefore not robust under the
+qualified local oracle. EXP-118 does not promote three branches either; a
+prospective resolution-convergence successor is required. Raw receipt SHA-256:
+`fec3f8d9c06b4cf670938f9d17ea97c18a2a4a0e23ec9af80fe43b597da2e9bc`.

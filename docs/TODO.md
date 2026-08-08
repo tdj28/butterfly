@@ -313,7 +313,12 @@ exposition requirements.
   reversal. EXP-118 now freezes that audit: four burn-ins, four additional
   Sobol section seeds at the longest burn-in, both coordinates, the full
   15-variant oracle, and two independent Lyapunov algorithms with no expected
-  branch label.
+  branch label. EXP-118 fails the strict full gate but removes the alleged
+  robust reversal: both Lyapunov cases classify chaotic, 46/48 coarse 20-bin
+  cells return two, and 189/192 30--80-bin cells return three, with no opposite
+  votes. Freeze new-data resolution convergence with 20 bins as an explicit
+  under-resolution control, and repeat the trace identity at tighter solver
+  tolerance before returning to the `a=0.145` support hole.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
