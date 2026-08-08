@@ -39,6 +39,8 @@ This rejects a mechanism proposed during the modern replication, not the
 Jones/Barrio two-to-three transition itself. Independent PIM still selects two
 branches at `a=0.148` and three at `a=0.1485` under the identical method, so the
 finite invariant-set classifier bracket remains `[0.148,0.1485]`.
+EXP-128 subsequently qualifies `a=0.14825` as three and narrows that bracket to
+`[0.148,0.14825]`; the lifetime conclusion remains unchanged.
 
 It does impose a sharper limit on Jones-style reinjection evidence. The
 finite-time extra branch at `a=0.148` cannot be treated as a branch of the

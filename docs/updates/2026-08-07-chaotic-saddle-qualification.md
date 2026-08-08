@@ -472,3 +472,21 @@ straddles, two coordinates, and 15-variant oracle remain binding. No expected
 count or previous critical location is encoded. A unanimous two result yields
 `[0.14825,0.1485]`; a unanimous three result yields `[0.148,0.14825]`; any
 failure preserves the current bracket.
+
+## Next blind PIM midpoint result: three-branch
+
+EXP-128 passes from clean commit `61d9044` in `3492.09 s`. All six access lines
+complete and both censor profiles supply 2097 pairs per coordinate. Both `y`
+and `z` select three across all 15 oracle variants at both 128 and 256 returns:
+60/60 three-branch cells, no two-branch cell, and no unresolved cell.
+
+Cross-horizon critical spans are `0.009043` in `y` and `0.009093` in `z`. The
+period-4 reference and all lifetime integrations pass. Horizon 128 records 31
+censored evaluations and 29 certified selections under the previously
+qualified rule; horizon 256 has none. The finite invariant-set classifier
+bracket narrows to `[0.148,0.14825]`.
+
+This second blind bisection strengthens local ordering but is still not a
+continued TBA curve. The next step freezes a signed critical-point--to--support
+boundary margin across the bracket and asks whether its zero predicts the
+blind labels; further bisection alone has diminishing theoretical value.

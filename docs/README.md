@@ -81,7 +81,11 @@ what must be narrowed, and what is false or unresolved.
   rejects faster mean capture and qualifies a delayed-but-bounded lifetime
   pattern that explains the 300/360-unit conditioning split.
 - [`experiments/EXP-128-blind-a14825-censored-pim.md`](experiments/EXP-128-blind-a14825-censored-pim.md):
-  freezes the next blind invariant-set midpoint inside `[0.148,0.1485]`.
+  qualifies the next blind midpoint as three and narrows the finite bracket to
+  `[0.148,0.14825]`.
+- [`findings/FND-025-blind-pim-qualifies-a14825-three-branch-saddle.md`](findings/FND-025-blind-pim-qualifies-a14825-three-branch-saddle.md):
+  records the second identical-method blind localization and the boundary for
+  further classifier bisection versus independent continuation.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

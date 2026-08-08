@@ -1,6 +1,6 @@
 # EXP-128 — Blind censor-aware PIM midpoint at `a=0.14825`
 
-Status: preregistered; not executed
+Status: passed
 
 ## Question
 
@@ -35,3 +35,21 @@ location.
 
 Immutable manifest:
 `experiments/manifests/EXP-128-blind-a14825-censored-pim.json`.
+
+## Result
+
+EXP-128 passes from clean commit `61d9044` in `3492.09 s`. All six fixed PIM
+access lines complete, three at each censor ceiling. Each profile contributes
+2097 post-burn-in pairs per coordinate. Both `y` and `z` select three branches
+at both 128 and 256 returns; all 15 oracle variants agree in each decision, for
+60/60 three-branch cells and no two-branch or unresolved result.
+
+The combined 128/256 normalized critical spans are `0.009043` in `y` and
+`0.009093` in `z`. The period-4 reference and every lifetime integration pass.
+Horizon 128 contains 31 censored evaluations and 29 certified selections;
+horizon 256 contains none. The finite sampled classifier bracket therefore
+narrows to `[0.148,0.14825]`.
+
+Tracked compact receipt: `docs/experiments/receipts/EXP-128.json`. Raw receipt
+SHA-256:
+`a4aae2dc04b3d0171e9b74bd88cd3a9d79e73cd123715a8f81642d9a0664423e`.

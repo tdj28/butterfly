@@ -44,3 +44,6 @@ construction rather than the `a=0.148` transient branch.
 
 Raw receipt SHA-256:
 `1b2b044e803aed5ba64124305796b6a4847f74c7ef617fcff99270912fd8851a`.
+
+EXP-128 later qualifies `a=0.14825` as three under the same method, narrowing
+the current finite bracket to `[0.148,0.14825]`.

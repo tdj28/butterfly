@@ -406,6 +406,12 @@ exposition requirements.
   midpoint with the identical blind PIM method and no expected label. A two
   result yields `[0.14825,0.1485]`, a three result yields
   `[0.148,0.14825]`, and any gate failure preserves the current bracket.
+  EXP-128 passes as three in all 60 oracle cells with all six straddles,
+  cross-horizon critical spans below `0.00910`, and zero failed lifetime
+  evaluations. The finite bracket is now `[0.148,0.14825]`. Before spending
+  another hour on pure bisection, freeze an independent signed
+  critical-point--to--invariant-support boundary margin and test whether its
+  zero predicts the already blind labels.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
