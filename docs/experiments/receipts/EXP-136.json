@@ -1,0 +1,50 @@
+{
+  "schema": "butterfly.a-upo-continuation-summary.v1",
+  "experiment_id": "EXP-136",
+  "passed": false,
+  "failure_class": "prospective section-crossing identity gate",
+  "source_commit": "2535614919b1f0d70dd91f18476cb93c07858613",
+  "manifest_sha256": "5ed3caad8efb95b48cd12d1583cf1dca98d2dd76036c6a27d5bdb566c1f0191a",
+  "source_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
+  "identity_receipt_sha256": "e14655511f032efb16a5a8a69baeeadbbff522cb350e3b2a7229d373318e0c0f",
+  "raw_receipt": "artifacts/EXP-136/receipt.json",
+  "raw_receipt_sha256": "6c10804172d3463f99be9340744a849cb61cf7015036ba57340db7bcfcde1b4e",
+  "raw_receipt_bytes": 32356,
+  "elapsed_seconds": 30.58265074994415,
+  "branches": [
+    {
+      "id": "lag12-lower-to-upper",
+      "passed": false,
+      "passed_points": 2,
+      "failure_a": 0.148025,
+      "failure_crossing_count": 11,
+      "all_other_failure_point_checks_pass": true,
+      "failure_point_flow_closure": 2.2539306406204548e-09,
+      "failure_point_unstable_modulus": 2214.034014828847
+    },
+    {
+      "id": "lag12-upper-to-lower",
+      "passed": false,
+      "passed_points": 1,
+      "failure_a": 0.1482375,
+      "failure_crossing_count": 11,
+      "all_other_failure_point_checks_pass": true,
+      "failure_point_flow_closure": 3.8207321762276846e-10,
+      "failure_point_unstable_modulus": 1147.6171892148939
+    },
+    {
+      "id": "lag4-upper-to-lower",
+      "passed": true,
+      "passed_points": 21,
+      "a_interval": [0.148, 0.14825],
+      "period_interval": [25.372438975768652, 25.382334310912704],
+      "unstable_modulus_interval": [3.4840750550735335, 3.663810299782484],
+      "minimum_proper_divisor_closure": 5.361057015156793
+    }
+  ],
+  "shared_lag12_identity": {
+    "passed": false,
+    "reason": "both fixed-lag paths stopped before the declared common parameter; family equality remains unresolved"
+  },
+  "interpretation": "The primitive lag-4 UPO persists across the complete finite two/three bracket, ruling out its birth or death as the local event. Both lag-12 flow orbits continue with strong numerical and Floquet gates but lose one oriented Barrio-section crossing. This selects section-tangency refinement and flow-identity continuation; it is not evidence of a flow-orbit bifurcation."
+}

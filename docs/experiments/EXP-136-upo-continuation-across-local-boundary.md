@@ -1,6 +1,6 @@
 # EXP-136 — Primitive UPO continuation across the local boundary
 
-Status: preregistered; unexecuted
+Status: executed; strict gate failed with qualified positive and negative result
 
 ## Question
 
@@ -41,3 +41,19 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/continue_pim_upos_in_a.py \
   --identity-receipt artifacts/EXP-135/receipt.json \
   --output artifacts/EXP-136/receipt.json
 ```
+
+## Result
+
+The clean `2535614` run fails its strict all-branch gate in `30.58 s`. The
+lag-4 path passes all 21 points through the entire bracket. Its unstable
+modulus changes smoothly from `3.484` to `3.664` and every proper-divisor
+closure remains above `5.36`.
+
+Both lag-12 paths stop only on crossing identity. The lower path changes from
+12 to 11 crossings at `a=0.148025`; the upper changes at `a=0.1482375`.
+At both failed points, correction, flow closure, neutral multiplier,
+primitivity, and transverse instability pass. Because neither path reaches the
+declared midpoint, the endpoint families are not classified as equal or
+different. The result selects flow-identity continuation and section-tangency
+refinement. Raw receipt SHA-256:
+`6c10804172d3463f99be9340744a849cb61cf7015036ba57340db7bcfcde1b4e`.

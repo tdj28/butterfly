@@ -455,8 +455,11 @@ exposition requirements.
   that is distinct from the section-grazing artifact already isolated in
   EXP-055.
   EXP-136 now freezes both lag-12 directions, a midpoint whole-orbit identity
-  match, and the upper lag-4 downward continuation on a `1.25e-5` grid. Execute
-  from its clean pushed commit without adaptive step rescue.
+  match, and the upper lag-4 downward continuation on a `1.25e-5` grid. It
+  fails strictly: lag 4 passes all 21 points, but both lag-12 paths change from
+  12 to 11 oriented Barrio crossings while every flow-orbit and Floquet gate
+  remains passed. Continue those closed flow orbits without fixed section lag,
+  refine the section-tangency events, then retry whole-orbit family matching.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

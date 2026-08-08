@@ -36,3 +36,10 @@ that orbit persists or terminates across the branch-opening interval.
 EXP-136 now freezes both lag-12 continuation directions with an independent
 midpoint whole-orbit match, plus lag 4 from the upper to lower endpoint. Every
 point retains proper-divisor, crossing, closure, neutral, and instability gates.
+
+EXP-136 fails the strict fixed-lag gate but rules out a simple orbit-birth
+mechanism. The upper lag-4 UPO passes all 21 points to `a=0.148`. Both lag-12
+flow orbits remain closed, primitive, and strongly unstable when their oriented
+Barrio-section counts change from 12 to 11. Their family equality remains
+unresolved because the fixed-lag paths stop before overlap. The next test must
+continue flow identity and solve the section-tangency condition explicitly.
