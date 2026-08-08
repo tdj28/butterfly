@@ -1,6 +1,6 @@
 # EXP-143 — Capture-truncated UPO unstable-lobe atlas
 
-Status: preregistered; unexecuted
+Status: passed; four exploratory refinement targets selected
 
 ## Question
 
@@ -46,3 +46,14 @@ The atlas compares finite, capture-truncated point-cloud occupancy under one
 section and grid. A candidate must subsequently pass adaptive seed refinement,
 alternate occupancy resolution, orbit-phase coverage, and a direct connection
 residual before it can support a topological mechanism.
+
+## Result
+
+The clean `a13e043` host run passes in `144.31 s`. All 396 trajectories and 44
+groups qualify, retaining 23,871 pre-capture points. Minimum coarse-to-fine
+occupancy coverage is `0.9423`; no point leaves the analysis domain. The frozen
+score selects lower family 06 lag 12 negative, family 03 lag 7 positive,
+family 02 lag 5 positive, and family 07 lag 13 positive. Their endpoint
+occupancy remains highly overlapping, so the selection is explicitly driven
+in part by capture-fraction changes. Raw receipt SHA-256:
+`f0dda22c2739859633883b53d80de5558a8f4f3bc4d1ec669a5f685ee9b82c1d`.

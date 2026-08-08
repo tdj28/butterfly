@@ -102,6 +102,12 @@ directions. The next stage traces capture-truncated first-return lobes and uses
 seed-density diagnostics to select candidate pruning/reinjection changes for a
 separate prospective refinement.
 
+EXP-143 passes all 396 trajectories and all 44 density groups. It retains
+23,871 pre-capture points and automatically selects four lower-family branches
+for refinement. Because their endpoint occupancy Jaccards remain above 0.90,
+the result is a shortlist, not a broken-connection claim; capture timing is the
+stronger observed contrast.
+
 EXP-143 now freezes the first global lobe atlas: 396 trajectories spanning all
 families, endpoints, signs, and nine seed amplitudes. Stable period-4 capture
 is independently reconstructed and removed; nested seed occupancy is gated;

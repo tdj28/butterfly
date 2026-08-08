@@ -494,7 +494,11 @@ exposition requirements.
   promote—the largest cross-boundary connectivity changes for refinement.
   EXP-143 now freezes a 396-trajectory, capture-truncated lobe atlas with
   independent stable-cycle recovery, nested seed-density coverage, and an
-  automatic four-candidate refinement shortlist.
+  automatic four-candidate refinement shortlist. It passes and selects lower
+  lag-12 negative, lag-7 family 03 positive, lag-5 positive, and lag-13 family
+  07 positive. Endpoint occupancy remains highly overlapping; refine capture
+  curves over denser amplitudes, multiple orbit phases, and longer horizons
+  before defining a connection residual.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
