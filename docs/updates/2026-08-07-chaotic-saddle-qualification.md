@@ -200,3 +200,18 @@ Critical locations must meet the frozen within-dataset gate and the combined
 new/hashed-EXP-118 across-dataset gate. Both Lyapunov cases are repeated with
 tenfold tighter relative/absolute tolerances and half the maximum step while
 retaining the original `1e-6` trace threshold.
+
+## Resolution-convergence result: EXP-119 passes
+
+EXP-119 completes from clean commit `e01457b` in `310.80 s` and passes. All five
+new datasets remain aperiodic and provide 2399 pairs per coordinate. All 30
+20-bin control cells return two, while all 120 30--80-bin cells return three.
+Maximum within-dataset and combined new/frozen critical spans are `0.01184`
+and `0.01807`.
+
+Both tighter variational spectra classify chaotic, independent largest-
+exponent differences are at most `0.00519`, and the trace errors fall to
+`1.25e-7`. The adjacent `0.149/0.150` contradiction is therefore closed as a
+coarse-resolution artifact. The binding path action returns to the
+support-poor `a=0.145` saddle cell using a prospectively enlarged ensemble and
+the now-qualified resolution grouping.

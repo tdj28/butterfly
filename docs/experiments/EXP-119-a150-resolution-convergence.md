@@ -1,6 +1,6 @@
 # EXP-119 — `a=0.150` resolution convergence and tighter trace audit
 
-Status: preregistered; not executed
+Status: passed
 
 ## Diagnosis under test
 
@@ -42,3 +42,18 @@ prove template equivalence, or supply a global curve.
 
 Immutable manifest:
 `experiments/manifests/EXP-119-a150-resolution-convergence.json`.
+
+## Result
+
+The clean run at `e01457b` completed in `310.80 s` and passed every gate. All
+five datasets supply 2400 aperiodic returns and 2399 pairs per coordinate. All
+30 coarse control cells reproduce two branches, while all 120 adequate-
+resolution cells return three. Maximum within-dataset critical span is
+`0.01184`; maximum combined new/EXP-118 span is `0.01807`.
+
+Both tighter Lyapunov cases classify chaotic. Variational/two-trajectory
+largest-exponent differences are at most `0.00519`, and trace-identity errors
+are `1.25e-7`, now below the unchanged `1e-6` threshold. This qualifies the
+`a=0.150` set as chaotic and three-branch at the declared adequate resolutions.
+Raw receipt SHA-256:
+`7206a97e5059ae60a32118645eaf12ec37ec514aaf9914fc60618e4fc5f9e37c`.

@@ -321,7 +321,13 @@ exposition requirements.
   tolerance before returning to the `a=0.145` support hole. EXP-119 now freezes
   five 2400-return datasets with new Sobol seed 119, separate coarse and
   adequate-resolution gates, comparison against the hashed EXP-118 critical
-  intervals, and two tighter-tolerance Lyapunov replications.
+  intervals, and two tighter-tolerance Lyapunov replications. EXP-119 passes:
+  30/30 coarse cells reproduce two, 120/120 adequate-resolution cells return
+  three, maximum combined critical span is `0.01807`, both Lyapunov cases
+  classify chaotic, and trace errors fall to `1.25e-7`. The `0.149/0.150`
+  contradiction is closed as under-resolution. Return now to the `a=0.145`
+  support hole with a prospectively larger ensemble and the qualified
+  resolution-group rule.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

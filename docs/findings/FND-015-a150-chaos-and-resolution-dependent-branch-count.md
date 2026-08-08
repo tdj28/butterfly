@@ -55,5 +55,11 @@ requires new independent 30--80-bin datasets to converge on three branches,
 and repeats the trace audit at tighter solver tolerance. Until that passes,
 `a=0.150` is qualified as neither two- nor three-branch under the full oracle.
 
+EXP-119 now passes that successor. Five new, doubled-length datasets reproduce
+all 30 coarse two-branch controls and all 120 adequate-resolution three-branch
+cells; tighter Lyapunov calculations also close the trace gate. FND-016 records
+the qualified result. EXP-118 remains a failed but correctly diagnostic
+predecessor.
+
 Raw receipt SHA-256:
 `fec3f8d9c06b4cf670938f9d17ea97c18a2a4a0e23ec9af80fe43b597da2e9bc`.
