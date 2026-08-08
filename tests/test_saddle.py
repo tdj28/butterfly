@@ -3,7 +3,11 @@ import numpy as np
 from butterfly import (
     PoincareSection,
     RosslerParameters,
+    SolverConfig,
+    advance_pim_straddle,
     cycle_crossing_distances,
+    next_section_return,
+    refine_pim_segment,
     scrambled_sobol_section_states,
     sprinkler_survivors,
     survivor_return_pairs,
@@ -125,3 +129,81 @@ def test_survivor_return_pairs_do_not_join_trajectories() -> None:
     )
     assert len(source) == expected
     assert len(target) == expected
+
+
+def test_pim_refinement_finds_strict_interior_lifetime_peak() -> None:
+    def lifetime(points):
+        return 10.0 - 1e8 * (points[:, 0] - 0.3712345) ** 2
+
+    result = refine_pim_segment(
+        (0.0,),
+        (1.0,),
+        lifetime,
+        coordinate_scales=(1.0,),
+        sample_count=17,
+        width_tolerance=1e-7,
+        max_refinements=8,
+    )
+    assert result.triple.normalized_width <= 1e-7
+    assert abs(result.triple.center[0] - 0.3712345) <= 1e-7
+    assert result.triple.escape_times[1] > result.triple.escape_times[0]
+    assert result.triple.escape_times[1] > result.triple.escape_times[2]
+    assert np.all(np.diff(result.normalized_widths) < 0.0)
+
+
+def test_pim_straddle_refines_only_after_bracket_expansion() -> None:
+    triple = refine_pim_segment(
+        (0.0,),
+        (1.0,),
+        lambda points: 10.0 - 1e8 * (points[:, 0] - 0.3712345) ** 2,
+        coordinate_scales=(1.0,),
+        sample_count=17,
+        width_tolerance=1e-4,
+        max_refinements=6,
+    ).triple
+
+    result = advance_pim_straddle(
+        triple,
+        lambda points: 0.3712345 + 2.0 * (points - 0.3712345),
+        lambda points: 10.0 - 1e8 * (points[:, 0] - 0.3712345) ** 2,
+        coordinate_scales=(1.0,),
+        return_count=5,
+        sample_count=17,
+        width_tolerance=1e-4,
+        max_refinements_per_event=3,
+    )
+    assert result.states.shape == (5, 1)
+    assert len(result.refinement_events) >= 1
+    assert np.all(result.normalized_widths <= 1e-4)
+
+
+def test_pim_refinement_rejects_monotone_escape_profile() -> None:
+    def lifetime(points):
+        return points[:, 0]
+
+    with np.testing.assert_raises_regex(RuntimeError, "no strict interior"):
+        refine_pim_segment(
+            (0.0,),
+            (1.0,),
+            lifetime,
+            coordinate_scales=(1.0,),
+            sample_count=9,
+            width_tolerance=1e-6,
+            max_refinements=4,
+        )
+
+
+def test_adaptive_section_return_skips_initial_root() -> None:
+    parameters = RosslerParameters(a=0.2, b=0.2, c=20.0)
+    section = PoincareSection(normal=(1.0, 0.0, 0.0), offset=0.0, direction=1)
+    returned = next_section_return(
+        parameters,
+        (0.0, -10.0, 0.01),
+        section,
+        config=SolverConfig(method="DOP853", rtol=1e-10, atol=1e-12, max_step=0.05),
+        maximum_flight_time=20.0,
+    )
+    assert returned.success
+    assert returned.flight_time > 1.0
+    assert abs(section.value(returned.state)) < 1e-10
+    assert -returned.state[1] - returned.state[2] > 0.0

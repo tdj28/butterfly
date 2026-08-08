@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Callable
 
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
+from scipy.integrate import solve_ivp
 from scipy.stats import qmc
 
-from .models import RosslerParameters
+from .integrate import SolverConfig
+from .models import RosslerParameters, rossler_rhs
 from .poincare import PoincareSection
 
 
@@ -26,6 +29,411 @@ class SprinklerResult:
     midpoint_trajectory_ids: NDArray[np.int64]
     midpoint_times: NDArray[np.float64]
     midpoint_states: NDArray[np.float64]
+
+
+@dataclass(frozen=True, slots=True)
+class SectionReturnResult:
+    """One adaptive return from an oriented Poincare section."""
+
+    success: bool
+    flight_time: float
+    state: NDArray[np.float64]
+    message: str
+
+
+@dataclass(frozen=True, slots=True)
+class CaptureLifetimeResult:
+    """Escape/capture times used by a PIM-triple refinement."""
+
+    lifetimes: NDArray[np.float64]
+    captured: NDArray[np.bool_]
+    return_counts: NDArray[np.int64]
+    failed: NDArray[np.bool_]
+
+
+@dataclass(frozen=True, slots=True)
+class PIMTriple:
+    """Proper-interior-maximum triple on a straight section segment."""
+
+    left: NDArray[np.float64]
+    center: NDArray[np.float64]
+    right: NDArray[np.float64]
+    escape_times: NDArray[np.float64]
+    normalized_width: float
+
+    @property
+    def points(self) -> NDArray[np.float64]:
+        return np.vstack((self.left, self.center, self.right))
+
+
+@dataclass(frozen=True, slots=True)
+class PIMRefinementResult:
+    """A resolved PIM triple and its deterministic refinement history."""
+
+    triple: PIMTriple
+    refinement_count: int
+    lifetime_evaluations: int
+    normalized_widths: NDArray[np.float64]
+
+
+@dataclass(frozen=True, slots=True)
+class PIMStraddleResult:
+    """Middle-point trajectory restrained by repeated PIM refinement."""
+
+    states: NDArray[np.float64]
+    normalized_widths: NDArray[np.float64]
+    refinement_events: NDArray[np.int64]
+    lifetime_evaluations: int
+    final_triple: PIMTriple
+
+
+def _normalized_segment_width(
+    left: NDArray[np.float64],
+    right: NDArray[np.float64],
+    coordinate_scales: NDArray[np.float64],
+) -> float:
+    return float(np.linalg.norm((right - left) / coordinate_scales))
+
+
+def refine_pim_segment(
+    left: ArrayLike,
+    right: ArrayLike,
+    escape_time: Callable[[NDArray[np.float64]], ArrayLike],
+    *,
+    coordinate_scales: ArrayLike,
+    sample_count: int,
+    width_tolerance: float,
+    max_refinements: int,
+) -> PIMRefinementResult:
+    """Refine a segment to a strict proper-interior-maximum triple.
+
+    ``escape_time`` receives a two-dimensional array of evenly spaced points
+    and must return one finite escape time per row. At every level, the
+    longest-lived strict local maximum is selected; ties are broken by the
+    lowest grid index. This deterministic rule is frozen before target runs.
+    """
+
+    segment_left = np.asarray(left, dtype=np.float64)
+    segment_right = np.asarray(right, dtype=np.float64)
+    scales = np.asarray(coordinate_scales, dtype=np.float64)
+    if (
+        segment_left.ndim != 1
+        or segment_right.shape != segment_left.shape
+        or scales.shape != segment_left.shape
+        or len(segment_left) == 0
+    ):
+        raise ValueError("PIM endpoints and coordinate scales must share shape (d,)")
+    if not np.all(np.isfinite(segment_left)) or not np.all(np.isfinite(segment_right)):
+        raise ValueError("PIM endpoints must be finite")
+    if np.any(~np.isfinite(scales)) or np.any(scales <= 0.0):
+        raise ValueError("PIM coordinate scales must be finite and positive")
+    if sample_count < 3 or width_tolerance <= 0.0 or max_refinements < 1:
+        raise ValueError("invalid PIM refinement controls")
+    if np.array_equal(segment_left, segment_right):
+        raise ValueError("PIM segment endpoints must be distinct")
+
+    widths: list[float] = []
+    evaluations = 0
+    triple: PIMTriple | None = None
+    alphas = np.linspace(0.0, 1.0, sample_count, dtype=np.float64)
+    for refinement in range(1, max_refinements + 1):
+        points = (
+            segment_left[None, :]
+            + alphas[:, None] * (segment_right - segment_left)[None, :]
+        )
+        lifetimes = np.asarray(escape_time(points), dtype=np.float64)
+        evaluations += len(points)
+        if lifetimes.shape != (sample_count,) or np.any(~np.isfinite(lifetimes)):
+            raise ValueError("escape_time must return one finite value per point")
+        candidates = np.flatnonzero(
+            (lifetimes[1:-1] > lifetimes[:-2])
+            & (lifetimes[1:-1] > lifetimes[2:])
+        ) + 1
+        if len(candidates) == 0:
+            raise RuntimeError(
+                f"no strict interior escape-time maximum at refinement {refinement}"
+            )
+        best_lifetime = np.max(lifetimes[candidates])
+        best = int(candidates[lifetimes[candidates] == best_lifetime][0])
+        new_left = points[best - 1].copy()
+        center = points[best].copy()
+        new_right = points[best + 1].copy()
+        width = _normalized_segment_width(new_left, new_right, scales)
+        widths.append(width)
+        triple = PIMTriple(
+            left=new_left,
+            center=center,
+            right=new_right,
+            escape_times=lifetimes[best - 1 : best + 2].copy(),
+            normalized_width=width,
+        )
+        if width <= width_tolerance:
+            return PIMRefinementResult(
+                triple=triple,
+                refinement_count=refinement,
+                lifetime_evaluations=evaluations,
+                normalized_widths=np.asarray(widths, dtype=np.float64),
+            )
+        segment_left = new_left
+        segment_right = new_right
+
+    assert triple is not None
+    raise RuntimeError(
+        "PIM refinement did not reach width tolerance: "
+        f"{triple.normalized_width:.6g} > {width_tolerance:.6g}"
+    )
+
+
+def advance_pim_straddle(
+    initial_triple: PIMTriple,
+    return_map: Callable[[NDArray[np.float64]], ArrayLike],
+    escape_time: Callable[[NDArray[np.float64]], ArrayLike],
+    *,
+    coordinate_scales: ArrayLike,
+    return_count: int,
+    sample_count: int,
+    width_tolerance: float,
+    max_refinements_per_event: int,
+) -> PIMStraddleResult:
+    """Advance a PIM middle-point orbit, refining whenever its bracket expands.
+
+    The mapped endpoints define the next local straight segment. This is the
+    standard finite-precision straddle construction: iterate while the bracket
+    remains below ``width_tolerance`` and reapply the proper-interior-maximum
+    refinement when it grows beyond that scale.
+    """
+
+    scales = np.asarray(coordinate_scales, dtype=np.float64)
+    points = initial_triple.points
+    if points.ndim != 2 or points.shape[0] != 3 or scales.shape != points.shape[1:]:
+        raise ValueError("PIM triple and coordinate scales have incompatible shapes")
+    if np.any(~np.isfinite(scales)) or np.any(scales <= 0.0):
+        raise ValueError("PIM coordinate scales must be finite and positive")
+    if return_count < 1:
+        raise ValueError("return_count must be positive")
+
+    current = initial_triple
+    states: list[NDArray[np.float64]] = []
+    widths: list[float] = []
+    events: list[int] = []
+    evaluations = 0
+    for return_index in range(return_count):
+        states.append(current.center.copy())
+        widths.append(float(current.normalized_width))
+        mapped = np.asarray(return_map(current.points), dtype=np.float64)
+        if mapped.shape != current.points.shape or np.any(~np.isfinite(mapped)):
+            raise RuntimeError(f"PIM return map failed at return {return_index}")
+        mapped_width = _normalized_segment_width(mapped[0], mapped[2], scales)
+        if mapped_width > width_tolerance:
+            refined = refine_pim_segment(
+                mapped[0],
+                mapped[2],
+                escape_time,
+                coordinate_scales=scales,
+                sample_count=sample_count,
+                width_tolerance=width_tolerance,
+                max_refinements=max_refinements_per_event,
+            )
+            current = refined.triple
+            evaluations += refined.lifetime_evaluations
+            events.append(return_index + 1)
+        else:
+            current = PIMTriple(
+                left=mapped[0].copy(),
+                center=mapped[1].copy(),
+                right=mapped[2].copy(),
+                escape_times=np.full(3, np.nan),
+                normalized_width=mapped_width,
+            )
+    return PIMStraddleResult(
+        states=np.asarray(states, dtype=np.float64),
+        normalized_widths=np.asarray(widths, dtype=np.float64),
+        refinement_events=np.asarray(events, dtype=np.int64),
+        lifetime_evaluations=evaluations,
+        final_triple=current,
+    )
+
+
+def next_section_return(
+    parameters: RosslerParameters,
+    initial_state: ArrayLike,
+    section: PoincareSection,
+    *,
+    config: SolverConfig = SolverConfig(),
+    departure_time: float = 1e-4,
+    maximum_flight_time: float = 50.0,
+) -> SectionReturnResult:
+    """Advance one section return with adaptive DOP853 event localization.
+
+    A short event-free departure avoids accepting the initial point as a root.
+    The state is not projected after integration; SciPy's event state is used.
+    """
+
+    state = np.asarray(initial_state, dtype=np.float64)
+    if state.shape != (3,) or not np.all(np.isfinite(state)):
+        raise ValueError("initial_state must contain three finite values")
+    if departure_time <= 0.0 or maximum_flight_time <= departure_time:
+        raise ValueError("invalid section-return flight times")
+    if abs(section.value(state)) > 1e-8:
+        raise ValueError("initial_state must lie on the declared section")
+    if section.direction != 1:
+        raise ValueError("adaptive PIM return currently requires direction +1")
+
+    def rhs(time, value):
+        return rossler_rhs(time, value, parameters)
+
+    departure = solve_ivp(
+        rhs,
+        (0.0, departure_time),
+        state,
+        method=config.method,
+        rtol=config.rtol,
+        atol=config.atol,
+        max_step=config.max_step,
+    )
+    if not departure.success:
+        return SectionReturnResult(
+            success=False,
+            flight_time=float("nan"),
+            state=np.full(3, np.nan),
+            message=str(departure.message),
+        )
+
+    def event(_time, value):
+        return section.value(value)
+
+    event.direction = section.direction  # type: ignore[attr-defined]
+    event.terminal = True  # type: ignore[attr-defined]
+    result = solve_ivp(
+        rhs,
+        (departure_time, maximum_flight_time),
+        np.asarray(departure.y[:, -1], dtype=np.float64),
+        method=config.method,
+        rtol=config.rtol,
+        atol=config.atol,
+        max_step=config.max_step,
+        events=event,
+    )
+    if not result.success or len(result.t_events[0]) == 0:
+        return SectionReturnResult(
+            success=False,
+            flight_time=float("nan"),
+            state=np.full(3, np.nan),
+            message=str(result.message) if not result.success else "no section return",
+        )
+    crossing = np.asarray(result.y_events[0][0], dtype=np.float64)
+    if not section.accepts(crossing):
+        return SectionReturnResult(
+            success=False,
+            flight_time=float("nan"),
+            state=np.full(3, np.nan),
+            message="section return failed the declared gate",
+        )
+    return SectionReturnResult(
+        success=True,
+        flight_time=float(result.t_events[0][0]),
+        state=crossing,
+        message="section return located",
+    )
+
+
+def section_return_map(
+    parameters: RosslerParameters,
+    states: ArrayLike,
+    section: PoincareSection,
+    *,
+    config: SolverConfig = SolverConfig(),
+    departure_time: float = 1e-4,
+    maximum_flight_time: float = 50.0,
+) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.bool_]]:
+    """Map section states independently to their next adaptive returns."""
+
+    points = np.asarray(states, dtype=np.float64)
+    if points.ndim != 2 or points.shape[1] != 3 or len(points) == 0:
+        raise ValueError("states must have nonempty shape (n,3)")
+    mapped = np.full_like(points, np.nan)
+    times = np.full(len(points), np.nan, dtype=np.float64)
+    success = np.zeros(len(points), dtype=bool)
+    for index, point in enumerate(points):
+        returned = next_section_return(
+            parameters,
+            point,
+            section,
+            config=config,
+            departure_time=departure_time,
+            maximum_flight_time=maximum_flight_time,
+        )
+        mapped[index] = returned.state
+        times[index] = returned.flight_time
+        success[index] = returned.success
+    return mapped, times, success
+
+
+def capture_lifetimes_on_section(
+    parameters: RosslerParameters,
+    initial_states: ArrayLike,
+    section: PoincareSection,
+    cycle_states: ArrayLike,
+    *,
+    capture_coordinate_axes: tuple[int, int],
+    capture_coordinate_scales: tuple[float, float],
+    capture_radius: float,
+    required_capture_crossings: int,
+    maximum_returns: int,
+    config: SolverConfig = SolverConfig(),
+    maximum_flight_time: float = 50.0,
+) -> CaptureLifetimeResult:
+    """Measure adaptive section time until repeated stable-cycle capture."""
+
+    states = np.asarray(initial_states, dtype=np.float64)
+    cycle = np.asarray(cycle_states, dtype=np.float64)
+    if states.ndim != 2 or states.shape[1] != 3 or len(states) == 0:
+        raise ValueError("initial_states must have nonempty shape (n,3)")
+    if maximum_returns < required_capture_crossings or required_capture_crossings < 1:
+        raise ValueError("maximum_returns must cover the capture streak")
+    if capture_radius <= 0.0:
+        raise ValueError("capture_radius must be positive")
+
+    current = states.copy()
+    lifetimes = np.zeros(len(states), dtype=np.float64)
+    captured = np.zeros(len(states), dtype=bool)
+    failed = np.zeros(len(states), dtype=bool)
+    streaks = np.zeros(len(states), dtype=np.int64)
+    return_counts = np.zeros(len(states), dtype=np.int64)
+    for _ in range(maximum_returns):
+        active = ~(captured | failed)
+        if not np.any(active):
+            break
+        active_indices = np.flatnonzero(active)
+        mapped, flight_times, success = section_return_map(
+            parameters,
+            current[active],
+            section,
+            config=config,
+            maximum_flight_time=maximum_flight_time,
+        )
+        failed[active_indices[~success]] = True
+        valid_indices = active_indices[success]
+        if len(valid_indices) == 0:
+            continue
+        current[valid_indices] = mapped[success]
+        lifetimes[valid_indices] += flight_times[success]
+        return_counts[valid_indices] += 1
+        distances = cycle_crossing_distances(
+            mapped[success],
+            cycle,
+            coordinate_axes=capture_coordinate_axes,
+            coordinate_scales=capture_coordinate_scales,
+        )
+        close = distances <= capture_radius
+        streaks[valid_indices] = np.where(close, streaks[valid_indices] + 1, 0)
+        captured[valid_indices[streaks[valid_indices] >= required_capture_crossings]] = True
+    return CaptureLifetimeResult(
+        lifetimes=lifetimes,
+        captured=captured,
+        return_counts=return_counts,
+        failed=failed,
+    )
 
 
 def scrambled_sobol_section_states(

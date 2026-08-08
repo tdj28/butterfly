@@ -277,7 +277,10 @@ exposition requirements.
   RTX A5000: all 30 topology cells agree, one of 8192 survivors differs at one
   final checkpoint, and all critical-location and DOP853 gates pass. Next:
   independent PIM/stagger-and-step corroboration, then saddle-defined TBA
-  continuation through the regular gap.
+  continuation through the regular gap. DEC-008 and EXP-114 now freeze the
+  independent route: strict PIM triples, adaptive DOP853 returns, five declared
+  section straddles per control, zero censoring, the unchanged robust branch
+  oracle, and direct critical-location comparison against EXP-112.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
