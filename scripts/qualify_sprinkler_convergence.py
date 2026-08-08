@@ -332,6 +332,61 @@ def _coverage_censor_evaluation(
     }
 
 
+def _blind_coverage_censor_evaluation(
+    robust,
+    *,
+    source_minimum,
+    source_maximum,
+    allowed_branch_counts,
+    oracle_common,
+    acceptance,
+):
+    """Select exactly one branch count under the frozen censor rule."""
+    candidates = {
+        int(branch_count): _coverage_censor_evaluation(
+            robust,
+            source_minimum=source_minimum,
+            source_maximum=source_maximum,
+            expected_branch_count=int(branch_count),
+            oracle_common=oracle_common,
+            acceptance=acceptance,
+        )
+        for branch_count in allowed_branch_counts
+    }
+    passing = [count for count, row in candidates.items() if row["passed"]]
+    diagnostics = {
+        str(count): {
+            "passed": row["passed"],
+            "reason": row["reason"],
+            "fully_resolved_variant_count": len(
+                row["fully_resolved_variant_indices"]
+            ),
+            "coverage_censored_variant_count": len(
+                row["coverage_censored_variant_indices"]
+            ),
+            "rejected_variant_count": len(row["rejected_variants"]),
+        }
+        for count, row in candidates.items()
+    }
+    if len(passing) == 1:
+        selected = dict(candidates[passing[0]])
+        selected["candidate_diagnostics"] = diagnostics
+        selected["reason"] = "one blind branch count passes the coverage-censor rule"
+        return selected
+    return {
+        "passed": False,
+        "branch_count": None,
+        "fully_resolved_variant_indices": [],
+        "coverage_censored_variant_indices": [],
+        "rejected_variants": [],
+        "critical_point_intervals": [],
+        "normalized_critical_point_spans": [],
+        "maximum_normalized_critical_point_span": 1e300,
+        "candidate_diagnostics": diagnostics,
+        "reason": "blind branch count is unresolved or ambiguous",
+    }
+
+
 def _coverage_critical_convergence(runs, coordinates, expected_branch_count):
     output = {}
     for coordinate in coordinates:
@@ -458,8 +513,9 @@ def main() -> int:
     }
     if manifest.get("schema") not in supported_schemas:
         raise SystemExit("unsupported sprinkler-convergence manifest")
-    path_mode = (
-        manifest["schema"]
+    path_mode = bool(
+        manifest.get("path_acceptance")
+        and manifest["schema"]
         in {
             "butterfly.sprinkler-path-continuation-manifest.v1",
             "butterfly.sprinkler-coverage-censor-manifest.v1",
@@ -574,18 +630,30 @@ def main() -> int:
                 if coverage_censor_mode and len(source_values) >= acceptance[
                     "minimum_return_pairs"
                 ]:
+                    expected_count = case.get("expected_saddle_branch_count")
+                    if expected_count is None:
+                        evaluation = _blind_coverage_censor_evaluation(
+                            robust,
+                            source_minimum=float(np.min(source_values)),
+                            source_maximum=float(np.max(source_values)),
+                            allowed_branch_counts=acceptance[
+                                "allowed_branch_counts"
+                            ],
+                            oracle_common=manifest["oracle_common"],
+                            acceptance=acceptance,
+                        )
+                    else:
+                        evaluation = _coverage_censor_evaluation(
+                            robust,
+                            source_minimum=float(np.min(source_values)),
+                            source_maximum=float(np.max(source_values)),
+                            expected_branch_count=int(expected_count),
+                            oracle_common=manifest["oracle_common"],
+                            acceptance=acceptance,
+                        )
                     coordinate_rows[coordinate["name"]][
                         "coverage_censor_evaluation"
-                    ] = _coverage_censor_evaluation(
-                        robust,
-                        source_minimum=float(np.min(source_values)),
-                        source_maximum=float(np.max(source_values)),
-                        expected_branch_count=int(
-                            case["expected_saddle_branch_count"]
-                        ),
-                        oracle_common=manifest["oracle_common"],
-                        acceptance=acceptance,
-                    )
+                    ] = evaluation
                 elif coverage_censor_mode:
                     coordinate_rows[coordinate["name"]][
                         "coverage_censor_evaluation"
@@ -653,7 +721,8 @@ def main() -> int:
         allowed_counts = {
             int(value)
             for value in manifest.get("path_acceptance", {}).get(
-                "allowed_branch_counts", [expected]
+                "allowed_branch_counts",
+                acceptance.get("allowed_branch_counts", [expected]),
             )
             if value is not None
         }

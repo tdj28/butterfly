@@ -349,7 +349,11 @@ exposition requirements.
   the sampled saddle bracket to `[0.145,0.149]`. Freeze the now-qualified rule
   and begin adaptive saddle continuation inside this bracket, then extend
   outward through additional regular gaps; do not claim a continuous TBA from
-  three samples.
+  three samples. EXP-122 now freezes the first adaptive midpoint at `a=0.147`
+  with no expected label. Candidate counts two and three are tested separately
+  under the qualified censor rule, and exactly one count must pass in all seven
+  new seed-126--128 ensembles and both coordinates. A pass halves the sampled
+  bracket; a failure is retained without choosing the majority label.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

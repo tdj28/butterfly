@@ -273,3 +273,13 @@ narrows to `[0.145,0.149]`. This closes the coordinate-coverage hole without
 post-result relabeling. The next binding action is adaptive saddle-defined
 continuation inside this interval and then through additional regular gaps;
 the three samples alone do not establish a continuous global TBA curve.
+
+## First blind midpoint frozen
+
+EXP-122 preregisters `a=0.147`, the midpoint of the new sampled bracket, with
+no expected branch count. For every run and coordinate, candidate counts two
+and three are evaluated separately under the now-qualified coverage-censor
+rule; exactly one must pass, and every one of 14 run--coordinate decisions must
+agree. Seven new seed-126--128 ensembles span `2^14,2^15,2^16` section states
+and retain all numerical and convergence gates. A two result narrows the
+bracket to `[0.147,0.149]`; a three result narrows it to `[0.145,0.147]`.

@@ -119,3 +119,28 @@ def test_coverage_censor_rejects_unstable_critical_locations():
     result = _evaluate(variants)
     assert not result["passed"]
     assert result["reason"] == "critical-point location is variant-unstable"
+
+
+def test_blind_coverage_censor_selects_exactly_one_branch_count():
+    variants = [_variant(resolved=True, branch_count=2) for _ in range(12)]
+    variants.extend(
+        _variant(
+            resolved=False,
+            branch_count=None,
+            reason="insufficient invariant-domain coverage",
+            coverage=0.675,
+        )
+        for _ in range(3)
+    )
+    result = MODULE._blind_coverage_censor_evaluation(
+        {"variant_results": variants},
+        source_minimum=0.0,
+        source_maximum=1.0,
+        allowed_branch_counts=[2, 3],
+        oracle_common=ORACLE_COMMON,
+        acceptance=ACCEPTANCE,
+    )
+    assert result["passed"]
+    assert result["branch_count"] == 2
+    assert result["candidate_diagnostics"]["2"]["passed"]
+    assert not result["candidate_diagnostics"]["3"]["passed"]
