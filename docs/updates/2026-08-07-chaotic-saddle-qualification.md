@@ -240,3 +240,18 @@ critical point inside the resolved interval, and never returns three. More
 sampling cannot fill bins outside the projected invariant support. Freeze a
 prospective coverage-censor rule, reproduce both published controls with it,
 then apply it on new `a=0.145` ensembles.
+
+## Coverage-censor qualification frozen
+
+EXP-121 preregisters a coverage-only censor rule before generating new data.
+At least 12 of 15 variants per run and coordinate must resolve normally. Any
+remainder must fail only the coverage gate, retain at least `0.65` coverage,
+remain graph-like, contain exactly the expected nominal critical geometry, and
+stay within the unchanged critical-span thresholds when included. An opposite
+branch count or any other failure is fatal.
+
+New scrambled-Sobol seeds 123--125 repeat the complete seven-run construction
+at the published `a=0.118` two-branch and `a=0.149` three-branch controls. The
+same new ensembles are enlarged eightfold at `a=0.145`. All three cases, both
+coordinates, numerical gates, and one ordered two-to-three transition must
+pass before the sampled bracket can narrow to `[0.145,0.149]`.

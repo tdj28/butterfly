@@ -337,7 +337,12 @@ exposition requirements.
   point and no contradictory topology. Freeze a coverage-censor rule on new
   ensembles and require it to reproduce both published controls before using
   it to qualify `a=0.145`; do not buy more support for an intrinsic projection
-  gap.
+  gap. EXP-121 now freezes that rule: at least 12/15 variants must resolve
+  normally, every censor must fail only coverage at or above `0.65` while
+  retaining the expected nominal critical geometry, and all critical points
+  must satisfy the unchanged drift gates. Seven new seed-123--125 ensembles
+  test both published controls and `a=0.145`; any noncoverage failure or
+  contrary branch count fails the experiment.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

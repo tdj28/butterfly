@@ -74,7 +74,13 @@ def _run_config(ensemble, run):
 
 def _short_horizon_audit(parameters, section, cycle, initial, manifest, solver):
     audit = manifest["short_horizon_audit"]
-    ids = np.asarray(audit["trajectory_ids"], dtype=int)
+    if "trajectory_fractions" in audit:
+        fractions = np.asarray(audit["trajectory_fractions"], dtype=float)
+        if np.any((fractions < 0.0) | (fractions > 1.0)):
+            raise ValueError("trajectory_fractions must lie in [0,1]")
+        ids = np.rint(fractions * (len(initial) - 1)).astype(int)
+    else:
+        ids = np.asarray(audit["trajectory_ids"], dtype=int)
     selected = initial[ids]
     fixed = sprinkler_survivors(
         parameters,
@@ -228,6 +234,160 @@ def _observed_branch_count(runs, coordinates, allowed_counts):
     return observed if observed in allowed_counts else None
 
 
+def _coverage_censor_evaluation(
+    robust,
+    *,
+    source_minimum,
+    source_maximum,
+    expected_branch_count,
+    oracle_common,
+    acceptance,
+):
+    """Accept only declared coverage censors with matching nominal geometry."""
+    variants = robust.get("variant_results", ())
+    expected_critical_count = expected_branch_count - 1
+    resolved_indices = []
+    censored_indices = []
+    rejected = []
+    accepted_critical = []
+    for index, variant in enumerate(variants):
+        critical = tuple(float(value) for value in variant["critical_points"])
+        if (
+            variant["resolved"]
+            and variant["branch_count"] == expected_branch_count
+            and len(critical) == expected_critical_count
+        ):
+            resolved_indices.append(index)
+            accepted_critical.append(critical)
+            continue
+        coverage_only = bool(
+            not variant["resolved"]
+            and variant["reason"] == "insufficient invariant-domain coverage"
+            and variant["domain_coverage"]
+            >= acceptance["minimum_censored_domain_coverage"]
+            and variant["conditional_spread_ratio"]
+            <= oracle_common["maximum_conditional_spread_ratio"]
+            and len(critical) == expected_critical_count
+        )
+        if coverage_only:
+            censored_indices.append(index)
+            accepted_critical.append(critical)
+        else:
+            rejected.append(
+                {
+                    "variant_index": index,
+                    "resolved": bool(variant["resolved"]),
+                    "branch_count": variant["branch_count"],
+                    "nominal_branch_count": len(critical) + 1,
+                    "reason": variant["reason"],
+                    "domain_coverage": float(variant["domain_coverage"]),
+                    "conditional_spread_ratio": float(
+                        variant["conditional_spread_ratio"]
+                    ),
+                }
+            )
+    source_range = max(
+        float(source_maximum) - float(source_minimum), np.finfo(float).eps
+    )
+    intervals = tuple(
+        (
+            min(points[index] for points in accepted_critical),
+            max(points[index] for points in accepted_critical),
+        )
+        for index in range(expected_critical_count)
+    ) if accepted_critical else ()
+    normalized_spans = tuple(
+        (upper - lower) / source_range for lower, upper in intervals
+    )
+    maximum_span = max(normalized_spans, default=float("inf"))
+    minimum_resolved = int(acceptance["minimum_fully_resolved_variants"])
+    passed = bool(
+        len(variants) > 0
+        and len(resolved_indices) >= minimum_resolved
+        and len(resolved_indices) + len(censored_indices) == len(variants)
+        and not rejected
+        and maximum_span
+        <= acceptance["maximum_within_run_normalized_critical_span"]
+    )
+    if rejected:
+        reason = "one or more variants contradict or fail beyond coverage"
+    elif len(resolved_indices) < minimum_resolved:
+        reason = "too few fully resolved variants"
+    elif maximum_span > acceptance["maximum_within_run_normalized_critical_span"]:
+        reason = "critical-point location is variant-unstable"
+    elif passed:
+        reason = "resolved with prospectively admissible coverage censoring"
+    else:
+        reason = "coverage-censor evaluation failed"
+    return {
+        "passed": passed,
+        "branch_count": expected_branch_count if passed else None,
+        "fully_resolved_variant_indices": resolved_indices,
+        "coverage_censored_variant_indices": censored_indices,
+        "rejected_variants": rejected,
+        "critical_point_intervals": intervals,
+        "normalized_critical_point_spans": normalized_spans,
+        "maximum_normalized_critical_point_span": maximum_span,
+        "reason": reason,
+    }
+
+
+def _coverage_critical_convergence(runs, coordinates, expected_branch_count):
+    output = {}
+    for coordinate in coordinates:
+        name = coordinate["name"]
+        rows = [run["coordinates"][name] for run in runs]
+        evaluations = [row["coverage_censor_evaluation"] for row in rows]
+        if any(not row["passed"] for row in evaluations):
+            output[name] = {
+                "critical_point_intervals": [],
+                "normalized_critical_point_spans": [],
+                "maximum_normalized_critical_point_span": 1e300,
+                "reason": "one or more runs fail coverage-censor evaluation",
+            }
+            continue
+        domain_range = max(row["source_maximum"] for row in rows) - min(
+            row["source_minimum"] for row in rows
+        )
+        intervals = []
+        spans = []
+        for index in range(expected_branch_count - 1):
+            lower = min(
+                row["critical_point_intervals"][index][0]
+                for row in evaluations
+            )
+            upper = max(
+                row["critical_point_intervals"][index][1]
+                for row in evaluations
+            )
+            intervals.append((lower, upper))
+            spans.append((upper - lower) / max(domain_range, np.finfo(float).eps))
+        output[name] = {
+            "critical_point_intervals": intervals,
+            "normalized_critical_point_spans": spans,
+            "maximum_normalized_critical_point_span": max(spans, default=0.0),
+            "reason": "resolved across runs including admissible coverage censors",
+        }
+    return output
+
+
+def _coverage_observed_branch_count(runs, coordinates, allowed_counts):
+    counts = []
+    for run in runs:
+        for coordinate in coordinates:
+            evaluation = run["coordinates"][coordinate["name"]][
+                "coverage_censor_evaluation"
+            ]
+            if not evaluation["passed"] or evaluation["branch_count"] is None:
+                return None
+            counts.append(int(evaluation["branch_count"]))
+    unique = set(counts)
+    if len(unique) != 1:
+        return None
+    observed = unique.pop()
+    return observed if observed in allowed_counts else None
+
+
 def _path_evaluation(cases, manifest):
     """Evaluate the prospective ordered topology path without fitting a boundary."""
     path = manifest["path_acceptance"]
@@ -294,12 +454,19 @@ def main() -> int:
     supported_schemas = {
         "butterfly.sprinkler-convergence-manifest.v1",
         "butterfly.sprinkler-path-continuation-manifest.v1",
+        "butterfly.sprinkler-coverage-censor-manifest.v1",
     }
     if manifest.get("schema") not in supported_schemas:
         raise SystemExit("unsupported sprinkler-convergence manifest")
     path_mode = (
         manifest["schema"]
-        == "butterfly.sprinkler-path-continuation-manifest.v1"
+        in {
+            "butterfly.sprinkler-path-continuation-manifest.v1",
+            "butterfly.sprinkler-coverage-censor-manifest.v1",
+        }
+    )
+    coverage_censor_mode = (
+        manifest["schema"] == "butterfly.sprinkler-coverage-censor-manifest.v1"
     )
     source = {
         "commit": git_value("rev-parse", "HEAD"),
@@ -337,8 +504,17 @@ def main() -> int:
         )
         cycle_period = int(case["stable_period"])
         cycle = cycle_crossings.states[-cycle_period:]
+        sample_power_offset = int(case.get("sample_power_offset", 0))
+        declared_runs = []
+        for shared_run in manifest["runs"]:
+            declared_run = dict(shared_run)
+            if "sample_power" in declared_run:
+                declared_run["sample_power"] = (
+                    int(declared_run["sample_power"]) + sample_power_offset
+                )
+            declared_runs.append(declared_run)
         run_rows = []
-        for declared_run in manifest["runs"]:
+        for declared_run in declared_runs:
             initial = _grid(section, ensemble, declared_run)
             config = _run_config(ensemble, declared_run)
             result = sprinkler_survivors(
@@ -395,6 +571,35 @@ def main() -> int:
                     else None,
                     "robust_oracle": robust,
                 }
+                if coverage_censor_mode and len(source_values) >= acceptance[
+                    "minimum_return_pairs"
+                ]:
+                    coordinate_rows[coordinate["name"]][
+                        "coverage_censor_evaluation"
+                    ] = _coverage_censor_evaluation(
+                        robust,
+                        source_minimum=float(np.min(source_values)),
+                        source_maximum=float(np.max(source_values)),
+                        expected_branch_count=int(
+                            case["expected_saddle_branch_count"]
+                        ),
+                        oracle_common=manifest["oracle_common"],
+                        acceptance=acceptance,
+                    )
+                elif coverage_censor_mode:
+                    coordinate_rows[coordinate["name"]][
+                        "coverage_censor_evaluation"
+                    ] = {
+                        "passed": False,
+                        "branch_count": None,
+                        "fully_resolved_variant_indices": [],
+                        "coverage_censored_variant_indices": [],
+                        "rejected_variants": [],
+                        "critical_point_intervals": [],
+                        "normalized_critical_point_spans": [],
+                        "maximum_normalized_critical_point_span": 1e300,
+                        "reason": "insufficient survivor return pairs",
+                    }
             run_row = {
                 "id": declared_run["id"],
                 "configuration": {**declared_run, **config},
@@ -417,7 +622,13 @@ def main() -> int:
                         "run": run_row["id"],
                         "survivor_counts": run_row["survivor_counts"],
                         "branch_counts": {
-                            name: value["robust_oracle"].get("branch_count")
+                            name: (
+                                value["coverage_censor_evaluation"].get(
+                                    "branch_count"
+                                )
+                                if coverage_censor_mode
+                                else value["robust_oracle"].get("branch_count")
+                            )
                             for name, value in coordinate_rows.items()
                         },
                     },
@@ -425,7 +636,7 @@ def main() -> int:
                 ),
                 flush=True,
             )
-        baseline_initial = _grid(section, ensemble, manifest["runs"][0])
+        baseline_initial = _grid(section, ensemble, declared_runs[0])
         short_audit = _short_horizon_audit(
             parameters,
             section,
@@ -446,8 +657,14 @@ def main() -> int:
             )
             if value is not None
         }
-        observed = _observed_branch_count(
-            run_rows, manifest["coordinates"], allowed_counts
+        observed = (
+            _coverage_observed_branch_count(
+                run_rows, manifest["coordinates"], allowed_counts
+            )
+            if coverage_censor_mode
+            else _observed_branch_count(
+                run_rows, manifest["coordinates"], allowed_counts
+            )
         )
         required_count = expected if expected is not None else observed
         if required_count is None:
@@ -461,8 +678,14 @@ def main() -> int:
                 for coordinate in manifest["coordinates"]
             }
         else:
-            critical = _critical_convergence(
-                run_rows, manifest["coordinates"], required_count
+            critical = (
+                _coverage_critical_convergence(
+                    run_rows, manifest["coordinates"], required_count
+                )
+                if coverage_censor_mode
+                else _critical_convergence(
+                    run_rows, manifest["coordinates"], required_count
+                )
             )
         case_passed = bool(
             cycle_crossings.integration_success
@@ -474,9 +697,21 @@ def main() -> int:
                 >= acceptance["minimum_final_survivors"]
                 and all(
                     coordinate["pair_count"] >= acceptance["minimum_return_pairs"]
-                    and coordinate["robust_oracle"]["resolved"]
-                    and coordinate["robust_oracle"]["branch_count"]
-                    == required_count
+                    and (
+                        (
+                            coordinate["coverage_censor_evaluation"]["passed"]
+                            and coordinate["coverage_censor_evaluation"][
+                                "branch_count"
+                            ]
+                            == required_count
+                        )
+                        if coverage_censor_mode
+                        else (
+                            coordinate["robust_oracle"]["resolved"]
+                            and coordinate["robust_oracle"]["branch_count"]
+                            == required_count
+                        )
+                    )
                     for coordinate in run["coordinates"].values()
                 )
                 for run in run_rows
@@ -523,9 +758,13 @@ def main() -> int:
     path_evaluation = _path_evaluation(all_cases, manifest) if path_mode else None
     output = {
         "schema": (
-            "butterfly.sprinkler-path-continuation.v1"
-            if path_mode
-            else "butterfly.sprinkler-convergence.v1"
+            "butterfly.sprinkler-coverage-censor.v1"
+            if coverage_censor_mode
+            else (
+                "butterfly.sprinkler-path-continuation.v1"
+                if path_mode
+                else "butterfly.sprinkler-convergence.v1"
+            )
         ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
