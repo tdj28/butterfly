@@ -158,6 +158,18 @@ def _parameter_match(values, target, tolerance):
     return bool(maximum_error <= float(tolerance)), float(maximum_error)
 
 
+def _correction_accepted(correction, corrector):
+    maximum_accepted_closure = corrector.get("maximum_accepted_closure")
+    if maximum_accepted_closure is None:
+        return bool(correction.success)
+    return bool(
+        correction.optimizer_success
+        and correction.closure_error <= float(maximum_accepted_closure)
+        and correction.phase_residual
+        <= float(corrector["maximum_accepted_phase_residual"])
+    )
+
+
 def _run_branch(branch, source_receipt, manifest, solver):
     source_case, recovery = _source_recovery(
         source_receipt,
@@ -188,12 +200,17 @@ def _run_branch(branch, source_receipt, manifest, solver):
                 max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
                 tolerance=float(manifest["corrector"]["tolerance"]),
             )
-            if not correction.success:
+            correction_accepted = _correction_accepted(
+                correction, manifest["corrector"]
+            )
+            if not correction_accepted:
                 failure = {
                     "a": float(a),
                     "reason": "periodic correction failed",
                     "message": correction.message,
                     "closure_error": correction.closure_error,
+                    "phase_residual": correction.phase_residual,
+                    "optimizer_success": correction.optimizer_success,
                 }
                 break
             state = correction.initial_state
@@ -203,6 +220,7 @@ def _run_branch(branch, source_receipt, manifest, solver):
                 "phase_residual": correction.phase_residual,
                 "correction_norm": correction.correction_norm,
                 "evaluations": correction.evaluations,
+                "optimizer_success": correction.optimizer_success,
             }
         else:
             correction_row = {
@@ -210,6 +228,7 @@ def _run_branch(branch, source_receipt, manifest, solver):
                 "phase_residual": float(recovery["correction"]["phase_residual"]),
                 "correction_norm": 0.0,
                 "evaluations": 0,
+                "optimizer_success": True,
             }
         audit = _audit_orbit(
             parameters,

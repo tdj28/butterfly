@@ -479,8 +479,10 @@ exposition requirements.
   one-period windows. Seven pass all 21 points; lag-13 family 01 stops at a
   correction closure `1.066e-10`, only `6.6e-12` above the internal numerical
   floor and far below the scientific closure limit. EXP-140 freezes a
-  tenfold-tighter DOP853 rerun of that family before selecting the manifold
-  seed library.
+  tenfold-tighter DOP853 rerun, passes the original stop, then encounters the
+  same floor at the midpoint. EXP-141 now freezes acceptance-aligned control
+  flow: optimizer success is explicit, while corrected-seed and independent
+  flow closure must still pass the unchanged `1e-8` scientific limit.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

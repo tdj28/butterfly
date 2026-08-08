@@ -1,6 +1,6 @@
 # EXP-140 — High-precision lag-13 family-01 continuation
 
-Status: preregistered; unexecuted
+Status: executed; original stop passed, hardcoded floor recurred later
 
 ## Question
 
@@ -32,3 +32,14 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/continue_pim_upos_in_a.py \
   --identity-receipt artifacts/EXP-135/receipt.json \
   --output artifacts/EXP-140/receipt.json
 ```
+
+## Result
+
+The clean `3189692` run passes the original stop and continues 10 qualified
+points through `a=0.1481125`. It then stops correcting the midpoint with
+closure `1.0250e-10`, normal `xtol` convergence, and the same hardcoded
+`1e-10` floor. All completed orbit and shifted lag-13 gates pass. Because the
+stop moved under tighter numerics, EXP-141 replaces that control-flow floor
+with explicit optimizer success plus the unchanged declared `1e-8` scientific
+acceptance. Raw receipt SHA-256:
+`03eb4e24503cb31d6328845a5b90b102eef7868c01e99165dfae0d5e362d07b4`.

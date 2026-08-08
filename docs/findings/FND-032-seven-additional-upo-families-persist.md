@@ -26,4 +26,10 @@ optimizer status make integration/correction precision the leading diagnosis.
 EXP-140 therefore repeats only this family with tenfold tighter relative and
 absolute integration tolerances and half the maximum DOP853 step.
 
+EXP-140 passes the original stop but encounters the same `1e-10` internal
+floor later, at the midpoint. This displacement rejects a boundary-locked
+event interpretation of the raw corrector stop and exposes a systematic
+threshold mismatch. EXP-141 freezes optimizer success separately from the
+unchanged scientific orbit bounds.
+
 Tracked receipt: `docs/experiments/receipts/EXP-139.json`.

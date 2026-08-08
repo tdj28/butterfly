@@ -36,6 +36,7 @@ class PeriodicOrbitCorrection:
     phase_residual: float
     correction_norm: float
     evaluations: int
+    optimizer_success: bool
     success: bool
     message: str
 
@@ -168,6 +169,7 @@ def correct_periodic_orbit(
         phase_residual=float(abs(residual[3])),
         correction_norm=float(np.linalg.norm(solution.x - seed)),
         evaluations=int(solution.nfev),
+        optimizer_success=bool(solution.success),
         success=bool(solution.success and closure_error <= max(10.0 * tolerance, 1e-10)),
         message=str(solution.message),
     )

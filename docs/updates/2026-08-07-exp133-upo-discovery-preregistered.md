@@ -76,3 +76,9 @@ Lag-13 family 01 alone stops at `a=0.1480375`, with `xtol` convergence and
 closure only `6.6e-12` above the corrector's internal numerical floor. EXP-140
 now freezes a higher-precision rerun of that single family; no bifurcation is
 inferred from the EXP-139 stop.
+
+EXP-140 passes the original stop, then the same hardcoded `1e-10` corrector
+floor recurs at the midpoint with normal optimizer convergence. EXP-141
+separates optimizer success from the unchanged declared `1e-8` orbit-closure
+gate and reruns the family. This is a bookkeeping correction, not a relaxed
+scientific threshold.

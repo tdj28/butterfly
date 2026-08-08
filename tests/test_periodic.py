@@ -44,6 +44,7 @@ def test_periodic_shooting_corrects_perturbed_period3_cycle() -> None:
         tolerance=1e-11,
     )
 
+    assert correction.optimizer_success
     assert correction.success
     assert correction.closure_error < 1e-9
     assert correction.phase_residual < 1e-10

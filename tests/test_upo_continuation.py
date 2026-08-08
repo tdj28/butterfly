@@ -118,3 +118,22 @@ def test_shared_identity_is_optional_for_orbit_census():
         "evaluated": False,
         "passed": True,
     }
+
+
+def test_acceptance_aligned_correction_requires_optimizer_and_declared_bounds():
+    policy = {
+        "maximum_accepted_closure": 1e-8,
+        "maximum_accepted_phase_residual": 1e-8,
+    }
+    correction = SimpleNamespace(
+        success=False,
+        optimizer_success=True,
+        closure_error=1.03e-10,
+        phase_residual=1e-16,
+    )
+    assert MODULE._correction_accepted(correction, policy)
+    correction.optimizer_success = False
+    assert not MODULE._correction_accepted(correction, policy)
+    correction.optimizer_success = True
+    correction.closure_error = 2e-8
+    assert not MODULE._correction_accepted(correction, policy)
