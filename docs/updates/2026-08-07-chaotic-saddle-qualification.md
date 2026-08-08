@@ -189,3 +189,14 @@ local oracle. The apparent `0.149/0.150` reversal is unsupported, which is good
 news for branch continuity, but EXP-118 cannot be relabeled three-branch.
 Freeze an independent resolution-convergence successor with the coarse result
 as a declared negative control and a tighter trace audit.
+
+## Resolution-convergence successor frozen
+
+EXP-119 doubles each return sequence to 2400, uses four new scrambled-Sobol
+states from seed 119 plus the original state, and separates the oracle matrix
+prospectively. The three 20-bin cells per coordinate are an under-resolution
+control expected to return two; all twelve 30--80-bin cells must return three.
+Critical locations must meet the frozen within-dataset gate and the combined
+new/hashed-EXP-118 across-dataset gate. Both Lyapunov cases are repeated with
+tenfold tighter relative/absolute tolerances and half the maximum step while
+retaining the original `1e-6` trace threshold.

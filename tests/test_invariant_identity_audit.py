@@ -50,3 +50,39 @@ def test_critical_convergence_normalizes_across_datasets():
     assert result["y"]["critical_point_intervals"] == [(-21.1, -20.9)]
     assert abs(result["y"]["maximum_normalized_critical_point_span"] - 0.01) < 1e-12
     assert abs(result["z"]["maximum_normalized_critical_point_span"] - 0.04) < 1e-12
+
+
+def test_oracle_groups_can_treat_coarse_result_as_resolution_control():
+    def variant(count, points):
+        return {"resolved": True, "branch_count": count, "critical_points": points}
+
+    coordinate = {
+        "source_minimum": -30.0,
+        "source_maximum": -10.0,
+        "robust_oracle": {
+            "variant_results": [
+                variant(2, [-21.0]),
+                variant(3, [-31.0, -21.0]),
+                variant(3, [-30.9, -20.9]),
+            ]
+        },
+    }
+    rows = [
+        {
+            "id": "new-data",
+            "coordinates": {"y": coordinate, "z": coordinate},
+        }
+    ]
+    groups = [
+        {"id": "coarse", "variant_indices": [0], "expected_branch_count": 2},
+        {"id": "adequate", "variant_indices": [1, 2], "expected_branch_count": 3},
+    ]
+    acceptance = {
+        "maximum_within_dataset_normalized_critical_span": 0.03,
+        "maximum_across_dataset_normalized_critical_span": 0.04,
+    }
+    result = MODULE._oracle_group_evaluation(
+        rows, [{"name": "y"}, {"name": "z"}], groups, acceptance, {}
+    )
+    assert result["coarse"]["passed"]
+    assert result["adequate"]["passed"]

@@ -318,7 +318,10 @@ exposition requirements.
   cells return two, and 189/192 30--80-bin cells return three, with no opposite
   votes. Freeze new-data resolution convergence with 20 bins as an explicit
   under-resolution control, and repeat the trace identity at tighter solver
-  tolerance before returning to the `a=0.145` support hole.
+  tolerance before returning to the `a=0.145` support hole. EXP-119 now freezes
+  five 2400-return datasets with new Sobol seed 119, separate coarse and
+  adequate-resolution gates, comparison against the hashed EXP-118 critical
+  intervals, and two tighter-tolerance Lyapunov replications.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

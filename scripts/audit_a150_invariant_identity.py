@@ -95,6 +95,116 @@ def _critical_convergence(rows, coordinates, branch_count):
     return output
 
 
+def _oracle_group_evaluation(rows, coordinates, groups, acceptance, reference):
+    """Evaluate declared resolution groups without demanding cross-group identity."""
+    output = {}
+    for group in groups:
+        expected = int(group["expected_branch_count"])
+        indices = [int(value) for value in group["variant_indices"]]
+        coordinate_output = {}
+        group_passed = True
+        for coordinate in coordinates:
+            name = coordinate["name"]
+            dataset_rows = []
+            all_points = []
+            all_resolved = True
+            for row in rows:
+                coordinate_row = row["coordinates"][name]
+                variants = coordinate_row["robust_oracle"]["variant_results"]
+                selected = [variants[index] for index in indices]
+                resolved = all(
+                    variant["resolved"]
+                    and variant["branch_count"] == expected
+                    for variant in selected
+                )
+                points = [
+                    variant["critical_points"]
+                    for variant in selected
+                    if variant["resolved"]
+                    and variant["branch_count"] == expected
+                ]
+                source_range = max(
+                    coordinate_row["source_maximum"]
+                    - coordinate_row["source_minimum"],
+                    np.finfo(float).eps,
+                )
+                if len(points) == len(selected):
+                    within_spans = [
+                        (max(values) - min(values)) / source_range
+                        for values in zip(*points, strict=True)
+                    ]
+                else:
+                    within_spans = [1e300]
+                dataset_passed = bool(
+                    resolved
+                    and max(within_spans, default=0.0)
+                    <= float(
+                        acceptance[
+                            "maximum_within_dataset_normalized_critical_span"
+                        ]
+                    )
+                )
+                dataset_rows.append(
+                    {
+                        "id": row["id"],
+                        "resolved_variant_count": len(points),
+                        "expected_variant_count": len(selected),
+                        "maximum_normalized_critical_point_span": max(
+                            within_spans, default=0.0
+                        ),
+                        "passed": dataset_passed,
+                    }
+                )
+                all_resolved = all_resolved and dataset_passed
+                all_points.extend(points)
+
+            domain_min = min(row["coordinates"][name]["source_minimum"] for row in rows)
+            domain_max = max(row["coordinates"][name]["source_maximum"] for row in rows)
+            intervals = []
+            across_spans = []
+            if all_points:
+                for index, values in enumerate(zip(*all_points, strict=True)):
+                    lower = min(values)
+                    upper = max(values)
+                    frozen = reference.get(group["id"], {}).get(name)
+                    if frozen is not None:
+                        lower = min(lower, float(frozen["critical_point_intervals"][index][0]))
+                        upper = max(upper, float(frozen["critical_point_intervals"][index][1]))
+                        domain_min = min(domain_min, float(frozen["domain"][0]))
+                        domain_max = max(domain_max, float(frozen["domain"][1]))
+                    intervals.append((lower, upper))
+                    across_spans.append(
+                        (upper - lower)
+                        / max(domain_max - domain_min, np.finfo(float).eps)
+                    )
+            else:
+                across_spans = [1e300]
+            coordinate_passed = bool(
+                all_resolved
+                and max(across_spans, default=0.0)
+                <= float(
+                    acceptance["maximum_across_dataset_normalized_critical_span"]
+                )
+            )
+            coordinate_output[name] = {
+                "datasets": dataset_rows,
+                "critical_point_intervals": intervals,
+                "normalized_critical_point_spans": across_spans,
+                "maximum_normalized_critical_point_span": max(
+                    across_spans, default=0.0
+                ),
+                "passed": coordinate_passed,
+            }
+            group_passed = group_passed and coordinate_passed
+        output[group["id"]] = {
+            "expected_branch_count": expected,
+            "variant_indices": indices,
+            "coordinates": coordinate_output,
+            "passed": group_passed,
+        }
+    return output
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -102,8 +212,13 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.invariant-identity-audit-manifest.v1":
+    supported_schemas = {
+        "butterfly.invariant-identity-audit-manifest.v1",
+        "butterfly.resolution-convergence-manifest.v1",
+    }
+    if manifest.get("schema") not in supported_schemas:
         raise SystemExit("unsupported invariant-identity audit manifest")
+    resolution_mode = manifest["schema"] == "butterfly.resolution-convergence-manifest.v1"
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -212,6 +327,17 @@ def main() -> int:
             for coordinate in manifest["coordinates"]
         }
     )
+    group_evaluation = (
+        _oracle_group_evaluation(
+            rows,
+            manifest["coordinates"],
+            manifest["oracle_groups"],
+            acceptance,
+            manifest.get("frozen_reference", {}),
+        )
+        if resolution_mode
+        else None
+    )
 
     lyapunov_rows = []
     lyapunov_config_value = manifest["lyapunov"]
@@ -278,22 +404,39 @@ def main() -> int:
             flush=True,
         )
 
-    topology_passed = bool(
-        observed is not None
-        and all(
+    common_dataset_gates = bool(
+        all(
             row["integration_success"]
             and row["crossing_count"] >= int(acceptance["minimum_crossings"])
             and row["recurrence"]["label"] != OrbitLabel.PERIODIC.value
             for row in rows
         )
-        and all(
-            coordinate["maximum_normalized_critical_point_span"]
-            <= float(acceptance["maximum_across_dataset_normalized_critical_span"])
-            for coordinate in critical.values()
+    )
+    topology_passed = bool(
+        common_dataset_gates
+        and (
+            all(group["passed"] for group in group_evaluation.values())
+            if group_evaluation is not None
+            else (
+                observed is not None
+                and all(
+                    coordinate["maximum_normalized_critical_point_span"]
+                    <= float(
+                        acceptance[
+                            "maximum_across_dataset_normalized_critical_span"
+                        ]
+                    )
+                    for coordinate in critical.values()
+                )
+            )
         )
     )
     output = {
-        "schema": "butterfly.invariant-identity-audit.v1",
+        "schema": (
+            "butterfly.resolution-convergence.v1"
+            if resolution_mode
+            else "butterfly.invariant-identity-audit.v1"
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source": source,
@@ -308,6 +451,7 @@ def main() -> int:
         "datasets": rows,
         "observed_branch_count": observed,
         "critical_point_convergence": critical,
+        "oracle_group_evaluation": group_evaluation,
         "topology_passed": topology_passed,
         "lyapunov": lyapunov_rows,
         "passed": bool(topology_passed and all(row["passed"] for row in lyapunov_rows)),
