@@ -89,3 +89,9 @@ two/three-branch interval with fundamental section identity intact. This
 rejects simple birth/death or crossing-loss explanations for every recovered
 family and moves the mechanism program decisively to invariant-manifold
 connectivity, symbolic pruning, and reinjection.
+
+DEC-012 and EXP-142 now open the manifold stage. Each of the eleven families
+at both endpoints must supply a section-tangent real unstable direction whose
+exact fundamental-lag amplification reproduces the signed Floquet multiplier
+on both branch signs and at multiple perturbation sizes. Only passed instances
+will be used for subsequent lobe and connection-residual calculations.

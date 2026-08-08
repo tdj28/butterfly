@@ -97,7 +97,11 @@ from .tiles import (
     verify_completed_aggregate,
     verify_completed_tile,
 )
-from .upo import CloseReturnCandidate, select_close_return_candidates
+from .upo import (
+    CloseReturnCandidate,
+    project_floquet_direction_to_section,
+    select_close_return_candidates,
+)
 
 __all__ = [
     "OrbitLabel",
@@ -105,6 +109,7 @@ __all__ = [
     "PeriodicComponent",
     "CandidateSelection",
     "CloseReturnCandidate",
+    "project_floquet_direction_to_section",
     "BasinPlaneManifest",
     "DynamicsClassification",
     "DynamicsThresholds",

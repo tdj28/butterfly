@@ -487,6 +487,9 @@ exposition requirements.
   primitive UPO families. Build phase-resolved unstable-manifold branches from
   this library, measure their first-return lobe connectivity on both sides,
   and formulate a pruning/reinjection residual with seed-size convergence.
+  DEC-012 now freezes section projection and signed Floquet-amplification
+  validation. EXP-142 applies it to all 22 family-endpoint instances before
+  any lobe plot or connection claim is admitted.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

@@ -18,6 +18,45 @@ class CloseReturnCandidate:
     normalized_distance: float
 
 
+def project_floquet_direction_to_section(
+    direction: ArrayLike,
+    flow_direction: ArrayLike,
+    section_normal: ArrayLike,
+    *,
+    coordinate_scales: ArrayLike,
+) -> np.ndarray:
+    """Remove flow phase and normalize a Floquet direction in a section.
+
+    The correction subtracts a multiple of the flow direction so that the
+    result is tangent to the declared Poincare plane. Normalization uses the
+    same coordinate scales as downstream manifold-distance calculations.
+    """
+
+    vector = np.asarray(direction, dtype=np.float64)
+    flow = np.asarray(flow_direction, dtype=np.float64)
+    normal = np.asarray(section_normal, dtype=np.float64)
+    scales = np.asarray(coordinate_scales, dtype=np.float64)
+    if any(value.shape != (3,) for value in (vector, flow, normal, scales)):
+        raise ValueError("direction, flow, normal, and scales must have shape (3,)")
+    if any(
+        np.any(~np.isfinite(value)) for value in (vector, flow, normal, scales)
+    ):
+        raise ValueError("section-direction inputs must be finite")
+    if np.any(scales <= 0.0) or np.linalg.norm(normal) == 0.0:
+        raise ValueError("coordinate scales and section normal must be nondegenerate")
+    section_speed = float(np.dot(normal, flow))
+    tangency_scale = (
+        np.finfo(np.float64).eps * np.linalg.norm(normal) * np.linalg.norm(flow)
+    )
+    if abs(section_speed) <= tangency_scale:
+        raise ValueError("flow is tangent to the section")
+    projected = vector - flow * (float(np.dot(normal, vector)) / section_speed)
+    scaled_norm = float(np.linalg.norm(projected / scales))
+    if scaled_norm <= np.finfo(np.float64).eps:
+        raise ValueError("projected Floquet direction is degenerate")
+    return projected / scaled_norm
+
+
 def select_close_return_candidates(
     states: ArrayLike,
     *,
