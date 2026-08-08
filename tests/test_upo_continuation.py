@@ -74,3 +74,14 @@ def test_separate_section_count_qualification_does_not_change_flow_audit():
     assert result["evaluated_points"] == 2
     assert result["observed_counts"] == [12]
     assert result["passed"]
+
+
+def test_parameter_match_tolerates_binary_grid_roundoff_only():
+    matched, error = MODULE._parameter_match(
+        (0.14812499999999998, 0.148125),
+        0.148125,
+        1e-14,
+    )
+    assert matched
+    assert error < 1e-16
+    assert not MODULE._parameter_match((0.148124, 0.148125), 0.148125, 1e-14)[0]

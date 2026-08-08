@@ -152,6 +152,12 @@ def _continuation_values(start, stop, step):
     return values
 
 
+def _parameter_match(values, target, tolerance):
+    errors = [abs(float(value) - float(target)) for value in values]
+    maximum_error = max(errors, default=float("inf"))
+    return bool(maximum_error <= float(tolerance)), float(maximum_error)
+
+
 def _run_branch(branch, source_receipt, manifest, solver):
     source_case, recovery = _source_recovery(
         source_receipt,
@@ -267,6 +273,11 @@ def _shared_identity(branches, manifest, solver):
     left_row = min(left["rows"], key=lambda row: abs(row["a"] - target_a))
     right_row = min(right["rows"], key=lambda row: abs(row["a"] - target_a))
     exact_parameter_match = left_row["a"] == target_a and right_row["a"] == target_a
+    parameter_match, maximum_parameter_error = _parameter_match(
+        (left_row["a"], right_row["a"]),
+        target_a,
+        float(declared.get("parameter_match_tolerance", 0.0)),
+    )
     period_scale = max(left_row["period_time"], right_row["period_time"])
     relative_period = (
         abs(left_row["period_time"] - right_row["period_time"]) / period_scale
@@ -304,7 +315,7 @@ def _shared_identity(branches, manifest, solver):
     classification_policy = declared.get("classification")
     if classification_policy is None:
         classification = "same" if same_family else "not-qualified-as-same"
-        passed = bool(exact_parameter_match and same_family)
+        passed = bool(parameter_match and same_family)
     else:
         distinct_family = bool(
             relative_period
@@ -322,10 +333,12 @@ def _shared_identity(branches, manifest, solver):
             classification = "distinct"
         else:
             classification = "inconclusive"
-        passed = bool(exact_parameter_match and classification != "inconclusive")
+        passed = bool(parameter_match and classification != "inconclusive")
     return {
         "comparison_a": target_a,
         "exact_parameter_match": exact_parameter_match,
+        "parameter_match": parameter_match,
+        "maximum_parameter_error": maximum_parameter_error,
         "relative_period_difference": relative_period,
         "phase_invariant_rms": rms,
         "phase_shift": phase_shift,

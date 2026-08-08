@@ -464,7 +464,10 @@ exposition requirements.
   those closed flow orbits without section count as a stopping gate, record a
   phase-shifted count, then retry whole-orbit family matching. EXP-137 freezes
   both complete flow paths, a separate shifted-count qualification, and a
-  decisive same/distinct midpoint classification.
+  decisive same/distinct midpoint classification. Both flow paths and all 42
+  shifted counts pass, and the paths classify as distinct, but bitwise Float64
+  equality rejects a `2.78e-17` midpoint representation error. EXP-138 freezes
+  a `1e-14` parameter-match tolerance and otherwise repeats EXP-137 unchanged.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

@@ -1,6 +1,6 @@
 # EXP-137 — Phase-robust lag-12 flow continuation and identity
 
-Status: preregistered; unexecuted
+Status: executed; substantive gates passed, strict Float64 equality gate failed
 
 ## Question
 
@@ -58,3 +58,19 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/continue_pim_upos_in_a.py \
 A pass establishes finite continuation and local orbit-family identity only.
 It does not establish the manifold event that opens the third chaotic-saddle
 return-map branch or explain the global hub superstructure.
+
+## Result
+
+The clean `5cd1544` run completes both 21-point flow continuations in
+`126.39 s`. Every correction, closure, neutral-multiplier, primitivity, and
+instability gate passes. All 42 shifted windows contain exactly 12 oriented
+Barrio crossings, confirming that the EXP-136 count failure was a boundary
+artifact.
+
+The midpoint classifier reports `distinct`: relative period difference
+`1.7970e-3` and scaled whole-orbit RMS `6092.16`. Nevertheless, the overall
+receipt remains failed because the lower grid value is represented as
+`0.14812499999999998`, and the implementation required bitwise equality with
+`0.148125`. EXP-138 freezes a `1e-14` parameter tolerance and reruns the full
+calculation. Raw receipt SHA-256:
+`1269da1be112b45ab23e7d1eb23c538999f0ad1839e7a8932ef3b6c37a68077f`.

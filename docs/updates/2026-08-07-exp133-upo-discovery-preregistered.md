@@ -51,3 +51,9 @@ EXP-137 now freezes that repair. Both lag-12 seeds must traverse the full
 21-point bracket under flow/Floquet/primitivity gates. The Barrio count is
 measured separately on `(0.1 T, 1.1 T]`, and continuous whole-orbit matching at
 the midpoint must decisively classify the paths as the same or distinct.
+
+EXP-137 completes all 42 flow points and shifted crossing counts successfully.
+The two paths are decisively distinct at the midpoint by period and whole-orbit
+RMS. Its receipt remains strictly failed only because bitwise equality rejects
+the lower grid representation `0.14812499999999998`. EXP-138 changes that one
+gate to a frozen `1e-14` tolerance and reruns the complete calculation.
