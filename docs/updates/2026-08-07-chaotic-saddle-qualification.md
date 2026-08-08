@@ -69,3 +69,18 @@ This is retained as independent bimodal-saddle corroboration, but it does not
 close the two-control gate. The successor will treat censoring as a lifetime
 lower bound and require a censored interior block to be strictly bracketed by
 captured lower-lifetime endpoints, plus nested-horizon stability.
+
+## Censor-aware successor frozen: EXP-115
+
+DEC-009 and EXP-115 now turn that diagnosis into an executable, prospectively
+frozen rule. A censored interior block is eligible only when captured points
+on both sides have exact, strictly shorter lifetimes. The code never imputes an
+escape time beyond the observed lower bound, and boundary-touching plateaus
+remain unresolved. Unit tests cover both certified refinement and boundary
+rejection.
+
+The target repeats three fixed section lines at 64- and 128-return censor
+horizons. Each horizon must independently recover the expected two/three
+topology at both controls; critical locations must also agree across horizons.
+The preregistration checkpoint is the next source commit. No target value has
+been inspected while choosing these gates.

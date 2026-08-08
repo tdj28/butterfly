@@ -2,11 +2,13 @@ import numpy as np
 
 from butterfly import (
     PoincareSection,
+    PIMLifetimeBatch,
     RosslerParameters,
     SolverConfig,
     advance_pim_straddle,
     cycle_crossing_distances,
     next_section_return,
+    refine_censor_aware_pim_segment,
     refine_pim_segment,
     scrambled_sobol_section_states,
     sprinkler_survivors,
@@ -183,6 +185,57 @@ def test_pim_refinement_rejects_monotone_escape_profile() -> None:
 
     with np.testing.assert_raises_regex(RuntimeError, "no strict interior"):
         refine_pim_segment(
+            (0.0,),
+            (1.0,),
+            lifetime,
+            coordinate_scales=(1.0,),
+            sample_count=9,
+            width_tolerance=1e-6,
+            max_refinements=4,
+        )
+
+
+def test_censor_aware_pim_refines_certified_interior_lower_bound() -> None:
+    target = 0.3712345
+
+    def lifetime(points):
+        exact = 1.0 / (np.abs(points[:, 0] - target) + 0.01)
+        center = int(np.argmin(np.abs(points[:, 0] - target)))
+        censored = np.zeros(len(points), dtype=bool)
+        censored[center] = True
+        exact[center] = 200.0
+        return PIMLifetimeBatch(
+            lifetimes=exact,
+            censored=censored,
+            failed=np.zeros(len(points), dtype=bool),
+        )
+
+    result = refine_censor_aware_pim_segment(
+        (0.0,),
+        (1.0,),
+        lifetime,
+        coordinate_scales=(1.0,),
+        sample_count=17,
+        width_tolerance=1e-6,
+        max_refinements=8,
+    )
+    assert result.triple.normalized_width <= 1e-6
+    assert abs(result.triple.center[0] - target) <= 1e-6
+    assert result.certified_censor_block_selections == result.refinement_count
+
+
+def test_censor_aware_pim_rejects_boundary_plateau() -> None:
+    def lifetime(points):
+        censored = np.zeros(len(points), dtype=bool)
+        censored[:3] = True
+        return PIMLifetimeBatch(
+            lifetimes=np.where(censored, 100.0, 1.0),
+            censored=censored,
+            failed=np.zeros(len(points), dtype=bool),
+        )
+
+    with np.testing.assert_raises_regex(RuntimeError, "no exact or certified"):
+        refine_censor_aware_pim_segment(
             (0.0,),
             (1.0,),
             lifetime,

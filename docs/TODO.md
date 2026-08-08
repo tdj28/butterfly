@@ -285,7 +285,10 @@ exposition requirements.
   exceed 256 returns. Its three complete bimodal straddles nevertheless yield
   2997 pairs, three branches in both coordinates, oracle consensus `1.0`, and
   CPU/PIM critical spans below `0.01263`. Freeze a right-censor-aware PIM rule
-  with nested-horizon stability; do not relabel EXP-114.
+  with nested-horizon stability; do not relabel EXP-114. DEC-009 and EXP-115
+  now freeze the order-certified lower-bound rule, three section lines, two
+  censor horizons, and all acceptance gates before target execution. Commit
+  that preregistration, then execute both controls and retain pass or failure.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

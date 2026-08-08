@@ -87,6 +87,38 @@ class PIMStraddleResult:
     final_triple: PIMTriple
 
 
+@dataclass(frozen=True, slots=True)
+class PIMLifetimeBatch:
+    """Exact escape times and right-censored lower bounds for PIM points."""
+
+    lifetimes: NDArray[np.float64]
+    censored: NDArray[np.bool_]
+    failed: NDArray[np.bool_]
+
+
+@dataclass(frozen=True, slots=True)
+class CensorAwarePIMRefinementResult:
+    """PIM refinement with certified right-censored block selections."""
+
+    triple: PIMTriple
+    refinement_count: int
+    lifetime_evaluations: int
+    normalized_widths: NDArray[np.float64]
+    certified_censor_block_selections: int
+
+
+@dataclass(frozen=True, slots=True)
+class CensorAwarePIMStraddleResult:
+    """PIM straddle with right-censored lower-bound provenance."""
+
+    states: NDArray[np.float64]
+    normalized_widths: NDArray[np.float64]
+    refinement_events: NDArray[np.int64]
+    lifetime_evaluations: int
+    certified_censor_block_selections: int
+    final_triple: PIMTriple
+
+
 def _normalized_segment_width(
     left: NDArray[np.float64],
     right: NDArray[np.float64],
@@ -181,6 +213,240 @@ def refine_pim_segment(
     raise RuntimeError(
         "PIM refinement did not reach width tolerance: "
         f"{triple.normalized_width:.6g} > {width_tolerance:.6g}"
+    )
+
+
+def refine_censor_aware_pim_segment(
+    left: ArrayLike,
+    right: ArrayLike,
+    escape_time: Callable[[NDArray[np.float64]], PIMLifetimeBatch],
+    *,
+    coordinate_scales: ArrayLike,
+    sample_count: int,
+    width_tolerance: float,
+    max_refinements: int,
+) -> CensorAwarePIMRefinementResult:
+    """Refine a PIM segment using exact times and certified lower bounds.
+
+    A contiguous right-censored interior block is admissible only when it is
+    bracketed by captured points and its selected lower bound is strictly
+    larger than both exact endpoint lifetimes. Blocks touching the segment
+    boundary, integration failures, and non-proper refinements are rejected.
+    """
+
+    segment_left = np.asarray(left, dtype=np.float64)
+    segment_right = np.asarray(right, dtype=np.float64)
+    scales = np.asarray(coordinate_scales, dtype=np.float64)
+    if (
+        segment_left.ndim != 1
+        or segment_right.shape != segment_left.shape
+        or scales.shape != segment_left.shape
+        or len(segment_left) == 0
+    ):
+        raise ValueError("PIM endpoints and coordinate scales must share shape (d,)")
+    if not np.all(np.isfinite(segment_left)) or not np.all(np.isfinite(segment_right)):
+        raise ValueError("PIM endpoints must be finite")
+    if np.any(~np.isfinite(scales)) or np.any(scales <= 0.0):
+        raise ValueError("PIM coordinate scales must be finite and positive")
+    if sample_count < 3 or width_tolerance <= 0.0 or max_refinements < 1:
+        raise ValueError("invalid PIM refinement controls")
+    if np.array_equal(segment_left, segment_right):
+        raise ValueError("PIM segment endpoints must be distinct")
+
+    widths: list[float] = []
+    evaluations = 0
+    censor_selections = 0
+    triple: PIMTriple | None = None
+    alphas = np.linspace(0.0, 1.0, sample_count, dtype=np.float64)
+    for refinement in range(1, max_refinements + 1):
+        old_width = _normalized_segment_width(segment_left, segment_right, scales)
+        points = (
+            segment_left[None, :]
+            + alphas[:, None] * (segment_right - segment_left)[None, :]
+        )
+        batch = escape_time(points)
+        lifetimes = np.asarray(batch.lifetimes, dtype=np.float64)
+        censored = np.asarray(batch.censored, dtype=bool)
+        failed = np.asarray(batch.failed, dtype=bool)
+        evaluations += len(points)
+        if (
+            lifetimes.shape != (sample_count,)
+            or censored.shape != (sample_count,)
+            or failed.shape != (sample_count,)
+            or np.any(~np.isfinite(lifetimes))
+        ):
+            raise ValueError("invalid censor-aware escape-time batch")
+        if np.any(failed):
+            raise RuntimeError(
+                f"PIM lifetime integration failed at refinement {refinement}"
+            )
+
+        candidates: list[tuple[float, int, int, int, bool]] = []
+        exact = ~censored
+        exact_maxima = np.flatnonzero(
+            exact[1:-1]
+            & exact[:-2]
+            & exact[2:]
+            & (lifetimes[1:-1] > lifetimes[:-2])
+            & (lifetimes[1:-1] > lifetimes[2:])
+        ) + 1
+        for center_index in exact_maxima:
+            candidates.append(
+                (
+                    float(lifetimes[center_index]),
+                    int(center_index),
+                    int(center_index - 1),
+                    int(center_index + 1),
+                    False,
+                )
+            )
+
+        padded = np.concatenate(([False], censored, [False])).astype(np.int8)
+        starts = np.flatnonzero(np.diff(padded) == 1)
+        ends = np.flatnonzero(np.diff(padded) == -1) - 1
+        for block_start, block_end in zip(starts, ends, strict=True):
+            if block_start == 0 or block_end == sample_count - 1:
+                continue
+            left_index = int(block_start - 1)
+            right_index = int(block_end + 1)
+            block_indices = np.arange(block_start, block_end + 1)
+            best_bound = np.max(lifetimes[block_indices])
+            center_index = int(
+                block_indices[lifetimes[block_indices] == best_bound][0]
+            )
+            if best_bound <= max(lifetimes[left_index], lifetimes[right_index]):
+                continue
+            new_width = _normalized_segment_width(
+                points[left_index], points[right_index], scales
+            )
+            if new_width >= old_width:
+                continue
+            candidates.append(
+                (
+                    float(best_bound),
+                    center_index,
+                    left_index,
+                    right_index,
+                    True,
+                )
+            )
+
+        if not candidates:
+            raise RuntimeError(
+                "no exact or certified right-censored interior maximum at "
+                f"refinement {refinement}"
+            )
+        score, center_index, left_index, right_index, used_censor = min(
+            candidates, key=lambda row: (-row[0], row[1], row[2], row[3])
+        )
+        del score
+        new_left = points[left_index].copy()
+        center = points[center_index].copy()
+        new_right = points[right_index].copy()
+        width = _normalized_segment_width(new_left, new_right, scales)
+        widths.append(width)
+        censor_selections += int(used_censor)
+        triple = PIMTriple(
+            left=new_left,
+            center=center,
+            right=new_right,
+            escape_times=np.asarray(
+                (
+                    lifetimes[left_index],
+                    lifetimes[center_index],
+                    lifetimes[right_index],
+                ),
+                dtype=np.float64,
+            ),
+            normalized_width=width,
+        )
+        if width <= width_tolerance:
+            return CensorAwarePIMRefinementResult(
+                triple=triple,
+                refinement_count=refinement,
+                lifetime_evaluations=evaluations,
+                normalized_widths=np.asarray(widths, dtype=np.float64),
+                certified_censor_block_selections=censor_selections,
+            )
+        segment_left = new_left
+        segment_right = new_right
+
+    assert triple is not None
+    raise RuntimeError(
+        "censor-aware PIM refinement did not reach width tolerance: "
+        f"{triple.normalized_width:.6g} > {width_tolerance:.6g}"
+    )
+
+
+def advance_censor_aware_pim_straddle(
+    initial_triple: PIMTriple,
+    return_map: Callable[[NDArray[np.float64]], ArrayLike],
+    escape_time: Callable[[NDArray[np.float64]], PIMLifetimeBatch],
+    *,
+    coordinate_scales: ArrayLike,
+    return_count: int,
+    sample_count: int,
+    width_tolerance: float,
+    max_refinements_per_event: int,
+) -> CensorAwarePIMStraddleResult:
+    """Advance and re-refine a PIM straddle using certified censor bounds."""
+
+    scales = np.asarray(coordinate_scales, dtype=np.float64)
+    points = initial_triple.points
+    if points.ndim != 2 or points.shape[0] != 3 or scales.shape != points.shape[1:]:
+        raise ValueError("PIM triple and coordinate scales have incompatible shapes")
+    if np.any(~np.isfinite(scales)) or np.any(scales <= 0.0):
+        raise ValueError("PIM coordinate scales must be finite and positive")
+    if (
+        return_count < 1
+        or sample_count < 3
+        or width_tolerance <= 0.0
+        or max_refinements_per_event < 1
+    ):
+        raise ValueError("invalid censor-aware PIM straddle controls")
+
+    current = initial_triple
+    states = []
+    widths = []
+    events = []
+    evaluations = 0
+    censor_selections = 0
+    for return_index in range(return_count):
+        states.append(current.center.copy())
+        widths.append(float(current.normalized_width))
+        mapped = np.asarray(return_map(current.points), dtype=np.float64)
+        if mapped.shape != current.points.shape or np.any(~np.isfinite(mapped)):
+            raise RuntimeError(f"PIM return map failed at return {return_index}")
+        mapped_width = _normalized_segment_width(mapped[0], mapped[2], scales)
+        if mapped_width > width_tolerance:
+            refined = refine_censor_aware_pim_segment(
+                mapped[0],
+                mapped[2],
+                escape_time,
+                coordinate_scales=scales,
+                sample_count=sample_count,
+                width_tolerance=width_tolerance,
+                max_refinements=max_refinements_per_event,
+            )
+            current = refined.triple
+            evaluations += refined.lifetime_evaluations
+            censor_selections += refined.certified_censor_block_selections
+            events.append(return_index + 1)
+        else:
+            current = PIMTriple(
+                left=mapped[0].copy(),
+                center=mapped[1].copy(),
+                right=mapped[2].copy(),
+                escape_times=np.full(3, np.nan),
+                normalized_width=mapped_width,
+            )
+    return CensorAwarePIMStraddleResult(
+        states=np.asarray(states, dtype=np.float64),
+        normalized_widths=np.asarray(widths, dtype=np.float64),
+        refinement_events=np.asarray(events, dtype=np.int64),
+        lifetime_evaluations=evaluations,
+        certified_censor_block_selections=censor_selections,
+        final_triple=current,
     )
 
 
