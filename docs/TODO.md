@@ -468,6 +468,12 @@ exposition requirements.
   shifted counts pass, and the paths classify as distinct, but bitwise Float64
   equality rejects a `2.78e-17` midpoint representation error. EXP-138 freezes
   a `1e-14` parameter-match tolerance and otherwise repeats EXP-137 unchanged.
+  It passes: two distinct primitive lag-12 UPO families coexist and persist
+  across all 21 points, with 12 shifted-window crossings at all 42 path
+  points. Together with lag-4 persistence, this rejects three simple
+  orbit-birth/crossing mechanisms. Seed both families' invariant manifolds and
+  define a pruning/reinjection connection residual that can change while the
+  periodic skeleton remains intact.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

@@ -1,0 +1,62 @@
+{
+  "schema": "butterfly.a-upo-continuation-summary.v1",
+  "experiment_id": "EXP-138",
+  "passed": true,
+  "source_commit": "61c56d3195fdf3f7773a6458edea01bdc5a1731b",
+  "manifest_sha256": "144268e0cb37fd9578ec5d9956a56b22687f322325877da78820adf3677844e3",
+  "raw_receipt": "artifacts/EXP-138/receipt.json",
+  "raw_receipt_sha256": "a4ad0a077efd1b99b5b2947ed804bcd1e944eecf814b9d1e234a02ff354d71fb",
+  "raw_receipt_bytes": 61266,
+  "elapsed_seconds": 127.1566398749128,
+  "flow_continuations": [
+    {
+      "id": "lag12-lower-to-upper-flow",
+      "points": 21,
+      "period_interval": [
+        75.09811009532595,
+        75.10836796778754
+      ],
+      "minimum_proper_divisor_closure": 5.641279713472337,
+      "maximum_flow_closure": 2.293058988743198E-9,
+      "maximum_neutral_multiplier_error": 5.349667375753597E-10,
+      "unstable_modulus_interval": [
+        2165.4873227953544,
+        2219.278446231255
+      ],
+      "passed": true
+    },
+    {
+      "id": "lag12-upper-to-lower-flow",
+      "points": 21,
+      "period_interval": [
+        75.23354268669111,
+        75.24331879541538
+      ],
+      "minimum_proper_divisor_closure": 4.5099112150393355,
+      "maximum_flow_closure": 7.021994509805291E-10,
+      "maximum_neutral_multiplier_error": 5.519007473253623E-10,
+      "unstable_modulus_interval": [
+        1146.6421454030267,
+        1165.7258707534154
+      ],
+      "passed": true
+    }
+  ],
+  "phase_shifted_section_count": {
+    "window": "(0.1 T, 1.1 T]",
+    "evaluated_points": 42,
+    "observed_counts": [
+      12
+    ],
+    "passed": true
+  },
+  "midpoint_identity": {
+    "classification": "distinct",
+    "relative_period_difference": 0.0017970178023541128,
+    "phase_invariant_rms": 6092.157445031553,
+    "maximum_parameter_error": 2.7755575615628914E-17,
+    "parameter_match_tolerance": 1E-14,
+    "passed": true
+  },
+  "interpretation": "Two distinct primitive lag-12 UPO families coexist and persist across the complete sampled two/three-branch interval. Both retain 12 phase-robust Barrio crossings. Neither family birth/death nor a lag-12 crossing loss is the local branch-opening mechanism."
+}

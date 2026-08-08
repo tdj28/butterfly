@@ -57,3 +57,10 @@ The two paths are decisively distinct at the midpoint by period and whole-orbit
 RMS. Its receipt remains strictly failed only because bitwise equality rejects
 the lower grid representation `0.14812499999999998`. EXP-138 changes that one
 gate to a frozen `1e-14` tolerance and reruns the complete calculation.
+
+EXP-138 passes. Both primitive lag-12 UPO families continue across all 21
+points, all 42 shifted windows contain 12 crossings, and the midpoint identity
+audit classifies the families as distinct. With the lag-4 continuation from
+EXP-136, the local branch opening is no longer plausibly explained by birth,
+death, or section-crossing loss of these tested UPOs. The mechanism search now
+moves to their invariant manifolds and symbolic pruning/reinjection geometry.

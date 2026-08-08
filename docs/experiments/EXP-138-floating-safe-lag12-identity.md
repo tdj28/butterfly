@@ -1,6 +1,6 @@
 # EXP-138 — Floating-safe lag-12 flow-family identity
 
-Status: preregistered; unexecuted
+Status: passed
 
 ## Question
 
@@ -39,3 +39,13 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/continue_pim_upos_in_a.py \
 A pass qualifies the finite persistence and distinctness of these two
 primitive lag-12 UPO families. It does not locate the manifold event that
 changes the chaotic-saddle return-map branch count.
+
+## Result
+
+The clean `61c56d3` run passes in `127.16 s`. Both independent natural
+continuations reach the opposite endpoint with 21/21 flow-orbit audits passed.
+All 42 shifted crossing counts equal 12. At `a=0.148125`, the two families are
+decisively distinct: relative period difference `1.7970e-3` and scaled
+phase-invariant RMS `6092.16`. The maximum parameter representation error is
+`2.78e-17`, safely below the frozen `1e-14` tolerance. Raw receipt SHA-256:
+`a4ad0a077efd1b99b5b2947ed804bcd1e944eecf814b9d1e234a02ff354d71fb`.
