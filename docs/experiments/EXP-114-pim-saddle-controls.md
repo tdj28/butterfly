@@ -1,6 +1,6 @@
 # EXP-114 — Independent PIM-triple saddle controls
 
-Status: preregistered; serial launch interrupted before any line result
+Status: failed prospectively; partial bimodal corroboration retained
 
 ## Hypothesis
 
@@ -70,3 +70,34 @@ PYTHONPATH=python ./.venv/bin/python scripts/qualify_pim_saddle_controls.py \
   --output artifacts/EXP-114/receipt.json \
   --states-output artifacts/EXP-114/pim-straddles.npz
 ```
+
+## Result
+
+The complete experiment fails after `5170.51 s`. All five unimodal lines and
+two bimodal lines hit the frozen 256-return censor ceiling; there are no
+integration failures. Because the acceptance contract allowed zero censored
+lifetime evaluations, neither case passes and the complete experiment cannot
+be promoted.
+
+Three bimodal lines do complete 1200-return strict PIM straddles. After the
+declared burn-in they contribute 2997 pairs per coordinate. Both `y` and `z`
+recover three branches in all 15 oracle variants with consensus `1.0`.
+Maximum within-PIM critical spans are `0.01252` and `0.01123`; combined
+EXP-112/PIM spans are `0.01263` and `0.01122`. Those gates pass by wide
+margins. This is retained as qualified independent corroboration of the
+bimodal control, not as a successful two-control experiment.
+
+The 17,813-byte receipt has SHA-256
+`d2d238668ac85b0c321db9b19549659c2e134106240eee769a177ba0d6bcb87f`.
+The 65,714-byte straddle-state NPZ has SHA-256
+`69e8bae0aa5369d9b503a71285eedf65fd21d38c80707b7e1e59982a2dd6bd11`.
+The tracked summary is `docs/experiments/receipts/EXP-114.json`.
+
+## Next action
+
+Freeze a censor-aware PIM refinement that treats survival to the horizon as a
+right-censored lower bound. A contiguous censored interior block may be
+bracketed by captured endpoints only when its lower bound strictly exceeds
+both endpoint lifetimes. Boundary-touching and unbracketed plateaus remain
+unresolved. Require nested censor-horizon stability before re-testing both
+controls.

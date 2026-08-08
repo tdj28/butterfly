@@ -1,0 +1,49 @@
+{
+  "artifact": "artifacts/EXP-114/receipt.json",
+  "artifact_bytes": 17813,
+  "artifact_sha256": "d2d238668ac85b0c321db9b19549659c2e134106240eee769a177ba0d6bcb87f",
+  "experiment_id": "EXP-114",
+  "manifest_sha256": "22a61c55f4c994d78f2f8f1f7a7ee9fb2b6bd70db5fe0b1c1a506be59079f815",
+  "source_commit": "cc77be5e71df1957bb0b4dfba2c4e29108410d2d",
+  "elapsed_seconds": 5170.509882292245,
+  "states_artifact": "artifacts/EXP-114/pim-straddles.npz",
+  "states_artifact_bytes": 65714,
+  "states_artifact_sha256": "69e8bae0aa5369d9b503a71285eedf65fd21d38c80707b7e1e59982a2dd6bd11",
+  "passed": false,
+  "case_summaries": [
+    {
+      "id": "published-unimodal-saddle",
+      "successful_straddles": 0,
+      "censored_lifetime_evaluations": 5,
+      "failed_lifetime_evaluations": 0,
+      "line_elapsed_seconds": [374.65221712505445, 19.38222729228437, 98.84433474997059, 47.82309349998832, 69.97864858293906],
+      "passed": false
+    },
+    {
+      "id": "published-bimodal-saddle",
+      "successful_straddles": 3,
+      "censored_lifetime_evaluations": 2,
+      "failed_lifetime_evaluations": 0,
+      "successful_line_ids": ["z-00900", "z-00990", "z-01020"],
+      "successful_line_elapsed_seconds": [1123.8635317496955, 1098.7337252921425, 1169.8863293337636],
+      "retained_pairs_per_coordinate": 2997,
+      "coordinates": {
+        "y": {
+          "branch_count": 3,
+          "variant_consensus": 1.0,
+          "maximum_within_pim_critical_span": 0.01251961156037636,
+          "maximum_cpu_pim_critical_span": 0.012624898654803022
+        },
+        "z": {
+          "branch_count": 3,
+          "variant_consensus": 1.0,
+          "maximum_within_pim_critical_span": 0.01122311243866952,
+          "maximum_cpu_pim_critical_span": 0.011216681159019266
+        }
+      },
+      "passed": false
+    }
+  ],
+  "failure_reason": "The frozen zero-censor gate rejects all five unimodal lines and two bimodal lines; the three complete bimodal straddles independently pass support, topology, and CPU/PIM critical-location gates.",
+  "status": "failed with qualified partial bimodal corroboration"
+}

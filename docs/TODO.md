@@ -280,7 +280,12 @@ exposition requirements.
   continuation through the regular gap. DEC-008 and EXP-114 now freeze the
   independent route: strict PIM triples, adaptive DOP853 returns, five declared
   section straddles per control, zero censoring, the unchanged robust branch
-  oracle, and direct critical-location comparison against EXP-112.
+  oracle, and direct critical-location comparison against EXP-112. EXP-114
+  fails the complete zero-censor gate: all five unimodal and two bimodal lines
+  exceed 256 returns. Its three complete bimodal straddles nevertheless yield
+  2997 pairs, three branches in both coordinates, oracle consensus `1.0`, and
+  CPU/PIM critical spans below `0.01263`. Freeze a right-censor-aware PIM rule
+  with nested-horizon stability; do not relabel EXP-114.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

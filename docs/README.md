@@ -33,6 +33,9 @@ what must be narrowed, and what is false or unresolved.
   reproduces those saddle observables on Float64 GPU, records exact CPU/GPU
   discrepancies, cost, hashes, teardown, and the remaining independent-method
   boundary.
+- [`findings/FND-011-pim-bimodal-corroboration-and-censor-boundary.md`](findings/FND-011-pim-bimodal-corroboration-and-censor-boundary.md):
+  retains independent DOP853/PIM corroboration of the bimodal saddle while
+  diagnosing why the complete zero-censor PIM experiment fails.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

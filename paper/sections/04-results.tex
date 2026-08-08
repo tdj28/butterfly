@@ -159,3 +159,15 @@ with DOP853 within $2.46\times10^{-6}$ in scaled state and
 $3.16\times10^{-6}$ in event time.  This passes statistical backend parity at
 the two controls; it is not an independent saddle construction or a continued
 TBA.
+
+The first independent-method experiment then uses strict PIM triples and an
+adaptive DOP853 return map.  Its complete two-control gate fails: all five
+unimodal access lines and two bimodal lines encounter a candidate that remains
+uncaptured through the frozen 256-return lifetime ceiling.  The other three
+bimodal lines complete 1200-return straddles.  Their 2997 retained pairs recover
+three branches in both coordinates with all 15 oracle variants agreeing; the
+largest combined CPU/PIM critical-location span is $0.01263$.  This is retained
+as independent bimodal-saddle corroboration, not as a successful reproduction
+of both controls.  The failure diagnoses zero censoring as incompatible with
+dynamic restraint: a surviving candidate supplies a lifetime lower bound and
+must be handled as right-censored data rather than discarded.

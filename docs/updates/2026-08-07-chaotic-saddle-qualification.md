@@ -54,3 +54,18 @@ Implement and preregister a structurally independent PIM-triple or
 stagger-and-step saddle trajectory at the two controls. Only after that
 corroboration should the saddle-defined branch boundary be continued across
 the period-4 gap and then expanded adaptively in `(a,c,b)`.
+
+## Independent-method checkpoint: EXP-114
+
+EXP-114 implements strict Nusse-Yorke PIM straddles with adaptive DOP853 and
+fails its complete prospectively frozen zero-censor gate. All five unimodal
+lines and two bimodal lines contain a candidate that survives the full 256-
+return lifetime horizon; no integration fails.
+
+Three bimodal lines complete 1200-return straddles and retain 2997 pairs per
+coordinate. Both coordinates recover three branches in every one of 15 oracle
+variants. Within-PIM and combined CPU/PIM critical spans are below `0.01263`.
+This is retained as independent bimodal-saddle corroboration, but it does not
+close the two-control gate. The successor will treat censoring as a lifetime
+lower bound and require a censored interior block to be strictly bracketed by
+captured lower-lifetime endpoints, plus nested-horizon stability.
