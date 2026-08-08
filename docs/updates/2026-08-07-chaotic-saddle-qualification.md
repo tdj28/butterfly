@@ -421,3 +421,20 @@ change inside the regular window, but it is still not an independently
 continued TBA curve. Freeze the next midpoint at `a=0.14825` only after adding
 a branch-conditioned escape diagnostic so localization and mechanism advance
 together.
+
+## Branch-conditioned escape diagnostic frozen
+
+EXP-127 turns the proposed faster-escape explanation into a prospective test.
+The six adequate 300-unit EXP-123 runs define two empirical `y` critical-point
+uncertainty envelopes; no new lifetime data can move them. A trajectory is
+assigned only once from its last oriented-section crossing before a time-150
+landmark, and crossings inside either envelope are excluded. The leftmost
+domain is the added branch; the other two certain domains are the pooled core.
+
+Untouched Sobol seeds 135--137 each start with `2^16` conditions and are
+followed to time 420. The primary statistic is extra-minus-core restricted
+mean survival time after the landmark, with a 99% trajectory bootstrap interval
+and a two-sided log-rank test. All three seeds must independently support
+faster extra-branch capture. A same-ensemble half-step run must also preserve
+the effect within the frozen aggregate tolerances. This is a mechanism test,
+not a continuation of the TBA curve.

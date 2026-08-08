@@ -1,0 +1,111 @@
+{
+  "schema": "butterfly.branch-conditioned-escape-manifest.v1",
+  "experiment_id": "EXP-127",
+  "source": {
+    "predecessors": ["EXP-123", "EXP-124", "EXP-125", "EXP-126"],
+    "role": "prospective test of faster capture from the transient extra branch at a=0.148"
+  },
+  "parameters": {"a": 0.148, "b": 0.2, "c": 20.0},
+  "stable_period": 4,
+  "cycle_initial_state": [0.0, 4.0, 0.0],
+  "cycle_reference": {
+    "transient": 2000.0,
+    "observation_horizon": 200.0,
+    "max_crossings": 16,
+    "recurrence": {
+      "max_period": 16,
+      "required_repeats": 3,
+      "atol": 1e-9,
+      "rtol": 1e-9
+    }
+  },
+  "ensemble": {
+    "y_range": [-38.0, -8.0],
+    "z_range": [0.0088, 0.0102],
+    "dt": 0.01,
+    "horizon": 420.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0, 250.0, 300.0, 360.0, 420.0],
+    "escape_radius": 10000.0
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [30.0, 0.0006],
+    "radius": 0.002,
+    "required_crossings": 8
+  },
+  "branch_definition": {
+    "coordinate": "y",
+    "axis": 1,
+    "critical_intervals": [
+      [-31.38269608387056, -31.074901817470213],
+      [-21.220030148791825, -20.836976970537116]
+    ],
+    "extra_branch": 0,
+    "provenance": "envelope over the two robust y critical-point intervals in all six EXP-123 300-unit three-branch runs; uncertainty bands are excluded from assignment"
+  },
+  "landmark": {
+    "time": 150.0,
+    "assignment_window": [120.0, 150.0],
+    "rule": "last oriented section crossing in the window, one assignment per trajectory; retain only trajectories uncaptured at the landmark"
+  },
+  "runs": [
+    {
+      "id": "sobol-135-baseline",
+      "sampler": "sobol",
+      "sample_power": 16,
+      "scramble_seed": 135
+    },
+    {
+      "id": "sobol-135-half-step",
+      "sampler": "sobol",
+      "sample_power": 16,
+      "scramble_seed": 135,
+      "dt": 0.005
+    },
+    {
+      "id": "sobol-136-independent",
+      "sampler": "sobol",
+      "sample_power": 16,
+      "scramble_seed": 136
+    },
+    {
+      "id": "sobol-137-independent",
+      "sampler": "sobol",
+      "sample_power": 16,
+      "scramble_seed": 137
+    }
+  ],
+  "evidence_run_ids": [
+    "sobol-135-baseline",
+    "sobol-136-independent",
+    "sobol-137-independent"
+  ],
+  "survival_analysis": {
+    "rmst_tau": 270.0,
+    "checkpoints": [60.0, 120.0, 180.0, 270.0],
+    "bootstrap_samples": 2000,
+    "confidence": 0.99,
+    "bootstrap_seed": 127
+  },
+  "numerical_comparison": {
+    "baseline_run_id": "sobol-135-baseline",
+    "alternate_run_id": "sobol-135-half-step",
+    "maximum_absolute_rmst_difference_change": 15.0,
+    "maximum_absolute_extra_fraction_change": 0.01
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "acceptance": {
+    "minimum_extra_assignments": 100,
+    "minimum_core_assignments": 5000,
+    "maximum_ambiguous_fraction": 0.15,
+    "maximum_failed_count": 0,
+    "maximum_logrank_p_value": 0.01,
+    "require_faster_extra_branch": true
+  },
+  "interpretation_limit": "A pass identifies a reproducible finite-time branch-conditioned capture asymmetry. It does not establish an infinite-lifetime saddle, a continuous TBA curve, or causation by the branch label alone."
+}

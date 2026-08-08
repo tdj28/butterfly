@@ -100,6 +100,11 @@ def test_sprinkler_reports_no_capture_over_short_horizon() -> None:
     np.testing.assert_array_equal(result.survivor_ids, (0, 1))
     np.testing.assert_array_equal(result.survivor_counts, (2, 2))
     assert not np.any(result.failed)
+    np.testing.assert_array_equal(
+        result.all_midpoint_trajectory_ids, result.midpoint_trajectory_ids
+    )
+    np.testing.assert_array_equal(result.all_midpoint_times, result.midpoint_times)
+    np.testing.assert_array_equal(result.all_midpoint_states, result.midpoint_states)
 
 
 def test_survivor_return_pairs_do_not_join_trajectories() -> None:

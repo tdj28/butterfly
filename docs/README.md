@@ -74,6 +74,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-023-blind-pim-qualifies-a1485-three-branch-saddle.md`](findings/FND-023-blind-pim-qualifies-a1485-three-branch-saddle.md):
   qualifies the next blind midpoint as three-branch under the identical PIM
   definition, narrowing the finite bracket to `[0.148,0.1485]`.
+- [`experiments/EXP-127-a148-branch-conditioned-escape.md`](experiments/EXP-127-a148-branch-conditioned-escape.md):
+  prospectively tests whether the transient extra branch at `a=0.148` captures
+  faster than the two persistent branches on untouched ensembles.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

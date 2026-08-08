@@ -29,6 +29,9 @@ class SprinklerResult:
     midpoint_trajectory_ids: NDArray[np.int64]
     midpoint_times: NDArray[np.float64]
     midpoint_states: NDArray[np.float64]
+    all_midpoint_trajectory_ids: NDArray[np.int64]
+    all_midpoint_times: NDArray[np.float64]
+    all_midpoint_states: NDArray[np.float64]
 
 
 @dataclass(frozen=True, slots=True)
@@ -1003,6 +1006,9 @@ def sprinkler_survivors(
         midpoint_times = all_record_times[retained_records]
         midpoint_states = all_record_states[retained_records]
     else:
+        all_record_ids = np.empty(0, dtype=np.int64)
+        all_record_times = np.empty(0, dtype=np.float64)
+        all_record_states = np.empty((0, 3), dtype=np.float64)
         midpoint_ids = np.empty(0, dtype=np.int64)
         midpoint_times = np.empty(0, dtype=np.float64)
         midpoint_states = np.empty((0, 3), dtype=np.float64)
@@ -1017,4 +1023,7 @@ def sprinkler_survivors(
         midpoint_trajectory_ids=midpoint_ids,
         midpoint_times=midpoint_times,
         midpoint_states=midpoint_states,
+        all_midpoint_trajectory_ids=all_record_ids,
+        all_midpoint_times=all_record_times,
+        all_midpoint_states=all_record_states,
     )

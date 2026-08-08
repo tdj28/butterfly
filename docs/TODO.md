@@ -391,7 +391,11 @@ exposition requirements.
   critical-drift gates passing. The finite bracket is now `[0.148,0.1485]`.
   Add a branch-conditioned escape diagnostic, then freeze `a=0.14825` under the
   identical PIM definition; do not confuse further bisection with independent
-  continuation of a TBA curve.
+  continuation of a TBA curve. EXP-127 now freezes that diagnostic: the full
+  EXP-123 `y` critical-point uncertainty bands define the extra and core
+  domains before new data, one last pre-landmark crossing assigns each
+  trajectory once, seeds 135--137 test a 99% bootstrap RMST contrast and
+  log-rank gate, and a seed-135 half-step repeat gates numerical drift.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
