@@ -306,3 +306,17 @@ weakest run retained 350 survivors and 3008 pairs. The floors remain 100 and
 1000, so inadequate support fails rather than triggering a post-result scale
 increase. A two result yields `[0.148,0.149]`; a three result yields
 `[0.147,0.148]`.
+
+## Second blind midpoint result: conditioning consensus fails
+
+EXP-123 completes from clean commit `a23770a` in `180.91 s` and fails. All six
+300-unit runs select three branches in every `y` variant and every 30--80-bin
+`z` variant. The 20-bin `z` cells under-resolve or fail bootstrap stability.
+The 360-unit later-conditioned survivor subset instead selects two branches in
+all 30 coordinate variants.
+
+The split is not a numerical or support failure: the weakest run retains 200
+survivors and 1737 pairs, survivor curves agree within `0.00403`, the period-4
+cycle passes, and no integration or event audit fails. No blind label is
+assigned and `[0.147,0.149]` is retained. Freeze a nested 360--480 conditioning-
+horizon successor before any further spatial bisection.

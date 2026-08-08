@@ -361,7 +361,12 @@ exposition requirements.
   continue bisection only while the invariant-set and numerical gates remain
   qualified. EXP-123 now freezes that blind midpoint on new seeds 129--131 and
   a prospectively reduced `2^13,2^14,2^15` ladder; the unchanged support floors
-  make inadequate down-scaling a retained failure.
+  make inadequate down-scaling a retained failure. EXP-123 fails despite
+  passed support and numerics: six 300-unit runs expose three branches in all
+  `y` and adequate-resolution `z` variants, while the 360-unit survivor subset
+  returns two in both coordinates. Retain `[0.147,0.149]` and freeze nested
+  360--480 survivor-conditioning horizons at `a=0.148`; do not resume spatial
+  bisection until branch count and critical geometry stabilize with lifetime.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

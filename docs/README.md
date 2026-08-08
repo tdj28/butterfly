@@ -61,6 +61,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-019-blind-a147-saddle-is-two-branch.md`](findings/FND-019-blind-a147-saddle-is-two-branch.md):
   blindly qualifies the midpoint saddle as two-branch across all 14
   run-coordinate decisions, halving the sampled bracket to `[0.147,0.149]`.
+- [`findings/FND-020-a148-topology-is-conditioning-sensitive.md`](findings/FND-020-a148-topology-is-conditioning-sensitive.md):
+  retains the failed blind `a=0.148` gate and isolates a three-to-two topology
+  split between 300- and 360-unit survivor conditioning.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

@@ -1,6 +1,6 @@
 # EXP-123 — Blind saddle midpoint at `a=0.148`
 
-Status: preregistered; not executed
+Status: executed; failed blind cross-conditioning consensus
 
 EXP-123 repeats the qualified blind coverage-censor classifier at the midpoint
 of EXP-122's `[0.147,0.149]` bracket. No expected branch label is encoded.
@@ -18,3 +18,15 @@ narrows it to `[0.147,0.148]`. No result establishes a continuous TBA curve.
 
 Immutable manifest:
 `experiments/manifests/EXP-123-blind-a148-saddle.json`.
+
+## Result
+
+EXP-123 fails from clean commit `a23770a` in `180.91 s`. Six standard-horizon
+runs select three in all 90 `y` variants and all 72 adequate-resolution `z`
+variants. Their 20-bin `z` cells are unstable or under-resolve as two. The
+later-conditioned 360-unit survivor subset instead selects two in all 30
+coordinate variants. Every support and numerical gate passes, so no blind label
+is assigned and `[0.147,0.149]` is retained.
+
+Raw receipt SHA-256:
+`73f7d6be60afcc70cb72f902f4b48063e647bff2d22d01a5f3be1c551cf1f3d6`.
