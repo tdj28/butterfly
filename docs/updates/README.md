@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp132-transverse-pim-preregistered.md`](2026-08-07-exp132-transverse-pim-preregistered.md)
+  — frozen 256-return replication of two finite transverse brackets under the
+  independently qualified coverage-only censor rule.
 - [`2026-08-07-exp131-transverse-pim-preregistered.md`](2026-08-07-exp131-transverse-pim-preregistered.md)
   — frozen adaptive-PIM and signed-slope predictions at four transverse
   endpoints, followed by a clean prospective falsification of the proposed

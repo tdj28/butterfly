@@ -41,6 +41,28 @@ class ReturnMapRobustnessResult:
 
 
 @dataclass(frozen=True, slots=True)
+class ReturnMapCoverageCensorResult:
+    """Branch decision under a prospectively declared coverage-only censor.
+
+    A variant may be censored only when its sole failed gate is finite occupied
+    domain coverage and its nominal critical geometry remains consistent with
+    the fully resolved variants.  This result is deliberately separate from
+    :class:`ReturnMapRobustnessResult` so the strict oracle is never overwritten
+    in an experiment receipt.
+    """
+
+    resolved: bool
+    branch_count: int | None
+    fully_resolved_variant_indices: tuple[int, ...]
+    coverage_censored_variant_indices: tuple[int, ...]
+    rejected_variant_indices: tuple[int, ...]
+    critical_point_intervals: tuple[tuple[float, float], ...]
+    normalized_critical_point_spans: tuple[float, ...]
+    maximum_normalized_critical_point_span: float
+    reason: str
+
+
+@dataclass(frozen=True, slots=True)
 class LowerSupportSlopeRobustnessResult:
     """Signed return-map slope at the occupied lower-support boundary.
 
@@ -465,4 +487,115 @@ def infer_return_map_branches_robust(
         counts,
         results,
         reason,
+    )
+
+
+def infer_return_map_branches_coverage_censored(
+    robust: ReturnMapRobustnessResult,
+    *,
+    source_minimum: float,
+    source_maximum: float,
+    expected_branch_count: int,
+    minimum_fully_resolved_variants: int = 12,
+    minimum_censored_domain_coverage: float = 0.65,
+    maximum_conditional_spread_ratio: float = 0.08,
+    maximum_normalized_critical_point_span: float = 0.03,
+) -> ReturnMapCoverageCensorResult:
+    """Apply the EXP-121 coverage-only censor without hiding strict failures.
+
+    Fully resolved variants must have ``expected_branch_count``.  Every other
+    variant must fail *only* invariant-domain coverage, retain the expected
+    number of nominal critical points, clear the declared coverage and
+    graph-likeness floors, and preserve the joint critical-location span.
+    Resolved contradictory counts and noncoverage failures are never censored.
+    """
+
+    if expected_branch_count < 1:
+        raise ValueError("expected_branch_count must be positive")
+    if minimum_fully_resolved_variants < 1:
+        raise ValueError("minimum_fully_resolved_variants must be positive")
+    if not 0.0 <= minimum_censored_domain_coverage <= 1.0:
+        raise ValueError("minimum_censored_domain_coverage must lie in [0,1]")
+    if maximum_conditional_spread_ratio < 0.0:
+        raise ValueError("maximum_conditional_spread_ratio must be nonnegative")
+    if maximum_normalized_critical_point_span < 0.0:
+        raise ValueError("maximum critical-point span must be nonnegative")
+
+    expected_critical_count = expected_branch_count - 1
+    resolved_indices = []
+    censored_indices = []
+    rejected_indices = []
+    accepted_critical = []
+    for index, variant in enumerate(robust.variant_results):
+        critical = tuple(float(value) for value in variant.critical_points)
+        if (
+            variant.resolved
+            and variant.branch_count == expected_branch_count
+            and len(critical) == expected_critical_count
+        ):
+            resolved_indices.append(index)
+            accepted_critical.append(critical)
+            continue
+        coverage_only = bool(
+            not variant.resolved
+            and variant.reason == "insufficient invariant-domain coverage"
+            and variant.domain_coverage >= minimum_censored_domain_coverage
+            and variant.conditional_spread_ratio
+            <= maximum_conditional_spread_ratio
+            and len(critical) == expected_critical_count
+        )
+        if coverage_only:
+            censored_indices.append(index)
+            accepted_critical.append(critical)
+        else:
+            rejected_indices.append(index)
+
+    source_range = max(
+        float(source_maximum) - float(source_minimum), np.finfo(float).eps
+    )
+    intervals = (
+        tuple(
+            (
+                min(points[index] for points in accepted_critical),
+                max(points[index] for points in accepted_critical),
+            )
+            for index in range(expected_critical_count)
+        )
+        if accepted_critical
+        else ()
+    )
+    normalized_spans = tuple(
+        (upper - lower) / source_range for lower, upper in intervals
+    )
+    maximum_span = max(
+        normalized_spans, default=0.0 if accepted_critical else float("inf")
+    )
+    resolved = bool(
+        robust.variant_results
+        and len(resolved_indices) >= minimum_fully_resolved_variants
+        and len(resolved_indices) + len(censored_indices)
+        == len(robust.variant_results)
+        and not rejected_indices
+        and maximum_span <= maximum_normalized_critical_point_span
+    )
+    if rejected_indices:
+        reason = "one or more variants contradict or fail beyond coverage"
+    elif len(resolved_indices) < minimum_fully_resolved_variants:
+        reason = "too few fully resolved variants"
+    elif maximum_span > maximum_normalized_critical_point_span:
+        reason = "critical-point location is variant-unstable"
+    elif resolved:
+        reason = "resolved with prospectively admissible coverage censoring"
+    else:
+        reason = "coverage-censor evaluation failed"
+    return ReturnMapCoverageCensorResult(
+        resolved=resolved,
+        branch_count=expected_branch_count if resolved else None,
+        fully_resolved_variant_indices=tuple(resolved_indices),
+        coverage_censored_variant_indices=tuple(censored_indices),
+        rejected_variant_indices=tuple(rejected_indices),
+        critical_point_intervals=intervals,
+        normalized_critical_point_spans=normalized_spans,
+        maximum_normalized_critical_point_span=maximum_span,
+        reason=reason,
     )

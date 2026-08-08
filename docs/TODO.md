@@ -433,7 +433,10 @@ exposition requirements.
   falsifies `c=19.8,a=0.148` as three/positive: 24/30 branch variants return
   two and all signed slopes are negative. Freeze a 256-return test under the
   independently qualified EXP-121 censor semantics at `c=19.8,a=0.148/0.150`
-  and `c=19.9,a=0.145/0.150`. Only after a complete finite bracket passes,
+  and `c=19.9,a=0.145/0.150`. EXP-132 now freezes exactly that test at a
+  256-return ceiling, with the strict oracle retained beside the censor-aware
+  decision and bootstrap instability explicitly inadmissible. Execute it from
+  the clean pushed preregistration commit. Only after a complete finite bracket passes,
   search the opened lobe for the unstable-orbit/manifold event that supplies a
   continuation condition.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all

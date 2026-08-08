@@ -21,6 +21,7 @@ from butterfly import (
     advance_censor_aware_pim_straddle,
     barrio_rossler_section,
     infer_lower_support_slope_robust,
+    infer_return_map_branches_coverage_censored,
     infer_return_map_branches_robust,
     refine_censor_aware_pim_segment,
     section_return_map,
@@ -111,7 +112,7 @@ def _nested_critical_spans(profile_rows, coordinate_name):
     if any(
         row["source_minimum"] is None
         or row["source_maximum"] is None
-        or not row["robust_oracle"]["resolved"]
+        or not _effective_branch_oracle(row)["resolved"]
         for row in coordinate_rows
     ):
         return {
@@ -121,7 +122,7 @@ def _nested_critical_spans(profile_rows, coordinate_name):
             "maximum_normalized_span": 1e300,
         }
     intervals = [
-        row["robust_oracle"]["critical_point_intervals"]
+        _effective_branch_oracle(row)["critical_point_intervals"]
         for row in coordinate_rows
     ]
     if (
@@ -157,13 +158,21 @@ def _common_resolved_branch_count(coordinate_rows, allowed_branch_counts):
     """Return one allowed count only when every coordinate resolves to it."""
     counts = []
     for row in coordinate_rows.values():
-        robust = row["robust_oracle"]
+        robust = _effective_branch_oracle(row)
         if not robust["resolved"] or robust["branch_count"] is None:
             return None
         counts.append(int(robust["branch_count"]))
     if len(set(counts)) != 1 or counts[0] not in set(allowed_branch_counts):
         return None
     return counts[0]
+
+
+def _effective_branch_oracle(coordinate_row):
+    """Use a passing declared coverage censor while retaining strict output."""
+    coverage = coordinate_row.get("coverage_censor_evaluation")
+    if coverage is not None and coverage["resolved"]:
+        return coverage
+    return coordinate_row["robust_oracle"]
 
 
 def _slope_predicted_branch_count(coordinate_rows, slope_config):
@@ -384,20 +393,19 @@ def _run_profile(
         source = np.concatenate(sources) if sources else np.empty(0)
         target = np.concatenate(targets) if targets else np.empty(0)
         if len(source) >= int(acceptance["minimum_return_pairs"]):
-            robust = asdict(
-                infer_return_map_branches_robust(
-                    source,
-                    target,
-                    variants=manifest["oracle_variants"],
-                    common_options=manifest["oracle_common"],
-                    minimum_variant_consensus=float(
-                        acceptance["minimum_oracle_variant_consensus"]
-                    ),
-                    maximum_normalized_critical_point_span=float(
-                        acceptance["maximum_within_pim_critical_span"]
-                    ),
-                )
+            robust_result = infer_return_map_branches_robust(
+                source,
+                target,
+                variants=manifest["oracle_variants"],
+                common_options=manifest["oracle_common"],
+                minimum_variant_consensus=float(
+                    acceptance["minimum_oracle_variant_consensus"]
+                ),
+                maximum_normalized_critical_point_span=float(
+                    acceptance["maximum_within_pim_critical_span"]
+                ),
             )
+            robust = asdict(robust_result)
         else:
             robust = {
                 "resolved": False,
@@ -413,6 +421,34 @@ def _run_profile(
             "source_maximum": float(np.max(source)) if len(source) else None,
             "robust_oracle": robust,
         }
+        if (
+            "coverage_censor" in manifest
+            and expected is not None
+            and len(source) >= int(acceptance["minimum_return_pairs"])
+        ):
+            censor = manifest["coverage_censor"]
+            row["coverage_censor_evaluation"] = asdict(
+                infer_return_map_branches_coverage_censored(
+                    robust_result,
+                    source_minimum=float(np.min(source)),
+                    source_maximum=float(np.max(source)),
+                    expected_branch_count=expected,
+                    minimum_fully_resolved_variants=int(
+                        censor["minimum_fully_resolved_variants"]
+                    ),
+                    minimum_censored_domain_coverage=float(
+                        censor["minimum_censored_domain_coverage"]
+                    ),
+                    maximum_conditional_spread_ratio=float(
+                        manifest["oracle_common"][
+                            "maximum_conditional_spread_ratio"
+                        ]
+                    ),
+                    maximum_normalized_critical_point_span=float(
+                        acceptance["maximum_within_pim_critical_span"]
+                    ),
+                )
+            )
         if "boundary_slope" in manifest and len(source) >= int(
             acceptance["minimum_return_pairs"]
         ):
@@ -467,7 +503,7 @@ def _run_profile(
         )
         and all(
             row["pair_count"] >= int(acceptance["minimum_return_pairs"])
-            and row["robust_oracle"]["resolved"]
+            and _effective_branch_oracle(row)["resolved"]
             and (
                 cpu_reference is None
                 or (
@@ -592,6 +628,7 @@ def main() -> int:
     allowed_schemas = {
         "butterfly.censored-pim-controls-manifest.v1",
         "butterfly.blind-censored-pim-midpoint-manifest.v1",
+        "butterfly.coverage-censored-pim-transverse-manifest.v1",
     }
     if manifest.get("schema") not in allowed_schemas:
         raise SystemExit("unsupported censor-aware PIM manifest")
@@ -637,12 +674,18 @@ def main() -> int:
     np.savez_compressed(state_buffer, **arrays)
     state_bytes = state_buffer.getvalue()
     atomic_write(args.states_output, state_bytes)
-    receipt_schema = (
-        "butterfly.blind-censored-pim-midpoint-receipt.v1"
-        if manifest["schema"]
-        == "butterfly.blind-censored-pim-midpoint-manifest.v1"
-        else "butterfly.censored-pim-controls-receipt.v1"
-    )
+    receipt_schemas = {
+        "butterfly.blind-censored-pim-midpoint-manifest.v1": (
+            "butterfly.blind-censored-pim-midpoint-receipt.v1"
+        ),
+        "butterfly.censored-pim-controls-manifest.v1": (
+            "butterfly.censored-pim-controls-receipt.v1"
+        ),
+        "butterfly.coverage-censored-pim-transverse-manifest.v1": (
+            "butterfly.coverage-censored-pim-transverse-receipt.v1"
+        ),
+    }
+    receipt_schema = receipt_schemas[manifest["schema"]]
     receipt = {
         "schema": receipt_schema,
         "experiment_id": manifest["experiment_id"],

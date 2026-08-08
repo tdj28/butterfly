@@ -99,7 +99,9 @@ adaptive-PIM endpoint tests at `c=19.8` and `c=19.9` without claiming a curve.
 EXP-131 executes those tests and prospectively falsifies the proposed
 three/positive endpoint at `c=19.8,a=0.148`, while fully passing the
 `c=19.9,a=0.150` three/positive endpoint. This is evidence that the boundary
-bends or shifts, not a transverse continuation.
+bends or shifts, not a transverse continuation. EXP-132 now preregisters the
+implied finite brackets at a 256-return horizon under EXP-121's independently
+qualified coverage-only censor, with strict results retained alongside it.
 Transition continuation, the underlying manifold event, and reinjection
 prediction remain open, so RVR-003 is materially advanced but not closed.
 

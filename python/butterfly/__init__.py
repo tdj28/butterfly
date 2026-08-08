@@ -52,9 +52,11 @@ from .poincare import (
 from .return_map import (
     LowerSupportSlopeRobustnessResult,
     ReturnMapBranchResult,
+    ReturnMapCoverageCensorResult,
     ReturnMapRobustnessResult,
     infer_lower_support_slope_robust,
     infer_return_map_branches,
+    infer_return_map_branches_coverage_censored,
     infer_return_map_branches_robust,
 )
 from .saddle import (
@@ -113,6 +115,7 @@ __all__ = [
     "PeriodClassification",
     "RecurrenceCandidate",
     "ReturnMapBranchResult",
+    "ReturnMapCoverageCensorResult",
     "ReturnMapRobustnessResult",
     "LowerSupportSlopeRobustnessResult",
     "RosslerParameters",
@@ -155,6 +158,7 @@ __all__ = [
     "initial_condition_grid",
     "infer_ordered_transition_bracket",
     "infer_return_map_branches",
+    "infer_return_map_branches_coverage_censored",
     "infer_return_map_branches_robust",
     "infer_lower_support_slope_robust",
     "integrate_flip_segment",
