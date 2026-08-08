@@ -247,7 +247,9 @@ exposition requirements.
   the paper's `a=0.11` unimodal and `a=0.2` bimodal chaotic attractors. EXP-108
   passes all 84 primary/cross-coordinate cells. Freeze the first `a`-path
   boundary search now; retain periodic windows as unresolved until a
-  chaotic-saddle method is qualified.
+  chaotic-saddle method is qualified. EXP-109 preregisters that 21-point
+  attractor-only path, including both published saddle controls and an ordered
+  two/three bracket gate.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

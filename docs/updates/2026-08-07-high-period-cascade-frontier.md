@@ -330,3 +330,10 @@ return three. All 42 `z` cross-checks agree, every bootstrap consensus is
 reproduced with frozen uncertainty gates. The next run can prospectively scan
 the intervening `a` path; its periodic gaps will be preserved rather than
 papered over before the chaotic-saddle machinery exists.
+
+EXP-109 is now preregistered as that path scan. It evaluates 21 frozen `a`
+values, including the PRL's `0.118` and `0.149` stable-orbit/chaotic-saddle
+controls, on the exact published section. Periodic attractors are explicitly
+excluded from the branch oracle and retained as missing saddle data. Passing
+requires coordinate agreement and an ordered last-two/first-three attracting
+bracket; it cannot claim the TBA inside a periodic gap.
