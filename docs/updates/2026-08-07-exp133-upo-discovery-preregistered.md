@@ -101,3 +101,9 @@ The full persistent UPO library now has qualified section-tangent unstable
 directions. The next stage traces capture-truncated first-return lobes and uses
 seed-density diagnostics to select candidate pruning/reinjection changes for a
 separate prospective refinement.
+
+EXP-143 now freezes the first global lobe atlas: 396 trajectories spanning all
+families, endpoints, signs, and nine seed amplitudes. Stable period-4 capture
+is independently reconstructed and removed; nested seed occupancy is gated;
+and the four largest eligible endpoint changes are selected automatically for
+adaptive refinement, not promoted as mechanism claims.

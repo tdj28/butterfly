@@ -492,6 +492,9 @@ exposition requirements.
   signed seed-size trials. Trace capture-truncated first-return lobes for the
   complete library, retain seed-density diagnostics, and select—not yet
   promote—the largest cross-boundary connectivity changes for refinement.
+  EXP-143 now freezes a 396-trajectory, capture-truncated lobe atlas with
+  independent stable-cycle recovery, nested seed-density coverage, and an
+  automatic four-candidate refinement shortlist.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
