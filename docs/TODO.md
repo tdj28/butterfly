@@ -442,6 +442,13 @@ exposition requirements.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
+- [ ] **MECH-001 — Orbit/manifold condition for the branch opening.** DEC-011
+  freezes exact-return, shooting-identity, and Floquet gates for PIM-seeded
+  UPOs. EXP-133 now preregisters exploratory recovery on both sides of the
+  `c=20` bracket. Execute it after the EXP-132 CPU gate; then seed stable and
+  unstable manifolds from accepted UPOs and define a continuation residual
+  that is distinct from the section-grazing artifact already isolated in
+  EXP-055.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

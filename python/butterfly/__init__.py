@@ -97,12 +97,14 @@ from .tiles import (
     verify_completed_aggregate,
     verify_completed_tile,
 )
+from .upo import CloseReturnCandidate, select_close_return_candidates
 
 __all__ = [
     "OrbitLabel",
     "OrderedTransitionBracket",
     "PeriodicComponent",
     "CandidateSelection",
+    "CloseReturnCandidate",
     "BasinPlaneManifest",
     "DynamicsClassification",
     "DynamicsThresholds",
@@ -175,6 +177,7 @@ __all__ = [
     "run_scan",
     "scrambled_sobol_section_states",
     "section_return_map",
+    "select_close_return_candidates",
     "next_section_return",
     "refine_pim_segment",
     "refine_censor_aware_pim_segment",
