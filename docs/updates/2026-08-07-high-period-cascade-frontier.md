@@ -373,3 +373,12 @@ returns is ill-conditioned across integrators; convergence must be assessed by
 survival distributions and return-map geometry. The next experiment therefore
 replaces neither result post hoc: it prospectively qualifies a local-noise
 critical-point rule and ensemble-level step/horizon/grid convergence.
+
+DEC-006 and EXP-111 now freeze that corrective gate. A critical point must
+persist across five bin counts, three smoothing values, 50 bootstraps per cell,
+both section coordinates, and bounded location drift. Five complete sprinkler
+ensembles test time-step halving, later survivor conditioning, grid phase, and
+grid resolution. Long-horizon agreement is distributional, while five seeds
+per control retain a pointwise DOP853 audit for their first five returns. The
+audit tolerance was calibrated separately at the `a=0.11` chaotic-attractor
+control before this manifest was frozen.

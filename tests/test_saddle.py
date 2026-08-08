@@ -5,6 +5,7 @@ from butterfly import (
     RosslerParameters,
     cycle_crossing_distances,
     sprinkler_survivors,
+    survivor_return_pairs,
 )
 from butterfly.saddle import _rk4_batch_step
 
@@ -52,3 +53,34 @@ def test_sprinkler_reports_no_capture_over_short_horizon() -> None:
     np.testing.assert_array_equal(result.survivor_ids, (0, 1))
     np.testing.assert_array_equal(result.survivor_counts, (2, 2))
     assert not np.any(result.failed)
+
+
+def test_survivor_return_pairs_do_not_join_trajectories() -> None:
+    parameters = RosslerParameters(a=0.2, b=0.2, c=20.0)
+    section = PoincareSection(normal=(1.0, 0.0, 0.0), offset=0.0, direction=1)
+    initial = np.asarray(((0.0, -10.0, 0.01), (0.0, -12.0, 0.01)))
+    cycle = np.asarray(((0.0, -20.0, 0.01),))
+    result = sprinkler_survivors(
+        parameters,
+        initial,
+        section,
+        cycle,
+        dt=0.01,
+        horizon=20.0,
+        capture_coordinate_axes=(1, 2),
+        capture_coordinate_scales=(10.0, 0.01),
+        capture_radius=1e-12,
+        required_capture_crossings=100,
+        checkpoint_times=(20.0,),
+        midpoint_window=(0.0, 20.0),
+    )
+    source, target = survivor_return_pairs(result, 1)
+    expected = sum(
+        max(
+            np.count_nonzero(result.midpoint_trajectory_ids == trajectory_id) - 1,
+            0,
+        )
+        for trajectory_id in result.survivor_ids
+    )
+    assert len(source) == expected
+    assert len(target) == expected

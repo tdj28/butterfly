@@ -260,6 +260,8 @@ exposition requirements.
   frozen 3-percent prominence threshold; pointwise long-horizon capture labels
   agree only 25/32. Freeze a local-uncertainty critical-point rule and
   ensemble-statistical step/horizon/grid convergence before GPU scaling.
+  DEC-006 and EXP-111 now freeze that successor: 15 oracle perturbations across
+  five step/horizon/grid ensembles, plus a short-horizon DOP853 audit.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

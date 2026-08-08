@@ -60,6 +60,9 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-005-reference-chaotic-saddle-sampler.md`](decisions/DEC-005-reference-chaotic-saddle-sampler.md):
   freezes the CPU survival-ensemble saddle definition and the CPU-to-GPU parity
   gate.
+- [`decisions/DEC-006-statistical-saddle-convergence.md`](decisions/DEC-006-statistical-saddle-convergence.md):
+  replaces long-horizon point identity with short-horizon numerical and
+  long-horizon statistical saddle-convergence gates.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):

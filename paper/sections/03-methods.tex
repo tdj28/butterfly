@@ -37,6 +37,11 @@ sample a declared section region, reject trajectories only after repeated
 capture by the stable cycle, and retain middle-time states of long-lived
 survivors as a finite approximation of the saddle
 \citep{kantz1985repellers}.  Survivor and captured classifications are audited
-with adaptive DOP853.  PIM-triple trajectories provide a structurally
-different follow-up method rather than a tuning fallback
+pointwise against adaptive DOP853 only over short horizons.  Over long chaotic
+horizons, convergence is defined statistically through survivor curves,
+return-map geometry, and critical-point stability across time step,
+conditioning window, grid phase, and grid resolution.  Candidate shallow
+critical points must persist across a frozen binning/smoothing matrix and
+bootstrap resampling in both section coordinates.  PIM-triple trajectories
+provide a structurally different follow-up method rather than a tuning fallback
 \citep{nusse1989procedure}.

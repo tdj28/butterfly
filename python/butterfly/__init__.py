@@ -48,8 +48,18 @@ from .poincare import (
     collect_crossings,
     legacy_rossler_section,
 )
-from .return_map import ReturnMapBranchResult, infer_return_map_branches
-from .saddle import SprinklerResult, cycle_crossing_distances, sprinkler_survivors
+from .return_map import (
+    ReturnMapBranchResult,
+    ReturnMapRobustnessResult,
+    infer_return_map_branches,
+    infer_return_map_branches_robust,
+)
+from .saddle import (
+    SprinklerResult,
+    cycle_crossing_distances,
+    sprinkler_survivors,
+    survivor_return_pairs,
+)
 from .periodic import (
     MonodromyResult,
     PeriodicOrbitCorrection,
@@ -83,6 +93,7 @@ __all__ = [
     "PeriodClassification",
     "RecurrenceCandidate",
     "ReturnMapBranchResult",
+    "ReturnMapRobustnessResult",
     "RosslerParameters",
     "PoincareCrossings",
     "PoincareSection",
@@ -111,6 +122,7 @@ __all__ = [
     "integrate_trajectory",
     "initial_condition_grid",
     "infer_return_map_branches",
+    "infer_return_map_branches_robust",
     "integrate_flip_segment",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",
@@ -124,6 +136,7 @@ __all__ = [
     "select_low_score_with_neighbors",
     "run_scan",
     "sprinkler_survivors",
+    "survivor_return_pairs",
     "verify_completed_tile",
     "verify_completed_aggregate",
     "legacy_rossler_section",

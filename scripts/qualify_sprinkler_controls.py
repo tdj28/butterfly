@@ -22,26 +22,9 @@ from butterfly import (
     cycle_crossing_distances,
     infer_return_map_branches,
     sprinkler_survivors,
+    survivor_return_pairs,
 )
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
-
-
-def _return_pairs(result, axis):
-    sources = []
-    targets = []
-    order = np.lexsort(
-        (result.midpoint_times, result.midpoint_trajectory_ids)
-    )
-    ordered_ids = result.midpoint_trajectory_ids[order]
-    ordered_values = result.midpoint_states[order, axis]
-    boundaries = np.flatnonzero(np.diff(ordered_ids)) + 1
-    for values in np.split(ordered_values, boundaries):
-        if len(values) >= 2:
-            sources.append(values[:-1])
-            targets.append(values[1:])
-    if not sources:
-        return np.empty(0), np.empty(0)
-    return np.concatenate(sources), np.concatenate(targets)
 
 
 def _captured_by_crossings(states, cycle, capture):
@@ -145,7 +128,7 @@ def main() -> int:
 
         coordinates = {}
         for coordinate in manifest["coordinates"]:
-            source_values, target_values = _return_pairs(
+            source_values, target_values = survivor_return_pairs(
                 result, int(coordinate["axis"])
             )
             if len(source_values) >= acceptance["minimum_return_pairs"]:

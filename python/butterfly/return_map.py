@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from dataclasses import dataclass
+from typing import Mapping, Sequence
 
 import numpy as np
 from scipy.interpolate import UnivariateSpline
@@ -20,6 +22,21 @@ class ReturnMapBranchResult:
     domain_coverage: float
     bootstrap_consensus: float
     bootstrap_counts: tuple[int, ...]
+    reason: str
+
+
+@dataclass(frozen=True, slots=True)
+class ReturnMapRobustnessResult:
+    """Branch decision retained across a declared oracle perturbation family."""
+
+    resolved: bool
+    branch_count: int | None
+    critical_point_intervals: tuple[tuple[float, float], ...]
+    normalized_critical_point_spans: tuple[float, ...]
+    maximum_normalized_critical_point_span: float
+    variant_consensus: float
+    variant_counts: tuple[int | None, ...]
+    variant_results: tuple[ReturnMapBranchResult, ...]
     reason: str
 
 
@@ -211,4 +228,94 @@ def infer_return_map_branches(
         bootstrap_consensus=consensus,
         bootstrap_counts=tuple(bootstrap_counts),
         reason=reason,
+    )
+
+
+def infer_return_map_branches_robust(
+    source,
+    target,
+    *,
+    variants: Sequence[Mapping[str, object]],
+    common_options: Mapping[str, object] | None = None,
+    minimum_variant_consensus: float = 1.0,
+    maximum_normalized_critical_point_span: float = 0.03,
+) -> ReturnMapRobustnessResult:
+    """Require a branch count and critical locations to survive perturbations.
+
+    ``variants`` contains preregistered binning, smoothing, prominence, and
+    bootstrap option dictionaries for :func:`infer_return_map_branches`.
+    Critical points are sorted and matched by order. Their reported intervals
+    are empirical numerical-sensitivity intervals, not confidence intervals.
+    """
+
+    if not variants:
+        raise ValueError("at least one oracle variant is required")
+    if not 0.0 < minimum_variant_consensus <= 1.0:
+        raise ValueError("minimum_variant_consensus must lie in (0,1]")
+    if maximum_normalized_critical_point_span < 0.0:
+        raise ValueError("maximum critical-point span must be nonnegative")
+    common = dict(common_options or {})
+    results = tuple(
+        infer_return_map_branches(source, target, **{**common, **dict(variant)})
+        for variant in variants
+    )
+    counts = tuple(
+        result.branch_count if result.resolved else None for result in results
+    )
+    resolved_counts = [count for count in counts if count is not None]
+    if not resolved_counts:
+        return ReturnMapRobustnessResult(
+            False,
+            None,
+            (),
+            (),
+            float("inf"),
+            0.0,
+            counts,
+            results,
+            "no oracle variant resolved",
+        )
+    frequencies = Counter(resolved_counts)
+    branch_count, frequency = min(
+        frequencies.items(), key=lambda item: (-item[1], item[0])
+    )
+    consensus = frequency / len(results)
+    agreeing = tuple(
+        result
+        for result in results
+        if result.resolved and result.branch_count == branch_count
+    )
+    source_range = max(
+        float(np.ptp(np.asarray(source, dtype=float))), np.finfo(float).eps
+    )
+    critical_intervals = tuple(
+        (
+            min(result.critical_points[index] for result in agreeing),
+            max(result.critical_points[index] for result in agreeing),
+        )
+        for index in range(max(branch_count - 1, 0))
+    )
+    normalized_spans = tuple(
+        (upper - lower) / source_range for lower, upper in critical_intervals
+    )
+    maximum_span = max(normalized_spans, default=0.0)
+    if consensus < minimum_variant_consensus:
+        resolved = False
+        reason = "oracle variants disagree"
+    elif maximum_span > maximum_normalized_critical_point_span:
+        resolved = False
+        reason = "critical-point location is variant-unstable"
+    else:
+        resolved = True
+        reason = "resolved across oracle variants"
+    return ReturnMapRobustnessResult(
+        resolved,
+        branch_count if resolved else None,
+        critical_intervals,
+        normalized_spans,
+        maximum_span,
+        consensus,
+        counts,
+        results,
+        reason,
     )

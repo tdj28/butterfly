@@ -27,6 +27,28 @@ class SprinklerResult:
     midpoint_states: NDArray[np.float64]
 
 
+def survivor_return_pairs(
+    result: SprinklerResult, coordinate_axis: int
+) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
+    """Form consecutive return pairs within each surviving trajectory."""
+
+    if coordinate_axis not in (0, 1, 2):
+        raise ValueError("coordinate_axis must be 0, 1, or 2")
+    order = np.lexsort((result.midpoint_times, result.midpoint_trajectory_ids))
+    ordered_ids = result.midpoint_trajectory_ids[order]
+    ordered_values = result.midpoint_states[order, coordinate_axis]
+    boundaries = np.flatnonzero(np.diff(ordered_ids)) + 1
+    sources = []
+    targets = []
+    for values in np.split(ordered_values, boundaries):
+        if len(values) >= 2:
+            sources.append(values[:-1])
+            targets.append(values[1:])
+    if not sources:
+        return np.empty(0), np.empty(0)
+    return np.concatenate(sources), np.concatenate(targets)
+
+
 def _rossler_rhs_batch(states, parameters):
     x = states[:, 0]
     y = states[:, 1]
