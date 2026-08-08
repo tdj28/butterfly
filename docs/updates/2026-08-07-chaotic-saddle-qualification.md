@@ -353,3 +353,19 @@ failure and `[0.147,0.149]` is unchanged, but the evidence rules out a resolved
 return of the third branch through 480 time units. Freeze an independent
 censor-aware PIM test at `a=0.148` before further spatial bisection; then measure
 escape lifetime by branch to test the faster-escaping-third-branch mechanism.
+
+## Independent blind PIM successor frozen
+
+EXP-125 removes the sprinkler's final-survivor selection from the branch-count
+decision. The already qualified censor-aware Nusse--Yorke construction refines
+three fixed access lines and advances each successful PIM straddle for 800
+returns at both 128- and 256-return lifetime ceilings. The target carries no
+expected count and no sprinkler-derived critical-point reference. Both
+coordinates and both horizons must unanimously select two or three across all
+15 oracle variants, with at least two straddles, 1000 pairs, zero integration
+failures, and the qualified critical-drift gates.
+
+This adaptive DOP853 implementation is CPU-process parallel, not the qualified
+fixed-step Triton sprinkler. It runs on the local reference host so a GPU
+method change cannot contaminate the blind decision. A later GPU PIM port must
+earn its own parity receipt.

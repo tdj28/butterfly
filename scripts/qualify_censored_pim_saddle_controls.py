@@ -152,6 +152,19 @@ def _nested_critical_spans(profile_rows, coordinate_name):
     }
 
 
+def _common_resolved_branch_count(coordinate_rows, allowed_branch_counts):
+    """Return one allowed count only when every coordinate resolves to it."""
+    counts = []
+    for row in coordinate_rows.values():
+        robust = row["robust_oracle"]
+        if not robust["resolved"] or robust["branch_count"] is None:
+            return None
+        counts.append(int(robust["branch_count"]))
+    if len(set(counts)) != 1 or counts[0] not in set(allowed_branch_counts):
+        return None
+    return counts[0]
+
+
 def _run_profile(
     case, profile, manifest, solver, parameters, section, cycle
 ):
@@ -258,7 +271,9 @@ def _run_profile(
 
     coordinate_rows = {}
     acceptance = manifest["acceptance"]
-    expected = int(case["expected_saddle_branch_count"])
+    expected_raw = case.get("expected_saddle_branch_count")
+    expected = None if expected_raw is None else int(expected_raw)
+    cpu_reference = case.get("cpu_reference")
     for coordinate in manifest["coordinates"]:
         axis = int(coordinate["axis"])
         sources = [states[:-1, axis] for states in successful_states]
@@ -295,11 +310,11 @@ def _run_profile(
             "source_maximum": float(np.max(source)) if len(source) else None,
             "robust_oracle": robust,
         }
-        if len(source):
+        if len(source) and cpu_reference is not None:
             row["cpu_comparison"] = _combined_critical_spans(
-                row, case["cpu_reference"][coordinate["name"]]
+                row, cpu_reference[coordinate["name"]]
             )
-        else:
+        elif cpu_reference is not None:
             row["cpu_comparison"] = {
                 "resolved": False,
                 "maximum_normalized_span": 1e300,
@@ -316,16 +331,28 @@ def _run_profile(
     certified_count = sum(
         row.get("certified_censor_block_selections", 0) for row in line_rows
     )
+    allowed_branch_counts = acceptance.get(
+        "allowed_branch_counts", [expected] if expected is not None else [2, 3]
+    )
+    observed = _common_resolved_branch_count(
+        coordinate_rows, allowed_branch_counts
+    )
     passed = (
         successful_lines >= int(acceptance["minimum_successful_straddles"])
         and failure_count == 0
+        and observed is not None
+        and (expected is None or observed == expected)
         and all(
             row["pair_count"] >= int(acceptance["minimum_return_pairs"])
             and row["robust_oracle"]["resolved"]
-            and row["robust_oracle"]["branch_count"] == expected
-            and row["cpu_comparison"]["resolved"]
-            and row["cpu_comparison"]["maximum_normalized_span"]
-            <= float(acceptance["maximum_cpu_pim_critical_span"])
+            and (
+                cpu_reference is None
+                or (
+                    row["cpu_comparison"]["resolved"]
+                    and row["cpu_comparison"]["maximum_normalized_span"]
+                    <= float(acceptance["maximum_cpu_pim_critical_span"])
+                )
+            )
             for row in coordinate_rows.values()
         )
     )
@@ -339,6 +366,7 @@ def _run_profile(
             "failed_lifetime_evaluations": failure_count,
             "certified_censor_block_selections": certified_count,
             "coordinates": coordinate_rows,
+            "observed_saddle_branch_count": observed,
             "passed": passed,
         },
         state_artifacts,
@@ -373,9 +401,23 @@ def _run_case(case, manifest, solver):
         for coordinate in manifest["coordinates"]
     }
     acceptance = manifest["acceptance"]
+    profile_counts = [
+        profile["observed_saddle_branch_count"] for profile in profiles
+    ]
+    observed = (
+        profile_counts[0]
+        if profile_counts
+        and profile_counts[0] is not None
+        and len(set(profile_counts)) == 1
+        else None
+    )
+    expected_raw = case.get("expected_saddle_branch_count")
+    expected = None if expected_raw is None else int(expected_raw)
     passed = (
         cycle_classification.fundamental_period == stable_period
         and all(profile["passed"] for profile in profiles)
+        and observed is not None
+        and (expected is None or observed == expected)
         and all(
             row["resolved"]
             and row["maximum_normalized_span"]
@@ -387,9 +429,8 @@ def _run_case(case, manifest, solver):
         {
             "id": case["id"],
             "parameters": asdict(parameters),
-            "expected_saddle_branch_count": int(
-                case["expected_saddle_branch_count"]
-            ),
+            "expected_saddle_branch_count": expected,
+            "observed_saddle_branch_count": observed,
             "stable_cycle_classification": asdict(cycle_classification),
             "profiles": profiles,
             "nested_horizon_comparison": nested,
@@ -407,7 +448,11 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.censored-pim-controls-manifest.v1":
+    allowed_schemas = {
+        "butterfly.censored-pim-controls-manifest.v1",
+        "butterfly.blind-censored-pim-midpoint-manifest.v1",
+    }
+    if manifest.get("schema") not in allowed_schemas:
         raise SystemExit("unsupported censor-aware PIM manifest")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
@@ -430,8 +475,14 @@ def main() -> int:
     np.savez_compressed(state_buffer, **arrays)
     state_bytes = state_buffer.getvalue()
     atomic_write(args.states_output, state_bytes)
+    receipt_schema = (
+        "butterfly.blind-censored-pim-midpoint-receipt.v1"
+        if manifest["schema"]
+        == "butterfly.blind-censored-pim-midpoint-manifest.v1"
+        else "butterfly.censored-pim-controls-receipt.v1"
+    )
     receipt = {
-        "schema": "butterfly.censored-pim-controls-receipt.v1",
+        "schema": receipt_schema,
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source": source,

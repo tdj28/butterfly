@@ -376,7 +376,10 @@ exposition requirements.
   restores two in both coordinates; the 480-unit sample retains only 121
   survivors. Retain the bracket and freeze a censor-aware PIM test at
   `a=0.148`, followed by branch-conditioned lifetime tests; do not convert
-  rare-survivor bootstrap failures into an affirmative label.
+  rare-survivor bootstrap failures into an affirmative label. EXP-125 now
+  freezes that blind test: the qualified censor-aware PIM method must agree in
+  `y` and `z` at both 128- and 256-return ceilings without an encoded expected
+  count or sprinkler critical-point reference.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
