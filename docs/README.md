@@ -71,6 +71,9 @@ what must be narrowed, and what is false or unresolved.
   independently targets the nonattracting saddle and qualifies two branches at
   both 128- and 256-return censor ceilings, narrowing the bracket to
   `[0.148,0.149]`.
+- [`findings/FND-023-blind-pim-qualifies-a1485-three-branch-saddle.md`](findings/FND-023-blind-pim-qualifies-a1485-three-branch-saddle.md):
+  qualifies the next blind midpoint as three-branch under the identical PIM
+  definition, narrowing the finite bracket to `[0.148,0.1485]`.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

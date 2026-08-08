@@ -400,3 +400,24 @@ coordinates, and 15-variant oracle are retained. No expected count or previous
 critical-point reference is encoded. A unanimous two result yields
 `[0.1485,0.149]`; a unanimous three result yields `[0.148,0.1485]`; any gate
 failure preserves the present bracket.
+
+## Next independent PIM midpoint result: three-branch
+
+EXP-126 passes from clean commit `e78ec6a` in `3840.50 s`. All six fixed access
+lines complete and each horizon supplies 2097 retained pairs per coordinate.
+Both coordinates at both the 128- and 256-return censor ceilings resolve as
+three across all 15 oracle variants: 60/60 three-branch cells, no two-branch
+cell, and no unresolved cell.
+
+The combined critical spans are `0.014702` in `y` and `0.008531` in `z`; the
+period-4 reference and every lifetime integration pass. Horizon 128 uses the
+already qualified certified-censor rule for 119 censored evaluations and 104
+certified selections; horizon 256 has no censor.
+
+Because EXP-125 qualifies `a=0.148` as two under the identical PIM definition,
+the finite sampled classifier transition is now bracketed in
+`[0.148,0.1485]`. This is strong local invariant-set evidence for the topology
+change inside the regular window, but it is still not an independently
+continued TBA curve. Freeze the next midpoint at `a=0.14825` only after adding
+a branch-conditioned escape diagnostic so localization and mechanism advance
+together.

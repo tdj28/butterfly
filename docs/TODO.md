@@ -387,6 +387,11 @@ exposition requirements.
   third branch before interpreting reinjection. EXP-126 now freezes that
   midpoint with unchanged 128/256 censor ceilings, access lines, oracle matrix,
   and numerical gates; no expected count or prior critical location is encoded.
+  EXP-126 passes as three in all 60 oracle cells with all six straddles and
+  critical-drift gates passing. The finite bracket is now `[0.148,0.1485]`.
+  Add a branch-conditioned escape diagnostic, then freeze `a=0.14825` under the
+  identical PIM definition; do not confuse further bisection with independent
+  continuation of a TBA curve.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
