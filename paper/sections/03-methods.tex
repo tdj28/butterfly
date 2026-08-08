@@ -21,8 +21,12 @@ repository.  Event predictions used as prospective tests are frozen before the
 subsequent crossing scan and refinement.  This separation prevents an
 after-the-fact fit from being reported as prediction.
 
-The return-map topology work uses a stricter protocol that is not yet complete.
-It must freeze $\Sigma$, $U$, the coordinate or quotient, and the critical-point
-criterion before classifying two versus three branches.  The classification
-must then survive declared section and coordinate perturbations.  This is the
-acceptance boundary for the topology claims below.
+The return-map topology work uses a gated scalar oracle.  It requires
+invariant-domain coverage, a bounded conditional-spread ratio, prominent
+spline critical points, and deterministic bootstrap consensus; a failed gate
+returns ``unresolved'' rather than a forced branch label.  Each experiment
+freezes $\Sigma$, the crossing orientation, scalar coordinate, critical-point
+criterion, and perturbation matrix before execution.  A scalar classification
+that survives these gates is still representation-bounded: the full
+two-dimensional return map must be retained for any topological-invariance or
+reinjection claim.

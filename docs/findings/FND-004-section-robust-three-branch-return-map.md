@@ -1,7 +1,7 @@
 # FND-004 — A section-offset-robust three-branch scalar return relation
 
 Date: 2026-08-07
-Status: new local evidence; sensitivity audit pending
+Status: qualified local evidence; transition and two-dimensional mechanism pending
 
 EXP-106 prospectively expected the published chaotic Rössler control
 `(a,b,c)=(0.2,0.2,20)` to produce a two-branch scalar return relation on the
@@ -23,7 +23,20 @@ Specifically, EXP-106 does not locate a two-to-three transition, show rotation
 of a reinjection observable, connect the third branch to `p -> p+1` windows, or
 prove robustness under coordinate and crossing-orientation changes.
 
-The next experiment must bind the full EXP-106 receipt and vary scalar
-coordinate, crossing orientation, binning/smoothing/prominence thresholds, and
-nearby parameters. Only after those gates pass may branch count be continued
-as a parameter-space boundary and used to define reinjection.
+EXP-107 prospectively performed the required audit. All 105 combinations of
+five nearby `(a,c)` points, three section offsets, and seven oracle settings
+retain three branches for the negative-oriented `x` map. The independent `z`
+coordinate also returns three in all 105 cells. Every bootstrap consensus is
+`1.0`, and the graph-likeness and coverage gates pass.
+
+The result does not extend indiscriminately to the opposite oriented half of
+the full plane. There, 102/105 `x` cases are bootstrap-unstable, the other
+three resolve as five branches, and all 105 `z` cases lack invariant-domain
+coverage. This is not evidence against the qualified historical-half-plane
+result. It is evidence that scalar branch count is representation-dependent
+and cannot itself carry the full topological claim.
+
+The next experiment may now search prospectively for a two/three boundary for
+the qualified negative-oriented map. In parallel, the full two-dimensional
+Poincare relation must be retained so that reinjection and topology are not
+defined by a convenient scalar projection alone.

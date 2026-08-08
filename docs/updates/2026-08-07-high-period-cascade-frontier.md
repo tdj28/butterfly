@@ -296,3 +296,19 @@ the negative-orientation `x` result in 105 cells; a separately reported strong
 diagnostic tests all 420 representation cells. This distinction matters
 because a scalar projection's critical-point count is not automatically a
 topological invariant.
+
+EXP-107 passed its primary gate with no exceptions. All 105 negative-oriented
+`x` cells and all 105 independent `z` cells resolve as three branches; every
+bootstrap consensus is `1.0`, coverage is at least `0.94`, and conditional
+spread is at most `0.02502`. The result survives the frozen nearby-parameter,
+section-offset, binning, smoothing, and prominence perturbations.
+
+The strong representation diagnostic failed in a scientifically useful way.
+The positive-oriented `x` projection is bootstrap-unstable in 102/105 cells
+and resolves as five only in three 30-bin cells; positive-oriented `z` never
+covers enough of its normalized domain. We therefore have a robust local
+three-branch object on the historically relevant negative half-plane, plus
+direct evidence that the full topological explanation must retain the
+two-dimensional Poincare map. The next executable frontier is a prospective
+search for the qualified map's two/three boundary, followed by a
+two-dimensional reinjection observable.

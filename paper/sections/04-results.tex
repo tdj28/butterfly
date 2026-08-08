@@ -67,3 +67,23 @@ windows.  Persistent multistability is rejected for those tested cases; the
 evidence instead supports long chaotic-transient capture, consistent with a
 nonattracting chaotic-saddle mechanism.  Computing the saddle itself remains a
 separate acceptance test.
+
+\subsection{Qualified local three-branch return relation}
+
+At the published chaotic control $(a,b,c)=(0.2,0.2,20)$, the historical
+negative-oriented section unexpectedly gives a three-branch rather than the
+prospectively expected two-branch scalar return relation.  A subsequently
+frozen sensitivity matrix varies five nearby $(a,c)$ points, three section
+offsets, seven binning/smoothing/prominence choices, and both nondegenerate
+section coordinates.  All 105 negative-oriented $x$ cells and all 105
+negative-oriented $z$ cells resolve as three branches.  Bootstrap consensus is
+one in every cell, invariant-domain coverage is at least $0.94$, and the
+conditional-spread ratio is at most $0.02502$.
+
+The same scalar reduction does not survive indiscriminately on the opposite
+oriented half-plane.  The positive-oriented $x$ relation is
+bootstrap-unstable in 102 of 105 cells; the remaining three resolve as five
+branches.  All 105 positive-oriented $z$ cells fail the preregistered
+invariant-domain-coverage gate.  Thus the three-branch result is qualified as a
+robust local property of the historically relevant oriented half-plane, not as
+an orientation-independent scalar topological invariant.
