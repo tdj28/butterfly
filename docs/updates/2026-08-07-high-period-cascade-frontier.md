@@ -312,3 +312,12 @@ direct evidence that the full topological explanation must retain the
 two-dimensional Poincare map. The next executable frontier is a prospective
 search for the qualified map's two/three boundary, followed by a
 two-dimensional reinjection observable.
+
+Source verification before the boundary scan found that the two projects use
+different Poincare sections. The recovered Jones code uses the small
+equilibrium's `y` plane and a negative half-plane gate; the Barrio PRL declares
+the small equilibrium's `x` plane with `dx/dt>0`. EXP-108 is preregistered to
+qualify the PRL object directly at its Figure 2 controls: `a=0.11` must be
+two-branch and `a=0.2` three-branch at `b=0.2,c=20`. This prevents a numerical
+agreement on the Jones section from being misreported as a reproduction of
+Barrio's TBA definition.

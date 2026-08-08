@@ -79,6 +79,25 @@ def legacy_rossler_section(parameters: RosslerParameters) -> PoincareSection:
     )
 
 
+def barrio_rossler_section(parameters: RosslerParameters) -> PoincareSection:
+    """Return the oriented section declared by Barrio et al. (2012).
+
+    Their first-return maps use the plane through the small equilibrium's
+    ``x`` coordinate and retain crossings with ``dx/dt > 0``.
+    """
+
+    equilibria = rossler_equilibria(parameters)
+    if len(equilibria) == 0:
+        raise ValueError("Barrio section requires a real equilibrium")
+    small = equilibria[0]
+    return PoincareSection(
+        normal=(1.0, 0.0, 0.0),
+        offset=float(small[0]),
+        direction=1,
+        name="barrio-small-equilibrium-x-plane",
+    )
+
+
 def collect_crossings(
     parameters: RosslerParameters,
     initial_state: ArrayLike,

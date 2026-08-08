@@ -1,7 +1,7 @@
 # DEC-004 — Define branch count as a gated scalar return-map observable
 
 Date: 2026-08-07
-Status: adopted; first Rössler prediction failed with robust three-branch result
+Status: adopted; Jones-section local result qualified, published-section control pending
 
 ## Context
 
@@ -50,6 +50,15 @@ with full coverage and 100/100 bootstrap agreement. This supports a sharp,
 reproducible local three-branch result but does not yet validate coordinate,
 orientation, threshold, or parameter robustness. Those sensitivities are
 mandatory before transition continuation.
+
+EXP-107 completes those sensitivities for the recovered Jones section. All
+negative-oriented `x` and `z` cells retain three branches, while the opposite
+half-plane is not a stable scalar graph. The qualified claim is therefore
+representation-bounded. Direct source inspection also establishes that the
+Barrio PRL uses a different section, `x=x_minus` with `dx/dt>0`. EXP-108 must
+qualify the PRL's reported two- and three-branch controls on that declared
+section before any TBA boundary continuation. The two section-specific curves
+will be compared rather than assumed identical.
 
 ## Consequences
 

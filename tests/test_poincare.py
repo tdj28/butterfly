@@ -4,6 +4,7 @@ from butterfly.integrate import SolverConfig
 from butterfly.models import RosslerParameters, rossler_rhs
 from butterfly.poincare import (
     PoincareSection,
+    barrio_rossler_section,
     collect_crossings,
     legacy_rossler_section,
 )
@@ -49,6 +50,29 @@ def test_legacy_section_matches_declared_half_plane() -> None:
     assert result.states.shape == (6, 3)
     np.testing.assert_allclose(result.states[:, 1], section.offset, atol=2e-14)
     assert np.all(result.states[:, 0] < section.gate_upper)
+
+
+def test_barrio_section_matches_declared_oriented_plane() -> None:
+    section = barrio_rossler_section(HUB)
+    result = collect_crossings(
+        HUB,
+        (0.0, 4.0, 0.0),
+        section,
+        transient=20.0,
+        observation_horizon=80.0,
+        max_crossings=6,
+        config=CONFIG,
+    )
+    assert result.integration_success
+    assert result.states.shape == (6, 3)
+    np.testing.assert_allclose(result.states[:, 0], section.offset, atol=2e-14)
+    derivatives = np.asarray(
+        [
+            np.dot(section.normal, rossler_rhs(time, state, HUB))
+            for time, state in zip(result.times, result.states, strict=True)
+        ]
+    )
+    assert np.all(derivatives > 0.0)
 
 
 def test_invalid_zero_normal_is_rejected() -> None:

@@ -44,6 +44,7 @@ from .models import (
 from .poincare import (
     PoincareCrossings,
     PoincareSection,
+    barrio_rossler_section,
     collect_crossings,
     legacy_rossler_section,
 )
@@ -90,6 +91,7 @@ __all__ = [
     "TileSpec",
     "aggregate_scan_tiles",
     "augmented_flip_system",
+    "barrio_rossler_section",
     "equilibrium_eigenvalues",
     "evaluate_initial_condition",
     "fit_uncertainty_exponent",

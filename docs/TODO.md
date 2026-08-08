@@ -242,7 +242,10 @@ exposition requirements.
   with consensus `1.0`. The strong orientation-invariance diagnostic fails
   because the positive half-plane is not a stable scalar graph. Continue the
   qualified negative-map two/three boundary, but carry the two-dimensional map
-  into any topological or reinjection interpretation.
+  into any topological or reinjection interpretation. EXP-108 first freezes a
+  direct control on the distinct Barrio section `x=x_minus`, `dx/dt>0`, using
+  the paper's `a=0.11` unimodal and `a=0.2` bimodal chaotic attractors. Only a
+  pass authorizes the first boundary-search path.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
