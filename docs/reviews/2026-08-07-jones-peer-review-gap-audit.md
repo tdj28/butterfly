@@ -102,6 +102,9 @@ three/positive endpoint at `c=19.8,a=0.148`, while fully passing the
 bends or shifts, not a transverse continuation. EXP-132 now preregisters the
 implied finite brackets at a 256-return horizon under EXP-121's independently
 qualified coverage-only censor, with strict results retained alongside it.
+EXP-133 through EXP-135 recover and primitive-identity-audit finite UPO
+families on both sides of the `c=20` bracket, supplying the first qualified
+orbit seeds for manifold continuation. They do not yet identify the event.
 Transition continuation, the underlying manifold event, and reinjection
 prediction remain open, so RVR-003 is materially advanced but not closed.
 

@@ -449,8 +449,9 @@ exposition requirements.
   traversals among the reported lags. EXP-134 now freezes proper-divisor and
   phase-invariant family audits. It confirms two lag-8 double traversals but
   exposes inadequate phase-grid resolution for deduplication. EXP-135 now
-  freezes continuous phase refinement; execute it before selecting primitive
-  representatives. Then seed stable and unstable manifolds from accepted UPOs and define a continuation residual
+  passes continuous phase refinement, qualifying nine primitive families below
+  and two above. Continue the shared lag-12 family across the bracket and the
+  upper lag-4 family downward with fundamental identity enforced. Then seed stable and unstable manifolds from accepted UPOs and define a continuation residual
   that is distinct from the section-grazing artifact already isolated in
   EXP-055.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via

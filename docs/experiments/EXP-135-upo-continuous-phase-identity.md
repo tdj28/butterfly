@@ -34,3 +34,15 @@ PYTHONPATH=python .venv/bin/python scripts/audit_pim_upo_primitivity.py \
   --predecessor-receipt artifacts/EXP-134/receipt.json \
   --output artifacts/EXP-135/receipt.json
 ```
+
+## Result
+
+The clean `3bffa13` run passes in `23.42 s`. The two-side result remains nine
+distinct primitive families. On the three side, continuous phase alignment
+merges all three direct lag-4 recoveries and both lag-8 double traversals into
+one lag-4 family, with maximum member RMS `8.681e-7`; lag 12 remains a second
+family. The qualified unique counts are therefore nine below and two above.
+
+This qualifies representatives for orbit continuation and manifold seeding,
+not a manifold event. Raw receipt SHA-256:
+`e14655511f032efb16a5a8a69baeeadbbff522cb350e3b2a7229d373318e0c0f`.

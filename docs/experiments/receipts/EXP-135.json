@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.pim-upo-continuous-identity-summary.v1",
+  "experiment_id": "EXP-135",
+  "passed": true,
+  "source_commit": "3bffa136585c18213634bb4b925e090300f5a117",
+  "manifest_sha256": "05cd08f80c551f897471cd0feb83f9c7170e932061583a425617a75317d96f4c",
+  "source_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
+  "predecessor_receipt_sha256": "a269d64b04cb93777924f744551bb4e871e13a8158f59c96fcff6fc84aa88a93",
+  "raw_receipt": "artifacts/EXP-135/receipt.json",
+  "raw_receipt_sha256": "e14655511f032efb16a5a8a69baeeadbbff522cb350e3b2a7229d373318e0c0f",
+  "raw_receipt_bytes": 13698,
+  "elapsed_seconds": 23.424344332888722,
+  "cases": [
+    {
+      "id": "local-two-branch-saddle",
+      "accepted_source_recoveries": 9,
+      "double_or_higher_cover_count": 0,
+      "unique_primitive_orbit_family_count": 9,
+      "fundamental_lags": [3, 5, 7, 8, 12, 13]
+    },
+    {
+      "id": "local-three-branch-saddle",
+      "accepted_source_recoveries": 6,
+      "double_or_higher_cover_count": 2,
+      "unique_primitive_orbit_family_count": 2,
+      "fundamental_lags": [4, 12],
+      "lag4_family_member_count": 5,
+      "maximum_lag4_phase_invariant_rms": 8.681153432458942e-07
+    }
+  ],
+  "interpretation": "Finite primitive UPO representatives are qualified on both PIM saddles. The shared lag-12 class is a candidate for identity-safe parameter continuation; no manifold intersection or branch-opening event is established."
+}

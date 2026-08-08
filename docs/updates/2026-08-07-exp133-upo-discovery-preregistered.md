@@ -26,3 +26,9 @@ while the two three-side lag-8 recoveries close at half-period near `1.1e-11`
 and reduce to lag 4. Its 512-point phase grid is too coarse to consolidate
 three equal-period lag-4 phases at the `1e-6` RMS gate, so EXP-135 freezes a
 continuous phase-shift optimization before the unique-family count is used.
+
+EXP-135 passes that correction. It leaves nine distinct primitive families on
+the two-branch saddle and exactly two among the sampled three-branch
+recoveries: lag 4 and lag 12. The shared lag-12 class is the first
+identity-continuation candidate; the upper lag-4 class is the test for whether
+that orbit persists or terminates across the branch-opening interval.
