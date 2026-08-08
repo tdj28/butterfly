@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.published-return-map-qualification-summary.v1",
+  "experiment_id": "EXP-108",
+  "passed": true,
+  "primary_passed": true,
+  "coordinate_crosscheck_passed": true,
+  "source_commit": "aecadd631f83506f1353250de24f3a01ff9fcb8f",
+  "manifest_sha256": "3319f904764ac94bf2481720f04bedf584d3015b01539f835428c5fc60fc1ac7",
+  "full_receipt_sha256": "ca4c46ae06adc50528d7ea5828bd77ba60d0a9aac771de76cb0153e9101386f8",
+  "integration_count": 6,
+  "oracle_cell_count": 84,
+  "crossings_per_integration": 1200,
+  "classifications": {
+    "published-unimodal:y": {"resolved": 21, "total": 21, "branch_histogram": {"2": 21}},
+    "published-unimodal:z": {"resolved": 21, "total": 21, "branch_histogram": {"2": 21}},
+    "published-bimodal:y": {"resolved": 21, "total": 21, "branch_histogram": {"3": 21}},
+    "published-bimodal:z": {"resolved": 21, "total": 21, "branch_histogram": {"3": 21}}
+  },
+  "nominal_baseline_critical_points": {
+    "published-unimodal:y": [-21.816931441871684],
+    "published-unimodal:z": [0.00953068575407782],
+    "published-bimodal:y": [-29.491333558623655, -20.223140452103582],
+    "published-bimodal:z": [0.009388718023611863, 0.009563815975251608]
+  },
+  "interpretation": "direct uncertainty-gated reproduction of the published attracting unimodal and bimodal endpoint maps; TBA location and chaotic-saddle continuation remain open"
+}

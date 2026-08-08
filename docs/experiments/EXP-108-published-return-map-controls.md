@@ -1,6 +1,6 @@
 # EXP-108 — Direct qualification of the published unimodal/bimodal controls
 
-Status: preregistered; not yet executed
+Status: executed; primary and coordinate-cross-check gates passed
 
 The transition search must not conflate two different Poincare sections.
 EXP-106/107 qualified the section recovered from the Jones code: a plane
@@ -26,3 +26,18 @@ resolve, and return the published branch count: two at `a=0.11` and three at
 for the primary gate. Failure is retained. Passing authorizes a prospectively
 frozen `a`-path boundary search at `b=0.2,c=20`; it does not yet continue the
 TBA through regular windows, which requires a chaotic-saddle method.
+
+The clean run at `aecadd631f83506f1353250de24f3a01ff9fcb8f` passed every
+gate. All 21 `y` cells at `a=0.11` resolve as two branches, and all 21 at
+`a=0.2` resolve as three. The 42 `z` cross-check cells return the same counts.
+All 84 bootstrap consensuses equal `1.0`; coverage is at least `0.98`, and the
+conditional-spread ratio is at most `0.02389`.
+
+On the exact published plane with the baseline oracle, the unimodal `y` map
+has one critical point at `-21.81693144`. The bimodal map has two at
+`-29.49133356` and `-20.22314045`. The corresponding `z` maps independently
+have one and two critical points. This is a direct computational reproduction
+of both chaotic-attractor sides shown in Barrio et al. Figure 2, with frozen
+uncertainty and section-perturbation gates. It does not reproduce the chaotic
+saddles or locate the intervening TBA curve. Full receipt SHA-256:
+`ca4c46ae06adc50528d7ea5828bd77ba60d0a9aac771de76cb0153e9101386f8`.

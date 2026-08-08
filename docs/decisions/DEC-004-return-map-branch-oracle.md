@@ -1,7 +1,7 @@
 # DEC-004 — Define branch count as a gated scalar return-map observable
 
 Date: 2026-08-07
-Status: adopted; Jones-section local result qualified, published-section control pending
+Status: adopted; Jones-section and published-section controls qualified
 
 ## Context
 
@@ -59,6 +59,12 @@ Barrio PRL uses a different section, `x=x_minus` with `dx/dt>0`. EXP-108 must
 qualify the PRL's reported two- and three-branch controls on that declared
 section before any TBA boundary continuation. The two section-specific curves
 will be compared rather than assumed identical.
+
+EXP-108 passes all 84 cells: the primary `y` and cross-check `z` maps both give
+two branches at the published `a=0.11` control and three at `a=0.2`, across
+three plane offsets and seven oracle settings. This authorizes a prospective
+boundary search on the published section. It does not authorize interpolation
+through periodic windows; those require the chaotic saddle used in the PRL.
 
 ## Consequences
 

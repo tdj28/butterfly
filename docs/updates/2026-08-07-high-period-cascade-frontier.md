@@ -321,3 +321,12 @@ qualify the PRL object directly at its Figure 2 controls: `a=0.11` must be
 two-branch and `a=0.2` three-branch at `b=0.2,c=20`. This prevents a numerical
 agreement on the Jones section from being misreported as a reproduction of
 Barrio's TBA definition.
+
+EXP-108 passes decisively. At the exact published section and two offsets, all
+21 primary `y` cells at `a=0.11` return two branches and all 21 at `a=0.2`
+return three. All 42 `z` cross-checks agree, every bootstrap consensus is
+`1.0`, coverage stays above `0.98`, and conditional spread stays below
+`0.02389`. Both chaotic-attractor endpoint maps in Figure 2 are now directly
+reproduced with frozen uncertainty gates. The next run can prospectively scan
+the intervening `a` path; its periodic gaps will be preserved rather than
+papered over before the chaotic-saddle machinery exists.
