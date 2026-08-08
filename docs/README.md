@@ -36,6 +36,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-011-pim-bimodal-corroboration-and-censor-boundary.md`](findings/FND-011-pim-bimodal-corroboration-and-censor-boundary.md):
   retains independent DOP853/PIM corroboration of the bimodal saddle while
   diagnosing why the complete zero-censor PIM experiment fails.
+- [`findings/FND-012-censor-horizon-controls-pim-coverage.md`](findings/FND-012-censor-horizon-controls-pim-coverage.md):
+  records independent two-control PIM/DOP853 corroboration at 128 returns while
+  preserving the failed 64/128 nested-horizon gate and its support diagnosis.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

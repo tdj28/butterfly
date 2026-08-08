@@ -1,0 +1,95 @@
+{
+  "artifact": "artifacts/EXP-115/receipt.json",
+  "artifact_bytes": 41177,
+  "artifact_sha256": "f7b483334fa911ace7c11c499bb38d97756fb4623535c5200f7f606ea7d7e9b5",
+  "experiment_id": "EXP-115",
+  "manifest_sha256": "2846e9377fd0ea9a995d422957987cc8988f8d5c6c7d6cb51e0f934b17ae6c13",
+  "source_commit": "f354fc05ece47151a01b1c1d56ee76220e9a7305",
+  "elapsed_seconds": 5574.905597500037,
+  "states_artifact": "artifacts/EXP-115/censor-aware-pim-straddles.npz",
+  "states_artifact_bytes": 116376,
+  "states_artifact_sha256": "73962228b0d037c4e2c6e9dd16fc4b1a681af750e09aaf108a780459fc55b551",
+  "passed": false,
+  "case_summaries": [
+    {
+      "id": "published-unimodal-saddle",
+      "profiles": [
+        {
+          "id": "horizon-64",
+          "successful_straddles": 3,
+          "retained_pairs_per_coordinate": 2097,
+          "censored_lifetime_evaluations": 1074,
+          "certified_censor_block_selections": 67,
+          "failed_lifetime_evaluations": 0,
+          "oracle_status": "unresolved in both coordinates because invariant-domain coverage is below 0.7",
+          "passed": false
+        },
+        {
+          "id": "horizon-128",
+          "successful_straddles": 3,
+          "retained_pairs_per_coordinate": 2097,
+          "censored_lifetime_evaluations": 1108,
+          "certified_censor_block_selections": 423,
+          "failed_lifetime_evaluations": 0,
+          "coordinates": {
+            "y": {
+              "branch_count": 2,
+              "variant_consensus": 1.0,
+              "maximum_within_pim_critical_span": 0.015003494258506089,
+              "maximum_cpu_pim_critical_span": 0.015104577276755083
+            },
+            "z": {
+              "branch_count": 2,
+              "variant_consensus": 1.0,
+              "maximum_within_pim_critical_span": 0.012495185960711678,
+              "maximum_cpu_pim_critical_span": 0.01259300595701808
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": false
+    },
+    {
+      "id": "published-bimodal-saddle",
+      "profiles": [
+        {
+          "id": "horizon-64",
+          "successful_straddles": 1,
+          "retained_pairs_per_coordinate": 699,
+          "censored_lifetime_evaluations": 851,
+          "certified_censor_block_selections": 19,
+          "failed_lifetime_evaluations": 0,
+          "oracle_status": "unresolved because the frozen two-straddle and 1000-pair gates fail",
+          "passed": false
+        },
+        {
+          "id": "horizon-128",
+          "successful_straddles": 3,
+          "retained_pairs_per_coordinate": 2097,
+          "censored_lifetime_evaluations": 385,
+          "certified_censor_block_selections": 253,
+          "failed_lifetime_evaluations": 0,
+          "coordinates": {
+            "y": {
+              "branch_count": 3,
+              "variant_consensus": 1.0,
+              "maximum_within_pim_critical_span": 0.012232379933650925,
+              "maximum_cpu_pim_critical_span": 0.0124448237713164
+            },
+            "z": {
+              "branch_count": 3,
+              "variant_consensus": 1.0,
+              "maximum_within_pim_critical_span": 0.012130333291257449,
+              "maximum_cpu_pim_critical_span": 0.012123108981893983
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "failure_reason": "Both 128-return profiles pass, but both 64-return profiles fail and therefore no nested-horizon comparison resolves.",
+  "status": "failed nested-horizon experiment with qualified fixed-128-horizon two-control corroboration"
+}

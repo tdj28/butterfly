@@ -171,3 +171,20 @@ as independent bimodal-saddle corroboration, not as a successful reproduction
 of both controls.  The failure diagnoses zero censoring as incompatible with
 dynamic restraint: a surviving candidate supplies a lifetime lower bound and
 must be handled as right-censored data rather than discarded.
+
+The prospectively frozen successor implements that lower-bound ordering on
+three section lines and repeats the complete construction with censor ceilings
+of 64 and 128 returns.  The full nested-horizon experiment fails.  At 64
+returns, all three unimodal straddles complete but every oracle variant rejects
+their projections for insufficient invariant-domain coverage; only one of
+three bimodal lines completes, below the frozen straddle and pair-count gates.
+No integration fails and no branch label is forced.
+
+Both 128-return profiles independently pass.  Three unimodal straddles and
+three bimodal straddles each provide 2097 pooled return pairs per coordinate.
+Both coordinates recover respectively two and three branches in all 15 oracle
+variants.  The largest within-PIM normalized critical-location span is
+$0.01501$ and the largest combined sprinkler/PIM span is $0.01511$.  This is a
+qualified fixed-horizon two-control corroboration by an adaptive-DOP853 orbit-
+restraint method, but the failed 64-return profiles preclude a claim of censor-
+horizon invariance.

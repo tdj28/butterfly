@@ -50,4 +50,11 @@ only the scalar within-step section root on that interpolant; RK4 remains the
 state integrator.  Adaptive DOP853 provides the independent short-horizon
 reference.  PIM-triple trajectories
 provide a structurally different follow-up method rather than a tuning fallback
-\citep{nusse1989procedure}.
+\citep{nusse1989procedure}.  For censor-aware PIM refinement, capture before
+the observation ceiling gives an exact lifetime while survival gives only a
+right-censored lower bound.  A censored block is admissible only when it is
+strictly interior and its lower bound exceeds the exact lifetimes of captured
+neighbors on both sides; boundary blocks and integration failures remain
+unresolved.  Repeating the complete construction at frozen lifetime horizons
+tests whether branch topology and invariant-domain coverage depend on that
+ceiling.

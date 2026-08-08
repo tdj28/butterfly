@@ -84,6 +84,14 @@ artifacts; classify two versus three branches; continue the transition; and
 repeat under declared section perturbations. This closes the referee's praised
 but insufficiently demonstrated central mechanism.
 
+Checkpoint (2026-08-07): the local control problem is now strong. EXP-108
+qualifies both published attracting endpoints; EXP-112/113 qualify the two
+regular-window saddles on CPU/GPU; and EXP-115 independently recovers both
+saddle topologies with adaptive DOP853/PIM at a fixed 128-return censor
+horizon. EXP-115's 64-return profiles remain support-unresolved, so longer-
+horizon stability, transition continuation, and reinjection prediction remain
+open. RVR-003 is therefore materially advanced but not closed.
+
 ### RVR-004 — Finite logistic-ordering test
 
 Recover exact `L1` and `L2`, define the partition independently, and enumerate

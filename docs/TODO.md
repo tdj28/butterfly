@@ -287,8 +287,12 @@ exposition requirements.
   CPU/PIM critical spans below `0.01263`. Freeze a right-censor-aware PIM rule
   with nested-horizon stability; do not relabel EXP-114. DEC-009 and EXP-115
   now freeze the order-certified lower-bound rule, three section lines, two
-  censor horizons, and all acceptance gates before target execution. Commit
-  that preregistration, then execute both controls and retain pass or failure.
+  censor horizons, and all acceptance gates before target execution. EXP-115
+  then fails honestly: both 64-return profiles are support-unresolved, while
+  both 128-return profiles pass with two/three branches in both coordinates,
+  consensus `1.0`, and maximum CPU/PIM span `0.01511`. Freeze a 128-versus-256
+  successor before saddle-boundary continuation; retain 64 returns as a
+  negative coverage control and do not relabel EXP-115.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

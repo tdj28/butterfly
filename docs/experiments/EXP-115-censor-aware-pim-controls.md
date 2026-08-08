@@ -1,6 +1,6 @@
 # EXP-115 — Censor-aware PIM saddle controls
 
-Status: preregistered; target controls not executed
+Status: failed prospectively; fixed-128-horizon two-control result retained
 
 ## Hypothesis
 
@@ -56,5 +56,42 @@ PYTHONPATH=python ./.venv/bin/python \
   --states-output artifacts/EXP-115/censor-aware-pim-straddles.npz
 ```
 
-Target execution is forbidden until the implementation, tests, decision,
-manifest, and this record are committed with a clean source tree.
+The preregistration forbade target execution until the implementation, tests,
+decision, manifest, and this record were committed with a clean source tree.
+
+## Result
+
+The complete experiment fails after `5574.91 s`. Both 64-return profiles fail,
+so neither control has a resolved nested-horizon comparison. There are no
+adaptive integration failures.
+
+The failure modes are support failures, not contradictory branch labels. At
+the unimodal control, all three 64-return straddles complete and provide 2097
+pairs, but both coordinate projections fail the frozen `0.7` invariant-domain
+coverage gate. At the bimodal control, only one of three 64-return lines
+resolves, giving 699 pairs and missing the two-straddle/1000-pair gates.
+
+Both 128-return profiles pass every per-profile gate. Three unimodal straddles
+recover two branches and three bimodal straddles recover three, in `y` and `z`,
+with all 15 oracle variants agreeing. The largest within-PIM critical span is
+`0.01501`; the largest combined EXP-112/PIM span is `0.01511`. Each profile has
+2097 pairs and zero integration failures.
+
+The 41,177-byte raw receipt has SHA-256
+`f7b483334fa911ace7c11c499bb38d97756fb4623535c5200f7f606ea7d7e9b5`.
+The 116,376-byte state NPZ has SHA-256
+`73962228b0d037c4e2c6e9dd16fc4b1a681af750e09aaf108a780459fc55b551`.
+The tracked compact receipt is `docs/experiments/receipts/EXP-115.json`.
+
+## Interpretation and next action
+
+EXP-115 is not relabeled as passed. Its qualified subset is the first
+independent PIM/DOP853 two-control corroboration at a fixed 128-return censor
+horizon. The failed 64-return profiles prove that the censor ceiling affects
+invariant-domain coverage and stable-set access rather than only computation
+time.
+
+Freeze a successor that compares the accepted 128-return result against a
+256-return censor-aware reconstruction. Require both controls, coordinates,
+all oracle variants, critical-location stability, and zero integration
+failure before using PIM for saddle-boundary continuation.

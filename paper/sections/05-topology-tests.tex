@@ -28,8 +28,9 @@ prospective gate uses local critical-point uncertainty and ensemble-level
 time-step, horizon, and grid convergence.  That gate now passes after
 scrambled-Sobol sampling and cubic-Hermite event interpolation, directly
 qualifying the published two/three saddle controls.  The remaining boundary
-task is independent saddle-method corroboration followed by prospective
-continuation between and beyond those controls.  A
+task now has fixed-128-return independent PIM corroboration, but the failed
+64-return coverage control requires a longer-horizon stability test before
+prospective continuation between and beyond those controls.  A
 single orbit's change in historical crossing count remains insufficient,
 particularly in light of the section grazing found above.
 

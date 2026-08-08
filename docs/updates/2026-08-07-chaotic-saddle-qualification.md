@@ -84,3 +84,23 @@ horizons. Each horizon must independently recover the expected two/three
 topology at both controls; critical locations must also agree across horizons.
 The preregistration checkpoint is the next source commit. No target value has
 been inspected while choosing these gates.
+
+## Censor-aware result: fixed-horizon success, nested-horizon failure
+
+EXP-115 completes from clean preregistration commit `f354fc0` in `5574.91 s`
+and fails its full gate. The 64-return unimodal profile produces three complete
+straddles but insufficient invariant-domain coverage; the 64-return bimodal
+profile produces only one of the required two straddles. Both profiles remain
+unresolved, so the nested comparison is unresolved. No integration fails.
+
+Both independently executed 128-return profiles pass. Three unimodal
+straddles recover two branches and three bimodal straddles recover three in
+both section coordinates; all 15 oracle variants agree. The largest within-PIM
+critical span is `0.01501` and the largest combined CPU/PIM span is `0.01511`.
+This is qualified fixed-horizon two-control corroboration by a structurally
+independent PIM/DOP853 construction, but not censor-horizon invariance.
+
+The result is positive for the local Jones/Barrio branch substrate and negative
+for treating a short lifetime ceiling as harmless. The next frozen comparison
+must test 128 versus 256 returns before PIM is used to continue the saddle-
+defined boundary.
