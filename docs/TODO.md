@@ -255,7 +255,11 @@ exposition requirements.
   at `a=0.118` and three-branch saddle at `a=0.149`. EXP-110 preregisters a
   CPU reference sprinkler ensemble with repeated-cycle capture, middle-time
   survivor pairs, two-coordinate branch gates, and an independent DOP853
-  capture audit. GPU scaling follows only after this reference passes.
+  capture audit. EXP-110 fails prospectively: its `a=0.118` saddle is robustly
+  two-branch, while the shallow extra extremum at `a=0.149` falls below the
+  frozen 3-percent prominence threshold; pointwise long-horizon capture labels
+  agree only 25/32. Freeze a local-uncertainty critical-point rule and
+  ensemble-statistical step/horizon/grid convergence before GPU scaling.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

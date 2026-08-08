@@ -355,3 +355,21 @@ from final survivors, and requires the published two/three saddle counts in
 both `y` and `z`. Selected survivor/captured labels are independently re-run
 with DOP853. This CPU reference must pass before launching the same ensemble on
 the already qualified Runpod/Triton path.
+
+EXP-110 completed and is retained as a prospective failure. Both period-4
+cycles and both decaying survivor ensembles are numerically well populated.
+The `a=0.118` relation reproduces two branches in `y` and `z`, but the frozen
+3-percent prominence gate labels `a=0.149` as two-branch and the pointwise
+fixed-step/DOP853 capture audit reaches only 25/32 agreement. Inspection does
+not show an absent third branch: it shows the PRL's shallow left-hand maximum.
+A diagnostic local threshold recovers critical points near `y=-31.1847` and
+`-20.9116` and near `z=0.00936153` and `0.00954293`, each with 100/100
+bootstrap agreement. This is encouraging but not promoted to a pass.
+
+The failure exposes two design facts for the next frozen gate. A global
+prominence floor biases a branch-birth curve because the newborn extremum has
+vanishing amplitude. And pointwise capture identity after dozens of chaotic
+returns is ill-conditioned across integrators; convergence must be assessed by
+survival distributions and return-map geometry. The next experiment therefore
+replaces neither result post hoc: it prospectively qualifies a local-noise
+critical-point rule and ensemble-level step/horizon/grid convergence.

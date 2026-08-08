@@ -20,6 +20,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-002-double-covered-flip-surface.md`](findings/FND-002-double-covered-flip-surface.md):
   decisive reclassification of the apparent `+1` event as a double-covered
   fundamental period-doubling surface and its implications for Jones.
+- [`findings/FND-007-shallow-saddle-branch-and-statistical-convergence.md`](findings/FND-007-shallow-saddle-branch-and-statistical-convergence.md):
+  retains EXP-110's failed saddle qualification, identifies the shallow added
+  branch, and replaces pointwise chaotic identity with statistical convergence.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

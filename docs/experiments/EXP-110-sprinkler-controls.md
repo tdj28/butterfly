@@ -1,6 +1,6 @@
 # EXP-110 — Reference sprinkler qualification on the published saddle controls
 
-Status: preregistered under DEC-005; not yet executed
+Status: executed; failed as preregistered
 
 The attracting-set bracket in EXP-109 cannot reproduce the PRL's central
 advance inside stable windows. Implement a CPU reference sprinkler sampler
@@ -37,3 +37,20 @@ it may not be turned into a saddle claim by plotting the longest transient.
 A pass qualifies the CPU reference only. A Runpod/Triton implementation must
 then reproduce survivor identities, survival curves, and return-map topology
 before a plane-scale saddle scan.
+
+## Result
+
+The experiment ran from clean source commit `b9d5354` in 31.79 seconds and
+failed its frozen gate. Both DOP853 references are stable period-4 cycles and
+neither 8192-member ensemble has a numerical failure. At `a=0.118`, 2775 final
+survivors supply 23,022 return pairs in each coordinate, and both coordinates
+resolve the expected two branches at bootstrap consensus `1.0`. At `a=0.149`,
+1564 survivors supply 12,892 pairs, but the frozen 3-percent prominence rule
+returns two rather than three branches in both coordinates. The pointwise
+fixed-step/DOP853 capture audits agree on only 12/16 and 13/16 labels.
+
+The negative result is retained. A post-result diagnostic shows a shallow
+additional maximum at `a=0.149`; lowering prominence to `0.005` for `y` and
+`0.010` for `z` recovers two critical points with 100/100 bootstrap agreement.
+This diagnostic does not change the failed status. See FND-007 for the
+scientific interpretation and the statistical-convergence replacement.
