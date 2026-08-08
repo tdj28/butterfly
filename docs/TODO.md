@@ -359,7 +359,9 @@ exposition requirements.
   censors. The sampled bracket halves to `[0.147,0.149]`. Freeze the next blind
   midpoint at `a=0.148` with the same rule and independently chosen ensembles;
   continue bisection only while the invariant-set and numerical gates remain
-  qualified.
+  qualified. EXP-123 now freezes that blind midpoint on new seeds 129--131 and
+  a prospectively reduced `2^13,2^14,2^15` ladder; the unchanged support floors
+  make inadequate down-scaling a retained failure.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

@@ -297,3 +297,12 @@ The weakest run retains 350 survivors and 3008 pairs. Maximum survivor drift is
 audits pass. The sampled saddle bracket therefore halves to `[0.147,0.149]`.
 Freeze the next blind midpoint at `a=0.148`; retain the finite-bracket claim
 until a separate continuation method establishes a continuous curve.
+
+## Second blind midpoint frozen
+
+EXP-123 preregisters `a=0.148` without an expected label. New Sobol seeds
+129--131 use a `2^13,2^14,2^15` ladder, one power below EXP-122 because its
+weakest run retained 350 survivors and 3008 pairs. The floors remain 100 and
+1000, so inadequate support fails rather than triggering a post-result scale
+increase. A two result yields `[0.148,0.149]`; a three result yields
+`[0.147,0.148]`.
