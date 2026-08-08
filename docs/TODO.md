@@ -303,6 +303,14 @@ exposition requirements.
   qualified EXP-112 ensemble at all five known period-4 cells on the published
   `c=20,b=0.2` path, leave the three interior branch labels blind, and require
   one ordered two-to-three transition before any refinement or curve fit.
+  EXP-117 fails the complete gate but qualifies the blind `a=0.140`
+  two-branch saddle, narrowing the resolved saddle bracket to `[0.140,0.149]`.
+  `a=0.145` is support-unresolved (72/90 attempted variants resolve as two;
+  none as three), and `a=0.120` fails only its too-short cycle-recurrence gate.
+  Before scaling the `0.145` ensemble, freeze a multi-burn-in topology and
+  Lyapunov audit of EXP-109's adjacent two-branch `a=0.150` aperiodic candidate;
+  do not assume a single monotone path across the apparent `0.149/0.150`
+  reversal.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

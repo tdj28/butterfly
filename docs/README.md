@@ -42,6 +42,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-013-pim-saddle-topology-stable-128-256.md`](findings/FND-013-pim-saddle-topology-stable-128-256.md):
   qualifies independent two-control PIM/DOP853 topology and critical-location
   stability from 128 to 256 returns.
+- [`findings/FND-014-held-out-saddle-path-and-conditioning-hole.md`](findings/FND-014-held-out-saddle-path-and-conditioning-hole.md):
+  qualifies a blind two-branch saddle at `a=0.140`, narrows the finite-sample
+  saddle bracket, and retains the unresolved `a=0.145` conditioning hole.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

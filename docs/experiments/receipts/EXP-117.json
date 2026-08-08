@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.sprinkler-path-summary.v1",
+  "experiment_id": "EXP-117",
+  "passed": false,
+  "source_commit": "8cb8bfa00abf55e6b4786a4d8be2a415261f0538",
+  "manifest_sha256": "7aa6dff3f100780ef0b39b44a7fda1ba1e855eb24d463559ec170eed0333fc5d",
+  "raw_receipt": "artifacts/EXP-117/receipt.json",
+  "raw_receipt_sha256": "893c0a6d4983b3af5b59ce4f296d75eb174f65f3dd655a25150e356faed8da0f",
+  "raw_receipt_bytes": 364330,
+  "elapsed_seconds": 759.272410500329,
+  "observed_branch_counts": [2, 2, 2, null, 3],
+  "cases": [
+    {"a": 0.118, "expected": 2, "observed": 2, "cycle_period": 4, "passed": true, "minimum_final_survivors": 1485, "minimum_return_pairs": 12375, "maximum_critical_span": 0.014848040039709427},
+    {"a": 0.12, "expected": null, "observed": 2, "cycle_period": null, "passed": false, "minimum_final_survivors": 1142, "minimum_return_pairs": 9502, "maximum_critical_span": 0.01412411124636461},
+    {"a": 0.14, "expected": null, "observed": 2, "cycle_period": 4, "passed": true, "minimum_final_survivors": 438, "minimum_return_pairs": 3697, "maximum_critical_span": 0.01392487972449475},
+    {"a": 0.145, "expected": null, "observed": null, "cycle_period": 4, "passed": false, "minimum_final_survivors": 33, "minimum_return_pairs": 284, "maximum_critical_span": null},
+    {"a": 0.149, "expected": 3, "observed": 3, "cycle_period": 4, "passed": true, "minimum_final_survivors": 884, "minimum_return_pairs": 7438, "maximum_critical_span": 0.012831907235057761}
+  ],
+  "oracle_variant_results": {"attempted": 930, "resolved": 912, "two_branch": 702, "three_branch": 210},
+  "a_0_145_diagnostic": {"attempted_variants": 90, "resolved_two_branch": 72, "resolved_three_branch": 0, "unresolved": 18},
+  "integration_failures": 0,
+  "interpretation": "failed complete ordered-path gate; fully qualified held-out two-branch saddle at a=0.140 narrows the resolved saddle bracket to [0.140,0.149], while a=0.145 is support-unresolved and a=0.120 fails only the frozen cycle-recurrence gate"
+}

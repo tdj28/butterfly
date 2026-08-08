@@ -137,3 +137,25 @@ retain expected endpoint labels; the labels at `0.120,0.140,0.145` are blind.
 Every cell repeats the complete seven-ensemble EXP-112 gate, and the resulting
 five labels must form one nondecreasing two-to-three transition. This can
 produce a held-out saddle-defined bracket, not yet a continuous TBA curve.
+
+## Held-out path result: partial progress, complete gate fails
+
+EXP-117 completes from clean commit `8cb8bfa` in `759.27 s` and fails the full
+path gate. The robust counts are `2,2,2,unresolved,3`. The blind `a=0.140`
+case passes every frozen numerical gate and all 210 oracle variants in both
+coordinates, narrowing the resolved saddle bracket to `[0.140,0.149]`.
+
+At `a=0.145`, rapid survivor decay leaves 33--231 final survivors and
+284--1872 pairs. Seventy-two of 90 attempted oracle variants return two
+branches, none return three, and 18 remain coverage/bootstrap unresolved. At
+`a=0.120`, 210/210 variants return two, but the 2000-unit cycle reference is
+too short for the repeated-block classifier; a post-result 3000-unit audit
+recovers period 4 and the same capture cycle to scaled distance `1.06e-9`.
+Neither diagnosis changes the failed receipt.
+
+The combined record also exposes a new continuity question. The qualified
+three-branch saddle at `a=0.149` lies immediately beside EXP-109's two-branch
+aperiodic candidate at `a=0.150`. A recurrence-only post-result audit remains
+nonperiodic after burn-ins through 10000 time units, so simple rapid periodic
+capture does not explain the difference. Freeze a multi-burn-in topology and
+Lyapunov audit at `a=0.150` before assuming one monotone TBA crossing.
