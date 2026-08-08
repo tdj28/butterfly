@@ -45,6 +45,9 @@ critical points must persist across a frozen binning/smoothing matrix and
 bootstrap resampling in both section coordinates.  Regular-grid aliasing is
 tested and then replaced by independently scrambled, nested Sobol ensembles;
 section roots inside fixed RK4 steps are located with cubic Hermite
-interpolation from endpoint vector fields.  PIM-triple trajectories
+interpolation from endpoint vector fields.  Four bounded Newton updates refine
+only the scalar within-step section root on that interpolant; RK4 remains the
+state integrator.  Adaptive DOP853 provides the independent short-horizon
+reference.  PIM-triple trajectories
 provide a structurally different follow-up method rather than a tuning fallback
 \citep{nusse1989procedure}.

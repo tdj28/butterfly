@@ -1,0 +1,58 @@
+{
+  "artifact": "artifacts/EXP-113/receipt.json",
+  "artifact_bytes": 26569,
+  "artifact_sha256": "98428448119c4e428364bfcbcb220b7ae67c81c208abfc409eb44ff1cf5bd48a",
+  "experiment_id": "EXP-113",
+  "manifest_sha256": "f6a2862201457ecaaf3273be4f2ef4add471faf9a53392eefcb83fff2175acb6",
+  "cpu_manifest_sha256": "1f6d1394ba94b6e2e36534c1967f0459895922c5fe741ea35962385532bf1a73",
+  "source_commit": "03a77bfd2065194d9f3fe4d133cdd11be719bc32",
+  "source_archive_sha256": "8d81c77684e420b4e4279fb8966a4ab4781580ed7ecae62af93abc393fd590c5",
+  "passed": true,
+  "environment": {
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_memory_bytes": 25283526656,
+    "compute_capability": [8, 6],
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.14.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0"
+  },
+  "case_summaries": [
+    {
+      "id": "published-unimodal-saddle",
+      "expected_branch_count": 2,
+      "gpu_survivor_counts": [8179, 7190, 5851, 4692, 3780, 2990],
+      "cpu_survivor_counts": [8179, 7190, 5851, 4692, 3780, 2991],
+      "maximum_survivor_fraction_difference": 0.0001220703125,
+      "maximum_across_backend_critical_span": 0.014623149082536913,
+      "maximum_short_horizon_scaled_state_error": 0.000002065616503492316,
+      "maximum_short_horizon_time_error": 5.530655968755127e-7,
+      "gpu_return_pairs_per_coordinate": 24875,
+      "gpu_state_steps_per_second": 51659551.94452848,
+      "passed": true
+    },
+    {
+      "id": "published-bimodal-saddle",
+      "expected_branch_count": 3,
+      "gpu_survivor_counts": [8192, 6571, 4773, 3395, 2440, 1757],
+      "cpu_survivor_counts": [8192, 6571, 4773, 3395, 2440, 1757],
+      "maximum_survivor_fraction_difference": 0.0,
+      "maximum_across_backend_critical_span": 0.012444823833672545,
+      "maximum_short_horizon_scaled_state_error": 0.0000024593267673411363,
+      "maximum_short_horizon_time_error": 0.0000031525427779399706,
+      "gpu_return_pairs_per_coordinate": 14776,
+      "gpu_state_steps_per_second": 597647097.2103788,
+      "passed": true
+    }
+  ],
+  "provisioning": {
+    "rejected_adjusted_offer": "NVIDIA A40 at 0.44 USD/hour",
+    "accepted_worker": "SECURE NVIDIA RTX A5000 at 0.27 USD/hour",
+    "maximum_wall_time_cost_bound_usd": 0.06,
+    "remote_local_hash_match": true,
+    "active_pods_after_teardown": 0
+  },
+  "status": "passed"
+}

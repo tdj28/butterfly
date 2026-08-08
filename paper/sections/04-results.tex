@@ -148,3 +148,14 @@ $2.46\times10^{-6}$ in scaled state and $3.16\times10^{-6}$ in time.  All
 support and numerical-failure gates pass.  This qualifies the finite-time CPU
 sprinkler reconstruction at both published regular-window controls, but not a
 continued TBA curve or a topological-template equivalence.
+
+A separately frozen Float64 GPU transfer reproduces these two controls on an
+NVIDIA RTX A5000.  All 30 case--coordinate--oracle cells retain the expected
+two/three distinction with unit variant consensus.  The six checkpoint
+survivor counts are identical at $a=0.149$; at $a=0.118$ only the final count
+differs, by one trajectory among 8192.  The largest combined CPU/GPU normalized
+critical-location span is $0.01463$.  Ten short-horizon GPU trajectories agree
+with DOP853 within $2.46\times10^{-6}$ in scaled state and
+$3.16\times10^{-6}$ in event time.  This passes statistical backend parity at
+the two controls; it is not an independent saddle construction or a continued
+TBA.

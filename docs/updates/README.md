@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-chaotic-saddle-qualification.md`](2026-08-07-chaotic-saddle-qualification.md)
+  — passed CPU and GPU reconstruction of the two published nonattracting
+  chaotic-saddle controls, with exact method and claim boundaries.
 - [`2026-08-07-paper-workspace-and-referee-citations.md`](2026-08-07-paper-workspace-and-referee-citations.md)
   — compile-ready manuscript, verified referee citations, and automated
   BibTeX/citation traceability gate.

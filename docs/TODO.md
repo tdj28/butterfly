@@ -64,7 +64,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   and recurrence-period parity on six stable controls at two timesteps.
 - [x] **P1-003 — Cheap NVIDIA qualification.** The final NVIDIA L4 receipt binds
   commit `20bd0b6`, records 717.1 million raw Float64 state-steps/second, matches
-  remote/local hashes, and ends with every task-owned pod terminated.
+  remote/local hashes, and ends with every task-owned pod terminated. EXP-113
+  separately qualifies the production chaotic-saddle observable on an RTX
+  A5000: both controls retain the CPU two/three topology, the largest survivor
+  difference is `1/8192`, DOP853 audits pass, receipt hashes match, spend is
+  bounded below `$0.06`, and no pod remains active.
 - [ ] **P1-004 — Forced-kill/resume test.** Immutable tile IDs, atomic completion,
   corruption rejection, simulated interrupted-write recovery, and an actual
   mid-computation process kill/restart pass locally. Remote container/storage
@@ -269,9 +273,11 @@ exposition requirements.
   freeze three scrambles, three nested sample sizes, step/horizon controls, and
   the unchanged topology/survival/short-horizon acceptance thresholds. EXP-112
   passes all gates and qualifies the finite-time CPU sprinkler at both
-  published controls. Next: independent PIM/stagger-and-step corroboration,
-  CPU/GPU statistical parity, then saddle-defined TBA continuation. EXP-113
-  now freezes the Float64 Triton parity gate and its `$0.80` Runpod ceiling.
+  published controls. EXP-113 then passes the Float64 Triton parity gate on an
+  RTX A5000: all 30 topology cells agree, one of 8192 survivors differs at one
+  final checkpoint, and all critical-location and DOP853 gates pass. Next:
+  independent PIM/stagger-and-step corroboration, then saddle-defined TBA
+  continuation through the regular gap.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

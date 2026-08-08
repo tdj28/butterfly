@@ -29,6 +29,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-009-published-chaotic-saddles-qualified.md`](findings/FND-009-published-chaotic-saddles-qualified.md):
   qualifies the published two- and three-branch regular-window saddles across
   Sobol, step, horizon, coordinate, oracle, and DOP853 checks.
+- [`findings/FND-010-gpu-saddle-statistical-parity.md`](findings/FND-010-gpu-saddle-statistical-parity.md):
+  reproduces those saddle observables on Float64 GPU, records exact CPU/GPU
+  discrepancies, cost, hashes, teardown, and the remaining independent-method
+  boundary.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

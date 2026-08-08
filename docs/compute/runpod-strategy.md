@@ -1,6 +1,6 @@
 # Runpod GPU execution strategy
 
-Status: implementation active; first qualification pod authorized
+Status: two production-observable qualification gates passed; no active pods
 Last updated: 2026-08-07
 
 ## Decision boundary
@@ -255,11 +255,25 @@ It compares survivor distributions, return-map topology, and critical-location
 intervals rather than long-horizon trajectory identity, while retaining a
 pointwise DOP853 audit over the first five returns.
 
-The 2026-08-07 live catalog offers a secure-cloud A40 at `$0.35/hour` with high
-stock. The task is frozen at a `$0.40/hour` launch ceiling, two-hour wall limit,
-`$0.80` hard spend ceiling, and 15-minute no-progress teardown. Passing this
-gate permits a separately preregistered GPU saddle-boundary workload; it does
-not itself establish or authorize a plane-wide TBA scan.
+The 2026-08-07 live catalog initially advertised a secure-cloud A40 at
+`$0.35/hour`. The returned offer was `$0.44/hour`, above the frozen
+`$0.40/hour` launch ceiling, and was automatically terminated. A secure RTX
+A5000 was then launched at `$0.27/hour` under the same two-hour/`$0.80` hard
+limits.
+
+EXP-113 passed. GPU and CPU recover identical two-/three-branch topology in
+both coordinates and all frozen oracle variants. The largest survivor-curve
+difference is one of 8192 trajectories; the other control is exact. The
+combined critical-location spans and ten DOP853 short-horizon audits pass.
+The first timed case, including Triton compilation, measures 51.66 million
+state-steps/second; the warm case measures 597.65 million. Remote/local receipt
+hashes match. Spend is conservatively bounded below `$0.06`; provider billing
+is authoritative. The worker was terminated and the account list verified
+empty.
+
+Passing permits a separately preregistered GPU saddle-boundary workload; it
+does not establish or authorize a plane-wide TBA scan. The next scientific
+gate is independent PIM-triple or stagger-and-step corroboration.
 
 ## Runpod primary documentation
 
