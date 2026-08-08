@@ -215,3 +215,13 @@ exponent differences are at most `0.00519`, and the trace errors fall to
 coarse-resolution artifact. The binding path action returns to the
 support-poor `a=0.145` saddle cell using a prospectively enlarged ensemble and
 the now-qualified resolution grouping.
+
+## Large-support `a=0.145` successor frozen
+
+EXP-120 addresses the last sampled path hole without changing the capture
+physics or oracle thresholds. Every corresponding EXP-117 ensemble grows by a
+factor of eight, with a `2^15,2^16,2^17` nested ladder and new scrambles
+120--122. All seven ensembles and both coordinates must resolve two branches
+in every oracle variant, with unchanged survival, critical-drift, minimum-
+support, and DOP853/Hermite gates. A pass narrows the sampled saddle bracket to
+`[0.145,0.149]`; it does not interpolate the boundary.

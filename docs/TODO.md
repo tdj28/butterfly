@@ -327,7 +327,10 @@ exposition requirements.
   classify chaotic, and trace errors fall to `1.25e-7`. The `0.149/0.150`
   contradiction is closed as under-resolution. Return now to the `a=0.145`
   support hole with a prospectively larger ensemble and the qualified
-  resolution-group rule.
+  resolution-group rule. EXP-120 now freezes eightfold support at every
+  corresponding sprinkler run (`2^15,2^16,2^17` nested sizes), two new
+  scrambles, the unchanged 15-variant/full-consensus gate, and the prospective
+  expectation of two branches supported by all 72 resolved EXP-117 variants.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
