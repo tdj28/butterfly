@@ -212,6 +212,78 @@ def _critical_convergence(runs, coordinates, expected_branch_count):
     return output
 
 
+def _observed_branch_count(runs, coordinates, allowed_counts):
+    """Return one fully resolved branch count across every run/coordinate."""
+    counts = []
+    for run in runs:
+        for coordinate in coordinates:
+            robust = run["coordinates"][coordinate["name"]]["robust_oracle"]
+            if not robust["resolved"] or robust["branch_count"] is None:
+                return None
+            counts.append(int(robust["branch_count"]))
+    unique = set(counts)
+    if len(unique) != 1:
+        return None
+    observed = unique.pop()
+    return observed if observed in allowed_counts else None
+
+
+def _path_evaluation(cases, manifest):
+    """Evaluate the prospective ordered topology path without fitting a boundary."""
+    path = manifest["path_acceptance"]
+    ordered_cases = sorted(cases, key=lambda row: row["parameters"]["a"])
+    observed = [row["observed_saddle_branch_count"] for row in ordered_cases]
+    all_resolved = all(value is not None for value in observed)
+    nondecreasing = all_resolved and all(
+        left <= right for left, right in zip(observed, observed[1:], strict=False)
+    )
+    required = {int(value) for value in path["required_observed_counts"]}
+    required_present = all_resolved and required.issubset(set(observed))
+    controls_passed = all(
+        row["expected_saddle_branch_count"] is None
+        or row["observed_saddle_branch_count"]
+        == row["expected_saddle_branch_count"]
+        for row in ordered_cases
+    )
+    transitions = []
+    if all_resolved:
+        for left, right in zip(ordered_cases, ordered_cases[1:], strict=False):
+            if (
+                left["observed_saddle_branch_count"]
+                != right["observed_saddle_branch_count"]
+            ):
+                transitions.append(
+                    {
+                        "lower_a": left["parameters"]["a"],
+                        "upper_a": right["parameters"]["a"],
+                        "lower_branch_count": left[
+                            "observed_saddle_branch_count"
+                        ],
+                        "upper_branch_count": right[
+                            "observed_saddle_branch_count"
+                        ],
+                    }
+                )
+    passed = bool(
+        all(row["passed"] for row in ordered_cases)
+        and all_resolved
+        and nondecreasing
+        and required_present
+        and controls_passed
+        and len(transitions) == int(path["required_transition_count"])
+    )
+    return {
+        "a_values": [row["parameters"]["a"] for row in ordered_cases],
+        "observed_branch_counts": observed,
+        "all_resolved": all_resolved,
+        "nondecreasing": nondecreasing,
+        "required_counts_present": required_present,
+        "published_controls_passed": controls_passed,
+        "transitions": transitions,
+        "passed": passed,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -219,8 +291,16 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.sprinkler-convergence-manifest.v1":
+    supported_schemas = {
+        "butterfly.sprinkler-convergence-manifest.v1",
+        "butterfly.sprinkler-path-continuation-manifest.v1",
+    }
+    if manifest.get("schema") not in supported_schemas:
         raise SystemExit("unsupported sprinkler-convergence manifest")
+    path_mode = (
+        manifest["schema"]
+        == "butterfly.sprinkler-path-continuation-manifest.v1"
+    )
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -357,10 +437,33 @@ def main() -> int:
         survival = _survival_comparisons(
             run_rows, acceptance["baseline_run_id"]
         )
-        expected = int(case["expected_saddle_branch_count"])
-        critical = _critical_convergence(
-            run_rows, manifest["coordinates"], expected
+        expected = case.get("expected_saddle_branch_count")
+        expected = int(expected) if expected is not None else None
+        allowed_counts = {
+            int(value)
+            for value in manifest.get("path_acceptance", {}).get(
+                "allowed_branch_counts", [expected]
+            )
+            if value is not None
+        }
+        observed = _observed_branch_count(
+            run_rows, manifest["coordinates"], allowed_counts
         )
+        required_count = expected if expected is not None else observed
+        if required_count is None:
+            critical = {
+                coordinate["name"]: {
+                    "critical_point_intervals": [],
+                    "normalized_critical_point_spans": [],
+                    "maximum_normalized_critical_point_span": 1e300,
+                    "reason": "no common allowed branch count",
+                }
+                for coordinate in manifest["coordinates"]
+            }
+        else:
+            critical = _critical_convergence(
+                run_rows, manifest["coordinates"], required_count
+            )
         case_passed = bool(
             cycle_crossings.integration_success
             and cycle_classification.label == OrbitLabel.PERIODIC
@@ -372,7 +475,8 @@ def main() -> int:
                 and all(
                     coordinate["pair_count"] >= acceptance["minimum_return_pairs"]
                     and coordinate["robust_oracle"]["resolved"]
-                    and coordinate["robust_oracle"]["branch_count"] == expected
+                    and coordinate["robust_oracle"]["branch_count"]
+                    == required_count
                     for coordinate in run["coordinates"].values()
                 )
                 for run in run_rows
@@ -403,6 +507,7 @@ def main() -> int:
                 "id": case["id"],
                 "parameters": asdict(parameters),
                 "expected_saddle_branch_count": expected,
+                "observed_saddle_branch_count": observed,
                 "cycle_reference": {
                     "classification": asdict(cycle_classification),
                     "states": cycle.tolist(),
@@ -415,8 +520,13 @@ def main() -> int:
             }
         )
 
+    path_evaluation = _path_evaluation(all_cases, manifest) if path_mode else None
     output = {
-        "schema": "butterfly.sprinkler-convergence.v1",
+        "schema": (
+            "butterfly.sprinkler-path-continuation.v1"
+            if path_mode
+            else "butterfly.sprinkler-convergence.v1"
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source": source,
@@ -428,7 +538,11 @@ def main() -> int:
         },
         "elapsed_seconds": time.perf_counter() - started,
         "cases": all_cases,
-        "passed": all(case["passed"] for case in all_cases),
+        "path_evaluation": path_evaluation,
+        "passed": bool(
+            all(case["passed"] for case in all_cases)
+            and (path_evaluation is None or path_evaluation["passed"])
+        ),
     }
     atomic_write(args.output, canonical_json(output))
     print(

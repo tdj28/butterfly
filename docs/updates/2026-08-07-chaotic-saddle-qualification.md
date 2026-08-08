@@ -127,3 +127,13 @@ drops from 1108/385 evaluations at 128 returns to 34/1 at 256 returns. The
 finite-horizon independent-method control gate is therefore closed at the two
 published points. The next binding action is prospective saddle-defined
 continuation through the intervening regular gap.
+
+## First held-out saddle path frozen
+
+EXP-117 is preregistered as the first prospective use of the qualified sampler
+away from the two published controls. It evaluates all five period-4 cells
+identified by EXP-109 on the `c=20,b=0.2` path. Only `a=0.118` and `a=0.149`
+retain expected endpoint labels; the labels at `0.120,0.140,0.145` are blind.
+Every cell repeats the complete seven-ensemble EXP-112 gate, and the resulting
+five labels must form one nondecreasing two-to-three transition. This can
+produce a held-out saddle-defined bracket, not yet a continuous TBA curve.

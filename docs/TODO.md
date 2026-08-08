@@ -299,6 +299,10 @@ exposition requirements.
   topology cells return the expected two/three distinction, no integration
   fails, and the maximum 128/256 span is `0.01601`. Freeze saddle-defined
   continuation through the regular gap; do not spend another control-only run.
+  EXP-117 now preregisters the first held-out continuation: reuse the complete
+  qualified EXP-112 ensemble at all five known period-4 cells on the published
+  `c=20,b=0.2` path, leave the three interior branch labels blind, and require
+  one ordered two-to-three transition before any refinement or curve fit.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
