@@ -419,12 +419,16 @@ exposition requirements.
   60/60 two-branch oracle cells, and 60/60 negative-slope fits agree, with the
   weakest slope magnitude `0.4994` and no failed lifetime integration. The
   finite bracket is `[0.148125,0.14825]`. Leave pure one-dimensional bisection.
-  EXP-130 now prospectively freezes a transverse `(a,c)` GPU discovery pilot:
-  four controls, two fresh Sobol ensembles, half-step representatives, and
-  unresolved-aware ordered-bracket gates at `c=19.8/19.9`. Execute it from the
-  clean frozen commit, then preregister adaptive-DOP853 PIM validation only at
-  the selected brackets and search the opened lobe for the unstable-orbit/
-  manifold event that supplies a genuine continuation condition.
+  EXP-130 prospectively freezes and executes a transverse `(a,c)` GPU
+  discovery pilot with four controls, two fresh Sobol ensembles, half-step
+  representatives, and unresolved-aware gates at `c=19.8/19.9`. It correctly
+  fails: the published controls pass, but both narrow local PIM controls are
+  oracle-dependent despite adequate pairs and zero numerical failures. No
+  transverse bracket is claimed. FND-027 therefore rejects brute finite-
+  sprinkler continuation and selects adaptive-DOP853 PIM endpoint tests at
+  `(c,a)=(19.8,0.145/0.148)` and `(19.9,0.145/0.150)`. Freeze and run those
+  predictions, then search the opened lobe for the unstable-orbit/manifold
+  event that supplies a genuine continuation condition.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

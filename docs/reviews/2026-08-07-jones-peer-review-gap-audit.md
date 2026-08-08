@@ -93,8 +93,9 @@ returns with all six access lines resolved and zero integration failures.
 EXP-115's 64-return profiles remain a negative support control. EXP-129 then
 prospectively matches the frozen signed lower-support prediction to a blind PIM
 midpoint and narrows the finite `c=20` bracket to `[0.148125,0.14825]`.
-EXP-130 now preregisters unresolved-aware transverse discovery at `c=19.8` and
-`c=19.9`, with independent PIM validation required after target selection.
+EXP-130's unresolved-aware transverse discovery then rejects brute finite-
+sprinkler continuation at the narrow local controls and selects four explicit
+adaptive-PIM endpoint tests at `c=19.8` and `c=19.9` without claiming a curve.
 Transition continuation, the underlying manifold event, and reinjection
 prediction remain open, so RVR-003 is materially advanced but not closed.
 

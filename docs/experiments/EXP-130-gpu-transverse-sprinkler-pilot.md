@@ -1,6 +1,6 @@
 # EXP-130 — GPU transverse saddle-boundary discovery pilot
 
-Status: preregistered; target data unexecuted
+Status: failed the prospective scientific-resolution gate; execution complete
 
 ## Question
 
@@ -73,3 +73,33 @@ PYTHONPATH=python python scripts/gpu_sprinkler_boundary_pilot.py \
 
 The run must use the clean pushed preregistration commit. Result interpretation
 and any PIM target selection are post-result changes.
+
+## Result
+
+The frozen workload completed on a secure RTX A5000 from source commit
+`2cbe797` in `1075.37 s`. The returned price was `$0.27/hour`; complete
+provisioning-to-teardown spend is conservatively below `$0.10`. The 465,456-
+byte remote and local receipts match SHA-256
+`e291d0656c7a66974cfd462405655e4904159275a9e65de7a9196933e58f27d2`.
+The pod was terminated and the account list verified empty.
+
+The published controls pass in all six base/half-step profiles. The two local
+PIM-qualified controls do not: all six profiles remain unresolved because the
+15 branch variants disagree and the slope variants cross zero or approach it.
+This occurs despite zero integration failures, zero buffer saturation, at
+least 121 final survivors and 1002 pairs, and warm throughput up to `6.221e8`
+state steps/second. It is a scientific resolution failure rather than a
+compute failure.
+
+Neither transverse slice satisfies the preregistered bracket gate. At
+`c=19.9`, only `a=0.150` fully resolves, as three. At `c=19.8`, the high-
+accuracy attractor at `a=0.149` is not classified as stable period 4 and is
+skipped. The non-claim-bearing exploratory signatures prospectively select
+PIM endpoint pairs `(0.145,0.148)` at `c=19.8` and `(0.145,0.150)` at
+`c=19.9`.
+
+The result rejects brute finite-survivor continuation near the boundary. It
+does not reject the Jones/Barrio topology transition; it requires the next
+transverse test to construct the saddle with adaptive PIM.
+
+Tracked compact receipt: `docs/experiments/receipts/EXP-130.json`.
