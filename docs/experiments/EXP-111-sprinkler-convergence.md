@@ -1,6 +1,6 @@
 # EXP-111 — Statistical convergence of the published saddle controls
 
-Status: preregistered under DEC-006; not yet executed
+Status: executed; failed as preregistered, topology component passed 300/300
 
 EXP-110 is retained as failed. This successor tests the two diagnosed
 obstructions without rewriting the earlier manifest.
@@ -35,3 +35,18 @@ was calibrated before preregistration on the separate chaotic-attractor control
 A pass qualifies the CPU sprinkler reconstruction at the two published
 controls. It still requires an independent saddle method and CPU/GPU
 statistical parity before the TBA can be continued across the parameter plane.
+
+## Result
+
+The run completed from clean commit `2e6b8ee` in 134.25 seconds and failed
+overall. Its topology component is decisive: all 300 case/run/coordinate/oracle
+cells produce the expected two branches at `a=0.118` and three at `a=0.149`,
+with variant consensus `1.0`. Across-run normalized critical-location drift is
+at most `0.01666`; all ensembles remain finite and well populated.
+
+The regular-grid survivor fractions do not meet the frozen convergence limit:
+maximum differences are `0.07962` and `0.06458`, versus the `0.05` threshold.
+One of ten short-horizon crossing-time audits also fails at `3.4639e-5` versus
+`2e-5`; all scaled section-state errors pass. The result remains failed. FND-008
+separates the qualified topology component from the unqualified lifetime
+density and freezes the Sobol/Hermite successor direction.

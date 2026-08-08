@@ -23,6 +23,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-007-shallow-saddle-branch-and-statistical-convergence.md`](findings/FND-007-shallow-saddle-branch-and-statistical-convergence.md):
   retains EXP-110's failed saddle qualification, identifies the shallow added
   branch, and replaces pointwise chaotic identity with statistical convergence.
+- [`findings/FND-008-saddle-topology-converges-before-lifetime-density.md`](findings/FND-008-saddle-topology-converges-before-lifetime-density.md):
+  records 300/300 stable saddle-topology cells while preserving the failed
+  lifetime-density and crossing-time gates.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

@@ -123,3 +123,15 @@ retain the prospective failure: local uncertainty, rather than a retrospectively
 changed global cutoff, must qualify the shallow branch.  Pointwise fixed-step
 versus DOP853 finite-time capture labels agree on only 25 of 32 audited seeds,
 so long-horizon convergence will be tested at the ensemble-distribution level.
+
+A second prospectively frozen experiment performs that test across baseline,
+half-step, later-conditioning, shifted-grid, and coarser shifted-grid
+ensembles.  All 300 case--run--coordinate--oracle cells recover two branches at
+$a=0.118$ and three at $a=0.149$, with unit variant consensus and 15000 total
+bootstrap refits.  Across-run normalized critical-location drift is at most
+$0.01666$.  This qualifies the topology component over the declared
+perturbations.  The complete experiment still fails: regular-grid survivor
+fractions differ by as much as $0.07962$, exceeding the frozen $0.05$ gate,
+and one linearly interpolated crossing time misses its short-horizon tolerance.
+Scrambled low-discrepancy ensembles and higher-order event interpolation are
+therefore required before qualifying the complete saddle sampler.

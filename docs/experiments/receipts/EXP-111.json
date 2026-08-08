@@ -1,0 +1,31 @@
+{
+  "artifact": "artifacts/EXP-111/receipt.json",
+  "artifact_sha256": "d58af580a128886693e62613dfe00834744b5eefece831ac42019bd29373c6ae",
+  "elapsed_seconds": 134.25163795799017,
+  "experiment_id": "EXP-111",
+  "manifest_sha256": "fe6a72897cedf3077649b34ad26a9605a8f1f6fbe56dcd243a1488e037ed4395",
+  "passed": false,
+  "source_commit": "2e6b8ee66504fd06d10a8581168c161efe288827",
+  "topology_component": {
+    "bootstrap_refits": 15000,
+    "expected_cells": 300,
+    "expected_cells_passed": 300,
+    "maximum_across_run_normalized_critical_span": {
+      "published_bimodal_saddle": {"y": 0.01665851536021723, "z": 0.01117832605892754},
+      "published_unimodal_saddle": {"y": 0.015081918515791147, "z": 0.011986525351067045}
+    }
+  },
+  "failed_gates": {
+    "maximum_grid_survivor_fraction_difference": {
+      "published_bimodal_saddle": 0.0645751953125,
+      "published_unimodal_saddle": 0.07961697048611116,
+      "threshold": 0.05
+    },
+    "maximum_short_horizon_time_error": {
+      "observed": 0.00003463896883459938,
+      "threshold": 0.00002,
+      "trajectory_id": 0
+    }
+  },
+  "status": "failed_as_preregistered"
+}

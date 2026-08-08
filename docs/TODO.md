@@ -261,7 +261,11 @@ exposition requirements.
   agree only 25/32. Freeze a local-uncertainty critical-point rule and
   ensemble-statistical step/horizon/grid convergence before GPU scaling.
   DEC-006 and EXP-111 now freeze that successor: 15 oracle perturbations across
-  five step/horizon/grid ensembles, plus a short-horizon DOP853 audit.
+  five step/horizon/grid ensembles, plus a short-horizon DOP853 audit. EXP-111
+  passes all 300 topology cells but fails regular-grid survivor-fraction
+  convergence and one linear-interpolation time audit. Replace the grid family
+  with independent scrambled Sobol ensembles and linear crossing location with
+  cubic Hermite interpolation, then repeat prospectively.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

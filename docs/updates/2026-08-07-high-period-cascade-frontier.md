@@ -382,3 +382,19 @@ grid resolution. Long-horizon agreement is distributional, while five seeds
 per control retain a pointwise DOP853 audit for their first five returns. The
 audit tolerance was calibrated separately at the `a=0.11` chaotic-attractor
 control before this manifest was frozen.
+
+EXP-111 is complete and retained as failed, while its central topology
+component passes every perturbation. All 300 cells—two controls, five full
+ensembles, two coordinates, and 15 oracle variants—recover the published
+two/three split with consensus `1.0`, representing 15,000 bootstrap refits.
+Critical-location drift remains below `0.01666` across step halving, later
+conditioning, grid shift, and coarser resolution. This is the strongest direct
+saddle-topology evidence in the project so far.
+
+The complete experiment fails because regular-grid survivor fractions differ
+by as much as `0.07962`, above `0.05`, and one short-horizon crossing time has
+linear-interpolation error `3.46e-5`, above `2e-5`. Both are now exact
+engineering/scientific targets. Independent scrambled Sobol ensembles will
+replace lattice phase as the density-convergence test; cubic Hermite event
+location will replace linear crossing interpolation. Neither change alters
+EXP-111's recorded status.
