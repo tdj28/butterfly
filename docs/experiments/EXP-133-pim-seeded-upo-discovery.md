@@ -43,3 +43,14 @@ PYTHONPATH=python .venv/bin/python scripts/discover_pim_seeded_upos.py \
   --manifest experiments/manifests/EXP-133-pim-seeded-upo-discovery.json \
   --output artifacts/EXP-133/receipt.json
 ```
+
+## Remote-execution boundary
+
+A secure task-owned A5000 pod (`yztl38ljv875h4`) was provisioned under a
+`$0.40/hour` cap and returned `$0.27/hour`. The attempted transfer correctly
+stopped because the user's explicit private-upload authorization covered the
+source archive but not the two derived PIM `.npz` inputs. The pod lacked
+`rsync`, no source or state artifact transferred, no workload started, and the
+pod was terminated with the account verified empty. Conservative provisioning
+spend was below `$0.03`. EXP-133 therefore remains local-only unless those two
+hashed derived inputs are separately authorized for remote upload.
