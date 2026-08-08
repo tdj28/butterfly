@@ -287,3 +287,12 @@ three branches with full domain coverage, conditional spread `0.01832027`, and
 three-branch evidence relevant to Jones, but it is not yet a two/three-branch
 transition or reinjection result. Coordinate, orientation, threshold, and
 nearby-parameter sensitivity are now the binding next audit.
+
+EXP-107 is now preregistered to perform that audit without post-result tuning.
+It crosses five nearby `(a,c)` points, three section offsets, both genuinely
+distinct crossing orientations, both nondegenerate scalar coordinates, and
+seven bin/smoothing/prominence choices. The primary gate tests persistence of
+the negative-orientation `x` result in 105 cells; a separately reported strong
+diagnostic tests all 420 representation cells. This distinction matters
+because a scalar projection's critical-point count is not automatically a
+topological invariant.

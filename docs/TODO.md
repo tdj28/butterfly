@@ -237,7 +237,11 @@ exposition requirements.
   expectation because all three sections give three branches with 100/100
   bootstrap agreement and critical-point drift only `~2.2e-6`. Freeze a
   coordinate/orientation/threshold/nearby-parameter sensitivity audit before
-  continuing any transition curve.
+  continuing any transition curve. EXP-107 preregisters the full adversarial
+  matrix: five nearby `(a,c)` points, three section offsets, two crossing
+  orientations, `x`/`z` coordinates, and seven oracle configurations. Its
+  narrow primary gate and stronger representation-invariance diagnostic are
+  explicitly separate.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
