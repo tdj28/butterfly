@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import io
 import json
 import platform
@@ -81,8 +81,10 @@ class LifetimeEvaluator:
         ]
         if missing_indices:
             missing = points[missing_indices]
-            arguments = (
-                (
+            measured = [None] * len(missing)
+            futures = {}
+            for local, point in enumerate(missing):
+                argument = (
                     self.parameters,
                     self.section,
                     self.cycle,
@@ -91,12 +93,29 @@ class LifetimeEvaluator:
                     self.solver,
                     point,
                 )
-                for point in missing
-            )
-            measured = list(self.executor.map(_measure_lifetime, arguments))
+                futures[self.executor.submit(_measure_lifetime, argument)] = local
             self.integration_count += len(missing)
-            for local, source_index in enumerate(missing_indices):
-                self.cache[keys[source_index]] = measured[local]
+            terminal_error = None
+            for future in as_completed(futures):
+                local = futures[future]
+                value = future.result()
+                measured[local] = value
+                source_index = missing_indices[local]
+                self.cache[keys[source_index]] = value
+                if value[2]:
+                    terminal_error = "PIM lifetime integration failed"
+                    break
+                if not value[1]:
+                    terminal_error = (
+                        "PIM lifetime evaluation reached the frozen 256-return "
+                        "censor limit"
+                    )
+                    break
+            if terminal_error is not None:
+                for future in futures:
+                    future.cancel()
+                raise RuntimeError(terminal_error)
+            assert all(value is not None for value in measured)
         return np.asarray([self.cache[key][0] for key in keys], dtype=np.float64)
 
     def diagnostics_since(self, keys_before):

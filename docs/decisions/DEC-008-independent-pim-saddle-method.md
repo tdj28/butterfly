@@ -35,6 +35,11 @@ maximum selection, integration, and all gates are identical to serial
 execution. The parallel amendment was frozen after interrupting the first
 serial launch before it emitted a line result.
 
+The zero-censor and zero-integration-failure gates are terminal per straddle.
+The worker pool therefore cancels candidates that have not started once either
+condition is observed. A fully captured batch is still assembled in original
+point order before the strict PIM maximum is chosen.
+
 The target controls are not executed until the implementation, manifest, and
 acceptance gates are committed. Failed segments, censored lifetime evaluations,
 and unresolved topology are retained rather than replaced after inspection.

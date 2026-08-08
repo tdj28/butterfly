@@ -54,6 +54,14 @@ now use an ordered eight-process pool; results are consumed in input order, so
 the longest-lifetime/lowest-index decision remains deterministic. PIM triple
 mapping itself remains serial. This amendment is committed before relaunch.
 
+The multiprocessing launch was itself interrupted before a line result after
+all eight workers spent several minutes inside one escape-time batch. Because
+one censored or failed evaluation already violates the frozen zero-censor gate,
+the runner now cancels still-pending candidates as soon as either terminal
+condition returns. If every candidate captures, all values are collected and
+the deterministic original-order PIM decision is unchanged. This is fail-fast
+evaluation of the existing gate, not a new or relaxed criterion.
+
 ## Frozen execution
 
 ```sh
