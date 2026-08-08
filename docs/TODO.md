@@ -249,7 +249,10 @@ exposition requirements.
   boundary search now; retain periodic windows as unresolved until a
   chaotic-saddle method is qualified. EXP-109 preregisters that 21-point
   attractor-only path, including both published saddle controls and an ordered
-  two/three bracket gate.
+  two/three bracket gate. It passes with an uncertainty band `[0.155,0.16]`,
+  five explicit period-4 gaps, and three coverage-unresolved gaps. The binding
+  next gate is a saddle method that reproduces the published two-branch saddle
+  at `a=0.118` and three-branch saddle at `a=0.149`.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

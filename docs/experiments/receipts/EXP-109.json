@@ -1,0 +1,29 @@
+{
+  "schema": "butterfly.return-map-path-summary.v1",
+  "experiment_id": "EXP-109",
+  "passed": true,
+  "source_commit": "534fba12e9b2eeb1d5c164a4b29d49f83641245f",
+  "manifest_sha256": "81767354bbbd6040f4d1a0034bbe541275b507bbed0803c1f6eb786a7090ce6d",
+  "full_receipt_sha256": "a1595b999f7b52b0b492936e0229b613d41c9df5e3bee9e7749fcb64ca65f2a6",
+  "ordered_bracket": [0.155, 0.16],
+  "coordinate_agreement": true,
+  "endpoints_passed": true,
+  "resolved_two_a_values": [0.11, 0.115, 0.13, 0.15, 0.155],
+  "resolved_three_a_values": [0.16, 0.165, 0.17, 0.175, 0.185, 0.19, 0.195, 0.2],
+  "period4_a_values": [0.118, 0.12, 0.14, 0.145, 0.149],
+  "coverage_unresolved_a_values": [0.125, 0.135, 0.18],
+  "lower_endpoint_diagnostic": {
+    "y_branch_count": 2,
+    "y_bootstrap_consensus": 0.8,
+    "z_resolved": false,
+    "z_nominal_critical_point_count": 2,
+    "z_bootstrap_consensus": 0.7
+  },
+  "upper_endpoint_diagnostic": {
+    "y_branch_count": 3,
+    "z_branch_count": 3,
+    "y_bootstrap_consensus": 1.0,
+    "z_bootstrap_consensus": 1.0
+  },
+  "interpretation": "ordered attracting-set transition uncertainty band only; invariant-saddle TBA continuation requires chaotic-saddle reconstruction in regular gaps"
+}

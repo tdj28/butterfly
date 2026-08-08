@@ -337,3 +337,13 @@ controls, on the exact published section. Periodic attractors are explicitly
 excluded from the branch oracle and retained as missing saddle data. Passing
 requires coordinate agreement and an ordered last-two/first-three attracting
 bracket; it cannot claim the TBA inside a periodic gap.
+
+EXP-109 passes with an ordered attracting-set transition band `[0.155,0.16]`.
+Five resolved two-branch samples lie below eight resolved three-branch
+samples. Five parameters are period-4 attractors and three more fail coverage;
+all remain explicit gaps. The lower endpoint is marginal: `y` gives two at
+consensus `0.80`, while `z` is unresolved at `0.70` and nominally has two
+critical points. At `a=0.16`, both coordinates give three at consensus `1.0`.
+This is the first modern branch-change bracket, but not yet the PRL's
+invariant-saddle TBA. The saddle reconstruction at `a=0.118` and `0.149` is now
+the binding gate.
