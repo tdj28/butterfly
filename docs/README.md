@@ -66,6 +66,9 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-006-statistical-saddle-convergence.md`](decisions/DEC-006-statistical-saddle-convergence.md):
   replaces long-horizon point identity with short-horizon numerical and
   long-horizon statistical saddle-convergence gates.
+- [`decisions/DEC-007-sobol-hermite-saddle-qualification.md`](decisions/DEC-007-sobol-hermite-saddle-qualification.md):
+  removes regular-lattice aliasing and linear section-event error from the
+  final CPU saddle-control gate.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):

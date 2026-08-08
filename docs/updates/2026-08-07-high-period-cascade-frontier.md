@@ -398,3 +398,12 @@ engineering/scientific targets. Independent scrambled Sobol ensembles will
 replace lattice phase as the density-convergence test; cubic Hermite event
 location will replace linear crossing interpolation. Neither change alters
 EXP-111's recorded status.
+
+DEC-007 and EXP-112 now freeze the successor. Cubic Hermite interpolation uses
+the two RK4 endpoint states and vector fields and locates the section root by
+bisection; the integrator remains Float64 RK4. On the independent `a=0.11`
+calibration, this reduces the largest scaled state error from roughly
+`6.12e-4` to `2.11e-5` and leaves maximum time error `1.05e-5`, inside the
+unchanged gates. The new survival family uses three independent Sobol scrambles
+and a nested 4096/8192/16384 sequence, plus half-step and later-conditioning
+controls. No EXP-111 threshold was relaxed.

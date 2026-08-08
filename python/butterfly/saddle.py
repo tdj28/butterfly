@@ -6,6 +6,7 @@ from dataclasses import dataclass
 
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
+from scipy.stats import qmc
 
 from .models import RosslerParameters
 from .poincare import PoincareSection
@@ -25,6 +26,38 @@ class SprinklerResult:
     midpoint_trajectory_ids: NDArray[np.int64]
     midpoint_times: NDArray[np.float64]
     midpoint_states: NDArray[np.float64]
+
+
+def scrambled_sobol_section_states(
+    section: PoincareSection,
+    *,
+    first_coordinate_range: tuple[float, float],
+    second_coordinate_range: tuple[float, float],
+    sample_power: int,
+    scramble_seed: int,
+) -> NDArray[np.float64]:
+    """Generate a nested scrambled Sobol ensemble on an oriented x section."""
+
+    if section.normal != (1.0, 0.0, 0.0):
+        raise ValueError("Sobol section ensemble currently requires an x plane")
+    bounds = np.asarray(
+        (first_coordinate_range, second_coordinate_range), dtype=np.float64
+    )
+    if (
+        bounds.shape != (2, 2)
+        or not np.all(np.isfinite(bounds))
+        or np.any(bounds[:, 0] >= bounds[:, 1])
+    ):
+        raise ValueError("coordinate ranges must be finite increasing pairs")
+    if sample_power < 1 or scramble_seed < 0:
+        raise ValueError("sample_power must be positive and seed nonnegative")
+    unit = qmc.Sobol(d=2, scramble=True, seed=scramble_seed).random_base2(
+        sample_power
+    )
+    scaled = qmc.scale(unit, bounds[:, 0], bounds[:, 1])
+    return np.column_stack(
+        (np.full(len(scaled), section.offset), scaled[:, 0], scaled[:, 1])
+    )
 
 
 def survivor_return_pairs(
@@ -68,6 +101,61 @@ def _rk4_batch_step(states, dt, parameters):
     k3 = _rossler_rhs_batch(states + 0.5 * dt * k2, parameters)
     k4 = _rossler_rhs_batch(states + dt * k3, parameters)
     return states + (dt / 6.0) * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
+
+
+def _cubic_hermite_crossing(
+    previous,
+    current,
+    previous_derivative,
+    current_derivative,
+    *,
+    dt,
+    normal,
+    offset,
+    bisection_iterations=40,
+):
+    """Interpolate negative-to-positive section roots inside one flow step."""
+
+    previous = np.asarray(previous, dtype=np.float64)
+    current = np.asarray(current, dtype=np.float64)
+    previous_derivative = np.asarray(previous_derivative, dtype=np.float64)
+    current_derivative = np.asarray(current_derivative, dtype=np.float64)
+    normal = np.asarray(normal, dtype=np.float64)
+    if (
+        previous.ndim != 2
+        or previous.shape[1] != 3
+        or current.shape != previous.shape
+        or previous_derivative.shape != previous.shape
+        or current_derivative.shape != previous.shape
+    ):
+        raise ValueError("Hermite states and derivatives must share shape (n,3)")
+    if normal.shape != (3,) or dt <= 0.0 or bisection_iterations < 1:
+        raise ValueError("invalid Hermite section geometry or iteration count")
+
+    def interpolate(alpha):
+        alpha = np.asarray(alpha, dtype=np.float64)
+        alpha2 = alpha * alpha
+        alpha3 = alpha2 * alpha
+        h00 = 2.0 * alpha3 - 3.0 * alpha2 + 1.0
+        h10 = alpha3 - 2.0 * alpha2 + alpha
+        h01 = -2.0 * alpha3 + 3.0 * alpha2
+        h11 = alpha3 - alpha2
+        return (
+            h00[:, None] * previous
+            + (h10 * dt)[:, None] * previous_derivative
+            + h01[:, None] * current
+            + (h11 * dt)[:, None] * current_derivative
+        )
+
+    left = np.zeros(len(previous), dtype=np.float64)
+    right = np.ones(len(previous), dtype=np.float64)
+    for _ in range(bisection_iterations):
+        midpoint = 0.5 * (left + right)
+        values = interpolate(midpoint) @ normal - offset
+        right = np.where(values >= 0.0, midpoint, right)
+        left = np.where(values < 0.0, midpoint, left)
+    alpha = 0.5 * (left + right)
+    return alpha, interpolate(alpha)
 
 
 def cycle_crossing_distances(
@@ -178,10 +266,16 @@ def sprinkler_survivors(
         crossed_local = np.flatnonzero(crossed)
         captured_local = np.zeros(len(active_ids), dtype=bool)
         if len(crossed_local):
-            denominator = current_value[crossed_local] - previous_value[crossed_local]
-            alpha = -previous_value[crossed_local] / denominator
-            crossing = previous[crossed_local] + alpha[:, None] * (
-                current[crossed_local] - previous[crossed_local]
+            previous_crossed = previous[crossed_local]
+            current_crossed = current[crossed_local]
+            alpha, crossing = _cubic_hermite_crossing(
+                previous_crossed,
+                current_crossed,
+                _rossler_rhs_batch(previous_crossed, parameters),
+                _rossler_rhs_batch(current_crossed, parameters),
+                dt=dt,
+                normal=section.normal,
+                offset=section.offset,
             )
             crossed_ids = active_ids[crossed_local]
             distances = cycle_crossing_distances(

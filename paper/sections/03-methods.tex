@@ -42,6 +42,9 @@ horizons, convergence is defined statistically through survivor curves,
 return-map geometry, and critical-point stability across time step,
 conditioning window, grid phase, and grid resolution.  Candidate shallow
 critical points must persist across a frozen binning/smoothing matrix and
-bootstrap resampling in both section coordinates.  PIM-triple trajectories
+bootstrap resampling in both section coordinates.  Regular-grid aliasing is
+tested and then replaced by independently scrambled, nested Sobol ensembles;
+section roots inside fixed RK4 steps are located with cubic Hermite
+interpolation from endpoint vector fields.  PIM-triple trajectories
 provide a structurally different follow-up method rather than a tuning fallback
 \citep{nusse1989procedure}.

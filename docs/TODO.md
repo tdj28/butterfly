@@ -265,7 +265,9 @@ exposition requirements.
   passes all 300 topology cells but fails regular-grid survivor-fraction
   convergence and one linear-interpolation time audit. Replace the grid family
   with independent scrambled Sobol ensembles and linear crossing location with
-  cubic Hermite interpolation, then repeat prospectively.
+  cubic Hermite interpolation, then repeat prospectively. DEC-007/EXP-112 now
+  freeze three scrambles, three nested sample sizes, step/horizon controls, and
+  the unchanged topology/survival/short-horizon acceptance thresholds.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

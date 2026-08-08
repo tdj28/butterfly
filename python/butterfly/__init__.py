@@ -57,6 +57,7 @@ from .return_map import (
 from .saddle import (
     SprinklerResult,
     cycle_crossing_distances,
+    scrambled_sobol_section_states,
     sprinkler_survivors,
     survivor_return_pairs,
 )
@@ -135,6 +136,7 @@ __all__ = [
     "ranked_recurrence_candidates",
     "select_low_score_with_neighbors",
     "run_scan",
+    "scrambled_sobol_section_states",
     "sprinkler_survivors",
     "survivor_return_pairs",
     "verify_completed_tile",

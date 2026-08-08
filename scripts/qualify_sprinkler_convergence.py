@@ -20,6 +20,7 @@ from butterfly import (
     classify_fundamental_period,
     collect_crossings,
     infer_return_map_branches_robust,
+    scrambled_sobol_section_states,
     sprinkler_survivors,
     survivor_return_pairs,
 )
@@ -27,6 +28,16 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 
 
 def _grid(section, ensemble, run):
+    if run.get("sampler", "grid") == "sobol":
+        return scrambled_sobol_section_states(
+            section,
+            first_coordinate_range=tuple(ensemble["y_range"]),
+            second_coordinate_range=tuple(ensemble["z_range"]),
+            sample_power=int(run["sample_power"]),
+            scramble_seed=int(run["scramble_seed"]),
+        )
+    if run.get("sampler", "grid") != "grid":
+        raise ValueError("sampler must be grid or sobol")
     y_count = int(run.get("y_count", ensemble["y_count"]))
     z_count = int(run.get("z_count", ensemble["z_count"]))
     phase = float(run.get("grid_phase", 0.0))

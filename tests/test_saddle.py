@@ -4,10 +4,11 @@ from butterfly import (
     PoincareSection,
     RosslerParameters,
     cycle_crossing_distances,
+    scrambled_sobol_section_states,
     sprinkler_survivors,
     survivor_return_pairs,
 )
-from butterfly.saddle import _rk4_batch_step
+from butterfly.saddle import _cubic_hermite_crossing, _rk4_batch_step
 
 
 def test_batch_rk4_preserves_duplicate_states() -> None:
@@ -29,6 +30,46 @@ def test_cycle_crossing_distance_uses_declared_scaling() -> None:
         coordinate_scales=(2.0, 4.0),
     )
     np.testing.assert_allclose(distances, (np.sqrt(0.5), 0.0))
+
+
+def test_cubic_hermite_crossing_recovers_exact_polynomial_state() -> None:
+    previous = np.asarray(((-0.3, 0.0, 2.0),))
+    current = np.asarray(((0.7, 1.0, 2.0),))
+    previous_derivative = np.asarray(((1.0, 0.0, 0.0),))
+    current_derivative = np.asarray(((1.0, 2.0, 0.0),))
+    alpha, state = _cubic_hermite_crossing(
+        previous,
+        current,
+        previous_derivative,
+        current_derivative,
+        dt=1.0,
+        normal=(1.0, 0.0, 0.0),
+        offset=0.0,
+    )
+    np.testing.assert_allclose(alpha, (0.3,), atol=1e-12)
+    np.testing.assert_allclose(state, ((0.0, 0.09, 2.0),), atol=1e-12)
+
+
+def test_scrambled_sobol_section_ensemble_is_nested_and_bounded() -> None:
+    section = PoincareSection(normal=(1.0, 0.0, 0.0), offset=0.25, direction=1)
+    coarse = scrambled_sobol_section_states(
+        section,
+        first_coordinate_range=(-3.0, -1.0),
+        second_coordinate_range=(0.01, 0.02),
+        sample_power=3,
+        scramble_seed=112,
+    )
+    fine = scrambled_sobol_section_states(
+        section,
+        first_coordinate_range=(-3.0, -1.0),
+        second_coordinate_range=(0.01, 0.02),
+        sample_power=4,
+        scramble_seed=112,
+    )
+    np.testing.assert_array_equal(coarse, fine[: len(coarse)])
+    assert np.all(coarse[:, 0] == section.offset)
+    assert np.all((-3.0 <= coarse[:, 1]) & (coarse[:, 1] <= -1.0))
+    assert np.all((0.01 <= coarse[:, 2]) & (coarse[:, 2] <= 0.02))
 
 
 def test_sprinkler_reports_no_capture_over_short_horizon() -> None:
