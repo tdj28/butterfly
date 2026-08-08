@@ -384,7 +384,9 @@ exposition requirements.
   and no lifetime integration fails. The finite sampled bracket narrows to
   `[0.148,0.149]`. Freeze a blind `a=0.1485` midpoint with the same independent
   PIM definition, and quantify escape lifetime conditional on the transient
-  third branch before interpreting reinjection.
+  third branch before interpreting reinjection. EXP-126 now freezes that
+  midpoint with unchanged 128/256 censor ceilings, access lines, oracle matrix,
+  and numerical gates; no expected count or prior critical location is encoded.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

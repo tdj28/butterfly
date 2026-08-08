@@ -390,3 +390,13 @@ finite censor pair. The sampled bracket narrows to `[0.148,0.149]`. It supports
 the faster-escaping-third-branch explanation for EXP-123, but it does not prove
 an infinite-lifetime saddle or a continuous TBA curve. Freeze the next blind
 midpoint at `a=0.1485` and independently measure escape lifetime by branch.
+
+## Next independent PIM midpoint frozen
+
+EXP-126 applies the passing blind EXP-125 definition unchanged at
+`a=0.1485`, the midpoint of `[0.148,0.149]`. The same three access lines, 128-
+and 256-return censor ceilings, 800-return straddles, DOP853 tolerances, two
+coordinates, and 15-variant oracle are retained. No expected count or previous
+critical-point reference is encoded. A unanimous two result yields
+`[0.1485,0.149]`; a unanimous three result yields `[0.148,0.1485]`; any gate
+failure preserves the present bracket.
