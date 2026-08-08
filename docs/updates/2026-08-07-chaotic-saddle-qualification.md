@@ -462,3 +462,13 @@ the `a=0.148` transient branch as a valid substrate for the Jones reinjection
 claim. Freeze the next midpoint under the identical blind PIM definition, then
 define reinjection on the genuinely three-branch saddle continued from
 `a=0.1485`.
+
+## Next blind PIM midpoint frozen
+
+EXP-128 applies the passing EXP-125/126 invariant-set definition unchanged at
+`a=0.14825`, the midpoint of `[0.148,0.1485]`. The same six PIM access-line and
+censor-profile combinations, adaptive DOP853 tolerances, 800-return
+straddles, two coordinates, and 15-variant oracle remain binding. No expected
+count or previous critical location is encoded. A unanimous two result yields
+`[0.14825,0.1485]`; a unanimous three result yields `[0.148,0.14825]`; any
+failure preserves the current bracket.

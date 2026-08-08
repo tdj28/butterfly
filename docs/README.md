@@ -80,6 +80,8 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-024-extra-branch-has-delayed-bounded-capture.md`](findings/FND-024-extra-branch-has-delayed-bounded-capture.md):
   rejects faster mean capture and qualifies a delayed-but-bounded lifetime
   pattern that explains the 300/360-unit conditioning split.
+- [`experiments/EXP-128-blind-a14825-censored-pim.md`](experiments/EXP-128-blind-a14825-censored-pim.md):
+  freezes the next blind invariant-set midpoint inside `[0.148,0.1485]`.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

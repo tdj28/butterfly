@@ -402,7 +402,10 @@ exposition requirements.
   at residual 60 and `0` at 180), while the core captures earlier on average
   but retains a rare tail through 270. Freeze the `a=0.14825` PIM midpoint;
   subsequent reinjection work must use the genuine three-branch saddle from
-  the upper side, not the `a=0.148` transient domain.
+  the upper side, not the `a=0.148` transient domain. EXP-128 now freezes that
+  midpoint with the identical blind PIM method and no expected label. A two
+  result yields `[0.14825,0.1485]`, a three result yields
+  `[0.148,0.14825]`, and any gate failure preserves the current bracket.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
