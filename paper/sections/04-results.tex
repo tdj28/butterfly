@@ -326,3 +326,26 @@ $[-1.4185,-0.8476]$ in $z$.  Both clear the preregistered magnitude floor and
 predict the blind two-branch class.  Maximum cross-horizon critical drift is
 $0.009643$ in $y$ and $0.005037$ in $z$, with no failed lifetime integration.
 The finite sampled bracket therefore narrows to $[0.148125,0.14825]$.
+
+The first transverse GPU pilot then fails its strict scientific gate despite
+successful controls and numerics.  Thirty-six Float64 RK4/Hermite runs have no
+integration failure or crossing-buffer saturation, retain at least 121
+survivors and 1002 return pairs, and reproduce both published controls under
+fresh Sobol seeds and step halving.  The two narrow PIM-local controls are
+nevertheless oracle-dependent.  Thus finite survivor clouds are rejected as a
+claim-bearing continuation method near the boundary; no transverse bracket is
+assigned from this pilot.
+
+The prospectively frozen adaptive-DOP853 PIM successor also fails its
+all-endpoint gate, but now by informative falsification.  All twelve access
+lines resolve, every endpoint supplies 2097 pairs in each coordinate, and none
+of 72,717 lifetime integrations fails.  At $(c,a)=(19.9,0.150)$, all 30 branch
+variants resolve three and all 30 edge slopes are positive.  At both
+$a=0.145$ lower endpoints, 24 of 30 variants resolve two, the six remainders
+fail only coverage at 0.675, and every slope is negative.  Most importantly,
+the preregistered three/positive prediction at $(19.8,0.148)$ is contradicted:
+24 of 30 variants return two, the remaining six are bootstrap-unstable rather
+than three, and the complete signed-slope intervals are
+$[-1.4647,-0.8185]$ in $y$ and $[-1.7981,-1.0380]$ in $z$.  The failed gate is
+retained and no curve is promoted; the result instead selects a displaced
+$c=19.8$ upper endpoint for higher-horizon testing.
