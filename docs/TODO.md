@@ -295,7 +295,10 @@ exposition requirements.
   negative coverage control and do not relabel EXP-115. EXP-116 now freezes
   the hashed 128-return intervals, computes only a new 256-return profile, and
   retains the same two-control/two-coordinate/oracle/CPU gates plus a `0.04`
-  128/256 critical-span ceiling. Commit before target execution.
+  128/256 critical-span ceiling. EXP-116 passes: all six lines resolve, all 60
+  topology cells return the expected two/three distinction, no integration
+  fails, and the maximum 128/256 span is `0.01601`. Freeze saddle-defined
+  continuation through the regular gap; do not spend another control-only run.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

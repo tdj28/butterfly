@@ -39,6 +39,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-012-censor-horizon-controls-pim-coverage.md`](findings/FND-012-censor-horizon-controls-pim-coverage.md):
   records independent two-control PIM/DOP853 corroboration at 128 returns while
   preserving the failed 64/128 nested-horizon gate and its support diagnosis.
+- [`findings/FND-013-pim-saddle-topology-stable-128-256.md`](findings/FND-013-pim-saddle-topology-stable-128-256.md):
+  qualifies independent two-control PIM/DOP853 topology and critical-location
+  stability from 128 to 256 returns.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

@@ -29,8 +29,9 @@ time-step, horizon, and grid convergence.  That gate now passes after
 scrambled-Sobol sampling and cubic-Hermite event interpolation, directly
 qualifying the published two/three saddle controls.  The remaining boundary
 task now has fixed-128-return independent PIM corroboration, but the failed
-64-return coverage control requires a longer-horizon stability test before
-prospective continuation between and beyond those controls.  A
+64-return coverage control required a longer-horizon stability test.  That
+test now passes at 256 returns; the remaining task is prospective saddle-
+defined continuation between and beyond the controls.  A
 single orbit's change in historical crossing count remains insufficient,
 particularly in light of the section grazing found above.
 

@@ -1,0 +1,67 @@
+{
+  "artifact": "artifacts/EXP-116/receipt.json",
+  "artifact_bytes": 29123,
+  "artifact_sha256": "c4ab72afc287fec2c1e473c58131a984ab7467a62043a3b456037d6d6f85dfac",
+  "experiment_id": "EXP-116",
+  "manifest_sha256": "bd26bb1a77818ef276ca864d0353945a6a65f47dce3aaed34b476506d938b98e",
+  "source_commit": "a90b3306ee4d7aee834f3e584ac64e8b1bedfa54",
+  "elapsed_seconds": 5136.138210750185,
+  "states_artifact": "artifacts/EXP-116/censor-aware-pim-256-straddles.npz",
+  "states_artifact_bytes": 88033,
+  "states_artifact_sha256": "8f69dc4965d86046d03bf57bd4dc1b3b8ef53d3a49657fab7ef00963dadb4052",
+  "reference_receipt_sha256": "f7b483334fa911ace7c11c499bb38d97756fb4623535c5200f7f606ea7d7e9b5",
+  "passed": true,
+  "case_summaries": [
+    {
+      "id": "published-unimodal-saddle",
+      "successful_straddles": 3,
+      "retained_pairs_per_coordinate": 2097,
+      "censored_lifetime_evaluations": 34,
+      "certified_censor_block_selections": 34,
+      "failed_lifetime_evaluations": 0,
+      "coordinates": {
+        "y": {
+          "branch_count": 2,
+          "variant_consensus": 1.0,
+          "maximum_within_pim_critical_span": 0.016008383188093295,
+          "maximum_cpu_pim_critical_span": 0.015945827955415985,
+          "maximum_128_256_critical_span": 0.016008383188093295
+        },
+        "z": {
+          "branch_count": 2,
+          "variant_consensus": 1.0,
+          "maximum_within_pim_critical_span": 0.013353742450649159,
+          "maximum_cpu_pim_critical_span": 0.013299552240495645,
+          "maximum_128_256_critical_span": 0.013353742450649159
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "published-bimodal-saddle",
+      "successful_straddles": 3,
+      "retained_pairs_per_coordinate": 2097,
+      "censored_lifetime_evaluations": 1,
+      "certified_censor_block_selections": 1,
+      "failed_lifetime_evaluations": 0,
+      "coordinates": {
+        "y": {
+          "branch_count": 3,
+          "variant_consensus": 1.0,
+          "maximum_within_pim_critical_span": 0.012818770454229208,
+          "maximum_cpu_pim_critical_span": 0.012812278472477715,
+          "maximum_128_256_critical_span": 0.012818753973469389
+        },
+        "z": {
+          "branch_count": 3,
+          "variant_consensus": 1.0,
+          "maximum_within_pim_critical_span": 0.010540686878692071,
+          "maximum_cpu_pim_critical_span": 0.010741189716159547,
+          "maximum_128_256_critical_span": 0.012130059976804776
+        }
+      },
+      "passed": true
+    }
+  ],
+  "status": "passed 128/256 finite-horizon two-control PIM stability"
+}

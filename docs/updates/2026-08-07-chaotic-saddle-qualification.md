@@ -113,3 +113,17 @@ geometry, solver, line, oracle, CPU-comparison, and support gates remain
 unchanged. Both controls must pass and the combined 128/256 critical span must
 be at most `0.04` in both coordinates. This avoids paying to recompute the
 already hashed reference while preserving a prospective comparison.
+
+## Longer-horizon result: EXP-116 passes
+
+EXP-116 completes from clean commit `a90b330` in `5136.14 s` and passes every
+gate. All six 256-return PIM lines resolve, both controls retain 2097 pairs per
+coordinate, and all 60 case/coordinate/oracle cells return the expected
+two/three distinction. There are no adaptive integration failures.
+
+The maximum within-256, CPU/256, and frozen-128/new-256 normalized critical
+spans are `0.01601`, `0.01595`, and `0.01601`. Reliance on censored bounds
+drops from 1108/385 evaluations at 128 returns to 34/1 at 256 returns. The
+finite-horizon independent-method control gate is therefore closed at the two
+published points. The next binding action is prospective saddle-defined
+continuation through the intervening regular gap.

@@ -188,3 +188,12 @@ $0.01501$ and the largest combined sprinkler/PIM span is $0.01511$.  This is a
 qualified fixed-horizon two-control corroboration by an adaptive-DOP853 orbit-
 restraint method, but the failed 64-return profiles preclude a claim of censor-
 horizon invariance.
+
+A final frozen extension carries forward the exact 128-return intervals and
+artifact hashes, then computes new 256-return straddles.  All six access lines
+complete without integration failure.  Both coordinates again recover two
+branches at $a=0.118$ and three at $a=0.149$ in all 15 oracle variants.  The
+largest within-256, sprinkler/256, and frozen-128/new-256 normalized spans are
+$0.01601$, $0.01595$, and $0.01601$.  Censored evaluations fall from 1108/385
+at 128 returns to 34/1 at 256 returns, qualifying two-control finite-horizon
+PIM stability over that range.

@@ -54,3 +54,7 @@ Before using PIM as the production continuation method, a prospectively frozen
 128-versus-256 return comparison must reproduce both branch counts and critical
 locations. The shorter 64-return profile is now a documented negative control,
 not a candidate for post hoc relabeling.
+
+EXP-116 subsequently passes that 128/256 comparison with all six new lines
+resolved and maximum cross-horizon span `0.01601`; see FND-013. The failed
+EXP-115 nested gate and its 64-return support diagnosis remain unchanged.

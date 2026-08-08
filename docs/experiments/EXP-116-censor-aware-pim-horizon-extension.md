@@ -1,6 +1,6 @@
 # EXP-116 — Censor-aware PIM horizon extension
 
-Status: preregistered; target controls not executed
+Status: passed
 
 ## Hypothesis
 
@@ -48,3 +48,27 @@ PYTHONPATH=python:scripts ./.venv/bin/python \
   --output artifacts/EXP-116/receipt.json \
   --states-output artifacts/EXP-116/censor-aware-pim-256-straddles.npz
 ```
+
+## Result
+
+EXP-116 passes after `5136.14 s`. All six 256-return access lines complete,
+both cases retain 2097 pairs per coordinate, and no adaptive integration fails.
+Both `y` and `z` recover two branches at `a=0.118` and three at `a=0.149` in
+all 15 oracle variants.
+
+The largest within-256 PIM critical span is `0.01601`; the largest combined
+EXP-112/256 span is `0.01595`; and the largest frozen-128/new-256 span is
+`0.01601`. All are comfortably below their prospective gates. Censored
+lifetime evaluations fall from 1108/385 at 128 returns to 34/1 at 256 returns
+for the unimodal/bimodal controls.
+
+The 29,123-byte raw receipt has SHA-256
+`c4ab72afc287fec2c1e473c58131a984ab7467a62043a3b456037d6d6f85dfac`.
+The 88,033-byte state NPZ has SHA-256
+`8f69dc4965d86046d03bf57bd4dc1b3b8ef53d3a49657fab7ef00963dadb4052`.
+The tracked compact receipt is `docs/experiments/receipts/EXP-116.json`.
+
+This qualifies finite-horizon PIM stability at the two controls, not an
+infinite-time saddle proof or a continued topology boundary. The next target
+is prospective saddle-defined continuation through the intervening regular
+gap.

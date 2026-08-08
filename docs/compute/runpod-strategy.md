@@ -273,7 +273,11 @@ empty.
 
 Passing permits a separately preregistered GPU saddle-boundary workload; it
 does not establish or authorize a plane-wide TBA scan. The next scientific
-gate is independent PIM-triple or stagger-and-step corroboration.
+gate was independent PIM-triple corroboration. EXP-116 now passes that gate at
+both controls across 128- and 256-return censor horizons. The current binding
+gate is a prospectively frozen saddle-defined boundary continuation; GPU use
+remains conditional on a workload with an implemented CUDA path rather than an
+adaptive SciPy/DOP853 loop.
 
 ## Runpod primary documentation
 

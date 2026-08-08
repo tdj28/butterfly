@@ -95,3 +95,6 @@ Freeze a successor that compares the accepted 128-return result against a
 256-return censor-aware reconstruction. Require both controls, coordinates,
 all oracle variants, critical-location stability, and zero integration
 failure before using PIM for saddle-boundary continuation.
+
+EXP-116 subsequently executes that frozen comparison and passes. EXP-115
+remains failed; its 64-return profiles remain the negative support control.

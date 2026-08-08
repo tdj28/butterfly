@@ -88,9 +88,11 @@ Checkpoint (2026-08-07): the local control problem is now strong. EXP-108
 qualifies both published attracting endpoints; EXP-112/113 qualify the two
 regular-window saddles on CPU/GPU; and EXP-115 independently recovers both
 saddle topologies with adaptive DOP853/PIM at a fixed 128-return censor
-horizon. EXP-115's 64-return profiles remain support-unresolved, so longer-
-horizon stability, transition continuation, and reinjection prediction remain
-open. RVR-003 is therefore materially advanced but not closed.
+horizon. EXP-116 then preserves both topologies and critical locations at 256
+returns with all six access lines resolved and zero integration failures.
+EXP-115's 64-return profiles remain a negative support control. Transition
+continuation and reinjection prediction remain open, so RVR-003 is materially
+advanced but not closed.
 
 ### RVR-004 — Finite logistic-ordering test
 
