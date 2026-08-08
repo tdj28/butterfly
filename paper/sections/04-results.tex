@@ -265,3 +265,16 @@ conditioned through 360 time units instead returns two in all 30 coordinate
 variants.  The weakest run still retains 200 survivors and 1737 pairs, survivor
 fractions agree within $0.00403$, and no integration or event audit fails.  No
 label is assigned and the bracket remains $[0.147,0.149]$.
+
+The frozen nested-horizon successor also fails its all-run consensus gate, but
+localizes the failure.  Across horizons 360--480, 12 of 16 blind
+run--coordinate decisions select two branches and four are unassigned; none
+selects three.  Of 240 oracle cells, 228 resolve as two.  The remaining 12 are
+exactly the 80-bin variants in the four unassigned decisions and fail
+bootstrap stability at rare-survivor sample sizes.  Baseline 360 and 420,
+both independent 420 scrambles, and the doubled 420 sample select two in both
+coordinates.  At 480 only 121 survivors and 1061 pairs remain; 20--60-bin
+variants still resolve as two, but the 80-bin variants are unstable.  All
+period, survival, and numerical gates pass.  Thus no resolved third branch
+reappears at the longer horizons, but the strict finite-horizon label and
+$[0.147,0.149]$ bracket remain unchanged.

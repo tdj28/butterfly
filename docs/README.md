@@ -64,6 +64,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-020-a148-topology-is-conditioning-sensitive.md`](findings/FND-020-a148-topology-is-conditioning-sensitive.md):
   retains the failed blind `a=0.148` gate and isolates a three-to-two topology
   split between 300- and 360-unit survivor conditioning.
+- [`findings/FND-021-a148-long-lived-geometry-is-two-branch-but-power-limited.md`](findings/FND-021-a148-long-lived-geometry-is-two-branch-but-power-limited.md):
+  finds two branches in all 228 resolved long-horizon variants through 480
+  time units while retaining 12 rare-survivor bootstrap failures and no label.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

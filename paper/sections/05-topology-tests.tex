@@ -55,8 +55,10 @@ coordinates.  That midpoint now passes unanimously as two-branch and halves
 the sampled bracket to $[0.147,0.149]$; the next blind midpoint is frozen at
 $a=0.148$ on independently sampled data.  It fails because 300-unit survivor
 subsets expose three branches whereas the 360-unit subset exposes two.  Nested
-conditioning horizons through 480 time units are now frozen with centered
-return windows before spatial bisection resumes.  A single
+conditioning through 480 time units then yields two in all 228 resolved oracle
+cells and no three-branch result, but fails strict consensus because 12 80-bin
+cells are bootstrap-unstable after rare-survivor attrition.  Independent
+censor-aware PIM at the midpoint now precedes spatial bisection.  A single
 orbit's change in
 historical crossing count remains insufficient,
 particularly in light of the section grazing found above.

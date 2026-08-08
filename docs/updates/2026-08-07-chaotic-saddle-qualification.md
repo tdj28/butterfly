@@ -330,3 +330,26 @@ horizon. The 420-unit profile adds step halving, independent scrambles, and a
 select one common count while passing the original support, drift, survival,
 cycle, and DOP853/Hermite gates. Passing establishes only 360--480 finite-
 horizon stability; failure leaves `a=0.148` unlabeled.
+
+## Nested conditioning-horizon result: topology resolves, power does not
+
+EXP-124 completes from clean commit `1116860` in `505.33 s` and fails the
+frozen all-run consensus requirement. Twelve of 16 blind run--coordinate
+decisions select two; four are unassigned; none selects three. Of 240 oracle
+variant cells, 228 resolve as two and 12 fail bootstrap stability. The failures
+are exactly the three 80-bin variants in each unassigned decision.
+
+The 360-unit baseline, three full-size independent 420-unit profiles, and the
+doubled `2^17` 420-unit profile select two in both coordinates. At 480 units,
+only 121 of 65,536 trajectories remain; both coordinates' 20--60-bin variants
+still resolve as two, but the 80-bin bootstrap is underpowered. Step halving
+and the `2^15` control likewise leave only the 80-bin `y` variants unassigned,
+while the doubled sample restores a unanimous result.
+
+Support floors technically pass with 121 survivors and 1061 pairs. Maximum
+survival drift is `0.00223`, the period-4 reference passes, and DOP853/Hermite
+errors remain far below threshold. The strict experiment therefore remains a
+failure and `[0.147,0.149]` is unchanged, but the evidence rules out a resolved
+return of the third branch through 480 time units. Freeze an independent
+censor-aware PIM test at `a=0.148` before further spatial bisection; then measure
+escape lifetime by branch to test the faster-escaping-third-branch mechanism.

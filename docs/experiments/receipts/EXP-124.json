@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.blind-saddle-conditioning-horizon-summary.v1",
+  "experiment_id": "EXP-124",
+  "passed": false,
+  "source_commit": "111686077945d68952f0534226ecec62b492a901",
+  "manifest_sha256": "c972fd9d1807ab1a794e38703871d6d9019ed810aded8a58624b94bffed6d7cb",
+  "raw_receipt": "artifacts/EXP-124/receipt.json",
+  "raw_receipt_sha256": "8328cebb89fd74c095269fb87c02b2120184d920a6e3eec883841f2cd7e10447",
+  "raw_receipt_bytes": 105492,
+  "elapsed_seconds": 505.3283342081122,
+  "a": 0.148,
+  "expected_branch_count": null,
+  "observed_branch_count": null,
+  "sampled_transition_bracket_retained": [0.147, 0.149],
+  "run_coordinate_decisions": {"two": 12, "three": 0, "unassigned": 4},
+  "oracle_variant_cells": {"resolved_two": 228, "resolved_three": 0, "bootstrap_unstable": 12},
+  "unassigned_decisions": [
+    "sobol-132-h480:y",
+    "sobol-132-h480:z",
+    "sobol-132-h420-half-step:y",
+    "sobol-132-h420-coarse:y"
+  ],
+  "minimum_final_survivors": 121,
+  "minimum_return_pairs": 1061,
+  "maximum_within_run_normalized_critical_span": 0.013223524652313546,
+  "maximum_survivor_fraction_difference": 0.002227783203125,
+  "maximum_short_horizon_scaled_state_error": 2.470833856066014e-6,
+  "maximum_short_horizon_time_error": 7.052337380741847e-8,
+  "integration_failures": 0,
+  "interpretation": "resolved long-lived returns are uniformly two-branch through horizon 480, but four low-effective-power coordinate decisions fail 80-bin bootstrap stability; the strict horizon qualification fails, no label is assigned, and the bracket is unchanged"
+}

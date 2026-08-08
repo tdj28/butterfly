@@ -370,6 +370,13 @@ exposition requirements.
   EXP-124 now freezes those horizons on new seeds 132--134, centered return
   windows, step halving, and a `2^15,2^16,2^17` ladder. All eight runs must
   blindly choose one common count and retain the original support floors.
+  EXP-124 fails that strict gate: 12/16 decisions and 228/240 variants resolve
+  as two, none as three, while exactly twelve 80-bin variants are bootstrap-
+  unstable in four low-effective-power decisions. The doubled 420-unit sample
+  restores two in both coordinates; the 480-unit sample retains only 121
+  survivors. Retain the bracket and freeze a censor-aware PIM test at
+  `a=0.148`, followed by branch-conditioned lifetime tests; do not convert
+  rare-survivor bootstrap failures into an affirmative label.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
