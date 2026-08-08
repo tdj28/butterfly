@@ -23,8 +23,8 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-08-07-exp133-upo-discovery-preregistered.md`](2026-08-07-exp133-upo-discovery-preregistered.md)
-  — exact-return, shooting-identity, and Floquet gates for exploratory UPO
-  recovery from the qualified PIM saddles.
+  — passed exploratory UPO recovery on both PIM saddles and the newly frozen
+  primitive-orbit/deduplication audit triggered by double covers.
 - [`2026-08-07-exp132-transverse-pim-preregistered.md`](2026-08-07-exp132-transverse-pim-preregistered.md)
   — frozen 256-return replication of two finite transverse brackets under the
   independently qualified coverage-only censor rule.

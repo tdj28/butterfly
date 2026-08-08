@@ -1,0 +1,34 @@
+{
+  "schema": "butterfly.pim-seeded-upo-discovery-summary.v1",
+  "experiment_id": "EXP-133",
+  "passed": true,
+  "source_commit": "bc6a3f86a07af604838d4b5f6ba992dc843dbc8e",
+  "manifest_sha256": "a5b72ef0ae8bcfc6d09cc36bb182a9cfc2480f9e1eff06b9fc94b6e0ce24046e",
+  "raw_receipt": "artifacts/EXP-133/receipt.json",
+  "raw_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
+  "raw_receipt_bytes": 25249,
+  "elapsed_seconds": 23.467659707646817,
+  "accepted_recoveries": 15,
+  "rejected_recoveries": 1,
+  "maximum_exact_return_normalized_closure": 0.00009472934882681743,
+  "maximum_corrected_flow_closure": 4.307108453696217e-11,
+  "maximum_phase_residual": 2.030370699672583e-16,
+  "maximum_neutral_multiplier_error": 1.539057659094567e-09,
+  "minimum_unstable_multiplier_modulus": 3.484075055072619,
+  "cases": [
+    {
+      "id": "local-two-branch-saddle",
+      "candidate_count": 10,
+      "accepted_recovery_count": 9,
+      "reported_lags": [3, 5, 7, 8, 12, 13],
+      "failed_seed": {"lag": 15, "reason": "phase-conditioned periodic shooting did not converge"}
+    },
+    {
+      "id": "local-three-branch-saddle",
+      "candidate_count": 6,
+      "accepted_recovery_count": 6,
+      "reported_lags": [4, 8, 12]
+    }
+  ],
+  "qualification_boundary": "The frozen experiment qualifies at least one unstable periodic recovery on each PIM saddle. Recovery counts are not unique primitive-orbit counts: apparent lag-8 double traversals trigger prospective EXP-134 before manifold use."
+}

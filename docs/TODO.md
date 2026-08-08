@@ -445,8 +445,10 @@ exposition requirements.
 - [ ] **MECH-001 — Orbit/manifold condition for the branch opening.** DEC-011
   freezes exact-return, shooting-identity, and Floquet gates for PIM-seeded
   UPOs. EXP-133 now preregisters exploratory recovery on both sides of the
-  `c=20` bracket. Execute it after the EXP-132 CPU gate; then seed stable and
-  unstable manifolds from accepted UPOs and define a continuation residual
+  `c=20` bracket. It passes with 15 accepted recoveries, but exposes repeated
+  traversals among the reported lags. EXP-134 now freezes proper-divisor and
+  phase-invariant family audits; execute it before selecting primitive
+  representatives. Then seed stable and unstable manifolds from accepted UPOs and define a continuation residual
   that is distinct from the section-grazing artifact already isolated in
   EXP-055.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via

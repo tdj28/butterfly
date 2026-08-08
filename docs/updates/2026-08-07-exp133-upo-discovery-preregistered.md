@@ -14,3 +14,9 @@ derived PIM state archives were outside the existing source-only upload
 authorization. No artifact transferred and no workload ran; the pod was
 terminated and the account verified empty. The frozen experiment remains
 queued for local execution after EXP-132.
+
+The clean local run subsequently passes in `23.47 s`, with accepted unstable
+recoveries on both sides. It also reveals that reported lag/crossing identity
+does not by itself exclude a repeated traversal: the three-side lag-8 result
+is a double cover of lag 4. EXP-134 is therefore frozen before manifold work to
+audit every proper divisor and deduplicate phase-invariant primitive families.

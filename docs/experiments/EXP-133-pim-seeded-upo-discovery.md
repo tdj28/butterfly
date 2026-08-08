@@ -54,3 +54,20 @@ source archive but not the two derived PIM `.npz` inputs. The pod lacked
 pod was terminated with the account verified empty. Conservative provisioning
 spend was below `$0.03`. EXP-133 therefore remains local-only unless those two
 hashed derived inputs are separately authorized for remote upload.
+
+## Result
+
+The clean `bc6a3f8` local run passes in `23.47 s`. Nine of ten selected
+recoveries pass on the two-branch saddle, at reported lags
+`3,5,7,8,12,13`; one lag-15 shooting correction is retained as failed. All
+six selected recoveries pass on the three-branch saddle at reported lags
+`4,8,12`. Across accepted recoveries, maximum exact-return normalized closure
+is `9.473e-5`, maximum corrected flow closure is `4.307e-11`, maximum neutral
+multiplier error is `1.539e-9`, and the weakest unstable modulus is `3.484`.
+
+These are recovery counts, not unique primitive-orbit counts. The exact
+doubling of period and squaring of multiplier in some lag-8/lag-4 results
+exposes a missing primitivity distinction. EXP-134 freezes the divisor-closure
+and phase-invariant deduplication audit before any manifold use. Raw receipt
+SHA-256:
+`5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c`.
