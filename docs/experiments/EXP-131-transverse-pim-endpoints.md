@@ -52,3 +52,9 @@ PYTHONPATH=python .venv/bin/python \
 
 The run must start from the clean pushed preregistration commit. Raw artifacts
 remain ignored; their hashes and a compact result receipt will be tracked.
+
+Preflight provenance note: commit `d70c484` contained truncated literal hashes
+for the two EXP-116 calibration rows. The calibration gate stopped before
+cycle construction or target-state generation. The manifest was corrected to
+the already frozen EXP-129 values; predictions and every numerical setting are
+unchanged.
