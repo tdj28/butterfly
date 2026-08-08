@@ -476,7 +476,11 @@ exposition requirements.
   periodic skeleton remains intact.
   EXP-139 now freezes complete continuation of the eight remaining primitive
   lower-side families, with per-family lag identity measured on shifted
-  one-period windows. Execute it before selecting the manifold seed library.
+  one-period windows. Seven pass all 21 points; lag-13 family 01 stops at a
+  correction closure `1.066e-10`, only `6.6e-12` above the internal numerical
+  floor and far below the scientific closure limit. EXP-140 freezes a
+  tenfold-tighter DOP853 rerun of that family before selecting the manifold
+  seed library.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

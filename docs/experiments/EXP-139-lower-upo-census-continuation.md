@@ -1,6 +1,6 @@
 # EXP-139 — Complete lower-side primitive-UPO census continuation
 
-Status: preregistered; unexecuted
+Status: executed; seven paths passed, one precision-limited corrector stop
 
 ## Question
 
@@ -44,5 +44,18 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/continue_pim_upos_in_a.py \
 
 Even complete persistence of this finite census does not prove that no UPO is
 created or destroyed at the boundary. It rules out that mechanism only for the
-ten identity-qualified families now sampled across it and strengthens the case
+eleven identity-qualified families now sampled across it and strengthens the case
 for a manifold/pruning event.
+
+## Result
+
+The clean `598e066` run fails its all-family gate in `201.31 s`, but seven
+families pass all 21 points. Their 147 audits and the stopped family's three
+qualified points all retain phase-robust fundamental crossing identity.
+
+Lag-13 family 01 stops while correcting `a=0.1480375`. Its closure
+`1.0660e-10` is only `6.60e-12` above the corrector's internal floor and is far
+inside the independent `1e-8` flow-closure threshold; `xtol` termination also
+reports normal optimizer convergence. EXP-140 freezes a tighter reference
+rerun before any dynamical interpretation. Raw receipt SHA-256:
+`3a738bec30bc4ac34faa2bcd3c48d1824e6e9eed1c53986f6bb78144ae9a17c7`.

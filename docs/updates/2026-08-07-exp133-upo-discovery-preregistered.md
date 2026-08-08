@@ -69,4 +69,10 @@ Before manifold seeding, EXP-139 freezes the remaining UPO census gap. It
 continues all eight untested primitive lower-side families to the three-branch
 endpoint, retaining flow/Floquet/primitivity gates and each family's own
 phase-robust section lag. Any stopped path becomes the next event-refinement
-target; a complete pass supplies a ten-family cross-boundary orbit library.
+target; a complete pass supplies an eleven-family cross-boundary orbit library.
+
+EXP-139 qualifies seven of those eight paths across the complete interval.
+Lag-13 family 01 alone stops at `a=0.1480375`, with `xtol` convergence and
+closure only `6.6e-12` above the corrector's internal numerical floor. EXP-140
+now freezes a higher-precision rerun of that single family; no bifurcation is
+inferred from the EXP-139 stop.
