@@ -159,3 +159,15 @@ aperiodic candidate at `a=0.150`. A recurrence-only post-result audit remains
 nonperiodic after burn-ins through 10000 time units, so simple rapid periodic
 capture does not explain the difference. Freeze a multi-burn-in topology and
 Lyapunov audit at `a=0.150` before assuming one monotone TBA crossing.
+
+## Adjacent invariant-set audit frozen
+
+EXP-118 preregisters the `a=0.150` audit without an expected branch label. It
+collects eight 1200-return datasets: the original initial state after four
+burn-ins through 10000 time units and four scrambled-Sobol section states at
+the longest burn-in. Both coordinates must agree under all 15 oracle variants,
+with frozen within/across-dataset critical-drift gates. Two initial states must
+also classify chaotic under eight-block variational spectra and agree with an
+independent two-trajectory largest exponent. This test decides persistence and
+local topology; it does not yet choose among a second crossing, crisis/set
+selection, or scalar-projection failure.

@@ -310,7 +310,10 @@ exposition requirements.
   Before scaling the `0.145` ensemble, freeze a multi-burn-in topology and
   Lyapunov audit of EXP-109's adjacent two-branch `a=0.150` aperiodic candidate;
   do not assume a single monotone path across the apparent `0.149/0.150`
-  reversal.
+  reversal. EXP-118 now freezes that audit: four burn-ins, four additional
+  Sobol section seeds at the longest burn-in, both coordinates, the full
+  15-variant oracle, and two independent Lyapunov algorithms with no expected
+  branch label.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
