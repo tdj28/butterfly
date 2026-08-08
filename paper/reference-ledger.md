@@ -16,6 +16,8 @@ and assessed.
 | `barrio2011global` | Resolves Jones's incomplete Ref. 6; the source Referee B says must receive credit for identifying the topology-transition line (TTL/TBA) | Referee B | APS *Physical Review E* record and DOI | Introduction; prior work; topology hypothesis | Bibliographic record verified; close reading required for exact attribution wording |
 | `jones2012topological` | Original Jones manuscript being reassessed and extended | Project source | arXiv record and local PDF | Introduction; results comparison; discussion | Local PDF in `references/1201.4343v1.pdf` |
 | `barrio2012topological` | Independent, near-simultaneous co-discovery of the topology transition's role in periodicity-hub organization; sharper TBA/superstability analysis | Project source | APS/PubMed record, DOI, and local PDF | Introduction; prior work; discussion | Local PDF in `references/BarrioBlesaSerrano-2012-TopologicalChangesinPeriodicityHubsofDissipativeSystems.pdf` |
+| `kantz1985repellers` | Primary transient-chaos/repeller and lifetime foundation cited by the Barrio PRL for its saddle computation | Barrio Ref. 13; active method | ScienceDirect journal record and DOI | Methods; saddle qualification | Bibliographic metadata verified; method-specific close reading pending |
+| `nusse1989procedure` | Independent PIM-triple route to restrained chaotic-saddle trajectories | Modern validation method | ScienceDirect journal record and DOI | Methods; saddle qualification | Abstract and bibliographic metadata verified; full close reading pending |
 
 ## Citation decisions already fixed
 

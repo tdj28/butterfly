@@ -252,7 +252,10 @@ exposition requirements.
   two/three bracket gate. It passes with an uncertainty band `[0.155,0.16]`,
   five explicit period-4 gaps, and three coverage-unresolved gaps. The binding
   next gate is a saddle method that reproduces the published two-branch saddle
-  at `a=0.118` and three-branch saddle at `a=0.149`.
+  at `a=0.118` and three-branch saddle at `a=0.149`. EXP-110 preregisters a
+  CPU reference sprinkler ensemble with repeated-cycle capture, middle-time
+  survivor pairs, two-coordinate branch gates, and an independent DOP853
+  capture audit. GPU scaling follows only after this reference passes.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

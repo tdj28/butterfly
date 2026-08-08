@@ -51,6 +51,12 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-003-augmented-segmented-flip-solve.md`](decisions/DEC-003-augmented-segmented-flip-solve.md):
   replaces ulp-scale outer scalar refinement with a directly coupled
   anti-periodic tangent/orbit/parameter solve, validated first at period 320.
+- [`decisions/DEC-004-return-map-branch-oracle.md`](decisions/DEC-004-return-map-branch-oracle.md):
+  defines a coverage-, graph-likeness-, and bootstrap-gated scalar branch
+  observable.
+- [`decisions/DEC-005-reference-chaotic-saddle-sampler.md`](decisions/DEC-005-reference-chaotic-saddle-sampler.md):
+  freezes the CPU survival-ensemble saddle definition and the CPU-to-GPU parity
+  gate.
 - [`experiments/README.md`](experiments/README.md): required structure for every
   computational experiment.
 - [`experiments/EXP-000-repository-audit.md`](experiments/EXP-000-repository-audit.md):

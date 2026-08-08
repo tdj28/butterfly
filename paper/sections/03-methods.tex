@@ -30,3 +30,13 @@ criterion, and perturbation matrix before execution.  A scalar classification
 that survives these gates is still representation-bounded: the full
 two-dimensional return map must be retained for any topological-invariance or
 reinjection claim.
+
+Inside regular windows, the attracting orbit cannot supply the chaotic return
+map.  We therefore begin with a survival-ensemble sprinkler construction:
+sample a declared section region, reject trajectories only after repeated
+capture by the stable cycle, and retain middle-time states of long-lived
+survivors as a finite approximation of the saddle
+\citep{kantz1985repellers}.  Survivor and captured classifications are audited
+with adaptive DOP853.  PIM-triple trajectories provide a structurally
+different follow-up method rather than a tuning fallback
+\citep{nusse1989procedure}.

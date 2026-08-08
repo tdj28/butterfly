@@ -347,3 +347,11 @@ critical points. At `a=0.16`, both coordinates give three at consensus `1.0`.
 This is the first modern branch-change bracket, but not yet the PRL's
 invariant-saddle TBA. The saddle reconstruction at `a=0.118` and `0.149` is now
 the binding gate.
+
+EXP-110 is now preregistered as the first direct attack on that gate. It
+recovers each stable period-4 cycle, sprinkles 8192 section seeds, defines
+capture by eight repeated close returns, retains middle-time crossings only
+from final survivors, and requires the published two/three saddle counts in
+both `y` and `z`. Selected survivor/captured labels are independently re-run
+with DOP853. This CPU reference must pass before launching the same ensemble on
+the already qualified Runpod/Triton path.

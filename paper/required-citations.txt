@@ -7,3 +7,5 @@ barrio2012topological
 holmes1984bifurcation
 lefranc1994combining
 rossler1976equation
+kantz1985repellers
+nusse1989procedure
