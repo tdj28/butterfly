@@ -51,6 +51,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-016-a150-three-branch-resolution-qualified.md`](findings/FND-016-a150-three-branch-resolution-qualified.md):
   prospectively qualifies `a=0.150` as chaotic and three-branch at adequate
   resolution while retaining 20 bins as an under-resolution control.
+- [`findings/FND-017-a145-support-closed-coordinate-coverage-open.md`](findings/FND-017-a145-support-closed-coordinate-coverage-open.md):
+  closes sample scarcity at `a=0.145`, qualifies all `y` cells as two, and
+  isolates the remaining `z` failure to fixed-width 80-bin coverage censoring.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

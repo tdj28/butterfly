@@ -331,6 +331,13 @@ exposition requirements.
   corresponding sprinkler run (`2^15,2^16,2^17` nested sizes), two new
   scrambles, the unchanged 15-variant/full-consensus gate, and the prospective
   expectation of two branches supported by all 72 resolved EXP-117 variants.
+  EXP-120 fails the full gate after decisively closing support: 105/105 `y`
+  cells resolve as two; 84/105 `z` cells resolve as two; and the remaining 21
+  are exactly the 80-bin cells, all coverage-censored with one nominal critical
+  point and no contradictory topology. Freeze a coverage-censor rule on new
+  ensembles and require it to reproduce both published controls before using
+  it to qualify `a=0.145`; do not buy more support for an intrinsic projection
+  gap.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

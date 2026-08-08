@@ -225,3 +225,18 @@ factor of eight, with a `2^15,2^16,2^17` nested ladder and new scrambles
 in every oracle variant, with unchanged survival, critical-drift, minimum-
 support, and DOP853/Hermite gates. A pass narrows the sampled saddle bracket to
 `[0.145,0.149]`; it does not interpolate the boundary.
+
+## Large-support result: sample scarcity closes, coordinate coverage remains
+
+EXP-120 completes from clean commit `89caeb3` in `358.51 s` and fails its full
+gate. The eightfold support increase works numerically: every run now exceeds
+323 final survivors and 2726 pairs, survivor fractions agree within `0.001282`,
+and no integration or DOP853 audit fails.
+
+All 105 `y` cells resolve as two. In `z`, 84 cells resolve as two and the
+remaining 21 are exactly the three 80-bin variants in every run. Each fails
+only equal-width domain coverage at `0.675` or `0.6875`, has one nominal
+critical point inside the resolved interval, and never returns three. More
+sampling cannot fill bins outside the projected invariant support. Freeze a
+prospective coverage-censor rule, reproduce both published controls with it,
+then apply it on new `a=0.145` ensembles.

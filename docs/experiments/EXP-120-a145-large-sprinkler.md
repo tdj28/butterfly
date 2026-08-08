@@ -1,6 +1,6 @@
 # EXP-120 — Eightfold-support saddle qualification at `a=0.145`
 
-Status: preregistered; not executed
+Status: executed; failed full coordinate gate after closing support
 
 ## Diagnosis under test
 
@@ -37,3 +37,18 @@ locate the crossing inside that interval or prove a continuous global TBA.
 
 Immutable manifest:
 `experiments/manifests/EXP-120-a145-large-sprinkler.json`.
+
+## Result
+
+The clean run at `89caeb3` completed in `358.51 s` and failed. Support now
+passes comfortably: the minimum final-survivor and pair counts are 323 and
+2726, all survivor curves converge within `0.001282`, and no integration or
+short-horizon audit fails.
+
+All 105 `y` oracle cells resolve as two branches. In `z`, 84 cells resolve as
+two and the remaining 21--the three 80-bin variants in every run--fail only
+fixed-width domain coverage at `0.675` or `0.6875` versus `0.7`. Every censored
+variant has one nominal critical point in the resolved interval; none returns
+three or fails graph-likeness. EXP-120 remains failed and does not narrow the
+formal bracket. Raw receipt SHA-256:
+`e00d40ab509b1f3cffeb1c20497686a451aa4300986e6d171a9e83226083e3a4`.

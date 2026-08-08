@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.large-sprinkler-summary.v1",
+  "experiment_id": "EXP-120",
+  "passed": false,
+  "source_commit": "89caeb3b5231b7c152f2e3b53d1914103d0bfb54",
+  "manifest_sha256": "a56ac149f12ecc4b0050231797b956a7c6dde60900fab8c6389d024efef51c38",
+  "raw_receipt": "artifacts/EXP-120/receipt.json",
+  "raw_receipt_sha256": "e00d40ab509b1f3cffeb1c20497686a451aa4300986e6d171a9e83226083e3a4",
+  "raw_receipt_bytes": 79571,
+  "elapsed_seconds": 358.5099044581875,
+  "cycle_period": 4,
+  "minimum_final_survivors": 323,
+  "minimum_return_pairs": 2726,
+  "integration_failures": 0,
+  "maximum_survivor_fraction_difference": 0.00128173828125,
+  "y_oracle_cells": {"resolved_two": 105, "coverage_unresolved_nominal_two": 0, "other": 0, "maximum_across_run_critical_span": 0.014553852561840736},
+  "z_oracle_cells": {"resolved_two": 84, "coverage_unresolved_nominal_two": 21, "other": 0, "minimum_coverage": 0.675, "resolved_critical_interval": [0.009542945509041747, 0.009545522914690754], "coverage_nominal_critical_interval": [0.009543094044964655, 0.009545401455560362]},
+  "interpretation": "eightfold support closes sample scarcity but not the full two-coordinate gate; y is fully two-branch, while every z variant is nominally two and only the 80-bin variants fail fixed-width invariant-domain coverage"
+}
