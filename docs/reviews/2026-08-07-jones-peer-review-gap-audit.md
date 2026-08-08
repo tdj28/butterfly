@@ -90,9 +90,13 @@ regular-window saddles on CPU/GPU; and EXP-115 independently recovers both
 saddle topologies with adaptive DOP853/PIM at a fixed 128-return censor
 horizon. EXP-116 then preserves both topologies and critical locations at 256
 returns with all six access lines resolved and zero integration failures.
-EXP-115's 64-return profiles remain a negative support control. Transition
-continuation and reinjection prediction remain open, so RVR-003 is materially
-advanced but not closed.
+EXP-115's 64-return profiles remain a negative support control. EXP-129 then
+prospectively matches the frozen signed lower-support prediction to a blind PIM
+midpoint and narrows the finite `c=20` bracket to `[0.148125,0.14825]`.
+EXP-130 now preregisters unresolved-aware transverse discovery at `c=19.8` and
+`c=19.9`, with independent PIM validation required after target selection.
+Transition continuation, the underlying manifold event, and reinjection
+prediction remain open, so RVR-003 is materially advanced but not closed.
 
 ### RVR-004 — Finite logistic-ordering test
 

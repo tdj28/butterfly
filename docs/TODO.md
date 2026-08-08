@@ -418,10 +418,13 @@ exposition requirements.
   must equal the blind critical-point count. EXP-129 passes: all six PIM lines,
   60/60 two-branch oracle cells, and 60/60 negative-slope fits agree, with the
   weakest slope magnitude `0.4994` and no failed lifetime integration. The
-  finite bracket is `[0.148125,0.14825]`. Leave pure one-dimensional bisection:
-  freeze a transverse `(a,c)` GPU-discovery/PIM-validation pilot and search the
-  opened lobe for the unstable-orbit/manifold event that supplies a genuine
-  continuation condition.
+  finite bracket is `[0.148125,0.14825]`. Leave pure one-dimensional bisection.
+  EXP-130 now prospectively freezes a transverse `(a,c)` GPU discovery pilot:
+  four controls, two fresh Sobol ensembles, half-step representatives, and
+  unresolved-aware ordered-bracket gates at `c=19.8/19.9`. Execute it from the
+  clean frozen commit, then preregister adaptive-DOP853 PIM validation only at
+  the selected brackets and search the opened lobe for the unstable-orbit/
+  manifold event that supplies a genuine continuation condition.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

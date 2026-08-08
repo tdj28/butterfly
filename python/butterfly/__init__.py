@@ -12,6 +12,7 @@ from .basins import (
     fit_uncertainty_exponent,
     initial_condition_grid,
 )
+from .boundary import OrderedTransitionBracket, infer_ordered_transition_bracket
 
 from .candidates import CandidateSelection, select_low_score_with_neighbors
 from .classify import (
@@ -97,6 +98,7 @@ from .tiles import (
 
 __all__ = [
     "OrbitLabel",
+    "OrderedTransitionBracket",
     "PeriodicComponent",
     "CandidateSelection",
     "BasinPlaneManifest",
@@ -151,6 +153,7 @@ __all__ = [
     "closest_recurrence_candidate",
     "integrate_trajectory",
     "initial_condition_grid",
+    "infer_ordered_transition_bracket",
     "infer_return_map_branches",
     "infer_return_map_branches_robust",
     "infer_lower_support_slope_robust",

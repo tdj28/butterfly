@@ -22,6 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp130-transverse-pilot-preregistered.md`](2026-08-07-exp130-transverse-pilot-preregistered.md)
+  — frozen two-slice GPU discovery design, unresolved-aware topology gates,
+  and a run-specific Runpod cost/teardown contract.
+- [`2026-08-07-signed-boundary-observable.md`](2026-08-07-signed-boundary-observable.md)
+  — prospectively successful signed lower-support prediction at the blind
+  `a=0.148125` midpoint and the narrowed finite bracket.
 - [`2026-08-07-chaotic-saddle-qualification.md`](2026-08-07-chaotic-saddle-qualification.md)
   — passed CPU and GPU reconstruction of the two published nonattracting
   chaotic-saddle controls, with exact method and claim boundaries.
