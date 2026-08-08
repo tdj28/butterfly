@@ -1,6 +1,6 @@
 # EXP-142 — UPO unstable-manifold seed validation
 
-Status: preregistered; unexecuted
+Status: passed
 
 ## Question
 
@@ -42,3 +42,12 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/validate_upo_manifold_seeds.p
 
 A pass validates local unstable-manifold seeds only. It neither demonstrates a
 homoclinic/heteroclinic connection nor explains the return-map branch opening.
+
+## Result
+
+The clean `3ef152b` run passes all 22 endpoint instances in `44.84 s`. Every
+one of the 132 perturbation trials passes; the frozen gate required only two of
+three sizes per sign. Worst relative multiplier error is `0.2266%`, worst
+transverse residual ratio `0.2198%`, and maximum base lag-return closure
+`3.81e-9`. Raw receipt SHA-256:
+`da8750a878817e750b6d0547f2e1cf9f90c1555b3004108a859253ac15759d75`.

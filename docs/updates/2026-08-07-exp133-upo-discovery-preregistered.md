@@ -95,3 +95,9 @@ at both endpoints must supply a section-tangent real unstable direction whose
 exact fundamental-lag amplification reproduces the signed Floquet multiplier
 on both branch signs and at multiple perturbation sizes. Only passed instances
 will be used for subsequent lobe and connection-residual calculations.
+
+EXP-142 passes all 22 endpoint instances and all 132 signed seed-size trials.
+The full persistent UPO library now has qualified section-tangent unstable
+directions. The next stage traces capture-truncated first-return lobes and uses
+seed-density diagnostics to select candidate pruning/reinjection changes for a
+separate prospective refinement.
