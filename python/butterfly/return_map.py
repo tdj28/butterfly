@@ -40,6 +40,27 @@ class ReturnMapRobustnessResult:
     reason: str
 
 
+@dataclass(frozen=True, slots=True)
+class LowerSupportSlopeRobustnessResult:
+    """Signed return-map slope at the occupied lower-support boundary.
+
+    The slope is measured after affine normalization of both scalar
+    coordinates.  Each oracle variant is evaluated at its first populated
+    binned-source median, so no spline extrapolation is used.  The reported
+    interval is a numerical-sensitivity interval across the declared variants,
+    not a confidence interval or a coordinate-free topological invariant.
+    """
+
+    resolved: bool
+    slope_sign: int | None
+    slope_interval: tuple[float, float] | None
+    median_slope: float | None
+    minimum_absolute_slope: float | None
+    boundary_source_interval: tuple[float, float] | None
+    variant_slopes: tuple[float, ...]
+    reason: str
+
+
 def _binned_relation(source, target, *, bin_count, minimum_bin_points):
     edges = np.linspace(0.0, 1.0, bin_count + 1)
     indices = np.clip(np.digitize(source, edges) - 1, 0, bin_count - 1)
@@ -125,6 +146,132 @@ def _fit_branch_count(
         minimum_prominence=minimum_prominence,
     )
     return len(critical) + 1, critical, spread_ratio, coverage
+
+
+def infer_lower_support_slope_robust(
+    source,
+    target,
+    *,
+    variants: Sequence[Mapping[str, object]],
+    minimum_bin_points: int = 4,
+    minimum_absolute_slope: float = 0.0,
+) -> LowerSupportSlopeRobustnessResult:
+    """Infer a robust signed derivative at the lower occupied map boundary.
+
+    This is a companion observable to the discrete branch count.  It reuses
+    only each variant's bin count and smoothing value, fits the same normalized
+    cubic spline used by the branch oracle, and evaluates its derivative at
+    the first populated bin median.  Resolution requires every declared
+    variant to have the same nonzero sign and to clear ``minimum_absolute_slope``.
+    """
+
+    if not variants:
+        raise ValueError("at least one oracle variant is required")
+    if minimum_bin_points < 1:
+        raise ValueError("minimum_bin_points must be positive")
+    if minimum_absolute_slope < 0.0:
+        raise ValueError("minimum_absolute_slope must be nonnegative")
+    source = np.asarray(source, dtype=float)
+    target = np.asarray(target, dtype=float)
+    if source.ndim != 1 or target.ndim != 1 or len(source) != len(target):
+        raise ValueError("source and target must be equal-length vectors")
+    if not np.all(np.isfinite(source)) or not np.all(np.isfinite(target)):
+        raise ValueError("return-map samples must be finite")
+    source_range = float(np.ptp(source))
+    target_range = float(np.ptp(target))
+    if source_range == 0.0 or target_range == 0.0:
+        return LowerSupportSlopeRobustnessResult(
+            False, None, None, None, None, None, (), "degenerate coordinate range"
+        )
+    normalized_source = (source - np.min(source)) / source_range
+    normalized_target = (target - np.min(target)) / target_range
+    slopes = []
+    boundaries = []
+    for variant in variants:
+        if "bin_count" not in variant or "smoothing" not in variant:
+            raise ValueError("each slope variant requires bin_count and smoothing")
+        x_values, y_values, _spreads = _binned_relation(
+            normalized_source,
+            normalized_target,
+            bin_count=int(variant["bin_count"]),
+            minimum_bin_points=minimum_bin_points,
+        )
+        if len(x_values) < 6:
+            return LowerSupportSlopeRobustnessResult(
+                False,
+                None,
+                None,
+                None,
+                None,
+                None,
+                tuple(slopes),
+                "insufficient populated bins",
+            )
+        order = np.argsort(x_values)
+        x_values = x_values[order]
+        y_values = y_values[order]
+        spline = UnivariateSpline(
+            x_values,
+            y_values,
+            k=3,
+            s=float(variant["smoothing"]) * len(x_values),
+            ext=3,
+        )
+        slope = float(spline.derivative()(x_values[0]))
+        if not np.isfinite(slope):
+            return LowerSupportSlopeRobustnessResult(
+                False,
+                None,
+                None,
+                None,
+                None,
+                None,
+                tuple(slopes),
+                "nonfinite boundary slope",
+            )
+        slopes.append(slope)
+        boundaries.append(float(np.min(source) + x_values[0] * source_range))
+
+    slope_interval = (min(slopes), max(slopes))
+    median_slope = float(np.median(slopes))
+    minimum_magnitude = min(abs(slope) for slope in slopes)
+    boundary_interval = (min(boundaries), max(boundaries))
+    if all(slope > 0.0 for slope in slopes):
+        sign = 1
+    elif all(slope < 0.0 for slope in slopes):
+        sign = -1
+    else:
+        return LowerSupportSlopeRobustnessResult(
+            False,
+            None,
+            slope_interval,
+            median_slope,
+            minimum_magnitude,
+            boundary_interval,
+            tuple(slopes),
+            "oracle variants disagree on slope sign",
+        )
+    if minimum_magnitude < minimum_absolute_slope:
+        return LowerSupportSlopeRobustnessResult(
+            False,
+            None,
+            slope_interval,
+            median_slope,
+            minimum_magnitude,
+            boundary_interval,
+            tuple(slopes),
+            "boundary slope is too close to zero",
+        )
+    return LowerSupportSlopeRobustnessResult(
+        True,
+        sign,
+        slope_interval,
+        median_slope,
+        minimum_magnitude,
+        boundary_interval,
+        tuple(slopes),
+        "resolved across oracle variants",
+    )
 
 
 def infer_return_map_branches(

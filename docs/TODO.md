@@ -409,9 +409,14 @@ exposition requirements.
   EXP-128 passes as three in all 60 oracle cells with all six straddles,
   cross-horizon critical spans below `0.00910`, and zero failed lifetime
   evaluations. The finite bracket is now `[0.148,0.14825]`. Before spending
-  another hour on pure bisection, freeze an independent signed
-  critical-point--to--invariant-support boundary margin and test whether its
-  zero predicts the already blind labels.
+  another hour on pure bisection, freeze a signed companion observable and test
+  it prospectively. DEC-010 and EXP-129 now freeze the normalized spline slope
+  at the lower occupied return-map support. All eight hashed calibration
+  profiles reproduce the two/negative and three/positive mapping in both
+  coordinates and all variants. The untouched `a=0.148125` midpoint must clear
+  a `0.1` magnitude floor at both censor horizons and its slope-predicted class
+  must equal the blind critical-point count. Run EXP-129 from its clean
+  preregistration commit; only a pass authorizes signed level-set continuation.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

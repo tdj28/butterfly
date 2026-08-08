@@ -66,6 +66,12 @@ three plane offsets and seven oracle settings. This authorizes a prospective
 boundary search on the published section. It does not authorize interpolation
 through periodic windows; those require the chaotic saddle used in the PRL.
 
+After independent PIM continuation localizes a regular-window saddle change to
+`a in [0.148,0.14825]`, DEC-010 adds a signed lower-support derivative as a
+companion to this discrete count. It reuses the declared spline family but
+does not replace any graph-likeness, coverage, prominence, bootstrap, censor-
+horizon, or coordinate gate.
+
 ## Consequences
 
 - RVR-003 is now mathematically operational but remains empirically open.

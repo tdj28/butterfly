@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import numpy as np
 
-from butterfly import infer_return_map_branches, infer_return_map_branches_robust
+from butterfly import (
+    infer_lower_support_slope_robust,
+    infer_return_map_branches,
+    infer_return_map_branches_robust,
+)
 
 
 def samples(function, count=4000):
@@ -98,3 +102,50 @@ def test_robust_oracle_rejects_variant_disagreement() -> None:
     assert result.branch_count is None
     assert result.variant_consensus == 0.5
     assert result.reason == "oracle variants disagree"
+
+
+def test_lower_support_slope_resolves_negative_and_positive_controls() -> None:
+    variants = tuple(
+        {"bin_count": bins, "smoothing": smoothing}
+        for bins in (20, 40, 80)
+        for smoothing in (3e-6, 3e-5)
+    )
+    negative_source, negative_target = samples(
+        lambda value: -value + value**2
+    )
+    positive_source, positive_target = samples(
+        lambda value: value - value**2
+    )
+    negative = infer_lower_support_slope_robust(
+        negative_source,
+        negative_target,
+        variants=variants,
+        minimum_absolute_slope=0.1,
+    )
+    positive = infer_lower_support_slope_robust(
+        positive_source,
+        positive_target,
+        variants=variants,
+        minimum_absolute_slope=0.1,
+    )
+    assert negative.resolved and negative.slope_sign == -1
+    assert negative.slope_interval is not None
+    assert negative.slope_interval[1] < 0.0
+    assert positive.resolved and positive.slope_sign == 1
+    assert positive.slope_interval is not None
+    assert positive.slope_interval[0] > 0.0
+
+
+def test_lower_support_slope_rejects_near_zero_boundary() -> None:
+    source, target = samples(lambda value: value**2)
+    result = infer_lower_support_slope_robust(
+        source,
+        target,
+        variants=({"bin_count": 80, "smoothing": 3e-6},),
+        minimum_absolute_slope=0.1,
+    )
+    assert not result.resolved
+    assert result.slope_sign is None
+    assert result.minimum_absolute_slope is not None
+    assert result.minimum_absolute_slope < 0.1
+    assert result.reason == "boundary slope is too close to zero"

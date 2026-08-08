@@ -49,8 +49,10 @@ from .poincare import (
     legacy_rossler_section,
 )
 from .return_map import (
+    LowerSupportSlopeRobustnessResult,
     ReturnMapBranchResult,
     ReturnMapRobustnessResult,
+    infer_lower_support_slope_robust,
     infer_return_map_branches,
     infer_return_map_branches_robust,
 )
@@ -110,6 +112,7 @@ __all__ = [
     "RecurrenceCandidate",
     "ReturnMapBranchResult",
     "ReturnMapRobustnessResult",
+    "LowerSupportSlopeRobustnessResult",
     "RosslerParameters",
     "PoincareCrossings",
     "PoincareSection",
@@ -150,6 +153,7 @@ __all__ = [
     "initial_condition_grid",
     "infer_return_map_branches",
     "infer_return_map_branches_robust",
+    "infer_lower_support_slope_robust",
     "integrate_flip_segment",
     "lyapunov_spectrum",
     "largest_lyapunov_two_trajectory",

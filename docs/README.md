@@ -86,6 +86,12 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-025-blind-pim-qualifies-a14825-three-branch-saddle.md`](findings/FND-025-blind-pim-qualifies-a14825-three-branch-saddle.md):
   records the second identical-method blind localization and the boundary for
   further classifier bisection versus independent continuation.
+- [`decisions/DEC-010-lower-support-slope-observable.md`](decisions/DEC-010-lower-support-slope-observable.md):
+  defines the signed companion observable, calibration boundary, and limits on
+  any continuity or topology interpretation.
+- [`experiments/EXP-129-blind-a148125-pim-boundary-slope.md`](experiments/EXP-129-blind-a148125-pim-boundary-slope.md):
+  freezes the first held-out slope-sign prediction against a blind PIM branch
+  count at the next bracket midpoint.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

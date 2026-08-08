@@ -20,6 +20,7 @@ from butterfly import (
     SolverConfig,
     advance_censor_aware_pim_straddle,
     barrio_rossler_section,
+    infer_lower_support_slope_robust,
     infer_return_map_branches_robust,
     refine_censor_aware_pim_segment,
     section_return_map,
@@ -163,6 +164,108 @@ def _common_resolved_branch_count(coordinate_rows, allowed_branch_counts):
     if len(set(counts)) != 1 or counts[0] not in set(allowed_branch_counts):
         return None
     return counts[0]
+
+
+def _slope_predicted_branch_count(coordinate_rows, slope_config):
+    """Map one unanimous, resolved coordinate slope sign to a branch count."""
+    mapping = {
+        int(sign): int(count)
+        for sign, count in slope_config["sign_to_branch_count"].items()
+    }
+    counts = []
+    for row in coordinate_rows.values():
+        result = row.get("lower_support_slope")
+        if not result or not result["resolved"] or result["slope_sign"] is None:
+            return None
+        predicted = mapping.get(int(result["slope_sign"]))
+        if predicted is None:
+            return None
+        counts.append(predicted)
+    return counts[0] if counts and len(set(counts)) == 1 else None
+
+
+def _infer_boundary_slope(source, target, manifest):
+    slope_config = manifest["boundary_slope"]
+    return asdict(
+        infer_lower_support_slope_robust(
+            source,
+            target,
+            variants=manifest["oracle_variants"],
+            minimum_bin_points=int(manifest["oracle_common"]["minimum_bin_points"]),
+            minimum_absolute_slope=float(
+                slope_config["minimum_absolute_normalized_slope"]
+            ),
+        )
+    )
+
+
+def _evaluate_slope_calibration(calibration, manifest):
+    """Recompute a frozen slope-sign control from a hashed PIM state archive."""
+    path = Path(calibration["states_artifact"])
+    artifact_bytes = path.read_bytes()
+    observed_hash = sha256_bytes(artifact_bytes)
+    expected_hash = calibration["states_artifact_sha256"]
+    prefix = (
+        f"{calibration['case_id']}__horizon-{int(calibration['horizon'])}__"
+    )
+    with np.load(io.BytesIO(artifact_bytes)) as archive:
+        keys = sorted(key for key in archive.files if key.startswith(prefix))
+        states = [archive[key] for key in keys]
+    burn_in = int(manifest["pim"]["burn_in_returns"])
+    coordinate_rows = {}
+    for coordinate in manifest["coordinates"]:
+        axis = int(coordinate["axis"])
+        source = np.concatenate(
+            [values[burn_in:-1, axis] for values in states]
+        ) if states else np.empty(0)
+        target = np.concatenate(
+            [values[burn_in + 1 :, axis] for values in states]
+        ) if states else np.empty(0)
+        slope = (
+            _infer_boundary_slope(source, target, manifest)
+            if len(source) >= int(manifest["acceptance"]["minimum_return_pairs"])
+            else {
+                "resolved": False,
+                "slope_sign": None,
+                "reason": "insufficient calibration return pairs",
+            }
+        )
+        coordinate_rows[coordinate["name"]] = {
+            "pair_count": len(source),
+            "source_minimum": float(np.min(source)) if len(source) else None,
+            "source_maximum": float(np.max(source)) if len(source) else None,
+            "lower_support_slope": slope,
+        }
+    predicted = _slope_predicted_branch_count(
+        coordinate_rows, manifest["boundary_slope"]
+    )
+    expected_sign = int(calibration["expected_slope_sign"])
+    expected_count = int(calibration["expected_branch_count"])
+    minimum_lines = int(manifest["acceptance"]["minimum_successful_straddles"])
+    passed = (
+        observed_hash == expected_hash
+        and len(states) >= minimum_lines
+        and predicted == expected_count
+        and all(
+            row["lower_support_slope"]["resolved"]
+            and int(row["lower_support_slope"]["slope_sign"]) == expected_sign
+            for row in coordinate_rows.values()
+        )
+    )
+    return {
+        "id": calibration["id"],
+        "states_artifact": str(path),
+        "states_artifact_sha256": observed_hash,
+        "states_artifact_hash_matches": observed_hash == expected_hash,
+        "case_id": calibration["case_id"],
+        "horizon": int(calibration["horizon"]),
+        "access_line_count": len(states),
+        "expected_slope_sign": expected_sign,
+        "expected_branch_count": expected_count,
+        "slope_predicted_branch_count": predicted,
+        "coordinates": coordinate_rows,
+        "passed": passed,
+    }
 
 
 def _run_profile(
@@ -310,6 +413,18 @@ def _run_profile(
             "source_maximum": float(np.max(source)) if len(source) else None,
             "robust_oracle": robust,
         }
+        if "boundary_slope" in manifest and len(source) >= int(
+            acceptance["minimum_return_pairs"]
+        ):
+            row["lower_support_slope"] = _infer_boundary_slope(
+                source, target, manifest
+            )
+        elif "boundary_slope" in manifest:
+            row["lower_support_slope"] = {
+                "resolved": False,
+                "slope_sign": None,
+                "reason": "insufficient censor-aware PIM return pairs",
+            }
         if len(source) and cpu_reference is not None:
             row["cpu_comparison"] = _combined_critical_spans(
                 row, cpu_reference[coordinate["name"]]
@@ -337,11 +452,19 @@ def _run_profile(
     observed = _common_resolved_branch_count(
         coordinate_rows, allowed_branch_counts
     )
+    slope_predicted = (
+        _slope_predicted_branch_count(coordinate_rows, manifest["boundary_slope"])
+        if "boundary_slope" in manifest
+        else None
+    )
     passed = (
         successful_lines >= int(acceptance["minimum_successful_straddles"])
         and failure_count == 0
         and observed is not None
         and (expected is None or observed == expected)
+        and (
+            "boundary_slope" not in manifest or slope_predicted == observed
+        )
         and all(
             row["pair_count"] >= int(acceptance["minimum_return_pairs"])
             and row["robust_oracle"]["resolved"]
@@ -367,6 +490,7 @@ def _run_profile(
             "certified_censor_block_selections": certified_count,
             "coordinates": coordinate_rows,
             "observed_saddle_branch_count": observed,
+            "slope_predicted_branch_count": slope_predicted,
             "passed": passed,
         },
         state_artifacts,
@@ -411,6 +535,17 @@ def _run_case(case, manifest, solver):
         and len(set(profile_counts)) == 1
         else None
     )
+    profile_slope_counts = [
+        profile["slope_predicted_branch_count"] for profile in profiles
+    ]
+    slope_predicted = (
+        profile_slope_counts[0]
+        if "boundary_slope" in manifest
+        and profile_slope_counts
+        and profile_slope_counts[0] is not None
+        and len(set(profile_slope_counts)) == 1
+        else None
+    )
     expected_raw = case.get("expected_saddle_branch_count")
     expected = None if expected_raw is None else int(expected_raw)
     passed = (
@@ -418,6 +553,9 @@ def _run_case(case, manifest, solver):
         and all(profile["passed"] for profile in profiles)
         and observed is not None
         and (expected is None or observed == expected)
+        and (
+            "boundary_slope" not in manifest or slope_predicted == observed
+        )
         and all(
             row["resolved"]
             and row["maximum_normalized_span"]
@@ -431,6 +569,7 @@ def _run_case(case, manifest, solver):
             "parameters": asdict(parameters),
             "expected_saddle_branch_count": expected,
             "observed_saddle_branch_count": observed,
+            "slope_predicted_branch_count": slope_predicted,
             "stable_cycle_classification": asdict(cycle_classification),
             "profiles": profiles,
             "nested_horizon_comparison": nested,
@@ -461,6 +600,27 @@ def main() -> int:
     }
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
+
+    slope_calibrations = []
+    if "boundary_slope" in manifest:
+        slope_calibrations = [
+            _evaluate_slope_calibration(row, manifest)
+            for row in manifest["boundary_slope"]["calibrations"]
+        ]
+        print(
+            json.dumps(
+                {
+                    "boundary_slope_calibrations": [
+                        {"id": row["id"], "passed": row["passed"]}
+                        for row in slope_calibrations
+                    ]
+                },
+                sort_keys=True,
+            ),
+            flush=True,
+        )
+        if not all(row["passed"] for row in slope_calibrations):
+            raise SystemExit("one or more frozen boundary-slope calibrations failed")
 
     solver = SolverConfig(**manifest["reference_solver"])
     cases = []
@@ -496,6 +656,7 @@ def main() -> int:
         "states_artifact": str(args.states_output),
         "states_artifact_bytes": len(state_bytes),
         "states_artifact_sha256": sha256_bytes(state_bytes),
+        "boundary_slope_calibrations": slope_calibrations,
         "cases": cases,
         "elapsed_seconds": time.perf_counter() - started,
         "passed": all(case["passed"] for case in cases),
