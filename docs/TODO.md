@@ -447,7 +447,9 @@ exposition requirements.
   UPOs. EXP-133 now preregisters exploratory recovery on both sides of the
   `c=20` bracket. It passes with 15 accepted recoveries, but exposes repeated
   traversals among the reported lags. EXP-134 now freezes proper-divisor and
-  phase-invariant family audits; execute it before selecting primitive
+  phase-invariant family audits. It confirms two lag-8 double traversals but
+  exposes inadequate phase-grid resolution for deduplication. EXP-135 now
+  freezes continuous phase refinement; execute it before selecting primitive
   representatives. Then seed stable and unstable manifolds from accepted UPOs and define a continuation residual
   that is distinct from the section-grazing artifact already isolated in
   EXP-055.

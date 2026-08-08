@@ -12,6 +12,7 @@ from pathlib import Path
 import numpy as np
 import scipy
 from scipy.integrate import solve_ivp
+from scipy.optimize import minimize_scalar
 
 from butterfly import RosslerParameters, SolverConfig, flow_monodromy, rossler_rhs
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
@@ -37,7 +38,7 @@ def _normalized_orbit(parameters, state, period, solver, scales, samples):
     if not result.success:
         raise RuntimeError(f"dense orbit integration failed: {result.message}")
     times = np.linspace(0.0, period, samples, endpoint=False)
-    return np.asarray(result.sol(times).T, dtype=float) / scales
+    return np.asarray(result.sol(times).T, dtype=float) / scales, result.sol
 
 
 def _phase_invariant_rms(left, right):
@@ -47,10 +48,40 @@ def _phase_invariant_rms(left, right):
     )
 
 
+def _continuous_phase_invariant_rms(
+    left,
+    right_solution,
+    right_period,
+    scales,
+    *,
+    shift_tolerance,
+):
+    phases = np.linspace(0.0, 1.0, len(left), endpoint=False)
+
+    def rms(shift):
+        right = np.asarray(
+            right_solution(((phases + shift) % 1.0) * right_period).T,
+            dtype=float,
+        ) / scales
+        return float(np.sqrt(np.mean((left - right) ** 2)))
+
+    coarse = np.asarray([rms(index / len(left)) for index in range(len(left))])
+    best = int(np.argmin(coarse))
+    spacing = 1.0 / len(left)
+    refined = minimize_scalar(
+        lambda shift: rms(shift % 1.0),
+        bounds=(best / len(left) - spacing, best / len(left) + spacing),
+        method="bounded",
+        options={"xatol": shift_tolerance},
+    )
+    return float(refined.fun), float(refined.x % 1.0)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--source-receipt", type=Path, required=True)
+    parser.add_argument("--predecessor-receipt", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
@@ -61,6 +92,14 @@ def main() -> int:
     if sha256_bytes(receipt_bytes) != manifest["source_receipt_sha256"]:
         raise SystemExit("source receipt hash mismatch")
     source_receipt = json.loads(receipt_bytes)
+    predecessor_hash = None
+    if "predecessor_receipt_sha256" in manifest:
+        if args.predecessor_receipt is None:
+            raise SystemExit("predecessor receipt is required by the manifest")
+        predecessor_bytes = args.predecessor_receipt.read_bytes()
+        predecessor_hash = sha256_bytes(predecessor_bytes)
+        if predecessor_hash != manifest["predecessor_receipt_sha256"]:
+            raise SystemExit("predecessor receipt hash mismatch")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -110,7 +149,7 @@ def main() -> int:
             repeat_factor = max(passing, default=1)
             fundamental_lag = lag // repeat_factor
             fundamental_period = period / repeat_factor
-            orbit = _normalized_orbit(
+            orbit, dense_solution = _normalized_orbit(
                 parameters, state, fundamental_period, solver, scales, samples
             )
             audited.append(
@@ -125,6 +164,7 @@ def main() -> int:
                     "primitive_as_reported": repeat_factor == 1,
                     "divisor_tests": divisor_rows,
                     "orbit": orbit,
+                    "dense_solution": dense_solution,
                 }
             )
 
@@ -148,10 +188,25 @@ def main() -> int:
                     and period_error
                     <= float(acceptance["maximum_relative_period_difference"])
                 ):
-                    rms = _phase_invariant_rms(row["orbit"], representative["orbit"])
+                    if "phase_shift_tolerance" in manifest["identity"]:
+                        rms, phase_shift = _continuous_phase_invariant_rms(
+                            row["orbit"],
+                            representative["dense_solution"],
+                            representative["fundamental_period_time"],
+                            scales,
+                            shift_tolerance=float(
+                                manifest["identity"]["phase_shift_tolerance"]
+                            ),
+                        )
+                    else:
+                        rms = _phase_invariant_rms(
+                            row["orbit"], representative["orbit"]
+                        )
+                        phase_shift = None
                     if rms <= float(acceptance["maximum_phase_invariant_rms"]):
                         family_id = family["id"]
                         identity_rms = rms
+                        row["phase_shift_to_representative"] = phase_shift
                         family["member_audit_indices"].append(audit_index)
                         break
             if family_id is None:
@@ -170,6 +225,7 @@ def main() -> int:
             row["phase_invariant_rms_to_representative"] = identity_rms
         for row in audited:
             del row["orbit"]
+            del row["dense_solution"]
         case_rows.append(
             {
                 "id": source_case["id"],
@@ -196,6 +252,7 @@ def main() -> int:
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source_receipt_sha256": sha256_bytes(receipt_bytes),
+        "predecessor_receipt_sha256": predecessor_hash,
         "source": source,
         "environment": {
             "python": platform.python_version(),

@@ -20,3 +20,9 @@ recoveries on both sides. It also reveals that reported lag/crossing identity
 does not by itself exclude a repeated traversal: the three-side lag-8 result
 is a double cover of lag 4. EXP-134 is therefore frozen before manifold work to
 audit every proper divisor and deduplicate phase-invariant primitive families.
+
+EXP-134 passes the divisor audit: all nine two-side recoveries are primitive,
+while the two three-side lag-8 recoveries close at half-period near `1.1e-11`
+and reduce to lag 4. Its 512-point phase grid is too coarse to consolidate
+three equal-period lag-4 phases at the `1e-6` RMS gate, so EXP-135 freezes a
+continuous phase-shift optimization before the unique-family count is used.
