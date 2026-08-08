@@ -1,0 +1,92 @@
+{
+  "schema": "butterfly.blind-censored-pim-transverse-summary.v1",
+  "experiment_id": "EXP-131",
+  "passed": false,
+  "failure_class": "prospective scientific resolution and prediction gate",
+  "source_commit": "2eddd2f5ba350db548c7eb3c3b8bbb5d8d90e492",
+  "manifest_sha256": "f053b878a50ed1351fc52682654994665b04f80c70cc72968f170828c9e5ef0c",
+  "raw_receipt": "artifacts/EXP-131/receipt.json",
+  "raw_receipt_sha256": "21ae8580e0b9542868d69d91f3339c5477d8ca6b6024239c66abbf1680330dda",
+  "raw_receipt_bytes": 72638,
+  "states_artifact": "artifacts/EXP-131/transverse-pim-straddles.npz",
+  "states_artifact_sha256": "3d7d1cd80d5e30664fa62fdbf48ff043dcad7033d39cf37681cb981ed943dd63",
+  "states_artifact_bytes": 176715,
+  "elapsed_seconds": 9671.828441250138,
+  "execution": {
+    "successful_access_lines": 12,
+    "failed_lifetime_integrations": 0,
+    "unique_lifetime_evaluations": 72717,
+    "censored_lifetime_evaluations": 564,
+    "certified_censor_block_selections": 320,
+    "return_pairs_per_coordinate_per_case": 2097,
+    "maximum_recorded_straddle_width": 9.997976530735309e-08
+  },
+  "oracle_cells": {
+    "resolved_two_variants": 72,
+    "resolved_three_variants": 30,
+    "coverage_only_unresolved_variants": 12,
+    "bootstrap_unstable_variants": 6,
+    "negative_signed_slope_variants": 90,
+    "positive_signed_slope_variants": 30,
+    "unresolved_signed_slope_variants": 0
+  },
+  "cases": [
+    {
+      "id": "c19p8-lower-predicted-two",
+      "parameters": {"a": 0.145, "b": 0.2, "c": 19.8},
+      "preregistered_prediction": 2,
+      "strict_branch_count": null,
+      "signed_slope_prediction": 2,
+      "fully_resolved_variants_per_coordinate": 12,
+      "unresolved_reason": "three variants per coordinate fail only invariant-domain coverage at 0.675",
+      "slope_intervals": {
+        "y": [-1.615214315398801, -1.1172480874784751],
+        "z": [-1.9816274763842194, -1.288559836709874]
+      },
+      "passed": false
+    },
+    {
+      "id": "c19p8-upper-predicted-three",
+      "parameters": {"a": 0.148, "b": 0.2, "c": 19.8},
+      "preregistered_prediction": 3,
+      "strict_branch_count": null,
+      "signed_slope_prediction": 2,
+      "fully_resolved_variants_per_coordinate": 12,
+      "unresolved_reason": "three 80-bin variants per coordinate are bootstrap-unstable",
+      "slope_intervals": {
+        "y": [-1.4647457016991356, -0.8185259168834672],
+        "z": [-1.798059859157256, -1.0379692877365403]
+      },
+      "passed": false,
+      "prediction_falsified": true
+    },
+    {
+      "id": "c19p9-lower-predicted-two",
+      "parameters": {"a": 0.145, "b": 0.2, "c": 19.9},
+      "preregistered_prediction": 2,
+      "strict_branch_count": null,
+      "signed_slope_prediction": 2,
+      "fully_resolved_variants_per_coordinate": 12,
+      "unresolved_reason": "three variants per coordinate fail only invariant-domain coverage at 0.675",
+      "slope_intervals": {
+        "y": [-1.5170005223956748, -1.1878387629664588],
+        "z": [-1.8924464347761452, -1.2465716360570591]
+      },
+      "passed": false
+    },
+    {
+      "id": "c19p9-upper-predicted-three",
+      "parameters": {"a": 0.15, "b": 0.2, "c": 19.9},
+      "preregistered_prediction": 3,
+      "strict_branch_count": 3,
+      "signed_slope_prediction": 3,
+      "fully_resolved_variants_per_coordinate": 15,
+      "slope_intervals": {
+        "y": [0.5198888646405903, 0.941228518487109],
+        "z": [0.6230282932787571, 1.1813972253003906]
+      },
+      "passed": true
+    }
+  ],
+  "interpretation": "The strict four-endpoint experiment fails and establishes no transverse curve. Adaptive PIM contradicts the finite-sprinkler three-branch prediction at c=19.8,a=0.148: 24 of 30 branch variants are two and all 30 signed slopes are negative. The c=19.9,a=0.150 three-branch endpoint passes fully. The result supports a bending or displacement of the branch-opening boundary with decreasing c and motivates a prospective 256-return test at c=19.8,a=0.150 and the retained endpoints under the already-qualified coverage-censor rule."
+}

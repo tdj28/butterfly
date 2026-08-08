@@ -426,11 +426,16 @@ exposition requirements.
   oracle-dependent despite adequate pairs and zero numerical failures. No
   transverse bracket is claimed. FND-027 therefore rejects brute finite-
   sprinkler continuation and selects adaptive-DOP853 PIM endpoint tests at
-  `(c,a)=(19.8,0.145/0.148)` and `(19.9,0.145/0.150)`. EXP-131 now freezes all
-  four adaptive-DOP853 PIM branch and signed-slope predictions at a 128-return
-  censor ceiling. Execute from the clean preregistration commit; if all four
-  pass, freeze the 256-return replication before searching the opened lobe for
-  the unstable-orbit/manifold event that supplies a continuation condition.
+  `(c,a)=(19.8,0.145/0.148)` and `(19.9,0.145/0.150)`. EXP-131 executes all
+  four adaptive-DOP853 PIM predictions at a 128-return censor ceiling with 12
+  resolved access lines and no lifetime failure, but fails the scientific gate.
+  It fully passes `c=19.9,a=0.150` as three/positive and prospectively
+  falsifies `c=19.8,a=0.148` as three/positive: 24/30 branch variants return
+  two and all signed slopes are negative. Freeze a 256-return test under the
+  independently qualified EXP-121 censor semantics at `c=19.8,a=0.148/0.150`
+  and `c=19.9,a=0.145/0.150`. Only after a complete finite bracket passes,
+  search the opened lobe for the unstable-orbit/manifold event that supplies a
+  continuation condition.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

@@ -96,6 +96,10 @@ midpoint and narrows the finite `c=20` bracket to `[0.148125,0.14825]`.
 EXP-130's unresolved-aware transverse discovery then rejects brute finite-
 sprinkler continuation at the narrow local controls and selects four explicit
 adaptive-PIM endpoint tests at `c=19.8` and `c=19.9` without claiming a curve.
+EXP-131 executes those tests and prospectively falsifies the proposed
+three/positive endpoint at `c=19.8,a=0.148`, while fully passing the
+`c=19.9,a=0.150` three/positive endpoint. This is evidence that the boundary
+bends or shifts, not a transverse continuation.
 Transition continuation, the underlying manifold event, and reinjection
 prediction remain open, so RVR-003 is materially advanced but not closed.
 

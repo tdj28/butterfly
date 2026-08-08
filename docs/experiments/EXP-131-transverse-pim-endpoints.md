@@ -1,6 +1,6 @@
 # EXP-131 — Prospective transverse PIM endpoint validation
 
-Status: preregistered; PIM targets unexecuted
+Status: failed as preregistered; one prediction prospectively falsified
 
 ## Question
 
@@ -58,3 +58,31 @@ for the two EXP-116 calibration rows. The calibration gate stopped before
 cycle construction or target-state generation. The manifest was corrected to
 the already frozen EXP-129 values; predictions and every numerical setting are
 unchanged.
+
+## Result
+
+The clean `2eddd2f` run fails the strict four-endpoint gate in `9671.83 s`.
+This is not a numerical or access failure: all twelve PIM lines resolve, every
+case supplies 2097 return pairs in each coordinate, and all 72,717 lifetime
+integrations succeed.
+
+Only `(c,a)=(19.9,0.150)` passes fully as three/positive in all 30 branch and
+30 signed-slope variants. Both `a=0.145` endpoints are 12/15 two-branch in
+each coordinate with uniformly negative slope; their last three variants fail
+only domain coverage at `0.675`. The frozen strict oracle therefore leaves
+them unresolved even though their failure form matches the coverage censor
+qualified independently in EXP-121.
+
+Most importantly, `(19.8,0.148)` prospectively contradicts its three/positive
+prediction: it is 12/15 two-branch in both coordinates, the remaining variants
+are bootstrap-unstable, and all signed slopes are negative with intervals
+`[-1.4647,-0.8185]` in `y` and `[-1.7981,-1.0380]` in `z`. The finite GPU
+sprinkler prediction is therefore rejected rather than rescued. No transverse
+bracket or curve is promoted from EXP-131.
+
+Raw receipt SHA-256:
+`21ae8580e0b9542868d69d91f3339c5477d8ca6b6024239c66abbf1680330dda`.
+State archive SHA-256:
+`3d7d1cd80d5e30664fa62fdbf48ff043dcad7033d39cf37681cb981ed943dd63`.
+The compact tracked receipt is
+`docs/experiments/receipts/EXP-131.json`.
