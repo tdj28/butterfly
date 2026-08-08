@@ -32,3 +32,7 @@ the two-branch saddle and exactly two among the sampled three-branch
 recoveries: lag 4 and lag 12. The shared lag-12 class is the first
 identity-continuation candidate; the upper lag-4 class is the test for whether
 that orbit persists or terminates across the branch-opening interval.
+
+EXP-136 now freezes both lag-12 continuation directions with an independent
+midpoint whole-orbit match, plus lag 4 from the upper to lower endpoint. Every
+point retains proper-divisor, crossing, closure, neutral, and instability gates.

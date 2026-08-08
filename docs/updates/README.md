@@ -23,8 +23,8 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-08-07-exp133-upo-discovery-preregistered.md`](2026-08-07-exp133-upo-discovery-preregistered.md)
-  — passed exploratory UPO recovery on both PIM saddles and the newly frozen
-  primitive-orbit/deduplication audit triggered by double covers.
+  — primitive UPO qualification through continuous phase identity and the
+  frozen lag-12/lag-4 continuation test across the local boundary.
 - [`2026-08-07-exp132-transverse-pim-preregistered.md`](2026-08-07-exp132-transverse-pim-preregistered.md)
   — frozen 256-return replication of two finite transverse brackets under the
   independently qualified coverage-only censor rule.

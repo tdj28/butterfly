@@ -454,6 +454,9 @@ exposition requirements.
   upper lag-4 family downward with fundamental identity enforced. Then seed stable and unstable manifolds from accepted UPOs and define a continuation residual
   that is distinct from the section-grazing artifact already isolated in
   EXP-055.
+  EXP-136 now freezes both lag-12 directions, a midpoint whole-orbit identity
+  match, and the upper lag-4 downward continuation on a `1.25e-5` grid. Execute
+  from its clean pushed commit without adaptive step rescue.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

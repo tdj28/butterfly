@@ -1,0 +1,326 @@
+#!/usr/bin/env python3
+"""Continue primitive PIM-seeded UPOs across the local a bracket."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import platform
+import time
+from pathlib import Path
+
+import numpy as np
+import scipy
+
+from audit_pim_upo_primitivity import (
+    _continuous_phase_invariant_rms,
+    _normalized_orbit,
+    _proper_repeat_factors,
+)
+from butterfly import (
+    RosslerParameters,
+    SolverConfig,
+    barrio_rossler_section,
+    collect_crossings,
+    correct_periodic_orbit,
+    flow_monodromy,
+)
+from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
+
+
+def _source_recovery(receipt, case_id, recovery_index):
+    case = next(row for row in receipt["cases"] if row["id"] == case_id)
+    recovery = case["recoveries"][recovery_index]
+    if not recovery["accepted"]:
+        raise ValueError("declared source recovery is not accepted")
+    return case, recovery
+
+
+def _complex_rows(values):
+    return [
+        {"real": float(value.real), "imag": float(value.imag), "modulus": float(abs(value))}
+        for value in values
+    ]
+
+
+def _crossing_count(parameters, state, period, solver, maximum_crossings):
+    section = barrio_rossler_section(parameters)
+    crossings = collect_crossings(
+        parameters,
+        state,
+        section,
+        transient=0.0,
+        observation_horizon=period * (1.0 + 1e-8),
+        max_crossings=maximum_crossings,
+        config=solver,
+    )
+    keep = (crossings.times > period * 1e-7) & (
+        crossings.times <= period * (1.0 + 1e-8)
+    )
+    return int(np.count_nonzero(keep)), bool(crossings.integration_success)
+
+
+def _audit_orbit(parameters, state, period, lag, solver, acceptance):
+    monodromy = flow_monodromy(parameters, state, period, config=solver)
+    neutral_index = int(np.argmin(np.abs(monodromy.multipliers - 1.0)))
+    nontrivial = np.delete(monodromy.multipliers, neutral_index)
+    crossings, crossing_success = _crossing_count(
+        parameters, state, period, solver, lag + 4
+    )
+    divisor_rows = []
+    for repeat_factor in _proper_repeat_factors(lag):
+        candidate = flow_monodromy(
+            parameters, state, period / repeat_factor, config=solver
+        )
+        divisor_rows.append(
+            {
+                "repeat_factor": repeat_factor,
+                "candidate_lag": lag // repeat_factor,
+                "closure_error": candidate.closure_error,
+            }
+        )
+    minimum_divisor_closure = min(
+        (row["closure_error"] for row in divisor_rows), default=float("inf")
+    )
+    neutral_error = float(abs(monodromy.multipliers[neutral_index] - 1.0))
+    maximum_transverse = float(np.max(np.abs(nontrivial)))
+    checks = {
+        "monodromy_integration": monodromy.success,
+        "flow_closure": monodromy.closure_error
+        <= float(acceptance["maximum_flow_closure"]),
+        "neutral_multiplier": neutral_error
+        <= float(acceptance["maximum_neutral_multiplier_error"]),
+        "crossing_identity": crossing_success and crossings == lag,
+        "primitive_identity": minimum_divisor_closure
+        >= float(acceptance["minimum_proper_divisor_closure"]),
+        "transverse_instability": maximum_transverse
+        >= 1.0 + float(acceptance["minimum_instability_margin"]),
+    }
+    return {
+        "flow_closure_error": monodromy.closure_error,
+        "multipliers": _complex_rows(monodromy.multipliers),
+        "neutral_multiplier_error": neutral_error,
+        "maximum_nontrivial_multiplier_modulus": maximum_transverse,
+        "one_period_section_crossing_count": crossings,
+        "minimum_proper_divisor_closure": minimum_divisor_closure,
+        "proper_divisor_tests": divisor_rows,
+        "checks": checks,
+        "passed": all(checks.values()),
+    }
+
+
+def _continuation_values(start, stop, step):
+    direction = 1.0 if stop >= start else -1.0
+    count = int(round(abs(stop - start) / step))
+    values = [start + direction * step * index for index in range(count + 1)]
+    values[-1] = stop
+    return values
+
+
+def _run_branch(branch, source_receipt, manifest, solver):
+    source_case, recovery = _source_recovery(
+        source_receipt,
+        branch["source_case_id"],
+        int(branch["source_recovery_index"]),
+    )
+    lag = int(branch["fundamental_lag"])
+    state = np.asarray(recovery["correction"]["initial_state"], dtype=float)
+    period = float(recovery["correction"]["period_time"])
+    b = float(source_case["parameters"]["b"])
+    c = float(source_case["parameters"]["c"])
+    rows = []
+    failure = None
+    for index, a in enumerate(
+        _continuation_values(
+            float(branch["a_start"]),
+            float(branch["a_stop"]),
+            float(branch["a_step"]),
+        )
+    ):
+        parameters = RosslerParameters(a=float(a), b=b, c=c)
+        if index:
+            correction = correct_periodic_orbit(
+                parameters,
+                state,
+                period,
+                config=solver,
+                max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
+                tolerance=float(manifest["corrector"]["tolerance"]),
+            )
+            if not correction.success:
+                failure = {
+                    "a": float(a),
+                    "reason": "periodic correction failed",
+                    "message": correction.message,
+                    "closure_error": correction.closure_error,
+                }
+                break
+            state = correction.initial_state
+            period = correction.period_time
+            correction_row = {
+                "closure_error": correction.closure_error,
+                "phase_residual": correction.phase_residual,
+                "correction_norm": correction.correction_norm,
+                "evaluations": correction.evaluations,
+            }
+        else:
+            correction_row = {
+                "closure_error": float(recovery["correction"]["closure_error"]),
+                "phase_residual": float(recovery["correction"]["phase_residual"]),
+                "correction_norm": 0.0,
+                "evaluations": 0,
+            }
+        audit = _audit_orbit(
+            parameters, state, period, lag, solver, manifest["acceptance"]
+        )
+        row = {
+            "a": float(a),
+            "b": b,
+            "c": c,
+            "fundamental_lag": lag,
+            "initial_state": state.tolist(),
+            "period_time": period,
+            "correction": correction_row,
+            "audit": audit,
+        }
+        rows.append(row)
+        print(
+            json.dumps(
+                {
+                    "branch": branch["id"],
+                    "a": a,
+                    "lag": lag,
+                    "period": period,
+                    "passed": audit["passed"],
+                },
+                sort_keys=True,
+            ),
+            flush=True,
+        )
+        if not audit["passed"]:
+            failure = {"a": float(a), "reason": "orbit identity audit failed"}
+            break
+    return {
+        "id": branch["id"],
+        "fundamental_lag": lag,
+        "source_case_id": branch["source_case_id"],
+        "source_recovery_index": int(branch["source_recovery_index"]),
+        "rows": rows,
+        "failure": failure,
+        "reached_target": bool(rows and rows[-1]["a"] == float(branch["a_stop"])),
+        "passed": failure is None
+        and bool(rows)
+        and rows[-1]["a"] == float(branch["a_stop"]),
+    }
+
+
+def _shared_identity(branches, manifest, solver):
+    declared = manifest["shared_family_identity"]
+    left = next(branch for branch in branches if branch["id"] == declared["left_branch_id"])
+    right = next(branch for branch in branches if branch["id"] == declared["right_branch_id"])
+    target_a = float(declared["comparison_a"])
+    left_row = min(left["rows"], key=lambda row: abs(row["a"] - target_a))
+    right_row = min(right["rows"], key=lambda row: abs(row["a"] - target_a))
+    exact_parameter_match = left_row["a"] == target_a and right_row["a"] == target_a
+    period_scale = max(left_row["period_time"], right_row["period_time"])
+    relative_period = abs(left_row["period_time"] - right_row["period_time"]) / period_scale
+    parameters = RosslerParameters(a=target_a, b=left_row["b"], c=left_row["c"])
+    scales = np.asarray(declared["coordinate_scales"], dtype=float)
+    left_orbit, _left_solution = _normalized_orbit(
+        parameters,
+        np.asarray(left_row["initial_state"]),
+        left_row["period_time"],
+        solver,
+        scales,
+        int(declared["phase_samples"]),
+    )
+    _right_orbit, right_solution = _normalized_orbit(
+        parameters,
+        np.asarray(right_row["initial_state"]),
+        right_row["period_time"],
+        solver,
+        scales,
+        int(declared["phase_samples"]),
+    )
+    rms, phase_shift = _continuous_phase_invariant_rms(
+        left_orbit,
+        right_solution,
+        right_row["period_time"],
+        scales,
+        shift_tolerance=float(declared["phase_shift_tolerance"]),
+    )
+    passed = bool(
+        exact_parameter_match
+        and relative_period
+        <= float(manifest["acceptance"]["maximum_shared_relative_period_difference"])
+        and rms <= float(manifest["acceptance"]["maximum_shared_phase_invariant_rms"])
+    )
+    return {
+        "comparison_a": target_a,
+        "exact_parameter_match": exact_parameter_match,
+        "relative_period_difference": relative_period,
+        "phase_invariant_rms": rms,
+        "phase_shift": phase_shift,
+        "passed": passed,
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--source-receipt", type=Path, required=True)
+    parser.add_argument("--identity-receipt", type=Path, required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    manifest_bytes = args.manifest.read_bytes()
+    manifest = json.loads(manifest_bytes)
+    if manifest.get("schema") != "butterfly.a-upo-continuation-manifest.v1":
+        raise SystemExit("unsupported a-UPO continuation manifest")
+    source_bytes = args.source_receipt.read_bytes()
+    identity_bytes = args.identity_receipt.read_bytes()
+    if sha256_bytes(source_bytes) != manifest["source_receipt_sha256"]:
+        raise SystemExit("source UPO receipt hash mismatch")
+    if sha256_bytes(identity_bytes) != manifest["identity_receipt_sha256"]:
+        raise SystemExit("identity audit receipt hash mismatch")
+    source = {
+        "commit": git_value("rev-parse", "HEAD"),
+        "branch": git_value("branch", "--show-current"),
+        "dirty": bool(git_value("status", "--porcelain")),
+    }
+    if source["commit"] is None or source["dirty"]:
+        raise SystemExit("clean source required")
+    source_receipt = json.loads(source_bytes)
+    solver = SolverConfig(**manifest["reference_solver"])
+    started = time.perf_counter()
+    branches = [
+        _run_branch(branch, source_receipt, manifest, solver)
+        for branch in manifest["branches"]
+    ]
+    shared_identity = _shared_identity(branches, manifest, solver)
+    receipt = {
+        "schema": "butterfly.a-upo-continuation-receipt.v1",
+        "experiment_id": manifest["experiment_id"],
+        "manifest_sha256": sha256_bytes(manifest_bytes),
+        "source_receipt_sha256": sha256_bytes(source_bytes),
+        "identity_receipt_sha256": sha256_bytes(identity_bytes),
+        "source": source,
+        "environment": {
+            "python": platform.python_version(),
+            "platform": platform.platform(),
+            "numpy": np.__version__,
+            "scipy": scipy.__version__,
+        },
+        "branches": branches,
+        "shared_family_identity": shared_identity,
+        "elapsed_seconds": time.perf_counter() - started,
+        "passed": all(branch["passed"] for branch in branches)
+        and shared_identity["passed"],
+        "scientific_scope": "finite natural UPO continuation, not a manifold event or TBA curve",
+    }
+    atomic_write(args.output, canonical_json(receipt))
+    print(json.dumps({key: value for key, value in receipt.items() if key != "branches"}, sort_keys=True))
+    return 0 if receipt["passed"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
