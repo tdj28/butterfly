@@ -297,3 +297,15 @@ three-branch cells.  The two critical points remain stable across horizons:
 maximum combined span is $0.014702$ in $y$ and $0.008531$ in $z$.  No lifetime
 integration fails.  The finite sampled classifier transition is consequently
 localized to $[0.148,0.1485]$.
+
+The branch-conditioned successor passes every support and numerical gate but
+rejects its prospectively frozen faster-capture hypothesis.  Three untouched
+Sobol ensembles give extra-minus-core restricted mean survival differences of
+$+30.50$, $+30.86$, and $+29.98$ time units; their 99% trajectory-bootstrap
+intervals are $[27.39,33.55]$, $[27.89,34.01]$, and $[27.25,32.66]$.
+The matched half-step result is $+30.90$, only $0.40$ from baseline.  Every
+extra-branch trajectory survives 60 residual time units and none survives 180;
+the two core domains capture earlier on average but retain a small tail through
+270.  The extra branch therefore has delayed but bounded capture, directly
+explaining its presence under 300-unit and absence under 360-unit survivor
+conditioning.

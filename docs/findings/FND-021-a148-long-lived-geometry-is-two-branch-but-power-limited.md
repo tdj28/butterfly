@@ -32,8 +32,8 @@ are bootstrap-unstable, not contradictory.
 
 EXP-123's three-branch geometry belongs to the less strongly conditioned
 population. Among returns from trajectories that remain through 360--480 time
-units, every resolved observation is two-branch. This is consistent with a
-faster-escaping third-branch region of the chaotic saddle. It also shows why a
+units, every resolved observation is two-branch. This was initially consistent
+with a faster-escaping third-branch region of the chaotic saddle. It also shows why a
 sprinkler alone cannot yet define the infinite-lifetime topology near this
 boundary: survivor attrition couples the apparent branch count to statistical
 power.
@@ -42,6 +42,13 @@ The next discriminating test should avoid exponential survivor depletion. A
 censor-aware PIM-straddle construction at `a=0.148`, followed by branch-
 conditioned escape statistics, can test the two-branch long-lived saddle
 without declaring bootstrap instability to be confirmation.
+
+EXP-127 subsequently rejects faster capture in restricted mean lifetime. It
+qualifies a crossing-survival pattern instead: the extra branch delays capture
+but has no residual tail past 180 units, whereas the two persistent domains
+capture earlier on average while retaining rare survivors past 270. The
+long-horizon two-branch result remains valid; its mechanism is now described as
+bounded extra-branch residence rather than faster mean escape.
 
 Raw receipt SHA-256:
 `8328cebb89fd74c095269fb87c02b2120184d920a6e3eec883841f2cd7e10447`.

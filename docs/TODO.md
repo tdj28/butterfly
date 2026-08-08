@@ -395,7 +395,14 @@ exposition requirements.
   EXP-123 `y` critical-point uncertainty bands define the extra and core
   domains before new data, one last pre-landmark crossing assigns each
   trajectory once, seeds 135--137 test a 99% bootstrap RMST contrast and
-  log-rank gate, and a seed-135 half-step repeat gates numerical drift.
+  log-rank gate, and a seed-135 half-step repeat gates numerical drift. EXP-127
+  passes every quality gate but rejects faster capture: all three evidence
+  intervals are strictly positive near `+30` units, and the half-step shift is
+  only `0.40`. The extra branch has delayed but bounded capture (survival `1`
+  at residual 60 and `0` at 180), while the core captures earlier on average
+  but retains a rare tail through 270. Freeze the `a=0.14825` PIM midpoint;
+  subsequent reinjection work must use the genuine three-branch saddle from
+  the upper side, not the `a=0.148` transient domain.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

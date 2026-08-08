@@ -438,3 +438,27 @@ and a two-sided log-rank test. All three seeds must independently support
 faster extra-branch capture. A same-ensemble half-step run must also preserve
 the effect within the frozen aggregate tolerances. This is a mechanism test,
 not a continuation of the TBA curve.
+
+## Branch-conditioned escape result: faster capture rejected
+
+EXP-127 completes from clean commit `f9a15b9` in `259.18 s`. Its support and
+numerical-quality gates pass, but the preregistered scientific hypothesis fails
+in the opposite direction. Extra-minus-core restricted mean survival time is
+`+30.50`, `+30.86`, and `+29.98` on the three untouched seeds. Their 99%
+bootstrap intervals are `[27.39,33.55]`, `[27.89,34.01]`, and
+`[27.25,32.66]`. The half-step repeat gives `+30.90`, only `0.40` from the
+baseline, and changes the extra-branch fraction by `0.00042`.
+
+The distributions cross rather than exhibit uniform faster escape. Every
+extra-branch trajectory survives 60 residual time units, but none survives
+180. The core captures much earlier on average while retaining a 1--2% tail at
+270. This delayed-but-bounded capture directly explains why the extra branch
+can occur in the 300-unit survivor map and disappear under 360-unit
+conditioning. It is a finite transient domain, not part of the PIM-resolved
+two-branch saddle at `a=0.148`.
+
+The failed mechanism does not alter the `[0.148,0.1485]` PIM bracket. It removes
+the `a=0.148` transient branch as a valid substrate for the Jones reinjection
+claim. Freeze the next midpoint under the identical blind PIM definition, then
+define reinjection on the genuinely three-branch saddle continued from
+`a=0.1485`.

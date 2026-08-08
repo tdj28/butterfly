@@ -62,7 +62,11 @@ censor-aware PIM then targets the midpoint saddle directly and passes at both
 128- and 256-return ceilings, selecting two in all 60 oracle cells and narrowing
 the finite sampled bracket to $[0.148,0.149]$.  The identical blind method then
 qualifies $a=0.1485$ as three at both censor ceilings, localizing the finite
-classifier transition to $[0.148,0.1485]$.  A single
+classifier transition to $[0.148,0.1485]$.  A branch-conditioned landmark test
+then rejects faster capture for the transient extra domain at $a=0.148$ and
+qualifies a delayed-but-bounded lifetime pattern.  This removes that transient
+domain as evidence for invariant reinjection while leaving the PIM bracket
+unchanged.  A single
 orbit's change in
 historical crossing count remains insufficient,
 particularly in light of the section grazing found above.
@@ -76,7 +80,9 @@ reported as finite correspondence, not conjugacy; the prior experimental
 finite-order result of Lefranc et al. remains part of the novelty boundary
 \citep{lefranc1994combining}.
 
-The third test defines reinjection as an observable of the return map rather
+The third test now defines reinjection on the genuinely three-branch saddle
+continued from $a=0.1485$, rather than on the rejected $a=0.148$ transient
+domain.  It treats reinjection as an observable of the return map rather
 than as the position of an abstract branched manifold in phase space.  It will
 compare coordinates, branch order, critical values, winding/linking data, and
 candidate template invariants.  Its decisive test is prospective: does the

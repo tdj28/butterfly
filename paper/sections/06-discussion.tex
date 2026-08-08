@@ -114,26 +114,35 @@ continuous dynamical curve.  The failed $a=0.148$ midpoint makes that warning
 concrete.  The extra branch appears across independent 300-unit survivor
 subsets but disappears when survival is conditioned through 360 time units.
 Because the sprinkler retains midpoint crossings only from final survivors,
-this is evidence of escape-lifetime selection, plausibly a faster-escaping
-third-branch region, rather than a qualified topology crossing.  Horizon
+this is evidence of escape-lifetime selection rather than a qualified topology crossing.  Horizon
 convergence is therefore part of the invariant-set definition near the
 boundary, not merely a runtime sensitivity check.
 
 The nested-horizon result sharpens that interpretation.  Every resolved
 360--480-unit cell is two-branch, including two independent scrambles and a
 doubled sample, while no cell resolves as three.  The only failures occur at
-80 bins when the final survivor population is smallest.  This is consistent
-with a faster-escaping third-branch region, but is not proof: bootstrap
-instability cannot be counted as agreement.  A PIM construction that targets
+80 bins when the final survivor population is smallest.  Bootstrap instability
+cannot be counted as agreement.  A PIM construction that targets
 the saddle without exponentially discarding initial conditions is therefore
 the independent discriminator.  That blind construction now passes at two
 censor ceilings: all six access straddles complete, both coordinates select
 two across all oracle variants, and critical locations agree.  The result
-supports the faster-escaping-third-branch interpretation and narrows the
-finite classifier bracket to $[0.148,0.149]$.  At the next blind midpoint, the
+narrows the finite classifier bracket to $[0.148,0.149]$.  At the next blind midpoint, the
 identical PIM definition instead resolves three branches at both horizons,
 localizing the finite boundary to $[0.148,0.1485]$.  It does not by itself prove an
 infinite-lifetime saddle or continue a codimension-one TBA curve.
+
+The prospective lifetime test resolves the remaining mechanistic ambiguity in
+an unexpected direction.  The $a=0.148$ extra branch does not capture faster
+in restricted mean lifetime: it persists about 30 units longer than the pooled
+core on three independent ensembles.  Its survival curve is nevertheless
+bounded---all assigned trajectories survive 60 residual units, but none
+survives 180---whereas the core mixes immediate capture with a rare tail beyond
+270.  This crossing-survival pattern explains the 300/360 conditioning split
+without making the transient domain part of the PIM saddle.  It rejects a
+modern provisional mechanism, not the Jones/Barrio transition, and requires
+future reinjection tests to follow the genuine three-branch saddle from the
+upper side of the bracket.
 
 The results do not yet explain every shrimp or hub in the full $(a,c)$ plane.
 They establish one local cascade at fixed $(a,c)$ and a set of computational

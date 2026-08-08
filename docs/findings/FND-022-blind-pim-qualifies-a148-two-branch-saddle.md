@@ -27,9 +27,12 @@ two/three classifier bracket narrows to `[0.148,0.149]`.
 The three-branch map exposed by 300-unit sprinkler survivors is not recovered
 when the chaotic saddle is directly targeted. Both the longer-conditioned
 sprinkler core and the independent PIM saddle are two-branch. The combined
-evidence therefore supports escape-lifetime selection: a faster-escaping
-third-branch region is present in the finite transient population but is not
-part of the PIM-resolved long-lived saddle core at this parameter.
+evidence therefore supports escape-lifetime selection: an additional branch
+is present in the finite transient population but is not part of the
+PIM-resolved long-lived saddle core at this parameter. EXP-127 later rejects
+the provisional faster-mean-escape explanation. The branch instead has delayed
+but bounded capture: it outlives the core on average while lacking the core's
+rare long tail.
 
 This strengthens the Jones/Barrio-Blesa-Serrano topology-change program by
 showing that the two/three distinction can be recovered inside the regular
@@ -43,7 +46,9 @@ transient cloud.
 The result qualifies agreement at two finite censor ceilings. It does not prove
 the infinite-lifetime saddle, a continuous codimension-one TBA curve, or the
 Jones third-branch reinjection mechanism. Those remain continuation and
-branch-conditioned escape problems.
+branch-conditioned escape problems. EXP-127 now closes the latter only for the
+frozen landmark and scalar branch definition; the reinjection mechanism remains
+open.
 
 Raw receipt SHA-256:
 `d76f6b84943ba527a83850d396144525c3c9c9726e92065c441870085cffc623`.

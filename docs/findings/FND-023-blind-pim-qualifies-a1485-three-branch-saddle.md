@@ -36,7 +36,11 @@ The result localizes a finite classifier boundary; it does not interpolate a
 continuous codimension-one TBA curve. Independent continuation of a critical
 orbit or stable-set invariant must still connect this bracket through the
 parameter plane, and branch-conditioned escape must test the proposed
-third-branch reinjection mechanism.
+third-branch reinjection mechanism. EXP-127 has now rejected faster mean
+capture for the transient extra branch at `a=0.148` and replaced it with a
+delayed-but-bounded capture pattern. This does not alter the PIM bracket; it
+does require reinjection tests to use the genuinely three-branch invariant-set
+construction rather than the `a=0.148` transient branch.
 
 Raw receipt SHA-256:
 `1b2b044e803aed5ba64124305796b6a4847f74c7ef617fcff99270912fd8851a`.

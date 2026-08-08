@@ -28,14 +28,24 @@ The sprinkler retains midpoint crossings only from trajectories that survive
 to the final horizon. Thus the 300- and 360-unit runs sample differently
 conditioned subsets. At `a=0.148`, the additional branch is prominent among
 300-unit survivors but absent among the smaller 360-unit survivor set. A
-plausible explanation is that the third-branch region has a shorter escape
-lifetime and is filtered out as conditioning deepens.
+plausible explanation at this stage was that the third-branch region had a
+shorter escape lifetime and was filtered out as conditioning deepened.
 
 This is not evidence for two coexisting attractors and it is not yet a
 topology label for the asymptotic chaotic saddle. It shows that finite-horizon
 sprinkler topology itself must converge with escape-lifetime conditioning near
 the transition. The next test must use nested horizons beyond 360 with new
 ensembles and require stable branch count and critical geometry.
+
+## Later resolution
+
+EXP-127 rejects the shorter-mean-lifetime explanation. On three untouched
+ensembles, the extra branch instead has roughly 30 more restricted-mean
+residual lifetime units than the pooled core. Its capture is delayed but
+bounded: all assigned trajectories survive 60 residual units and none survives
+180, while the core includes both much earlier captures and a small tail beyond
+270. This bounded tail, rather than faster mean escape, explains the 300/360
+conditioning split.
 
 Raw receipt SHA-256:
 `73f7d6be60afcc70cb72f902f4b48063e647bff2d22d01a5f3be1c551cf1f3d6`.

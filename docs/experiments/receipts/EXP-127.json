@@ -1,0 +1,42 @@
+{
+  "schema": "butterfly.branch-conditioned-escape-summary.v1",
+  "experiment_id": "EXP-127",
+  "passed": false,
+  "quality_passed": true,
+  "supports_faster_extra_branch": false,
+  "source_commit": "f9a15b9bc29a37e4430afb16ebc0ab2ae0319b10",
+  "manifest_sha256": "e93cbf59dc54842209ef56816fd7edb191a24c9860b3445125d8bceadd8cca14",
+  "raw_receipt": "artifacts/EXP-127/receipt.json",
+  "raw_receipt_sha256": "3df1dd7a362e81f072dc6f1e308dbefb2a8af43c0692fb143498144dcea1679a",
+  "raw_receipt_bytes": 7373,
+  "samples_artifact": "artifacts/EXP-127/branch-conditioned-samples.npz",
+  "samples_artifact_sha256": "ca7392d6975d7ab538267fae52ae8ca837585bcf55e1d2b8f2549c4f39e31335",
+  "samples_artifact_bytes": 2505433,
+  "elapsed_seconds": 259.1754895420745,
+  "risk_sets": [26636, 26655, 26725, 26654],
+  "extra_branch_assignments": [505, 514, 555, 545],
+  "extra_minus_core_rmst": [
+    30.501503294820836,
+    30.897680777364307,
+    30.86495004715927,
+    29.984602114635862
+  ],
+  "evidence_run_99_percent_intervals": [
+    [27.388692406309595, 33.54872355647247],
+    [27.8899500681135, 34.00593556751209],
+    [27.25405400498102, 32.65983235245284]
+  ],
+  "evidence_run_logrank_p_values": [
+    1.1490373358739464e-16,
+    1.5686341286726274e-18,
+    3.548882220206984e-17
+  ],
+  "half_step_absolute_rmst_change": 0.3961774825434716,
+  "half_step_absolute_extra_fraction_change": 0.00041604315747123186,
+  "extra_branch_survival_pattern": {
+    "survival_at_residual_60": 1.0,
+    "survival_at_residual_180": 0.0,
+    "survival_at_residual_270": 0.0
+  },
+  "interpretation": "the preregistered faster-capture hypothesis is rejected; the extra branch has delayed but bounded capture, while the pooled core captures earlier on average but retains a longer tail"
+}

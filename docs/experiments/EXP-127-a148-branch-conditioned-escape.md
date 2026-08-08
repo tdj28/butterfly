@@ -1,6 +1,6 @@
 # EXP-127 — Branch-conditioned escape at `a=0.148`
 
-Status: preregistered; not executed
+Status: executed; preregistered faster-capture hypothesis rejected
 
 EXP-123 found three branches after 300-unit survivor conditioning but two after
 360 units. EXP-124 retained only two at still longer horizons, and independent
@@ -39,3 +39,21 @@ the scalar branch label causes the escape.
 
 Immutable manifest:
 `experiments/manifests/EXP-127-a148-branch-conditioned-escape.json`.
+
+## Result
+
+EXP-127 completes from clean commit `f9a15b9` in `259.18 s`. All support,
+integration, and step-convergence gates pass, but the scientific gate fails in
+the opposite direction. The three evidence seeds give extra-minus-core RMST
+differences of `+30.50`, `+30.86`, and `+29.98`; all three 99% intervals are
+strictly positive. The half-step result is `+30.90`, only `0.40` from baseline.
+
+The survival distributions cross. Every extra-branch assignment survives 60
+residual time units and none survives 180, whereas the pooled core captures
+much earlier on average but retains a small tail through 270. Thus “faster
+escape” is rejected. The replacement description is delayed but bounded
+capture, which explains how the branch is visible under 300-unit conditioning
+yet absent under 360-unit conditioning.
+
+Raw receipt SHA-256:
+`3df1dd7a362e81f072dc6f1e308dbefb2a8af43c0692fb143498144dcea1679a`.
