@@ -39,7 +39,15 @@ point retains proper-divisor, crossing, closure, neutral, and instability gates.
 
 EXP-136 fails the strict fixed-lag gate but rules out a simple orbit-birth
 mechanism. The upper lag-4 UPO passes all 21 points to `a=0.148`. Both lag-12
-flow orbits remain closed, primitive, and strongly unstable when their oriented
-Barrio-section counts change from 12 to 11. Their family equality remains
-unresolved because the fixed-lag paths stop before overlap. The next test must
-continue flow identity and solve the section-tangency condition explicitly.
+flow orbits remain closed, primitive, and strongly unstable when the frozen
+counter reports 11 rather than 12 crossings. A post-hoc boundary audit shows
+that report is a phase-window artifact, not a section tangency: shifting the
+one-period window restores all 12 crossings, and the nearest x-extremum is
+more than 8 units from the section. Their family equality remains unresolved
+because the fixed-lag paths stopped before overlap. The next test will continue
+flow identity without using section count as a stopping gate.
+
+EXP-137 now freezes that repair. Both lag-12 seeds must traverse the full
+21-point bracket under flow/Floquet/primitivity gates. The Barrio count is
+measured separately on `(0.1 T, 1.1 T]`, and continuous whole-orbit matching at
+the midpoint must decisively classify the paths as the same or distinct.

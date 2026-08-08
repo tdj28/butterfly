@@ -2,7 +2,7 @@
   "schema": "butterfly.a-upo-continuation-summary.v1",
   "experiment_id": "EXP-136",
   "passed": false,
-  "failure_class": "prospective section-crossing identity gate",
+  "failure_class": "prospective section-crossing count gate; post-hoc phase-window artifact",
   "source_commit": "2535614919b1f0d70dd91f18476cb93c07858613",
   "manifest_sha256": "5ed3caad8efb95b48cd12d1583cf1dca98d2dd76036c6a27d5bdb566c1f0191a",
   "source_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
@@ -46,5 +46,15 @@
     "passed": false,
     "reason": "both fixed-lag paths stopped before the declared common parameter; family equality remains unresolved"
   },
-  "interpretation": "The primitive lag-4 UPO persists across the complete finite two/three bracket, ruling out its birth or death as the local event. Both lag-12 flow orbits continue with strong numerical and Floquet gates but lose one oriented Barrio-section crossing. This selects section-tangency refinement and flow-identity continuation; it is not evidence of a flow-orbit bifurcation."
+  "posthoc_phase_window_audit": {
+    "window": "(0.1 T, 1.1 T]",
+    "all_tested_lag12_counts": 12,
+    "failed_lower_first_crossing_time": 1.13211445E-6,
+    "failed_upper_first_crossing_time": 1.05392797E-6,
+    "frozen_terminal_allowance_approximately": 7.5E-7,
+    "minimum_lower_extremum_section_distance": 8.076523700157084,
+    "minimum_upper_extremum_section_distance": 8.203236615092763,
+    "classification": "counting-window artifact; no evidence of section tangency"
+  },
+  "interpretation": "The primitive lag-4 UPO persists across the complete finite two/three bracket, ruling out its birth or death as the local event. The lag-12 failures were caused by a section crossing moving across the arbitrary one-period counting boundary, not by a flow bifurcation or section tangency. This selects phase-robust flow continuation and whole-orbit identity classification."
 }

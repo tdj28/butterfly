@@ -38,34 +38,62 @@ def _source_recovery(receipt, case_id, recovery_index):
 
 def _complex_rows(values):
     return [
-        {"real": float(value.real), "imag": float(value.imag), "modulus": float(abs(value))}
+        {
+            "real": float(value.real),
+            "imag": float(value.imag),
+            "modulus": float(abs(value)),
+        }
         for value in values
     ]
 
 
-def _crossing_count(parameters, state, period, solver, maximum_crossings):
+def _crossing_count(
+    parameters,
+    state,
+    period,
+    solver,
+    maximum_crossings,
+    *,
+    phase_fraction=0.0,
+):
+    if not 0.0 <= phase_fraction < 1.0:
+        raise ValueError("phase_fraction must lie in [0,1)")
     section = barrio_rossler_section(parameters)
+    window_start = period * phase_fraction
     crossings = collect_crossings(
         parameters,
         state,
         section,
-        transient=0.0,
+        transient=window_start,
         observation_horizon=period * (1.0 + 1e-8),
         max_crossings=maximum_crossings,
         config=solver,
     )
-    keep = (crossings.times > period * 1e-7) & (
-        crossings.times <= period * (1.0 + 1e-8)
+    keep = (crossings.times > window_start + period * 1e-7) & (
+        crossings.times <= window_start + period * (1.0 + 1e-8)
     )
     return int(np.count_nonzero(keep)), bool(crossings.integration_success)
 
 
-def _audit_orbit(parameters, state, period, lag, solver, acceptance):
+def _audit_orbit(
+    parameters,
+    state,
+    period,
+    lag,
+    solver,
+    acceptance,
+    section_count_policy,
+):
     monodromy = flow_monodromy(parameters, state, period, config=solver)
     neutral_index = int(np.argmin(np.abs(monodromy.multipliers - 1.0)))
     nontrivial = np.delete(monodromy.multipliers, neutral_index)
     crossings, crossing_success = _crossing_count(
-        parameters, state, period, solver, lag + 4
+        parameters,
+        state,
+        period,
+        solver,
+        lag + 4,
+        phase_fraction=float(section_count_policy.get("phase_fraction", 0.0)),
     )
     divisor_rows = []
     for repeat_factor in _proper_repeat_factors(lag):
@@ -90,18 +118,25 @@ def _audit_orbit(parameters, state, period, lag, solver, acceptance):
         <= float(acceptance["maximum_flow_closure"]),
         "neutral_multiplier": neutral_error
         <= float(acceptance["maximum_neutral_multiplier_error"]),
-        "crossing_identity": crossing_success and crossings == lag,
         "primitive_identity": minimum_divisor_closure
         >= float(acceptance["minimum_proper_divisor_closure"]),
         "transverse_instability": maximum_transverse
         >= 1.0 + float(acceptance["minimum_instability_margin"]),
     }
+    if bool(section_count_policy.get("gate", True)):
+        checks["crossing_identity"] = crossing_success and crossings == int(
+            section_count_policy.get("expected_crossings", lag)
+        )
     return {
         "flow_closure_error": monodromy.closure_error,
         "multipliers": _complex_rows(monodromy.multipliers),
         "neutral_multiplier_error": neutral_error,
         "maximum_nontrivial_multiplier_modulus": maximum_transverse,
         "one_period_section_crossing_count": crossings,
+        "section_count_integration_success": crossing_success,
+        "section_count_window_start_fraction": float(
+            section_count_policy.get("phase_fraction", 0.0)
+        ),
         "minimum_proper_divisor_closure": minimum_divisor_closure,
         "proper_divisor_tests": divisor_rows,
         "checks": checks,
@@ -171,7 +206,13 @@ def _run_branch(branch, source_receipt, manifest, solver):
                 "evaluations": 0,
             }
         audit = _audit_orbit(
-            parameters, state, period, lag, solver, manifest["acceptance"]
+            parameters,
+            state,
+            period,
+            lag,
+            solver,
+            manifest["acceptance"],
+            manifest.get("section_count", {}),
         )
         row = {
             "a": float(a),
@@ -216,14 +257,20 @@ def _run_branch(branch, source_receipt, manifest, solver):
 
 def _shared_identity(branches, manifest, solver):
     declared = manifest["shared_family_identity"]
-    left = next(branch for branch in branches if branch["id"] == declared["left_branch_id"])
-    right = next(branch for branch in branches if branch["id"] == declared["right_branch_id"])
+    left = next(
+        branch for branch in branches if branch["id"] == declared["left_branch_id"]
+    )
+    right = next(
+        branch for branch in branches if branch["id"] == declared["right_branch_id"]
+    )
     target_a = float(declared["comparison_a"])
     left_row = min(left["rows"], key=lambda row: abs(row["a"] - target_a))
     right_row = min(right["rows"], key=lambda row: abs(row["a"] - target_a))
     exact_parameter_match = left_row["a"] == target_a and right_row["a"] == target_a
     period_scale = max(left_row["period_time"], right_row["period_time"])
-    relative_period = abs(left_row["period_time"] - right_row["period_time"]) / period_scale
+    relative_period = (
+        abs(left_row["period_time"] - right_row["period_time"]) / period_scale
+    )
     parameters = RosslerParameters(a=target_a, b=left_row["b"], c=left_row["c"])
     scales = np.asarray(declared["coordinate_scales"], dtype=float)
     left_orbit, _left_solution = _normalized_orbit(
@@ -249,19 +296,69 @@ def _shared_identity(branches, manifest, solver):
         scales,
         shift_tolerance=float(declared["phase_shift_tolerance"]),
     )
-    passed = bool(
-        exact_parameter_match
-        and relative_period
+    same_family = bool(
+        relative_period
         <= float(manifest["acceptance"]["maximum_shared_relative_period_difference"])
         and rms <= float(manifest["acceptance"]["maximum_shared_phase_invariant_rms"])
     )
+    classification_policy = declared.get("classification")
+    if classification_policy is None:
+        classification = "same" if same_family else "not-qualified-as-same"
+        passed = bool(exact_parameter_match and same_family)
+    else:
+        distinct_family = bool(
+            relative_period
+            >= float(
+                classification_policy[
+                    "minimum_distinct_relative_period_difference"
+                ]
+            )
+            or rms
+            >= float(classification_policy["minimum_distinct_phase_invariant_rms"])
+        )
+        if same_family:
+            classification = "same"
+        elif distinct_family:
+            classification = "distinct"
+        else:
+            classification = "inconclusive"
+        passed = bool(exact_parameter_match and classification != "inconclusive")
     return {
         "comparison_a": target_a,
         "exact_parameter_match": exact_parameter_match,
         "relative_period_difference": relative_period,
         "phase_invariant_rms": rms,
         "phase_shift": phase_shift,
+        "classification": classification,
         "passed": passed,
+    }
+
+
+def _section_count_summary(branches, manifest):
+    policy = manifest.get("section_count", {})
+    expected = int(policy.get("expected_crossings", 0))
+    rows = [row for branch in branches for row in branch["rows"]]
+    if not policy or bool(policy.get("gate", True)):
+        return {
+            "separate_qualification": False,
+            "passed": True,
+        }
+    counts = [row["audit"]["one_period_section_crossing_count"] for row in rows]
+    integrations = [
+        row["audit"]["section_count_integration_success"] for row in rows
+    ]
+    return {
+        "separate_qualification": True,
+        "window_start_fraction": float(policy["phase_fraction"]),
+        "expected_crossings": expected,
+        "evaluated_points": len(rows),
+        "observed_counts": sorted(set(counts)),
+        "all_integrations_succeeded": bool(all(integrations)),
+        "passed": bool(
+            rows
+            and all(integrations)
+            and all(count == expected for count in counts)
+        ),
     }
 
 
@@ -297,6 +394,7 @@ def main() -> int:
         for branch in manifest["branches"]
     ]
     shared_identity = _shared_identity(branches, manifest, solver)
+    section_count_summary = _section_count_summary(branches, manifest)
     receipt = {
         "schema": "butterfly.a-upo-continuation-receipt.v1",
         "experiment_id": manifest["experiment_id"],
@@ -312,13 +410,22 @@ def main() -> int:
         },
         "branches": branches,
         "shared_family_identity": shared_identity,
+        "section_count_summary": section_count_summary,
         "elapsed_seconds": time.perf_counter() - started,
         "passed": all(branch["passed"] for branch in branches)
-        and shared_identity["passed"],
-        "scientific_scope": "finite natural UPO continuation, not a manifold event or TBA curve",
+        and shared_identity["passed"]
+        and section_count_summary["passed"],
+        "scientific_scope": (
+            "finite natural UPO continuation, not a manifold event or TBA curve"
+        ),
     }
     atomic_write(args.output, canonical_json(receipt))
-    print(json.dumps({key: value for key, value in receipt.items() if key != "branches"}, sort_keys=True))
+    print(
+        json.dumps(
+            {key: value for key, value in receipt.items() if key != "branches"},
+            sort_keys=True,
+        )
+    )
     return 0 if receipt["passed"] else 1
 
 

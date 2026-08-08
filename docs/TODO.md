@@ -456,10 +456,15 @@ exposition requirements.
   EXP-055.
   EXP-136 now freezes both lag-12 directions, a midpoint whole-orbit identity
   match, and the upper lag-4 downward continuation on a `1.25e-5` grid. It
-  fails strictly: lag 4 passes all 21 points, but both lag-12 paths change from
-  12 to 11 oriented Barrio crossings while every flow-orbit and Floquet gate
-  remains passed. Continue those closed flow orbits without fixed section lag,
-  refine the section-tangency events, then retry whole-orbit family matching.
+  fails strictly: lag 4 passes all 21 points, while both lag-12 paths trip the
+  crossing-count gate and every flow-orbit and Floquet gate remains passed. A
+  post-hoc boundary audit shows that this is a counting-window artifact: the
+  initial phase sits about `1.1e-6` after the section, beyond the frozen
+  terminal allowance, and `(0.1 T, 1.1 T]` restores all 12 crossings. Continue
+  those closed flow orbits without section count as a stopping gate, record a
+  phase-shifted count, then retry whole-orbit family matching. EXP-137 freezes
+  both complete flow paths, a separate shifted-count qualification, and a
+  decisive same/distinct midpoint classification.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

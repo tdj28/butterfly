@@ -49,11 +49,18 @@ lag-4 path passes all 21 points through the entire bracket. Its unstable
 modulus changes smoothly from `3.484` to `3.664` and every proper-divisor
 closure remains above `5.36`.
 
-Both lag-12 paths stop only on crossing identity. The lower path changes from
-12 to 11 crossings at `a=0.148025`; the upper changes at `a=0.1482375`.
-At both failed points, correction, flow closure, neutral multiplier,
-primitivity, and transverse instability pass. Because neither path reaches the
-declared midpoint, the endpoint families are not classified as equal or
-different. The result selects flow-identity continuation and section-tangency
-refinement. Raw receipt SHA-256:
+Both lag-12 paths stop only on the frozen crossing-count gate. The lower path
+reports 11 rather than 12 crossings at `a=0.148025`; the upper does so at
+`a=0.1482375`. At both failed points, correction, flow closure, neutral
+multiplier, primitivity, and transverse instability pass. Because neither path
+reaches the declared midpoint, the endpoint families are not classified as
+equal or different.
+
+The initial physical interpretation of this failure as a section tangency has
+been rejected by a post-hoc boundary audit. The shooting phase is within about
+`1.1e-6` time units of the section, but the frozen one-period window had only a
+`7.5e-7` terminal allowance. Moving the window to `(0.1 T, 1.1 T]` returns 12
+crossings at all five tested lag-12 points, while the closest x-extremum is
+more than 8 units from the section. EXP-136 therefore selects a prospective
+phase-robust flow continuation, not tangency refinement. Raw receipt SHA-256:
 `6c10804172d3463f99be9340744a849cb61cf7015036ba57340db7bcfcde1b4e`.
