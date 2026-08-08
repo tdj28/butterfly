@@ -67,6 +67,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-021-a148-long-lived-geometry-is-two-branch-but-power-limited.md`](findings/FND-021-a148-long-lived-geometry-is-two-branch-but-power-limited.md):
   finds two branches in all 228 resolved long-horizon variants through 480
   time units while retaining 12 rare-survivor bootstrap failures and no label.
+- [`findings/FND-022-blind-pim-qualifies-a148-two-branch-saddle.md`](findings/FND-022-blind-pim-qualifies-a148-two-branch-saddle.md):
+  independently targets the nonattracting saddle and qualifies two branches at
+  both 128- and 256-return censor ceilings, narrowing the bracket to
+  `[0.148,0.149]`.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

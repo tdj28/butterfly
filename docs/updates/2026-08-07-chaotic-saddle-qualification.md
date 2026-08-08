@@ -369,3 +369,24 @@ This adaptive DOP853 implementation is CPU-process parallel, not the qualified
 fixed-step Triton sprinkler. It runs on the local reference host so a GPU
 method change cannot contaminate the blind decision. A later GPU PIM port must
 earn its own parity receipt.
+
+## Independent blind PIM result: `a=0.148` passes as two-branch
+
+EXP-125 passes from clean commit `982a729` after `4091.72 s`. All six fixed PIM
+access lines complete: three at each of the 128- and 256-return censor ceilings.
+Every profile contributes 2097 retained return pairs per coordinate. Both
+coordinates at both horizons resolve as two across every oracle variant,
+giving 60/60 two-branch cells, none three, and none unresolved.
+
+The cross-horizon normalized critical spans are `0.008504` in `y` and
+`0.004735` in `z`. The period-4 reference passes. Two 128-horizon lifetime
+evaluations are right-censored and accepted only through the previously
+qualified certified-block rule; the 256 profile has no censors. No adaptive
+lifetime integration fails.
+
+This independent stable-set-targeting result closes the rare-survivor power
+failure in EXP-124 and qualifies `a=0.148` as a two-branch saddle at the frozen
+finite censor pair. The sampled bracket narrows to `[0.148,0.149]`. It supports
+the faster-escaping-third-branch explanation for EXP-123, but it does not prove
+an infinite-lifetime saddle or a continuous TBA curve. Freeze the next blind
+midpoint at `a=0.1485` and independently measure escape lifetime by branch.

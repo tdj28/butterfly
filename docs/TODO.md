@@ -379,7 +379,12 @@ exposition requirements.
   rare-survivor bootstrap failures into an affirmative label. EXP-125 now
   freezes that blind test: the qualified censor-aware PIM method must agree in
   `y` and `z` at both 128- and 256-return ceilings without an encoded expected
-  count or sprinkler critical-point reference.
+  count or sprinkler critical-point reference. EXP-125 passes: all six PIM
+  straddles complete, all 60 oracle cells select two, critical spans converge,
+  and no lifetime integration fails. The finite sampled bracket narrows to
+  `[0.148,0.149]`. Freeze a blind `a=0.1485` midpoint with the same independent
+  PIM definition, and quantify escape lifetime conditional on the transient
+  third branch before interpreting reinjection.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

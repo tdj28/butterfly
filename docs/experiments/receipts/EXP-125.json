@@ -1,0 +1,42 @@
+{
+  "schema": "butterfly.blind-censored-pim-midpoint-summary.v1",
+  "experiment_id": "EXP-125",
+  "passed": true,
+  "source_commit": "982a729f99b124141aad63c7521cd5ea9f6ccbf3",
+  "manifest_sha256": "8071736155ae463035de33e390354410948dbab509f97fba6ff392de0763671c",
+  "raw_receipt": "artifacts/EXP-125/receipt.json",
+  "raw_receipt_sha256": "d76f6b84943ba527a83850d396144525c3c9c9726e92065c441870085cffc623",
+  "raw_receipt_bytes": 26101,
+  "states_artifact": "artifacts/EXP-125/blind-a148-censored-pim-straddles.npz",
+  "states_artifact_sha256": "74300f95d4af34a810dbd58972e45df9add4cbfa96d1810f88c9f150bd16b045",
+  "states_artifact_bytes": 88372,
+  "elapsed_seconds": 4091.720564375166,
+  "a": 0.148,
+  "expected_branch_count": null,
+  "observed_branch_count": 2,
+  "sampled_transition_bracket": [0.148, 0.149],
+  "profiles": {
+    "horizon-128": {
+      "passed": true,
+      "successful_straddles": 3,
+      "return_pairs_per_coordinate": 2097,
+      "resolved_two_branch_variants": 30,
+      "censored_lifetime_evaluations": 2,
+      "failed_lifetime_evaluations": 0
+    },
+    "horizon-256": {
+      "passed": true,
+      "successful_straddles": 3,
+      "return_pairs_per_coordinate": 2097,
+      "resolved_two_branch_variants": 30,
+      "censored_lifetime_evaluations": 0,
+      "failed_lifetime_evaluations": 0
+    }
+  },
+  "maximum_128_256_normalized_critical_span": {
+    "y": 0.008504073796938948,
+    "z": 0.004734752166404521
+  },
+  "stable_cycle_period": 4,
+  "interpretation": "independent blind censor-aware PIM targets the a=0.148 saddle without sprinkler survivor attrition and unanimously qualifies two branches at both 128- and 256-return censor horizons, narrowing the finite sampled bracket to [0.148,0.149]"
+}

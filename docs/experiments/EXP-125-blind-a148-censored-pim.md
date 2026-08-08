@@ -1,6 +1,6 @@
 # EXP-125 — Blind censor-aware PIM saddle at `a=0.148`
 
-Status: preregistered; target not executed
+Status: passed
 
 ## Question
 
@@ -40,3 +40,29 @@ eight CPU worker processes. The qualified Runpod/Triton GPU kernel is a
 different fixed-step sprinkler method and cannot be substituted without a new
 PIM parity experiment. EXP-125 therefore runs on the local reference host; a
 GPU port is a separate optimization, not a result-dependent method change.
+
+## Result
+
+EXP-125 passes from clean commit `982a729` in `4091.72 s`. All six fixed PIM
+access lines complete: three at the 128-return censor ceiling and three at 256.
+Each profile contributes 2097 post-burn-in return pairs. Both `y` and `z`
+select two branches at both horizons; all 15 oracle variants in each of the
+four decisions agree, for 60/60 two-branch cells and no contrary or unresolved
+cell.
+
+The normalized within- and cross-horizon critical spans are `0.008504` in `y`
+and `0.004735` in `z`, far below the frozen `0.03`/`0.04` gates. The period-4
+reference passes. The 128 profile has two certified right-censored lifetime
+evaluations and the 256 profile has none; all six straddles have zero failed
+lifetime evaluations.
+
+The independently targeted finite-horizon PIM saddle at `a=0.148` is therefore
+qualified as two-branch. The sampled classifier bracket moves from
+`[0.147,0.149]` to `[0.148,0.149]`. This is not yet a continued TBA curve or an
+infinite-lifetime proof.
+
+Tracked compact receipt: `docs/experiments/receipts/EXP-125.json`. Raw receipt
+SHA-256:
+`d76f6b84943ba527a83850d396144525c3c9c9726e92065c441870085cffc623`.
+The 88,372-byte PIM state artifact has SHA-256
+`74300f95d4af34a810dbd58972e45df9add4cbfa96d1810f88c9f150bd16b045`.

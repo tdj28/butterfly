@@ -2,7 +2,8 @@
 
 \begin{table}[H]
 \centering
-\small
+\footnotesize
+\renewcommand{\arraystretch}{0.96}
 \begin{tabular}{@{}P{0.22\textwidth}P{0.26\textwidth}P{0.32\textwidth}P{0.10\textwidth}@{}}
 \toprule
 Claim & Evidence & Present limitation & Gate \\
@@ -22,12 +23,14 @@ independently recover both controls and remain stable at 256 returns; a new
 630-cell matrix accepts 609 normally resolved and 21 prospectively admissible
 coverage-censored variants, narrowing the sampled saddle bracket to
 $[0.145,0.149]$; a blind 210-cell midpoint then accepts 207 normal and three
-coverage-censored two-branch variants, halving the bracket to $[0.147,0.149]$ & No
+coverage-censored two-branch variants; blind PIM at $a=0.148$ then passes all
+60 oracle cells at two censor horizons, narrowing the bracket to $[0.148,0.149]$ & No
 continued global branch curve, infinite-lifetime saddle proof, or
 two-dimensional reinjection mechanism; the sampled bracket is not yet a
-continuous TBA curve, $a=0.148$ is conditioning-sensitive, and $a=0.150$
-requires an adequate-resolution rule; the nested $a=0.148$ audit finds only
-two-branch resolved long-lived returns but remains rare-survivor-power limited
+continuous TBA curve; finite-time sprinkler
+geometry at $a=0.148$ is conditioning-sensitive even though independent PIM
+qualifies the long-lived saddle as two, and $a=0.150$ requires an adequate-
+resolution rule
 & partial \\
 Finite logistic ordering through the eighth doubling & Original Jones report & Exact
 $L_1/L_2$, partition, orbits, and first mismatch not yet reproduced & open \\
