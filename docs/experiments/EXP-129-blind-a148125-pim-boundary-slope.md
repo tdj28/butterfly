@@ -1,6 +1,6 @@
 # EXP-129 — Blind `a=0.148125` PIM and lower-support slope prediction
 
-Status: preregistered; target not executed
+Status: passed
 
 ## Question
 
@@ -64,3 +64,25 @@ PYTHONPATH=python .venv/bin/python \
 The target must run from the clean preregistration commit. Raw artifacts remain
 outside Git; the result checkpoint will add a compact tracked receipt with
 SHA-256 hashes.
+
+## Result
+
+EXP-129 passes from clean pushed commit `5178607` in `4374.08 s`. All six PIM
+access lines complete. Both horizons provide 2097 retained pairs in each
+coordinate, and all 60 branch-oracle cells return two branches.
+
+The signed prediction also passes without ambiguity. Every one of 60 slope
+fits is negative. The `y` interval is `[-1.2032,-0.4994]` and the `z` interval
+is `[-1.4185,-0.8476]`, comfortably beyond the frozen `0.1` magnitude floor.
+Both horizons therefore predict two branches and agree with the blind critical-
+point count. Maximum cross-horizon critical span is `0.009643` in `y` and
+`0.005037` in `z`. There are two certified censored selections at 128 returns,
+none at 256, and no failed integration.
+
+The finite sampled bracket becomes `[0.148125,0.14825]`. This prospectively
+qualifies the slope sign as a local companion observable; it does not prove the
+existence or continuity of a zero-level TBA curve.
+
+Tracked compact receipt: `docs/experiments/receipts/EXP-129.json`. Raw receipt
+SHA-256:
+`d50719b5ec92994bdf5bc0e80cb5dfc850a0d49646f56b3f79962342d5080698`.

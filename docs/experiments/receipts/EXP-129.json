@@ -1,0 +1,56 @@
+{
+  "schema": "butterfly.blind-pim-boundary-slope-summary.v1",
+  "experiment_id": "EXP-129",
+  "passed": true,
+  "source_commit": "51786078fd636df3b2ef146d998409eda11af6ef",
+  "manifest_sha256": "ca25c3af339ba963ae5014286f454ce280e671f04b4ee925db892302b2e76da9",
+  "raw_receipt": "artifacts/EXP-129/receipt.json",
+  "raw_receipt_sha256": "d50719b5ec92994bdf5bc0e80cb5dfc850a0d49646f56b3f79962342d5080698",
+  "raw_receipt_bytes": 43654,
+  "states_artifact": "artifacts/EXP-129/blind-a148125-censored-pim-straddles.npz",
+  "states_artifact_sha256": "c9909996b2633178f531ff209e84e612c5fab6f80baa6c35fb744f036e443690",
+  "states_artifact_bytes": 88194,
+  "elapsed_seconds": 4374.084220500197,
+  "a": 0.148125,
+  "expected_branch_count": null,
+  "observed_branch_count": 2,
+  "slope_predicted_branch_count": 2,
+  "sampled_transition_bracket": [0.148125, 0.14825],
+  "frozen_slope_calibrations_passed": 8,
+  "profiles": {
+    "horizon-128": {
+      "passed": true,
+      "successful_straddles": 3,
+      "return_pairs_per_coordinate": 2097,
+      "resolved_two_branch_variants": 30,
+      "censored_lifetime_evaluations": 2,
+      "certified_censor_block_selections": 2,
+      "failed_lifetime_evaluations": 0,
+      "slope_sign": {"y": -1, "z": -1},
+      "slope_interval": {
+        "y": [-1.2031857726389934, -0.4993841324732441],
+        "z": [-1.4185438560059964, -0.8476343119358513]
+      }
+    },
+    "horizon-256": {
+      "passed": true,
+      "successful_straddles": 3,
+      "return_pairs_per_coordinate": 2097,
+      "resolved_two_branch_variants": 30,
+      "censored_lifetime_evaluations": 0,
+      "certified_censor_block_selections": 0,
+      "failed_lifetime_evaluations": 0,
+      "slope_sign": {"y": -1, "z": -1},
+      "slope_interval": {
+        "y": [-1.2031857726389934, -0.4993841324732441],
+        "z": [-1.4185438560059964, -0.8476343119358513]
+      }
+    }
+  },
+  "maximum_128_256_normalized_critical_span": {
+    "y": 0.00964328296806843,
+    "z": 0.0050370705085597675
+  },
+  "stable_cycle_period": 4,
+  "interpretation": "the held-out lower-support slope sign unanimously predicts the blind two-branch PIM result at a=0.148125, narrowing the finite classifier bracket to [0.148125,0.14825]"
+}

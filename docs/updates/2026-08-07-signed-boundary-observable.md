@@ -1,7 +1,7 @@
 # Signed saddle-boundary observable checkpoint
 
 Date: 2026-08-07
-Status: implementation and calibration passed; blind target frozen
+Status: held-out midpoint prediction passed
 
 ## Outcome
 
@@ -32,3 +32,15 @@ global topological curve.
 Run EXP-129 from its clean preregistration commit, preserve the raw receipt and
 state hashes, then either begin signed level-set continuation if it passes or
 diagnose the first coordinate/horizon/variant disagreement if it fails.
+
+## Target result
+
+The untouched `a=0.148125` target passes as two-branch in all 60 branch-oracle
+cells. All 60 signed fits are negative and predict the same class, with the
+weakest absolute slope `0.4994`, almost five times the frozen floor. Both
+horizons and coordinates agree, all six PIM lines complete, and no lifetime
+integration fails. The finite bracket is now `[0.148125,0.14825]`.
+
+The next action is no longer pure midpoint bisection. Use this qualified sign
+in a transverse `(a,c)` discovery/validation pilot and identify whether the
+sharp support entry is mediated by an unstable-orbit/manifold collision.

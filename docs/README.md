@@ -90,8 +90,11 @@ what must be narrowed, and what is false or unresolved.
   defines the signed companion observable, calibration boundary, and limits on
   any continuity or topology interpretation.
 - [`experiments/EXP-129-blind-a148125-pim-boundary-slope.md`](experiments/EXP-129-blind-a148125-pim-boundary-slope.md):
-  freezes the first held-out slope-sign prediction against a blind PIM branch
-  count at the next bracket midpoint.
+  passes the first held-out slope-sign prediction against a blind two-branch
+  PIM midpoint and narrows the bracket to `[0.148125,0.14825]`.
+- [`findings/FND-026-signed-boundary-slope-predicts-blind-midpoint.md`](findings/FND-026-signed-boundary-slope-predicts-blind-midpoint.md):
+  records the qualified signed companion observable, its direct connection to
+  Jones's edge/critical-point statement, and the next manifold-event gate.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

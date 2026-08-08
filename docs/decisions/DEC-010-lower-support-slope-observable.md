@@ -1,7 +1,7 @@
 # DEC-010 — Use the lower-support return-map slope as a signed companion observable
 
 Date: 2026-08-07
-Status: adopted for prospective local testing; global continuation unqualified
+Status: held-out local prediction passed; global continuation unqualified
 
 ## Context
 
@@ -45,9 +45,9 @@ the EXP-129 manifest. Their combined numerical-sensitivity ranges are:
 
 ## Consequences
 
-- EXP-129 is a held-out test of whether the frozen sign predicts the blind
-  branch count at `a=0.148125`; the calibration rows themselves are not
-  held-out evidence.
+- EXP-129 passes its held-out test: all 60 target slopes are negative and
+  predict the two-branch count independently returned by all 60 critical-point
+  cells. The calibration rows themselves are not held-out evidence.
 - The slope is a continuous-valued companion observable, but continuity in a
   parameter, existence or uniqueness of a zero, and smoothness of its zero set
   remain empirical questions.

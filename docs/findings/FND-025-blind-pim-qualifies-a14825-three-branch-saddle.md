@@ -38,3 +38,7 @@ qualified bracket and test whether its zero predicts the blind labels.
 
 Raw receipt SHA-256:
 `a4aae2dc04b3d0171e9b74bd88cd3a9d79e73cd123715a8f81642d9a0664423e`.
+
+EXP-129 subsequently qualifies `a=0.148125` as two and prospectively matches
+that blind count with a negative lower-support slope, narrowing the current
+finite bracket to `[0.148125,0.14825]`.

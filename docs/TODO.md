@@ -415,8 +415,13 @@ exposition requirements.
   profiles reproduce the two/negative and three/positive mapping in both
   coordinates and all variants. The untouched `a=0.148125` midpoint must clear
   a `0.1` magnitude floor at both censor horizons and its slope-predicted class
-  must equal the blind critical-point count. Run EXP-129 from its clean
-  preregistration commit; only a pass authorizes signed level-set continuation.
+  must equal the blind critical-point count. EXP-129 passes: all six PIM lines,
+  60/60 two-branch oracle cells, and 60/60 negative-slope fits agree, with the
+  weakest slope magnitude `0.4994` and no failed lifetime integration. The
+  finite bracket is `[0.148125,0.14825]`. Leave pure one-dimensional bisection:
+  freeze a transverse `(a,c)` GPU-discovery/PIM-validation pilot and search the
+  opened lobe for the unstable-orbit/manifold event that supplies a genuine
+  continuation condition.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
