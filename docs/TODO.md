@@ -367,6 +367,9 @@ exposition requirements.
   returns two in both coordinates. Retain `[0.147,0.149]` and freeze nested
   360--480 survivor-conditioning horizons at `a=0.148`; do not resume spatial
   bisection until branch count and critical geometry stabilize with lifetime.
+  EXP-124 now freezes those horizons on new seeds 132--134, centered return
+  windows, step halving, and a `2^15,2^16,2^17` ladder. All eight runs must
+  blindly choose one common count and retain the original support floors.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

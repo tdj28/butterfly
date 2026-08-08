@@ -320,3 +320,13 @@ survivors and 1737 pairs, survivor curves agree within `0.00403`, the period-4
 cycle passes, and no integration or event audit fails. No blind label is
 assigned and `[0.147,0.149]` is retained. Freeze a nested 360--480 conditioning-
 horizon successor before any further spatial bisection.
+
+## Nested conditioning-horizon successor frozen
+
+EXP-124 uses new seeds 132--134 and conditions survivors through 360, 420, and
+480 time units. Sixty-unit return windows remain centered at half each final
+horizon. The 420-unit profile adds step halving, independent scrambles, and a
+`2^15,2^16,2^17` ladder. All eight runs and both coordinates must blindly
+select one common count while passing the original support, drift, survival,
+cycle, and DOP853/Hermite gates. Passing establishes only 360--480 finite-
+horizon stability; failure leaves `a=0.148` unlabeled.
