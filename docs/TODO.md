@@ -270,7 +270,8 @@ exposition requirements.
   the unchanged topology/survival/short-horizon acceptance thresholds. EXP-112
   passes all gates and qualifies the finite-time CPU sprinkler at both
   published controls. Next: independent PIM/stagger-and-step corroboration,
-  CPU/GPU statistical parity, then saddle-defined TBA continuation.
+  CPU/GPU statistical parity, then saddle-defined TBA continuation. EXP-113
+  now freezes the Float64 Triton parity gate and its `$0.80` Runpod ceiling.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

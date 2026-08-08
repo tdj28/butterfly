@@ -422,3 +422,9 @@ topology premise and supplies the missing invariant-set substrate for Jones's
 distinct reinjection hypothesis. It does not yet draw the TBA curve. The next
 gates are an independent saddle trajectory, CPU/GPU statistical parity, and
 prospective continuation away from the two controls.
+
+EXP-113 is now preregistered for GPU statistical parity. Its Triton kernel
+implements the qualified positive-oriented section, cubic event interpolation,
+four-cycle capture, checkpoint survival curve, and final-survivor midpoint
+pairs. The live secure-cloud A40 price is `$0.35/hour`; launch is capped at
+`$0.40/hour`, two hours, and `$0.80` total with 15-minute no-progress teardown.

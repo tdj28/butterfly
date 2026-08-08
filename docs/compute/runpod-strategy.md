@@ -1,7 +1,7 @@
 # Runpod GPU execution strategy
 
 Status: implementation active; first qualification pod authorized
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 ## Decision boundary
 
@@ -246,6 +246,20 @@ All EXP-018 provisioning and execution is conservatively bounded below USD
 The production-observable periodic gate is therefore open for separately
 frozen basin-scaling and multi-`b` atlas work. Chaotic identity, Lyapunov parity,
 continuation, and validated numerics still require independent qualification.
+
+### EXP-113 chaotic-saddle statistical-parity gate
+
+EXP-112 now qualifies a finite-time CPU sprinkler construction at the two
+published regular-window controls. EXP-113 freezes the corresponding GPU gate.
+It compares survivor distributions, return-map topology, and critical-location
+intervals rather than long-horizon trajectory identity, while retaining a
+pointwise DOP853 audit over the first five returns.
+
+The 2026-08-07 live catalog offers a secure-cloud A40 at `$0.35/hour` with high
+stock. The task is frozen at a `$0.40/hour` launch ceiling, two-hour wall limit,
+`$0.80` hard spend ceiling, and 15-minute no-progress teardown. Passing this
+gate permits a separately preregistered GPU saddle-boundary workload; it does
+not itself establish or authorize a plane-wide TBA scan.
 
 ## Runpod primary documentation
 
