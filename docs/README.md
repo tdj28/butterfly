@@ -58,6 +58,9 @@ what must be narrowed, and what is false or unresolved.
   prospectively qualifies the `a=0.145` regular-window saddle as two-branch
   after reproducing both controls, narrowing the sampled bracket to
   `[0.145,0.149]`.
+- [`findings/FND-019-blind-a147-saddle-is-two-branch.md`](findings/FND-019-blind-a147-saddle-is-two-branch.md):
+  blindly qualifies the midpoint saddle as two-branch across all 14
+  run-coordinate decisions, halving the sampled bracket to `[0.147,0.149]`.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

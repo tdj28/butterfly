@@ -283,3 +283,17 @@ rule; exactly one must pass, and every one of 14 run--coordinate decisions must
 agree. Seven new seed-126--128 ensembles span `2^14,2^15,2^16` section states
 and retain all numerical and convergence gates. A two result narrows the
 bracket to `[0.147,0.149]`; a three result narrows it to `[0.145,0.147]`.
+
+## First blind midpoint result: EXP-122 passes
+
+EXP-122 completes from clean commit `57e629b` in `272.07 s` and passes. Every
+one of the 14 blind run--coordinate decisions uniquely selects two branches.
+Of 210 variant cells, 207 resolve normally and three are admissible 80-bin `y`
+coverage censors in the later-conditioned run. No cell is rejected or returns
+three.
+
+The weakest run retains 350 survivors and 3008 pairs. Maximum survivor drift is
+`0.00568`, maximum across-run critical drift is `0.01499`, and all numerical
+audits pass. The sampled saddle bracket therefore halves to `[0.147,0.149]`.
+Freeze the next blind midpoint at `a=0.148`; retain the finite-bracket claim
+until a separate continuation method establishes a continuous curve.

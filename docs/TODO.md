@@ -353,7 +353,13 @@ exposition requirements.
   with no expected label. Candidate counts two and three are tested separately
   under the qualified censor rule, and exactly one count must pass in all seven
   new seed-126--128 ensembles and both coordinates. A pass halves the sampled
-  bracket; a failure is retained without choosing the majority label.
+  bracket; a failure is retained without choosing the majority label. EXP-122
+  passes from clean commit `57e629b`: all 14 blind decisions uniquely select
+  two, 207/210 variants resolve normally, and three are admissible coverage
+  censors. The sampled bracket halves to `[0.147,0.149]`. Freeze the next blind
+  midpoint at `a=0.148` with the same rule and independently chosen ensembles;
+  continue bisection only while the invariant-set and numerical gates remain
+  qualified.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

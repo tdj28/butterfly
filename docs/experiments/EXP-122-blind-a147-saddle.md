@@ -1,6 +1,6 @@
 # EXP-122 — Blind saddle midpoint at `a=0.147`
 
-Status: preregistered; not executed
+Status: passed
 
 ## Question
 
@@ -26,3 +26,15 @@ continuity or locate an exact TBA point.
 
 Immutable manifest:
 `experiments/manifests/EXP-122-blind-a147-saddle.json`.
+
+## Result
+
+The clean `57e629b` run passes in `272.07 s`. All 14 run--coordinate decisions
+uniquely select two branches. Of 210 variant cells, 207 resolve normally and
+three are admissible coverage censors; no cell is rejected or selects three.
+The weakest run retains 350 survivors and 3008 pairs, maximum across-run
+critical drift is `0.01499`, and every numerical gate passes. The sampled
+bracket narrows to `[0.147,0.149]`.
+
+Raw receipt SHA-256:
+`938896accbfef79e2212588b3174a6ec2f21a3ae9dc51038f925e801932f1928`.
