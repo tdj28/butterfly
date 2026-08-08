@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ProcessPoolExecutor
 import io
 import json
 import platform
@@ -28,6 +29,29 @@ from butterfly import (
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 
 
+def _measure_lifetime(argument):
+    parameters, section, cycle, capture, pim, solver, point = argument
+    measured = capture_lifetimes_on_section(
+        parameters,
+        np.asarray(point, dtype=np.float64)[None, :],
+        section,
+        cycle,
+        capture_coordinate_axes=tuple(capture["coordinate_axes"]),
+        capture_coordinate_scales=tuple(capture["coordinate_scales"]),
+        capture_radius=float(capture["radius"]),
+        required_capture_crossings=int(capture["required_crossings"]),
+        maximum_returns=int(pim["maximum_escape_returns"]),
+        config=solver,
+        maximum_flight_time=float(pim["maximum_flight_time"]),
+    )
+    return (
+        float(measured.lifetimes[0]),
+        bool(measured.captured[0]),
+        bool(measured.failed[0]),
+        int(measured.return_counts[0]),
+    )
+
+
 class LifetimeEvaluator:
     """Memoized adaptive capture-time oracle with explicit censor tracking."""
 
@@ -41,6 +65,12 @@ class LifetimeEvaluator:
         self.cache: dict[bytes, tuple[float, bool, bool, int]] = {}
         self.request_count = 0
         self.integration_count = 0
+        self.executor = ProcessPoolExecutor(
+            max_workers=int(self.pim["lifetime_workers"])
+        )
+
+    def close(self):
+        self.executor.shutdown(wait=True)
 
     def __call__(self, points):
         points = np.asarray(points, dtype=np.float64)
@@ -51,31 +81,22 @@ class LifetimeEvaluator:
         ]
         if missing_indices:
             missing = points[missing_indices]
-            measured = capture_lifetimes_on_section(
-                self.parameters,
-                missing,
-                self.section,
-                self.cycle,
-                capture_coordinate_axes=tuple(self.capture["coordinate_axes"]),
-                capture_coordinate_scales=tuple(
-                    self.capture["coordinate_scales"]
-                ),
-                capture_radius=float(self.capture["radius"]),
-                required_capture_crossings=int(
-                    self.capture["required_crossings"]
-                ),
-                maximum_returns=int(self.pim["maximum_escape_returns"]),
-                config=self.solver,
-                maximum_flight_time=float(self.pim["maximum_flight_time"]),
+            arguments = (
+                (
+                    self.parameters,
+                    self.section,
+                    self.cycle,
+                    self.capture,
+                    self.pim,
+                    self.solver,
+                    point,
+                )
+                for point in missing
             )
+            measured = list(self.executor.map(_measure_lifetime, arguments))
             self.integration_count += len(missing)
             for local, source_index in enumerate(missing_indices):
-                self.cache[keys[source_index]] = (
-                    float(measured.lifetimes[local]),
-                    bool(measured.captured[local]),
-                    bool(measured.failed[local]),
-                    int(measured.return_counts[local]),
-                )
+                self.cache[keys[source_index]] = measured[local]
         return np.asarray([self.cache[key][0] for key in keys], dtype=np.float64)
 
     def diagnostics_since(self, keys_before):
@@ -240,6 +261,8 @@ def _run_case(case, manifest, solver):
             flush=True,
         )
 
+    evaluator.close()
+
     coordinate_rows = {}
     acceptance = manifest["acceptance"]
     expected = int(case["expected_saddle_branch_count"])
@@ -370,6 +393,7 @@ def main() -> int:
             "platform": platform.platform(),
             "numpy": np.__version__,
             "scipy": scipy.__version__,
+            "lifetime_workers": int(manifest["pim"]["lifetime_workers"]),
         },
         "states_artifact": str(args.states_output),
         "states_artifact_bytes": len(state_bytes),

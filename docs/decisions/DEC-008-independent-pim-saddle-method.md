@@ -29,6 +29,12 @@ EXP-114 uses the PIM construction on the Barrio first-return section with:
 - repeated stable-period-4 capture as the declared escape event; and
 - repeated refinement only after the mapped bracket exceeds tolerance.
 
+Independent escape-time evaluations within one refinement level may run in an
+ordered eight-process pool. This changes wall time only: result order, strict
+maximum selection, integration, and all gates are identical to serial
+execution. The parallel amendment was frozen after interrupting the first
+serial launch before it emitted a line result.
+
 The target controls are not executed until the implementation, manifest, and
 acceptance gates are committed. Failed segments, censored lifetime evaluations,
 and unresolved topology are retained rather than replaced after inspection.

@@ -1,6 +1,6 @@
 # EXP-114 — Independent PIM-triple saddle controls
 
-Status: preregistered; not yet executed
+Status: preregistered; serial launch interrupted before any line result
 
 ## Hypothesis
 
@@ -43,6 +43,16 @@ Each case passes only if:
 The complete experiment passes only if both controls pass. A pass is
 independent local saddle corroboration, not continuation of the TBA and not a
 topological-template equivalence proof.
+
+## Execution amendment before observable output
+
+The first serial launch saturated one CPU core for about ten minutes and was
+interrupted before the script emitted any line result or wrote an artifact.
+The frozen numerical method and every scientific gate remain unchanged.
+Escape-time evaluations at the 33 independent points of each refinement level
+now use an ordered eight-process pool; results are consumed in input order, so
+the longest-lifetime/lowest-index decision remains deterministic. PIM triple
+mapping itself remains serial. This amendment is committed before relaunch.
 
 ## Frozen execution
 

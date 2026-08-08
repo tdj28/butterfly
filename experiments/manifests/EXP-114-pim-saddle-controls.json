@@ -46,6 +46,7 @@
     "maximum_refinements_per_event": 8,
     "maximum_escape_returns": 256,
     "maximum_flight_time": 50.0,
+    "lifetime_workers": 8,
     "straddle_returns": 1200,
     "burn_in_returns": 200
   },
