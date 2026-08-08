@@ -407,3 +407,18 @@ calibration, this reduces the largest scaled state error from roughly
 unchanged gates. The new survival family uses three independent Sobol scrambles
 and a nested 4096/8192/16384 sequence, plus half-step and later-conditioning
 controls. No EXP-111 threshold was relaxed.
+
+EXP-112 passes completely. All 14 saddle ensembles and all 420 topology cells
+recover two branches at `a=0.118` and three at `a=0.149`, with consensus `1.0`
+through 21,000 bootstrap refits. Scramble/sample-size survivor fractions differ
+from baseline by at most `0.01013` and `0.01135`, far below `0.05`. Across-run
+critical drift is at most `0.01485`; Hermite/DOP853 state and time errors stay
+below `2.46e-6` and `3.16e-6`. The least-populated run retains 884 survivors
+and 7438 return pairs per coordinate, with no numerical failures.
+
+This closes the first qualified CPU reconstruction of the two published
+regular-window chaotic saddles. It is direct good news for the shared 2012
+topology premise and supplies the missing invariant-set substrate for Jones's
+distinct reinjection hypothesis. It does not yet draw the TBA curve. The next
+gates are an independent saddle trajectory, CPU/GPU statistical parity, and
+prospective continuation away from the two controls.

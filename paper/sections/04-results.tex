@@ -135,3 +135,16 @@ fractions differ by as much as $0.07962$, exceeding the frozen $0.05$ gate,
 and one linearly interpolated crossing time misses its short-horizon tolerance.
 Scrambled low-discrepancy ensembles and higher-order event interpolation are
 therefore required before qualifying the complete saddle sampler.
+
+The next prospectively frozen experiment makes exactly those two changes
+without relaxing a threshold.  Three independent scrambled Sobol ensembles,
+nested sizes from 4096 through 16384, step halving, and later conditioning give
+14 complete saddle runs.  All 420 topology cells recover two branches at
+$a=0.118$ and three at $a=0.149$, with unit variant consensus and 21000
+bootstrap refits.  The maximum survivor-fraction differences fall to $0.01013$
+and $0.01135$, below the $0.05$ gate; maximum normalized critical drift is
+$0.01485$.  Cubic-Hermite section events agree with DOP853 within
+$2.46\times10^{-6}$ in scaled state and $3.16\times10^{-6}$ in time.  All
+support and numerical-failure gates pass.  This qualifies the finite-time CPU
+sprinkler reconstruction at both published regular-window controls, but not a
+continued TBA curve or a topological-template equivalence.

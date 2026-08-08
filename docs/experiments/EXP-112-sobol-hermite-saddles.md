@@ -1,6 +1,6 @@
 # EXP-112 — Scrambled-Sobol and Hermite saddle qualification
 
-Status: preregistered under DEC-007; not yet executed
+Status: passed
 
 This prospective successor retains EXP-111's topology, survival, critical-
 drift, and short-horizon tolerances while changing only the two diagnosed
@@ -24,3 +24,16 @@ must not exceed `0.001`; maximum time error must not exceed `2e-5`.
 Failure is retained by gate. Passing qualifies only the finite-time CPU
 sprinkler control reconstruction; an independent saddle method and GPU parity
 remain mandatory before plane-scale continuation.
+
+## Result
+
+EXP-112 ran from clean commit `0db5dd7` for 326.18 seconds and passed all
+acceptance gates. All 420 topology cells return the expected two/three split
+with consensus `1.0`. Maximum survivor-fraction differences are `0.01013` and
+`0.01135`; maximum across-run critical drift is `0.01485` and `0.01283`.
+All ten short-horizon trajectory audits pass, with maximum scaled state error
+`2.46e-6` and time error `3.15e-6`. No numerical failure occurs, and the
+smallest run still supplies 884 final survivors and 7438 pairs per coordinate.
+
+FND-009 records the qualified claim boundary and the remaining independent-
+method, GPU-parity, and TBA-continuation gates.

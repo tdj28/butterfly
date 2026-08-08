@@ -26,6 +26,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-008-saddle-topology-converges-before-lifetime-density.md`](findings/FND-008-saddle-topology-converges-before-lifetime-density.md):
   records 300/300 stable saddle-topology cells while preserving the failed
   lifetime-density and crossing-time gates.
+- [`findings/FND-009-published-chaotic-saddles-qualified.md`](findings/FND-009-published-chaotic-saddles-qualified.md):
+  qualifies the published two- and three-branch regular-window saddles across
+  Sobol, step, horizon, coordinate, oracle, and DOP853 checks.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

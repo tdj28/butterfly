@@ -34,3 +34,11 @@ A pass would qualify the finite-time CPU sprinkler sampler at the two published
 controls. It would not make the survival curve an invariant escape-rate
 estimate, establish the TBA curve, or replace an independent PIM/stagger-and-
 step saddle reconstruction. GPU parity remains subsequent.
+
+## Validation outcome
+
+EXP-112 passes all gates. Across 14 ensembles, maximum survivor-fraction drift
+is `0.01135`, maximum normalized critical drift is `0.01485`, and all 420
+topology cells return the expected counts. Hermite/DOP853 errors remain below
+`2.46e-6` in scaled state and `3.16e-6` in time. The finite-time CPU sampler is
+therefore qualified at the two controls under this decision's stated boundary.

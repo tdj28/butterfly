@@ -267,7 +267,10 @@ exposition requirements.
   with independent scrambled Sobol ensembles and linear crossing location with
   cubic Hermite interpolation, then repeat prospectively. DEC-007/EXP-112 now
   freeze three scrambles, three nested sample sizes, step/horizon controls, and
-  the unchanged topology/survival/short-horizon acceptance thresholds.
+  the unchanged topology/survival/short-horizon acceptance thresholds. EXP-112
+  passes all gates and qualifies the finite-time CPU sprinkler at both
+  published controls. Next: independent PIM/stagger-and-step corroboration,
+  CPU/GPU statistical parity, then saddle-defined TBA continuation.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
