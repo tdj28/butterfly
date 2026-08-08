@@ -500,7 +500,9 @@ def _run_profile(
 def _run_case(case, manifest, solver):
     fixed = manifest["fixed_parameters"]
     parameters = RosslerParameters(
-        a=float(case["a"]), b=float(fixed["b"]), c=float(fixed["c"])
+        a=float(case["a"]),
+        b=float(case["b"] if "b" in case else fixed["b"]),
+        c=float(case["c"] if "c" in case else fixed["c"]),
     )
     section = barrio_rossler_section(parameters)
     cycle_crossings, cycle_classification = _cycle_reference(

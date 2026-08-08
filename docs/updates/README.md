@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp131-transverse-pim-preregistered.md`](2026-08-07-exp131-transverse-pim-preregistered.md)
+  — frozen adaptive-PIM and signed-slope predictions at four transverse
+  endpoints selected by the failed finite-sprinkler pilot.
 - [`2026-08-07-exp130-transverse-pilot-preregistered.md`](2026-08-07-exp130-transverse-pilot-preregistered.md)
   — frozen two-slice GPU discovery design, unresolved-aware topology gates,
   and a run-specific Runpod cost/teardown contract.
