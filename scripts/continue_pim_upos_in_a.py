@@ -262,7 +262,12 @@ def _run_branch(branch, source_receipt, manifest, solver):
 
 
 def _shared_identity(branches, manifest, solver):
-    declared = manifest["shared_family_identity"]
+    declared = manifest.get("shared_family_identity")
+    if declared is None:
+        return {
+            "evaluated": False,
+            "passed": True,
+        }
     left = next(
         branch for branch in branches if branch["id"] == declared["left_branch_id"]
     )
@@ -349,7 +354,6 @@ def _shared_identity(branches, manifest, solver):
 
 def _section_count_summary(branches, manifest):
     policy = manifest.get("section_count", {})
-    expected = int(policy.get("expected_crossings", 0))
     rows = [row for branch in branches for row in branch["rows"]]
     if not policy or bool(policy.get("gate", True)):
         return {
@@ -360,17 +364,27 @@ def _section_count_summary(branches, manifest):
     integrations = [
         row["audit"]["section_count_integration_success"] for row in rows
     ]
+    expected_mode = policy.get("expected_mode", "fixed")
+    if expected_mode == "fundamental_lag":
+        expected = [int(row["fundamental_lag"]) for row in rows]
+        expected_summary = "fundamental_lag"
+    elif expected_mode == "fixed":
+        fixed = int(policy["expected_crossings"])
+        expected = [fixed] * len(rows)
+        expected_summary = fixed
+    else:
+        raise ValueError("unsupported section-count expected_mode")
     return {
         "separate_qualification": True,
         "window_start_fraction": float(policy["phase_fraction"]),
-        "expected_crossings": expected,
+        "expected_crossings": expected_summary,
         "evaluated_points": len(rows),
         "observed_counts": sorted(set(counts)),
         "all_integrations_succeeded": bool(all(integrations)),
         "passed": bool(
             rows
             and all(integrations)
-            and all(count == expected for count in counts)
+            and all(count == target for count, target in zip(counts, expected))
         ),
     }
 

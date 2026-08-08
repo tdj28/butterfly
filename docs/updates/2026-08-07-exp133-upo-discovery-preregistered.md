@@ -64,3 +64,9 @@ audit classifies the families as distinct. With the lag-4 continuation from
 EXP-136, the local branch opening is no longer plausibly explained by birth,
 death, or section-crossing loss of these tested UPOs. The mechanism search now
 moves to their invariant manifolds and symbolic pruning/reinjection geometry.
+
+Before manifold seeding, EXP-139 freezes the remaining UPO census gap. It
+continues all eight untested primitive lower-side families to the three-branch
+endpoint, retaining flow/Floquet/primitivity gates and each family's own
+phase-robust section lag. Any stopped path becomes the next event-refinement
+target; a complete pass supplies a ten-family cross-boundary orbit library.

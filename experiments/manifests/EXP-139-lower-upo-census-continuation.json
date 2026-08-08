@@ -1,0 +1,105 @@
+{
+  "schema": "butterfly.a-upo-continuation-manifest.v1",
+  "experiment_id": "EXP-139",
+  "source_experiment": "EXP-133",
+  "source_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
+  "identity_experiment": "EXP-135",
+  "identity_receipt_sha256": "e14655511f032efb16a5a8a69baeeadbbff522cb350e3b2a7229d373318e0c0f",
+  "branches": [
+    {
+      "id": "lower-family-01-lag13",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 0,
+      "fundamental_lag": 13,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-02-lag5",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 1,
+      "fundamental_lag": 5,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-03-lag7",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 2,
+      "fundamental_lag": 7,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-04-lag8",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 3,
+      "fundamental_lag": 8,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-05-lag7",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 4,
+      "fundamental_lag": 7,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-07-lag13",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 7,
+      "fundamental_lag": 13,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-08-lag7",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 8,
+      "fundamental_lag": 7,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lower-family-09-lag3",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 9,
+      "fundamental_lag": 3,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    }
+  ],
+  "section_count": {
+    "gate": false,
+    "phase_fraction": 0.1,
+    "expected_mode": "fundamental_lag"
+  },
+  "corrector": {
+    "maximum_evaluations": 80,
+    "tolerance": 1E-11
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1E-10,
+    "atol": 1E-12,
+    "max_step": 0.05
+  },
+  "acceptance": {
+    "maximum_flow_closure": 1E-8,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "minimum_proper_divisor_closure": 0.001,
+    "minimum_instability_margin": 0.001,
+    "maximum_shared_relative_period_difference": 0.000001,
+    "maximum_shared_phase_invariant_rms": 0.00001
+  }
+}

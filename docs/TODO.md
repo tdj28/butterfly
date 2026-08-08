@@ -474,6 +474,9 @@ exposition requirements.
   orbit-birth/crossing mechanisms. Seed both families' invariant manifolds and
   define a pruning/reinjection connection residual that can change while the
   periodic skeleton remains intact.
+  EXP-139 now freezes complete continuation of the eight remaining primitive
+  lower-side families, with per-family lag identity measured on shifted
+  one-period windows. Execute it before selecting the manifold seed library.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

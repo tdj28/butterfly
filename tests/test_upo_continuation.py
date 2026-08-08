@@ -85,3 +85,36 @@ def test_parameter_match_tolerates_binary_grid_roundoff_only():
     assert matched
     assert error < 1e-16
     assert not MODULE._parameter_match((0.148124, 0.148125), 0.148125, 1e-14)[0]
+
+
+def test_section_count_summary_can_use_each_fundamental_lag():
+    rows = [
+        {
+            "fundamental_lag": lag,
+            "audit": {
+                "one_period_section_crossing_count": lag,
+                "section_count_integration_success": True,
+            },
+        }
+        for lag in (3, 5, 13)
+    ]
+    result = MODULE._section_count_summary(
+        [{"rows": rows}],
+        {
+            "section_count": {
+                "gate": False,
+                "phase_fraction": 0.1,
+                "expected_mode": "fundamental_lag",
+            }
+        },
+    )
+    assert result["expected_crossings"] == "fundamental_lag"
+    assert result["observed_counts"] == [3, 5, 13]
+    assert result["passed"]
+
+
+def test_shared_identity_is_optional_for_orbit_census():
+    assert MODULE._shared_identity([], {}, SolverConfig()) == {
+        "evaluated": False,
+        "passed": True,
+    }
