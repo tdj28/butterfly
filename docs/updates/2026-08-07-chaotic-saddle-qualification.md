@@ -255,3 +255,21 @@ at the published `a=0.118` two-branch and `a=0.149` three-branch controls. The
 same new ensembles are enlarged eightfold at `a=0.145`. All three cases, both
 coordinates, numerical gates, and one ordered two-to-three transition must
 pass before the sampled bracket can narrow to `[0.145,0.149]`.
+
+## Coverage-censor result: EXP-121 passes
+
+EXP-121 completes from clean commit `8d96f1c` in `686.79 s` and passes every
+gate. The two published controls require no censoring: all 420 variants resolve
+normally and reproduce two branches at `a=0.118` and three at `a=0.149`.
+
+The new `a=0.145` data also pass. All 105 `y` variants resolve as two. In `z`,
+84 variants resolve as two and the remaining 21 are the preregistered
+coverage-only censors; none is rejected or contradictory. The weakest target
+run retains 327 survivors and 2768 pairs, maximum target critical drift is
+`0.01495`, and every numerical audit passes.
+
+The prospective ordered path is exactly `2,2,3`, so the sampled saddle bracket
+narrows to `[0.145,0.149]`. This closes the coordinate-coverage hole without
+post-result relabeling. The next binding action is adaptive saddle-defined
+continuation inside this interval and then through additional regular gaps;
+the three samples alone do not establish a continuous global TBA curve.

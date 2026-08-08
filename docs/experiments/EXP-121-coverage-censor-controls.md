@@ -1,6 +1,6 @@
 # EXP-121 — Prospective coverage-censor qualification
 
-Status: preregistered; not executed
+Status: passed
 
 ## Question
 
@@ -41,3 +41,17 @@ retained without threshold revision.
 
 Immutable manifest:
 `experiments/manifests/EXP-121-coverage-censor-controls.json`.
+
+## Result
+
+The clean `8d96f1c` run passes in `686.79 s`. All 420 published-control variants
+resolve normally, preserving two branches at `a=0.118` and three at `a=0.149`.
+At `a=0.145`, all 105 `y` variants and 84 `z` variants resolve normally as two;
+the remaining 21 `z` variants meet every frozen coverage-censor condition and
+none is rejected. The complete ordered path is `2,2,3`, so the sampled saddle
+bracket narrows to `[0.145,0.149]`.
+
+The weakest target run retains 327 survivors and 2768 pairs. Maximum target
+across-run critical span is `0.01495`, and all numerical audits pass. Raw
+receipt SHA-256:
+`f396d3e034a2ee4f3f8a2785316b7ec099021c512d22274f93efb548ef985b9b`.

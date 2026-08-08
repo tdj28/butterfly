@@ -54,6 +54,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-017-a145-support-closed-coordinate-coverage-open.md`](findings/FND-017-a145-support-closed-coordinate-coverage-open.md):
   closes sample scarcity at `a=0.145`, qualifies all `y` cells as two, and
   isolates the remaining `z` failure to fixed-width 80-bin coverage censoring.
+- [`findings/FND-018-a145-two-branch-saddle-qualified.md`](findings/FND-018-a145-two-branch-saddle-qualified.md):
+  prospectively qualifies the `a=0.145` regular-window saddle as two-branch
+  after reproducing both controls, narrowing the sampled bracket to
+  `[0.145,0.149]`.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

@@ -342,7 +342,14 @@ exposition requirements.
   retaining the expected nominal critical geometry, and all critical points
   must satisfy the unchanged drift gates. Seven new seed-123--125 ensembles
   test both published controls and `a=0.145`; any noncoverage failure or
-  contrary branch count fails the experiment.
+  contrary branch count fails the experiment. EXP-121 passes from clean commit
+  `8d96f1c`: all 420 control variants resolve normally; `a=0.145` returns 105
+  fully resolved `y` variants, 84 fully resolved `z` variants, and 21 admissible
+  coverage censors with no rejection. The ordered labels are `2,2,3`, narrowing
+  the sampled saddle bracket to `[0.145,0.149]`. Freeze the now-qualified rule
+  and begin adaptive saddle continuation inside this bracket, then extend
+  outward through additional regular gaps; do not claim a continuous TBA from
+  three samples.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
