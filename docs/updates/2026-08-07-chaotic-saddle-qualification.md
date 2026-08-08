@@ -104,3 +104,12 @@ The result is positive for the local Jones/Barrio branch substrate and negative
 for treating a short lifetime ceiling as harmless. The next frozen comparison
 must test 128 versus 256 returns before PIM is used to continue the saddle-
 defined boundary.
+
+## Longer-horizon successor frozen: EXP-116
+
+EXP-116 freezes the accepted EXP-115 128-return critical intervals and hashes
+as immutable references, then computes only a new 256-return profile. All
+geometry, solver, line, oracle, CPU-comparison, and support gates remain
+unchanged. Both controls must pass and the combined 128/256 critical span must
+be at most `0.04` in both coordinates. This avoids paying to recompute the
+already hashed reference while preserving a prospective comparison.

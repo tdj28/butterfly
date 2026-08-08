@@ -292,7 +292,10 @@ exposition requirements.
   both 128-return profiles pass with two/three branches in both coordinates,
   consensus `1.0`, and maximum CPU/PIM span `0.01511`. Freeze a 128-versus-256
   successor before saddle-boundary continuation; retain 64 returns as a
-  negative coverage control and do not relabel EXP-115.
+  negative coverage control and do not relabel EXP-115. EXP-116 now freezes
+  the hashed 128-return intervals, computes only a new 256-return profile, and
+  retains the same two-control/two-coordinate/oracle/CPU gates plus a `0.04`
+  128/256 critical-span ceiling. Commit before target execution.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

@@ -1,0 +1,171 @@
+{
+  "schema": "butterfly.censored-pim-extension-manifest.v1",
+  "experiment_id": "EXP-116",
+  "source": {
+    "method": "prospective 256-return censor-aware PIM comparison against frozen EXP-115 128-return references",
+    "reference_doi": "10.1016/0167-2789(89)90253-4",
+    "preregistered_without_target_execution": true
+  },
+  "reference_receipt": {
+    "experiment_id": "EXP-115",
+    "artifact_sha256": "f7b483334fa911ace7c11c499bb38d97756fb4623535c5200f7f606ea7d7e9b5",
+    "states_artifact_sha256": "73962228b0d037c4e2c6e9dd16fc4b1a681af750e09aaf108a780459fc55b551",
+    "source_commit": "f354fc05ece47151a01b1c1d56ee76220e9a7305",
+    "profile_id": "horizon-128"
+  },
+  "fixed_parameters": {"b": 0.2, "c": 20.0},
+  "cycle_initial_state": [0.0, 4.0, 0.0],
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "cycle_reference": {
+    "transient": 2000.0,
+    "observation_horizon": 200.0,
+    "max_crossings": 16,
+    "recurrence": {
+      "max_period": 16,
+      "required_repeats": 3,
+      "atol": 1e-9,
+      "rtol": 1e-9
+    }
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [30.0, 0.0006],
+    "radius": 0.002,
+    "required_crossings": 8
+  },
+  "target_profile": {"id": "horizon-256", "maximum_escape_returns": 256},
+  "pim": {
+    "state_coordinate_scales": [1.0, 30.0, 0.0006],
+    "initial_segments": [
+      {"id": "z-00900", "y_range": [-38.0, -8.0], "z": 0.0090},
+      {"id": "z-00960", "y_range": [-38.0, -8.0], "z": 0.0096},
+      {"id": "z-01020", "y_range": [-38.0, -8.0], "z": 0.0102}
+    ],
+    "refinement_sample_count": 33,
+    "width_tolerance": 1e-7,
+    "maximum_initial_refinements": 8,
+    "maximum_refinements_per_event": 8,
+    "maximum_flight_time": 50.0,
+    "lifetime_workers": 8,
+    "straddle_returns": 800,
+    "burn_in_returns": 100
+  },
+  "coordinates": [
+    {"name": "y", "axis": 1},
+    {"name": "z", "axis": 2}
+  ],
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.001,
+    "maximum_conditional_spread_ratio": 0.08,
+    "minimum_domain_coverage": 0.7,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 116
+  },
+  "oracle_variants": [
+    {"bin_count": 20, "smoothing": 0.000003},
+    {"bin_count": 20, "smoothing": 0.00001},
+    {"bin_count": 20, "smoothing": 0.00003},
+    {"bin_count": 30, "smoothing": 0.000003},
+    {"bin_count": 30, "smoothing": 0.00001},
+    {"bin_count": 30, "smoothing": 0.00003},
+    {"bin_count": 40, "smoothing": 0.000003},
+    {"bin_count": 40, "smoothing": 0.00001},
+    {"bin_count": 40, "smoothing": 0.00003},
+    {"bin_count": 60, "smoothing": 0.000003},
+    {"bin_count": 60, "smoothing": 0.00001},
+    {"bin_count": 60, "smoothing": 0.00003},
+    {"bin_count": 80, "smoothing": 0.000003},
+    {"bin_count": 80, "smoothing": 0.00001},
+    {"bin_count": 80, "smoothing": 0.00003}
+  ],
+  "acceptance": {
+    "minimum_successful_straddles": 2,
+    "minimum_return_pairs": 1000,
+    "minimum_oracle_variant_consensus": 1.0,
+    "maximum_within_pim_critical_span": 0.03,
+    "maximum_128_256_critical_span": 0.04,
+    "maximum_cpu_pim_critical_span": 0.05
+  },
+  "cases": [
+    {
+      "id": "published-unimodal-saddle",
+      "a": 0.118,
+      "stable_period": 4,
+      "expected_saddle_branch_count": 2,
+      "horizon_128_reference": {
+        "y": {
+          "source_minimum": -29.512973420426206,
+          "source_maximum": -10.600363798342336,
+          "critical_point_intervals": [[-21.7325123111748, -21.4487570812965]]
+        },
+        "z": {
+          "source_minimum": 0.009388529215617112,
+          "source_maximum": 0.009756142146423041,
+          "critical_point_intervals": [[0.009532569656819671, 0.009537163048751653]]
+        }
+      },
+      "cpu_reference": {
+        "y": {
+          "source_minimum": -29.540518041581265,
+          "source_maximum": -10.547627278630676,
+          "critical_point_intervals": [[-21.72336805524017, -21.445632724936846]]
+        },
+        "z": {
+          "source_minimum": 0.009388045218108963,
+          "source_maximum": 0.00975727902095483,
+          "critical_point_intervals": [[0.009532513285272883, 0.009536596541448112]]
+        }
+      }
+    },
+    {
+      "id": "published-bimodal-saddle",
+      "a": 0.149,
+      "stable_period": 4,
+      "expected_saddle_branch_count": 3,
+      "horizon_128_reference": {
+        "y": {
+          "source_minimum": -31.808317911210423,
+          "source_maximum": -8.82016338204428,
+          "critical_point_intervals": [
+            [-31.25263178157736, -31.085725175820375],
+            [-21.106991034839332, -20.825791194665094]
+          ]
+        },
+        "z": {
+          "source_minimum": 0.009349324388804297,
+          "source_maximum": 0.009795342074987543,
+          "critical_point_intervals": [
+            [0.009357600100031992, 0.009362673229344684],
+            [0.009542032796959372, 0.00954744314014657]
+          ]
+        }
+      },
+      "cpu_reference": {
+        "y": {
+          "source_minimum": -31.80831852686507,
+          "source_maximum": -8.808088386079474,
+          "critical_point_intervals": [
+            [-31.248986194031385, -31.08875522316294],
+            [-21.107183830076796, -20.820950019275]
+          ]
+        },
+        "z": {
+          "source_minimum": 0.009349325800171962,
+          "source_maximum": 0.009795607862398295,
+          "critical_point_intervals": [
+            [0.009360207280427416, 0.009362742837534861],
+            [0.009542457996402787, 0.009547242913000674]
+          ]
+        }
+      }
+    }
+  ]
+}
