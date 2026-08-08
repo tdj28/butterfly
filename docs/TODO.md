@@ -483,6 +483,10 @@ exposition requirements.
   same floor at the midpoint. EXP-141 now freezes acceptance-aligned control
   flow: optimizer success is explicit, while corrected-seed and independent
   flow closure must still pass the unchanged `1e-8` scientific limit.
+  EXP-141 passes all 21 points, completing persistence of all eleven recovered
+  primitive UPO families. Build phase-resolved unstable-manifold branches from
+  this library, measure their first-return lobe connectivity on both sides,
+  and formulate a pruning/reinjection residual with seed-size convergence.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

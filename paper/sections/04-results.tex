@@ -349,3 +349,21 @@ than three, and the complete signed-slope intervals are
 $[-1.4647,-0.8185]$ in $y$ and $[-1.7981,-1.0380]$ in $z$.  The failed gate is
 retained and no curve is promoted; the result instead selects a displaced
 $c=19.8$ upper endpoint for higher-horizon testing.
+
+The first orbit-level mechanism census produces a strong negative result.
+PIM close returns seed 15 accepted shooting recoveries across the two local
+endpoint saddles.  Proper-divisor tests identify two repeated traversals, and
+continuous phase alignment reduces the recoveries to nine distinct primitive
+families at $a=0.148$ and two at $a=0.14825$.  The two lag-12 endpoint
+recoveries are not one continued family: after independent continuation to
+$a=0.148125$, their relative period difference is $1.7970\times10^{-3}$ and
+their scaled whole-orbit RMS is $6092.16$, decisively classifying them as
+distinct.  Both lag-12 families, the upper lag-4 family, and all eight
+remaining lower families continue across all 21 points of
+$a\in[0.148,0.14825]$.  All shifted full-period counts retain the corresponding
+fundamental lags.  Two intermediate lag-13 runs stopped at a hardcoded
+$10^{-10}$ shooting floor despite normal optimizer convergence; separating
+optimizer status from the unchanged $10^{-8}$ scientific closure gate yields
+21/21 passed points, with maximum independent flow closure
+$2.30\times10^{-9}$.  Thus all eleven recovered primitive UPO families persist
+across the sampled topology bracket.

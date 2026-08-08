@@ -59,6 +59,19 @@ unresolved.  Repeating the complete construction at frozen lifetime horizons
 tests whether branch topology and invariant-domain coverage depend on that
 ceiling.
 
+PIM trajectories are used only to propose close-return seeds for unstable
+periodic orbits.  A seed is retained only after exact section returns,
+phase-conditioned flow shooting, independent monodromy integration, a neutral
+Floquet multiplier, transverse instability, and the declared section identity
+all pass.  Every proper integer divisor of the reported lag is tested for
+closure, and primitive survivors are deduplicated by continuous phase-
+invariant whole-orbit RMS.  Natural continuation then retains independent flow,
+Floquet, primitivity, and section checks at every parameter point.  To avoid an
+arbitrary orbit phase changing a half-open crossing count, the section identity
+is counted over the shifted full-period interval $(0.1T,1.1T]$.  Optimizer
+convergence is recorded separately from the prospectively declared scientific
+closure bound.
+
 To obtain a signed companion to the integer branch count, we affinely normalize
 each scalar PIM return relation and evaluate the fitted-spline derivative at
 the first populated binned-source median.  This avoids extrapolation outside

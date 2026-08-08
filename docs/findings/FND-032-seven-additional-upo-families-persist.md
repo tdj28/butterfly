@@ -32,4 +32,8 @@ event interpretation of the raw corrector stop and exposes a systematic
 threshold mismatch. EXP-141 freezes optimizer success separately from the
 unchanged scientific orbit bounds.
 
+EXP-141 passes all 21 points. Together with the seven paths qualified here and
+the three paths from EXP-136/138, the complete eleven-family recovered census
+now persists across the bracket. See FND-033 for the combined conclusion.
+
 Tracked receipt: `docs/experiments/receipts/EXP-139.json`.

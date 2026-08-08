@@ -82,3 +82,10 @@ floor recurs at the midpoint with normal optimizer convergence. EXP-141
 separates optimizer success from the unchanged declared `1e-8` orbit-closure
 gate and reruns the family. This is a bookkeeping correction, not a relaxed
 scientific threshold.
+
+EXP-141 passes all 21 points. The complete recovered census now contains
+eleven primitive UPO families that all persist across the finite local
+two/three-branch interval with fundamental section identity intact. This
+rejects simple birth/death or crossing-loss explanations for every recovered
+family and moves the mechanism program decisively to invariant-manifold
+connectivity, symbolic pruning, and reinjection.

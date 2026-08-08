@@ -1,6 +1,6 @@
 # EXP-141 — Acceptance-aligned lag-13 family-01 continuation
 
-Status: preregistered; unexecuted
+Status: passed
 
 ## Question
 
@@ -39,3 +39,12 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/continue_pim_upos_in_a.py \
   --identity-receipt artifacts/EXP-135/receipt.json \
   --output artifacts/EXP-141/receipt.json
 ```
+
+## Result
+
+The clean `5a8f271` run passes all 21 points in `81.02 s`. All least-squares
+optimizers converge, maximum corrected-seed closure is `1.172e-10`, and maximum
+independent flow closure is `2.291e-9`. Every Floquet, primitivity, and shifted
+lag-13 gate passes. Combined with EXP-136/138/139, this completes an eleven-
+family cross-boundary UPO census. Raw receipt SHA-256:
+`c245dbb1e4aa6a51651f918662acf0cc9bf75116f4bd854c38e9090ad262753b`.
