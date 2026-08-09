@@ -1,0 +1,80 @@
+{
+  "schema": "butterfly.upo-midpoint-lobe-manifest.v1",
+  "experiment_id": "EXP-147",
+  "source_seed_receipt": {
+    "path": "artifacts/EXP-146/receipt.json",
+    "sha256": "9c57ddcd8d32ce78007b5d4aaa33477a04423573e77bd0c98262a2838cb0619e"
+  },
+  "case": {
+    "id": "held-out-midpoint",
+    "seed_case_id": "held-out-midpoint",
+    "parameters": {"a": 0.1481875, "b": 0.2, "c": 20.0}
+  },
+  "families": [
+    {"id": "lower-family-01-lag13"},
+    {"id": "lower-family-02-lag5"},
+    {"id": "lower-family-03-lag7"},
+    {"id": "lower-family-04-lag8"},
+    {"id": "lower-family-05-lag7"},
+    {"id": "lower-family-06-lag12"},
+    {"id": "lower-family-07-lag13"},
+    {"id": "lower-family-08-lag7"},
+    {"id": "lower-family-09-lag3"},
+    {"id": "upper-family-01-lag4"},
+    {"id": "upper-family-02-lag12"}
+  ],
+  "coordinate_scales": [1.0, 30.0, 0.0006],
+  "seed_grid": {
+    "amplitudes": [
+      1E-9,
+      1.333521432163324E-9,
+      1.778279410038923E-9,
+      2.371373705661655E-9,
+      3.1622776601683795E-9,
+      4.216965034285823E-9,
+      5.623413251903491E-9,
+      7.498942093324558E-9,
+      1E-8
+    ],
+    "fine_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "coarse_indices": [0, 2, 4, 6, 8]
+  },
+  "return_horizon": 64,
+  "maximum_flight_time": 50.0,
+  "workers": 4,
+  "stable_cycle": {
+    "initial_state": [1.0, 1.0, 1.0],
+    "transient_time": 1000.0,
+    "observation_horizon": 100.0,
+    "crossing_count": 12,
+    "section_period": 4
+  },
+  "capture": {
+    "scaled_radius": 0.0001,
+    "required_consecutive_crossings": 4
+  },
+  "occupancy": {
+    "coordinate_axes": [1, 2],
+    "bounds": [[-35.0, -5.0], [0.0092, 0.0099]],
+    "bins_per_axis": 48,
+    "dilation_radius_cells": 1
+  },
+  "left_lobe": {
+    "coordinate_axis": 1,
+    "upper_bound": -31.135026064071056
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1E-10,
+    "atol": 1E-12,
+    "max_step": 0.05
+  },
+  "acceptance": {
+    "maximum_stable_cycle_recurrence": 1E-7,
+    "minimum_pre_capture_points_per_group": 50,
+    "minimum_inside_domain_fraction": 0.95,
+    "minimum_coarse_coverage_of_fine_occupancy": 0.5,
+    "minimum_fine_lobe_points": 500,
+    "minimum_coarse_lobe_points": 250
+  }
+}

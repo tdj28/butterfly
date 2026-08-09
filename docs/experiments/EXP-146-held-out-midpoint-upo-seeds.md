@@ -1,6 +1,6 @@
 # EXP-146 — Held-out midpoint UPO manifold seeds
 
-Status: preregistered; not yet executed
+Status: passed
 
 ## Question
 
@@ -36,3 +36,13 @@ PYTHONPATH=python .venv/bin/python scripts/validate_upo_manifold_seeds.py \
 A pass only qualifies the UPO side of the prospective midpoint association
 test. It reveals neither the midpoint's saddle branch class nor whether its
 PIM saddle includes the left lobe.
+
+## Result
+
+The clean `c623dee` run passes all eleven family instances in `22.15 s`.
+Maximum signed-multiplier relative error is `2.946e-4`, maximum transverse
+residual ratio is `3.313e-4`, and maximum independent base-lag closure is
+`3.675e-9`. The midpoint PIM saddle remains uncomputed and blind.
+
+Raw receipt SHA-256:
+`9c57ddcd8d32ce78007b5d4aaa33477a04423573e77bd0c98262a2838cb0619e`.

@@ -521,6 +521,9 @@ exposition requirements.
   EXP-146 now freezes the first half: unchanged EXP-142 gates validate all
   eleven continued UPO seeds at that exact untouched midpoint. Execute it,
   then freeze the midpoint lobe atlas before any PIM classification is read.
+  EXP-146 passes all eleven instances. EXP-147 now freezes 198 midpoint lobe
+  traces with unchanged capture, occupancy, and nested-density controls.
+  Execute it before preregistering and running the independent midpoint PIM.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
