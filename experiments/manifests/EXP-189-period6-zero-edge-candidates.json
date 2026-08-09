@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.jones-zero-edge-candidates-manifest.v1",
+  "experiment_id": "EXP-189",
+  "input": {
+    "path": "artifacts/EXP-188/receipt.json",
+    "sha256": "8a66371f14a0c2507ad409a66069d098a8d7e0a409049db55dc4cf009e5fd5b3",
+    "role": "frozen fine period-6 multiplier grid; no symbolic target"
+  },
+  "selection": {
+    "expected_zero_edge_count": 65,
+    "expected_period": 6,
+    "coordinate_scales": [12.0, 0.55],
+    "rule": "take every horizontally or vertically adjacent valid edge with opposite signed dominant transverse multipliers; linearly interpolate zero and seed correction from the endpoint with smaller absolute multiplier"
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 60, "tolerance": 1e-11},
+  "acceptance": {
+    "maximum_flow_closure": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_neutral_multiplier_error": 5e-7,
+    "maximum_dominant_imaginary_part": 1e-7,
+    "maximum_interpolated_multiplier_magnitude": 0.1,
+    "maximum_endpoint_scaled_orbit_error": 0.08,
+    "minimum_passed_candidates": 60
+  },
+  "claim_scope": "deterministic target-word-blind preparation of stable period-6 orbit candidates on every signed-Floquet zero edge for a later two-critical survivor scan; no center, critical membership, word, arrow, TBA, or conjugacy claim"
+}

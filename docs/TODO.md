@@ -148,7 +148,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   coverage and saddle refinement: 65 zero edges show that the period multiplier
   conflates multiple phase/critical sheets. Freeze a GPU-parallel scan of all
   qualifying zero edges using two independent survivor-derived critical-to-
-  orbit residuals; require both critical memberships before encoding.
+  orbit residuals; require both critical memberships before encoding. EXP-189
+  now freezes the deterministic all-edge interpolation and period-6 correction
+  stage; execute it, bind the resulting candidate file, then launch the
+  cost-capped GPU reconstruction.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

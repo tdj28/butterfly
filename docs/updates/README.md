@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp189-zero-edge-candidates-frozen.md`](2026-08-07-exp189-zero-edge-candidates-frozen.md)
+  — all 65 fine-grid sign-changing edges are frozen for identity-safe period-6
+  correction before any GPU critical-residual ranking.
 - [`2026-08-07-exp188-floquet-locator-rejected.md`](2026-08-07-exp188-floquet-locator-rejected.md)
   — fine continuation reveals many period-6 zero sheets and no refinement-
   stable saddle; the next locator must resolve both criticals directly.
