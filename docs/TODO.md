@@ -518,6 +518,9 @@ exposition requirements.
   profiles enter it within `2.399e-5`/`6.099e-5` fine/coarse scaled distance.
   Freeze a blind joint PIM/UPO-lobe test at `a=0.1481875`; require its branch
   class and lobe-inclusion class to agree without changing the threshold.
+  EXP-146 now freezes the first half: unchanged EXP-142 gates validate all
+  eleven continued UPO seeds at that exact untouched midpoint. Execute it,
+  then freeze the midpoint lobe atlas before any PIM classification is read.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
