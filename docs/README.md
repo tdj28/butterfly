@@ -164,6 +164,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-061-all-period6-zero-edge-candidates-qualified.md`](findings/FND-061-all-period6-zero-edge-candidates-qualified.md):
   qualifies stable period-6 corrections on all 65 zero edges, preserving the
   complete word-blind input set for GPU critical-residual discovery.
+- [`findings/FND-062-period6-floquet-zero-neighborhood-is-unimodal.md`](findings/FND-062-period6-floquet-zero-neighborhood-is-unimodal.md):
+  rejects that complete neighborhood as a two-critical center location while
+  preserving the global double-superstability question.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

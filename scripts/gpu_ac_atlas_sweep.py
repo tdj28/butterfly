@@ -64,6 +64,10 @@ def main() -> int:
     manifest = json.loads(raw_manifest)
     if manifest.get("schema") != "butterfly.gpu-ac-atlas-manifest.v1":
         raise SystemExit("unsupported GPU atlas manifest")
+    for evidence in manifest.get("evidence", ()):
+        path = Path(evidence["path"])
+        if sha256_bytes(path.read_bytes()) != evidence["sha256"]:
+            raise SystemExit(f"evidence hash mismatch: {path}")
     if len(args.source_commit) != 40 or any(
         character not in "0123456789abcdef" for character in args.source_commit.lower()
     ):
@@ -154,6 +158,7 @@ def main() -> int:
             "b": b,
             "shape": [len(a_values), len(c_values)],
             "plan_hash": manifest_hash,
+            "selection": manifest.get("selection"),
             "rows": rows,
         }
         result_bytes = canonical_json(result)
@@ -225,9 +230,10 @@ def main() -> int:
             "gpu_compute_capability": [properties.major, properties.minor],
             "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
         },
-        "scientific_scope": (
+        "scientific_scope": manifest.get(
+            "claim_scope",
             "Single-initial-condition periodic recurrence atlas. Unresolved pixels are "
-            "not classified as chaotic, and raster adjacency is not continuation."
+            "not classified as chaotic, and raster adjacency is not continuation.",
         ),
     }
     summary_bytes = canonical_json(summary)

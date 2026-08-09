@@ -195,6 +195,18 @@ successor must therefore reconstruct both criticals independently and solve
 their two distances to the corrected orbit; multiplier zeros may only bound
 that search.
 
+That direct successor retains all 65 zero-edge candidates and reconstructs
+their middle-time survivor maps at two fixed steps on a GPU.  Every one of the
+130 candidate/profile maps resolves as two-branch under all five frozen oracle
+variants.  Final survivor counts range from 605 to 977, return-pair counts from
+5682 to 9256, no integration fails, and normalized critical-interval spans
+remain below 0.0134.  Thus the missing second critical is not a sampling-power
+failure: the complete local Floquet-zero set around the first approximate
+period-6 landmark is unimodal on the recovered historical x representation.
+No center is selected.  This further narrows the search without rejecting
+double superstability elsewhere, particularly because the source prints
+unordered approximate landmarks and no reproducible section equation.
+
 The third test now defines reinjection on the genuinely three-branch saddle
 continued from $a=0.1485$, rather than on the rejected $a=0.148$ transient
 domain.  It treats reinjection as an observable of the return map rather

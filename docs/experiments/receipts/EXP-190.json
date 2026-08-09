@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-summary.v1",
+  "experiment_id": "EXP-190",
+  "passed": false,
+  "source_commit": "7eefb28acbe34dce9c81b5793accaad897ca08cf",
+  "source_archive_sha256": "abdd67a49e419ee5cbed6dd71d1fbfbd8801ab4c271ec22613b59dbb9dd019d8",
+  "manifest_sha256": "c8b0f99fe75a8d7b12954889511f57db848e9bb7139398c9ee68d7e6bf7d5873",
+  "candidate_input_sha256": "33ccb7968190d2af7ac775fcbc0418fab76ea1935bd83027db0178f5f379070a",
+  "raw_artifact": "artifacts/EXP-190/receipt.json",
+  "raw_artifact_bytes": 311446,
+  "raw_artifact_sha256": "eb2eac8fbf7f07aab01737cba51eab260dce0991ec1313e69449096c22046b4f",
+  "environment": {"gpu": "NVIDIA RTX A4500", "gpu_memory_bytes": 21151088640, "compute_capability": [8, 6], "python": "3.11.11", "numpy": "2.1.2", "scipy": "1.17.1", "torch": "2.8.0.dev20250319+cu128", "torch_cuda": "12.8", "triton": "3.3.0"},
+  "profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01, "elapsed_seconds": 8.835245847702026, "state_steps_per_second": 301338530.46007407, "candidate_count": 65, "eligible_candidate_count": 0, "branch_count_histogram": {"2": 65}, "final_survivor_range": [613, 977], "return_pair_range": [5763, 9256], "failed_trajectory_count": 0, "maximum_normalized_critical_span": 0.013007581889786872},
+    {"name": "rk4_dt_0005", "dt": 0.005, "elapsed_seconds": 11.846247486770153, "state_steps_per_second": 449492550.78004384, "candidate_count": 65, "eligible_candidate_count": 0, "branch_count_histogram": {"2": 65}, "final_survivor_range": [605, 969], "return_pair_range": [5682, 9167], "failed_trajectory_count": 0, "maximum_normalized_critical_span": 0.013325183419326148}
+  ],
+  "selected_candidate": null,
+  "provisioning": {"completed_worker": "SECURE NVIDIA RTX A4500 at 0.25 USD/hour", "stalled_workers_terminated": 2, "conservative_total_cost_bound_usd": 0.06, "remote_local_hash_match": true, "active_pods_after_teardown": 0},
+  "validation": {"local_tests": "212 passed", "remote_portable_tests": "208 passed", "remote_deviations": "three archive-without-git tile tests and one unrelated 1.39e-14 Linux/SciPy tolerance excess"},
+  "interpretation": "All 130 candidate/profile return maps are robustly two-branch, so this Floquet-zero neighborhood on the recovered historical x representation cannot supply the two distinct critical intervals required for a doubly-superstable center."
+}

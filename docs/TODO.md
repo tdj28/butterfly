@@ -151,10 +151,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   orbit residuals; require both critical memberships before encoding. EXP-189
   now freezes the deterministic all-edge interpolation and period-6 correction
   stage. All 65 candidates pass with closure below `1.83e-12`. EXP-190 binds
-  the full artifact and freezes the two-step GPU reconstruction and direct
-  two-critical ranking. Launch a cost-capped worker, upload the tracked source
-  archive plus the hash-bound candidate artifact, execute, retrieve, verify,
-  and terminate immediately.
+  the full artifact and executes the two-step GPU reconstruction. All 130 maps
+  are robustly two-branch, rejecting the first landmark's Floquet-zero
+  neighborhood as a two-critical center location. A post-result diagnostic at
+  the other exact period-6 landmark `(0.215,7.6)` finds a three-branch Barrio-
+  section z map and one near-critical orbit phase. Prospectively map that
+  landmark's complete stable period-6 window at high resolution, correct its
+  interior cycles, and solve the two critical residuals without symbolic data.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

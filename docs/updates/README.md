@@ -22,6 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp191-second-period6-window-frozen.md`](2026-08-09-exp191-second-period6-window-frozen.md)
+  — a 40,401-pixel target-word-blind atlas is frozen around the newly
+  identified three-branch period-6 search lead.
+- [`2026-08-09-exp190-unimodal-neighborhood-and-new-lead.md`](2026-08-09-exp190-unimodal-neighborhood-and-new-lead.md)
+  — all 65 Floquet-zero candidates remain two-branch, while an exploratory
+  second-landmark check identifies a prospectively testable three-branch lead.
 - [`2026-08-07-exp190-gpu-two-critical-scan-frozen.md`](2026-08-07-exp190-gpu-two-critical-scan-frozen.md)
   — both critical-to-orbit residuals, factor-two GPU parity, and target-word-
   blind ranking are frozen over all 65 prepared period-6 candidates.

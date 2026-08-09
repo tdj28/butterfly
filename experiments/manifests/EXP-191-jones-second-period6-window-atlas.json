@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.gpu-ac-atlas-manifest.v1",
+  "experiment_id": "EXP-191",
+  "evidence": [
+    {"path": "experiments/source-transcriptions/jones2012-figures-2-and-6.json", "sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da", "role": "source-transcribed second exact period-6 landmark at (a,c)=(0.215,7.6)"},
+    {"path": "docs/experiments/receipts/EXP-174.json", "sha256": "a2b9e4ad2e82cada9b8d3b926353c6eb682be093b0359e03eba2037d579f6043", "role": "blind DOP853/Radau period-6 classification of the exact landmark"},
+    {"path": "docs/experiments/receipts/EXP-190.json", "sha256": "3514bdbd9863bef86d424f5c041b0b8ded5eee347e377938aa04da02a55f5fd7", "role": "qualified negative result for the first landmark's Floquet-zero neighborhood"}
+  ],
+  "grid": {
+    "a": {"min": 0.21, "max": 0.22, "count": 201},
+    "b_values": [0.2],
+    "c": {"min": 7.4, "max": 7.8, "count": 201},
+    "bounds_rationale": "symmetric target-word-blind window around the other exact period-6 source landmark; 5e-5 by 0.002 resolution resolves the coarse EXP-021 pixel by factors 50 in each parameter"
+  },
+  "integration": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 2400.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 128,
+    "dt": 0.005,
+    "chunk_steps": 4096,
+    "dtype": "float64"
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1e-7
+  },
+  "selection": {
+    "target_period": 6,
+    "anchor": {"a": 0.215, "b": 0.2, "c": 7.6},
+    "rule": "after execution, retain the eight-connected period-6 component containing the anchor pixel; if the anchor is not period-6, retain no component",
+    "word_blind": true
+  },
+  "acceptance": {"maximum_numerical_failure_fraction": 0.001},
+  "claim_scope": "single-initial-condition high-resolution discovery atlas for the complete local stable period-6 window around Jones's other exact period-6 landmark; a pass does not establish asymptotic basin completeness, periodic-orbit continuation, double superstability, a Figure 6 word, TBA membership, or center geometry"
+}

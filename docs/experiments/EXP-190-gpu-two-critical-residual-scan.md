@@ -1,6 +1,6 @@
 # EXP-190 — GPU two-critical residual scan
 
-Status: preregistered; not yet executed
+Status: executed; failed scientifically
 
 ## Question
 
@@ -40,3 +40,31 @@ Manifest:
 A pass is a GPU discovery nomination only. The selected parameter must pass a
 separately frozen CPU fixed-step, DOP853, and Radau confirmation before it can
 be called doubly superstable or encoded symbolically.
+
+## Result
+
+The scan completed from frozen source commit
+`7eefb28acbe34dce9c81b5793accaad897ca08cf` on a secure RTX A4500. Both
+remote and local copies of the 311,446-byte receipt have SHA-256
+`eb2eac8fbf7f07aab01737cba51eab260dce0991ec1313e69449096c22046b4f`.
+The worker was terminated after retrieval and the account contained no active
+pods.
+
+Both profiles fail for one sharply localized reason. Every one of the 65
+candidates resolves as a two-branch x return map under all five oracle
+variants; none supplies the required second critical interval. This is not a
+power, integration, or event-localization failure:
+
+| RK4 step | Final survivors | Return pairs | Failed trajectories | Branch counts | Throughput |
+| ---: | ---: | ---: | ---: | --- | ---: |
+| `0.01` | `613--977` | `5,763--9,256` | `0` | 65 two-branch | `3.01e8` state-steps/s |
+| `0.005` | `605--969` | `5,682--9,167` | `0` | 65 two-branch | `4.49e8` state-steps/s |
+
+The maximum within-profile normalized critical span is only `0.01333`.
+Consequently no candidate is eligible, no ranking is produced, and no center
+is selected. EXP-190 rejects this Floquet-zero neighborhood on the recovered
+historical x representation as a location for a two-critical center. It does
+not reject double superstability elsewhere, on another printed landmark, or
+on another explicitly declared section.
+
+Compact receipt: [`receipts/EXP-190.json`](receipts/EXP-190.json).
