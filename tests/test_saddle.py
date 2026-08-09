@@ -56,6 +56,25 @@ def test_cubic_hermite_crossing_recovers_exact_polynomial_state() -> None:
     np.testing.assert_allclose(state, ((0.0, 0.09, 2.0),), atol=1e-12)
 
 
+def test_cubic_hermite_crossing_handles_negative_orientation() -> None:
+    previous = np.asarray(((2.0, 0.3, 0.0),))
+    current = np.asarray(((2.0, -0.7, 1.0),))
+    previous_derivative = np.asarray(((0.0, -1.0, 0.0),))
+    current_derivative = np.asarray(((0.0, -1.0, 2.0),))
+    alpha, state = _cubic_hermite_crossing(
+        previous,
+        current,
+        previous_derivative,
+        current_derivative,
+        dt=1.0,
+        normal=(0.0, 1.0, 0.0),
+        offset=0.0,
+        direction=-1,
+    )
+    np.testing.assert_allclose(alpha, (0.3,), atol=1e-12)
+    np.testing.assert_allclose(state, ((2.0, 0.0, 0.09),), atol=1e-12)
+
+
 def test_scrambled_sobol_section_ensemble_is_nested_and_bounded() -> None:
     section = PoincareSection(normal=(1.0, 0.0, 0.0), offset=0.25, direction=1)
     coarse = scrambled_sobol_section_states(
@@ -136,6 +155,36 @@ def test_survivor_return_pairs_do_not_join_trajectories() -> None:
     )
     assert len(source) == expected
     assert len(target) == expected
+
+
+def test_sprinkler_accepts_a_negative_gated_axis_aligned_section() -> None:
+    parameters = RosslerParameters(a=0.2, b=0.2, c=20.0)
+    section = PoincareSection(
+        normal=(0.0, 1.0, 0.0),
+        offset=0.0,
+        direction=-1,
+        gate_axis=0,
+        gate_upper=0.0,
+    )
+    initial = np.asarray(((-10.0, 0.0, 0.01), (-12.0, 0.0, 0.01)))
+    reference = np.asarray(((-20.0, 0.0, 0.01),))
+    result = sprinkler_survivors(
+        parameters,
+        initial,
+        section,
+        reference,
+        dt=0.01,
+        horizon=0.1,
+        capture_coordinate_axes=(0, 2),
+        capture_coordinate_scales=(10.0, 0.01),
+        capture_radius=1e-6,
+        required_capture_crossings=2,
+        checkpoint_times=(0.05, 0.1),
+        midpoint_window=(0.02, 0.08),
+    )
+    np.testing.assert_array_equal(result.survivor_ids, (0, 1))
+    np.testing.assert_array_equal(result.survivor_counts, (2, 2))
+    assert not np.any(result.failed)
 
 
 def test_pim_refinement_finds_strict_interior_lifetime_peak() -> None:
@@ -265,3 +314,26 @@ def test_adaptive_section_return_skips_initial_root() -> None:
     assert returned.flight_time > 1.0
     assert abs(section.value(returned.state)) < 1e-10
     assert -returned.state[1] - returned.state[2] > 0.0
+
+
+def test_adaptive_section_return_supports_negative_gated_section() -> None:
+    parameters = RosslerParameters(a=0.2, b=0.2, c=20.0)
+    section = PoincareSection(
+        normal=(0.0, 1.0, 0.0),
+        offset=-0.01,
+        direction=-1,
+        gate_axis=0,
+        gate_upper=0.01,
+    )
+    returned = next_section_return(
+        parameters,
+        (-20.0, -0.01, 0.01),
+        section,
+        config=SolverConfig(method="DOP853", rtol=1e-10, atol=1e-12, max_step=0.05),
+        maximum_flight_time=50.0,
+    )
+    assert returned.success
+    assert returned.flight_time > 1.0
+    assert abs(section.value(returned.state)) < 1e-9
+    assert section.accepts(returned.state)
+    assert returned.state[0] + parameters.a * returned.state[1] < 0.0

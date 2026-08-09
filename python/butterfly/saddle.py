@@ -545,8 +545,8 @@ def next_section_return(
         raise ValueError("invalid section-return flight times")
     if abs(section.value(state)) > 1e-8:
         raise ValueError("initial_state must lie on the declared section")
-    if section.direction != 1:
-        raise ValueError("adaptive PIM return currently requires direction +1")
+    if section.direction not in (-1, 1):
+        raise ValueError("adaptive return requires one declared crossing orientation")
 
     def rhs(time, value):
         return rossler_rhs(time, value, parameters)
@@ -572,7 +572,7 @@ def next_section_return(
         return section.value(value)
 
     event.direction = section.direction  # type: ignore[attr-defined]
-    event.terminal = True  # type: ignore[attr-defined]
+    event.terminal = section.gate_axis is None  # type: ignore[attr-defined]
     result = solve_ivp(
         rhs,
         (departure_time, maximum_flight_time),
@@ -590,17 +590,20 @@ def next_section_return(
             state=np.full(3, np.nan),
             message=str(result.message) if not result.success else "no section return",
         )
-    crossing = np.asarray(result.y_events[0][0], dtype=np.float64)
-    if not section.accepts(crossing):
+    raw_states = np.asarray(result.y_events[0], dtype=np.float64)
+    accepted = np.asarray([section.accepts(value) for value in raw_states], dtype=bool)
+    if not np.any(accepted):
         return SectionReturnResult(
             success=False,
             flight_time=float("nan"),
             state=np.full(3, np.nan),
-            message="section return failed the declared gate",
+            message="no oriented section return passed the declared gate",
         )
+    index = int(np.flatnonzero(accepted)[0])
+    crossing = raw_states[index]
     return SectionReturnResult(
         success=True,
-        flight_time=float(result.t_events[0][0]),
+        flight_time=float(result.t_events[0][index]),
         state=crossing,
         message="section return located",
     )
@@ -789,9 +792,10 @@ def _cubic_hermite_crossing(
     dt,
     normal,
     offset,
+    direction=1,
     bisection_iterations=40,
 ):
-    """Interpolate negative-to-positive section roots inside one flow step."""
+    """Interpolate an oriented section root inside one flow step."""
 
     previous = np.asarray(previous, dtype=np.float64)
     current = np.asarray(current, dtype=np.float64)
@@ -806,7 +810,12 @@ def _cubic_hermite_crossing(
         or current_derivative.shape != previous.shape
     ):
         raise ValueError("Hermite states and derivatives must share shape (n,3)")
-    if normal.shape != (3,) or dt <= 0.0 or bisection_iterations < 1:
+    if (
+        normal.shape != (3,)
+        or direction not in (-1, 1)
+        or dt <= 0.0
+        or bisection_iterations < 1
+    ):
         raise ValueError("invalid Hermite section geometry or iteration count")
 
     def interpolate(alpha):
@@ -829,8 +838,12 @@ def _cubic_hermite_crossing(
     for _ in range(bisection_iterations):
         midpoint = 0.5 * (left + right)
         values = interpolate(midpoint) @ normal - offset
-        right = np.where(values >= 0.0, midpoint, right)
-        left = np.where(values < 0.0, midpoint, left)
+        if direction == 1:
+            right = np.where(values >= 0.0, midpoint, right)
+            left = np.where(values < 0.0, midpoint, left)
+        else:
+            right = np.where(values <= 0.0, midpoint, right)
+            left = np.where(values > 0.0, midpoint, left)
     alpha = 0.5 * (left + right)
     return alpha, interpolate(alpha)
 
@@ -880,10 +893,11 @@ def sprinkler_survivors(
 ) -> SprinklerResult:
     """Select long-lived trajectories and their middle-time section points.
 
-    The reference implementation is intentionally conservative and currently
-    supports the positive-oriented axis-aligned section used by Barrio et al.
-    A trajectory is captured only after a declared number of consecutive
-    section returns within a scaled radius of the stable reference cycle.
+    The reference implementation supports either orientation of an
+    axis-aligned section and applies any declared half-plane gate after root
+    interpolation. A trajectory is captured only after a declared number of
+    consecutive accepted section returns within a scaled radius of the
+    reference invariant set.
     """
 
     initial = np.asarray(initial_states, dtype=np.float64)
@@ -893,10 +907,9 @@ def sprinkler_survivors(
         raise ValueError("initial_states must have nonempty shape (n,3)")
     if not np.all(np.isfinite(initial)):
         raise ValueError("initial_states must be finite")
-    if section.normal != (1.0, 0.0, 0.0) or section.direction != 1:
-        raise ValueError("sprinkler reference requires an x-plane with direction +1")
-    if section.gate_axis is not None:
-        raise ValueError("sprinkler reference does not support a gated section")
+    normal = np.asarray(section.normal, dtype=np.float64)
+    if np.count_nonzero(normal) != 1 or section.direction not in (-1, 1):
+        raise ValueError("sprinkler reference requires an oriented axis-aligned plane")
     if dt <= 0.0 or horizon <= 0.0 or capture_radius <= 0.0:
         raise ValueError("dt, horizon, and capture_radius must be positive")
     if required_capture_crossings < 1 or escape_radius <= 0.0:
@@ -937,9 +950,12 @@ def sprinkler_survivors(
         if np.any(~valid):
             failed[active_ids[~valid]] = True
 
-        previous_value = previous[:, 0] - section.offset
-        current_value = current[:, 0] - section.offset
-        crossed = valid & (previous_value < 0.0) & (current_value >= 0.0)
+        previous_value = previous @ normal - section.offset
+        current_value = current @ normal - section.offset
+        if section.direction == 1:
+            crossed = valid & (previous_value < 0.0) & (current_value >= 0.0)
+        else:
+            crossed = valid & (previous_value > 0.0) & (current_value <= 0.0)
         crossed_local = np.flatnonzero(crossed)
         captured_local = np.zeros(len(active_ids), dtype=bool)
         if len(crossed_local):
@@ -953,34 +969,43 @@ def sprinkler_survivors(
                 dt=dt,
                 normal=section.normal,
                 offset=section.offset,
+                direction=section.direction,
             )
-            crossed_ids = active_ids[crossed_local]
-            distances = cycle_crossing_distances(
-                crossing,
-                cycle,
-                coordinate_axes=capture_coordinate_axes,
-                coordinate_scales=capture_coordinate_scales,
-            )
-            close = distances <= capture_radius
-            capture_streaks[crossed_ids] = np.where(
-                close, capture_streaks[crossed_ids] + 1, 0
-            )
-            newly_captured = (
-                capture_streaks[crossed_ids] >= required_capture_crossings
-            )
-            if np.any(newly_captured):
-                local = crossed_local[newly_captured]
-                captured_local[local] = True
-                capture_times[active_ids[local]] = (step - 1 + alpha[newly_captured]) * dt
-            crossing_times = (step - 1 + alpha) * dt
-            in_midpoint = (
-                (crossing_times >= midpoint_start)
-                & (crossing_times <= midpoint_end)
-            )
-            if np.any(in_midpoint):
-                record_ids.append(crossed_ids[in_midpoint])
-                record_times.append(crossing_times[in_midpoint])
-                record_states.append(crossing[in_midpoint])
+            if section.gate_axis is not None:
+                accepted = crossing[:, section.gate_axis] < float(section.gate_upper)
+                crossed_local = crossed_local[accepted]
+                alpha = alpha[accepted]
+                crossing = crossing[accepted]
+            if len(crossed_local):
+                crossed_ids = active_ids[crossed_local]
+                distances = cycle_crossing_distances(
+                    crossing,
+                    cycle,
+                    coordinate_axes=capture_coordinate_axes,
+                    coordinate_scales=capture_coordinate_scales,
+                )
+                close = distances <= capture_radius
+                capture_streaks[crossed_ids] = np.where(
+                    close, capture_streaks[crossed_ids] + 1, 0
+                )
+                newly_captured = (
+                    capture_streaks[crossed_ids] >= required_capture_crossings
+                )
+                if np.any(newly_captured):
+                    local = crossed_local[newly_captured]
+                    captured_local[local] = True
+                    capture_times[active_ids[local]] = (
+                        step - 1 + alpha[newly_captured]
+                    ) * dt
+                crossing_times = (step - 1 + alpha) * dt
+                in_midpoint = (
+                    (crossing_times >= midpoint_start)
+                    & (crossing_times <= midpoint_end)
+                )
+                if np.any(in_midpoint):
+                    record_ids.append(crossed_ids[in_midpoint])
+                    record_times.append(crossing_times[in_midpoint])
+                    record_states.append(crossing[in_midpoint])
 
         retain = valid & ~captured_local
         active_ids = active_ids[retain]
