@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp181-gap-geometry-parity-failure.md`](2026-08-07-exp181-gap-geometry-parity-failure.md)
+  — survivor criticals hit both frozen flank predictions, while the invalid
+  long-time pointwise integrator-parity gate is honestly retained as failed.
 - [`2026-08-07-exp181-jones-gap-sprinkler-frozen.md`](2026-08-07-exp181-jones-gap-sprinkler-frozen.md)
   — attractor-reference capture, negative gated-section sprinkler, flank
   predictions, and adaptive precision audit frozen at EXP-180's sole gap.

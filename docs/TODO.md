@@ -120,9 +120,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   then locally tracks the same critical at 20/21 DOP853 points and 4/5 Radau
   controls and selects trimodal index 1 at the endpoint, but retains a
   solver-independent support hole at `a=0.156`: only `14–23.3%` of bins are
-  occupied. Construct a qualified transient or nonattracting invariant-set
-  cloud at that exact gap rather than interpolating or accepting spline
-  extrapolation. Only then freeze the neutral-to-Jones alphabet mapping.
+  occupied. EXP-181's 64,571-pair survivor cloud hits both frozen physical
+  critical predictions and passes all local variants, but its long-time
+  fixed-step/DOP853 pointwise capture audit fails at 62.5%. Freeze an EXP-113-
+  style successor using survivor-statistic and critical-location parity across
+  RK4 step sizes, attractor false-negative controls, and only short-horizon
+  DOP853 state/event comparisons. Only a pass can close the gap and permit the
+  neutral-to-Jones alphabet mapping.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

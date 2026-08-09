@@ -150,3 +150,12 @@ solver-independent low domain coverage, not a competing nominal critical.
 DEC-014 therefore forbids interpolation across it: a transient or
 nonattracting invariant-set cloud must independently restore support before
 the local identity or historical alphabet is qualified.
+
+EXP-181 prospectively fills the missing support with 64,571 survivor pairs per
+coordinate and lands essentially on both frozen physical critical predictions.
+It nevertheless fails its long-time pointwise fixed-step/DOP853 capture audit
+at `10/16`. That failure is retained. Because chaotic trajectory labels
+decorrelate across integrators, the successor must use the statistical parity
+logic already qualified in EXP-113: step-size survival/topology comparison,
+an attractor false-negative control, and DOP853 state/event comparison only on
+a short pre-decorrelation horizon.
