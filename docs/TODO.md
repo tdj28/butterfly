@@ -508,6 +508,12 @@ exposition requirements.
   pass. Retire finite-horizon capture timing as the connection proxy. Define
   the next residual directly from stable/unstable manifold geometry or
   symbolic pruning, with an explicit null control and seed/mesh convergence.
+  DEC-013 rejects backward Float64 stable-manifold tracing after a representative
+  return proves effectively singular. EXP-145 now freezes a retrospective
+  full-section residual: the two-side PIM saddle must exclude the UPO left
+  escape lobe, while every three-side PIM access line and both horizons must
+  overlap it under nested atlas density. Execute, then require a held-out
+  parameter before promoting the residual.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
