@@ -28,6 +28,8 @@ parameter-plane claims. EXP-145 is retrospective, PIM clouds approximate the
 invariant saddle, and nearest-neighbor overlap is not an exact transverse or
 tangent manifold intersection. A fresh parameter must prospectively show that
 branch class and lobe inclusion agree before this residual becomes
-claim-bearing.
+claim-bearing. EXP-149 subsequently supplies that held-out pass at
+`a=0.1481875`: its blind two-branch PIM saddle excludes the same frozen lobe on
+all six access-line/horizon reconstructions; see FND-043.
 
 Tracked receipt: `docs/experiments/receipts/EXP-145.json`.

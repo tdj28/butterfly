@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.midpoint-lobe-pim-association-summary.v1",
+  "experiment_id": "EXP-149",
+  "passed": true,
+  "source_commit": "9a7881124ed948e854c43d47a8bee933ac54c457",
+  "manifest_sha256": "a9ca08260984ed1888739db56363f01372e1586aa2e26c9ad386d659f9178fa9",
+  "source_lobe_receipt_sha256": "2f6a80c968dc3f9afbba3b25bb82919fa5b4456f1e2ed4014287f93b2359c54e",
+  "source_pim_receipt_sha256": "c8b30a50ab49f01da6ce1694ca6b269ee1060a90e2236e96482876ceb92b0a35",
+  "source_pim_states_sha256": "5ead804c1d1ee9a417102f04d6e5c59e676f3d49c309aed4d88013fa5a2b0840",
+  "raw_receipt": "artifacts/EXP-149/receipt.json",
+  "raw_receipt_sha256": "7b390bb14861ca3ffee3789b802fc281c90f6017479efe1e34a127859846ce6f",
+  "raw_receipt_bytes": 2104,
+  "observed_saddle_branch_count": 2,
+  "association_class": "two_branch_and_lobe_excluded",
+  "fine_lobe_point_count": 989,
+  "coarse_lobe_point_count": 558,
+  "access_line_count": 6,
+  "left_lobe_counts": [0, 0, 0, 0, 0, 0],
+  "minimum_observed_y": -30.456556130638774,
+  "frozen_left_lobe_threshold_y": -31.135026064071056
+}

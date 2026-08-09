@@ -561,6 +561,11 @@ exposition requirements.
   receipt and state-archive hashes. The EXP-149 evaluator,
   two↔excluded/three↔included decision, and all thresholds are now committed
   before EXP-148; after that run, only hash/path fields were instantiated.
+  EXP-149 passes prospectively: all six blind two-branch PIM clouds contain
+  zero states in the frozen UPO left-lobe region, while the independent atlas
+  retains 989/558 fine/coarse lobe points. Promote lobe membership to a
+  supported local mechanism observable, then define an exact
+  manifold-intersection or symbolic-pruning residual.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

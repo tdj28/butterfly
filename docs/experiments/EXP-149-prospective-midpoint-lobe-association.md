@@ -1,6 +1,6 @@
 # EXP-149 — Prospective midpoint branch/lobe association
 
-Status: analysis code and gates frozen before EXP-148; source hashes instantiated after its blind class passed
+Status: passed prospective two-branch/lobe-exclusion association
 
 ## Question
 
@@ -35,3 +35,12 @@ EXP-148 receipt/state archive. No scientific value or decision rule may change.
 A pass is the first prospective association between local saddle branch class
 and UPO-lobe inclusion. It remains one midpoint, uses finite PIM point clouds,
 and is not an exact manifold-intersection proof or a continued TBA curve.
+
+## Result
+
+EXP-149 passes. EXP-148 independently selects two branches. Every one of the
+six access-line/horizon PIM clouds has zero post-burn-in states below the frozen
+left-lobe boundary, while the EXP-147 atlas supplies 989 fine and 558 coarse
+lobe points. The association class is `two_branch_and_lobe_excluded`.
+
+Tracked receipt: `docs/experiments/receipts/EXP-149.json`.
