@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp195-eight-phase-requalification-frozen.md`](2026-08-09-exp195-eight-phase-requalification-frozen.md)
+  — a one-check successor freezes eight Barrio phases while preserving every
+  EXP-194 orbit and all other qualification gates unchanged.
 - [`2026-08-09-exp194-local-corrected-cycles-frozen.md`](2026-08-09-exp194-local-corrected-cycles-frozen.md)
   — a no-egress successor freezes DOP853 correction, Floquet stability, and
   Barrio-section phase extraction at 65 geometry-only component pixels.

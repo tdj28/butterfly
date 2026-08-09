@@ -1,0 +1,36 @@
+{
+  "schema": "butterfly.local-corrected-second-component-cycles-summary.v1",
+  "experiment_id": "EXP-194",
+  "passed": false,
+  "source_commit": "158c2ead51ea4d3b204c2e02f13fa75149d01cb7",
+  "manifest_sha256": "0eecfea6b93a987376072b838fca766683f1e3678e8700ba1189c139a8491a68",
+  "raw_artifact": "artifacts/EXP-194/candidates.json",
+  "raw_artifact_sha256": "90a1c5f5e0f3f8ce4514d153845b6deef595cb6fd8797ab8d0e42420308fcdf7",
+  "elapsed_seconds": 36.545185416936874,
+  "environment": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "maximum_workers": 8
+  },
+  "selection": {
+    "component_point_count": 2598,
+    "sample_count": 65,
+    "normalized_fill_radius": 0.03791451571108494
+  },
+  "historical_period6_count": 58,
+  "historical_unresolved_count": 6,
+  "historical_period5_count": 1,
+  "otherwise_qualified_orbit_count": 58,
+  "barrio_section_crossing_histogram": {"8": 58},
+  "failed_check_histogram": {"barrio_crossing_count": 58},
+  "qualified_ranges": {
+    "flow_closure": [7.763282751771138e-15, 8.146129804852638e-13],
+    "absolute_phase_residual": [3.83711129865214e-22, 2.6187077754449703e-18],
+    "neutral_multiplier_error": [9.090195263183887e-11, 1.2386158765309574e-9],
+    "dominant_transverse_modulus": [0.02769857058529273, 0.9997660275555799],
+    "flow_period": [43.380114585584685, 44.44113477979848]
+  },
+  "interpretation": "The stable flow orbits are period 6 on the historical half-plane but have eight intersections per flow period on Barrio's positive-x section. EXP-194 fails its frozen six-crossing expectation; a successor may change only that representation-specific count while preserving all orbit data."
+}

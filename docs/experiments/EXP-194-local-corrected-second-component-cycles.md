@@ -1,6 +1,7 @@
 # EXP-194 — Local corrected cycles from the second period-6 component
 
-Status: preregistered; not yet executed
+Status: executed; failed only because the frozen Barrio-section phase count was
+six rather than the observed eight
 
 ## Question
 
@@ -35,3 +36,25 @@ continuous family identity. The output is a hash-freezable input for a separate
 two-step GPU survivor reconstruction using Barrio-section `z` as the scalar
 return coordinate. Center status still requires two distinct critical
 memberships and independent solver/step confirmation.
+
+## Result
+
+The local eight-worker run from clean commit `158c2ea` completed in 36.55
+seconds. Fifty-eight of 65 geometry-selected pixels reproduce fundamental
+period 6 on the historical section, correct to stable flow orbits, and pass
+every closure, phase, monodromy, neutral-multiplier, and stability gate. Six
+boundary-adjacent pixels remain unresolved under DOP853 and one resolves as
+period 5.
+
+All 58 corrected period-6 flow orbits intersect Barrio's positive-x section
+exactly eight times per flow period, so every otherwise passing row fails the
+preregistered `barrio_crossing_count == 6` check. Flow closure spans
+`[7.76e-15,8.15e-13]`, neutral-multiplier error
+`[9.09e-11,1.24e-9]`, and dominant transverse modulus
+`[0.02770,0.99977]`. This is a systematic section-representation mismatch,
+not an orbit-correction failure.
+
+EXP-195 freezes a one-check requalification requiring eight finite Barrio
+phases while preserving every orbit and all other checks byte for byte.
+
+Compact receipt: [`receipts/EXP-194.json`](receipts/EXP-194.json).

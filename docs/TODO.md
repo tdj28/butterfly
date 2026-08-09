@@ -170,7 +170,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   geometry-only sample of the second component, recover its six section
   phases, and scan the explicitly declared Barrio-section z return map for two
   critical-to-orbit residuals before any word is encoded. Test possible
-  unstable continuation between the two windows separately.
+  unstable continuation between the two windows separately. EXP-194 corrects
+  58 stable historical period-6 flow orbits but shows that each has eight,
+  rather than six, phases on Barrio's positive-x section. Requalify only that
+  section count in EXP-195, then scan both critical residuals against all eight
+  Barrio phases.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

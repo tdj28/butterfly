@@ -126,6 +126,15 @@ def section_kind(manifest: dict) -> tuple[str, int]:
     return name, codes[name]
 
 
+def cycle_state_count(manifest: dict) -> int:
+    """Return the fixed number of target-section phases per candidate."""
+
+    count = int(manifest.get("cycle_state_count", 6))
+    if not 2 <= count <= 64:
+        raise ValueError("cycle state count must be between 2 and 64")
+    return count
+
+
 if triton is not None:  # pragma: no cover - compiled only on CUDA workers
 
     @triton.jit
@@ -167,6 +176,7 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
         dt: tl.constexpr,
         record_crossings: tl.constexpr,
         max_recorded_crossings: tl.constexpr,
+        cycle_state_count: tl.constexpr,
         capture_scale_first: tl.constexpr,
         capture_scale_z: tl.constexpr,
         capture_radius_squared: tl.constexpr,
@@ -292,8 +302,8 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
                 record_count += recorded.to(tl.int32)
 
             minimum_distance = tl.full((block_size,), float("inf"), tl.float64)
-            for orbit_index in tl.static_range(0, 6):
-                cycle_base = case * 18 + orbit_index * 3
+            for orbit_index in tl.static_range(0, cycle_state_count):
+                cycle_base = case * cycle_state_count * 3 + orbit_index * 3
                 cycle_x = tl.load(cycle_states + cycle_base)
                 cycle_y = tl.load(cycle_states + cycle_base + 1)
                 cycle_z = tl.load(cycle_states + cycle_base + 2)
@@ -373,6 +383,7 @@ def integrate_gpu(
     gpu_options,
     section_name,
     section_code,
+    target_cycle_state_count,
 ):
     if torch is None or triton is None or not torch.cuda.is_available():
         raise RuntimeError("CUDA, PyTorch, and Triton are required")
@@ -440,6 +451,7 @@ def integrate_gpu(
                 dt=float(dt),
                 record_crossings=record,
                 max_recorded_crossings=max_crossings,
+                cycle_state_count=target_cycle_state_count,
                 capture_scale_first=float(capture["coordinate_scales"][0]),
                 capture_scale_z=float(capture["coordinate_scales"][1]),
                 capture_radius_squared=float(capture["radius"]) ** 2,
@@ -645,6 +657,12 @@ def main() -> int:
         raise SystemExit("unexpected passed candidate count")
     coordinate_name, coordinate_axis = return_coordinate_axis(manifest)
     section_name, section_code = section_kind(manifest)
+    target_cycle_state_count = cycle_state_count(manifest)
+    if any(
+        np.asarray(row["section_states"]).shape != (target_cycle_state_count, 3)
+        for row in candidates
+    ):
+        raise SystemExit("candidate section-state count or shape mismatch")
 
     profile_results = []
     profile_rows = []
@@ -660,6 +678,7 @@ def main() -> int:
             gpu_options=manifest["gpu"],
             section_name=section_name,
             section_code=section_code,
+            target_cycle_state_count=target_cycle_state_count,
         )
         rows = _profile_rows(candidates, run, manifest, profile)
         profile_rows.append(rows)
@@ -697,6 +716,7 @@ def main() -> int:
         "candidate_input_sha256": sha256_bytes(candidate_bytes),
         "return_coordinate": {"name": coordinate_name, "axis": coordinate_axis},
         "section": {"kind": section_name, "gpu_code": section_code},
+        "cycle_state_count": target_cycle_state_count,
         "source": {
             "declared_commit": args.source_commit,
             "observed_git_commit": observed_commit,

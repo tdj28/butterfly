@@ -1,5 +1,6 @@
 from scripts.gpu_scan_jones_two_critical_residuals import (
     critical_orbit_assignment,
+    cycle_state_count,
     rank_candidate_rows,
     return_coordinate_axis,
     section_kind,
@@ -50,3 +51,8 @@ def test_section_defaults_to_legacy_and_accepts_barrio() -> None:
         "barrio_positive_x",
         1,
     )
+
+
+def test_cycle_state_count_defaults_to_six_and_accepts_eight() -> None:
+    assert cycle_state_count({}) == 6
+    assert cycle_state_count({"cycle_state_count": 8}) == 8

@@ -173,6 +173,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-064-two-jones-period6-landmarks-occupy-distinct-stable-raster-components.md`](findings/FND-064-two-jones-period6-landmarks-occupy-distinct-stable-raster-components.md):
   reproduces both landmarks as period 6 but places them in distinct resolved
   stable raster components, without excluding unstable continuation.
+- [`findings/FND-065-period6-flow-orbits-have-eight-barrio-section-phases.md`](findings/FND-065-period6-flow-orbits-have-eight-barrio-section-phases.md):
+  shows across 58 corrected stable orbits that historical period 6 becomes an
+  eight-phase cycle on Barrio's published positive-x section.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
