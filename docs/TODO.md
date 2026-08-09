@@ -81,7 +81,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   toward the reported hub is frozen as the 118-point, Radau-cross-checked
   EXP-154 qualification. EXP-154 passes every scientific gate but fails its
   cardinality gate after duplicating the seed; direction-aware, unchanged-gate
-  successor EXP-155 is frozen.
+  successor EXP-155 passes. It follows the one-winding family to the exact hub,
+  qualifies exponent `0.5017311`, and brackets its first `-1` multiplier
+  crossing; a coupled flip refinement and child switch are next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

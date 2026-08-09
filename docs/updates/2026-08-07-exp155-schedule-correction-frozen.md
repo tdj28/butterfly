@@ -10,3 +10,9 @@ receipt is preserved.
 EXP-155 freezes a direction-aware schedule correction with all 118 scientific
 targets and all numerical gates unchanged. This is an administrative successor,
 not a retuned scientific test.
+
+The clean successor passes. It verifies the same one-winding family from
+`c_H+0.001` through the exact hub, recovers the square-root amplitude exponent
+`0.5017311`, brackets a first `-1` multiplier crossing, and passes all six
+Radau checkpoints. The finite hub orbit remains `10.031` units from the
+equilibrium, so the homoclinic connection is still a distinct open problem.
