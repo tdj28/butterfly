@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.period4-c-flip-summary.v1",
+  "experiment_id": "EXP-165",
+  "passed": true,
+  "source_commit": "b3358f5b348b0117c0dd67f6227f6be01220bf1f",
+  "manifest_sha256": "5224622f2500d910a18c9a5f59c7e7ad27762ac53fe38d1fb5e53aa2318a3cbc",
+  "source_receipt_sha256": "7a4acee514dbfe83abcc11696ec5638e72d9b96316b4576a9224858baff471ab",
+  "raw_receipt": "artifacts/EXP-165/receipt.json",
+  "raw_receipt_sha256": "3fe38f1662060e769f18f5181b5523f5e5563097f86f4133d686785c7145f416",
+  "raw_receipt_bytes": 9473,
+  "parameters": {"a": 0.1798, "b": 0.2, "c": 4.636447200967924},
+  "period_time": 23.498538844189934,
+  "orbit_matching_residual": 2.86798308358618e-14,
+  "reference_flip_residual": 5.46229728115577e-14,
+  "independent_radau_flip_residual": 2.398081733190338e-12,
+  "independent_radau_closure_error": 1.0020066458688084e-12,
+  "independent_radau_half_period_closure": 1.3255187921176488,
+  "independent_radau_winding_number": 3.9999999999999836,
+  "interpretation": "The primitive period-4 branch undergoes an exact third flip, establishing the period-4-to-8 cascade event on the Jones path."
+}

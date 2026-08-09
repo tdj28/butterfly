@@ -26,7 +26,14 @@ from switch_period1_c_flip import (
 )
 
 
-def main() -> int:
+def run_switch_solver(
+    *,
+    manifest_schema: str,
+    event_schema: str,
+    parent_schema: str,
+    output_schema: str,
+    scientific_scope: str,
+) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--event", type=Path, required=True)
@@ -35,8 +42,8 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.period2-c-flip-switch-manifest.v1":
-        raise SystemExit("unsupported period-2 c-flip switch manifest")
+    if manifest.get("schema") != manifest_schema:
+        raise SystemExit("unsupported c-flip switch manifest")
     event_bytes = args.event.read_bytes()
     parent_bytes = args.parent.read_bytes()
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
@@ -52,13 +59,10 @@ def main() -> int:
         raise SystemExit("clean source required")
     event_receipt = json.loads(event_bytes)
     parent_receipt = json.loads(parent_bytes)
-    if event_receipt.get("schema") != "butterfly.period2-c-flip-receipt.v1":
-        raise SystemExit("event receipt is not the period-2 c flip")
-    if (
-        parent_receipt.get("schema")
-        != "butterfly.period2-c-arclength-to-flip-receipt.v1"
-    ):
-        raise SystemExit("parent receipt is not the period-2 arclength branch")
+    if event_receipt.get("schema") != event_schema:
+        raise SystemExit("event receipt has the wrong c-flip schema")
+    if parent_receipt.get("schema") != parent_schema:
+        raise SystemExit("parent receipt has the wrong arclength-branch schema")
     a = float(event_receipt["fixed_a"])
     b = float(event_receipt["fixed_b"])
     event_c = float(event_receipt["corrected_c"])
@@ -177,7 +181,7 @@ def main() -> int:
     all_rows = [row for branch in branches for row in branch["rows"]]
     tangent_dot = abs(float(np.dot(primary_tangent, secondary_tangent)))
     output = {
-        "schema": "butterfly.period2-c-flip-switch-receipt.v1",
+        "schema": output_schema,
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),
@@ -209,10 +213,7 @@ def main() -> int:
             for row in all_rows
         )
     )
-    output["scientific_scope"] = (
-        "local period-4 branch switch at the second fixed-path flip; independent "
-        "child identity, stability exchange, and attraction require qualification"
-    )
+    output["scientific_scope"] = scientific_scope
     atomic_write(args.output, canonical_json(output))
     print(
         json.dumps(
@@ -253,6 +254,20 @@ def main() -> int:
         )
     )
     return 0 if output["passed"] else 1
+
+
+def main() -> int:
+    return run_switch_solver(
+        manifest_schema="butterfly.period2-c-flip-switch-manifest.v1",
+        event_schema="butterfly.period2-c-flip-receipt.v1",
+        parent_schema="butterfly.period2-c-arclength-to-flip-receipt.v1",
+        output_schema="butterfly.period2-c-flip-switch-receipt.v1",
+        scientific_scope=(
+            "local period-4 branch switch at the second fixed-path flip; "
+            "independent child identity, stability exchange, and attraction "
+            "require qualification"
+        ),
+    )
 
 
 if __name__ == "__main__":
