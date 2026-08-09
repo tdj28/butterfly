@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.period2-c-to-flip-failure-summary.v1",
+  "experiment_id": "EXP-159",
+  "passed": false,
+  "source_commit": "10a6d1f",
+  "raw_receipt": "artifacts/EXP-159/receipt.json",
+  "raw_receipt_sha256": "5989b1928b4110bfc2b5e51f1b292260cd164691c41e7b267a1cc7bb6a1fa208",
+  "raw_receipt_bytes": 96571,
+  "point_count": 142,
+  "c_range": [3.1845, 6.0],
+  "first_real_minus_one_bracket": null,
+  "identity_loss_at_c": 3.2044680851063827,
+  "half_period_closure_before_loss": 0.19271840270938542,
+  "half_period_closure_after_loss": 1.6680897640512754e-13,
+  "interpretation": "The first coarse natural-c step converged to the doubled period-1 parent. The failure is identity loss, not evidence about absence of a later period-2 flip."
+}
