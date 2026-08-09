@@ -1,6 +1,6 @@
 # EXP-153 — Analytic Rössler Hopf curve
 
-Status: code, method, and acceptance gates frozen before clean execution
+Status: passed all 192 frozen points
 
 ## Question
 
@@ -40,3 +40,16 @@ Passing reconstructs and qualifies the local Hopf locus and locates the Hopf
 endpoint of the fixed-`a=0.1798` vertical slice. It does not continue the
 period-1 limit cycle, validate the proposed homoclinic endpoint, recover the
 exact `L1`/`L2` paths, or establish logistic-map ordering.
+
+## Result
+
+All 192 points pass. The largest equilibrium residual is `5.56e-17`; the
+largest Routh residual is `2.22e-16`; the largest characteristic-coefficient
+error is `3.78e-15`; and the largest independent Brent-root discrepancy in
+`c` is `6.00e-15`. The smallest transverse real-part margins remain
+`4.25e-8` on both sides of the locus.
+
+The curve covers `c in [0.4218296645,1.0702742041]`. At `a=0.1798`, its value
+is `c=0.5192306256940273`, `9.789169374305974` below the reported hub
+coordinate. The compact receipt is
+`docs/experiments/receipts/EXP-153.json`.

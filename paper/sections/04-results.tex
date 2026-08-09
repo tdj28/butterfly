@@ -15,6 +15,24 @@ vector-field residuals, and equilibrium invariance under DOP853 pass.  This
 verifies the local eigenstructure asserted at the proposed hub coordinate; it
 does not exhibit a homoclinic orbit or prove uniqueness on a parameter segment.
 
+\subsection{Analytic small-equilibrium Hopf locus}
+
+Writing an equilibrium as $(az,-z,z)$ and defining $r=b/z=c-az$, the
+characteristic polynomial is $\lambda^3+A\lambda^2+B\lambda+C$, with
+$A=r-a$, $B=1+z-ar$, and $C=r-az$.  The Hopf condition $AB=C$ therefore
+reduces exactly to
+\[
+a(1+r^2-ar)=b,
+\]
+after which $z=b/r$ and $c=az+r$.  At fixed $b=0.2$, all 192 sampled points
+over $a\in[0.1,0.195]$, including the exact hub abscissa, pass independent
+eigensystem root and transverse-sign checks.  The locus covers
+$c\in[0.4218296645,1.0702742041]$.  At $a=0.1798$ its value is
+$c=0.5192306256940273$, giving a fixed-$a$ separation of
+$9.789169374305974$ from the reported hub coordinate.  This qualifies the
+local Hopf endpoint of an L2-like slice; it neither continues the period-1
+cycle to the hub nor establishes the proposed homoclinic endpoint.
+
 \subsection{Identity-safe local cascade}
 
 At fixed $(a,c)=(0.245,5.1)$, the true period-5 family undergoes eight resolved
