@@ -1,6 +1,6 @@
 # EXP-150 — Prospective UPO recovery across the `c=19.9` bracket
 
-Status: preregistered; target close returns uninspected
+Status: passed prospective UPO recovery at both endpoints
 
 ## Question
 
@@ -40,3 +40,17 @@ PYTHONPATH=python .venv/bin/python scripts/discover_pim_seeded_upos.py \
   --manifest experiments/manifests/EXP-150-c19p9-pim-seeded-upo-discovery.json \
   --output artifacts/EXP-150/receipt.json
 ```
+
+## Result
+
+EXP-150 passes in `18.53` seconds. The two-branch endpoint yields 6 accepted
+recoveries from 13 candidates at reported lags 3, 6, 10, and 13. The
+three-branch endpoint yields 4 accepted recoveries from 5 candidates at lags
+13, 14, and 15. Every accepted candidate clears exact-return, shooting,
+closure, neutral-multiplier, section-identity, and instability gates.
+
+Candidate counts are not yet distinct-family counts. EXP-151 applies the
+pre-frozen divisor and continuous phase-identity audit to the hash-bound
+receipt.
+
+Tracked receipt: `docs/experiments/receipts/EXP-150.json`.

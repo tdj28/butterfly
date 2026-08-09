@@ -1,6 +1,6 @@
 # EXP-151 — Prospective transverse UPO primitivity and identity audit
 
-Status: method and gates frozen before EXP-150 execution; source hash pending
+Status: method and gates frozen before EXP-150; source hash instantiated after its pass
 
 ## Question
 

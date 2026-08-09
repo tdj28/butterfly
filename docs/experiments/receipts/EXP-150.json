@@ -1,0 +1,14 @@
+{
+  "schema": "butterfly.pim-seeded-upo-discovery-summary.v1",
+  "experiment_id": "EXP-150",
+  "passed": true,
+  "source_commit": "2a7dfd5781309927d2456ed4f0c3081fb5ff64f7",
+  "manifest_sha256": "0ff01e44d9cd1f0410df9b52ed3ded0d47305e5affbb88dbe54d2378ed7b04d4",
+  "raw_receipt": "artifacts/EXP-150/receipt.json",
+  "raw_receipt_sha256": "4155d0193817c53ca1c85d500fe64d6d4eb67f2b15ef0e94db93b5c2d78db364",
+  "raw_receipt_bytes": 23598,
+  "cases": [
+    {"id": "c19p9-two-branch-saddle", "candidate_count": 13, "accepted_upo_count": 6, "accepted_lags": [3, 6, 10, 13]},
+    {"id": "c19p9-three-branch-saddle", "candidate_count": 5, "accepted_upo_count": 4, "accepted_lags": [13, 14, 15]}
+  ]
+}
