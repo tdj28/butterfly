@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp183-local-critical-identity-qualified.md`](2026-08-07-exp183-local-critical-identity-qualified.md)
+  — factor-two survivor parity and short-horizon DOP853 audits close the sole
+  support hole and qualify the local unimodal-to-higher-critical identity.
 - [`2026-08-07-exp183-gap-statistical-parity-frozen.md`](2026-08-07-exp183-gap-statistical-parity-frozen.md)
   — unchanged scientific successor frozen after EXP-182's pre-manifest import
   failure.

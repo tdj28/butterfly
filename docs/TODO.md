@@ -125,8 +125,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fixed-step/DOP853 pointwise capture audit fails at 62.5%. Freeze an EXP-113-
   style successor using survivor-statistic and critical-location parity across
   RK4 step sizes, attractor false-negative controls, and only short-horizon
-  DOP853 state/event comparisons. Only a pass can close the gap and permit the
-  neutral-to-Jones alphabet mapping.
+  DOP853 state/event comparisons. Unchanged-science EXP-183 now passes every
+  gate: survivor fractions differ by `0.016724`, both physical criticals agree
+  across steps and hit the flank predictions, all attractor controls capture,
+  and five-return DOP853 errors are tiny. The local critical identity is
+  qualified. Next freeze the source-audited neutral-to-Jones alphabet mapping,
+  then generate held-out Figure 6 words without target-driven relabeling.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

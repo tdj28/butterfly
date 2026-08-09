@@ -159,3 +159,13 @@ decorrelate across integrators, the successor must use the statistical parity
 logic already qualified in EXP-113: step-size survival/topology comparison,
 an attractor false-negative control, and DOP853 state/event comparison only on
 a short pre-decorrelation horizon.
+
+After EXP-182's preserved pre-manifest launcher failure, scientifically
+unchanged EXP-183 passes that successor. Both RK4 steps resolve the local
+critical in every x/z variant, their survivor fractions differ by `0.016724`,
+their physical critical locations agree to `0.000586` and `2.24e-7`, all 128
+attractor controls capture at both steps, and five-return DOP853 audits pass.
+The sole EXP-180 support gap is therefore closed under the declared finite
+survivor-cloud definition. DEC-014 now permits a separately frozen historical
+alphabet mapping; it still forbids choosing that mapping from Figure 6 target
+words or promoting local identity to a global TBA curve.

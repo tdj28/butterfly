@@ -133,7 +133,7 @@ what must be narrowed, and what is false or unresolved.
   calibration/validation variants independently in `x` and `z`.
 - [`findings/FND-051-neutral-two-branch-jones-partition-qualified.md`](findings/FND-051-neutral-two-branch-jones-partition-qualified.md):
   qualifies the matching neutral two-branch control on the same historical
-  representation; critical identity across the transition remains open.
+  representation; FND-056 later closes its local critical-identity gate.
 - [`findings/FND-052-jones-critical-identity-direction-supported-bracket-open.md`](findings/FND-052-jones-critical-identity-direction-supported-bracket-open.md):
   finds the same unique likely trimodal descendant in `x` and `z` while
   retaining EXP-178's strict resolved-bracket-width failure.
@@ -146,6 +146,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-055-gap-survivors-hit-prediction-but-capture-parity-fails.md`](findings/FND-055-gap-survivors-hit-prediction-but-capture-parity-fails.md):
   fills the gap geometrically with 64,571 survivor pairs per coordinate but
   preserves a failed long-time fixed-step/DOP853 capture-label audit.
+- [`findings/FND-056-local-jones-critical-identity-qualified.md`](findings/FND-056-local-jones-critical-identity-qualified.md):
+  closes the sole support gap under two RK4 steps and short-horizon DOP853,
+  qualifying the unimodal critical as the higher trimodal critical locally.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
