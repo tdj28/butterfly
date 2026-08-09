@@ -1,6 +1,6 @@
 # EXP-151 — Prospective transverse UPO primitivity and identity audit
 
-Status: method and gates frozen before EXP-150; source hash instantiated after its pass
+Status: passed primitivity and continuous whole-orbit identity audit
 
 ## Question
 
@@ -36,3 +36,14 @@ A pass qualifies transverse-slice UPO representatives for later lobe tracing.
 It does not establish that any family is the continuation of a `c=20` family,
 that its lobe enters or leaves a saddle, or that a continuous TBA surface
 exists.
+
+## Result
+
+EXP-151 passes. Six accepted lower-endpoint recoveries reduce to three distinct
+primitive families with lags 3, 10, and 13; two reported lag-6 recoveries are
+double covers of lag 3. Four accepted upper-endpoint recoveries remain four
+distinct primitive families: lag 13, lag 14, and two lag-15 cycles whose
+periods differ beyond the identity gate. Continuous phase alignment merges
+all true phase copies below `7e-8` normalized whole-orbit RMS.
+
+Tracked receipt: `docs/experiments/receipts/EXP-151.json`.

@@ -1,6 +1,6 @@
 # EXP-152 — Prospective transverse UPO manifold-seed validation
 
-Status: adapter, tests, method, and gates frozen before EXP-150 execution; source hashes pending
+Status: adapter and gates frozen before EXP-150; EXP-150/151 source hashes instantiated after both passed
 
 ## Question
 

@@ -1,0 +1,15 @@
+{
+  "schema": "butterfly.pim-upo-primitivity-audit-summary.v1",
+  "experiment_id": "EXP-151",
+  "passed": true,
+  "source_commit": "a2444e6f20a5a0293464b6a88de63d112f524250",
+  "manifest_sha256": "17c7f0cc0f41968df7c90ed4ad0ed6a22da0e8aefe1bf9b40167fcc843536f75",
+  "source_receipt_sha256": "4155d0193817c53ca1c85d500fe64d6d4eb67f2b15ef0e94db93b5c2d78db364",
+  "raw_receipt": "artifacts/EXP-151/receipt.json",
+  "raw_receipt_sha256": "ba871ce9170c791be564a3626b091f3edb1574228bd1ed0bc65de7c8b3bf8004",
+  "raw_receipt_bytes": 9638,
+  "cases": [
+    {"id": "c19p9-two-branch-saddle", "accepted_recoveries": 6, "double_cover_count": 2, "unique_primitive_family_count": 3, "fundamental_lags": [3, 10, 13]},
+    {"id": "c19p9-three-branch-saddle", "accepted_recoveries": 4, "double_cover_count": 0, "unique_primitive_family_count": 4, "fundamental_lags": [13, 14, 15]}
+  ]
+}
