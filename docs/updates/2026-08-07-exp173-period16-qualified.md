@@ -15,8 +15,9 @@ phase-aligned RMS `7.07e-10`.
 
 The finite event-spacing ratios are `3.45990` and `4.49812`. They support a
 converging cascade but are not a universality proof. They also do not close the
-symbolic-ordering claim: exact historical paths, a return-map partition, and
-algorithmic permutation/kneading comparisons remain required.
+symbolic-ordering claim: the later source audit finds no printed exact
+historical path equations or reproducible return-map partition, and algorithmic
+permutation/kneading comparisons remain required.
 
 The local EXP-173 run took `1107.9` seconds, dominated by serial long-horizon
 Radau recovery. The next engineering gate is segmented switching plus

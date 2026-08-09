@@ -68,7 +68,9 @@ followed consistently through both chaotic and regular regions.
 
 ## Phase 3 - Test the finite logistic-ordering claim
 
-- Recover or define exact paths `L1` and `L2`.
+- Source-audit `L1` and `L2`; where the paper omits equations, publish explicit
+  operational paths and test competing interpretations rather than assigning
+  false historical precision.
 - Build bifurcation diagrams and critical-point caustics along each path.
 - Define the symbolic partition and compute critical itineraries, kneading
   sequences, orbit permutations, and entropy estimates.

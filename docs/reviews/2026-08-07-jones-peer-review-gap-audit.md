@@ -36,7 +36,7 @@ closed until the acceptance gates below are satisfied.
 |---|---|---|---|
 | Novelty was unclear relative to recent work | The project now separates the shared Jones/Barrio-Blesa-Serrano co-discovery from Jones's distinct finite symbolic, mutant-shrimp, and reinjection hypotheses. A systematic primary-source novelty audit is still absent. | Partial | Source-verified chronology and claim-by-claim comparison including the earlier TTL/TBA, homoclinic, logistic-ordering, and experimental literature. State precisely which result is reproduction, correction, or new. |
 | Focus on one narrow aspect did not support broad interest | The multi-`b` atlas, basin work, bifurcation surfaces, and high-period cascade broaden the numerical program. Cross-system generality has not been demonstrated. | Partial | Qualify the complete topology pipeline on Rössler, then apply the frozen definitions prospectively to two structurally different flows, retaining negative results. |
-| The technical/symbolic tool was promising but not exploited | The numerical engine is now heavily exploited, including prospective cascade predictions, but the paper's distinctive symbolic tool has not been reconstructed. | Open | Produce a versioned orbit/branch/symbol database, verify all claimed transitions through period seven, and make at least one held-out symbolic prediction before computing the target orbit. |
+| The technical/symbolic tool was promising but not exploited | The numerical engine is now heavily exploited. Figure 6 is now transcribed into a versioned target containing 23 words, ten matched arrows, one visual-only arrow, three lower-period relationships, and ten parameter landmarks. No computed orbit has yet been assigned a source word under an independently reconstructed partition. | Open | Produce a versioned orbit/branch/symbol database, verify all claimed transitions through period seven, and make at least one held-out symbolic prediction before computing the target orbit. |
 | No conclusions accessible to nonspecialists | Current findings documents state claim boundaries, but there is no revised manuscript conclusion or accessible spiral explanation. | Open | A plain-language conclusion, a one-page mechanism diagram, and a claim/evidence/limit table reviewed independently for comprehensibility. |
 
 ## Referee B
@@ -49,7 +49,7 @@ closed until the acceptance gates below are satisfied.
 | The likely result is one-to-one periodic-orbit correspondence only up to some period | The research plan already targets finite agreement rather than full conjugacy. No complete finite enumeration exists yet. | Open | Machine-generate periodic orbits, canonical symbolic words, permutations, and stability through at least the paper's period seven, then extend until the first mismatch or declared resource bound. |
 | Logistic-like ordering of unimodal flows was already known; cite Lefranc and prior work | The project does not treat generic logistic similarity as the distinctive Jones result, but the primary-source bibliography is incomplete. | Open | Verify Lefranc et al. and related primary sources; rewrite novelty around the oscillating branch count, cross-period connections, and reinjection mechanism only where evidence supports them. |
 | Clearly attribute the previously identified TTL and complete Ref. 6 | The project uses cautious co-discovery wording for the 2012 hub/transition connection, but the earlier TTL source and Jones Ref. 6 remain to be source-checked. | Open | Recover the exact cited work, define what it established, and distinguish prior TTL identification from the later connection to hubs, shrimp centers, and symbolic transitions. |
-| Hopf-to-homoclinic slices looking logistic-like is not surprising | The project treats slice ordering as a finite test, not the main novelty. EXP-153 qualifies the analytic Hopf locus; EXP-155 qualifies the same one-winding period-1 family to the exact hub; EXP-156 solves its first flip at `c=3.1807265333384103`; and EXP-157/158 switch and independently qualify its primitive stable period-2 child. Exact historical `L1`/`L2`, the equilibrium homoclinic connection, later children, and symbolic ordering remain unrecovered. | Partial | Publish exact paths, continue the child sequence, validate the homoclinic endpoint independently, compare against control paths, and show what the selected paths reveal beyond generic unimodal ordering. |
+| Hopf-to-homoclinic slices looking logistic-like is not surprising | The project treats slice ordering as a finite test, not the main novelty. EXP-153/155 qualify the Hopf-born one-winding family on an explicit fixed-`a=0.1798` `L2`-like reconstruction to the reported hub coordinate. EXP-156 through EXP-173 solve four exact flips and independently qualify stable primitive children through period 16. The source audit finds that Figure 2 draws horizontal `L1` and vertical `L2` examples but prints no exact historical parameterizations. The equilibrium homoclinic connection and symbolic ordering remain unrecovered. | Partial | Publish operational paths with the historical qualifier, compare the two preregistered `L1` interpretations, validate the homoclinic endpoint independently, reconstruct the partition, and show what the selected paths reveal beyond generic unimodal ordering. |
 | The branched-manifold language was misleading because the branched manifold is an abstract quotient, not an object deposited in phase space | Current plans explicitly avoid treating a projected deposit angle as a topological invariant. The proposed replacement has not been computed. | Conceptually revised; empirically open | Express the phenomenon first in the return map: invariant domain, critical points, third branch, reinjection coordinate, critical values, and itinerary change. Then test section/coordinate robustness or relate it to a template invariant. |
 | Add a return-map figure | EXP-055 supplies one local section-grazing event but not the requested global explanation. | Open | Generate return maps on both sides of the transition and along at least one full spiral rotation with invariant domain, branches, critical points, reinjection, and symbolic partition labeled from data. |
 | The spiral-unfolding argument and Fig. 6 were too difficult to follow | No replacement figure yet exists. | Open | Produce a machine-generated unfolded spiral showing parameter arclength/angle, branch count, critical values, orbit points, symbolic words, and `p -> p+1` connections; every panel must bind to experiment receipts. |
@@ -118,10 +118,21 @@ prediction remain open, so RVR-003 is materially advanced but not closed.
 
 ### RVR-004 — Finite logistic-ordering test
 
-Recover exact `L1` and `L2`, define the partition independently, and enumerate
+Source-audit `L1` and `L2`, publish operational reconstructions, define the
+partition independently, and enumerate
 orbit permutations, kneading data, critical itineraries, and stability. Verify
 every claim through period seven and search prospectively for the first
 high-period disagreement predicted by the two-dimensional-map limitation.
+
+Checkpoint (2026-08-07): Figure 2 has now been inspected at figure resolution.
+It draws a horizontal `L1` and vertical `L2` but gives no exact equations or
+endpoint table. The fixed-`a=0.1798` path is therefore correctly scoped as an
+explicit `L2`-like reconstruction, not recovered historical code. Figure 6 is
+now a hash-bound machine target with 23 words through period seven, ten matched
+`p -> p+1` arrows, one visual-only arrow, three explicit lower-period
+relationships, and ten parameter landmarks. The paper does not print a
+complete reproducible return-map partition; dynamic symbol assignment,
+permutations, kneading data, and comparison remain open.
 
 ### RVR-005 — Reinjection without category error
 

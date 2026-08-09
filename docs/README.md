@@ -121,6 +121,13 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-047-fourth-cascade-rung-qualified.md`](findings/FND-047-fourth-cascade-rung-qualified.md):
   repairs the equal-modulus block-root audit, resolves the exact period-8-to-16
   flip, and independently qualifies the stable primitive period-16 child.
+- [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
+  resolves what Figures 2 and 6 actually specify, records the historical path
+  ambiguity, and binds the finite symbol/transition target to machine-readable
+  data and a structural audit.
+- [`decisions/DEC-014-independent-symbol-partition-before-word-matching.md`](decisions/DEC-014-independent-symbol-partition-before-word-matching.md):
+  prevents circular word recovery by requiring dense-cloud critical intervals
+  before an independently corrected target cycle is assigned a symbol word.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

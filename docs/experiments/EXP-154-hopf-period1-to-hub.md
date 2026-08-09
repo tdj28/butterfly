@@ -43,7 +43,7 @@ checkpoint was inserted into both continuation directions; sorting the upward
 schedule then caused the seed to be duplicated. No scientific gate failed.
 All closures were below `3.60e-12`, the amplitude exponent was `0.5017311`
 with `R^2=0.9999983`, all winding errors were below `1.15e-13`, all six Radau
-checks passed, and the branch reached the exact hub.
+checks passed, and the branch reached the reported hub coordinate.
 
 The raw failed receipt is preserved and summarized at
 `docs/experiments/receipts/EXP-154.json`. EXP-155 changes only the schedule

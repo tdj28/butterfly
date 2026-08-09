@@ -9,3 +9,5 @@ lefranc1994combining
 rossler1976equation
 kantz1985repellers
 nusse1989procedure
+gilmore1998topological
+metropolis1973finite

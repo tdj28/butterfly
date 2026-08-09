@@ -81,7 +81,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   toward the reported hub is frozen as the 118-point, Radau-cross-checked
   EXP-154 qualification. EXP-154 passes every scientific gate but fails its
   cardinality gate after duplicating the seed; direction-aware, unchanged-gate
-  successor EXP-155 passes. It follows the one-winding family to the exact hub,
+  successor EXP-155 passes. It follows the one-winding family to the reported
+  hub coordinate,
   qualifies exponent `0.5017311`, and brackets its first `-1` multiplier
   crossing. EXP-156 passes the coupled exact-`c` flip refinement at
   `c=3.1807265333384103`. EXP-157 switches the doubled-cover nullspace onto a
@@ -99,8 +100,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   flip at `c=4.7090113823613065`; EXP-172/173 independently qualify a stable
   primitive period-16 child at `c=4.716`. Before continuing to period 32,
   replace single-shooting branch switching with segmented switching and make
-  long recovery checkpointed/parallel. Separately recover the historical path
-  definitions and symbolic partition needed to decide ordering through seven.
+  long recovery checkpointed/parallel. Separately reconstruct the historical
+  paths and symbolic partition needed to decide ordering through seven. The
+  source audit now establishes that Figure 2 draws horizontal `L1` and vertical
+  `L2` examples without printing exact equations; Figure 6 is transcribed into
+  23 words and 11 arrows, but its reproducible partition remains absent.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
@@ -221,8 +225,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `3.94e-8` and stable moduli near `0.426174`, closing the eighth local
   supercritical rung. Return the primary execution frontier to orbit-defined
   flip/grazing surfaces and the reviewer-identified global topology gaps.
-- [ ] **P1-006 — Jones path definitions.** Exact `L1`/`L2` parameterizations and
-  caustic/window-order reconstruction.
+- [ ] **P1-006 — Jones path definitions.** Source audit is complete. Publish the
+  qualified fixed-`a=0.1798` path as `L2`-like; freeze both a visible fixed-`c`
+  `L1` segment and a full endpoint-matched `L1` control because the paper prints
+  no exact equations. Reconstruct caustics/window ordering under both and retain
+  disagreement.
 
 ## P2 — topology, validation, and atlas expansion
 
@@ -481,9 +488,14 @@ exposition requirements.
   adapter from those dynamic family representatives into every unchanged
   EXP-142 unstable-seed gate. Instantiate only EXP-150/151 hashes after their
   runs; trace no transverse lobe until every retained family passes.
-- [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
-  period-through-seven permutations and kneading data; prospectively locate
-  the first higher-period disagreement or establish a declared finite bound.
+- [ ] **RVR-004 — Finite logistic ordering.** Figure 2/6 source extraction now
+  supplies operational path geometry and a hash-bound target of 23 words, ten
+  matched arrows, and one visual-only arrow. DEC-014 now freezes independent
+  dense-cloud partition inference before any target cycle is labeled. Implement
+  its controls; classify the ten approximate landmarks without expected labels;
+  verify all period-through-seven permutations and kneading data; prospectively
+  locate the first higher-period disagreement or establish a declared finite
+  bound.
 - [ ] **MECH-001 — Orbit/manifold condition for the branch opening.** DEC-011
   freezes exact-return, shooting-identity, and Floquet gates for PIM-seeded
   UPOs. EXP-133 now preregisters exploratory recovery on both sides of the

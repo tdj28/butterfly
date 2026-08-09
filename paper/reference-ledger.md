@@ -13,6 +13,8 @@ and assessed.
 | `rossler1976equation` | Defines the Rössler flow | Baseline | Elsevier/ScienceDirect record and DOI | Introduction; mathematical objects | Bibliographic record verified |
 | `holmes1984bifurcation` | Establishes the high-period obstruction to treating a two-dimensional horseshoe return map as globally logistic | Referee B | Elsevier/ScienceDirect record and DOI | Introduction; prior work; limitations | Bibliographic record verified; close reading pending |
 | `lefranc1994combining` | Prior experimental use of kneading/logistic ordering through finite period; blocks a novelty claim for generic finite unimodal ordering | Referee B | APS issue record, PubMed record, and DOI | Introduction; prior work; limitations | Bibliographic record verified; close reading pending |
+| `gilmore1998topological` | Defines the template/branched-manifold role and the boundary between a topological invariant and a coordinate-dependent return-map projection | Jones Ref. 12; active partition reconstruction | APS *Reviews of Modern Physics* record and DOI | Mathematical objects; symbolic-test design; limitations | Abstract and bibliographic record verified; full partition convention close reading pending access |
+| `metropolis1973finite` | Primary finite-pattern/unimodal-ordering source behind the Figure 6 ordering and zero-insertion target | Jones Ref. 13; active finite-ordering test | Elsevier/ScienceDirect open-archive record and DOI | Symbolic-test design; finite-ordering comparison | Abstract and bibliographic metadata verified; algorithm close reading pending |
 | `barrio2011global` | Resolves Jones's incomplete Ref. 6; the source Referee B says must receive credit for identifying the topology-transition line (TTL/TBA) | Referee B | APS *Physical Review E* record and DOI | Introduction; prior work; topology hypothesis | Bibliographic record verified; close reading required for exact attribution wording |
 | `jones2012topological` | Original Jones manuscript being reassessed and extended | Project source | arXiv record and local PDF | Introduction; results comparison; discussion | Local PDF in `references/1201.4343v1.pdf` |
 | `barrio2012topological` | Independent, near-simultaneous co-discovery of the topology transition's role in periodicity-hub organization; sharper TBA/superstability analysis | Project source | APS/PubMed record, DOI, and local PDF | Introduction; prior work; discussion | Local PDF in `references/BarrioBlesaSerrano-2012-TopologicalChangesinPeriodicityHubsofDissipativeSystems.pdf` |
@@ -38,8 +40,8 @@ and assessed.
 
 Before the related-work section is considered complete, verify and add the
 remaining primary sources behind (i) the homoclinic organization of the hub,
-(ii) two-branch/three-branch terminology and its TBA history, (iii) template
-and symbolic-dynamics definitions, (iv) finite-ordering results beyond the two
-referee-named papers, and (v) post-2012 work that directly tests periodicity
-hubs. Each entry must be added here with its role and claim boundary; a raw
-BibTeX import is insufficient.
+(ii) two-branch/three-branch terminology and its TBA history, (iii) the exact
+Rössler partition convention beyond Gilmore's general template framework,
+(iv) finite-ordering results beyond the current primary sources, and (v)
+post-2012 work that directly tests periodicity hubs. Each entry must be added
+here with its role and claim boundary; a raw BibTeX import is insufficient.

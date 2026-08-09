@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-jones-path-symbol-source-audit.md`](2026-08-07-jones-path-symbol-source-audit.md)
+  — Figure 2 path provenance and Figure 6's 23 words/11 arrows are now
+  machine-readable; the missing reproducible partition remains the next gate.
 - [`2026-08-07-exp173-period16-qualified.md`](2026-08-07-exp173-period16-qualified.md)
   — four exact fixed-path flips and independent stable-child qualification
   through period 16, plus the measured serial-recovery bottleneck.

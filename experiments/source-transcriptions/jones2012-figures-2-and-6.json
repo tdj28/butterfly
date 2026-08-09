@@ -1,0 +1,121 @@
+{
+  "schema": "butterfly.jones2012-source-transcription.v1",
+  "source": {
+    "title": "Topological origins of a bi-parameter periodicity hub for the Rossler attractor",
+    "arxiv_id": "1201.4343v1",
+    "paper_sha256": "54b2a35bcfe50c5c2dc2f8ac1f3d3f98acbb2991dab7bc6e66cf61dc4b5ffb6f",
+    "transcription_date": "2026-08-07"
+  },
+  "reported_parameters": {
+    "b": 0.2,
+    "hub": {
+      "a": 0.1798,
+      "c": 10.3084,
+      "precision": "approximately"
+    }
+  },
+  "figure2": {
+    "page": 2,
+    "printed_path_equations": false,
+    "printed_path_endpoint_coordinates": false,
+    "generic_text_definition": "A qualifying slice begins at the Andronov-Hopf bifurcation or on its post-Hopf period-1 family and terminates at the homoclinic point on TTL23.",
+    "paths": [
+      {
+        "id": "L1",
+        "drawn_geometry": "horizontal",
+        "drawn_visible_start": {"a": 0.1, "c": 10.0, "precision": "figure-axis estimate"},
+        "drawn_endpoint": {"a": 0.18, "c": 10.0, "precision": "figure-axis estimate"},
+        "historical_status": "illustrated but not numerically parameterized"
+      },
+      {
+        "id": "L2",
+        "drawn_geometry": "vertical",
+        "drawn_visible_start": {"a": 0.18, "c": 0.5, "precision": "figure-axis estimate"},
+        "drawn_endpoint": {"a": 0.18, "c": 10.0, "precision": "figure-axis estimate"},
+        "historical_status": "illustrated but not numerically parameterized"
+      }
+    ],
+    "operational_reconstruction": {
+      "id": "L2-like-fixed-reported-hub-a",
+      "a": 0.1798,
+      "b": 0.2,
+      "hopf_c": 0.5192306256940273,
+      "reported_hub_c": 10.3084,
+      "status": "explicit modern reconstruction, not recovered historical code"
+    },
+    "l1_hopf_consistency_diagnostic": {
+      "reported_hub_height_c": 10.3084,
+      "small_equilibrium_hopf_a": 0.0018649211449047556,
+      "figure_left_a_limit": 0.1,
+      "interpretation": "The exact small-equilibrium Hopf point at the reported hub height lies outside the plotted a-range; the visible L1 segment therefore begins after Hopf or is schematic."
+    }
+  },
+  "figure6": {
+    "page": 4,
+    "partition_status": "critical-point and branch labels are described, but no section equation, invariant domain, coordinate threshold, or complete partition boundary is printed",
+    "alphabet": {
+      "C": "critical point retained on the two-branch/unimodal side",
+      "D": "second critical point present on the three-branch/bimodal side",
+      "branch_symbols": ["0", "1", "2"]
+    },
+    "nodes": [
+      {"word": "C1", "period": 2},
+      {"word": "C2", "period": 2, "branch3_connection": true},
+      {"word": "C21", "period": 3, "branch3_connection": true},
+      {"word": "CD0", "period": 3},
+      {"word": "CD00", "period": 4},
+      {"word": "CD01", "period": 4},
+      {"word": "CD000", "period": 5},
+      {"word": "CD001", "period": 5},
+      {"word": "CD011", "period": 5, "isolated_branch3_origin": true},
+      {"word": "CD0000", "period": 6},
+      {"word": "CD0001", "period": 6},
+      {"word": "CD0010", "period": 6, "isolated_branch3_origin": true, "period_double_marker": true},
+      {"word": "CD0011", "period": 6},
+      {"word": "CD0111", "period": 6, "isolated_branch3_origin": true},
+      {"word": "CD00000", "period": 7},
+      {"word": "CD00001", "period": 7},
+      {"word": "CD00010", "period": 7},
+      {"word": "CD00011", "period": 7},
+      {"word": "CD00101", "period": 7, "isolated_branch3_origin": true},
+      {"word": "CD00110", "period": 7},
+      {"word": "CD00111", "period": 7},
+      {"word": "CD01101", "period": 7, "isolated_branch3_origin": true},
+      {"word": "CD01111", "period": 7, "isolated_branch3_origin": true}
+    ],
+    "matched_p_to_p_plus_1_transitions": [
+      {"source": "CD0", "target": "CD00"},
+      {"source": "CD01", "target": "CD001"},
+      {"source": "CD00", "target": "CD000"},
+      {"source": "CD011", "target": "CD0011"},
+      {"source": "CD001", "target": "CD0001"},
+      {"source": "CD000", "target": "CD0000"},
+      {"source": "CD0010", "target": "CD00010"},
+      {"source": "CD0011", "target": "CD00011"},
+      {"source": "CD0001", "target": "CD00001"},
+      {"source": "CD0000", "target": "CD00000"}
+    ],
+    "visual_only_transition": {
+      "source": "CD0111",
+      "target": "CD00111"
+    },
+    "explicit_text_relationships": [
+      {"source": "C2", "target": "CD0", "kind": "branch3-to-TTL-connection"},
+      {"source": "C21", "target": "CD01", "kind": "branch3-to-TTL-connection"},
+      {"source": "C1", "target": "CD01", "kind": "period-double"}
+    ],
+    "parameter_landmarks": [
+      {"a": 0.21888, "b": 0.2, "c": 5.816},
+      {"a": 0.21564, "b": 0.2, "c": 6.124},
+      {"a": 0.204, "b": 0.2, "c": 7.22},
+      {"a": 0.20676, "b": 0.2, "c": 7.18},
+      {"a": 0.215, "b": 0.2, "c": 7.6},
+      {"a": 0.199, "b": 0.2, "c": 7.9},
+      {"a": 0.19, "b": 0.2, "c": 8.9},
+      {"a": 0.19368, "b": 0.2, "c": 8.456},
+      {"a": 0.2013, "b": 0.2, "c": 7.55},
+      {"a": 0.18696, "b": 0.2, "c": 9.38}
+    ]
+  },
+  "claim_boundary": "This is a source transcription and validation target. It is not new numerical evidence that the paths, partition, or transitions are dynamically correct."
+}
