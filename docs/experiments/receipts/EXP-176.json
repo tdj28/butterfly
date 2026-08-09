@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.operational-partition-control-summary.v1",
+  "experiment_id": "EXP-176",
+  "passed": true,
+  "source_commit": "566674773eeba14e95464a0173298d2438b793f5",
+  "manifest_sha256": "65149a7b473bca6befd5a70f958635c76838e9512a2f62614b42daa406f38046",
+  "full_receipt_sha256": "25c923967c2a2604fb952a40c4ddc410f7c83e2a67e03b61f9a895d4a7c0a889",
+  "elapsed_seconds": 26.090191999915987,
+  "integration_success": true,
+  "crossing_count": 2431,
+  "pair_count_per_segment": 1000,
+  "guard_pair_count": 200,
+  "all_variant_consensuses": 1.0,
+  "rows": [
+    {"segment": "calibration", "coordinate": "x", "branch_count": 3, "maximum_normalized_critical_span": 0.01683390629087255},
+    {"segment": "calibration", "coordinate": "z", "branch_count": 3, "maximum_normalized_critical_span": 0.016193692299500673},
+    {"segment": "validation", "coordinate": "x", "branch_count": 3, "maximum_normalized_critical_span": 0.017122445640989182},
+    {"segment": "validation", "coordinate": "z", "branch_count": 3, "maximum_normalized_critical_span": 0.004031512444385677}
+  ],
+  "joint_partitions": {
+    "x": {
+      "domain": [-30.82989352458653, -8.560972406333889],
+      "critical_intervals": [[-25.584672657526383, -25.430484616168282], [-17.424269477314443, -17.0310342440349]],
+      "maximum_normalized_critical_span": 0.017658477085233826,
+      "branch_symbols": ["B0", "B1", "B2"],
+      "critical_symbols": ["K0", "K1"]
+    },
+    "z": {
+      "domain": [0.003935605154539127, 0.007005098946734019],
+      "critical_intervals": [[0.004387161533757244, 0.004396205586247542], [0.005327257332546781, 0.005376961539831247]],
+      "maximum_normalized_critical_span": 0.01619296556678294,
+      "branch_symbols": ["B0", "B1", "B2"],
+      "critical_symbols": ["K0", "K1"]
+    }
+  },
+  "historical_mapping": null,
+  "interpretation": "A fresh higher-power split cloud resolves the neutral three-branch operational partition in x and z across all seven variants and both segments. Historical alphabet mapping and Figure 6 word tests remain open."
+}

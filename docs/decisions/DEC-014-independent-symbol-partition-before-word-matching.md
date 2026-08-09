@@ -2,8 +2,9 @@
 
 Date: 2026-08-07
 
-Status: adopted; operational encoder and synthetic assignment controls
-implemented; end-to-end dynamic qualification pending
+Status: adopted; operational encoder, synthetic assignment controls, and the
+dense three-branch Rössler control are qualified; two-branch control and target
+word tests pending
 
 ## Context
 
@@ -109,3 +110,9 @@ cross-check remains failed because one of seven held-out variants has
 bootstrap consensus `0.64`; the other six resolve three branches and no
 contradictory count appears. Frozen EXP-176 increases independent sample
 support without changing any oracle or acceptance threshold.
+
+EXP-176 executes that unchanged-threshold successor on a fresh trajectory with
+1000 calibration and 1000 held-out validation pairs. All seven variants
+resolve three branches in both `x` and `z`, with joint normalized critical
+spans `0.0176585` and `0.0161930`. This closes the dense three-branch control
+portion of the decision. Neutral symbols remain deliberately unmapped.

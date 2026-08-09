@@ -109,6 +109,22 @@ result of Lefranc et al. remains part of the novelty boundary
 \citep{lefranc1994combining}.  Template invariants and the finite scalar
 partition will remain separate objects throughout \citep{gilmore1998topological}.
 
+The non-circular assignment layer is now implemented with neutral increasing-
+coordinate branch labels $B_0,B_1,B_2$ and critical-interval labels $K_0,K_1$.
+It rejects out-of-domain points, requires an independently supplied local
+zero-slope residual before assigning a critical symbol, canonicalizes cyclic
+rotation only, and reports reversal separately.  A first 550-pair
+calibration/validation control qualified the $x$ partition but retained one
+bootstrap-unstable 50-bin $z$ variant.  An unchanged-threshold successor used
+a fresh trajectory with 1000 calibration pairs, a 200-pair guard, and 1000
+held-out validation pairs.  All seven variants then resolved three branches
+in both $x$ and $z$.  The joint normalized critical-location spans are
+$0.0176585$ and $0.0161930$, respectively, below the frozen $0.04$ gate.  This
+qualifies the dense three-branch operational control, but it neither maps
+$K_0,K_1$ onto $C,D$ nor maps $B_0,B_1,B_2$ onto Jones's numerals.  A
+historical-section two-branch control and withheld target-cycle word tests are
+still required.
+
 The first blind computation against that target evaluates all ten printed
 parameter landmarks exactly as displayed, without expected periods or local
 parameter adjustment.  At the longer transient, DOP853 and Radau agree for

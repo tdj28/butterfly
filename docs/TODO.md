@@ -108,8 +108,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   DEC-014's neutral encoder and synthetic assignment controls now pass.
   EXP-175 qualifies its fresh split-cloud `x` partition, while held-out `z`
   retains one bootstrap-power failure at 50 bins despite six other resolved
-  three-branch variants. Execute frozen unchanged-threshold EXP-176 with 1000
-  calibration and 1000 validation pairs before assigning any Figure 6 word.
+  three-branch variants. Frozen unchanged-threshold EXP-176 then passes with
+  1000 calibration and 1000 validation pairs: every `x` and `z` variant
+  resolves three branches. Qualify a historical-section two-branch dense or
+  invariant-saddle control, then freeze the neutral-to-Jones alphabet mapping
+  before assigning any Figure 6 word.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

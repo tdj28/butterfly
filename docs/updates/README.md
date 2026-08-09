@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp176-neutral-partition-qualified.md`](2026-08-07-exp176-neutral-partition-qualified.md)
+  — unchanged-threshold power successor qualifies the neutral three-branch
+  Jones-section partition in split calibration/validation `x` and `z` clouds.
 - [`2026-08-07-exp175-operational-partition-near-pass.md`](2026-08-07-exp175-operational-partition-near-pass.md)
   — neutral `x` partition passes split-cloud validation; strict `z` cross-check
   retains one 50-bin bootstrap-power failure and drives unchanged-gate EXP-176.
