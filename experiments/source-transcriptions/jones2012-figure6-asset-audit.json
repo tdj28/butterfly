@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones2012-figure6-asset-audit.v1",
+  "source": {
+    "arxiv_id": "1201.4343v1",
+    "paper_sha256": "54b2a35bcfe50c5c2dc2f8ac1f3d3f98acbb2991dab7bc6e66cf61dc4b5ffb6f",
+    "source_archive_url": "https://arxiv.org/e-print/1201.4343",
+    "source_archive_sha256": "c7b38955cdfb5954c89dc5e86fc5a312ff9c2626a6e712173e8c58bcd09115bb",
+    "retrieval_date": "2026-08-07"
+  },
+  "figure6_asset": {
+    "archive_member": "6.png",
+    "sha256": "264599bca7914db914bdaa32f6fbde7ea7eda325878f693185d32997a78943cf",
+    "width_pixels": 823,
+    "height_pixels": 534,
+    "color_mode": "RGB",
+    "pdf_embedded_pixel_difference_count": 0,
+    "has_recoverable_vector_geometry": false
+  },
+  "attachment_assessment": {
+    "status": "not fully resolved",
+    "reason": "the author-supplied raster has crowded upper-middle and lower-right arrow routing",
+    "machine_action": "retain the ten parameter coordinates as an unordered hash-bound target; do not invent a complete word-to-box mapping",
+    "supersession_condition": "a recovered plotting source or independently documented association table"
+  },
+  "frozen_transcription": {
+    "path": "experiments/source-transcriptions/jones2012-figures-2-and-6.json",
+    "sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da",
+    "mutation_policy": "do not alter because EXP-174 binds this exact hash"
+  },
+  "claim_boundary": "This asset audit establishes source provenance and a resolution limit. It does not assign landmarks to words or validate any symbolic transition."
+}

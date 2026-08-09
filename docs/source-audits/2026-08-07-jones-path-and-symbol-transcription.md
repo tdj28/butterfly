@@ -5,6 +5,8 @@ Date: 2026-08-07
 Source: Jones, *Topological origins of a bi-parameter periodicity hub for the
 Rössler attractor*, arXiv:1201.4343v1, pages 2 and 4. Source PDF SHA-256:
 `54b2a35bcfe50c5c2dc2f8ac1f3d3f98acbb2991dab7bc6e66cf61dc4b5ffb6f`.
+The public arXiv source archive has SHA-256
+`c7b38955cdfb5954c89dc5e86fc5a312ff9c2626a6e712173e8c58bcd09115bb`.
 
 Machine-readable transcription:
 [`../../experiments/source-transcriptions/jones2012-figures-2-and-6.json`](../../experiments/source-transcriptions/jones2012-figures-2-and-6.json).
@@ -59,6 +61,25 @@ connections involving `C1`, `C2`, and `C21`, and ten approximate parameter
 landmarks. Those objects are transcribed verbatim as symbols and numbers in the
 JSON target.
 
+The arXiv source audit also closes a possible recovery route. Figure 6 is the
+author-supplied raster `6.png`, SHA-256
+`264599bca7914db914bdaa32f6fbde7ea7eda325878f693185d32997a78943cf`,
+with dimensions `823 x 534`. Its pixels agree exactly with the image embedded
+in the PDF (zero differing pixels). There is no concealed vector version or
+higher-resolution arrow geometry in the archive. Several gray-box attachments
+are visually continuous, but upper-middle and lower-right routes are crowded;
+therefore the machine transcription deliberately retains the ten coordinates
+as an unordered source target instead of inventing a complete word-to-box
+association. A recovered old plotting source could supersede this limitation
+through a versioned transcription update.
+
+This later evidence is stored separately in
+[`../../experiments/source-transcriptions/jones2012-figure6-asset-audit.json`](../../experiments/source-transcriptions/jones2012-figure6-asset-audit.json).
+The original Figure 2/6 transcription remains byte-for-byte frozen at SHA-256
+`6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da`
+because EXP-174 binds that exact target. The asset audit extends provenance; it
+does not rewrite an executed experiment's input.
+
 Every printed `p -> p+1` arrow obeys one simple finite grammar: insert `0`
 immediately after `CD`. For example, `CD01 -> CD001`. That is now an auditable
 source claim rather than a hand-read future figure.
@@ -89,4 +110,7 @@ The audit script
 [`../../scripts/audit_jones2012_transcription.py`](../../scripts/audit_jones2012_transcription.py)
 checks source hash formatting, word/period consistency, the zero-insertion
 grammar, transition periods, landmark count, and the independent analytic
-`L1`-height Hopf calculation.
+`L1`-height Hopf calculation. The separate
+[`../../scripts/audit_jones_figure6_asset.py`](../../scripts/audit_jones_figure6_asset.py)
+checks the source-archive and raster-asset record without mutating that frozen
+transcription.

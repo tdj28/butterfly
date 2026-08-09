@@ -2,7 +2,8 @@
 
 Date: 2026-08-07
 
-Status: adopted; implementation and dynamic qualification pending
+Status: adopted; operational encoder and synthetic assignment controls
+implemented; end-to-end dynamic qualification pending
 
 ## Context
 
@@ -85,3 +86,19 @@ reported as a separate comparison, not silently accepted.
   invariant-set and bijection tests in RVR-001 and RVR-004.
 - The next experiment may classify the ten printed parameter landmarks, but it
   may not tune a partition or local search to make their labels agree.
+
+## Implementation checkpoint
+
+`python/butterfly/symbolic.py` now implements the non-circular assignment
+layer. It requires a finite frozen domain, ordered nonoverlapping critical
+intervals, explicit increasing-coordinate branch symbols, and section
+orientation provenance. A point inside a critical interval remains unresolved
+unless its independently supplied local slope residual clears the frozen
+zero-slope threshold. Out-of-domain values are never extrapolated. Cyclic
+rotation is canonicalized; reversal is returned only as a separate diagnostic;
+and mapping operational symbols onto the historical alphabet must be complete
+and explicit.
+
+Thirteen synthetic assignment and grammar tests pass for one-, two-, and
+three-branch partitions. These tests qualify the encoder mechanics, not yet
+the end-to-end recovery of a partition from a dense Rössler return cloud.

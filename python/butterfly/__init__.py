@@ -86,6 +86,18 @@ from .saddle import (
     sprinkler_survivors,
     survivor_return_pairs,
 )
+from .symbolic import (
+    CyclicWordComparison,
+    OperationalPartition,
+    PartitionPoint,
+    SymbolicItinerary,
+    canonical_cyclic_rotation,
+    classify_partition_point,
+    compare_cyclic_words,
+    encode_periodic_itinerary,
+    is_cd_zero_insertion,
+    map_symbols,
+)
 from .periodic import (
     MonodromyResult,
     PeriodicOrbitCorrection,
@@ -199,4 +211,14 @@ __all__ = [
     "verify_completed_tile",
     "verify_completed_aggregate",
     "legacy_rossler_section",
+    "CyclicWordComparison",
+    "OperationalPartition",
+    "PartitionPoint",
+    "SymbolicItinerary",
+    "canonical_cyclic_rotation",
+    "classify_partition_point",
+    "compare_cyclic_words",
+    "encode_periodic_itinerary",
+    "is_cd_zero_insertion",
+    "map_symbols",
 ]
