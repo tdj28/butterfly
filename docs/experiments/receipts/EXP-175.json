@@ -1,0 +1,28 @@
+{
+  "schema": "butterfly.operational-partition-control-summary.v1",
+  "experiment_id": "EXP-175",
+  "passed": false,
+  "source_commit": "aefee0f35676f6131234ff81de3431ad03514e70",
+  "manifest_sha256": "16caf4bdd888adeb51866f0fa2f28348903f6dfd7a655038bfc694d3787734e8",
+  "full_receipt_sha256": "18014be724884e1c9335ff28c4e8f433918b1839a4f8edb5c33f98fc3669621c",
+  "elapsed_seconds": 16.76317233312875,
+  "integration_success": true,
+  "crossing_count": 1370,
+  "pair_count_per_segment": 550,
+  "guard_pair_count": 100,
+  "rows": [
+    {"segment": "calibration", "coordinate": "x", "resolved": true, "branch_count": 3, "variant_consensus": 1.0, "maximum_normalized_critical_span": 0.015814963092459926},
+    {"segment": "calibration", "coordinate": "z", "resolved": true, "branch_count": 3, "variant_consensus": 1.0, "maximum_normalized_critical_span": 0.017782525165973288},
+    {"segment": "validation", "coordinate": "x", "resolved": true, "branch_count": 3, "variant_consensus": 1.0, "maximum_normalized_critical_span": 0.019745616708433538},
+    {"segment": "validation", "coordinate": "z", "resolved": false, "branch_count": null, "variant_consensus": 0.8571428571428571, "variant_counts": [3, 3, null, 3, 3, 3, 3], "maximum_normalized_critical_span": 0.012004838829464076, "failure": "50-bin bootstrap consensus 0.64 < 0.8"}
+  ],
+  "qualified_x_partition": {
+    "domain": [-30.829893326951613, -8.560969592967794],
+    "critical_intervals": [[-25.576689389180185, -25.416041204283548], [-17.414284216320493, -16.97460458769476]],
+    "maximum_normalized_joint_critical_span": 0.01974408974039249,
+    "branch_symbols": ["B0", "B1", "B2"],
+    "critical_symbols": ["K0", "K1"],
+    "historical_mapping": null
+  },
+  "interpretation": "The x partition passes calibration and held-out validation, but the required z cross-check is power-limited by one bootstrap-unstable 50-bin variant. No contradictory resolved branch count occurred; the strict two-coordinate experiment remains failed."
+}

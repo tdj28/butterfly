@@ -125,6 +125,9 @@ what must be narrowed, and what is false or unresolved.
   records the blind exact-coordinate Figure 6 audit: eight solver-qualified
   periodic landmarks, two unresolved coordinates, and one delayed-capture
   failure retained by the strict transient gate.
+- [`findings/FND-049-x-partition-passes-z-crosscheck-is-underpowered.md`](findings/FND-049-x-partition-passes-z-crosscheck-is-underpowered.md):
+  qualifies the neutral split-cloud `x` partition while retaining the strict
+  held-out `z` failure caused by one bootstrap-unstable 50-bin variant.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp175-operational-partition-near-pass.md`](2026-08-07-exp175-operational-partition-near-pass.md)
+  — neutral `x` partition passes split-cloud validation; strict `z` cross-check
+  retains one 50-bin bootstrap-power failure and drives unchanged-gate EXP-176.
 - [`2026-08-07-exp174-figure6-landmarks-frozen.md`](2026-08-07-exp174-figure6-landmarks-frozen.md)
   — blind two-transient, two-initial-state, DOP853/Radau classification is
   frozen and executed for all ten printed Figure 6 landmarks: eight late-time

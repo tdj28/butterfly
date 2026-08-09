@@ -102,3 +102,10 @@ and explicit.
 Thirteen synthetic assignment and grammar tests pass for one-, two-, and
 three-branch partitions. These tests qualify the encoder mechanics, not yet
 the end-to-end recovery of a partition from a dense Rössler return cloud.
+
+EXP-175 is the first dynamic checkpoint. It qualifies calibration and held-out
+validation of the neutral three-branch `x` partition. The required `z`
+cross-check remains failed because one of seven held-out variants has
+bootstrap consensus `0.64`; the other six resolve three branches and no
+contradictory count appears. Frozen EXP-176 increases independent sample
+support without changing any oracle or acceptance threshold.
