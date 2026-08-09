@@ -1,0 +1,54 @@
+{
+  "schema": "butterfly.period4-c-arclength-to-flip-manifest.v1",
+  "experiment_id": "EXP-164",
+  "source_receipt_sha256": "dcaebcc2a6ad4225eba12ecb19da579aae44dd88c050ac72a2a7ace2973601ce",
+  "source_direction": 1,
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "continuation": {
+    "initial_step_length": 0.003,
+    "minimum_step_length": 0.000375,
+    "maximum_step_length": 0.02,
+    "growth_factor": 1.08,
+    "shrink_factor": 0.5,
+    "maximum_retries_per_step": 3,
+    "maximum_steps": 500,
+    "post_bracket_points": 4,
+    "c_guard": [4.31, 5.2]
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.012
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 2e-11,
+    "atol": 2e-13,
+    "max_step": 0.01
+  },
+  "corrector": {
+    "tolerance": 1e-11,
+    "maximum_evaluations": 140
+  },
+  "comparison": {
+    "phase_samples": 2048,
+    "coarse_shifts": 256,
+    "shift_tolerance": 1e-10
+  },
+  "orbit_sample_count": 4097,
+  "independent_check_stride": 20,
+  "acceptance": {
+    "minimum_points": 20,
+    "maximum_closure_error": 1e-8,
+    "maximum_neutral_multiplier_error": 1e-7,
+    "minimum_half_period_closure": 0.1,
+    "maximum_winding_error": 0.01,
+    "maximum_bracket_multiplier_imaginary": 1e-6,
+    "minimum_independent_checks": 3,
+    "maximum_independent_closure_error": 1e-8,
+    "maximum_independent_identity_rms": 1e-6,
+    "maximum_independent_multiplier_difference": 1e-5
+  }
+}

@@ -87,7 +87,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `c=3.1807265333384103`. EXP-157 switches the doubled-cover nullspace onto a
   nontrivial child, and EXP-158 independently qualifies the two switch signs
   as one primitive stable period-2 orbit at `c=3.1845`, paired with the
-  unstable period-1 parent. Continue the child to its first flip next.
+  unstable period-1 parent. EXP-159 honestly records natural-parameter identity
+  loss; pseudo-arclength EXP-160 then preserves the child and brackets its next
+  crossing. EXP-161 solves the exact period-2-to-4 flip at
+  `c=4.3100451384813105`; EXP-162/163 switch and independently qualify the
+  stable primitive period-4 child at `c=4.318`. Continue that child to the
+  period-4-to-8 flip next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

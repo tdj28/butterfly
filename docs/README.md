@@ -111,6 +111,10 @@ what must be narrowed, and what is false or unresolved.
   records the mixed EXP-132 result: a qualified finite bracket at `c=19.9`, a
   new three-branch endpoint at `c=19.8,a=0.150`, and the still-unresolved
   bootstrap-sensitive lower endpoint at `c=19.8,a=0.148`.
+- [`findings/FND-045-second-cascade-rung-qualified.md`](findings/FND-045-second-cascade-rung-qualified.md):
+  carries the primitive period-2 child to its exact next flip and independently
+  qualifies the resulting stable primitive period-4 child on the fixed Jones
+  path.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

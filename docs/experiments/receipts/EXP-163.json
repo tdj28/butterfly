@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.period4-c-child-qualification-summary.v1",
+  "experiment_id": "EXP-163",
+  "passed": true,
+  "source_commit": "240a2ee399ab1fe60f4caa98eca13208a37b0cb0",
+  "manifest_sha256": "5697103fcf87e274e0c73ca8d898120e005c87a66f65525c688a4a38d3ff8a2b",
+  "child_receipt_sha256": "dcaebcc2a6ad4225eba12ecb19da579aae44dd88c050ac72a2a7ace2973601ce",
+  "parent_receipt_sha256": "808d16e4285e2b8c4be98f55f2ee8c4b47804032e435759a2c9f62fb244ffaeb",
+  "raw_receipt": "artifacts/EXP-163/receipt.json",
+  "raw_receipt_sha256": "8c641c0a387b0a4f5701d4254252f6aa24f6515589466992a611008cf67eff58",
+  "raw_receipt_bytes": 4127,
+  "parameters": {"a": 0.1798, "b": 0.2, "c": 4.318},
+  "radau_parent_multiplier": -1.0115948995705222,
+  "radau_child_multiplier": 0.9535193006801371,
+  "child_arm_identity_rms": 3.143755503574993e-7,
+  "child_arm_phase_shift": 0.5013960642756033,
+  "half_period_closures": [0.21531360025297377, 0.21484327743252993],
+  "parent_period_ratios": [2.0000019914214167, 2.0000019914214207],
+  "winding_numbers": [1.9999999999999865, 3.999999999999987, 3.9999999999999964],
+  "maximum_solver_identity_rms": 4.3635381009458264e-12,
+  "maximum_solver_modulus_difference": 4.551470311753292e-12,
+  "recovered_child_identity_rms": 2.8347201476167164e-9
+}
