@@ -94,7 +94,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   stable primitive period-4 child at `c=4.318`. EXP-164/165 continue that child
   and solve its exact period-4-to-8 flip at `c=4.636447200967924`; EXP-166/167
   switch and independently qualify a stable primitive period-8 child at
-  `c=4.65`. Continue period 8 while separately recovering the historical path
+  `c=4.65`. After preserving EXP-168's cardinality failure and EXP-170's
+  equal-modulus block-clustering failure, EXP-169/171 locate the exact next
+  flip at `c=4.7090113823613065`; EXP-172/173 independently qualify a stable
+  primitive period-16 child at `c=4.716`. Before continuing to period 32,
+  replace single-shooting branch switching with segmented switching and make
+  long recovery checkpointed/parallel. Separately recover the historical path
   definitions and symbolic partition needed to decide ordering through seven.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all

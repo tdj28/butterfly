@@ -279,6 +279,27 @@ gate is a prospectively frozen saddle-defined boundary continuation; GPU use
 remains conditional on a workload with an implemented CUDA path rather than an
 adaptive SciPy/DOP853 loop.
 
+### High-period fixed-path qualification bottleneck
+
+EXP-173 independently qualifies a period-16 child, but takes `1107.9` seconds
+on the local Apple Silicon host. The dominant cost is a serial 64-period Radau
+attraction recovery over a period-`94.04` orbit; the coupled shooting correction
+is not the bottleneck. Renting an NVIDIA host would not accelerate this code as
+written because SciPy's adaptive Radau loop has no CUDA execution path.
+
+Before paid acceleration, the next implementation must separate the workload:
+
+1. retain Radau for independent one-orbit closure and multiplier audits;
+2. use segmented multiple shooting for the branch switch;
+3. make long recovery resumable through period-boundary checkpoints;
+4. batch phase/perturbation trajectories in a Float64 CUDA kernel; and
+5. require CPU/GPU recovery-identity parity on period 8 and 16 controls before
+   a period-32 production run.
+
+Only items 3--5 are GPU candidates. This converts the measured bottleneck into
+a parallel workload and avoids paying for a GPU that idles behind serial CPU
+integration.
+
 ## Runpod primary documentation
 
 - [Create a Pod](https://docs.runpod.io/api-reference/pods/POST/pods)

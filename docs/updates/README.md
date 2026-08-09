@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp173-period16-qualified.md`](2026-08-07-exp173-period16-qualified.md)
+  — four exact fixed-path flips and independent stable-child qualification
+  through period 16, plus the measured serial-recovery bottleneck.
 - [`2026-08-07-exp156-first-flip-frozen.md`](2026-08-07-exp156-first-flip-frozen.md)
   — exact c-derivative, anti-periodic multiple shooting, cyclic Floquet, and
   independent Radau gates pass for the first period-1 flip.

@@ -118,6 +118,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-046-third-cascade-rung-qualified.md`](findings/FND-046-third-cascade-rung-qualified.md):
   resolves the exact period-4-to-8 flip and independently qualifies a stable
   primitive period-8 child, completing the third fixed-path cascade rung.
+- [`findings/FND-047-fourth-cascade-rung-qualified.md`](findings/FND-047-fourth-cascade-rung-qualified.md):
+  repairs the equal-modulus block-root audit, resolves the exact period-8-to-16
+  flip, and independently qualifies the stable primitive period-16 child.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.
