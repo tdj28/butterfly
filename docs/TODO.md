@@ -110,9 +110,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   retains one bootstrap-power failure at 50 bins despite six other resolved
   three-branch variants. Frozen unchanged-threshold EXP-176 then passes with
   1000 calibration and 1000 validation pairs: every `x` and `z` variant
-  resolves three branches. Qualify a historical-section two-branch dense or
-  invariant-saddle control, then freeze the neutral-to-Jones alphabet mapping
-  before assigning any Figure 6 word.
+  resolves three branches. EXP-177 now qualifies the corresponding two-branch
+  dense control in all `x` and `z` variants. Continue critical identity across
+  `a in [0.11,0.20]`, using invariant-saddle clouds through regular gaps,
+  rather than selecting a three-branch critical point by endpoint proximity;
+  only then freeze the neutral-to-Jones alphabet mapping.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

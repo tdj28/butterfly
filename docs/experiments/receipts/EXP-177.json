@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.operational-partition-control-summary.v1",
+  "experiment_id": "EXP-177",
+  "passed": true,
+  "source_commit": "49f9e9495b161b3d8746891dea28db25a0a5a0c6",
+  "manifest_sha256": "fd8925a9ee337f9097574e9083dcad6b6827a04de288d7d2e892a921004d84f7",
+  "full_receipt_sha256": "37a19c52715792553f7a61383bd4df9172080ffbfc965a41b1dc601daf10228f",
+  "elapsed_seconds": 25.96637091692537,
+  "integration_success": true,
+  "crossing_count": 2582,
+  "pair_count_per_segment": 1000,
+  "guard_pair_count": 200,
+  "all_variant_consensuses": 1.0,
+  "rows": [
+    {"segment": "calibration", "coordinate": "x", "branch_count": 2, "maximum_normalized_critical_span": 0.008056473082621824},
+    {"segment": "calibration", "coordinate": "z", "branch_count": 2, "maximum_normalized_critical_span": 0.0201018564932219},
+    {"segment": "validation", "coordinate": "x", "branch_count": 2, "maximum_normalized_critical_span": 0.011803645308943579},
+    {"segment": "validation", "coordinate": "z", "branch_count": 2, "maximum_normalized_critical_span": 0.020254203410074112}
+  ],
+  "joint_partitions": {
+    "x": {
+      "domain": [-26.74532394820603, -10.75650208314057],
+      "critical_intervals": [[-20.1570308584169, -19.964655476051416]],
+      "maximum_normalized_critical_span": 0.012031867262578691,
+      "branch_symbols": ["B0", "B1"],
+      "critical_symbols": ["K0"]
+    },
+    "z": {
+      "domain": [0.0042796116971587994, 0.006505068068219259],
+      "critical_intervals": [[0.0049934329585435725, 0.0050385078045632765]],
+      "maximum_normalized_critical_span": 0.020254203410074112,
+      "branch_symbols": ["B0", "B1"],
+      "critical_symbols": ["K0"]
+    }
+  },
+  "historical_mapping": null,
+  "interpretation": "The published unimodal parameter point independently resolves as a neutral two-branch partition on the distinct recovered Jones negative half-plane. Critical identity across the two/three transition remains to be continued before C/D mapping."
+}

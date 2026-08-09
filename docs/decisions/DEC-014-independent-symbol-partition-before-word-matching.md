@@ -2,9 +2,9 @@
 
 Date: 2026-08-07
 
-Status: adopted; operational encoder, synthetic assignment controls, and the
-dense three-branch Rössler control are qualified; two-branch control and target
-word tests pending
+Status: adopted; operational encoder, synthetic assignment controls, and dense
+two-/three-branch Rössler controls are qualified; critical identity mapping and
+target word tests pending
 
 ## Context
 
@@ -116,3 +116,10 @@ EXP-176 executes that unchanged-threshold successor on a fresh trajectory with
 resolve three branches in both `x` and `z`, with joint normalized critical
 spans `0.0176585` and `0.0161930`. This closes the dense three-branch control
 portion of the decision. Neutral symbols remain deliberately unmapped.
+
+EXP-177 copies the successful thresholds to the published unimodal parameter
+point on the distinct recovered Jones section. All seven variants resolve two
+branches in both split-cloud segments and coordinates. The neutral control pair
+is therefore complete on one representation. Endpoint proximity is not an
+identity proof: parameter continuation must determine which three-branch
+critical interval descends from the unimodal interval before `C/D` mapping.

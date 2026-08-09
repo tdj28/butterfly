@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp177-two-branch-control-qualified.md`](2026-08-07-exp177-two-branch-control-qualified.md)
+  — published unimodal point resolves as a neutral two-branch partition on the
+  recovered Jones section in every split-cloud `x` and `z` variant.
 - [`2026-08-07-exp177-two-branch-control-frozen.md`](2026-08-07-exp177-two-branch-control-frozen.md)
   — unchanged-threshold two-branch prediction frozen at the published
   unimodal parameter point on the distinct recovered Jones section.

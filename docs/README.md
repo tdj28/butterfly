@@ -131,6 +131,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-050-neutral-three-branch-jones-partition-qualified.md`](findings/FND-050-neutral-three-branch-jones-partition-qualified.md):
   qualifies the neutral three-branch Jones-section partition across all seven
   calibration/validation variants independently in `x` and `z`.
+- [`findings/FND-051-neutral-two-branch-jones-partition-qualified.md`](findings/FND-051-neutral-two-branch-jones-partition-qualified.md):
+  qualifies the matching neutral two-branch control on the same historical
+  representation; critical identity across the transition remains open.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
