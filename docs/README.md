@@ -95,6 +95,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-026-signed-boundary-slope-predicts-blind-midpoint.md`](findings/FND-026-signed-boundary-slope-predicts-blind-midpoint.md):
   records the qualified signed companion observable, its direct connection to
   Jones's edge/critical-point statement, and the next manifold-event gate.
+- [`findings/FND-036-phase-resolved-capture-contrast-is-not-robust.md`](findings/FND-036-phase-resolved-capture-contrast-is-not-robust.md):
+  rejects the EXP-143 finite-horizon capture contrast under denser seeds,
+  three orbit phases, and two horizons while preserving the validated UPO
+  skeleton and selecting a direct geometric connection residual.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

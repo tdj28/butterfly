@@ -119,3 +119,9 @@ traces. It transports each selected branch to three orbit phases, doubles the
 seed-grid resolution to 17 nested amplitudes, extends the administrative
 horizon to 96 returns, and requires phase-, horizon-, and density-consistent
 endpoint capture shifts before selecting a direct connection solve.
+
+EXP-144 fails its scientific gate after all 408 trajectories and all 24
+transported directions complete successfully. No candidate clears the frozen
+effect floor at all phases, and only 13/24 nested-grid summaries qualify.
+Finite-horizon capture timing is retired as the mechanism proxy; the next gate
+must use direct manifold geometry or symbolic connectivity.

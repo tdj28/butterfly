@@ -503,6 +503,11 @@ exposition requirements.
   and 64/96-return administrative horizons. Execute it from the clean pushed
   preregistration commit; promote only candidates with a same-direction,
   at-least-five-return endpoint shift at every phase and both horizons.
+  EXP-144 fails that gate while completing every numerical trajectory: none
+  of the four candidates is phase-robust and only 13/24 nested-grid summaries
+  pass. Retire finite-horizon capture timing as the connection proxy. Define
+  the next residual directly from stable/unstable manifold geometry or
+  symbolic pruning, with an explicit null control and seed/mesh convergence.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

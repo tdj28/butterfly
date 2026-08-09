@@ -1,0 +1,51 @@
+{
+  "schema": "butterfly.upo-lobe-capture-refinement-summary.v1",
+  "experiment_id": "EXP-144",
+  "passed": false,
+  "source_commit": "2fb5843963caa581f000f04835568ef790a9f2e1",
+  "manifest_sha256": "1a6fefac4e52ff1cb9dc5f7498be88afccb484ad9e8ff6682e0e07f766b9b0ba",
+  "raw_receipt": "artifacts/EXP-144/receipt.json",
+  "raw_receipt_sha256": "3bf51ed589efbfa98ee3c968f008d804bde9c48bc36fa550e359a7afd72b5987",
+  "raw_receipt_bytes": 1953304,
+  "elapsed_seconds": 159.72779566701502,
+  "trajectory_count": 408,
+  "return_integration_failures": 0,
+  "captured_trajectory_count": 394,
+  "transported_seed_count": 24,
+  "maximum_transport_multiplier_error": 0.0018748377341548763,
+  "maximum_transport_transverse_ratio": 0.0020568709838471454,
+  "phase_endpoint_summary_count": 24,
+  "nested_grid_pass_count": 13,
+  "maximum_coarse_fine_restricted_mean_difference": 5.24183006535948,
+  "candidate_results": [
+    {
+      "family_id": "lower-family-06-lag12",
+      "sign": -1,
+      "differences_at_horizon_96_by_phase": [-6.882352941176471, -10.17647058823529, -1.7647058823529491],
+      "classification": "phase_inconsistent_or_below_effect_floor",
+      "passed": false
+    },
+    {
+      "family_id": "lower-family-03-lag7",
+      "sign": 1,
+      "differences_at_horizon_96_by_phase": [-1.647058823529413, 0.235294117647058, -2.82352941176471],
+      "classification": "phase_inconsistent_or_below_effect_floor",
+      "passed": false
+    },
+    {
+      "family_id": "lower-family-02-lag5",
+      "sign": 1,
+      "differences_at_horizon_96_by_phase": [0.117647058823529, 1.588235294117645, -5.17647058823529],
+      "classification": "phase_inconsistent_or_below_effect_floor",
+      "passed": false
+    },
+    {
+      "family_id": "lower-family-07-lag13",
+      "sign": 1,
+      "differences_at_horizon_96_by_phase": [-4.941176470588232, -6.647058823529406, -3.058823529411768],
+      "classification": "phase_inconsistent_or_below_effect_floor",
+      "passed": false
+    }
+  ],
+  "interpretation": "All numerical integrations and transported Floquet-direction gates pass, but none of the four EXP-143 capture-sensitive branches retains a density-, phase-, and horizon-robust endpoint effect. Finite-horizon capture timing is rejected as the next connection observable; no conclusion follows against UPO persistence or the two/three-branch saddle transition."
+}

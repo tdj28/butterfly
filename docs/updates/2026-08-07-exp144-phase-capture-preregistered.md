@@ -17,3 +17,13 @@ This is deliberately a discriminator. Passing would identify branches worth a
 direct connection boundary-value solve; failure would show that the EXP-143
 capture contrast is seed-phase dependent and should not carry a mechanism
 claim.
+
+## Result
+
+The prospective gate fails cleanly. All 408 trajectories and all 24
+transported-direction checks pass numerically, but only 13 of 24 nested-grid
+summaries qualify and no candidate clears the five-return effect floor at all
+three phases. Two candidates reverse their 64/96-return direction at one
+phase. The EXP-143 capture contrast is therefore retired as a mechanism proxy;
+the persistent UPO library remains available for a direct geometric
+intersection or symbolic-pruning residual.
