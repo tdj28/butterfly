@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.period8-c-flip-summary.v1",
+  "experiment_id": "EXP-171",
+  "passed": true,
+  "source_commit": "8cb6e1a866d00416aa10aa64b5ef6ddbfc8e27f4",
+  "manifest_sha256": "4060fef11eaecd7c15986bef98cc4f86fba12cf47efb2e60e78553b42c3f3f1b",
+  "source_receipt_sha256": "a420205fc0719d5b61bd29d8bd8eeef209ab5805c173a9bd9bea6ae75a4c7e09",
+  "raw_receipt": "artifacts/EXP-171/receipt.json",
+  "raw_receipt_sha256": "f889f48fada33c8d169488b87c91434b7afe26e3432ced9610ee9adb46a1aecf",
+  "raw_receipt_bytes": 15996,
+  "parameters": {"a": 0.1798, "b": 0.2, "c": 4.7090113823613065},
+  "period_time": 47.019522702249795,
+  "orbit_matching_residual": 4.220122807611119e-14,
+  "reference_flip_residual": 1.432187701766452e-14,
+  "block_product_difference": 2.120525977034049e-14,
+  "independent_radau_flip_residual": 2.2321477999291965e-11,
+  "independent_radau_closure_error": 8.797811907390273e-13,
+  "independent_radau_half_period_closure": 0.23949910601978242,
+  "independent_radau_winding_number": 8.000000000000014,
+  "interpretation": "After balanced powered-root clustering, the primitive period-8 branch passes an exact fourth flip with block, 32 direct-product, and independent Radau agreement."
+}
