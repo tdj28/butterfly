@@ -83,11 +83,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   cardinality gate after duplicating the seed; direction-aware, unchanged-gate
   successor EXP-155 passes. It follows the one-winding family to the exact hub,
   qualifies exponent `0.5017311`, and brackets its first `-1` multiplier
-  crossing. EXP-156 passes the coupled exact-`c` flip refinement. EXP-157 now
-  freezes the local doubled-cover nullspace switch onto the prospective
-  period-2 child; independent identity and stability qualification follow
-  only after its receipt is hash-bound. EXP-156 passes at
-  `c=3.1807265333384103`; EXP-157 execution and period-2 qualification are next.
+  crossing. EXP-156 passes the coupled exact-`c` flip refinement at
+  `c=3.1807265333384103`. EXP-157 switches the doubled-cover nullspace onto a
+  nontrivial child, and EXP-158 independently qualifies the two switch signs
+  as one primitive stable period-2 orbit at `c=3.1845`, paired with the
+  unstable period-1 parent. Continue the child to its first flip next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
@@ -431,7 +431,9 @@ exposition requirements.
   must equal the blind critical-point count. EXP-129 passes: all six PIM lines,
   60/60 two-branch oracle cells, and 60/60 negative-slope fits agree, with the
   weakest slope magnitude `0.4994` and no failed lifetime integration. The
-  finite bracket is `[0.148125,0.14825]`. Leave pure one-dimensional bisection.
+  finite bracket is `[0.148125,0.14825]`. EXP-148 later passes the untouched
+  midpoint `a=0.1481875` as two-branch at both horizons, narrowing it to
+  `[0.1481875,0.14825]`. Leave pure one-dimensional bisection.
   EXP-130 prospectively freezes and executes a transverse `(a,c)` GPU
   discovery pilot with four controls, two fresh Sobol ensembles, half-step
   representatives, and unresolved-aware gates at `c=19.8/19.9`. It correctly
@@ -552,12 +554,13 @@ exposition requirements.
   traces with unchanged capture, occupancy, and nested-density controls.
   Execute it before preregistering and running the independent midpoint PIM.
   EXP-147 passes with 989/558 fine/coarse lobe points and no integration
-  failure. EXP-148 now freezes the untouched midpoint PIM with expected class
-  `null`; its clean eight-worker run began after EXP-132 released the CPU pool.
-  When it completes, freeze EXP-149 using only the resulting receipt and
-  state-archive hashes. The EXP-149 evaluator,
+  failure. EXP-148 freezes the untouched midpoint PIM with expected class
+  `null`; its clean eight-worker run passes as two-branch on all six
+  access-line/horizon reconstructions, narrowing the finite bracket to
+  `[0.1481875,0.14825]`. EXP-149 is now instantiated using only the resulting
+  receipt and state-archive hashes. The EXP-149 evaluator,
   two↔excluded/three↔included decision, and all thresholds are now committed
-  before EXP-148; after that run, only hash/path fields may be instantiated.
+  before EXP-148; after that run, only hash/path fields were instantiated.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

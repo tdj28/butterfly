@@ -21,8 +21,9 @@ coupled, identity-safe flow bifurcation. Together with EXP-153 and EXP-155, it
 establishes the Hopf-born period-1 parent and its first flip along one explicit
 slice—two prerequisites of the finite logistic-ordering argument.
 
-It does not yet prove that a stable primitive period-2 child opens on the
-correct side, nor anything about later windows or symbolic ordering. Branch
-switching and child qualification are the next mandatory gates.
+EXP-157 and EXP-158 subsequently prove that a stable primitive period-2 child
+opens on the post-flip side; see FND-042. This finding alone did not establish
+that child, and neither result yet establishes later windows or symbolic
+ordering.
 
 Tracked receipt: `docs/experiments/receipts/EXP-156.json`.

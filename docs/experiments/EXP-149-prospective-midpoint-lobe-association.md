@@ -1,6 +1,6 @@
 # EXP-149 — Prospective midpoint branch/lobe association
 
-Status: analysis code and gates frozen before EXP-148 execution; source hashes pending
+Status: analysis code and gates frozen before EXP-148; source hashes instantiated after its blind class passed
 
 ## Question
 

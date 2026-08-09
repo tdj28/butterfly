@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.period1-c-flip-switch-summary.v1",
+  "experiment_id": "EXP-157",
+  "passed": true,
+  "source_commit": "2fc08e0",
+  "event_receipt_sha256": "c5a01e1b99dc4a90b6daa993d7b7173ed7081a87148ed9a76c17350b82c50f2e",
+  "parent_receipt_sha256": "2b74e4c3303ffd0f69d7d8963856d87a8fe80cd270f882450bc72fd81a3e67b8",
+  "raw_receipt": "artifacts/EXP-157/receipt.json",
+  "raw_receipt_sha256": "dbf1bd63fa987be7307557fa094edeec74c0e79afc2acfa6436ec2d6b09b244f",
+  "raw_receipt_bytes": 34205,
+  "smallest_shooting_singular_value": 5.840844773053272e-15,
+  "absolute_tangent_dot": 5.551115123125783e-17,
+  "branches": [
+    {"direction": -1, "points": 24, "endpoint_distance": 0.07945459449345692, "endpoint_half_period_closure": 0.2278273252876679, "endpoint_modulus": 0.9880593825650311},
+    {"direction": 1, "points": 24, "endpoint_distance": 0.06861195025665166, "endpoint_half_period_closure": 0.20417127936882087, "endpoint_modulus": 0.9904611566031588}
+  ]
+}

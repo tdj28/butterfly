@@ -49,7 +49,17 @@ All coupled residuals are below $4.76\times10^{-15}$; four cyclic monodromy
 products have median multiplier $-1.0000000000000067$ and spread
 $1.56\times10^{-15}$.  Independent Radau monodromy gives
 $-0.9999999999998008$, closure $3.50\times10^{-14}$, and winding one.  This
-qualifies the parent flip; the switched period-2 child remains a separate gate.
+qualifies the parent flip.  A doubled-cover shooting nullspace switch then
+continues both transverse signs for 24 points on the post-flip side.  At the
+frozen common checkpoint $c=3.1845$, independent Radau correction gives the
+parent multiplier $-1.0021368076$ and child multiplier $0.9914596621$.  The
+two signs agree up to phase with whole-orbit RMS $7.82\times10^{-8}$ and phase
+shift $0.49739$.  Their period ratio is $1.9999363$, half-period closure fails
+by approximately $0.193$, and each child winds twice.  Perturbed forward
+integration recovers the child with phase-invariant RMS
+$3.38\times10^{-10}$.  This establishes a primitive stable period-2 child and
+the first supercritical rung on this explicit path; later rungs and symbolic
+ordering remain separate gates.
 
 At the reported hub the continued orbit has period $5.9935437090$, primary
 nontrivial multiplier $-3.2022459546$, and minimum distance
@@ -383,7 +393,12 @@ the full numerical-sensitivity intervals are $[-1.2032,-0.4994]$ in $y$ and
 $[-1.4185,-0.8476]$ in $z$.  Both clear the preregistered magnitude floor and
 predict the blind two-branch class.  Maximum cross-horizon critical drift is
 $0.009643$ in $y$ and $0.005037$ in $z$, with no failed lifetime integration.
-The finite sampled bracket therefore narrows to $[0.148125,0.14825]$.
+The finite sampled bracket therefore narrows to $[0.148125,0.14825]$.  A
+subsequent blind PIM midpoint at $a=0.1481875$ completes all six access-line
+reconstructions with no failed lifetime evaluation.  Both coordinates and all
+oracle variants select two branches at 128 and 256 returns; the nested
+critical-point spans are $0.008410$ in $y$ and $0.005129$ in $z$.  The finite
+sampled bracket therefore narrows again to $[0.1481875,0.14825]$.
 
 The first transverse GPU pilot then fails its strict scientific gate despite
 successful controls and numerics.  Thirty-six Float64 RK4/Hermite runs have no

@@ -95,6 +95,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-026-signed-boundary-slope-predicts-blind-midpoint.md`](findings/FND-026-signed-boundary-slope-predicts-blind-midpoint.md):
   records the qualified signed companion observable, its direct connection to
   Jones's edge/critical-point statement, and the next manifold-event gate.
+- [`experiments/EXP-148-blind-a1481875-censored-pim.md`](experiments/EXP-148-blind-a1481875-censored-pim.md):
+  passes the next untouched midpoint as two-branch at both censor horizons and
+  narrows the finite bracket to `[0.1481875,0.14825]` before the separately
+  frozen lobe-association test is evaluated.
 - [`findings/FND-036-phase-resolved-capture-contrast-is-not-robust.md`](findings/FND-036-phase-resolved-capture-contrast-is-not-robust.md):
   rejects the EXP-143 finite-horizon capture contrast under denser seeds,
   three orbit phases, and two horizons while preserving the validated UPO

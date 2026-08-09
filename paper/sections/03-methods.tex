@@ -5,7 +5,13 @@ bifurcations.  Candidate periodic states are corrected by shooting equations
 with an explicit phase condition.  Stability is computed from the variational
 flow and nontrivial Floquet multipliers.  Every continuation correction is
 checked against the intended minimal-period orbit identity so that a
-double-covered parent cannot be mislabeled as a doubled child.
+double-covered parent cannot be mislabeled as a doubled child.  Adaptive
+DOP853 or Radau integrates the state and variational equations; Newton-style
+least squares acts only on the finite-dimensional shooting, phase, parameter,
+and pseudo-arclength residuals.  Thus correction is not used as a time
+integrator.  For continuation in $c$, the exact sensitivity forcing is
+$f_c=(0,0,-z)$ and the resulting shooting Jacobian is checked against centered
+finite differences.
 
 At high period, full-period shooting becomes poorly conditioned and can lose
 the flip direction.  We therefore divide an orbit into multiple shooting

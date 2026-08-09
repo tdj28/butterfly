@@ -1,6 +1,6 @@
 # EXP-148 — Blind `a=0.1481875` PIM saddle
 
-Status: preregistered; clean eight-worker execution in progress
+Status: passed blind two-branch qualification at both horizons
 
 ## Question
 
@@ -46,3 +46,15 @@ PYTHONPATH=python .venv/bin/python \
 A pass qualifies one additional finite PIM saddle class and enables the first
 prospective lobe-inclusion association test. It does not locate a continuous
 boundary or prove an exact manifold connection.
+
+## Result
+
+The clean eight-worker run passes after `4356.37` seconds. All three access
+lines resolve at both 128 and 256 returns with no lifetime-evaluation failure.
+Both `y` and `z` select two branches in all 15 oracle variants at both
+horizons, with 2097 post-burn-in pairs per coordinate/profile and consensus
+one. The nested critical-point spans are `0.008410` in `y` and `0.005129` in
+`z`, both within the frozen gates. The finite sampled bracket narrows to
+`[0.1481875,0.14825]`.
+
+Tracked receipt: `docs/experiments/receipts/EXP-148.json`.

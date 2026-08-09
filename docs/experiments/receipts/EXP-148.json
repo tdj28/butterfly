@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.blind-censored-pim-midpoint-summary.v1",
+  "experiment_id": "EXP-148",
+  "passed": true,
+  "source_commit": "a1302fd7df5ead80aecb8103bf2fd7ac9f3398af",
+  "manifest_sha256": "58b1c82261e3b25305589caad3c3fffe77a4d999242a35cdf64ff047635eb297",
+  "raw_receipt": "artifacts/EXP-148/receipt.json",
+  "raw_receipt_sha256": "c8b30a50ab49f01da6ce1694ca6b269ee1060a90e2236e96482876ceb92b0a35",
+  "raw_receipt_bytes": 26446,
+  "states_artifact": "artifacts/EXP-148/blind-a1481875-censored-pim-straddles.npz",
+  "states_artifact_sha256": "5ead804c1d1ee9a417102f04d6e5c59e676f3d49c309aed4d88013fa5a2b0840",
+  "states_artifact_bytes": 88544,
+  "parameters": {"a": 0.1481875, "b": 0.2, "c": 20.0},
+  "observed_saddle_branch_count": 2,
+  "profiles": [
+    {"maximum_escape_returns": 128, "successful_straddles": 3, "y_branch_count": 2, "z_branch_count": 2, "pair_count_per_coordinate": 2097, "variant_consensus": 1.0, "failed_lifetime_evaluations": 0},
+    {"maximum_escape_returns": 256, "successful_straddles": 3, "y_branch_count": 2, "z_branch_count": 2, "pair_count_per_coordinate": 2097, "variant_consensus": 1.0, "failed_lifetime_evaluations": 0}
+  ],
+  "nested_maximum_normalized_span": {"y": 0.008409776617515756, "z": 0.005129317043972703},
+  "sampled_transition_bracket": [0.1481875, 0.14825]
+}
