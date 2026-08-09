@@ -175,4 +175,7 @@ give `K1 -> C` and `K0 -> D`; source geometry predicts the newly opened outer
 interval `B0 -> 2`, the physically innermost deposition interval `B2 -> 0`,
 and residual `B1 -> 1`. Two fresh solvers, disjoint segments, both coordinates,
 physical-distance separation, transition support, and cross-coordinate
-agreement must pass before any target cycle is encoded.
+agreement must pass before any target cycle is encoded. EXP-184 stopped before
+integration on a nested receipt-field lookup. Scientifically unchanged
+EXP-185 repairs only that administrative selector and retains every mapping
+and scientific gate.

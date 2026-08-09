@@ -37,6 +37,17 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def nested_value(payload: dict, path: str):
+    """Read a required dot-delimited field from a JSON object."""
+
+    value = payload
+    for key in path.split("."):
+        if not isinstance(value, dict) or key not in value:
+            raise ValueError(f"missing evidence field: {path}")
+        value = value[key]
+    return value
+
+
 def classify_branch(value: float, partition: dict) -> int | None:
     """Classify a scalar return into a frozen branch, censoring boundaries."""
 
@@ -189,7 +200,8 @@ def validate_evidence(manifest: dict) -> dict:
         if actual != record["sha256"]:
             raise ValueError(f"evidence hash mismatch: {path}")
         payload = json.loads(path.read_text())
-        if record.get("require_passed") and not payload.get("passed"):
+        pass_path = record.get("pass_path", "passed")
+        if record.get("require_passed") and not nested_value(payload, pass_path):
             raise ValueError(f"parent evidence did not pass: {path}")
         results[str(path)] = {"sha256": actual, "schema": payload.get("schema")}
 

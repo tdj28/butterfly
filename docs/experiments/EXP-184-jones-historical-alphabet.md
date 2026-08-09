@@ -1,6 +1,6 @@
 # EXP-184 — Source-derived Jones historical alphabet
 
-Status: preregistered; not yet executed
+Status: executed; administrative failure before integration
 
 ## Question
 
@@ -41,9 +41,21 @@ must agree on at least `90%` of jointly resolved pairs.
 Manifest:
 [`../../experiments/manifests/EXP-184-jones-historical-alphabet.json`](../../experiments/manifests/EXP-184-jones-historical-alphabet.json).
 
+## Result
+
+Direct execution from clean commit `1d70107` stopped in parent-evidence
+validation before constructing a solver or integrating a trajectory. The
+validator expected every compact receipt to expose a top-level `passed` field;
+EXP-183 correctly stores the same value at `gates.passed`. The exact exception
+was `parent evidence did not pass: docs/experiments/receipts/EXP-183.json`.
+
+No scientific row or raw receipt was produced. EXP-185 preserves every
+trajectory, partition, mapping, and acceptance gate while adding only explicit
+dot-delimited pass-field paths to the parent-evidence records.
+
 ## Claim boundary
 
-A pass will qualify this historical mapping operationally on the recovered
+An eventual pass will qualify this historical mapping operationally on the recovered
 Jones section. It will not prove that the scalar partition is a unique
 generating partition, establish a template/conjugacy, validate a Figure 6
 word, or locate a global TBA curve.

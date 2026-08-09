@@ -130,8 +130,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   across steps and hit the flank predictions, all attractor controls capture,
   and five-return DOP853 errors are tiny. The local critical identity is
   qualified. EXP-184 now freezes the source-derived neutral-to-Jones mapping
-  before any target word is evaluated; execute its two-solver physical-geometry
-  gate, then generate held-out Figure 6 words without target-driven relabeling.
+  before any target word is evaluated. Its pre-integration receipt-field
+  failure is preserved; execute scientifically unchanged EXP-185's two-solver
+  physical-geometry gate, then generate held-out Figure 6 words without
+  target-driven relabeling.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

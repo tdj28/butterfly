@@ -5,6 +5,7 @@ import numpy as np
 from scripts.qualify_jones_historical_alphabet import (
     analyze_segment,
     classify_branch,
+    nested_value,
 )
 
 
@@ -21,6 +22,10 @@ def test_classify_branch_censors_domain_and_critical_intervals() -> None:
     assert classify_branch(0.5, PARTITION) == 1
     assert classify_branch(0.75, PARTITION) is None
     assert classify_branch(0.9, PARTITION) == 2
+
+
+def test_nested_evidence_pass_field() -> None:
+    assert nested_value({"gates": {"passed": True}}, "gates.passed") is True
 
 
 def test_geometry_summary_recovers_inner_and_third_branch_semantics() -> None:
