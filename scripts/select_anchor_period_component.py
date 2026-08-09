@@ -47,6 +47,53 @@ def anchor_component(period_grid, anchor_index, target_period: int) -> list[tupl
     return sorted(visited)
 
 
+def probe_memberships(
+    period_grid,
+    a_values,
+    c_values,
+    probes: list[dict],
+    component_points: list[tuple[int, int]],
+    *,
+    b: float,
+) -> list[dict]:
+    """Report deterministic nearest-grid membership for declared probes."""
+
+    periods = np.asarray(period_grid)
+    a_axis = np.asarray(a_values, dtype=float)
+    c_axis = np.asarray(c_values, dtype=float)
+    component = set(component_points)
+    results = []
+    for probe in probes:
+        index = (
+            int(np.argmin(np.abs(a_axis - float(probe["a"])))),
+            int(np.argmin(np.abs(c_axis - float(probe["c"])))),
+        )
+        period = int(periods[index])
+        results.append(
+            {
+                "id": probe["id"],
+                "requested_parameters": {
+                    "a": float(probe["a"]),
+                    "b": float(probe.get("b", b)),
+                    "c": float(probe["c"]),
+                },
+                "grid_index": list(index),
+                "grid_parameters": {
+                    "a": float(a_axis[index[0]]),
+                    "b": float(b),
+                    "c": float(c_axis[index[1]]),
+                },
+                "grid_offset": {
+                    "a": float(a_axis[index[0]] - float(probe["a"])),
+                    "c": float(c_axis[index[1]] - float(probe["c"])),
+                },
+                "period": None if period < 0 else period,
+                "in_anchor_component": index in component,
+            }
+        )
+    return results
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -91,6 +138,14 @@ def main() -> int:
     )
     target_period = int(selection["target_period"])
     points = anchor_component(periods, anchor_index, target_period)
+    probes = probe_memberships(
+        periods,
+        a_values,
+        c_values,
+        list(selection.get("probes", ())),
+        points,
+        b=float(frame["b"]),
+    )
     if points:
         point_indices = [i * shape[1] + j for i, j in points]
         a_range = [float(a_values[min(i for i, _ in points)]), float(a_values[max(i for i, _ in points)])]
@@ -127,11 +182,28 @@ def main() -> int:
         "a_range": a_range,
         "c_range": c_range,
         "touches_boundary": touches,
+        "probes": probes,
         "passed": bool(points),
         "claim_scope": "deterministic raster component selection only; adjacency is not periodic-orbit continuation or a center claim",
     }
     atomic_write(args.output, canonical_json(output))
-    print(json.dumps({key: output[key] for key in ("passed", "anchor_period", "component_point_count", "a_range", "c_range", "touches_boundary")}, sort_keys=True))
+    print(
+        json.dumps(
+            {
+                key: output[key]
+                for key in (
+                    "passed",
+                    "anchor_period",
+                    "component_point_count",
+                    "a_range",
+                    "c_range",
+                    "touches_boundary",
+                    "probes",
+                )
+            },
+            sort_keys=True,
+        )
+    )
     return 0 if output["passed"] else 2
 
 

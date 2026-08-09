@@ -167,6 +167,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-062-period6-floquet-zero-neighborhood-is-unimodal.md`](findings/FND-062-period6-floquet-zero-neighborhood-is-unimodal.md):
   rejects that complete neighborhood as a two-critical center location while
   preserving the global double-superstability question.
+- [`findings/FND-063-second-jones-period6-landmark-lies-in-coherent-band.md`](findings/FND-063-second-jones-period6-landmark-lies-in-coherent-band.md):
+  places the other exact period-6 landmark inside a coherent 981-pixel band
+  whose vertical extent remains truncated and whose orbit identity is open.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

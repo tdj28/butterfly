@@ -158,6 +158,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   section z map and one near-critical orbit phase. Prospectively map that
   landmark's complete stable period-6 window at high resolution, correct its
   interior cycles, and solve the two critical residuals without symbolic data.
+  EXP-191 now resolves 40,401 points around that second landmark. Its anchor
+  belongs to a coherent 981-pixel period-6 component over
+  `a in [0.2145,0.21555]`, but the component exits both sampled `c` boundaries.
+  Expand the atlas vertically through both exact period-6 landmarks, report
+  their nearest-pixel component membership without inferring continuation,
+  then correct cycles along any shared band and solve the two direct critical
+  residuals.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

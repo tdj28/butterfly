@@ -22,9 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp192-two-landmark-band-frozen.md`](2026-08-09-exp192-two-landmark-band-frozen.md)
+  — a 92,736-pixel word-blind atlas through both exact Jones period-6
+  landmarks freezes their nearest-pixel component-membership test.
 - [`2026-08-09-exp191-second-period6-window-frozen.md`](2026-08-09-exp191-second-period6-window-frozen.md)
-  — a 40,401-pixel target-word-blind atlas is frozen around the newly
-  identified three-branch period-6 search lead.
+  — the executed 40,401-pixel atlas places the second Jones landmark in a
+  coherent 981-pixel period-6 band that exits both sampled `c` boundaries.
 - [`2026-08-09-exp190-unimodal-neighborhood-and-new-lead.md`](2026-08-09-exp190-unimodal-neighborhood-and-new-lead.md)
   — all 65 Floquet-zero candidates remain two-branch, while an exploratory
   second-landmark check identifies a prospectively testable three-branch lead.

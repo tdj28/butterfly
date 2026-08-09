@@ -1,6 +1,7 @@
 # EXP-191 — Second Jones period-6 window atlas
 
-Status: preregistered; not yet executed
+Status: passed as a discovery atlas; the selected component is vertically
+truncated
 
 ## Question
 
@@ -30,3 +31,22 @@ This is a high-resolution single-basin discovery raster. A pass supplies a
 bounded domain for identity-safe cycle correction and direct two-critical
 optimization. Raster membership alone proves neither continuation nor double
 superstability.
+
+## Result
+
+The secure RTX A4500 execution from clean commit `28f3651` completed all
+40,401 points with no numerical failures. It classified 3,551 pixels as
+periodic, including 1,058 period-6 pixels, at approximately
+`1.782e9` state steps per second.
+
+The exact anchor pixel is period 6. Its deterministically selected
+eight-connected component contains 981 pixels, spans
+`a in [0.2145,0.21555]`, and reaches both sampled `c` boundaries at `7.4` and
+`7.8` while touching neither `a` boundary. The experiment therefore passes as
+a coherent search-domain discovery but does not capture the full vertical
+extent of the component. A wider prospective atlas is required before testing
+whether it reaches Jones's first period-6 landmark.
+
+Compact receipt: [`receipts/EXP-191.json`](receipts/EXP-191.json).
+
+![EXP-191 local period atlas](../../artifacts/EXP-191/EXP-191-second-period6-window.png)
