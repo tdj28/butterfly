@@ -22,9 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp194-local-corrected-cycles-frozen.md`](2026-08-09-exp194-local-corrected-cycles-frozen.md)
+  — a no-egress successor freezes DOP853 correction, Floquet stability, and
+  Barrio-section phase extraction at 65 geometry-only component pixels.
 - [`2026-08-09-exp193-second-component-cycle-sample-frozen.md`](2026-08-09-exp193-second-component-cycle-sample-frozen.md)
-  — 257 geometry-only pixels from the isolated second period-6 component are
-  frozen for fresh GPU cycle extraction before direct z-critical ranking.
+  — the 257-pixel GPU extraction was frozen but stopped before integration
+  when the required derived-artifact transfer was denied.
 - [`2026-08-09-exp192-two-landmark-band-frozen.md`](2026-08-09-exp192-two-landmark-band-frozen.md)
   — the executed 92,736-pixel atlas reproduces both landmarks as period 6 but
   places them in distinct stable raster components.

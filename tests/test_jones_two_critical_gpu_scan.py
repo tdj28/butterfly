@@ -2,6 +2,7 @@ from scripts.gpu_scan_jones_two_critical_residuals import (
     critical_orbit_assignment,
     rank_candidate_rows,
     return_coordinate_axis,
+    section_kind,
 )
 
 
@@ -40,4 +41,12 @@ def test_return_coordinate_defaults_to_x_and_accepts_explicit_z() -> None:
     assert return_coordinate_axis({"return_coordinate": {"name": "z", "axis": 2}}) == (
         "z",
         2,
+    )
+
+
+def test_section_defaults_to_legacy_and_accepts_barrio() -> None:
+    assert section_kind({}) == ("legacy_negative", 0)
+    assert section_kind({"section": {"kind": "barrio_positive_x"}}) == (
+        "barrio_positive_x",
+        1,
     )

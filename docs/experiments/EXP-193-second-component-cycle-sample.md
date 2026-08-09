@@ -1,6 +1,7 @@
 # EXP-193 — Second-component period-6 cycle sample
 
-Status: preregistered; not yet executed
+Status: not executed; external input transfer blocked before integration;
+superseded by local corrected-orbit EXP-194
 
 ## Question
 
@@ -31,3 +32,16 @@ capture and critical-residual discovery. These are fixed-step attractor tails,
 not corrected flow orbits. Any selected center candidate must subsequently
 pass DOP853/Radau correction, step refinement, cross-coordinate topology, and
 direct critical-membership gates.
+
+## Preserved execution outcome
+
+A secure RTX A5000 worker was created from clean commit `2620117`, and the
+tracked-source archive matched locally and remotely. The platform then refused
+transfer of the hash-bound derived EXP-192 frame because the existing external
+upload authorization did not name that artifact. No scientific kernel ran and
+no candidate result exists. The worker was immediately terminated.
+
+EXP-194 preserves the geometry-only selection but replaces the GPU attractor-
+tail extraction with local parallel DOP853 integration, shooting correction,
+Floquet qualification, and Barrio-section cycle extraction. This is a compute-
+route change and a stricter orbit gate, not a reinterpretation of EXP-193.

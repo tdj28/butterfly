@@ -19,6 +19,7 @@ import scipy
 from butterfly import (
     PoincareSection,
     RosslerParameters,
+    barrio_rossler_section,
     infer_return_map_branches_robust,
     legacy_rossler_section,
 )
@@ -115,6 +116,16 @@ def return_coordinate_axis(manifest: dict) -> tuple[str, int]:
     return name, axis
 
 
+def section_kind(manifest: dict) -> tuple[str, int]:
+    """Return the declared section name and its GPU compile-time code."""
+
+    name = str(manifest.get("section", {}).get("kind", "legacy_negative"))
+    codes = {"legacy_negative": 0, "barrio_positive_x": 1}
+    if name not in codes:
+        raise ValueError("section kind must be legacy_negative or barrio_positive_x")
+    return name, codes[name]
+
+
 if triton is not None:  # pragma: no cover - compiled only on CUDA workers
 
     @triton.jit
@@ -156,11 +167,12 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
         dt: tl.constexpr,
         record_crossings: tl.constexpr,
         max_recorded_crossings: tl.constexpr,
-        capture_scale_x: tl.constexpr,
+        capture_scale_first: tl.constexpr,
         capture_scale_z: tl.constexpr,
         capture_radius_squared: tl.constexpr,
         required_capture_crossings: tl.constexpr,
         escape_radius_squared: tl.constexpr,
+        section_kind_code: tl.constexpr,
         block_size: tl.constexpr,
     ):
         offsets = tl.program_id(0) * block_size + tl.arange(0, block_size)
@@ -177,7 +189,7 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
         a = tl.load(parameters + case * 3)
         b = tl.load(parameters + case * 3 + 1)
         c = tl.load(parameters + case * 3 + 2)
-        section_y = tl.load(section_offsets + case)
+        section_offset = tl.load(section_offsets + case)
         gate_x = tl.load(gate_uppers + case)
 
         for step in tl.range(0, step_count):
@@ -215,15 +227,46 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
             bounded = x * x + y * y + z * z <= escape_radius_squared
             state_valid = finite & bounded
             failed = failed | (was_active & ~state_valid)
-            left_value = py - section_y
-            right_value = y - section_y
-            crossed_plane = was_active & state_valid & (left_value > 0.0) & (right_value <= 0.0)
+            if section_kind_code == 0:
+                left_value = py - section_offset
+                right_value = y - section_offset
+                crossed_plane = (
+                    was_active
+                    & state_valid
+                    & (left_value > 0.0)
+                    & (right_value <= 0.0)
+                )
+                root_left = py
+                root_right = y
+                root_left_d = k1y
+                root_right_d = x + a * y
+            else:
+                left_value = px - section_offset
+                right_value = x - section_offset
+                crossed_plane = (
+                    was_active
+                    & state_valid
+                    & (left_value < 0.0)
+                    & (right_value >= 0.0)
+                )
+                root_left = px
+                root_right = x
+                root_left_d = k1x
+                root_right_d = -y - z
             alpha = tl.where(crossed_plane, -left_value / (right_value - left_value), 0.0)
             end_dx = -y - z
             end_dy = x + a * y
             end_dz = b + z * (x - c)
             for _ in tl.static_range(0, 4):
-                alpha = _hermite_root_step(alpha, py, y, k1y, end_dy, section_y, dt)
+                alpha = _hermite_root_step(
+                    alpha,
+                    root_left,
+                    root_right,
+                    root_left_d,
+                    root_right_d,
+                    section_offset,
+                    dt,
+                )
             alpha2 = alpha * alpha
             alpha3 = alpha2 * alpha
             h00 = 2.0 * alpha3 - 3.0 * alpha2 + 1.0
@@ -231,14 +274,18 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
             h01 = -2.0 * alpha3 + 3.0 * alpha2
             h11 = alpha3 - alpha2
             cross_x = h00 * px + h10 * dt * k1x + h01 * x + h11 * dt * end_dx
+            cross_y = h00 * py + h10 * dt * k1y + h01 * y + h11 * dt * end_dy
             cross_z = h00 * pz + h10 * dt * k1z + h01 * z + h11 * dt * end_dz
-            crossed = crossed_plane & (cross_x < gate_x)
+            if section_kind_code == 0:
+                crossed = crossed_plane & (cross_x < gate_x)
+            else:
+                crossed = crossed_plane
 
             if record_crossings:
                 recorded = crossed & (record_count < max_recorded_crossings)
                 slot = offsets * max_recorded_crossings * 3 + record_count * 3
                 tl.store(recorded_states + slot, cross_x, mask=recorded)
-                tl.store(recorded_states + slot + 1, section_y, mask=recorded)
+                tl.store(recorded_states + slot + 1, cross_y, mask=recorded)
                 tl.store(recorded_states + slot + 2, cross_z, mask=recorded)
                 time_slot = offsets * max_recorded_crossings + record_count
                 tl.store(recorded_times + time_slot, (step_offset + step + alpha) * dt, mask=recorded)
@@ -248,10 +295,17 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
             for orbit_index in tl.static_range(0, 6):
                 cycle_base = case * 18 + orbit_index * 3
                 cycle_x = tl.load(cycle_states + cycle_base)
+                cycle_y = tl.load(cycle_states + cycle_base + 1)
                 cycle_z = tl.load(cycle_states + cycle_base + 2)
-                dx = (cross_x - cycle_x) / capture_scale_x
+                if section_kind_code == 0:
+                    first_difference = (cross_x - cycle_x) / capture_scale_first
+                else:
+                    first_difference = (cross_y - cycle_y) / capture_scale_first
                 dz = (cross_z - cycle_z) / capture_scale_z
-                minimum_distance = tl.minimum(minimum_distance, dx * dx + dz * dz)
+                minimum_distance = tl.minimum(
+                    minimum_distance,
+                    first_difference * first_difference + dz * dz,
+                )
             close = minimum_distance <= capture_radius_squared
             streak = tl.where(crossed, tl.where(close, streak + 1, 0), streak)
             captured = crossed & (streak >= required_capture_crossings)
@@ -266,41 +320,65 @@ if triton is not None:  # pragma: no cover - compiled only on CUDA workers
         tl.store(recorded_counts + offsets, record_count, mask=lane)
 
 
-def _sections(candidates):
+def _sections(candidates, kind: str):
     sections = []
     for candidate in candidates:
         parameters = RosslerParameters(**candidate["parameters"])
-        base = legacy_rossler_section(parameters)
-        sections.append(
-            PoincareSection(
-                normal=base.normal,
-                offset=base.offset,
-                direction=-1,
-                gate_axis=base.gate_axis,
-                gate_upper=base.gate_upper,
-                name="legacy-small-equilibrium-half-plane:negative",
+        if kind == "legacy_negative":
+            base = legacy_rossler_section(parameters)
+            sections.append(
+                PoincareSection(
+                    normal=base.normal,
+                    offset=base.offset,
+                    direction=-1,
+                    gate_axis=base.gate_axis,
+                    gate_upper=base.gate_upper,
+                    name="legacy-small-equilibrium-half-plane:negative",
+                )
             )
-        )
+        else:
+            sections.append(barrio_rossler_section(parameters))
     return sections
 
 
-def _initial_ensemble(sections, ensemble):
+def _initial_ensemble(candidates, ensemble):
     x_values = np.linspace(*ensemble["x_range"], int(ensemble["x_count"]))
     z_values = np.linspace(*ensemble["z_range"], int(ensemble["z_count"]))
     x_grid, z_grid = np.meshgrid(x_values, z_values, indexing="ij")
-    per_case = [
-        np.column_stack((x_grid.ravel(), np.full(x_grid.size, section.offset), z_grid.ravel()))
-        for section in sections
-    ]
+    per_case = []
+    for candidate in candidates:
+        parameters = RosslerParameters(**candidate["parameters"])
+        historical = legacy_rossler_section(parameters)
+        per_case.append(
+            np.column_stack(
+                (
+                    x_grid.ravel(),
+                    np.full(x_grid.size, historical.offset),
+                    z_grid.ravel(),
+                )
+            )
+        )
     return np.asarray(per_case, dtype=float)
 
 
-def integrate_gpu(candidates, *, dt, horizon, checkpoints, midpoint, ensemble, capture, gpu_options):
+def integrate_gpu(
+    candidates,
+    *,
+    dt,
+    horizon,
+    checkpoints,
+    midpoint,
+    ensemble,
+    capture,
+    gpu_options,
+    section_name,
+    section_code,
+):
     if torch is None or triton is None or not torch.cuda.is_available():
         raise RuntimeError("CUDA, PyTorch, and Triton are required")
     case_count = len(candidates)
-    sections = _sections(candidates)
-    initial = _initial_ensemble(sections, ensemble)
+    sections = _sections(candidates, section_name)
+    initial = _initial_ensemble(candidates, ensemble)
     seed_count = initial.shape[1]
     flat_initial = initial.reshape(-1, 3)
     total = len(flat_initial)
@@ -313,7 +391,11 @@ def integrate_gpu(candidates, *, dt, horizon, checkpoints, midpoint, ensemble, c
         device=device,
     ).contiguous()
     section_offsets = torch.as_tensor([row.offset for row in sections], dtype=torch.float64, device=device)
-    gate_uppers = torch.as_tensor([row.gate_upper for row in sections], dtype=torch.float64, device=device)
+    gate_uppers = torch.as_tensor(
+        [float("inf") if row.gate_upper is None else row.gate_upper for row in sections],
+        dtype=torch.float64,
+        device=device,
+    )
     cycles = torch.as_tensor([row["section_states"] for row in candidates], dtype=torch.float64, device=device).contiguous()
     active = torch.ones(total, dtype=torch.int32, device=device)
     failed = torch.zeros(total, dtype=torch.int32, device=device)
@@ -358,11 +440,12 @@ def integrate_gpu(candidates, *, dt, horizon, checkpoints, midpoint, ensemble, c
                 dt=float(dt),
                 record_crossings=record,
                 max_recorded_crossings=max_crossings,
-                capture_scale_x=float(capture["coordinate_scales"][0]),
+                capture_scale_first=float(capture["coordinate_scales"][0]),
                 capture_scale_z=float(capture["coordinate_scales"][1]),
                 capture_radius_squared=float(capture["radius"]) ** 2,
                 required_capture_crossings=int(capture["required_crossings"]),
                 escape_radius_squared=float(ensemble["escape_radius"]) ** 2,
+                section_kind_code=section_code,
                 block_size=block_size,
                 num_warps=4,
             )
@@ -561,6 +644,7 @@ def main() -> int:
     if len(candidates) != int(manifest["expected_candidate_count"]):
         raise SystemExit("unexpected passed candidate count")
     coordinate_name, coordinate_axis = return_coordinate_axis(manifest)
+    section_name, section_code = section_kind(manifest)
 
     profile_results = []
     profile_rows = []
@@ -574,6 +658,8 @@ def main() -> int:
             ensemble=manifest["ensemble"],
             capture=manifest["capture"],
             gpu_options=manifest["gpu"],
+            section_name=section_name,
+            section_code=section_code,
         )
         rows = _profile_rows(candidates, run, manifest, profile)
         profile_rows.append(rows)
@@ -610,6 +696,7 @@ def main() -> int:
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "candidate_input_sha256": sha256_bytes(candidate_bytes),
         "return_coordinate": {"name": coordinate_name, "axis": coordinate_axis},
+        "section": {"kind": section_name, "gpu_code": section_code},
         "source": {
             "declared_commit": args.source_commit,
             "observed_git_commit": observed_commit,

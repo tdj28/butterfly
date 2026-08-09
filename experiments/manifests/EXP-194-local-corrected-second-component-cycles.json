@@ -1,0 +1,53 @@
+{
+  "schema": "butterfly.corrected-component-period-candidates-manifest.v1",
+  "experiment_id": "EXP-194",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-192.json",
+      "sha256": "8f42a3c252591db9a98c8232b3c46032f9d9d90e0e4551fb2c0f73c250565d97",
+      "role": "qualified isolated second-landmark period-6 component"
+    }
+  ],
+  "inputs": {
+    "frame": {
+      "path": "artifacts/EXP-192/frame-000.json",
+      "sha256": "cf1f25aa9e21dc2a94a8eb686b881e407dd69a120d99dcdb6ce859ac23098e86"
+    },
+    "frame_receipt": {
+      "path": "artifacts/EXP-192/frame-000.receipt.json",
+      "sha256": "aebfddd8597ffb3e85f168fc63acafa801da5e92a9172fd96c1e1852a33f50ac"
+    },
+    "component": {
+      "path": "artifacts/EXP-192/anchor-period6-component.json",
+      "sha256": "6da094446375f8f1f4990ee1cd7407199c6237180a415aaa0540d0a88bb75723"
+    }
+  },
+  "selection": {
+    "target_period": 6,
+    "sample_count": 65,
+    "method": "begin at the second Jones landmark and repeatedly select the component pixel farthest from the existing sample in component-range-normalized (a,c) distance; break ties by ascending point index",
+    "word_blind": true,
+    "critical_blind": true
+  },
+  "crossing": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 2400.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 128,
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1e-7
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 40, "tolerance": 1e-11},
+  "parallel": {"maximum_workers": 8},
+  "acceptance": {
+    "minimum_passed_candidates": 60,
+    "maximum_flow_closure": 1e-9,
+    "maximum_phase_residual": 1e-10,
+    "maximum_neutral_multiplier_error": 0.000001,
+    "maximum_dominant_imaginary_part": 1e-7
+  },
+  "claim_scope": "local no-egress DOP853 correction and Floquet qualification of a 65-point geometry-only sample from the isolated second-landmark period-6 component, with six phases extracted on the published Barrio positive-x section; passing prepares corrected target-word-blind candidates for a separately frozen z-return-map critical-residual scan but does not establish continuation identity, locate a center, or prove double superstability"
+}
