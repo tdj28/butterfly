@@ -524,6 +524,10 @@ exposition requirements.
   EXP-146 passes all eleven instances. EXP-147 now freezes 198 midpoint lobe
   traces with unchanged capture, occupancy, and nested-density controls.
   Execute it before preregistering and running the independent midpoint PIM.
+  EXP-147 passes with 989/558 fine/coarse lobe points and no integration
+  failure. EXP-148 now freezes the untouched midpoint PIM with expected class
+  `null`; run it after EXP-132 releases the CPU pool, then freeze EXP-149 using
+  only the resulting receipt and state-archive hashes.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

@@ -1,6 +1,6 @@
 # EXP-147 — Held-out midpoint UPO lobe atlas
 
-Status: preregistered; not yet executed
+Status: passed; midpoint PIM remains blind
 
 ## Question
 
@@ -33,3 +33,17 @@ PYTHONPATH=python:scripts .venv/bin/python scripts/trace_midpoint_upo_lobe.py \
 This run deliberately cannot classify the midpoint saddle. It only freezes the
 UPO lobe reference against which the later independent PIM reconstruction will
 be tested.
+
+## Result
+
+The clean `abe7da6` run passes all 198 trajectories and 22 family/sign groups
+in `71.18 s`, with no integration failure. It retains 11,740 pre-capture
+points; the weakest group has 451. All points remain inside the declared
+domain, and minimum nested-grid occupancy coverage is `0.9423`.
+
+The unchanged left lobe contains 989 fine-grid and 558 coarse-grid points, both
+reaching `y=-31.7490706791`. The independent midpoint PIM saddle has still not
+been generated or inspected.
+
+Raw receipt SHA-256:
+`2f6a80c968dc3f9afbba3b25bb82919fa5b4456f1e2ed4014287f93b2359c54e`.
