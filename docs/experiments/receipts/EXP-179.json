@@ -1,0 +1,32 @@
+{
+  "experiment_id": "EXP-179",
+  "status": "executed-failed",
+  "source_commit": "6c68f1b75db33c617bd921c91baac6342ed5edb7",
+  "source_dirty": false,
+  "manifest_sha256": "44b3ccd3fb2358f9a9a04a36d71480f13ca42748ee658af2450e4600b156293d",
+  "raw_receipt_sha256": "744c218b2cf71cc92d5accb361c2172eef333e1144e56666618813d1e49e296a",
+  "resolved_two_a_values_primary_x": [0.15, 0.1505, 0.151, 0.1515, 0.152, 0.1525],
+  "resolved_three_a_values_primary_x": [0.159, 0.1595, 0.16],
+  "primary_ordered_bracket": [0.1525, 0.159],
+  "primary_bracket_width": 0.0065,
+  "both_coordinate_ordered_bracket": [0.152, 0.1595],
+  "both_coordinate_bracket_width": 0.0075,
+  "maximum_bracket_width": 0.005,
+  "primary_x_identity": {
+    "source_normalized_midpoint": 0.4824684995318074,
+    "candidate_normalized_midpoints": [0.07222969059400029, 0.5006730058971639],
+    "descendant_index": 1,
+    "descendant_symbol": "K1",
+    "distance": 0.018204506365356476,
+    "runner_up_margin": 0.39203430257245064,
+    "resolved": true
+  },
+  "gates": {
+    "ordered": true,
+    "bracket_width_passed": false,
+    "endpoints_passed": true,
+    "coordinate_agreement": true,
+    "identity_agreement": false,
+    "passed": false
+  }
+}

@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp179-critical-identity-power-failed.md`](2026-08-07-exp179-critical-identity-power-failed.md)
+  — doubled support retains a structured, coordinate-staggered global
+  branch-count disagreement band and the strict identity failure.
 - [`2026-08-07-exp179-critical-identity-power-frozen.md`](2026-08-07-exp179-critical-identity-power-frozen.md)
   — unchanged-threshold, doubled-power scan frozen at `0.0005` spacing inside
   EXP-178's failed critical-identity bracket.

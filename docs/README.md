@@ -137,6 +137,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-052-jones-critical-identity-direction-supported-bracket-open.md`](findings/FND-052-jones-critical-identity-direction-supported-bracket-open.md):
   finds the same unique likely trimodal descendant in `x` and `z` while
   retaining EXP-178's strict resolved-bracket-width failure.
+- [`findings/FND-053-global-branch-vote-ill-conditioned-at-critical-birth.md`](findings/FND-053-global-branch-vote-ill-conditioned-at-critical-birth.md):
+  shows that doubled support leaves a coordinate-staggered branch-count
+  disagreement band, motivating separate local tracking of the old critical.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

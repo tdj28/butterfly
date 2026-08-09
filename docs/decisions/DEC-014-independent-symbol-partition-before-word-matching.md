@@ -132,3 +132,12 @@ unchanged-threshold higher-power successor inside that bracket. A passing
 attracting result can establish only local operational identity; persistent
 gaps require an invariant-saddle continuation before historical labels are
 assigned globally.
+
+EXP-179 doubles trajectory and bootstrap support at `0.0005` spacing without
+loosening a threshold. It remains failed: the primary x bracket is `0.0065`,
+the fully cross-coordinate bracket is `0.0075`, and first unanimous
+three-branch detection is staggered between `z` and `x`. This rules out another
+undifferentiated power increase as the immediate response. The next
+prospective test separates local continuation of the already-established
+critical from detection of the shallow added critical; global branch-count
+disagreement is retained as a distinct branch-birth observable.

@@ -113,11 +113,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   resolves three branches. EXP-177 now qualifies the corresponding two-branch
   dense control in all `x` and `z` variants. EXP-178 prospectively selects the
   higher-coordinate trimodal critical in both observables, but preserves a
-  failed `0.010` resolved bracket against the frozen `0.005` gate. Execute the
-  unchanged-threshold, higher-power EXP-179 scan inside that bracket; if
-  attracting-set gaps persist, use invariant-saddle clouds rather than
-  interpolating through them. Only then freeze the neutral-to-Jones alphabet
-  mapping.
+  failed `0.010` resolved bracket against the frozen `0.005` gate. The
+  unchanged-threshold, higher-power EXP-179 successor also fails: x gives a
+  `0.0065` bracket, while the fully cross-coordinate bracket is `0.0075` and
+  global branch detection is coordinate-staggered. Freeze a fresh-trajectory
+  local continuation of the pre-existing critical separately from the shallow
+  added-critical birth. If local tracking also leaves gaps, use
+  invariant-saddle clouds rather than interpolation. Only then freeze the
+  neutral-to-Jones alphabet mapping.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
