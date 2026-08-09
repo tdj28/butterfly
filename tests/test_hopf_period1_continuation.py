@@ -21,11 +21,11 @@ def test_continuation_schedule_contains_exact_scientific_targets():
             "upward_count": 96,
             "downward_bridge_c_values": [0.95, 0.9],
             "near_hopf_c_offsets": [0.01, 0.001],
-            "crosscheck_c_values": [1.0, 3.0, 10.3084],
+            "crosscheck_c_values": [0.75, 1.0, 3.0, 10.3084],
         }
     }
     downward, upward = MODULE._continuation_c_values(manifest, 0.5)
-    assert downward == [0.95, 0.9, 0.51, 0.501]
+    assert downward == [0.95, 0.9, 0.75, 0.51, 0.501]
     assert 1.0 in upward
     assert 3.0 in upward
     assert 10.3084 in upward

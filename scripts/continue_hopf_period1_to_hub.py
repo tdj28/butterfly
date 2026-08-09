@@ -39,19 +39,22 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 
 def _continuation_c_values(manifest, hopf_c):
     continuation = manifest["continuation"]
+    seed_c = float(continuation["seed_c"])
     downward = list(map(float, continuation["downward_bridge_c_values"]))
     downward += [
         hopf_c + float(offset)
         for offset in continuation["near_hopf_c_offsets"]
     ]
+    checkpoints = list(map(float, continuation["crosscheck_c_values"]))
+    downward += [c for c in checkpoints if c < seed_c]
     downward = sorted(set(downward), reverse=True)
     upward = np.linspace(
-        float(continuation["seed_c"]),
+        seed_c,
         float(continuation["hub_c"]),
         int(continuation["upward_count"]),
     )
     upward = np.unique(
-        np.append(upward, np.asarray(continuation["crosscheck_c_values"], dtype=float))
+        np.append(upward, np.asarray([c for c in checkpoints if c >= seed_c], dtype=float))
     )
     return downward, upward.tolist()
 

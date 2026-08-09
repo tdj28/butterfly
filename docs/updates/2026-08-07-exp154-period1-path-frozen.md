@@ -11,3 +11,9 @@ six Radau cross-checks.
 The design is explicitly pilot-informed. Passing would qualify the period-1
 family along this fixed path, but the equilibrium homoclinic connection remains
 a separate global boundary-value problem.
+
+The first clean execution failed only the exact point-count gate: it emitted
+119 rows because a below-seed independent checkpoint was placed in both
+directions and the seed was duplicated. Every scientific tolerance passed.
+EXP-155 freezes the direction-aware correction without changing any scientific
+point or threshold.

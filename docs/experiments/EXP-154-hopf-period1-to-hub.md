@@ -1,6 +1,7 @@
 # EXP-154 — Period-1 continuation from Hopf to the reported hub
 
-Status: pilot-informed method and gates frozen before clean qualification
+Status: failed administrative point-count gate; all scientific gates passed;
+corrected unchanged-gate successor EXP-155 frozen
 
 ## Question
 
@@ -33,3 +34,18 @@ the hub would not be the proposed homoclinic orbit; the latter is a distinct
 stable/unstable equilibrium-manifold intersection that must be solved
 independently. The result cannot establish logistic ordering or a topology-
 transition curve.
+
+## First execution
+
+The clean run produced 119 rather than the required 118 rows and therefore
+failed. The cause is deterministic and administrative: the near-Hopf Radau
+checkpoint was inserted into both continuation directions; sorting the upward
+schedule then caused the seed to be duplicated. No scientific gate failed.
+All closures were below `3.60e-12`, the amplitude exponent was `0.5017311`
+with `R^2=0.9999983`, all winding errors were below `1.15e-13`, all six Radau
+checks passed, and the branch reached the exact hub.
+
+The raw failed receipt is preserved and summarized at
+`docs/experiments/receipts/EXP-154.json`. EXP-155 changes only the schedule
+partition so checkpoints below the seed belong exclusively to the downward
+direction; all scientific thresholds remain unchanged.

@@ -79,7 +79,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `b=0.2`, with independent eigensystem roots and transverse sign gates. At
   `a=0.1798`, the Hopf endpoint is `c=0.5192306256940273`; period-1 continuation
   toward the reported hub is frozen as the 118-point, Radau-cross-checked
-  EXP-154 qualification.
+  EXP-154 qualification. EXP-154 passes every scientific gate but fails its
+  cardinality gate after duplicating the seed; direction-aware, unchanged-gate
+  successor EXP-155 is frozen.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

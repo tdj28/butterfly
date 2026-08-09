@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp155-schedule-correction-frozen.md`](2026-08-07-exp155-schedule-correction-frozen.md)
+  — preserves EXP-154's administrative failure and freezes a direction-aware
+  successor with every scientific gate unchanged.
 - [`2026-08-07-exp154-period1-path-frozen.md`](2026-08-07-exp154-period1-path-frozen.md)
   — 118-point, winding-safe period-1 continuation and independent Radau gates
   frozen from the Hopf neighborhood to the reported hub.
