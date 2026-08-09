@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp153-hopf-curve-frozen.md`](2026-08-07-exp153-hopf-curve-frozen.md)
+  — exact Rössler Hopf construction and independent eigensystem/transversality
+  gates frozen for 192 fixed-`b=0.2` points.
 - [`2026-08-07-exp001-saddle-focus-correction.md`](2026-08-07-exp001-saddle-focus-correction.md)
   — corrected a stale ledger entry: the reported hub equilibrium is locally
   qualified as a saddle focus, while homoclinic existence remains open.

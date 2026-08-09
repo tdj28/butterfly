@@ -27,6 +27,11 @@ from .classify import (
     combine_initial_conditions,
 )
 from .integrate import SolverConfig, Trajectory, integrate_trajectory
+from .hopf import (
+    RosslerHopfPoint,
+    rossler_equilibrium_characteristic_coefficients,
+    rossler_hopf_points,
+)
 from .lyapunov import (
     LargestLyapunovResult,
     LyapunovConfig,
@@ -126,6 +131,7 @@ __all__ = [
     "ReturnMapRobustnessResult",
     "LowerSupportSlopeRobustnessResult",
     "RosslerParameters",
+    "RosslerHopfPoint",
     "PoincareCrossings",
     "PoincareSection",
     "SolverConfig",
@@ -173,6 +179,8 @@ __all__ = [
     "largest_lyapunov_two_trajectory",
     "lyapunov_block_estimates",
     "rossler_equilibria",
+    "rossler_equilibrium_characteristic_coefficients",
+    "rossler_hopf_points",
     "rossler_jacobian",
     "rossler_hessian_action",
     "rossler_rhs",

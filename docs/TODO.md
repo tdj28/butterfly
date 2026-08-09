@@ -75,6 +75,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   repetition remains required before interruptible production use.
 - [ ] **P1-005 — Continuation layer.** Hopf/equilibrium/periodic-orbit branches,
   Floquet multipliers, TBA/TTL curve, topology-change locus, independent cross-check.
+  EXP-153 freezes an exact 192-point regular small-equilibrium Hopf locus at
+  `b=0.2`, with independent eigensystem roots and transverse sign gates; its
+  clean execution is next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -1,0 +1,39 @@
+{
+  "schema": "butterfly.rossler-hopf-curve-manifest.v1",
+  "experiment_id": "EXP-153",
+  "source": {
+    "predecessors": ["EXP-001", "CLM-002", "CLM-005"],
+    "claim_scope": "analytic continuation and independent numerical qualification of the regular small-equilibrium Hopf locus underlying the Jones Figure 2 construction",
+    "prospective_blindness": "not blind: the Hopf condition is algebraic; all numerical residual and transversality gates are frozen before the receipt is generated"
+  },
+  "grid": {
+    "a_min": 0.1,
+    "a_max": 0.195,
+    "a_count": 191,
+    "b": 0.2
+  },
+  "reported_hub": {"a": 0.1798, "c": 10.3084},
+  "cross_checks": {
+    "root_bracket_half_width": 0.001,
+    "brent_xtol": 5e-15,
+    "brent_rtol": 8.881784197001252e-16,
+    "transversality_delta_c": 1e-6
+  },
+  "acceptance": {
+    "required_point_count": 192,
+    "required_equilibrium_index": 0,
+    "minimum_real_eigenvalue_magnitude": 0.05,
+    "maximum_equilibrium_residual": 5e-13,
+    "maximum_routh_residual": 5e-13,
+    "maximum_characteristic_coefficient_error": 5e-13,
+    "maximum_complex_pair_real_error": 2e-12,
+    "maximum_frequency_error": 2e-12,
+    "maximum_brent_root_c_error": 2e-12,
+    "minimum_transversality_margin": 1e-8
+  },
+  "figure": {
+    "a_limits": [0.1, 0.22],
+    "full_c_limits": [0.0, 25.0],
+    "detail_c_limits": [0.35, 1.15]
+  }
+}
