@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp156-first-flip-frozen.md`](2026-08-07-exp156-first-flip-frozen.md)
+  — exact c-derivative, anti-periodic multiple shooting, cyclic Floquet, and
+  independent Radau gates frozen for the first period-1 flip.
 - [`2026-08-07-exp155-schedule-correction-frozen.md`](2026-08-07-exp155-schedule-correction-frozen.md)
   — preserves EXP-154's administrative failure; the unchanged-gate successor
   passes the one-winding Hopf-to-hub period-1 continuation.

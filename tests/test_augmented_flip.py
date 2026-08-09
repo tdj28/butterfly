@@ -66,6 +66,49 @@ def test_segment_second_variations_match_finite_differences() -> None:
     assert np.all(np.isfinite(transported))
 
 
+def test_segment_c_second_variation_matches_finite_difference() -> None:
+    state = np.asarray((0.4, -0.2, 0.3))
+    tangent = np.asarray((0.6, 0.1, -0.4))
+    duration = 0.17
+    result = integrate_flip_segment(
+        state,
+        tangent,
+        duration,
+        PARAMETERS,
+        SOLVER,
+        continuation_parameter="c",
+    )
+    c_sensitivity = result[2]
+    c_action = result[5]
+    epsilon = 2e-6
+    plus_parameters = RosslerParameters(
+        a=PARAMETERS.a, b=PARAMETERS.b, c=PARAMETERS.c + epsilon
+    )
+    minus_parameters = RosslerParameters(
+        a=PARAMETERS.a, b=PARAMETERS.b, c=PARAMETERS.c - epsilon
+    )
+    plus = integrate_flip_segment(
+        state,
+        tangent,
+        duration,
+        plus_parameters,
+        SOLVER,
+        continuation_parameter="c",
+    )
+    minus = integrate_flip_segment(
+        state,
+        tangent,
+        duration,
+        minus_parameters,
+        SOLVER,
+        continuation_parameter="c",
+    )
+    numerical_endpoint = (plus[0] - minus[0]) / (2.0 * epsilon)
+    numerical_action = (plus[3] - minus[3]) / (2.0 * epsilon)
+    np.testing.assert_allclose(c_sensitivity, numerical_endpoint, rtol=2e-7, atol=2e-9)
+    np.testing.assert_allclose(c_action, numerical_action, rtol=2e-7, atol=2e-9)
+
+
 def test_augmented_flip_jacobian_matches_finite_differences() -> None:
     segment_count = 2
     nodes = np.asarray(((0.4, -0.2, 0.3), (0.36, -0.12, 0.25)))
@@ -101,6 +144,48 @@ def test_augmented_flip_jacobian_matches_finite_differences() -> None:
         numerical[:, index] = (residual(variables + offset) - residual(variables - offset)) / (
             2.0 * epsilon
         )
+    np.testing.assert_allclose(analytic, numerical, rtol=3e-7, atol=3e-9)
+
+
+def test_augmented_c_flip_jacobian_matches_finite_differences() -> None:
+    segment_count = 2
+    nodes = np.asarray(((0.4, -0.2, 0.3), (0.36, -0.12, 0.25)))
+    tangents = np.asarray(((0.8, 0.2, -0.3), (0.7, 0.25, -0.2)))
+    variables = np.r_[nodes.ravel(), 0.34, PARAMETERS.c, tangents.ravel()]
+    phase = np.asarray((0.3, -0.4, 0.5))
+    phase /= np.linalg.norm(phase)
+
+    def residual(value):
+        return augmented_flip_system(
+            value,
+            segment_count=segment_count,
+            a=PARAMETERS.a,
+            c=None,
+            phase=phase,
+            phase_reference=nodes[0],
+            solver=SOLVER,
+            continuation_parameter="c",
+            fixed_b=PARAMETERS.b,
+        )[0]
+
+    _, analytic = augmented_flip_system(
+        variables,
+        segment_count=segment_count,
+        a=PARAMETERS.a,
+        c=None,
+        phase=phase,
+        phase_reference=nodes[0],
+        solver=SOLVER,
+        continuation_parameter="c",
+        fixed_b=PARAMETERS.b,
+    )
+    epsilon = 2e-6
+    numerical = np.empty_like(analytic)
+    for index in range(len(variables)):
+        offset = np.eye(len(variables))[index] * epsilon
+        numerical[:, index] = (
+            residual(variables + offset) - residual(variables - offset)
+        ) / (2.0 * epsilon)
     np.testing.assert_allclose(analytic, numerical, rtol=3e-7, atol=3e-9)
 
 

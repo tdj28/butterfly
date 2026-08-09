@@ -30,14 +30,19 @@ def integrate_flip_segment(
     duration: float,
     parameters: RosslerParameters,
     solver: SolverConfig,
+    continuation_parameter: str = "b",
 ):
     """Integrate a segment and all derivatives needed by the flip system.
 
-    Returns the endpoint, state transition, endpoint ``b`` sensitivity,
-    transported tangent, its initial-state Jacobian, and its ``b``
-    sensitivity. The latter two quantities are exact second-variational
-    actions for the Rössler equations.
+    Returns the endpoint, state transition, endpoint parameter sensitivity,
+    transported tangent, its initial-state Jacobian, and its parameter
+    sensitivity. ``continuation_parameter`` may be ``"b"`` or ``"c"``.
+    The latter two quantities are exact second-variational actions for the
+    Rössler equations.
     """
+
+    if continuation_parameter not in {"b", "c"}:
+        raise ValueError("continuation_parameter must be 'b' or 'c'")
 
     initial = np.r_[
         state,
@@ -65,16 +70,23 @@ def integrate_flip_segment(
         parameter_tangent_forcing = rossler_hessian_action(
             parameter_sensitivity, transported
         )
+        if continuation_parameter == "b":
+            vector_field_parameter = np.asarray((0.0, 0.0, 1.0))
+            jacobian_parameter_action = np.zeros(3)
+        else:
+            vector_field_parameter = np.asarray((0.0, 0.0, -point[2]))
+            jacobian_parameter_action = np.asarray((0.0, 0.0, -transported[2]))
         return np.r_[
             rossler_rhs(time, point, parameters),
             (jacobian @ transition).ravel(),
-            jacobian @ parameter_sensitivity + np.asarray((0.0, 0.0, 1.0)),
+            jacobian @ parameter_sensitivity + vector_field_parameter,
             jacobian @ transported,
             (
                 jacobian @ state_tangent_sensitivity + state_tangent_forcing
             ).ravel(),
             jacobian @ parameter_tangent_sensitivity
-            + parameter_tangent_forcing,
+            + parameter_tangent_forcing
+            + jacobian_parameter_action,
         ]
 
     result = solve_ivp(
@@ -104,12 +116,19 @@ def augmented_flip_system(
     *,
     segment_count: int,
     a: float,
-    c: float,
+    c: float | None,
     phase: np.ndarray,
     phase_reference: np.ndarray,
     solver: SolverConfig,
+    continuation_parameter: str = "b",
+    fixed_b: float | None = None,
 ):
-    """Return the square anti-periodic multiple-shooting residual and Jacobian."""
+    """Return the square anti-periodic multiple-shooting residual and Jacobian.
+
+    The historical/default form continues ``b`` at fixed ``(a,c)``.  Setting
+    ``continuation_parameter="c"`` instead interprets the parameter unknown as
+    ``c`` and requires ``fixed_b``.
+    """
 
     state_count = 3 * segment_count
     variable_count = 6 * segment_count + 2
@@ -117,11 +136,20 @@ def augmented_flip_system(
         raise ValueError(f"expected {variable_count} variables")
     nodes = variables[:state_count].reshape(segment_count, 3)
     total_duration = float(variables[state_count])
-    b = float(variables[state_count + 1])
+    parameter_value = float(variables[state_count + 1])
     tangent_offset = state_count + 2
     tangents = variables[tangent_offset:].reshape(segment_count, 3)
     segment_duration = total_duration / segment_count
-    parameters = RosslerParameters(a=a, b=b, c=c)
+    if continuation_parameter == "b":
+        if c is None:
+            raise ValueError("fixed c is required when continuing b")
+        parameters = RosslerParameters(a=a, b=parameter_value, c=c)
+    elif continuation_parameter == "c":
+        if fixed_b is None:
+            raise ValueError("fixed_b is required when continuing c")
+        parameters = RosslerParameters(a=a, b=fixed_b, c=parameter_value)
+    else:
+        raise ValueError("continuation_parameter must be 'b' or 'c'")
     residual = np.zeros(variable_count)
     jacobian = np.zeros((variable_count, variable_count))
 
@@ -134,7 +162,12 @@ def augmented_flip_system(
             state_tangent_sensitivity,
             parameter_tangent_sensitivity,
         ) = integrate_flip_segment(
-            node, tangent, segment_duration, parameters, solver
+            node,
+            tangent,
+            segment_duration,
+            parameters,
+            solver,
+            continuation_parameter=continuation_parameter,
         )
         next_index = (index + 1) % segment_count
         current_state = slice(3 * index, 3 * index + 3)

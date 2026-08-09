@@ -1,0 +1,12 @@
+# EXP-156 first period-1 flip frozen
+
+Date: 2026-08-07
+
+The first stability loss on the qualified Hopf-to-hub period-1 family now has
+a coupled exact-Jacobian test. The Rössler augmented flip machinery has been
+extended from `b` continuation to `c` continuation with finite-difference
+verification of its state, parameter, and second-variational derivatives.
+
+EXP-156 freezes the EXP-155 bracket, four-node anti-periodic shooting, cyclic
+Floquet-product agreement, and an independent Radau check. Passing is only the
+event gate; period-2 branch switching remains separate.
