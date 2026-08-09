@@ -36,7 +36,7 @@ closed until the acceptance gates below are satisfied.
 |---|---|---|---|
 | Novelty was unclear relative to recent work | The project now separates the shared Jones/Barrio-Blesa-Serrano co-discovery from Jones's distinct finite symbolic, mutant-shrimp, and reinjection hypotheses. A systematic primary-source novelty audit is still absent. | Partial | Source-verified chronology and claim-by-claim comparison including the earlier TTL/TBA, homoclinic, logistic-ordering, and experimental literature. State precisely which result is reproduction, correction, or new. |
 | Focus on one narrow aspect did not support broad interest | The multi-`b` atlas, basin work, bifurcation surfaces, and high-period cascade broaden the numerical program. Cross-system generality has not been demonstrated. | Partial | Qualify the complete topology pipeline on Rössler, then apply the frozen definitions prospectively to two structurally different flows, retaining negative results. |
-| The technical/symbolic tool was promising but not exploited | The numerical engine is now heavily exploited. Figure 6 is now transcribed into a versioned target containing 23 words, ten matched arrows, one visual-only arrow, three lower-period relationships, and ten parameter landmarks. No computed orbit has yet been assigned a source word under an independently reconstructed partition. | Open | Produce a versioned orbit/branch/symbol database, verify all claimed transitions through period seven, and make at least one held-out symbolic prediction before computing the target orbit. |
+| The technical/symbolic tool was promising but not exploited | The numerical engine is now heavily exploited. Figure 6 is transcribed into a versioned target containing 23 words, ten matched arrows, one visual-only arrow, three lower-period relationships, and ten parameter landmarks. Blind EXP-174 classifies the exact printed coordinates: eight are periodic with complete late DOP853/Radau agreement, two remain unresolved, and one initial condition exposes delayed period-14 capture. No computed orbit has yet been assigned a source word under an independently reconstructed partition. | Open | Produce a versioned orbit/branch/symbol database, verify all claimed transitions through period seven, and make at least one held-out symbolic prediction before computing the target orbit. |
 | No conclusions accessible to nonspecialists | Current findings documents state claim boundaries, but there is no revised manuscript conclusion or accessible spiral explanation. | Open | A plain-language conclusion, a one-page mechanism diagram, and a claim/evidence/limit table reviewed independently for comprehensibility. |
 
 ## Referee B
@@ -133,6 +133,15 @@ now a hash-bound machine target with 23 words through period seven, ten matched
 relationships, and ten parameter landmarks. The paper does not print a
 complete reproducible return-map partition; dynamic symbol assignment,
 permutations, kneading data, and comparison remain open.
+
+Checkpoint (2026-08-07, EXP-174): the ten printed parameter landmarks are now
+tested blindly at their exact displayed coordinates. All 60 integrations pass
+their numerical/crossing gates and every qualified DOP853 label agrees with
+Radau for both initial conditions. Eight points resolve periodically at
+periods `5,6,8,14,6,5,14,14`; two remain unresolved. The full experiment is
+retained as failed because one initial condition at `(0.19368,0.2,8.456)` is
+unresolved after an 800-unit transient and period 14 after 1600 units. This
+supplies orbit seeds and a transient warning, not a partition or word match.
 
 ### RVR-005 — Reinjection without category error
 

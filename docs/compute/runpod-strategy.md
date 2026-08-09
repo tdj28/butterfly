@@ -300,6 +300,21 @@ Only items 3--5 are GPU candidates. This converts the measured bottleneck into
 a parallel workload and avoids paying for a GPU that idles behind serial CPU
 integration.
 
+### Figure 6 landmark qualification bottleneck
+
+EXP-174 independently confirms the same workload split. Sixty local
+integrations take `1252.2` seconds. DOP853 rows finish in roughly 8--13 seconds,
+whereas the qualified Radau rows take roughly 139--275 seconds and dominate the
+four-worker schedule. All 20 long-profile DOP853/Radau label comparisons agree,
+so Radau is valuable as a sparse qualification solver but inefficient as a
+dense discovery engine.
+
+The symbolic program should therefore batch landmark/path discovery and
+transient-horizon ensembles with the already qualified Float64 GPU crossing
+kernel, retain adaptive CPU DOP853 for selected candidates, and reserve Radau
+for a small frozen qualification subset. No paid GPU is useful for the current
+Radau calls themselves.
+
 ## Runpod primary documentation
 
 - [Create a Pod](https://docs.runpod.io/api-reference/pods/POST/pods)

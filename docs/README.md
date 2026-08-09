@@ -121,6 +121,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-047-fourth-cascade-rung-qualified.md`](findings/FND-047-fourth-cascade-rung-qualified.md):
   repairs the equal-modulus block-root audit, resolves the exact period-8-to-16
   flip, and independently qualifies the stable primitive period-16 child.
+- [`findings/FND-048-eight-figure6-landmarks-periodic-two-unresolved.md`](findings/FND-048-eight-figure6-landmarks-periodic-two-unresolved.md):
+  records the blind exact-coordinate Figure 6 audit: eight solver-qualified
+  periodic landmarks, two unresolved coordinates, and one delayed-capture
+  failure retained by the strict transient gate.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

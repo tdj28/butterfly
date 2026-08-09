@@ -24,7 +24,8 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 - [`2026-08-07-exp174-figure6-landmarks-frozen.md`](2026-08-07-exp174-figure6-landmarks-frozen.md)
   — blind two-transient, two-initial-state, DOP853/Radau classification is
-  frozen for all ten printed Figure 6 landmarks without expected labels.
+  frozen and executed for all ten printed Figure 6 landmarks: eight late-time
+  periodic labels, two unresolved points, and one preserved transient mismatch.
 - [`2026-08-07-jones-path-symbol-source-audit.md`](2026-08-07-jones-path-symbol-source-audit.md)
   — Figure 2 path provenance and Figure 6's 23 words/11 arrows are now
   machine-readable; the missing reproducible partition remains the next gate.
