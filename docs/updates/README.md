@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp001-saddle-focus-correction.md`](2026-08-07-exp001-saddle-focus-correction.md)
+  — corrected a stale ledger entry: the reported hub equilibrium is locally
+  qualified as a saddle focus, while homoclinic existence remains open.
 - [`2026-08-07-exp152-transverse-seed-validator-frozen.md`](2026-08-07-exp152-transverse-seed-validator-frozen.md)
   — tested adapter and unchanged EXP-142 gates frozen for every future
   primitive family at the `c=19.9` bracket endpoints.

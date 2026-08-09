@@ -1,6 +1,6 @@
 # EXP-001 — Reference numerical core
 
-Status: exploratory implementation verification
+Status: passed reference verification; local equilibrium claim qualified
 Date: 2026-08-06
 Claim targets: CLM-002 and infrastructure prerequisites for CLM-001
 
@@ -37,6 +37,12 @@ Observed environment: Python 3.12.13, NumPy 2.5.1, SciPy 1.18.0 on arm64
 macOS. Result: 8 tests passed. The receipt reproduced the small-equilibrium
 eigenvalues
 `0.0889667722 +/- 0.9959555077 i` and `-10.3030439458`.
+
+The current clean-code receipt also records the small equilibrium
+`(0.003489598512,-0.019408223091,0.019408223091)` and reproduces those
+eigenvalues exactly to the displayed precision. Its SHA-256 is
+`1bab55975b7c80e46c660b9408810b0a334027a09a55ef2b8b57b75ffe9d91f0`;
+the tracked compact summary is `docs/experiments/receipts/EXP-001.json`.
 
 ## Interpretation boundary
 

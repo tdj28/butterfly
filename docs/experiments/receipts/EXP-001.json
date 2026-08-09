@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.reference-verification-summary.v1",
+  "experiment_id": "EXP-001",
+  "passed": true,
+  "source_commit": "f297ac6522e0b4137bf5b051eca66d9a61eb169f",
+  "raw_receipt": "artifacts/EXP-001/receipt.json",
+  "raw_receipt_sha256": "1bab55975b7c80e46c660b9408810b0a334027a09a55ef2b8b57b75ffe9d91f0",
+  "raw_receipt_bytes": 1543,
+  "parameters": {"a": 0.1798, "b": 0.2, "c": 10.3084},
+  "small_equilibrium": [
+    0.0034895985116771455,
+    -0.019408223090529177,
+    0.019408223090529177
+  ],
+  "small_equilibrium_eigenvalues": [
+    {"real": 0.08896677217936197, "imag": 0.9959555077006059},
+    {"real": 0.08896677217936197, "imag": -0.9959555077006059},
+    {"real": -10.303043945847048, "imag": 0.0}
+  ],
+  "large_equilibrium": [
+    10.304910401488325,
+    -57.3131835455413,
+    57.3131835455413
+  ],
+  "integration_success": true,
+  "interpretation": "The proposed hub coordinate has a small saddle-focus equilibrium with a two-dimensional unstable spiral eigenspace and one strongly stable real direction. This local analytic classification does not establish a homoclinic orbit or uniqueness on any parameter segment."
+}

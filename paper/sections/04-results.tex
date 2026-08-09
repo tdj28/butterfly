@@ -1,5 +1,20 @@
 \section{Established computational results}
 
+\subsection{Reference equilibrium at the proposed hub}
+
+At $(a,b,c)=(0.1798,0.2,10.3084)$, the equilibrium equations have a small
+solution
+\[
+(x_*,y_*,z_*)=(0.003489598512,-0.019408223091,0.019408223091).
+\]
+The analytic Jacobian eigenvalues are
+$0.0889667722\pm0.9959555077i$ and $-10.3030439458$.  Thus this equilibrium is
+a saddle focus with a two-dimensional unstable spiral eigenspace and one
+strongly stable real direction.  Central-difference Jacobian checks,
+vector-field residuals, and equilibrium invariance under DOP853 pass.  This
+verifies the local eigenstructure asserted at the proposed hub coordinate; it
+does not exhibit a homoclinic orbit or prove uniqueness on a parameter segment.
+
 \subsection{Identity-safe local cascade}
 
 At fixed $(a,c)=(0.245,5.1)$, the true period-5 family undergoes eight resolved
