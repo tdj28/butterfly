@@ -176,6 +176,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-065-period6-flow-orbits-have-eight-barrio-section-phases.md`](findings/FND-065-period6-flow-orbits-have-eight-barrio-section-phases.md):
   shows across 58 corrected stable orbits that historical period 6 becomes an
   eight-phase cycle on Barrio's published positive-x section.
+- [`findings/FND-066-gpu-barrio-section-parity-is-exact.md`](findings/FND-066-gpu-barrio-section-parity-is-exact.md):
+  exactly matches CPU/GPU survivor and return-pair counts at two steps and
+  qualifies the three-branch Barrio z-map CUDA path.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

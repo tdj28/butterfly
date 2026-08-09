@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp197-barrio-z-critical-scan-frozen.md`](2026-08-09-exp197-barrio-z-critical-scan-frozen.md)
+  — the direct two-step z-critical scan is frozen over all 58 corrected
+  eight-phase candidates; only the named-artifact transfer gate remains.
 - [`2026-08-09-exp196-gpu-barrio-parity-frozen.md`](2026-08-09-exp196-gpu-barrio-parity-frozen.md)
   — a source-only CPU/GPU parity gate is frozen for the new eight-phase,
   positive-x Barrio-section CUDA path and scalar z return map.

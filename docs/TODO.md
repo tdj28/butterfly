@@ -174,7 +174,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   58 stable historical period-6 flow orbits but shows that each has eight,
   rather than six, phases on Barrio's positive-x section. Requalify only that
   section count in EXP-195, then scan both critical residuals against all eight
-  Barrio phases.
+  Barrio phases. EXP-195 passes 58 immutable candidates. EXP-196 then exactly
+  matches CPU/GPU survivor and return-pair counts at both RK4 steps and
+  qualifies the three-branch z-map kernel. EXP-197 freezes the direct scan over
+  all 58; execute it after the platform's named derived-artifact transfer gate
+  is satisfied, then independently refine and audit any selected candidate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

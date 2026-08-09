@@ -1,6 +1,6 @@
 # EXP-196 — GPU Barrio-section parity
 
-Status: preregistered; not yet executed
+Status: executed; passed exactly at both RK4 steps
 
 ## Question
 
@@ -33,3 +33,20 @@ Manifest:
 Passing qualifies this new section mode for a separately frozen multi-
 candidate GPU discovery scan. It does not establish critical membership,
 select a center, or validate the full component.
+
+## Result
+
+The secure RTX A5000 execution from clean commit `c942b46` passes both
+profiles. At `dt=0.01`, CPU and GPU match the complete survivor sequence
+`[2023,1956,1852,1740]` and all 16,405 return pairs. At `dt=0.005`, they match
+`[2023,1957,1855,1739]` and all 16,376 pairs. Both independently resolve three
+branches under all five oracle variants.
+
+The maximum normalized CPU/GPU critical-midpoint differences are
+`1.57e-11` and `8.24e-11`, far below the frozen `0.03` ceiling. Neither backend
+has a numerical failure. The two physical critical intervals remain stable
+under step refinement near `z=0.02359--0.02363` and
+`z=0.02569--0.02577`. The generalized Barrio-section CUDA path is qualified
+for the separately frozen multi-candidate scan.
+
+Compact receipt: [`receipts/EXP-196.json`](receipts/EXP-196.json).
