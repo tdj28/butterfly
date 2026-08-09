@@ -140,6 +140,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-053-global-branch-vote-ill-conditioned-at-critical-birth.md`](findings/FND-053-global-branch-vote-ill-conditioned-at-critical-birth.md):
   shows that doubled support leaves a coordinate-staggered branch-count
   disagreement band, motivating separate local tracking of the old critical.
+- [`findings/FND-054-local-critical-persists-except-support-hole.md`](findings/FND-054-local-critical-persists-except-support-hole.md):
+  tracks the same local feature around the transition in two solvers and both
+  coordinates, retaining one banded-support hole at `a=0.156`.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

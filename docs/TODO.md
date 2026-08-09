@@ -116,11 +116,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   failed `0.010` resolved bracket against the frozen `0.005` gate. The
   unchanged-threshold, higher-power EXP-179 successor also fails: x gives a
   `0.0065` bracket, while the fully cross-coordinate bracket is `0.0075` and
-  global branch detection is coordinate-staggered. Freeze a fresh-trajectory
-  local continuation of the pre-existing critical separately from the shallow
-  added-critical birth. If local tracking also leaves gaps, use
-  invariant-saddle clouds rather than interpolation. Only then freeze the
-  neutral-to-Jones alphabet mapping.
+  global branch detection is coordinate-staggered. Fresh-trajectory EXP-180
+  then locally tracks the same critical at 20/21 DOP853 points and 4/5 Radau
+  controls and selects trimodal index 1 at the endpoint, but retains a
+  solver-independent support hole at `a=0.156`: only `14–23.3%` of bins are
+  occupied. Construct a qualified transient or nonattracting invariant-set
+  cloud at that exact gap rather than interpolating or accepting spline
+  extrapolation. Only then freeze the neutral-to-Jones alphabet mapping.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

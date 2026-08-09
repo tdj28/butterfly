@@ -1,0 +1,36 @@
+{
+  "experiment_id": "EXP-180",
+  "status": "executed-failed",
+  "source_commit": "ad7a1993534a15a2e54780f08feae89f6dd79220",
+  "source_dirty": false,
+  "manifest_sha256": "4123a4f9f7601ca2d03c9649534c62625159c99b063e65ee10de6bee3f9959ee",
+  "raw_receipt_sha256": "54267eba6b911022efd8d493b2fbb2704ef35ab275aeb6ee286e6b444ac3a949",
+  "dop853_resolved_path_points": 20,
+  "dop853_total_path_points": 21,
+  "radau_resolved_control_points": 4,
+  "radau_total_control_points": 5,
+  "sole_unresolved_a": 0.156,
+  "unresolved_reason": "insufficient invariant-domain coverage in all variants, solvers, and coordinates",
+  "coverage_range_at_unresolved_point": [0.14, 0.23333333333333334],
+  "maximum_finite_solver_delta": {"x": 0.0022637631067992103, "z": 0.0015840490059230716},
+  "endpoint_identity": {
+    "DOP853": {
+      "x": {"descendant_index": 1, "distance": 0.0051444774541226646, "runner_up_margin": 0.4167017183927397},
+      "z": {"descendant_index": 1, "distance": 0.003907727472532041, "runner_up_margin": 0.3161507377049633}
+    },
+    "Radau": {
+      "x": {"descendant_index": 1, "distance": 0.005657040891025422, "runner_up_margin": 0.41553795990187065},
+      "z": {"descendant_index": 1, "distance": 0.0036643058314207444, "runner_up_margin": 0.3164019789095568}
+    }
+  },
+  "gates": {
+    "integrations_passed": true,
+    "recurrence_passed": true,
+    "local_resolution_passed": false,
+    "adjacent_steps_passed": false,
+    "solver_parity_passed": false,
+    "endpoint_identity_passed": true,
+    "endpoint_branch_counts_passed": true,
+    "passed": false
+  }
+}

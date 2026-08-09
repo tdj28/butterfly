@@ -141,3 +141,12 @@ undifferentiated power increase as the immediate response. The next
 prospective test separates local continuation of the already-established
 critical from detection of the shallow added critical; global branch-count
 disagreement is retained as a distinct branch-birth observable.
+
+EXP-180 implements the separated local observable with EXP-177 anchors, fresh
+trajectories, per-variant local bootstraps, 21 DOP853 points, and five Radau
+controls. The same local critical resolves everywhere except `a=0.156` and all
+four endpoint decisions select trimodal critical index 1. The sole gap is
+solver-independent low domain coverage, not a competing nominal critical.
+DEC-014 therefore forbids interpolation across it: a transient or
+nonattracting invariant-set cloud must independently restore support before
+the local identity or historical alphabet is qualified.

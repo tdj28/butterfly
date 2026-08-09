@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp180-local-critical-support-hole.md`](2026-08-07-exp180-local-critical-support-hole.md)
+  — 20/21 DOP853 and 4/5 Radau points track the same critical, while one
+  solver-independent invariant-support hole keeps the full path failed.
 - [`2026-08-07-exp180-local-critical-track-frozen.md`](2026-08-07-exp180-local-critical-track-frozen.md)
   — independent-anchor local critical bootstrap, full DOP853 path, and Radau
   controls frozen separately from global shallow-branch detection.
