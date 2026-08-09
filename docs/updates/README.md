@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp152-transverse-seed-validator-frozen.md`](2026-08-07-exp152-transverse-seed-validator-frozen.md)
+  — tested adapter and unchanged EXP-142 gates frozen for every future
+  primitive family at the `c=19.9` bracket endpoints.
 - [`2026-08-07-exp151-upo-identity-gates-frozen.md`](2026-08-07-exp151-upo-identity-gates-frozen.md)
   — continuous-phase primitivity and family-identity gates frozen before the
   transverse UPO recovery target is executed.

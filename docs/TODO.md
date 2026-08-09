@@ -449,7 +449,10 @@ exposition requirements.
   pool releases, then freeze primitivity/deduplication before tracing any
   transverse lobe. EXP-151 now freezes that downstream audit in advance using
   the improved continuous-phase EXP-135 rule; after EXP-150, only its source
-  receipt path/hash and identifiers may be instantiated.
+  receipt path/hash and identifiers may be instantiated. EXP-152 adds a tested
+  adapter from those dynamic family representatives into every unchanged
+  EXP-142 unstable-seed gate. Instantiate only EXP-150/151 hashes after their
+  runs; trace no transverse lobe until every retained family passes.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
