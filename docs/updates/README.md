@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp178-critical-identity-frozen.md`](2026-08-07-exp178-critical-identity-frozen.md)
+  — cross-coordinate normalized-nearest critical identity rule and unresolved
+  gap policy frozen across the historical-section attracting path.
 - [`2026-08-07-exp177-two-branch-control-qualified.md`](2026-08-07-exp177-two-branch-control-qualified.md)
   — published unimodal point resolves as a neutral two-branch partition on the
   recovered Jones section in every split-cloud `x` and `z` variant.
