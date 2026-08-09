@@ -158,6 +158,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-059-floquet-center-search-needs-finer-continuation.md`](findings/FND-059-floquet-center-search-needs-finer-continuation.md):
   preserves the failed coarse identity gate and brackets sub-cell signed-
   multiplier zeros without claiming that a center was found.
+- [`findings/FND-060-floquet-zero-surface-does-not-uniquely-locate-center.md`](findings/FND-060-floquet-zero-surface-does-not-uniquely-locate-center.md):
+  rejects the refinement-unstable Floquet-only center proxy and selects direct
+  two-critical orbit residuals as the next non-circular locator.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

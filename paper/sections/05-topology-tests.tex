@@ -182,6 +182,19 @@ not identified as exact centers.  The next test must locate a center using a
 target-word-blind stability/criticality objective before applying the frozen
 alphabet.
 
+A first such locator uses the signed dominant transverse period-6 Floquet
+multiplier.  The coarse continuation is too large for its frozen local orbit-
+identity gate and is retained as failed.  A tenfold finer successor resolves
+289 orbit cells with closure below $5.19\times10^{-12}$, but it also fails:
+coverage is $0.655329$ against a frozen $0.75$ gate, the neighborhood contains
+65 sign-changing edges, and its sole preliminary stationary-saddle fit
+disappears on a complete $5\times5$ refinement.  This rejects the Floquet-only
+selector, not double superstability.  The full period multiplier conflates
+zero factors from multiple orbit phases and either critical point.  The
+successor must therefore reconstruct both criticals independently and solve
+their two distances to the corrected orbit; multiplier zeros may only bound
+that search.
+
 The third test now defines reinjection on the genuinely three-branch saddle
 continued from $a=0.1485$, rather than on the rejected $a=0.148$ transient
 domain.  It treats reinjection as an observable of the return map rather

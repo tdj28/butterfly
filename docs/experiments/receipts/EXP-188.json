@@ -1,0 +1,40 @@
+{
+  "schema": "butterfly.jones-floquet-center-search-summary.v1",
+  "experiment_id": "EXP-188",
+  "passed": false,
+  "source_commit": "b10642e6e6952ff2afc29e57b3159524339eb704",
+  "source_dirty": false,
+  "manifest_sha256": "144449a0057c86c3bf3a4fa7c3479f21727e68aca663d9ca0f3a5fc11f66444c",
+  "raw_receipt_sha256": "8a66371f14a0c2507ad409a66069d098a8d7e0a409049db55dc4cf009e5fd5b3",
+  "elapsed_seconds": 126.9166591251269,
+  "coarse_grid": {
+    "evaluated_cell_count": 319,
+    "valid_cell_count": 289,
+    "valid_fraction": 0.655328798185941,
+    "stable_cell_count": 181,
+    "positive_multiplier_cell_count": 67,
+    "negative_multiplier_cell_count": 222,
+    "adjacent_sign_crossing_count": 65,
+    "near_zero_cell_count_below_0.02": 17,
+    "minimum_abs_multiplier": 0.001019246685336805,
+    "maximum_closure_error": 5.180287381593887e-12,
+    "maximum_neutral_multiplier_error": 3.1434908009941864e-9
+  },
+  "preliminary_candidate": {
+    "a": 0.21518269022692982,
+    "c": 6.107084692264091,
+    "stationary_multiplier": -0.011203416622281838,
+    "fit_rms": 0.006867965385319156,
+    "ring_sign_alternations": 4
+  },
+  "first_refinement": {
+    "valid_cell_count": 25,
+    "minimum_multiplier": -0.01759436600784701,
+    "maximum_multiplier": 0.022696700191826062,
+    "minimum_abs_multiplier": 0.0004308738311302458,
+    "candidate_count": 0
+  },
+  "selected_candidate": null,
+  "gates": {"coarse_passed": false, "refinement_passed": false, "validation_passed": false, "passed": false},
+  "interpretation": "The finer mesh repairs local continuation but the signed period-6 multiplier surface contains many zero sheets and no refinement-stable saddle candidate. Direct survivor-derived residuals to both critical points are required."
+}

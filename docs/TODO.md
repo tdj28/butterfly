@@ -144,8 +144,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   three shrinking refinements, and DOP853/Radau ring validation. EXP-187
   preserves a first-step resolution failure while bracketing multiple signed
   zeros inside one coarse cell. EXP-188 freezes that cell at tenfold finer
-  resolution with unchanged scientific gates. Execute it, then require
-  survivor-derived membership of both criticals before encoding.
+  resolution with unchanged scientific gates. It resolves 289 cells but fails
+  coverage and saddle refinement: 65 zero edges show that the period multiplier
+  conflates multiple phase/critical sheets. Freeze a GPU-parallel scan of all
+  qualifying zero edges using two independent survivor-derived critical-to-
+  orbit residuals; require both critical memberships before encoding.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

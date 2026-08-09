@@ -218,3 +218,11 @@ positive-negative signed multiplier structure across a, EXP-188 is restricted
 to that failed center cell at tenfold finer steps. This resolution change is
 frozen before new evaluations and does not change the word-blind objective or
 acceptance gates.
+
+EXP-188 repairs the continuation scale but rejects the Floquet-only selector.
+Its fine neighborhood contains 65 signed zero edges, and the single preliminary
+stationary saddle vanishes under the first complete refinement. This is
+consistent with a period multiplier conflating all orbit phases and either
+critical point. DEC-014 therefore requires the next selector to retain two
+separate, survivor-derived critical-to-orbit residuals. Floquet zeros may bound
+the candidate set but may not choose the center alone.

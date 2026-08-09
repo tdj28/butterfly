@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp188-floquet-locator-rejected.md`](2026-08-07-exp188-floquet-locator-rejected.md)
+  — fine continuation reveals many period-6 zero sheets and no refinement-
+  stable saddle; the next locator must resolve both criticals directly.
 - [`2026-08-07-exp188-fine-floquet-center-frozen.md`](2026-08-07-exp188-fine-floquet-center-frozen.md)
   — the failed EXP-187 center cell is resampled tenfold more finely with
   unchanged saddle-zero and independent-solver gates.
