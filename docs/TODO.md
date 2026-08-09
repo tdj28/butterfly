@@ -491,11 +491,12 @@ exposition requirements.
 - [ ] **RVR-004 — Finite logistic ordering.** Figure 2/6 source extraction now
   supplies operational path geometry and a hash-bound target of 23 words, ten
   matched arrows, and one visual-only arrow. DEC-014 now freezes independent
-  dense-cloud partition inference before any target cycle is labeled. Implement
-  its controls; classify the ten approximate landmarks without expected labels;
-  verify all period-through-seven permutations and kneading data; prospectively
-  locate the first higher-period disagreement or establish a declared finite
-  bound.
+  dense-cloud partition inference before any target cycle is labeled. EXP-174
+  freezes blind classification of the ten approximate landmarks without
+  expected labels or parameter nudging. Execute it; then implement the
+  partition controls, verify all period-through-seven permutations and kneading
+  data, and prospectively locate the first higher-period disagreement or
+  establish a declared finite bound.
 - [ ] **MECH-001 — Orbit/manifold condition for the branch opening.** DEC-011
   freezes exact-return, shooting-identity, and Floquet gates for PIM-seeded
   UPOs. EXP-133 now preregisters exploratory recovery on both sides of the
