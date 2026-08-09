@@ -1,6 +1,6 @@
 # EXP-148 — Blind `a=0.1481875` PIM saddle
 
-Status: preregistered; queued behind EXP-132
+Status: preregistered; clean eight-worker execution in progress
 
 ## Question
 

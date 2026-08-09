@@ -1,6 +1,6 @@
 # EXP-132 — Prospective 256-return transverse PIM brackets
 
-Status: preregistered; target state unexecuted
+Status: executed; mixed prospective result, full gate failed
 
 ## Question
 
@@ -52,3 +52,26 @@ PYTHONPATH=python .venv/bin/python \
 
 The run must start from the clean pushed preregistration commit. Raw artifacts
 remain ignored; their hashes and a compact result receipt will be tracked.
+
+## Result
+
+The full four-endpoint gate fails. Three endpoints pass at the 256-return
+ceiling:
+
+| `c` | `a` | result | signed slope | status |
+|---:|---:|---|---|---|
+| 19.8 | 0.148 | 12/15 variants per coordinate return two; three are bootstrap-unstable | negative in all 30 fits | unresolved / failed |
+| 19.8 | 0.150 | three in all 30 variants | positive in all 30 fits | passed |
+| 19.9 | 0.145 | two under the qualified coverage-only censor | negative in all 30 fits | passed |
+| 19.9 | 0.150 | three in all 30 variants | positive in all 30 fits | passed |
+
+All twelve PIM access lines resolved and none of 69,351 lifetime evaluations
+failed. The failure is scientific rather than numerical: the frozen censor
+rule correctly refuses to excuse bootstrap instability at `c=19.8,a=0.148`.
+
+EXP-132 therefore establishes the finite `c=19.9` bracket
+`a in [0.145,0.150]` and qualifies the untouched `c=19.8,a=0.150`
+three-branch endpoint. It does not establish the `c=19.8` bracket or a
+continuous transition curve.
+
+Tracked summary: `docs/experiments/receipts/EXP-132.json`.

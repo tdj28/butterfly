@@ -435,10 +435,15 @@ exposition requirements.
   independently qualified EXP-121 censor semantics at `c=19.8,a=0.148/0.150`
   and `c=19.9,a=0.145/0.150`. EXP-132 now freezes exactly that test at a
   256-return ceiling, with the strict oracle retained beside the censor-aware
-  decision and bootstrap instability explicitly inadmissible. Execute it from
-  the clean pushed preregistration commit. Only after a complete finite bracket passes,
-  search the opened lobe for the unstable-orbit/manifold event that supplies a
-  continuation condition.
+  decision and bootstrap instability explicitly inadmissible. EXP-132 executes
+  cleanly and fails its full gate with three of four endpoints passed. It
+  qualifies the finite `c=19.9` bracket `[0.145,0.150]` and the untouched
+  `c=19.8,a=0.150` three/positive endpoint. The `c=19.8,a=0.148` endpoint
+  remains unresolved because its 12/15 two-branch variants and uniformly
+  negative slopes are accompanied by three bootstrap-unstable high-bin
+  variants per coordinate. Preserve that failure; continue only the qualified
+  endpoints and replace repeated integer bisection with the prospective
+  lobe/pruning residual.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.
@@ -526,8 +531,9 @@ exposition requirements.
   Execute it before preregistering and running the independent midpoint PIM.
   EXP-147 passes with 989/558 fine/coarse lobe points and no integration
   failure. EXP-148 now freezes the untouched midpoint PIM with expected class
-  `null`; run it after EXP-132 releases the CPU pool, then freeze EXP-149 using
-  only the resulting receipt and state-archive hashes. The EXP-149 evaluator,
+  `null`; its clean eight-worker run began after EXP-132 released the CPU pool.
+  When it completes, freeze EXP-149 using only the resulting receipt and
+  state-archive hashes. The EXP-149 evaluator,
   two↔excluded/three↔included decision, and all thresholds are now committed
   before EXP-148; after that run, only hash/path fields may be instantiated.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via

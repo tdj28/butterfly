@@ -103,6 +103,10 @@ what must be narrowed, and what is false or unresolved.
   shows retrospectively that a pre-existing UPO unstable lobe is excluded from
   the two-branch PIM saddle but included in the three-branch saddle under
   nested two-dimensional distance controls.
+- [`findings/FND-038-one-transverse-bracket-passes-second-remains-open.md`](findings/FND-038-one-transverse-bracket-passes-second-remains-open.md):
+  records the mixed EXP-132 result: a qualified finite bracket at `c=19.9`, a
+  new three-branch endpoint at `c=19.8,a=0.150`, and the still-unresolved
+  bootstrap-sensitive lower endpoint at `c=19.8,a=0.148`.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

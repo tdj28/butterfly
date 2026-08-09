@@ -26,8 +26,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
   — primitive UPO qualification through continuous phase identity and the
   frozen lag-12/lag-4 continuation test across the local boundary.
 - [`2026-08-07-exp132-transverse-pim-preregistered.md`](2026-08-07-exp132-transverse-pim-preregistered.md)
-  — frozen 256-return replication of two finite transverse brackets under the
-  independently qualified coverage-only censor rule.
+  — frozen 256-return replication that qualifies the `c=19.9` finite bracket
+  and `c=19.8,a=0.150` endpoint while retaining the other lower endpoint and
+  the full experiment as failed.
 - [`2026-08-07-exp131-transverse-pim-preregistered.md`](2026-08-07-exp131-transverse-pim-preregistered.md)
   — frozen adaptive-PIM and signed-slope predictions at four transverse
   endpoints, followed by a clean prospective falsification of the proposed
