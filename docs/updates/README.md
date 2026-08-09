@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp177-two-branch-control-frozen.md`](2026-08-07-exp177-two-branch-control-frozen.md)
+  — unchanged-threshold two-branch prediction frozen at the published
+  unimodal parameter point on the distinct recovered Jones section.
 - [`2026-08-07-exp176-neutral-partition-qualified.md`](2026-08-07-exp176-neutral-partition-qualified.md)
   — unchanged-threshold power successor qualifies the neutral three-branch
   Jones-section partition in split calibration/validation `x` and `z` clouds.
