@@ -10,10 +10,54 @@ from pathlib import Path
 
 import numpy as np
 import scipy
+from scipy.optimize import linear_sum_assignment
 
 from butterfly import RosslerParameters, SolverConfig, rossler_rhs
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 from multiple_shooting_core import correct_fixed_b, integrate_segment
+
+
+def _balanced_power_clusters(eigenvalues, segment_count):
+    """Cluster block roots by powered value with exactly one root per segment.
+
+    Radius sorting is ambiguous when two Floquet multipliers have the same
+    modulus, most importantly the neutral ``+1`` and flip ``-1`` multipliers.
+    Powering maps each block root back to its Floquet multiplier; a balanced
+    assignment then keeps exactly ``segment_count`` roots in each cluster.
+    """
+    values = np.asarray(eigenvalues, dtype=complex)
+    if values.size != 3 * segment_count:
+        raise ValueError("expected three block-root families")
+    powered = values**segment_count
+    centers = [powered[int(np.argmin(np.abs(powered)))]]
+    for _ in range(2):
+        distance = np.min(
+            np.abs(powered[:, None] - np.asarray(centers)[None, :]), axis=1
+        )
+        centers.append(powered[int(np.argmax(distance))])
+    centers = np.asarray(centers, dtype=complex)
+    labels = np.zeros(values.size, dtype=int)
+    for _ in range(12):
+        slots = np.repeat(centers, segment_count)
+        rows, columns = linear_sum_assignment(
+            np.abs(powered[:, None] - slots[None, :]) ** 2
+        )
+        labels[rows] = columns // segment_count
+        updated = np.asarray(
+            [
+                np.median(powered[labels == index].real)
+                + 1j * np.median(powered[labels == index].imag)
+                for index in range(3)
+            ]
+        )
+        if np.allclose(updated, centers, rtol=0.0, atol=1e-14):
+            centers = updated
+            break
+        centers = updated
+    clusters = [values[labels == index] for index in range(3)]
+    if any(cluster.size != segment_count for cluster in clusters):
+        raise RuntimeError("balanced block-root clustering failed")
+    return sorted(clusters, key=lambda cluster: float(np.median(np.abs(cluster))))
 
 
 def block_and_product_floquet(nodes, duration, parameters, solver, cyclic_shifts):
@@ -28,11 +72,8 @@ def block_and_product_floquet(nodes, duration, parameters, solver, cyclic_shifts
         target = (index + 1) % segment_count
         block_map[3 * target : 3 * target + 3, 3 * index : 3 * index + 3] = transition
     eigenvalues = np.linalg.eigvals(block_map)
-    order = np.argsort(np.abs(eigenvalues))
-    ordered = eigenvalues[order]
     clusters = []
-    for index in range(3):
-        values = ordered[index * segment_count : (index + 1) * segment_count]
+    for values in _balanced_power_clusters(eigenvalues, segment_count):
         radii = np.abs(values)
         powered = values**segment_count
         clusters.append(
