@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.period2-c-flip-summary.v1",
+  "experiment_id": "EXP-161",
+  "passed": true,
+  "source_commit": "1879885f97ce714c8dcc61dfd3e9645906fd63aa",
+  "manifest_sha256": "109d1017978b1fba01aa87ed8db177f15b7eddea1ca23900136d8f9a4a697da1",
+  "source_receipt_sha256": "808d16e4285e2b8c4be98f55f2ee8c4b47804032e435759a2c9f62fb244ffaeb",
+  "raw_receipt": "artifacts/EXP-161/receipt.json",
+  "raw_receipt_sha256": "f8ec5706dab040b68aa039c1ca9afa891d592774ecdf7a52821e6d41d2b17f30",
+  "raw_receipt_bytes": 6190,
+  "parameters": {"a": 0.1798, "b": 0.2, "c": 4.3100451384813105},
+  "period_time": 11.724290361610073,
+  "orbit_matching_residual": 1.1485155445123642e-14,
+  "reference_flip_residual": 3.941291737419306e-14,
+  "independent_radau_flip_residual": 5.908606937055305e-13,
+  "independent_radau_closure_error": 1.1194226658708248e-12,
+  "independent_radau_half_period_closure": 2.8615011315650842,
+  "independent_radau_winding_number": 1.9999999999999847,
+  "interpretation": "The primitive period-2 branch undergoes an exact second flip, establishing the period-2-to-4 cascade event on the Jones path."
+}
