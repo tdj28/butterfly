@@ -15,3 +15,8 @@ Execution requires transferring the 106,345-byte hash-bound
 `artifacts/EXP-195/candidates.json` to the task-owned RunPod worker. The
 platform requires authorization naming this derived artifact even though
 tracked-source upload is already authorized.
+
+An initial secure-worker attempt transferred only the frozen `fa8f332` source
+archive. The platform rejected the derived candidate transfer, so no scan ran.
+Worker `ek8r3t88x0i71i` was terminated immediately, and the account pod list
+was then empty. Execution remains frozen without scientific peeking.

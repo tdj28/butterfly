@@ -35,3 +35,15 @@ A pass nominates a direct double-critical center candidate. It does not prove
 double superstability: the selected point must be locally refined as a coupled
 two-residual solve, independently corrected with DOP853 and Radau, reproduced
 under step and survivor controls, and only then encoded symbolically.
+
+## Administrative execution attempt
+
+On 2026-08-09, secure task-owned RTX A5000 worker `ek8r3t88x0i71i` was
+provisioned at a hard `$0.30/hour` ceiling and an actual `$0.27/hour` rate. The
+frozen `fa8f332` source archive (SHA-256
+`e719b90006b74fb2692a683e02e61af5d238e2fee62c327ad839f34f85a2155b`)
+was transferred. The platform rejected transfer of the derived EXP-195
+candidate payload because the user message did not name that exact artifact
+and destination. No candidate data were transferred and no scientific
+computation ran. The worker was immediately terminated; the subsequent
+account-wide pod list was empty.
