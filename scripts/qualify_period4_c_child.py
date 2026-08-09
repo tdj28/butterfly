@@ -25,7 +25,15 @@ from qualify_period2_c_child import (
 )
 
 
-def main() -> int:
+def run_child_qualification(
+    *,
+    manifest_schema: str,
+    output_schema: str,
+    labels: list[str],
+    expected_parent_winding: float,
+    expected_child_winding: float,
+    scientific_scope: str,
+) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--child", type=Path, required=True)
@@ -34,8 +42,8 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.period4-c-child-qualification-manifest.v1":
-        raise SystemExit("unsupported period-4 c-child qualification manifest")
+    if manifest.get("schema") != manifest_schema:
+        raise SystemExit("unsupported c-child qualification manifest")
     child_bytes = args.child.read_bytes()
     parent_bytes = args.parent.read_bytes()
     if sha256_bytes(child_bytes) != manifest["child_receipt_sha256"]:
@@ -190,9 +198,11 @@ def main() -> int:
             abs(value - 2.0) <= float(acceptance["maximum_period_ratio_error"])
             for value in period_ratios
         )
-        and abs(windings[0] - 2.0) <= float(acceptance["maximum_winding_error"])
+        and abs(windings[0] - expected_parent_winding)
+        <= float(acceptance["maximum_winding_error"])
         and all(
-            abs(value - 4.0) <= float(acceptance["maximum_winding_error"])
+            abs(value - expected_child_winding)
+            <= float(acceptance["maximum_winding_error"])
             for value in windings[1:]
         )
         and recovered_summary["stable"]
@@ -200,7 +210,7 @@ def main() -> int:
         <= float(acceptance["maximum_recovered_identity_rms"])
     )
     output = {
-        "schema": "butterfly.period4-c-child-qualification-receipt.v1",
+        "schema": output_schema,
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "child_receipt_sha256": sha256_bytes(child_bytes),
@@ -215,7 +225,7 @@ def main() -> int:
         "parameters": {"a": parameters.a, "b": parameters.b, "c": parameters.c},
         "reference_dop853": reference_summaries,
         "independent_radau": independent_summaries,
-        "labels": ["period2-parent", "period4-minus", "period4-plus"],
+        "labels": labels,
         "child_arm_identity": arm_identity,
         "solver_identities": solver_identities,
         "solver_modulus_differences": modulus_differences,
@@ -229,14 +239,25 @@ def main() -> int:
         },
         "elapsed_seconds": time.perf_counter() - started,
         "passed": passed,
-        "scientific_scope": (
-            "primitive stable period-4 child and local stability exchange after the "
-            "second fixed-path flip; not the later cascade or homoclinic endpoint"
-        ),
+        "scientific_scope": scientific_scope,
     }
     atomic_write(args.output, canonical_json(output))
     print(json.dumps(output, sort_keys=True))
     return 0 if passed else 1
+
+
+def main() -> int:
+    return run_child_qualification(
+        manifest_schema="butterfly.period4-c-child-qualification-manifest.v1",
+        output_schema="butterfly.period4-c-child-qualification-receipt.v1",
+        labels=["period2-parent", "period4-minus", "period4-plus"],
+        expected_parent_winding=2.0,
+        expected_child_winding=4.0,
+        scientific_scope=(
+            "primitive stable period-4 child and local stability exchange after the "
+            "second fixed-path flip; not the later cascade or homoclinic endpoint"
+        ),
+    )
 
 
 if __name__ == "__main__":

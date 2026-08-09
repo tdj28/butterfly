@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.period4-c-flip-switch-summary.v1",
+  "experiment_id": "EXP-166",
+  "passed": true,
+  "source_commit": "2476f68289a5aac2d566119c9add83938ce2f87d",
+  "manifest_sha256": "e363f6cec49db202fffe077cec6302d3e3de3e32c490c70fae9f9579da49be41",
+  "event_receipt_sha256": "3fe38f1662060e769f18f5181b5523f5e5563097f86f4133d686785c7145f416",
+  "parent_receipt_sha256": "7a4acee514dbfe83abcc11696ec5638e72d9b96316b4576a9224858baff471ab",
+  "raw_receipt": "artifacts/EXP-166/receipt.json",
+  "raw_receipt_sha256": "95e3b92f038c1a78ff2e7967e2998d5836c83c3cf69d30e5aef6f72f060eb78e",
+  "raw_receipt_bytes": 45072,
+  "smallest_shooting_singular_value": 2.8910205575567875e-12,
+  "absolute_tangent_dot": 0.0,
+  "points_per_direction": [32, 32],
+  "endpoint_distances_from_doubled_parent": [0.05581869239449845, 0.0800766119505782],
+  "endpoint_half_period_closures": [0.23427702482183455, 0.18026430129711757],
+  "endpoint_multiplier_moduli": [0.9001445999865587, 0.05217600280770938],
+  "interpretation": "Both nullspace-switch signs open nontrivial locally stable period-8 arms; independent identity and attraction remain for EXP-167."
+}
