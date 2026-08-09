@@ -1,0 +1,49 @@
+{
+  "schema": "butterfly.period2-c-to-flip-manifest.v1",
+  "experiment_id": "EXP-159",
+  "source_receipt_sha256": "dbf1bd63fa987be7307557fa094edeec74c0e79afc2acfa6436ec2d6b09b244f",
+  "source_direction": -1,
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "continuation": {
+    "start_c": 3.1845,
+    "end_c": 6.0,
+    "maximum_points": 142,
+    "post_bracket_points": 4
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.025
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 2e-11,
+    "atol": 2e-13,
+    "max_step": 0.02
+  },
+  "corrector": {
+    "tolerance": 1e-11,
+    "maximum_evaluations": 100
+  },
+  "comparison": {
+    "phase_samples": 2048,
+    "coarse_shifts": 256,
+    "shift_tolerance": 1e-10
+  },
+  "orbit_sample_count": 2049,
+  "independent_check_stride": 10,
+  "acceptance": {
+    "minimum_points": 20,
+    "maximum_closure_error": 1e-8,
+    "maximum_neutral_multiplier_error": 1e-7,
+    "minimum_half_period_closure": 0.1,
+    "maximum_winding_error": 0.01,
+    "maximum_bracket_multiplier_imaginary": 1e-6,
+    "minimum_independent_checks": 3,
+    "maximum_independent_closure_error": 1e-8,
+    "maximum_independent_identity_rms": 1e-6,
+    "maximum_independent_multiplier_difference": 1e-5
+  }
+}
