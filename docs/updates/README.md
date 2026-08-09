@@ -22,9 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp193-second-component-cycle-sample-frozen.md`](2026-08-09-exp193-second-component-cycle-sample-frozen.md)
+  — 257 geometry-only pixels from the isolated second period-6 component are
+  frozen for fresh GPU cycle extraction before direct z-critical ranking.
 - [`2026-08-09-exp192-two-landmark-band-frozen.md`](2026-08-09-exp192-two-landmark-band-frozen.md)
-  — a 92,736-pixel word-blind atlas through both exact Jones period-6
-  landmarks freezes their nearest-pixel component-membership test.
+  — the executed 92,736-pixel atlas reproduces both landmarks as period 6 but
+  places them in distinct stable raster components.
 - [`2026-08-09-exp191-second-period6-window-frozen.md`](2026-08-09-exp191-second-period6-window-frozen.md)
   — the executed 40,401-pixel atlas places the second Jones landmark in a
   coherent 981-pixel period-6 band that exits both sampled `c` boundaries.

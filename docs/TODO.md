@@ -164,7 +164,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Expand the atlas vertically through both exact period-6 landmarks, report
   their nearest-pixel component membership without inferring continuation,
   then correct cycles along any shared band and solve the two direct critical
-  residuals.
+  residuals. EXP-192 now completes that expansion: both source landmarks are
+  period 6, but the first is not in the second landmark's 2,598-pixel anchor
+  component. Treat them as distinct stable raster windows. Prepare a
+  geometry-only sample of the second component, recover its six section
+  phases, and scan the explicitly declared Barrio-section z return map for two
+  critical-to-orbit residuals before any word is encoded. Test possible
+  unstable continuation between the two windows separately.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

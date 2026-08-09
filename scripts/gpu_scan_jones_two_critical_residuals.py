@@ -104,6 +104,17 @@ def rank_candidate_rows(rows) -> list[dict]:
     )
 
 
+def return_coordinate_axis(manifest: dict) -> tuple[str, int]:
+    """Return an explicitly validated scalar return-map coordinate."""
+
+    coordinate = manifest.get("return_coordinate", {"name": "x", "axis": 0})
+    name = str(coordinate["name"])
+    axis = int(coordinate["axis"])
+    if (name, axis) not in (("x", 0), ("z", 2)):
+        raise ValueError("return coordinate must be x/0 or z/2")
+    return name, axis
+
+
 if triton is not None:  # pragma: no cover - compiled only on CUDA workers
 
     @triton.jit
@@ -407,9 +418,10 @@ def _profile_rows(candidates, run, manifest, profile):
         {**manifest["oracle_common"], **variant["options"]}
         for variant in manifest["oracle_variants"]
     )
+    _, coordinate_axis = return_coordinate_axis(manifest)
     rows = []
     for index, candidate in enumerate(candidates):
-        source, target = _pairs(run["records"][index])
+        source, target = _pairs(run["records"][index], axis=coordinate_axis)
         if len(source) >= int(acceptance["minimum_return_pairs"]):
             robust = infer_return_map_branches_robust(
                 source,
@@ -426,7 +438,9 @@ def _profile_rows(candidates, run, manifest, profile):
         assigned_slope = None
         if robust_row.get("resolved") and robust_row.get("branch_count") == 3:
             domain = (float(np.min(source)), float(np.max(source)))
-            orbit_values = np.asarray(candidate["section_states"], dtype=float)[:, 0]
+            orbit_values = np.asarray(candidate["section_states"], dtype=float)[
+                :, coordinate_axis
+            ]
             assignment = critical_orbit_assignment(
                 orbit_values, robust_row["critical_point_intervals"], domain
             )
@@ -546,6 +560,7 @@ def main() -> int:
     candidates = [row for row in candidate_document["candidates"] if row["passed"]]
     if len(candidates) != int(manifest["expected_candidate_count"]):
         raise SystemExit("unexpected passed candidate count")
+    coordinate_name, coordinate_axis = return_coordinate_axis(manifest)
 
     profile_results = []
     profile_rows = []
@@ -594,6 +609,7 @@ def main() -> int:
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "candidate_input_sha256": sha256_bytes(candidate_bytes),
+        "return_coordinate": {"name": coordinate_name, "axis": coordinate_axis},
         "source": {
             "declared_commit": args.source_commit,
             "observed_git_commit": observed_commit,

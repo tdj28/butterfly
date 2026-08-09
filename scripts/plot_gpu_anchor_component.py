@@ -106,7 +106,7 @@ def main() -> int:
     )
     axis.set_xlabel(r"$a$")
     axis.set_ylabel(r"$c$")
-    axis.set_title(rf"Jones second period-6 window, $b={frame['b']:.1f}$")
+    axis.set_title(rf"{frame['experiment_id']} period atlas, $b={frame['b']:.1f}$")
     axis.set_xlim(float(plane.a_values[0]), float(plane.a_values[-1]))
     axis.set_ylim(float(plane.c_values[0]), float(plane.c_values[-1]))
     colorbar = fig.colorbar(
@@ -138,6 +138,30 @@ def main() -> int:
             label="Jones landmark",
         ),
     ]
+    probes = component.get("probes", ())
+    if probes:
+        axis.scatter(
+            [row["grid_parameters"]["a"] for row in probes],
+            [row["grid_parameters"]["c"] for row in probes],
+            marker="X",
+            s=70,
+            facecolor="#f72585",
+            edgecolor="#111111",
+            linewidth=0.7,
+            zorder=5,
+        )
+        handles.append(
+            Line2D(
+                (0,),
+                (0,),
+                marker="X",
+                linestyle="none",
+                markerfacecolor="#f72585",
+                markeredgecolor="#111111",
+                markersize=8,
+                label="comparison landmark",
+            )
+        )
     axis.legend(handles=handles, loc="upper right", frameon=True, fontsize=8)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     temporary = args.output.with_name(f".{args.output.stem}.tmp{args.output.suffix}")

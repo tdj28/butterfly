@@ -170,6 +170,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-063-second-jones-period6-landmark-lies-in-coherent-band.md`](findings/FND-063-second-jones-period6-landmark-lies-in-coherent-band.md):
   places the other exact period-6 landmark inside a coherent 981-pixel band
   whose vertical extent remains truncated and whose orbit identity is open.
+- [`findings/FND-064-two-jones-period6-landmarks-occupy-distinct-stable-raster-components.md`](findings/FND-064-two-jones-period6-landmarks-occupy-distinct-stable-raster-components.md):
+  reproduces both landmarks as period 6 but places them in distinct resolved
+  stable raster components, without excluding unstable continuation.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

@@ -1,6 +1,7 @@
 from scripts.gpu_scan_jones_two_critical_residuals import (
     critical_orbit_assignment,
     rank_candidate_rows,
+    return_coordinate_axis,
 )
 
 
@@ -32,3 +33,11 @@ def test_candidate_ranking_is_target_word_blind_and_deterministic() -> None:
         {"id": "c", "eligible": False, "ranking": {"maximum_normalized_midpoint_distance": 0.0, "sum_normalized_midpoint_distance": 0.0, "maximum_zero_slope_residual": 0.0}},
     ]
     assert [row["id"] for row in rank_candidate_rows(rows)] == ["a", "b"]
+
+
+def test_return_coordinate_defaults_to_x_and_accepts_explicit_z() -> None:
+    assert return_coordinate_axis({}) == ("x", 0)
+    assert return_coordinate_axis({"return_coordinate": {"name": "z", "axis": 2}}) == (
+        "z",
+        2,
+    )
