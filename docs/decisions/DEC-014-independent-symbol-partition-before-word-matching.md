@@ -186,3 +186,11 @@ geometry rows resolve, every x/z comparison agrees exactly, and the predicted
 third-to-inner deposition has 96--112 samples per row with no sampled
 third-branch self-return. Figure 6 target cycles may now be encoded, but they
 may not move the partition, permute this alphabet, or select a preferred orbit.
+
+A retrospective landmark-0 sizing diagnostic then shows why those rules are
+needed: x resolves two branches, z is monotone, and the exact corrected
+period-5 orbit misses the x critical interval. EXP-186 consequently targets
+the untouched second landmark and freezes two RK4 partition reconstructions,
+independent DOP853/Radau orbit correction, a critical-slope residual, mandatory
+x/z branch-count agreement, and unique same-period target membership before
+execution.

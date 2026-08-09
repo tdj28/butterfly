@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-landmark0-diagnostic-exp186-frozen.md`](2026-08-07-landmark0-diagnostic-exp186-frozen.md)
+  — exact-coordinate pilot exposes an x/z projection split and noncritical
+  period-5 orbit; untouched landmark-1 word test frozen with stricter gates.
 - [`2026-08-07-exp185-historical-alphabet-qualified.md`](2026-08-07-exp185-historical-alphabet-qualified.md)
   — two solvers, both coordinates, held-out segments, and physical deposition
   geometry qualify the target-word-blind Jones alphabet mapping.
