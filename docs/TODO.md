@@ -447,7 +447,9 @@ exposition requirements.
   recovery at both endpoints of the qualified `c=19.9` bracket before
   inspecting their close returns. Execute it after the active EXP-148 worker
   pool releases, then freeze primitivity/deduplication before tracing any
-  transverse lobe.
+  transverse lobe. EXP-151 now freezes that downstream audit in advance using
+  the improved continuous-phase EXP-135 rule; after EXP-150, only its source
+  receipt path/hash and identifiers may be instantiated.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp151-upo-identity-gates-frozen.md`](2026-08-07-exp151-upo-identity-gates-frozen.md)
+  — continuous-phase primitivity and family-identity gates frozen before the
+  transverse UPO recovery target is executed.
 - [`2026-08-07-exp150-transverse-upo-preregistered.md`](2026-08-07-exp150-transverse-upo-preregistered.md)
   — frozen unchanged-method UPO recovery at both endpoints of the newly
   qualified `c=19.9` saddle-topology bracket.
