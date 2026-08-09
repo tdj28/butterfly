@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp187-floquet-center-search-frozen.md`](2026-08-07-exp187-floquet-center-search-frozen.md)
+  — a word-blind period-6 Floquet saddle-zero search is frozen with coarse,
+  refined, and independent-solver topology gates.
 - [`2026-08-07-exp186-exact-landmark-word-fails.md`](2026-08-07-exp186-exact-landmark-word-fails.md)
   — the period-6 orbit passes strong solver gates, but x/z projection parity
   and every frozen word target fail; an actual center must be found dynamically.

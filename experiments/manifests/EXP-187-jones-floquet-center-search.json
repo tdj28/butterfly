@@ -1,0 +1,58 @@
+{
+  "schema": "butterfly.jones-floquet-center-search-manifest.v1",
+  "experiment_id": "EXP-187",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-186.json",
+      "sha256": "7e83f1f5e7a6b6a287739ec9fc1a7f39323d7b56f98d30a5c03bbea45ac287dc",
+      "role": "solver-qualified period-6 seed and evidence that the exact printed coordinate is not a word center"
+    }
+  ],
+  "seed": {
+    "parent_experiment": "EXP-186",
+    "parent_raw_receipt_sha256": "efae1b0cbee8edf74bf11b6bf3de38c56418c5f8acb454ea3297722d7a836903",
+    "parameters": {"a": 0.21564, "b": 0.2, "c": 6.124},
+    "initial_state": [-8.121313761098166, -0.03269603621816485, 0.014078209960713278],
+    "period_time": 34.46514848941352,
+    "expected_period": 6,
+    "selection_rule": "exact second source landmark and period inherited from blind EXP-174/186; no Figure 6 word or landmark-to-word association is loaded"
+  },
+  "coarse_grid": {
+    "a_count": 21,
+    "a_step": 0.0005,
+    "c_count": 21,
+    "c_step": 0.025,
+    "bounds_rationale": "four EXP-021 a cells and 2.5 EXP-021 c cells on each side of the exact seed, frozen before evaluating the period-6 Floquet surface"
+  },
+  "refinement_factors": [0.5, 0.25, 0.125],
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+    "radau": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05}
+  },
+  "corrector": {"maximum_evaluations": 60, "tolerance": 1e-11},
+  "continuation": {
+    "coordinate_scales": [12.0, 0.55],
+    "order": "continue the exact seed along a at fixed c, then each valid a spine in both c directions; stop a direction at the first failed identity gate"
+  },
+  "saddle_fit": {
+    "model": "local quadratic in normalized a,c over each 3x3 stencil",
+    "maximum_stationary_cell_offset": 0.8,
+    "minimum_ring_sign_alternations": 4,
+    "ring_zero_tolerance": 1e-8,
+    "selection_rule": "among nondegenerate indefinite stationary fits with at least four cyclic sign alternations, minimize absolute fitted stationary multiplier plus fit RMS; no symbolic data enter selection"
+  },
+  "acceptance": {
+    "maximum_flow_closure": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_neutral_multiplier_error": 5e-7,
+    "maximum_dominant_imaginary_part": 1e-7,
+    "maximum_neighbor_scaled_orbit_error": 0.08,
+    "minimum_coarse_valid_fraction": 0.75,
+    "maximum_fitted_stationary_multiplier": 0.005,
+    "maximum_final_fit_rms": 0.005,
+    "maximum_validated_center_multiplier": 0.01,
+    "maximum_solver_orbit_scaled_error": 1e-6,
+    "maximum_solver_multiplier_difference": 1e-5
+  },
+  "claim_scope": "target-word-blind localization of an intersection-like stationary zero in the signed period-6 Floquet surface near the exact second landmark; a pass nominates but does not yet prove a doubly-superstable center, critical-orbit membership, Figure 6 word, generating partition, TBA curve, arrow, or conjugacy"
+}

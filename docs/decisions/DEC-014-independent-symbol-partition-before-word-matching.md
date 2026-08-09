@@ -203,3 +203,10 @@ period-6 target. This rejects exact-raster-landmark word assignment, not the
 source's conceptual word set. Any successor must first select a superstable
 center from a target-word-blind dynamical objective; expected symbols may not
 enter the parameter search, tie-break, or stopping rule.
+
+EXP-187 implements that rule with the signed dominant transverse Floquet
+surface. It freezes a bounded period-6 continuation and searches for the
+stationary indefinite zero with four ring sign changes expected at the
+intersection of two superstability curves. Three spatial refinements and an
+independent Radau ring are required. Even a pass remains only a center
+candidate until a fresh survivor map places both critical points on its orbit.
