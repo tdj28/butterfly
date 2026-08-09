@@ -2,9 +2,9 @@
 
 Date: 2026-08-07
 
-Status: adopted; operational encoder, synthetic assignment controls, and dense
-two-/three-branch Rössler controls are qualified; critical identity mapping and
-target word tests pending
+Status: adopted; operational encoder, dense two-/three-branch controls, and
+local critical identity are qualified; source-derived historical mapping is
+frozen in EXP-184 before target word tests
 
 ## Context
 
@@ -169,3 +169,10 @@ The sole EXP-180 support gap is therefore closed under the declared finite
 survivor-cloud definition. DEC-014 now permits a separately frozen historical
 alphabet mapping; it still forbids choosing that mapping from Figure 6 target
 words or promoting local identity to a global TBA curve.
+
+EXP-184 freezes that separate mapping. Jones's source definition and EXP-183
+give `K1 -> C` and `K0 -> D`; source geometry predicts the newly opened outer
+interval `B0 -> 2`, the physically innermost deposition interval `B2 -> 0`,
+and residual `B1 -> 1`. Two fresh solvers, disjoint segments, both coordinates,
+physical-distance separation, transition support, and cross-coordinate
+agreement must pass before any target cycle is encoded.

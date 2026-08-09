@@ -90,6 +90,17 @@ complete partition boundary that turns a computed orbit into one of these
 words. The transcription is therefore a target for reproduction, not evidence
 that the words or arrows are dynamically correct.
 
+The source nevertheless supplies enough semantic geometry for a separately
+frozen operational alphabet test. It defines `C` as the critical retained
+from the unimodal side and `D` as the added trimodal critical; combined with
+EXP-183 this predicts `K1 -> C` and `K0 -> D`. It also describes the
+third-branch excursion and places the newly deposited point in the innermost
+region. Those statements freeze the target-word-blind prediction
+`B0 -> 2`, `B2 -> 0`, and residual `B1 -> 1`, subject to fresh physical
+geometry and cross-coordinate tests in EXP-184. This is an operational
+mapping on the recovered section, not a source-recovered generating
+partition.
+
 ## Execution consequence
 
 1. Use the qualified fixed-`a=0.1798` path as `L2-like`, with the historical
@@ -97,9 +108,10 @@ that the words or arrows are dynamically correct.
 2. Freeze two `L1` controls separately instead of guessing one historical
    equation.
 3. Reconstruct the return map and partition independently from orbit data.
-4. Verify all 23 words and 11 printed arrows, preserving the visual-only arrow
+4. Qualify the source-derived historical alphabet on fresh control data.
+5. Verify all 23 words and 11 printed arrows, preserving the visual-only arrow
    as a separate, weaker gate.
-5. Only then compare the finite Rössler permutations/kneading data with a
+6. Only then compare the finite Rössler permutations/kneading data with a
    logistic-map control and search for the first disagreement.
 
 DEC-014 now freezes the non-circular validation rule: infer the return

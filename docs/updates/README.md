@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp184-historical-alphabet-frozen.md`](2026-08-07-exp184-historical-alphabet-frozen.md)
+  — source-derived `K1/C`, `K0/D`, and geometric numeral mapping frozen before
+  any Figure 6 word is evaluated.
 - [`2026-08-07-exp183-local-critical-identity-qualified.md`](2026-08-07-exp183-local-critical-identity-qualified.md)
   — factor-two survivor parity and short-horizon DOP853 audits close the sole
   support hole and qualify the local unimodal-to-higher-critical identity.
