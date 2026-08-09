@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp154-period1-path-frozen.md`](2026-08-07-exp154-period1-path-frozen.md)
+  — 118-point, winding-safe period-1 continuation and independent Radau gates
+  frozen from the Hopf neighborhood to the reported hub.
 - [`2026-08-07-exp153-hopf-curve-frozen.md`](2026-08-07-exp153-hopf-curve-frozen.md)
   — exact Rössler Hopf construction passes independent eigensystem and
   transversality gates at all 192 fixed-`b=0.2` points.

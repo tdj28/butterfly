@@ -5,10 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import platform
+import tempfile
 import time
 from pathlib import Path
 
+os.environ.setdefault(
+    "MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "butterfly-matplotlib-cache")
+)
 import matplotlib
 
 matplotlib.use("Agg")
