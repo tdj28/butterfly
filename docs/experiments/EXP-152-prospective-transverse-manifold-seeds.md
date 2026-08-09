@@ -1,6 +1,6 @@
 # EXP-152 — Prospective transverse UPO manifold-seed validation
 
-Status: adapter and gates frozen before EXP-150; EXP-150/151 source hashes instantiated after both passed
+Status: passed all seven transverse-slice manifold-seed instances
 
 ## Question
 
@@ -39,3 +39,14 @@ be inserted into the manifest. Family selection and scientific tolerances may
 not change. Passing validates local unstable-manifold seeds on a second
 transverse slice; it does not establish lobe inclusion, a manifold connection,
 or a continuous topology surface.
+
+## Result
+
+All seven distinct primitive families pass. The two-branch endpoint contributes
+lags 3, 10, and 13; the three-branch endpoint contributes lags 13, 14, and two
+distinct lag-15 families. Every perturbation size and sign reproduces the
+signed unstable Floquet amplification within the frozen 1% gates. Maximum
+relative multiplier error is `0.003477`, maximum transverse residual ratio is
+`0.001258`, and maximum base lag-return scaled closure is `2.652e-9`.
+
+Tracked receipt: `docs/experiments/receipts/EXP-152.json`.
