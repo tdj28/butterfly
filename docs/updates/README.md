@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp182-gap-statistical-parity-frozen.md`](2026-08-07-exp182-gap-statistical-parity-frozen.md)
+  — two-step survival/critical parity, attractor false-negative controls, and
+  five-return DOP853 trajectory audits frozen for the Jones support gap.
 - [`2026-08-07-exp181-gap-geometry-parity-failure.md`](2026-08-07-exp181-gap-geometry-parity-failure.md)
   — survivor criticals hit both frozen flank predictions, while the invalid
   long-time pointwise integrator-parity gate is honestly retained as failed.
