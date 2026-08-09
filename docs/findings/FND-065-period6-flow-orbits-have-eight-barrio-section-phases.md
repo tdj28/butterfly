@@ -1,6 +1,6 @@
 # FND-065 — Historical period-6 flow orbits have eight Barrio-section phases
 
-Status: systematic representation result; requalification pending
+Status: qualified systematic representation result
 
 EXP-194 selects 65 pixels from the isolated second-landmark component without
 using symbols or criticals. Fifty-eight independently reproduce period 6 on
@@ -20,6 +20,6 @@ This explains the sole common EXP-194 failure and exposes a flaw in the
 earlier exploratory second-landmark diagnostic, which retained only six
 Barrio crossings. None of the corrected orbit data or Floquet conclusions is
 altered. EXP-195 prospectively changes only the expected Barrio-section count
-to eight.
+to eight and passes all 58 otherwise-qualified candidates.
 
 Evidence: [`../experiments/EXP-194-local-corrected-second-component-cycles.md`](../experiments/EXP-194-local-corrected-second-component-cycles.md).
