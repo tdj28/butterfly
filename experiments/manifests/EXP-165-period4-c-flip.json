@@ -1,0 +1,44 @@
+{
+  "schema": "butterfly.period4-c-flip-manifest.v1",
+  "experiment_id": "EXP-165",
+  "source_receipt_sha256": "7a4acee514dbfe83abcc11696ec5638e72d9b96316b4576a9224858baff471ab",
+  "source": {
+    "predecessors": ["EXP-162", "EXP-163", "EXP-164", "CLM-006"],
+    "selection_informed_by_source": true,
+    "claim_scope": "coupled exact-c-Jacobian refinement of the first real -1 Floquet crossing on the primitive period-4 Jones-path branch"
+  },
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "c_bracket": [4.631470750402099, 4.6511284829018225],
+  "segment_count": 16,
+  "cyclic_shifts": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "orbit_sample_count": 8193,
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.008
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.006
+  },
+  "corrector": {"maximum_evaluations": 160, "tolerance": 2e-12},
+  "acceptance": {
+    "maximum_orbit_residual": 2e-9,
+    "maximum_phase_residual": 1e-9,
+    "maximum_tangent_residual": 2e-8,
+    "maximum_normalization_residual": 1e-10,
+    "maximum_reference_flip_residual": 1e-8,
+    "maximum_multiplier_imaginary": 1e-8,
+    "maximum_block_product_difference": 1e-8,
+    "maximum_cyclic_product_spread": 1e-8,
+    "maximum_independent_closure": 2e-9,
+    "maximum_independent_neutral_error": 1e-8,
+    "maximum_independent_flip_residual": 1e-7,
+    "minimum_half_period_closure": 0.2,
+    "maximum_winding_error": 0.01
+  }
+}

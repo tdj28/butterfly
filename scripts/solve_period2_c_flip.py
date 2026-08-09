@@ -28,9 +28,11 @@ from solve_augmented_segmented_flip import initial_tangent_nodes
 from solve_period1_c_flip import _orbit_nodes, _winding
 
 
-def _seed_row(receipt: dict, bracket: list[float]) -> dict:
-    if receipt.get("schema") != "butterfly.period2-c-arclength-to-flip-receipt.v1":
-        raise ValueError("source is not a period-2 pseudo-arclength receipt")
+def _seed_row(
+    receipt: dict, bracket: list[float], expected_schema: str
+) -> dict:
+    if receipt.get("schema") != expected_schema:
+        raise ValueError("source is not the expected pseudo-arclength receipt")
     midpoint = 0.5 * (float(bracket[0]) + float(bracket[1]))
     candidates = [
         row
@@ -42,7 +44,14 @@ def _seed_row(receipt: dict, bracket: list[float]) -> dict:
     return min(candidates, key=lambda row: abs(row["parameters"]["c"] - midpoint))
 
 
-def main() -> int:
+def run_flip_solver(
+    *,
+    manifest_schema: str,
+    source_schema: str,
+    output_schema: str,
+    expected_winding: float,
+    scientific_scope: str,
+) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--source-receipt", type=Path, required=True)
@@ -50,8 +59,8 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.period2-c-flip-manifest.v1":
-        raise SystemExit("unsupported period-2 c-flip manifest")
+    if manifest.get("schema") != manifest_schema:
+        raise SystemExit("unsupported c-flip manifest")
     source_bytes = args.source_receipt.read_bytes()
     if sha256_bytes(source_bytes) != manifest["source_receipt_sha256"]:
         raise SystemExit("source receipt hash mismatch")
@@ -64,7 +73,7 @@ def main() -> int:
         raise SystemExit("clean source required")
     receipt = json.loads(source_bytes)
     bracket = list(map(float, manifest["c_bracket"]))
-    seed_row = _seed_row(receipt, bracket)
+    seed_row = _seed_row(receipt, bracket, source_schema)
     a = float(manifest["fixed_a"])
     b = float(manifest["fixed_b"])
     seed_c = float(seed_row["parameters"]["c"])
@@ -209,10 +218,10 @@ def main() -> int:
         <= acceptance["maximum_independent_flip_residual"]
         and abs(independent_flip.imag) <= acceptance["maximum_multiplier_imaginary"]
         and half_period_closure >= acceptance["minimum_half_period_closure"]
-        and abs(winding - 2.0) <= acceptance["maximum_winding_error"]
+        and abs(winding - expected_winding) <= acceptance["maximum_winding_error"]
     )
     output = {
-        "schema": "butterfly.period2-c-flip-receipt.v1",
+        "schema": output_schema,
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source_receipt_sha256": sha256_bytes(source_bytes),
@@ -265,11 +274,7 @@ def main() -> int:
             "elapsed_seconds": elapsed,
         },
         "passed": passed,
-        "scientific_scope": (
-            "coupled period-2-to-4 flip on the fixed-(a,b) Jones path; not a "
-            "switched period-4 child, higher cascade, symbolic ordering, or "
-            "homoclinic connection"
-        ),
+        "scientific_scope": scientific_scope,
     }
     atomic_write(args.output, canonical_json(output))
     printed = {
@@ -277,6 +282,20 @@ def main() -> int:
     }
     print(json.dumps(printed, sort_keys=True), flush=True)
     return 0 if passed else 1
+
+
+def main() -> int:
+    return run_flip_solver(
+        manifest_schema="butterfly.period2-c-flip-manifest.v1",
+        source_schema="butterfly.period2-c-arclength-to-flip-receipt.v1",
+        output_schema="butterfly.period2-c-flip-receipt.v1",
+        expected_winding=2.0,
+        scientific_scope=(
+            "coupled period-2-to-4 flip on the fixed-(a,b) Jones path; not a "
+            "switched period-4 child, higher cascade, symbolic ordering, or "
+            "homoclinic connection"
+        ),
+    )
 
 
 if __name__ == "__main__":
