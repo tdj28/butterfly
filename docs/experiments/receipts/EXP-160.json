@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.period2-c-arclength-to-flip-summary.v1",
+  "experiment_id": "EXP-160",
+  "passed": true,
+  "source_commit": "ff64efea2142ae21d7fd97c3e846f85f78bd81e1",
+  "manifest_sha256": "331feedcf16e266a83567be0f02596c4a72acbda39a52ffb8de9af7d6b178195",
+  "source_receipt_sha256": "dbf1bd63fa987be7307557fa094edeec74c0e79afc2acfa6436ec2d6b09b244f",
+  "raw_receipt": "artifacts/EXP-160/receipt.json",
+  "raw_receipt_sha256": "808d16e4285e2b8c4be98f55f2ee8c4b47804032e435759a2c9f62fb244ffaeb",
+  "raw_receipt_bytes": 63345,
+  "point_count": 83,
+  "c_range": [3.186004973943478, 4.3850375824066665],
+  "first_real_minus_one_bracket": [4.292407548657328, 4.310979132420427],
+  "bracket_multipliers": [-0.9742030977155622, -1.0013626600275605],
+  "maximum_closure_error": 1.240111986401037e-12,
+  "minimum_half_period_closure": 0.22782732528766836,
+  "maximum_winding_error": 3.68594044175552e-14,
+  "independent_check_count": 6,
+  "maximum_independent_identity_rms": 3.908983020400055e-12,
+  "maximum_independent_multiplier_difference": 2.2455370896068416e-12,
+  "interpretation": "Pseudo-arclength continuation preserves the primitive two-winding period-2 child and brackets its first real -1 crossing."
+}
