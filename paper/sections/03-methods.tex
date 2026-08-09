@@ -47,6 +47,14 @@ complete attractor-capture controls, and short-horizon adaptive-DOP853
 state/event agreement.  Long-time pointwise trajectory equality is not used
 after chaotic decorrelation.
 
+Historical symbols are attached only in a separately frozen source-geometric
+test.  The critical retained from the unimodal side defines $C$ and the added
+critical defines $D$.  The interval beyond the added critical is assigned the
+third-branch symbol, while the deposited interval must independently be the
+unique closest interval to the small equilibrium in physical state space.
+Both assignments must agree across $x$ and $z$, disjoint return segments, and
+DOP853/Radau trajectories before any target-cycle word is evaluated.
+
 Inside regular windows, the attracting orbit cannot supply the chaotic return
 map.  We therefore begin with a survival-ensemble sprinkler construction:
 sample a declared section region, reject trajectories only after repeated

@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp185-historical-alphabet-qualified.md`](2026-08-07-exp185-historical-alphabet-qualified.md)
+  — two solvers, both coordinates, held-out segments, and physical deposition
+  geometry qualify the target-word-blind Jones alphabet mapping.
 - [`2026-08-07-exp184-launcher-failure-exp185-frozen.md`](2026-08-07-exp184-launcher-failure-exp185-frozen.md)
   — pre-integration nested-receipt launcher failure preserved and
   scientifically unchanged EXP-185 successor frozen.

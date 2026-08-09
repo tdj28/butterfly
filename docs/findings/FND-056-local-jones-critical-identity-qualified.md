@@ -15,4 +15,8 @@ three-branch partition. The result is representation-bounded and finite-data;
 it does not resolve the global shallow-critical birth, continue a TBA curve,
 or determine Jones's historical alphabet.
 
+That last boundary applied at this checkpoint; the separately frozen
+source-geometric EXP-185 test later qualifies the operational alphabet in
+FND-057 without changing EXP-183's claim.
+
 Evidence: [`../experiments/EXP-183-jones-gap-sprinkler-parity.md`](../experiments/EXP-183-jones-gap-sprinkler-parity.md).

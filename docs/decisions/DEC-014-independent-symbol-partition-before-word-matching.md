@@ -179,3 +179,10 @@ agreement must pass before any target cycle is encoded. EXP-184 stopped before
 integration on a nested receipt-field lookup. Scientifically unchanged
 EXP-185 repairs only that administrative selector and retains every mapping
 and scientific gate.
+
+EXP-185 passes all those gates. The operational mapping is now immutable as
+`K0 -> D`, `K1 -> C`, `B0 -> 2`, `B1 -> 1`, and `B2 -> 0`. All eight physical
+geometry rows resolve, every x/z comparison agrees exactly, and the predicted
+third-to-inner deposition has 96--112 samples per row with no sampled
+third-branch self-return. Figure 6 target cycles may now be encoded, but they
+may not move the partition, permute this alphabet, or select a preferred orbit.

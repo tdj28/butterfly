@@ -1,0 +1,25 @@
+{
+  "schema": "butterfly.jones-historical-alphabet-summary.v1",
+  "experiment_id": "EXP-185",
+  "passed": true,
+  "source_commit": "ecd64f41f2c7d0cb0604fd797f1691d18104524e",
+  "source_dirty": false,
+  "manifest_sha256": "bbe87200c64f51193b5602034a5e59cac61a98ed26888a20b18c74c034816326",
+  "raw_receipt_sha256": "ce6439ba9b196c4ca4d535c825969882e48d5f6852c2d8e9dbd39fa75783c877",
+  "elapsed_seconds": 231.64426204189658,
+  "crossing_counts": {"DOP853": 2434, "Radau": 2436},
+  "historical_mapping": {
+    "critical": {"K0": "D", "K1": "C"},
+    "branch": {"B0": "2", "B1": "1", "B2": "0"}
+  },
+  "row_count": 8,
+  "minimum_resolved_pair_count": 928,
+  "maximum_resolved_pair_count": 956,
+  "minimum_inner_normalized_median_gap": 0.33576167049083994,
+  "minimum_strict_inner_distance_margin": 0.3514087387628244,
+  "third_to_inner_transition_range": [96, 112],
+  "maximum_third_self_transition_fraction": 0.0,
+  "cross_coordinate_agreement_rows": 4,
+  "minimum_cross_coordinate_pair_agreement": 1.0,
+  "interpretation": "The source-derived C,D,0,1,2 mapping passes on the recovered Jones section across two solvers, disjoint segments, two coordinates, physical inner-distance separation, and branch-transition support. Figure 6 word and arrow validation remains unexecuted."
+}

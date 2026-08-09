@@ -149,6 +149,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-056-local-jones-critical-identity-qualified.md`](findings/FND-056-local-jones-critical-identity-qualified.md):
   closes the sole support gap under two RK4 steps and short-horizon DOP853,
   qualifying the unimodal critical as the higher trimodal critical locally.
+- [`findings/FND-057-jones-operational-alphabet-qualified.md`](findings/FND-057-jones-operational-alphabet-qualified.md):
+  qualifies the source-derived `C,D,0,1,2` mapping across two solvers, both
+  coordinates, held-out segments, and physical deposition geometry.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
