@@ -1,6 +1,6 @@
 # EXP-145 — UPO-lobe/PIM-saddle overlap
 
-Status: frozen retrospective diagnostic; not yet executed
+Status: passed retrospectively; prospective held-out test required
 
 ## Question
 
@@ -41,3 +41,19 @@ qualified two-branch saddle but represented by the qualified three-branch
 saddle, under nested atlas density and independent access-line/horizon
 controls. A prospective held-out parameter and an eventual high-precision or
 boundary-value connection solve remain mandatory.
+
+## Result
+
+The clean `ac65b0b` run passes in `0.0361 s`. The UPO atlas contains 1089
+fine-grid and 617 coarse-grid two-side points in the declared left lobe, but
+all six qualified two-side PIM access-line/horizon combinations contain zero
+left-lobe states. Thus the geometric lobe exists but is excluded from the
+reconstructed two-branch saddle.
+
+The three-side atlas contains 956 fine-grid and 550 coarse-grid lobe points.
+Every PIM access line contains 11–15 left-lobe states at both horizons. The
+largest directed PIM-to-atlas distance is `2.399e-5` on the fine grid and
+`6.099e-5` on the coarse grid, inside the frozen `5e-5`/`1e-4` limits.
+
+Raw receipt SHA-256:
+`4cc45edde38fe417563d954945bb0cd16776636090b43ff7943e0515beaedd62`.

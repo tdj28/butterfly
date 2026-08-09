@@ -513,7 +513,11 @@ exposition requirements.
   full-section residual: the two-side PIM saddle must exclude the UPO left
   escape lobe, while every three-side PIM access line and both horizons must
   overlap it under nested atlas density. Execute, then require a held-out
-  parameter before promoting the residual.
+  parameter before promoting the residual. EXP-145 passes: all six two-side
+  PIM profiles exclude the populated UPO lobe, while all six three-side
+  profiles enter it within `2.399e-5`/`6.099e-5` fine/coarse scaled distance.
+  Freeze a blind joint PIM/UPO-lobe test at `a=0.1481875`; require its branch
+  class and lobe-inclusion class to agree without changing the threshold.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.

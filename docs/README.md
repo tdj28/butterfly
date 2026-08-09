@@ -99,6 +99,10 @@ what must be narrowed, and what is false or unresolved.
   rejects the EXP-143 finite-horizon capture contrast under denser seeds,
   three orbit phases, and two horizons while preserving the validated UPO
   skeleton and selecting a direct geometric connection residual.
+- [`findings/FND-037-left-lobe-enters-three-branch-pim-saddle.md`](findings/FND-037-left-lobe-enters-three-branch-pim-saddle.md):
+  shows retrospectively that a pre-existing UPO unstable lobe is excluded from
+  the two-branch PIM saddle but included in the three-branch saddle under
+  nested two-dimensional distance controls.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.
