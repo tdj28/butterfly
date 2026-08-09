@@ -527,7 +527,9 @@ exposition requirements.
   EXP-147 passes with 989/558 fine/coarse lobe points and no integration
   failure. EXP-148 now freezes the untouched midpoint PIM with expected class
   `null`; run it after EXP-132 releases the CPU pool, then freeze EXP-149 using
-  only the resulting receipt and state-archive hashes.
+  only the resulting receipt and state-archive hashes. The EXP-149 evaluator,
+  two↔excluded/three↔included decision, and all thresholds are now committed
+  before EXP-148; after that run, only hash/path fields may be instantiated.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
