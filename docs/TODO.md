@@ -91,8 +91,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   loss; pseudo-arclength EXP-160 then preserves the child and brackets its next
   crossing. EXP-161 solves the exact period-2-to-4 flip at
   `c=4.3100451384813105`; EXP-162/163 switch and independently qualify the
-  stable primitive period-4 child at `c=4.318`. Continue that child to the
-  period-4-to-8 flip next.
+  stable primitive period-4 child at `c=4.318`. EXP-164/165 continue that child
+  and solve its exact period-4-to-8 flip at `c=4.636447200967924`; EXP-166/167
+  switch and independently qualify a stable primitive period-8 child at
+  `c=4.65`. Continue period 8 while separately recovering the historical path
+  definitions and symbolic partition needed to decide ordering through seven.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

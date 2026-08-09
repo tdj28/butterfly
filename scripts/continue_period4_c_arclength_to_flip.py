@@ -20,7 +20,14 @@ from continue_period2_c_arclength_to_flip import _diagnose, _variables
 from continue_period2_c_to_flip import _dominant_nontrivial, first_real_minus_one_bracket
 
 
-def main() -> int:
+def run_arclength_continuation(
+    *,
+    manifest_schema: str,
+    source_schema: str,
+    output_schema: str,
+    expected_winding: float,
+    scientific_scope: str,
+) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--source-receipt", type=Path, required=True)
@@ -28,8 +35,8 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != "butterfly.period4-c-arclength-to-flip-manifest.v1":
-        raise SystemExit("unsupported period-4 c pseudo-arclength manifest")
+    if manifest.get("schema") != manifest_schema:
+        raise SystemExit("unsupported c pseudo-arclength manifest")
     receipt_bytes = args.source_receipt.read_bytes()
     if sha256_bytes(receipt_bytes) != manifest["source_receipt_sha256"]:
         raise SystemExit("source receipt hash mismatch")
@@ -41,8 +48,8 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
     receipt = json.loads(receipt_bytes)
-    if receipt.get("schema") != "butterfly.period2-c-flip-switch-receipt.v1":
-        raise SystemExit("source receipt is not a period-4 switch")
+    if receipt.get("schema") != source_schema:
+        raise SystemExit("source receipt has the wrong switch schema")
     source_branch = next(
         branch
         for branch in receipt["branches"]
@@ -208,7 +215,7 @@ def main() -> int:
         <= float(acceptance["maximum_closure_error"])
         and max(row["neutral_multiplier_error"] for row in rows)
         <= float(acceptance["maximum_neutral_multiplier_error"])
-        and max(abs(row["winding_number"] - 4.0) for row in rows)
+        and max(abs(row["winding_number"] - expected_winding) for row in rows)
         <= float(acceptance["maximum_winding_error"])
         and len(independent_rows) >= int(acceptance["minimum_independent_checks"])
         and max(row["closure_error"] for row in independent_rows)
@@ -219,7 +226,7 @@ def main() -> int:
         <= float(acceptance["maximum_independent_multiplier_difference"])
     )
     output = {
-        "schema": "butterfly.period4-c-arclength-to-flip-receipt.v1",
+        "schema": output_schema,
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source_receipt_sha256": sha256_bytes(receipt_bytes),
@@ -236,10 +243,7 @@ def main() -> int:
         "first_real_minus_one_bracket": bracket,
         "elapsed_seconds": time.perf_counter() - started,
         "passed": passed,
-        "scientific_scope": (
-            "identity-safe pseudo-arclength period-4 continuation and first -1 "
-            "bracket; not an exact event or switched period-8 child"
-        ),
+        "scientific_scope": scientific_scope,
     }
     atomic_write(args.output, canonical_json(output))
     print(
@@ -258,6 +262,19 @@ def main() -> int:
         )
     )
     return 0 if passed else 1
+
+
+def main() -> int:
+    return run_arclength_continuation(
+        manifest_schema="butterfly.period4-c-arclength-to-flip-manifest.v1",
+        source_schema="butterfly.period2-c-flip-switch-receipt.v1",
+        output_schema="butterfly.period4-c-arclength-to-flip-receipt.v1",
+        expected_winding=4.0,
+        scientific_scope=(
+            "identity-safe pseudo-arclength period-4 continuation and first -1 "
+            "bracket; not an exact event or switched period-8 child"
+        ),
+    )
 
 
 if __name__ == "__main__":

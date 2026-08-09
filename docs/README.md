@@ -115,6 +115,9 @@ what must be narrowed, and what is false or unresolved.
   carries the primitive period-2 child to its exact next flip and independently
   qualifies the resulting stable primitive period-4 child on the fixed Jones
   path.
+- [`findings/FND-046-third-cascade-rung-qualified.md`](findings/FND-046-third-cascade-rung-qualified.md):
+  resolves the exact period-4-to-8 flip and independently qualifies a stable
+  primitive period-8 child, completing the third fixed-path cascade rung.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.
