@@ -141,8 +141,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   the actual period-6 superstable center using periodic-orbit stability and
   criticality; encode its word only after selecting the center. EXP-187 now
   freezes the first half of that search: a signed Floquet saddle-zero atlas,
-  three shrinking refinements, and DOP853/Radau ring validation. Execute it,
-  then require survivor-derived membership of both criticals before encoding.
+  three shrinking refinements, and DOP853/Radau ring validation. EXP-187
+  preserves a first-step resolution failure while bracketing multiple signed
+  zeros inside one coarse cell. EXP-188 freezes that cell at tenfold finer
+  resolution with unchanged scientific gates. Execute it, then require
+  survivor-derived membership of both criticals before encoding.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

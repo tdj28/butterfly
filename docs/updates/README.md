@@ -22,6 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp188-fine-floquet-center-frozen.md`](2026-08-07-exp188-fine-floquet-center-frozen.md)
+  — the failed EXP-187 center cell is resampled tenfold more finely with
+  unchanged saddle-zero and independent-solver gates.
+- [`2026-08-07-exp187-resolution-failure.md`](2026-08-07-exp187-resolution-failure.md)
+  — the first Floquet-center mesh violates local orbit-identity gates before
+  fitting; opposite multiplier signs motivate a tenfold finer successor.
 - [`2026-08-07-exp187-floquet-center-search-frozen.md`](2026-08-07-exp187-floquet-center-search-frozen.md)
   — a word-blind period-6 Floquet saddle-zero search is frozen with coarse,
   refined, and independent-solver topology gates.

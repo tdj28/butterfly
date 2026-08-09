@@ -210,3 +210,11 @@ stationary indefinite zero with four ring sign changes expected at the
 intersection of two superstability curves. Three spatial refinements and an
 independent Radau ring are required. Even a pass remains only a center
 candidate until a fresh survivor map places both critical points on its orbit.
+
+The first execution preserves a scale failure: EXP-187's direct coarse steps
+are too large for its local whole-orbit identity threshold, so no saddle fit is
+performed. Because the only five evaluated points already show negative-
+positive-negative signed multiplier structure across a, EXP-188 is restricted
+to that failed center cell at tenfold finer steps. This resolution change is
+frozen before new evaluations and does not change the word-blind objective or
+acceptance gates.

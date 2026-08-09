@@ -1,6 +1,6 @@
 # EXP-187 — Target-word-blind period-6 Floquet-center search
 
-Status: preregistered; not yet executed
+Status: executed; failed continuation-resolution gate
 
 ## Question
 
@@ -46,9 +46,35 @@ and both directly evaluated center multipliers at most `0.01` in magnitude.
 Manifest:
 [`../../experiments/manifests/EXP-187-jones-floquet-center-search.json`](../../experiments/manifests/EXP-187-jones-floquet-center-search.json).
 
+## Result
+
+The clean run from source commit
+`c758c86ae775cc6b790f25f6667e49a0024a28df` stops after the first coarse
+neighbor in each direction, as required by the frozen identity policy. The
+exact seed passes with multiplier `+0.219271`. Three neighboring orbit
+corrections also close between `7.40e-14` and `5.33e-13`, but their scaled
+whole-orbit changes (`0.1292`, `0.2632`, and `0.3642`) exceed the frozen `0.08`
+per-step gate. The negative-c neighbor additionally fails correction and
+neutral-multiplier gates at the original `0.025` jump. Only one of 441 cells
+is therefore admissible (`0.002268`), and no quadratic saddle search or target
+word evaluation occurs.
+
+The failed scale is informative without being a center result. Both immediate
+a-neighbors have negative signed dominant multipliers (`-1.37298` and
+`-0.523691`) around the positive seed, while the positive-c neighbor is
+`-3.59710`. Thus multiple zero crossings may lie inside one coarse cell, and
+the chosen mesh is too coarse to preserve orbit identity across them. EXP-188
+freezes a tenfold finer grid over exactly that one-cell neighborhood, with the
+same objective and scientific gates.
+
+Raw receipt SHA-256:
+`917211b6b3dd0152d2049157844a72884bd6cd9b75709eeccfc46c1f7e51f58a`.
+Compact receipt: [`receipts/EXP-187.json`](receipts/EXP-187.json).
+
 ## Claim boundary
 
-A pass nominates a dynamically located period-6 center candidate. It does not
+A pass would have nominated a dynamically located period-6 center candidate.
+EXP-187 did not reach that stage. It does not
 yet prove that both independently reconstructed critical points lie on the
 orbit. Survivor-derived critical-orbit membership under step and solver
 controls is the mandatory successor before any Figure 6 word is encoded.
