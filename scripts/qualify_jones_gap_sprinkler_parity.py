@@ -16,6 +16,7 @@ import scipy
 
 from butterfly import (
     OrbitLabel,
+    PoincareSection,
     RosslerParameters,
     SolverConfig,
     classify_fundamental_period,
@@ -23,14 +24,52 @@ from butterfly import (
     cycle_crossing_distances,
     infer_local_critical_point_robust,
     infer_return_map_branches_robust,
+    legacy_rossler_section,
     sprinkler_survivors,
     survivor_return_pairs,
 )
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
-from scripts.qualify_jones_gap_sprinkler import _physical_local_result, _section
 
 
 SCHEMA = "butterfly.jones-gap-sprinkler-parity-manifest.v1"
+
+
+def _section(parameters: RosslerParameters) -> PoincareSection:
+    base = legacy_rossler_section(parameters)
+    return PoincareSection(
+        normal=base.normal,
+        offset=base.offset,
+        direction=-1,
+        gate_axis=base.gate_axis,
+        gate_upper=base.gate_upper,
+        name="legacy-small-equilibrium-half-plane:negative",
+    )
+
+
+def _physical_local_result(source_values, local_result, prediction) -> dict:
+    lower = float(np.min(source_values))
+    upper = float(np.max(source_values))
+    normalized = local_result["normalized_location"]
+    physical = (
+        lower + float(normalized) * (upper - lower)
+        if normalized is not None
+        else None
+    )
+    error = (
+        abs(physical - float(prediction["physical_location"]))
+        if physical is not None
+        else float("inf")
+    )
+    return {
+        "physical_location": physical,
+        "predicted_physical_location": float(prediction["physical_location"]),
+        "absolute_prediction_error": error,
+        "maximum_absolute_prediction_error": float(
+            prediction["maximum_absolute_error"]
+        ),
+        "prediction_passed": error
+        <= float(prediction["maximum_absolute_error"]),
+    }
 
 
 def _ensemble(section, options: dict) -> np.ndarray:

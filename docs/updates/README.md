@@ -22,6 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp183-gap-statistical-parity-frozen.md`](2026-08-07-exp183-gap-statistical-parity-frozen.md)
+  — unchanged scientific successor frozen after EXP-182's pre-manifest import
+  failure.
+- [`2026-08-07-exp182-launcher-failure.md`](2026-08-07-exp182-launcher-failure.md)
+  — direct-entry sibling import failure retained as administrative; no
+  trajectory or result was produced.
 - [`2026-08-07-exp182-gap-statistical-parity-frozen.md`](2026-08-07-exp182-gap-statistical-parity-frozen.md)
   — two-step survival/critical parity, attractor false-negative controls, and
   five-return DOP853 trajectory audits frozen for the Jones support gap.
