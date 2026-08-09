@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp190-gpu-two-critical-scan-frozen.md`](2026-08-07-exp190-gpu-two-critical-scan-frozen.md)
+  — both critical-to-orbit residuals, factor-two GPU parity, and target-word-
+  blind ranking are frozen over all 65 prepared period-6 candidates.
 - [`2026-08-07-exp189-zero-edge-candidates-frozen.md`](2026-08-07-exp189-zero-edge-candidates-frozen.md)
   — all 65 fine-grid sign-changing edges are frozen for identity-safe period-6
   correction before any GPU critical-residual ranking.

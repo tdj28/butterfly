@@ -150,8 +150,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   qualifying zero edges using two independent survivor-derived critical-to-
   orbit residuals; require both critical memberships before encoding. EXP-189
   now freezes the deterministic all-edge interpolation and period-6 correction
-  stage; execute it, bind the resulting candidate file, then launch the
-  cost-capped GPU reconstruction.
+  stage. All 65 candidates pass with closure below `1.83e-12`. EXP-190 binds
+  the full artifact and freezes the two-step GPU reconstruction and direct
+  two-critical ranking. Launch a cost-capped worker, upload the tracked source
+  archive plus the hash-bound candidate artifact, execute, retrieve, verify,
+  and terminate immediately.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
