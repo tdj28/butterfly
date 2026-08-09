@@ -41,6 +41,37 @@ class ReturnMapRobustnessResult:
 
 
 @dataclass(frozen=True, slots=True)
+class LocalCriticalVariantResult:
+    """One oracle variant's independently bootstrapped local critical point."""
+
+    resolved: bool
+    normalized_location: float | None
+    normalized_interval: tuple[float, float] | None
+    nearest_anchor_distance: float | None
+    runner_up_margin: float | None
+    conditional_spread_ratio: float
+    domain_coverage: float
+    bootstrap_consensus: float
+    valid_bootstrap_samples: int
+    bootstrap_samples: int
+    nominal_critical_count: int
+    reason: str
+
+
+@dataclass(frozen=True, slots=True)
+class LocalCriticalRobustnessResult:
+    """A local critical point retained without requiring global branch count."""
+
+    resolved: bool
+    normalized_location: float | None
+    normalized_interval: tuple[float, float] | None
+    maximum_normalized_span: float
+    variant_consensus: float
+    variant_results: tuple[LocalCriticalVariantResult, ...]
+    reason: str
+
+
+@dataclass(frozen=True, slots=True)
 class ReturnMapCoverageCensorResult:
     """Branch decision under a prospectively declared coverage-only censor.
 
@@ -168,6 +199,255 @@ def _fit_branch_count(
         minimum_prominence=minimum_prominence,
     )
     return len(critical) + 1, critical, spread_ratio, coverage
+
+
+def _nearest_local_critical(
+    critical_points: Sequence[float],
+    expected_normalized_location: float,
+) -> tuple[float | None, float | None, float | None]:
+    """Return nearest point, anchor distance, and runner-up distance margin."""
+
+    points = tuple(float(point) for point in critical_points)
+    if not points:
+        return None, None, None
+    distances = tuple(abs(point - expected_normalized_location) for point in points)
+    order = sorted(range(len(points)), key=lambda index: (distances[index], index))
+    best = order[0]
+    margin = (
+        distances[order[1]] - distances[best] if len(order) > 1 else None
+    )
+    return points[best], distances[best], margin
+
+
+def infer_local_critical_point_robust(
+    source,
+    target,
+    *,
+    expected_normalized_location: float,
+    variants: Sequence[Mapping[str, object]],
+    common_options: Mapping[str, object] | None = None,
+    maximum_normalized_anchor_distance: float = 0.12,
+    minimum_runner_up_margin: float = 0.05,
+    minimum_variant_consensus: float = 1.0,
+    maximum_normalized_span: float = 0.05,
+) -> LocalCriticalRobustnessResult:
+    """Track one predeclared critical point independently of total branch count.
+
+    Each variant fits the same normalized return-map spline used by the global
+    branch oracle.  It selects the critical point nearest a frozen anchor and
+    bootstraps that *local identity*, not the number of extrema in the entire
+    map.  A second critical point may therefore appear without erasing a
+    stable pre-existing critical point.  The anchor and every acceptance gate
+    must be chosen before evaluating held-out trajectories.
+    """
+
+    if not 0.0 <= expected_normalized_location <= 1.0:
+        raise ValueError("expected normalized location must lie in [0,1]")
+    if not variants:
+        raise ValueError("at least one oracle variant is required")
+    if maximum_normalized_anchor_distance < 0.0:
+        raise ValueError("maximum anchor distance must be nonnegative")
+    if minimum_runner_up_margin < 0.0:
+        raise ValueError("minimum runner-up margin must be nonnegative")
+    if not 0.0 < minimum_variant_consensus <= 1.0:
+        raise ValueError("minimum variant consensus must lie in (0,1]")
+    if maximum_normalized_span < 0.0:
+        raise ValueError("maximum normalized span must be nonnegative")
+
+    source = np.asarray(source, dtype=float)
+    target = np.asarray(target, dtype=float)
+    if source.ndim != 1 or target.ndim != 1 or len(source) != len(target):
+        raise ValueError("source and target must be equal-length vectors")
+    if not np.all(np.isfinite(source)) or not np.all(np.isfinite(target)):
+        raise ValueError("return-map samples must be finite")
+    source_range = float(np.ptp(source))
+    target_range = float(np.ptp(target))
+    if source_range == 0.0 or target_range == 0.0:
+        return LocalCriticalRobustnessResult(
+            False, None, None, float("inf"), 0.0, (), "degenerate coordinate range"
+        )
+    normalized_source = (source - np.min(source)) / source_range
+    normalized_target = (target - np.min(target)) / target_range
+    common = dict(common_options or {})
+    results = []
+    for variant_index, variant in enumerate(variants):
+        options = {**common, **dict(variant)}
+        bin_count = int(options.get("bin_count", 40))
+        minimum_bin_points = int(options.get("minimum_bin_points", 4))
+        smoothing = float(options.get("smoothing", 1e-6))
+        grid_size = int(options.get("grid_size", 4097))
+        minimum_prominence = float(options.get("minimum_prominence", 0.03))
+        maximum_spread = float(
+            options.get("maximum_conditional_spread_ratio", 0.08)
+        )
+        minimum_coverage = float(options.get("minimum_domain_coverage", 0.7))
+        bootstrap_samples = int(options.get("bootstrap_samples", 100))
+        minimum_bootstrap_consensus = float(
+            options.get("minimum_bootstrap_consensus", 0.8)
+        )
+        random_seed = int(options.get("random_seed", 0)) + variant_index
+        if len(source) < bin_count * minimum_bin_points:
+            raise ValueError("insufficient samples for the requested bin audit")
+
+        count, critical, spread, coverage = _fit_branch_count(
+            normalized_source,
+            normalized_target,
+            bin_count=bin_count,
+            minimum_bin_points=minimum_bin_points,
+            smoothing=smoothing,
+            grid_size=grid_size,
+            minimum_prominence=minimum_prominence,
+        )
+        selected, distance, margin = _nearest_local_critical(
+            critical, expected_normalized_location
+        )
+        nominal_count = max(int(count or 1) - 1, 0)
+        if coverage < minimum_coverage:
+            nominal_reason = "insufficient invariant-domain coverage"
+        elif spread > maximum_spread:
+            nominal_reason = "projection is not graph-like"
+        elif selected is None:
+            nominal_reason = "no prominent local critical candidate"
+        elif distance is not None and distance > maximum_normalized_anchor_distance:
+            nominal_reason = "nearest critical exceeds the anchor-distance gate"
+        elif margin is not None and margin < minimum_runner_up_margin:
+            nominal_reason = "nearest critical lacks the runner-up margin"
+        else:
+            nominal_reason = "nominal local critical resolved"
+
+        bootstrap_locations = []
+        if nominal_reason == "nominal local critical resolved" and bootstrap_samples:
+            generator = np.random.default_rng(random_seed)
+            for _ in range(bootstrap_samples):
+                indices = generator.integers(0, len(source), len(source))
+                (
+                    bootstrap_count,
+                    bootstrap_critical,
+                    bootstrap_spread,
+                    bootstrap_coverage,
+                ) = _fit_branch_count(
+                    normalized_source[indices],
+                    normalized_target[indices],
+                    bin_count=bin_count,
+                    minimum_bin_points=minimum_bin_points,
+                    smoothing=smoothing,
+                    grid_size=grid_size,
+                    minimum_prominence=minimum_prominence,
+                )
+                if (
+                    bootstrap_count is None
+                    or bootstrap_spread > maximum_spread
+                    or bootstrap_coverage < minimum_coverage
+                ):
+                    continue
+                bootstrap_selected, bootstrap_distance, bootstrap_margin = (
+                    _nearest_local_critical(
+                        bootstrap_critical, expected_normalized_location
+                    )
+                )
+                if (
+                    bootstrap_selected is not None
+                    and bootstrap_distance is not None
+                    and bootstrap_distance <= maximum_normalized_anchor_distance
+                    and (
+                        bootstrap_margin is None
+                        or bootstrap_margin >= minimum_runner_up_margin
+                    )
+                ):
+                    bootstrap_locations.append(bootstrap_selected)
+        consensus = (
+            len(bootstrap_locations) / bootstrap_samples
+            if bootstrap_samples
+            else (1.0 if nominal_reason == "nominal local critical resolved" else 0.0)
+        )
+        accepted_locations = (
+            [float(selected), *bootstrap_locations] if selected is not None else []
+        )
+        interval = (
+            (min(accepted_locations), max(accepted_locations))
+            if accepted_locations
+            else None
+        )
+        variant_span = (
+            interval[1] - interval[0] if interval is not None else float("inf")
+        )
+        if nominal_reason != "nominal local critical resolved":
+            resolved = False
+            reason = nominal_reason
+        elif consensus < minimum_bootstrap_consensus:
+            resolved = False
+            reason = "bootstrap local-critical identity is unstable"
+        elif variant_span > maximum_normalized_span:
+            resolved = False
+            reason = "bootstrap local-critical location is too wide"
+        else:
+            resolved = True
+            reason = "local critical resolved"
+        results.append(
+            LocalCriticalVariantResult(
+                resolved=resolved,
+                normalized_location=float(selected) if selected is not None else None,
+                normalized_interval=interval,
+                nearest_anchor_distance=distance,
+                runner_up_margin=margin,
+                conditional_spread_ratio=spread,
+                domain_coverage=coverage,
+                bootstrap_consensus=consensus,
+                valid_bootstrap_samples=len(bootstrap_locations),
+                bootstrap_samples=bootstrap_samples,
+                nominal_critical_count=nominal_count,
+                reason=reason,
+            )
+        )
+
+    resolved_results = tuple(result for result in results if result.resolved)
+    consensus = len(resolved_results) / len(results)
+    intervals = tuple(
+        result.normalized_interval
+        for result in resolved_results
+        if result.normalized_interval is not None
+    )
+    joint_interval = (
+        (min(interval[0] for interval in intervals), max(interval[1] for interval in intervals))
+        if intervals
+        else None
+    )
+    span = (
+        joint_interval[1] - joint_interval[0]
+        if joint_interval is not None
+        else float("inf")
+    )
+    location = (
+        float(
+            np.median(
+                [
+                    result.normalized_location
+                    for result in resolved_results
+                    if result.normalized_location is not None
+                ]
+            )
+        )
+        if resolved_results
+        else None
+    )
+    if consensus < minimum_variant_consensus:
+        resolved = False
+        reason = "local critical does not resolve across oracle variants"
+    elif span > maximum_normalized_span:
+        resolved = False
+        reason = "local critical location is variant-unstable"
+    else:
+        resolved = True
+        reason = "local critical resolved across oracle variants"
+    return LocalCriticalRobustnessResult(
+        resolved=resolved,
+        normalized_location=location if resolved else None,
+        normalized_interval=joint_interval,
+        maximum_normalized_span=span,
+        variant_consensus=consensus,
+        variant_results=tuple(results),
+        reason=reason,
+    )
 
 
 def infer_lower_support_slope_robust(

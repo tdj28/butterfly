@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp180-local-critical-track-frozen.md`](2026-08-07-exp180-local-critical-track-frozen.md)
+  — independent-anchor local critical bootstrap, full DOP853 path, and Radau
+  controls frozen separately from global shallow-branch detection.
 - [`2026-08-07-exp179-critical-identity-power-failed.md`](2026-08-07-exp179-critical-identity-power-failed.md)
   — doubled support retains a structured, coordinate-staggered global
   branch-count disagreement band and the strict identity failure.
