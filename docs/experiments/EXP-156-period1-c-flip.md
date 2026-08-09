@@ -1,7 +1,6 @@
 # EXP-156 — Coupled first flip on the Hopf-to-hub path
 
-Status: exact c-derivative implementation, tests, method, and gates frozen
-before execution
+Status: passed exact coupled event and independent Radau gates
 
 ## Question
 
@@ -29,3 +28,13 @@ orbit, reproduce neutral `+1` and flip `-1`, and preserve winding one.
 Passing establishes the codimension-one flip event on this particular path.
 It does not establish or stabilize the period-2 child, continue the higher
 cascade, demonstrate symbolic/logistic ordering, or test the homoclinic claim.
+
+## Result
+
+The coupled solve passes at `c=3.1807265333384103` with period
+`5.836840208506359`. Orbit, phase, tangent, and normalization residuals are all
+below `4.76e-15`. Four cyclic monodromy products agree on `-1` with median
+`-1.0000000000000067` and spread `1.56e-15`. Independent Radau gives
+`-0.9999999999998008`, closure `3.50e-14`, and winding one.
+
+The compact receipt is `docs/experiments/receipts/EXP-156.json`.

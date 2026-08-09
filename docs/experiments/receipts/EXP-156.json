@@ -1,0 +1,29 @@
+{
+  "schema": "butterfly.period1-c-flip-summary.v1",
+  "experiment_id": "EXP-156",
+  "passed": true,
+  "source_commit": "8c6729cdb5fc47bfaec89fafbd0506006bfdd028",
+  "manifest_sha256": "2b774f1e66c6b5b96d6abf7239e2052f86bdc2b9a16043a785461b5df4611772",
+  "source_receipt_sha256": "2b74e4c3303ffd0f69d7d8963856d87a8fe80cd270f882450bc72fd81a3e67b8",
+  "raw_receipt": "artifacts/EXP-156/receipt.json",
+  "raw_receipt_sha256": "c5a01e1b99dc4a90b6daa993d7b7173ed7081a87148ed9a76c17350b82c50f2e",
+  "raw_receipt_bytes": 4545,
+  "corrected_c": 3.1807265333384103,
+  "period_time": 5.836840208506359,
+  "residuals": {
+    "orbit_matching": 4.753938710792493e-15,
+    "phase": 4.358381560317401e-17,
+    "tangent_transport": 1.4403650956831432e-15,
+    "normalization": 2.220446049250313e-16
+  },
+  "reference_flip_median": -1.0000000000000067,
+  "cyclic_product_spread": 1.5543122344752192e-15,
+  "block_product_difference": 1.9984014443252818e-15,
+  "independent_radau": {
+    "closure_error": 3.4986968928527265e-14,
+    "neutral_multiplier_error": 1.099120794378905e-14,
+    "flip_multiplier": -0.9999999999998008,
+    "winding_number": 0.9999999999999825
+  },
+  "interpretation": "The first stability loss of the one-winding period-1 family on fixed (a,b)=(0.1798,0.2) is a genuine period-doubling event at c=3.1807265333384103. This event result does not yet establish a switched period-2 child, higher cascade, logistic symbolic ordering, or a homoclinic connection."
+}

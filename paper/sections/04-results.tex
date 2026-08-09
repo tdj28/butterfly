@@ -39,7 +39,17 @@ Every point passes closure, phase, neutral-multiplier, trajectory, and winding
 gates, and six checkpoints pass independent Radau correction.  The near-Hopf
 RMS amplitude exponent is $0.5017311$ ($R^2=0.9999983$), while the nearest
 period differs from the linear Hopf value by $0.001417$.  A real $-1$ Floquet
-crossing is bracketed in $c\in[3.1556294737,3.2536126316]$.
+crossing is initially bracketed in $c\in[3.1556294737,3.2536126316]$.
+A coupled four-node orbit--parameter--anti-periodic-tangent solve then locates
+the event at
+\[
+c_{1\to2}=3.1807265333384103.
+\]
+All coupled residuals are below $4.76\times10^{-15}$; four cyclic monodromy
+products have median multiplier $-1.0000000000000067$ and spread
+$1.56\times10^{-15}$.  Independent Radau monodromy gives
+$-0.9999999999998008$, closure $3.50\times10^{-14}$, and winding one.  This
+qualifies the parent flip; the switched period-2 child remains a separate gate.
 
 At the reported hub the continued orbit has period $5.9935437090$, primary
 nontrivial multiplier $-3.2022459546$, and minimum distance

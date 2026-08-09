@@ -84,7 +84,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   successor EXP-155 passes. It follows the one-winding family to the exact hub,
   qualifies exponent `0.5017311`, and brackets its first `-1` multiplier
   crossing. EXP-156 freezes the coupled exact-`c` flip refinement; the child
-  switch follows only after that event passes.
+  switch follows only after that event passes. EXP-156 passes at
+  `c=3.1807265333384103`; period-2 switching and qualification are next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
