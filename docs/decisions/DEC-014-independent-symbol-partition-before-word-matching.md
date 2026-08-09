@@ -123,3 +123,12 @@ branches in both split-cloud segments and coordinates. The neutral control pair
 is therefore complete on one representation. Endpoint proximity is not an
 identity proof: parameter continuation must determine which three-branch
 critical interval descends from the unimodal interval before `C/D` mapping.
+
+EXP-178 freezes and executes that attracting-set continuation. Both `x` and
+`z` uniquely select the higher-coordinate trimodal critical `K1`, but the
+strict experiment fails because unresolved interior rows leave a `0.010`
+resolved bracket against the frozen `0.005` maximum. EXP-179 is the
+unchanged-threshold higher-power successor inside that bracket. A passing
+attracting result can establish only local operational identity; persistent
+gaps require an invariant-saddle continuation before historical labels are
+assigned globally.

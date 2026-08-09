@@ -1,0 +1,76 @@
+{
+  "schema": "butterfly.jones-critical-identity-path-manifest.v1",
+  "experiment_id": "EXP-179",
+  "source": {
+    "parent_experiment": "EXP-178",
+    "decision": "DEC-014",
+    "role": "unchanged-threshold higher-power successor inside the failed attracting-set identity bracket",
+    "claim_scope": "local operational critical identity only; no interpolation through unresolved points, global TBA curve, historical branch-numeral mapping, Figure 6 word, template, caustic, or homoclinic claim"
+  },
+  "fixed_parameters": {"b": 0.2, "c": 20.0},
+  "a_values": [0.15, 0.1505, 0.151, 0.1515, 0.152, 0.1525, 0.153, 0.1535, 0.154, 0.1545, 0.155, 0.1555, 0.156, 0.1565, 0.157, 0.1575, 0.158, 0.1585, 0.159, 0.1595, 0.16],
+  "initial_state": [1.0, 1.0, 1.0],
+  "section": {
+    "kind": "legacy-small-equilibrium-half-plane",
+    "direction": -1,
+    "gate": "x < x_eq"
+  },
+  "coordinates": [
+    {"name": "x", "axis": 0},
+    {"name": "z", "axis": 2}
+  ],
+  "crossings": {
+    "transient": 1000.0,
+    "observation_horizon": 16000.0,
+    "max_crossings": 2700,
+    "minimum_crossings": 2000
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "recurrence": {
+    "max_period": 64,
+    "required_repeats": 5,
+    "atol": 1e-8,
+    "rtol": 1e-8
+  },
+  "oracle_common": {
+    "minimum_bin_points": 5,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.08,
+    "minimum_domain_coverage": 0.7,
+    "bootstrap_samples": 100,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 179
+  },
+  "oracle_variants": [
+    {"name": "baseline", "options": {"bin_count": 40, "smoothing": 1e-5}},
+    {"name": "bins-30", "options": {"bin_count": 30, "smoothing": 1e-5}},
+    {"name": "bins-50", "options": {"bin_count": 50, "smoothing": 1e-5}},
+    {"name": "smoothing-1e-6", "options": {"bin_count": 40, "smoothing": 1e-6}},
+    {"name": "smoothing-1e-4", "options": {"bin_count": 40, "smoothing": 1e-4}},
+    {"name": "prominence-0.02", "options": {"bin_count": 40, "smoothing": 1e-5, "minimum_prominence": 0.02}},
+    {"name": "prominence-0.05", "options": {"bin_count": 40, "smoothing": 1e-5, "minimum_prominence": 0.05}}
+  ],
+  "identity_rule": {
+    "two_branch_critical_symbol": "K0",
+    "three_branch_critical_symbols_in_increasing_coordinate_order": ["K0", "K1"],
+    "distance_coordinate": "critical-interval midpoint normalized by occupied scalar domain",
+    "maximum_normalized_step": 0.12,
+    "minimum_runner_up_margin": 0.05,
+    "maximum_parameter_bracket_width": 0.005,
+    "require_x_z_descendant_index_agreement": true
+  },
+  "parallel_workers": 4,
+  "acceptance": {
+    "expected_endpoints": [{"a": 0.15, "branch_count": 2}, {"a": 0.16, "branch_count": 3}],
+    "primary_coordinate": "x",
+    "require_ordered_resolved_bracket": true,
+    "require_both_coordinates_at_bracket": true,
+    "regular_or_oracle_unresolved_points_are_gaps": true
+  }
+}

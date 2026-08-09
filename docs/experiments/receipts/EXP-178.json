@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP-178",
+  "status": "executed-failed",
+  "source_commit": "439f0a8b433a32ed5932d385839fc4343541c71c",
+  "source_dirty": false,
+  "manifest_sha256": "21a6d3f69384b57a4c4b28abd8636bb45533c4e31c57237ce8f5f92666f8359a",
+  "raw_receipt_sha256": "4817dc6d9fd7a027d36560453816140cb05dbae912cf153a8c3eed9ddf2d3133",
+  "resolved_two_a_values": [0.11, 0.115, 0.13, 0.15],
+  "resolved_three_a_values": [0.16, 0.1625, 0.165, 0.17, 0.175, 0.185, 0.19, 0.195, 0.2],
+  "ordered_bracket": [0.15, 0.16],
+  "bracket_width": 0.01,
+  "maximum_bracket_width": 0.005,
+  "identity": {
+    "x": {
+      "source_normalized_midpoint": 0.47474073444747217,
+      "candidate_normalized_midpoints": [0.07648475955379086, 0.5031895959481523],
+      "descendant_index": 1,
+      "descendant_symbol": "K1",
+      "distance": 0.0284488615006801,
+      "runner_up_margin": 0.3698071133930012,
+      "resolved": true
+    },
+    "z": {
+      "source_normalized_midpoint": 0.34107762578110956,
+      "candidate_normalized_midpoints": [0.040419708956289, 0.3642650461898597],
+      "descendant_index": 1,
+      "descendant_symbol": "K1",
+      "distance": 0.02318742040875016,
+      "runner_up_margin": 0.2774704964160704,
+      "resolved": true
+    }
+  },
+  "gates": {
+    "ordered": true,
+    "bracket_width_passed": false,
+    "endpoints_passed": true,
+    "coordinate_agreement": true,
+    "identity_agreement": true,
+    "passed": false
+  }
+}
