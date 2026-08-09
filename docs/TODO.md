@@ -443,7 +443,11 @@ exposition requirements.
   negative slopes are accompanied by three bootstrap-unstable high-bin
   variants per coordinate. Preserve that failure; continue only the qualified
   endpoints and replace repeated integer bisection with the prospective
-  lobe/pruning residual.
+  lobe/pruning residual. EXP-150 now freezes unchanged-method PIM-seeded UPO
+  recovery at both endpoints of the qualified `c=19.9` bracket before
+  inspecting their close returns. Execute it after the active EXP-148 worker
+  pool releases, then freeze primitivity/deduplication before tracing any
+  transverse lobe.
 - [ ] **RVR-004 — Finite logistic ordering.** Recover `L1`/`L2`; verify all
   period-through-seven permutations and kneading data; prospectively locate
   the first higher-period disagreement or establish a declared finite bound.

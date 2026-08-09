@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp150-transverse-upo-preregistered.md`](2026-08-07-exp150-transverse-upo-preregistered.md)
+  — frozen unchanged-method UPO recovery at both endpoints of the newly
+  qualified `c=19.9` saddle-topology bracket.
 - [`2026-08-07-exp133-upo-discovery-preregistered.md`](2026-08-07-exp133-upo-discovery-preregistered.md)
   — primitive UPO qualification through continuous phase identity and the
   frozen lag-12/lag-4 continuation test across the local boundary.
