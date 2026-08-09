@@ -113,3 +113,9 @@ families, endpoints, signs, and nine seed amplitudes. Stable period-4 capture
 is independently reconstructed and removed; nested seed occupancy is gated;
 and the four largest eligible endpoint changes are selected automatically for
 adaptive refinement, not promoted as mechanism claims.
+
+EXP-144 now freezes that adaptive refinement before inspecting any denser
+traces. It transports each selected branch to three orbit phases, doubles the
+seed-grid resolution to 17 nested amplitudes, extends the administrative
+horizon to 96 returns, and requires phase-, horizon-, and density-consistent
+endpoint capture shifts before selecting a direct connection solve.

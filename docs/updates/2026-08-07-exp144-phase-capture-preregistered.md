@@ -1,0 +1,19 @@
+# Update — EXP-144 phase-resolved capture refinement preregistered
+
+EXP-143 qualified the full endpoint lobe atlas but found strongly overlapping
+occupancy. Its four selected branches differ more in finite-horizon stable-cycle
+capture than in occupied support. EXP-144 therefore tests that signal directly
+before any connection residual is invented around it.
+
+The frozen run contains 408 exact-return traces: four automatically selected
+branches, two endpoints, three transported orbit phases, and 17 nested seed
+amplitudes. It retains the original capture definition, adds a 96-return
+horizon, validates each transported Floquet direction, and requires nested-grid
+mean capture times to agree within two returns. A candidate qualifies only if
+the endpoint difference is at least five returns and has the same direction at
+all phases and both administrative horizons.
+
+This is deliberately a discriminator. Passing would identify branches worth a
+direct connection boundary-value solve; failure would show that the EXP-143
+capture contrast is seed-phase dependent and should not carry a mechanism
+claim.

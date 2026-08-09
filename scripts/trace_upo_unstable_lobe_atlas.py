@@ -114,6 +114,8 @@ def _trace_task(task):
         "case_id": task["case_id"],
         "family_id": task["family_id"],
         "sign": int(task["sign"]),
+        "phase_index": int(task.get("phase_index", 0)),
+        "phase_return_offset": int(task.get("phase_return_offset", 0)),
         "amplitude_index": int(task["amplitude_index"]),
         "amplitude": abs(float(task["amplitude"])),
         "integration_success": success,

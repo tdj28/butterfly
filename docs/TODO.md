@@ -498,7 +498,11 @@ exposition requirements.
   lag-12 negative, lag-7 family 03 positive, lag-5 positive, and lag-13 family
   07 positive. Endpoint occupancy remains highly overlapping; refine capture
   curves over denser amplitudes, multiple orbit phases, and longer horizons
-  before defining a connection residual.
+  before defining a connection residual. EXP-144 now freezes that refinement:
+  408 traces over three transported orbit phases, a nested 17/9-amplitude grid,
+  and 64/96-return administrative horizons. Execute it from the clean pushed
+  preregistration commit; promote only candidates with a same-direction,
+  at-least-five-return endpoint shift at every phase and both horizons.
 - [ ] **RVR-005 — Third-branch reinjection.** Define it in the return map or via
   a robust invariant, test coordinate/section sensitivity, and compare its
   predictions with TBA and homoclinic-sheaf alternatives.
