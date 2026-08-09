@@ -152,6 +152,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-057-jones-operational-alphabet-qualified.md`](findings/FND-057-jones-operational-alphabet-qualified.md):
   qualifies the source-derived `C,D,0,1,2` mapping across two solvers, both
   coordinates, held-out segments, and physical deposition geometry.
+- [`findings/FND-058-exact-figure6-landmark-is-not-a-word-center.md`](findings/FND-058-exact-figure6-landmark-is-not-a-word-center.md):
+  preserves a strong period-6 orbit qualification while rejecting the exact
+  printed gray-box coordinate as a reproducible Figure 6 word center.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

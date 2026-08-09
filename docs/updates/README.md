@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-07-exp186-exact-landmark-word-fails.md`](2026-08-07-exp186-exact-landmark-word-fails.md)
+  — the period-6 orbit passes strong solver gates, but x/z projection parity
+  and every frozen word target fail; an actual center must be found dynamically.
 - [`2026-08-07-landmark0-diagnostic-exp186-frozen.md`](2026-08-07-landmark0-diagnostic-exp186-frozen.md)
   — exact-coordinate pilot exposes an x/z projection split and noncritical
   period-5 orbit; untouched landmark-1 word test frozen with stricter gates.

@@ -132,12 +132,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   qualified. EXP-184 now freezes the source-derived neutral-to-Jones mapping
   before any target word is evaluated. Its pre-integration receipt-field
   failure is preserved, and scientifically unchanged EXP-185 passes its full
-  two-solver physical-geometry gate. The operational mapping is qualified;
-  next generate held-out Figure 6 words without moving a boundary, permuting
-  the alphabet, or selecting cycles from their expected words. A landmark-0
-  sizing diagnostic exposes a noncritical exact orbit and x/z projection split;
-  execute untouched-landmark EXP-186 under frozen two-step, two-solver,
-  critical-slope, and cross-coordinate gates.
+  two-solver physical-geometry gate. The operational mapping is qualified. A
+  landmark-0 sizing diagnostic exposes a noncritical exact orbit and x/z
+  projection split. Untouched-landmark EXP-186 then qualifies an exceptionally
+  accurate period-6 orbit and step-stable x survivor partition, but fails x/z
+  parity and target-word membership: the exact printed coordinate is not a
+  reproducible word center. Next freeze a target-word-blind local search for
+  the actual period-6 superstable center using periodic-orbit stability and
+  criticality; encode its word only after selecting the center.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

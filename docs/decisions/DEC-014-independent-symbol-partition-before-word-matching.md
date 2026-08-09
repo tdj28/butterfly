@@ -194,3 +194,12 @@ the untouched second landmark and freezes two RK4 partition reconstructions,
 independent DOP853/Radau orbit correction, a critical-slope residual, mandatory
 x/z branch-count agreement, and unique same-period target membership before
 execution.
+
+EXP-186 fails without modifying those rules. The exact second landmark has a
+solver-qualified period-6 orbit and a step-stable two-branch x survivor map,
+but z is monotone and the x cycle changes from `010011` to `C10011` at one
+critical-edge point under step refinement. Neither word matches a frozen
+period-6 target. This rejects exact-raster-landmark word assignment, not the
+source's conceptual word set. Any successor must first select a superstable
+center from a target-word-blind dynamical objective; expected symbols may not
+enter the parameter search, tie-break, or stopping rule.

@@ -1,6 +1,6 @@
 # EXP-186 — First held-out Jones landmark word
 
-Status: preregistered; not yet executed
+Status: executed; failed scientifically
 
 ## Question
 
@@ -43,10 +43,45 @@ period-6 source words. Reversal is reported but not accepted.
 Manifest:
 [`../../experiments/manifests/EXP-186-heldout-jones-landmark-word.json`](../../experiments/manifests/EXP-186-heldout-jones-landmark-word.json).
 
+## Result
+
+The clean run at source commit
+`877ee75e77bbbd874bbd4311ebd38f8f14e1ed95` fails the partition-parity and
+word gates while passing the reference, orbit-correction, and survivor-profile
+gates. The late reference is unambiguously period 6. Independently corrected
+DOP853 and Radau orbits close at `1.37e-13` and `2.14e-13`, have the same six
+section returns and period `34.465148489`, and agree over the whole orbit to
+scaled error `1.23e-9`. The negative conclusion is therefore not an orbit-
+integration or periodicity-classification failure.
+
+The factor-two sprinkler comparison is likewise stable. It yields 7,335 and
+7,299 survivor-return pairs with no integration failures; the maximum survivor
+fraction difference is `0.001465`. Both step sizes resolve x as a robust
+two-branch map, with normalized critical-location difference `8.41e-5`, but
+resolve z as a monotone one-branch projection. Mandatory x/z parity therefore
+fails.
+
+At `dt=0.01`, both orbit solvers encode the x cycle as `010011`; at `dt=0.005`,
+both encode it as `C10011`. The change is confined to one orbit point lying at
+the empirical critical interval edge. Neither word, nor its reversal up to
+cyclic rotation, matches any frozen period-6 target (`CD0000`, `CD0001`,
+`CD0010`, `CD0011`, or `CD0111`). The z word is intentionally unresolved
+because its scalar projection has no critical point.
+
+Raw receipt SHA-256:
+`efae1b0cbee8edf74bf11b6bf3de38c56418c5f8acb454ea3297722d7a836903`.
+State artifact SHA-256:
+`f58894f952a40857d29b77f12f959001cb05eaa5a9a5eb2e88d1585ddb295731`.
+Compact receipt: [`receipts/EXP-186.json`](receipts/EXP-186.json).
+
 ## Claim boundary
 
-The printed coordinate is tested exactly. No local refinement, boundary
+The printed coordinate was tested exactly. No local refinement, boundary
 movement, alphabet permutation, expected word, or word-driven orbit selection
-is allowed. A failure may diagnose an approximate/non-superstable landmark or
-a non-injective scalar projection; it does not by itself reject every Figure 6
-word or arrow.
+was allowed. EXP-186 rejects using this exact printed gray-box coordinate as a
+reproducible Figure 6 word center. It does not reject all published words or
+arrows: the printed coordinates are approximate visual landmarks, the source
+does not identify them as exact doubly-superstable centers, and the z failure
+demonstrates that a scalar projection can be non-injective. The next test must
+locate a center from a target-word-blind dynamical objective before encoding
+its cycle.

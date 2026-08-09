@@ -165,6 +165,23 @@ eight qualified orbit seeds while also reproducing the project's central
 finite-time warning.  Period labels alone do not assign Figure 6 words or
 validate an arrow.
 
+The first preregistered word test makes that distinction operational.  At the
+exact second landmark, DOP853 and Radau independently correct the same period-6
+orbit with closure errors below $2.14\times10^{-13}$ and whole-orbit scaled
+disagreement $1.23\times10^{-9}$.  Factor-two RK4 survivor calculations have
+no integration failures, differ in survivor fraction by only $0.001465$, and
+resolve x as the same two-branch map with normalized critical-midpoint
+difference $8.41\times10^{-5}$.  Yet z is monotone at both steps.  The x cycle
+is solver-stable within each profile but changes from \texttt{010011} to
+\texttt{C10011} when the empirical critical interval moves across one orbit
+point; neither word or reversal matches a frozen period-6 target.  The strict
+coordinate and word gates therefore fail.  This rejects use of the exact
+raster landmark as a reproducible doubly-superstable word center.  It does not
+reject all Figure 6 words, because the source landmarks are approximate and
+not identified as exact centers.  The next test must locate a center using a
+target-word-blind stability/criticality objective before applying the frozen
+alphabet.
+
 The third test now defines reinjection on the genuinely three-branch saddle
 continued from $a=0.1485$, rather than on the rejected $a=0.148$ transient
 domain.  It treats reinjection as an observable of the return map rather
