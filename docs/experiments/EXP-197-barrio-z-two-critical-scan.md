@@ -1,7 +1,6 @@
 # EXP-197 — Barrio-z two-critical scan of the second component
 
-Status: preregistered; execution awaits explicit transfer authorization for
-the 106,345-byte derived candidate artifact
+Status: executed; failed the frozen direct-membership acceptance gates
 
 ## Question
 
@@ -36,6 +35,36 @@ double superstability: the selected point must be locally refined as a coupled
 two-residual solve, independently corrected with DOP853 and Radau, reproduced
 under step and survivor controls, and only then encoded symbolically.
 
+## Executed result
+
+The authorized secure RTX A5000 execution from declared clean source commit
+`9b8b557` completed both profiles without a numerical failure. The `dt=0.01`
+profile resolves 31 three-branch candidates; `dt=0.005` resolves 32. Thirty-one
+candidates retain the same phase assignment and pass all frozen cross-step
+parity gates. The maximum critical-location and survivor-fraction differences
+over that cross-step set are `0.00666` and `0.00782`, respectively, below the
+frozen `0.03` ceilings.
+
+No cross-step candidate passes either final direct-membership gate. The best
+midpoint and interval candidate is `component-sample-059` at
+`(a,b,c)=(0.21555,0.2,7.372)`. Its maximum normalized midpoint distance is
+`0.04963`, just inside the `0.05` gate, but its interval distance is `0.03603`
+against a `0.02` ceiling and its assigned zero-slope residual is `1.894`
+against `0.2`. One assigned phase matches the first critical with a slope
+residual of about `0.044`; the phase assigned to the second critical lies
+outside its interval and has the large slope residual. Even the independently
+best slope candidate has `0.24556`, so zero of 31 candidates passes the frozen
+slope ceiling.
+
+EXP-197 therefore rejects direct double-critical membership at the 58 sampled
+representatives. It does not reject a center between them. The best candidate
+is a prospectively identified localization target for a denser two-dimensional
+residual solve, not a discovered center.
+
+Raw receipt: `artifacts/EXP-197/receipt.json`, SHA-256
+`6a823588e5cf581b831ff70d2cdc276b172399638f8267648b923b95c15f4c71`.
+Compact receipt: [`receipts/EXP-197.json`](receipts/EXP-197.json).
+
 ## Administrative execution attempt
 
 On 2026-08-09, secure task-owned RTX A5000 worker `ek8r3t88x0i71i` was
@@ -47,3 +76,12 @@ candidate payload because the user message did not name that exact artifact
 and destination. No candidate data were transferred and no scientific
 computation ran. The worker was immediately terminated; the subsequent
 account-wide pod list was empty.
+
+After the exact derived-artifact authorization was supplied, a fresh secure
+worker (`35fgcklf1dto3y`) received hash-matching source and candidate payloads.
+Its first invocation stopped before integration because the source archive's
+repository root was absent from `PYTHONPATH`. Adding that import root and
+rerunning the scientifically unchanged command produced the result above. The
+hash-matching receipt was retrieved and the task worker was terminated. The
+account then contained one unrelated `ndl-tent-map-20260809` worker, which was
+left untouched; no EXP-197 worker remained active.

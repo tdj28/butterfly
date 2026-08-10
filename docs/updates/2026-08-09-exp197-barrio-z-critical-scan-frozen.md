@@ -20,3 +20,18 @@ An initial secure-worker attempt transferred only the frozen `fa8f332` source
 archive. The platform rejected the derived candidate transfer, so no scan ran.
 Worker `ek8r3t88x0i71i` was terminated immediately, and the account pod list
 was then empty. Execution remains frozen without scientific peeking.
+
+## Authorized execution result
+
+After artifact-specific authorization, the unchanged scan completed on a
+fresh secure RTX A5000. Both steps are numerically clean and identify 31 and
+32 three-branch candidates; 31 retain identical phase assignments across
+steps. The experiment nevertheless fails its final direct-membership rule.
+No candidate places both orbit phases inside the two critical intervals, and
+no candidate passes the frozen assigned zero-slope ceiling. The nearest
+sample, `(a,c)=(0.21555,7.372)`, passes only the midpoint-distance gate. It is
+now a localized target for a denser coupled solve, not evidence of a center.
+
+The receipt was retrieved with matching SHA-256 and task worker
+`35fgcklf1dto3y` was terminated. One unrelated account worker remained and was
+not modified.
