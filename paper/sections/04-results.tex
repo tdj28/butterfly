@@ -1,5 +1,33 @@
 \section{Established computational results}
 
+\subsection{Parameter-plane superstructure and period-6 landmarks}
+
+At $b=0.2$, the global recurrence atlas contains several curved families of
+periodic windows rather than one isolated shrimp.  Figure~\ref{fig:global-zoom}
+places the reported hub and both historical period-6 landmarks in that global
+field, then resolves the narrow band containing the second landmark at 50
+times the earlier sampling density per parameter axis.  The prospective
+$92{,}736$-pixel expansion reproduces both landmarks as period 6, but they
+belong to distinct eight-connected stable raster components.  The outlined
+second-landmark component contains 2,598 pixels and spans
+$c\in[7.124,8.192]$; the first landmark near $c=6.124$ is outside it.  This
+rejects a shared \emph{resolved stable raster} band, while leaving open a
+subgrid bridge or continuation through unstable period-6 orbits.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig02-global-and-period6-zoom.png}
+  \caption{Global and local views of the $b=0.2$ parameter plane.  Left: the
+  full recurrence atlas with the reported hub (red star), the second
+  period-6 landmark (yellow star), the first period-6 landmark (magenta
+  cross), and the refined search rectangle.  Right: the refined landmark
+  band; the black contour encloses the eight-connected period-6 component
+  selected from the second landmark.  The disconnected raster components are
+  a search result, not proof that no invariant period-6 continuation joins
+  them.}
+  \label{fig:global-zoom}
+\end{figure}
+
 \subsection{Reference equilibrium at the proposed hub}
 
 At $(a,b,c)=(0.1798,0.2,10.3084)$, the equilibrium equations have a small
@@ -32,6 +60,17 @@ $c=0.5192306256940273$, giving a fixed-$a$ separation of
 $9.789169374305974$ from the reported hub coordinate.  This qualifies the
 local Hopf endpoint of an L2-like slice; it neither continues the period-1
 cycle to the hub nor establishes the proposed homoclinic endpoint.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.96\textwidth]{figures/fig03-hopf-locus.png}
+  \caption{The exact small-equilibrium Hopf locus at $b=0.2$.  The analytic
+  curve is independently checked by direct eigensystem and transversality
+  tests at 192 points.  The marked reported hub is separated from the Hopf
+  point on its fixed-$a$ slice; the locus supplies a verified local start, not
+  a homoclinic endpoint.}
+  \label{fig:hopf-locus}
+\end{figure}
 
 A pilot-informed, unchanged-gate successor then phase-corrects the same
 one-winding period-1 family at 118 points from $c=c_H+0.001$ to the reported
@@ -117,6 +156,17 @@ period-1 orbit, not the proposed homoclinic orbit.  This does not reject a
 distinct stable/unstable equilibrium-manifold connection; it prevents the two
 objects from being conflated.
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig04-hopf-family.png}
+  \caption{Identity-safe continuation of the one-winding period-1 family from
+  the analytic Hopf point toward the reported hub.  The panels show orbit
+  amplitude and period along the same corrected family.  Exact multiplier
+  events and switched children, rather than changes in raster color, certify
+  the period-doubling sequence described in the text.}
+  \label{fig:hopf-family}
+\end{figure}
+
 \subsection{Identity-safe local cascade}
 
 At fixed $(a,c)=(0.245,5.1)$, the true period-5 family undergoes eight resolved
@@ -134,6 +184,27 @@ $4.5363$, $4.5944$, $4.6476$, $4.6646$, and $4.6682$.  Multiple shooting,
 block-Floquet stability, and whole-orbit identity establish a stable period-640
 child.  These are finite numerical observations; proximity of the ratios to a
 classical constant is not presented as a universality proof.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig05-flip-fold-line.png}
+  \caption{Corrected continuation of the period-5 family and its real
+  multiplier events.  The flip and fold diagnostics separate true orbit
+  bifurcations from nearby changes in stability or section representation.
+  Event locations are obtained from corrected periodic orbits with Floquet
+  checks, not inferred from the surrounding parameter raster.}
+  \label{fig:flip-fold-line}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/fig06-flip-fold-atlas-overlay.png}
+  \caption{The corrected period-5 flip/fold continuation over a coarse
+  recurrence atlas.  This overlay illustrates the division of labor between
+  the two data products: the raster reveals shrimp-scale context, whereas the
+  corrected orbit curve supplies the invariant bifurcation evidence.}
+  \label{fig:flip-fold-overlay}
+\end{figure}
 
 The period-640 parent has a corrected eighth flip event at
 $b_8=0.1797121964322390$.  The resulting next finite spacing ratio is
@@ -165,6 +236,17 @@ $7.81\times10^{-12}$; four direct monodromy products give
 $-0.999999999810$.  Thus the scalar failures diagnose a numerical formulation
 limit rather than absence of the crossing.
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig06b-normal-form-comparison.png}
+  \caption{Normal-form opening diagnostics for the period-5 event under the
+  baseline and successively strengthened calculations.  Agreement of sign
+  and local scaling across the independent reconstructions supports a
+  supercritical opening; the diagnostic is local and does not by itself imply
+  a universal cascade.}
+  \label{fig:normal-form-comparison}
+\end{figure}
+
 \subsection{Flow bifurcation versus section geometry}
 
 After the period-5 to period-10 flip, the stable period-10 child changes its
@@ -186,6 +268,24 @@ nonattracting chaotic-saddle mechanism.  Computing the saddle itself remains a
 separate acceptance test.
 
 \subsection{Qualified local three-branch return relation}
+
+The geometry behind the branch terminology is shown directly in
+Figure~\ref{fig:return-map-controls}.  On the declared Barrio section, the
+published control at $a=0.11$ has one critical point (two monotone branches),
+whereas the control at $a=0.20$ has two critical points (three branches).
+These controls calibrate the same frozen branch-count oracle subsequently
+used for chaotic saddles and blind midpoint tests.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig07-return-map-controls.png}
+  \caption{Direct reproduction of the published Barrio-section return-map
+  controls at $(b,c)=(0.2,20)$.  Blue points are 1,199 consecutive return
+  pairs after the declared transient, red curves are the frozen binned-spline
+  reconstructions, and dashed lines mark detected critical points.  The left
+  control is two-branch; the right control is three-branch.}
+  \label{fig:return-map-controls}
+\end{figure}
 
 At the published chaotic control $(a,b,c)=(0.2,0.2,20)$, the historical
 negative-oriented section unexpectedly gives a three-branch rather than the
@@ -535,3 +635,52 @@ such state lies within scaled $(y,z)$ distance $2.399\times10^{-5}$ of the
 nine-amplitude UPO atlas and $6.099\times10^{-5}$ of its nested five-amplitude
 subset.  Thus the lobe exists on both sides but joins the reconstructed
 nonattracting saddle only on the three-branch side in this retrospective test.
+
+\subsection{Direct critical-center search in the second period-6 window}
+
+The second landmark component supplies a separate test of the proposed
+doubly-superstable shrimp-center mechanism.  Geometry-only sampling followed
+by DOP853 shooting and Floquet qualification yields 58 stable, corrected
+period-6 flow orbits.  Each orbit crosses the historical section six times but
+the published Barrio positive-$x$ section eight times per flow period.
+Therefore the direct critical-membership test must compare both return-map
+criticals against all eight section phases; a six-phase comparison would test
+the wrong representation.
+
+An independent CPU/GPU audit at the second landmark matches every survivor and
+return-pair count at two RK4 steps.  All four reconstructions resolve the same
+three-branch Barrio $z$ map, with corresponding normalized critical midpoints
+agreeing within $8.24\times10^{-11}$.  A target-word-blind scan of the 58
+corrected representatives then finds 31 cross-step-consistent three-branch
+maps.  None places both assigned phases in the two critical intervals, and
+none passes the frozen zero-slope threshold.  The nearest representative,
+$(a,c)=(0.21555,7.372)$, passes only the midpoint test: its normalized
+interval distance is $0.0360$ against a $0.02$ limit, and its maximum assigned
+slope residual is $1.894$ against a $0.2$ limit.  This rejects the sampled
+orbits as double-critical centers, not the existence of a center between
+samples.
+
+The prospectively frozen dense successor corrects a $31\times81$ local mesh
+around that nearest representative without inspecting the dense critical
+residuals.  The center itself passes, and 685 of 2,511 points pass every
+individual closure, phase, family-identity, section-count, Floquet, and
+stability gate.  The experiment nevertheless fails its preregistered
+1,000-point coverage threshold.  Moreover, the 152-point passing component
+containing the center touches the lower-$a$ mesh boundary
+(Figure~\ref{fig:local-period6-mesh}).  The mesh is therefore a useful
+localization for a signed-residual diagnostic, but not yet a closed search
+domain or a certified shrimp center.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig08-local-period6-mesh.png}
+  \caption{Dense corrected period-6 orbit mesh around the best sampled
+  direct-critical localization.  Left: all individually qualified orbits
+  (blue), the eight-connected component containing the marked center (yellow
+  with black boundary), and failed cells (gray).  Right: dominant nontrivial
+  Floquet modulus for qualified stable orbits.  The center component reaches
+  the lower-$a$ boundary, and only 685 points qualify against the frozen
+  minimum of 1,000; the figure is therefore evidence of a coherent but
+  coverage-incomplete search region.}
+  \label{fig:local-period6-mesh}
+\end{figure}

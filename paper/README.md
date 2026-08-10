@@ -8,6 +8,10 @@ only after it has a repository experiment receipt and a matching state in
 
 ## Files
 
+- [figures/](figures/) contains the visual argument and generation receipts.
+- [supplement/](supplement/) contains Supplemental Movie S1, the animated
+  multi-\(b\) parameter-plane atlas.
+
 - [`manuscript.tex`](manuscript.tex) is the compile entry point.
 - [`sections/`](sections/) holds the paper prose in reviewable units.
 - [`references.bib`](references.bib) is the authoritative project bibliography.
@@ -31,6 +35,14 @@ latexmk -pdf -cd paper/manuscript.tex
 
 The current target is a portable `article` draft. Journal formatting comes
 only after the scientific closure gates are satisfied.
+
+## Visual build
+
+The figure-generation commands and source hashes are recorded in
+[figures/README.md](figures/README.md). The manuscript currently contains
+nine figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the
+Hopf locus and connected family, three cascade diagnostics, direct return-map
+controls, and the dense period-6 corrected-orbit mesh.
 
 ## Writing rules
 

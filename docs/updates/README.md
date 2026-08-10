@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [2026-08-09-visual-manuscript-rebuild.md](2026-08-09-visual-manuscript-rebuild.md)
+  — the paper now presents nine provenance-tracked figures and Supplemental
+  Movie S1; its concise abstract and all 28 rendered pages pass visual QA.
+
 - [`2026-08-09-exp199-incomplete-signed-residual-scan-frozen.md`](2026-08-09-exp199-incomplete-signed-residual-scan-frozen.md)
   — a two-step signed-residual GPU diagnostic is frozen over the 685
   individually valid, explicitly coverage-incomplete EXP-198 orbits.

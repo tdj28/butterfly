@@ -690,7 +690,11 @@ exposition requirements.
   flows before claiming broad generality.
 - [ ] **RVR-008 — Manuscript exposition.** Equations and definitions first;
   complete citations; plain-language mechanism; claim/evidence/limitations
-  conclusion; independent readability review.
+  conclusion; independent readability review. The first visual rebuild now
+  integrates nine figures, a global-to-period-6 shrimp zoom, an eleven-slice
+  multi-b atlas, Supplemental Movie S1, and a concise abstract. The remaining
+  closure items are the complete unfolded-spiral mechanism figure and an
+  independent readability review.
 
 ## AI gates — structure discovery, not diagram decoration
 
