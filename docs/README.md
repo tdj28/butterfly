@@ -182,6 +182,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-067-no-sampled-barrio-double-critical-center.md`](findings/FND-067-no-sampled-barrio-double-critical-center.md):
   rejects direct double-critical membership at all 58 sampled corrected
   orbits while localizing the closest residual near `(a,c)=(0.21555,7.372)`.
+- [`findings/FND-068-local-orbit-mesh-is-coverage-limited.md`](findings/FND-068-local-orbit-mesh-is-coverage-limited.md):
+  records that the dense successor reproduces its center and qualifies 685
+  orbits but fails the frozen coverage gate and touches a mesh boundary.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

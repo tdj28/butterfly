@@ -63,11 +63,14 @@ def critical_orbit_assignment(orbit_values, critical_intervals, domain) -> dict:
                 continue
             indices = (first, second)
             midpoint_distances = []
+            signed_midpoint_residuals = []
             interval_distances = []
             for critical_index, orbit_index in enumerate(indices):
                 lo, hi = intervals[critical_index]
                 value = values[orbit_index]
-                midpoint_distances.append(abs(value - 0.5 * (lo + hi)) / width)
+                signed_midpoint = (value - 0.5 * (lo + hi)) / width
+                signed_midpoint_residuals.append(signed_midpoint)
+                midpoint_distances.append(abs(signed_midpoint))
                 interval_distances.append(max(lo - value, 0.0, value - hi) / width)
             rows.append(
                 (
@@ -76,6 +79,7 @@ def critical_orbit_assignment(orbit_values, critical_intervals, domain) -> dict:
                     max(interval_distances),
                     indices,
                     midpoint_distances,
+                    signed_midpoint_residuals,
                     interval_distances,
                 )
             )
@@ -85,7 +89,10 @@ def critical_orbit_assignment(orbit_values, critical_intervals, domain) -> dict:
         "orbit_indices": list(best[3]),
         "orbit_values": [float(values[index]) for index in best[3]],
         "normalized_midpoint_distances": [float(value) for value in best[4]],
-        "normalized_interval_distances": [float(value) for value in best[5]],
+        "normalized_signed_midpoint_residuals": [
+            float(value) for value in best[5]
+        ],
+        "normalized_interval_distances": [float(value) for value in best[6]],
         "maximum_normalized_midpoint_distance": float(best[0]),
         "sum_normalized_midpoint_distance": float(best[1]),
         "maximum_normalized_interval_distance": float(best[2]),
@@ -103,6 +110,71 @@ def rank_candidate_rows(rows) -> list[dict]:
             row["id"],
         ),
     )
+
+
+def signed_residual_bracket_cells(rows: list[dict], profile_count: int) -> list[dict]:
+    """Find complete grid cells bracketing both signed residuals at every step."""
+
+    if profile_count < 1:
+        raise ValueError("profile_count must be positive")
+    lookup = {
+        tuple(row["grid_index"]): row
+        for row in rows
+        if row.get("eligible")
+        and row.get("grid_index") is not None
+        and row.get("signed_midpoint_residuals_by_profile") is not None
+        and row.get("assignment_indices_by_profile") is not None
+    }
+    cells = []
+    for i, j in sorted(lookup):
+        indices = ((i, j), (i + 1, j), (i, j + 1), (i + 1, j + 1))
+        if any(index not in lookup for index in indices):
+            continue
+        corners = [lookup[index] for index in indices]
+        profiles = []
+        passed = True
+        for profile_index in range(profile_count):
+            assignments = [
+                tuple(row["assignment_indices_by_profile"][profile_index])
+                for row in corners
+            ]
+            if len(set(assignments)) != 1:
+                passed = False
+                break
+            residual_ranges = []
+            for residual_index in range(2):
+                values = [
+                    float(
+                        row["signed_midpoint_residuals_by_profile"][profile_index][
+                            residual_index
+                        ]
+                    )
+                    for row in corners
+                ]
+                residual_range = [min(values), max(values)]
+                residual_ranges.append(residual_range)
+                if residual_range[0] > 0.0 or residual_range[1] < 0.0:
+                    passed = False
+            profiles.append(
+                {
+                    "profile_index": profile_index,
+                    "assignment_indices": list(assignments[0]),
+                    "signed_residual_ranges": residual_ranges,
+                }
+            )
+        if passed:
+            a_values = [float(row["parameters"]["a"]) for row in corners]
+            c_values = [float(row["parameters"]["c"]) for row in corners]
+            cells.append(
+                {
+                    "lower_grid_index": [i, j],
+                    "corner_ids": [row["id"] for row in corners],
+                    "a_bounds": [min(a_values), max(a_values)],
+                    "c_bounds": [min(c_values), max(c_values)],
+                    "profiles": profiles,
+                }
+            )
+    return cells
 
 
 def return_coordinate_axis(manifest: dict) -> tuple[str, int]:
@@ -600,6 +672,13 @@ def _combine_candidates(candidates, profile_rows, manifest):
                 "maximum_normalized_interval_distance": max(row["assignment"]["maximum_normalized_interval_distance"] for row in matching),
                 "maximum_zero_slope_residual": max(row["assigned_maximum_zero_slope_residual"] for row in matching),
             }
+            signed_midpoint_residuals_by_profile = [
+                row["assignment"]["normalized_signed_midpoint_residuals"]
+                for row in matching
+            ]
+            assignment_indices_by_profile = [
+                row["assignment"]["orbit_indices"] for row in matching
+            ]
             parity_passed = bool(
                 critical_step_difference <= float(acceptance["maximum_step_critical_midpoint_difference"])
                 and survivor_difference <= float(acceptance["maximum_survivor_fraction_difference"])
@@ -611,15 +690,20 @@ def _combine_candidates(candidates, profile_rows, manifest):
             survivor_difference = None
             assignment_agreement = False
             ranking = None
+            signed_midpoint_residuals_by_profile = None
+            assignment_indices_by_profile = None
             parity_passed = False
         rows.append(
             {
                 "id": candidate["id"],
+                "grid_index": candidate.get("grid_index"),
                 "parameters": candidate["parameters"],
                 "critical_step_difference": critical_step_difference,
                 "survivor_fraction_difference": survivor_difference,
                 "assignment_agreement": assignment_agreement,
                 "ranking": ranking,
+                "signed_midpoint_residuals_by_profile": signed_midpoint_residuals_by_profile,
+                "assignment_indices_by_profile": assignment_indices_by_profile,
                 "parity_passed": parity_passed,
                 "eligible": eligible,
             }
@@ -697,9 +781,13 @@ def main() -> int:
     combined = _combine_candidates(candidates, profile_rows, manifest)
     ranked = rank_candidate_rows(combined)
     selected = ranked[0] if ranked else None
+    bracket_cells = signed_residual_bracket_cells(combined, len(profile_rows))
     acceptance = manifest["acceptance"]
-    passed = bool(
-        len(ranked) >= int(acceptance["minimum_eligible_candidates"])
+    eligible_count_passed = len(ranked) >= int(
+        acceptance["minimum_eligible_candidates"]
+    )
+    direct_candidate_passed = bool(
+        eligible_count_passed
         and selected is not None
         and selected["ranking"]["maximum_normalized_midpoint_distance"]
         <= float(acceptance["maximum_selected_midpoint_distance"])
@@ -708,6 +796,13 @@ def main() -> int:
         and selected["ranking"]["maximum_zero_slope_residual"]
         <= float(acceptance["maximum_selected_zero_slope_residual"])
     )
+    minimum_bracket_cells = int(acceptance.get("minimum_signed_bracket_cells", 0))
+    bracket_passed = bool(
+        minimum_bracket_cells > 0
+        and eligible_count_passed
+        and len(bracket_cells) >= minimum_bracket_cells
+    )
+    passed = direct_candidate_passed or bracket_passed
     props = torch.cuda.get_device_properties(0)
     output = {
         "schema": "butterfly.jones-two-critical-gpu-scan.v1",
@@ -741,6 +836,9 @@ def main() -> int:
         "combined_candidates": combined,
         "ranked_candidate_ids": [row["id"] for row in ranked],
         "selected_candidate": selected,
+        "direct_candidate_passed": direct_candidate_passed,
+        "signed_residual_bracket_cells": bracket_cells,
+        "signed_residual_bracket_passed": bracket_passed,
         "passed": passed,
         "claim_scope": manifest["claim_scope"],
     }

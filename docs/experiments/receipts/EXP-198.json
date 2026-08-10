@@ -1,0 +1,62 @@
+{
+  "schema": "butterfly.local-barrio-orbit-mesh-summary.v1",
+  "experiment_id": "EXP-198",
+  "passed": false,
+  "source_commit": "eca40c65e4a5037639212ef61a0c23c3935a9819",
+  "manifest_sha256": "7ba351cf524a615cec379cd94c2e1d1d77d398fe4b0ae720632cdfecd3b2a940",
+  "seed_candidate_input_sha256": "0bbf83dda61ea29b87a469c5ece5459467bea1847684d6683f3f8e5aeecbed20",
+  "raw_artifact": "artifacts/EXP-198/candidates.json",
+  "raw_artifact_bytes": 3950130,
+  "raw_artifact_sha256": "db4c3a0f46ac972c44424a8370f1a0bac4d5545f2a5fe73c86097306463efa6a",
+  "grid": {
+    "shape": [31, 81],
+    "candidate_count": 2511,
+    "a_range": [0.2154, 0.2157],
+    "c_range": [7.2, 7.52],
+    "b": 0.2
+  },
+  "passed_candidate_count": 685,
+  "minimum_passed_candidates": 1000,
+  "center": {
+    "parameters": {"a": 0.21555, "b": 0.2, "c": 7.372},
+    "passed": true,
+    "flow_closure": 2.2748238080073164e-13,
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8,
+    "dominant_nontrivial_multiplier": -0.5985398913877189
+  },
+  "passing_geometry": {
+    "a_range": [0.2154, 0.2157],
+    "c_range": [7.264, 7.5],
+    "eight_connected_component_sizes": [355, 154, 152, 11, 5, 2, 2, 1, 1, 1, 1],
+    "center_component_size": 152,
+    "center_component_touches_lower_a_boundary": true
+  },
+  "failed_check_counts": {
+    "stable": 1355,
+    "correction": 808,
+    "closure": 807,
+    "neutral": 805,
+    "phase": 799,
+    "historical_phase_count": 755,
+    "period_identity": 336,
+    "correction_norm": 308,
+    "dominant_real": 251,
+    "barrio_phase_count": 215
+  },
+  "qualified_ranges": {
+    "flow_closure": [3.851894006736136e-15, 8.175918444302995e-13],
+    "phase_residual": [0.0, 2.8820286724545678e-18],
+    "correction_norm": [0.0, 0.2806604989479419],
+    "period_time": [44.002013447041776, 44.26873108383999],
+    "dominant_multiplier_modulus": [0.000496724397580561, 0.9969690009524708]
+  },
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "maximum_workers": 8
+  },
+  "elapsed_seconds": 864.0202262080275,
+  "interpretation": "The selected center and 685 individual stable corrected orbits qualify, but the frozen 1,000-point coverage gate fails and the center component reaches the lower-a mesh boundary."
+}

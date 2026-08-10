@@ -22,9 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp199-incomplete-signed-residual-scan-frozen.md`](2026-08-09-exp199-incomplete-signed-residual-scan-frozen.md)
+  — a two-step signed-residual GPU diagnostic is frozen over the 685
+  individually valid, explicitly coverage-incomplete EXP-198 orbits.
 - [`2026-08-09-exp198-local-orbit-mesh-frozen.md`](2026-08-09-exp198-local-orbit-mesh-frozen.md)
-  — a 2,511-point corrected-orbit mesh is frozen around the prospective
-  EXP-197 localization before any dense critical residual is inspected.
+  — the frozen 2,511-point mesh reproduces the center and qualifies 685
+  individual orbits but fails its 1,000-point coverage gate.
 - [`2026-08-09-exp197-barrio-z-critical-scan-frozen.md`](2026-08-09-exp197-barrio-z-critical-scan-frozen.md)
   — the direct two-step z-critical scan rejects all 58 sampled corrected
   orbits as centers and prospectively localizes the closest residual.
