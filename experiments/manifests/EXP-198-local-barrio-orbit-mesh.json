@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.local-barrio-orbit-mesh-manifest.v1",
+  "experiment_id": "EXP-198",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-197.json",
+      "sha256": "b19fb61a9a59733493f1be8180170dbd4c1ff1700475e0b60b6cab0dcf6e9871",
+      "role": "prospective localization from the failed 58-point direct-membership scan"
+    }
+  ],
+  "seed_candidate_input": {
+    "path": "artifacts/EXP-195/candidates.json",
+    "sha256": "0bbf83dda61ea29b87a469c5ece5459467bea1847684d6683f3f8e5aeecbed20"
+  },
+  "seed": {
+    "candidate_id": "component-sample-059",
+    "parameters": {"a": 0.21555, "b": 0.2, "c": 7.372},
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8
+  },
+  "grid": {
+    "a_range": [0.2154, 0.2157],
+    "a_count": 31,
+    "c_range": [7.2, 7.52],
+    "c_count": 81,
+    "b": 0.2,
+    "required_center": {"a": 0.21555, "c": 7.372},
+    "selection_reason": "covers the EXP-197 localization, the nearest same-assignment comparison at c=7.492, and the lower-c extrapolation where the second signed critical residual may approach zero; resolution is 2.5 times the EXP-192 a raster and equal to its c raster"
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 40, "tolerance": 1e-11},
+  "parallel": {"maximum_workers": 8},
+  "acceptance": {
+    "minimum_passed_candidates": 1000,
+    "maximum_flow_closure": 1e-9,
+    "maximum_phase_residual": 1e-10,
+    "maximum_correction_norm": 2.0,
+    "maximum_period_time_difference": 1.5,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "maximum_dominant_imaginary_part": 1e-7
+  },
+  "claim_scope": "target-word-blind local DOP853 shooting mesh of the stable historical-period-6 flow-orbit family around the prospectively selected EXP-197 residual localization, requiring six historical-section and eight Barrio-section phases plus closure, phase, Floquet, stability, and family-identity gates; passing creates immutable corrected candidates for a separately frozen two-step GPU signed-residual scan but neither reconstructs critical points nor establishes a center"
+}

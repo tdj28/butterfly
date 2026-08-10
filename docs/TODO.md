@@ -181,6 +181,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   passes both critical-interval and assigned zero-slope gates. Freeze a dense
   local two-residual refinement around the prospectively selected
   `(a,c)=(0.21555,7.372)` point, then independently correct and audit any root.
+  EXP-198 freezes the prerequisite 2,511-point DOP853/Floquet orbit mesh without
+  looking at dense critical residuals; execute it, bind the passing candidates
+  into a separate GPU manifest, and only then inspect signed residual brackets.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

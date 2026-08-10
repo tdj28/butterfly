@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-09-exp198-local-orbit-mesh-frozen.md`](2026-08-09-exp198-local-orbit-mesh-frozen.md)
+  — a 2,511-point corrected-orbit mesh is frozen around the prospective
+  EXP-197 localization before any dense critical residual is inspected.
 - [`2026-08-09-exp197-barrio-z-critical-scan-frozen.md`](2026-08-09-exp197-barrio-z-critical-scan-frozen.md)
   — the direct two-step z-critical scan rejects all 58 sampled corrected
   orbits as centers and prospectively localizes the closest residual.
