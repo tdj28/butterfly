@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.local-barrio-candidate-selection-manifest.v1",
+  "experiment_id": "EXP-200",
+  "input": {
+    "path": "artifacts/EXP-198/candidates.json",
+    "sha256": "db4c3a0f46ac972c44424a8370f1a0bac4d5545f2a5fe73c86097306463efa6a"
+  },
+  "selection": {
+    "a_range": [0.21555, 0.21565],
+    "b": 0.2,
+    "c_range": [7.264, 7.34],
+    "reason": "EXP-199's second residual decreases toward the lower-c eligibility boundary; use only previously qualified stable orbits and retain the original lattice indices"
+  },
+  "expected_candidate_count": 168,
+  "claim_scope": "deterministic result-informed selection of previously qualified EXP-198 stable orbits; no orbit, return-map, or residual data are changed, and selection alone makes no center or topology claim"
+}

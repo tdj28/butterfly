@@ -1,0 +1,77 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+  "experiment_id": "EXP-200",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-198.json",
+      "sha256": "8a649b37fc79a356a9a9716c7102232e034b431b7fefbbc7a05c8f27769c5bdb",
+      "role": "qualified but coverage-incomplete local corrected-orbit mesh"
+    },
+    {
+      "path": "docs/experiments/receipts/EXP-199.json",
+      "sha256": "9787bd6718929811b5f76e48061a46be3dbe16da448fd92e130817b85d1e4d9c",
+      "role": "one-sided second-residual result selecting the lower-c support boundary"
+    },
+    {
+      "path": "experiments/manifests/EXP-200-lower-c-candidate-selection.json",
+      "sha256": "dcfd46bbba84ba3d788ee835c27222fa81a23c514c533c0248bd76bbbe0d7d8d",
+      "role": "frozen deterministic selection from previously qualified orbit data"
+    }
+  ],
+  "candidate_input_sha256": "818c93c0d65b1cbbd2109995c0ad6fcfdb058b9dc180396df910c9c9889c85eb",
+  "expected_candidate_count": 168,
+  "section": {"kind": "barrio_positive_x"},
+  "cycle_state_count": 8,
+  "return_coordinate": {"name": "z", "axis": 2},
+  "profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01},
+    {"name": "rk4_dt_0005", "dt": 0.005}
+  ],
+  "ensemble": {
+    "x_range": [-14.0, -0.2],
+    "x_count": 128,
+    "z_range": [0.008, 0.55],
+    "z_count": 64,
+    "horizon": 200.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0],
+    "midpoint_window": [80.0, 140.0],
+    "escape_radius": 1000000.0
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [15.0, 0.01],
+    "radius": 0.0002,
+    "required_crossings": 5
+  },
+  "gpu": {"chunk_steps": 512, "max_recorded_crossings": 32, "dtype": "float64"},
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.1,
+    "minimum_domain_coverage": 0.6,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 199
+  },
+  "oracle_variants": [
+    {"name": "bins20", "options": {"bin_count": 20, "smoothing": 1e-5}},
+    {"name": "bins25", "options": {"bin_count": 25, "smoothing": 1e-5}},
+    {"name": "bins30", "options": {"bin_count": 30, "smoothing": 1e-5}},
+    {"name": "smooth1e-4", "options": {"bin_count": 25, "smoothing": 1e-4}},
+    {"name": "prominence005", "options": {"bin_count": 25, "smoothing": 1e-5, "minimum_prominence": 0.05}}
+  ],
+  "acceptance": {
+    "minimum_final_survivors": 2000,
+    "minimum_return_pairs": 16000,
+    "maximum_normalized_critical_span": 0.05,
+    "maximum_step_critical_midpoint_difference": 0.03,
+    "maximum_survivor_fraction_difference": 0.03,
+    "minimum_eligible_candidates": 40,
+    "maximum_selected_midpoint_distance": 0.02,
+    "maximum_selected_interval_distance": 0.005,
+    "maximum_selected_zero_slope_residual": 0.1,
+    "minimum_signed_bracket_cells": 1
+  },
+  "claim_scope": "result-informed high-support diagnostic over 168 previously qualified stable orbits on the lower-c side of EXP-199; the ensemble is quadrupled while the section, map coordinate, capture rule, oracle variants, two steps, and direct-center gates remain unchanged; a pass only nominates a direct point or simultaneous signed bracket for an adaptive solve, while a failure can distinguish support scarcity from persistent loss of the second critical but cannot reject a center outside this coverage-incomplete rectangle"
+}

@@ -684,3 +684,34 @@ domain or a certified shrimp center.
   coverage-incomplete search region.}
   \label{fig:local-period6-mesh}
 \end{figure}
+
+The separately frozen GPU diagnostic then reconstructs the signed residuals
+without changing the orbit mesh.  At two RK4 steps, 126 candidates retain a
+robust three-branch map, the same distinct phase assignment, and the frozen
+survivor and critical-location parity.  No candidate passes the midpoint,
+critical-interval, or zero-slope gate, even separately.  The nearest point is
+$(a,c)=(0.21559,7.32)$: its maximum normalized midpoint distance is $0.03153$
+against $0.02$, its interval distance is $0.03040$ against $0.005$, and its
+zero-slope residual is $1.870$ against $0.1$.
+
+The signed field in Figure~\ref{fig:exp199-residuals} exposes the obstruction.
+The first critical residual changes sign at both steps, but the second is
+positive at all 126 points, with lower bounds $0.03149$ and $0.03153$.  Hence
+no complete same-assignment lattice cell brackets both residuals.  This
+rejects a double-critical center in the cross-step-qualified sampled stable
+field; it does not reject one beyond the fragmented, boundary-touching region
+that failed the preceding coverage gate.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig09-exp199-signed-residual-field.png}
+  \caption{Incomplete two-step signed-residual scan over the individually
+  qualified dense period-6 mesh.  Colors show the mean of the two RK4 profiles;
+  gray cells are outside the cross-step-qualified field.  Left: the first
+  assigned critical-to-orbit residual changes sign.  Center: the second remains
+  strictly positive.  Right: even the closest of the three normalized direct-
+  membership gate ratios exceeds one at every point.  The star marks the
+  selected candidate.  The absence of a simultaneous bracket is a finite-field
+  rejection, not an extrapolation across the missing mesh coverage.}
+  \label{fig:exp199-residuals}
+\end{figure}

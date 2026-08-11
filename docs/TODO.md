@@ -187,9 +187,18 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   152-point component touches the lower-a boundary. Freeze any GPU use of the
   685 points as an explicitly incomplete diagnostic, retain signed residuals,
   and extend the mesh before making an exhaustive local claim. EXP-199 now
-  freezes that diagnostic with tighter direct-point gates and a two-step,
-  same-phase four-corner signed-bracket rule; execute it without treating a
-  pass as a solved root.
+  executes that diagnostic with tighter direct-point gates and a two-step,
+  same-phase four-corner signed-bracket rule. Of 126 cross-step-qualified
+  points, none passes any direct gate and no cell brackets both residuals: the
+  first signed residual crosses zero, while the second remains strictly
+  positive. Continue the stable family beyond the fragmented qualified mask,
+  following the one-sided second residual rather than densifying the same
+  rectangle; keep unstable inter-window continuation as a separate test.
+  EXP-200 now freezes the first discriminator: a fourfold-support replay on
+  all 168 already-qualified stable orbits in the lower-`c` target rectangle,
+  with the same oracle and direct-center gates. Execute it, then either solve
+  a new simultaneous bracket or replace support refinement with explicit
+  critical-edge continuation if the second branch remains unresolved.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

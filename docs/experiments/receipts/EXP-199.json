@@ -1,0 +1,95 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-summary.v1",
+  "experiment_id": "EXP-199",
+  "passed": false,
+  "source_commit": "d7fb0c794e5b880c2f590ec583dfbb05325833d1",
+  "source_archive_sha256": "84725fdfe788773519b19e13d228dad19bc6338f06bb208c4d318ba80440cdb2",
+  "manifest_sha256": "443af469395456b7e366359456ee90ec0bf03230045b339d28270e06bfd7163a",
+  "candidate_input_sha256": "db4c3a0f46ac972c44424a8370f1a0bac4d5545f2a5fe73c86097306463efa6a",
+  "raw_artifact": "artifacts/EXP-199/receipt.json",
+  "raw_artifact_bytes": 3785688,
+  "raw_artifact_sha256": "384016b40113cfbcfbd415c514dfd52543e35c36c37132eb128f8fcd4624a4b2",
+  "expected_candidate_count": 685,
+  "profiles": [
+    {
+      "name": "rk4_dt_001",
+      "dt": 0.01,
+      "eligible_candidate_count": 137,
+      "elapsed_seconds": 57.579031959641725,
+      "state_steps_per_second": 487288498.00160104
+    },
+    {
+      "name": "rk4_dt_0005",
+      "dt": 0.005,
+      "eligible_candidate_count": 131,
+      "elapsed_seconds": 111.64750341279432,
+      "state_steps_per_second": 502610432.69839424
+    }
+  ],
+  "cross_step_eligible_candidates": 126,
+  "eligible_parameter_range": {
+    "a": [0.2154, 0.21563000000000002],
+    "b": 0.2,
+    "c": [7.32, 7.5]
+  },
+  "assignment_counts": {
+    "[3,1]": 61,
+    "[7,5]": 65
+  },
+  "maximum_cross_step_critical_difference": 0.0021016355390056085,
+  "maximum_cross_step_survivor_fraction_difference": 0.01171875,
+  "direct_gate_counts": {
+    "maximum_midpoint_distance_at_most_0.02": 0,
+    "maximum_interval_distance_at_most_0.005": 0,
+    "maximum_zero_slope_residual_at_most_0.1": 0,
+    "all_three": 0
+  },
+  "signed_residual_ranges": {
+    "rk4_dt_001": {
+      "first": [-0.005262358707936658, 0.0016675097463342242],
+      "second": [0.03149076322366221, 0.09070759007337369]
+    },
+    "rk4_dt_0005": {
+      "first": [-0.00519868749094758, 0.0013350289218214025],
+      "second": [0.03152908294732321, 0.09076682209349037]
+    }
+  },
+  "signed_residual_bracket_cells": 0,
+  "direct_candidate_passed": false,
+  "signed_residual_bracket_passed": false,
+  "selected_candidate": {
+    "id": "local-a019-c030",
+    "grid_index": [19, 30],
+    "parameters": {"a": 0.21559, "b": 0.2, "c": 7.32},
+    "assignment_indices": [7, 5],
+    "maximum_normalized_midpoint_distance": 0.03152908294732321,
+    "maximum_normalized_interval_distance": 0.03040388714511583,
+    "maximum_zero_slope_residual": 1.869849443009961,
+    "critical_step_difference": 0.00003917567189459792,
+    "survivor_fraction_difference": 0.00244140625
+  },
+  "minimum_zero_slope_residual": {
+    "value": 0.8208871832803661,
+    "candidate_id": "local-a001-c075",
+    "parameters": {"a": 0.21541000000000002, "b": 0.2, "c": 7.5}
+  },
+  "environment": {
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0",
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_memory_bytes": 25283526656
+  },
+  "provisioning": {
+    "runpod_id": "5nmz0fjzukf5nx",
+    "rate_usd_per_hour": 0.27,
+    "estimated_cost_upper_bound_usd": 0.20,
+    "remote_local_hash_match": true,
+    "task_worker_terminated": true,
+    "active_task_pods_after_teardown": 0
+  },
+  "interpretation": "The incomplete dense diagnostic has enough cross-step eligible maps, but no candidate passes any direct critical-membership gate and no same-phase cell brackets both signed residuals. The first residual changes sign while the second is strictly positive. Because EXP-198 failed coverage and its selected component reaches a mesh boundary, this rejects the sampled stable region rather than global double superstability."
+}

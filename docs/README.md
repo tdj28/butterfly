@@ -185,6 +185,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-068-local-orbit-mesh-is-coverage-limited.md`](findings/FND-068-local-orbit-mesh-is-coverage-limited.md):
   records that the dense successor reproduces its center and qualifies 685
   orbits but fails the frozen coverage gate and touches a mesh boundary.
+- [`findings/FND-069-no-simultaneous-critical-residual-bracket-in-the-incomplete-dense-field.md`](findings/FND-069-no-simultaneous-critical-residual-bracket-in-the-incomplete-dense-field.md):
+  shows that one critical residual crosses zero but the other remains positive
+  throughout all 126 cross-step-qualified points, so neither a direct center
+  nor a simultaneous bracket exists in the incomplete sampled field.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

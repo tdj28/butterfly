@@ -11,6 +11,8 @@ topology claims.
 - fig02-global-and-period6-zoom.png: EXP-021 global \(b=0.2\) atlas,
   EXP-192 two-landmark refinement, and the hash-bound period-6 component.
 - fig08-local-period6-mesh.png: EXP-198's 2,511-point corrected-orbit mesh.
+- fig09-exp199-signed-residual-field.png: EXP-199's 126 cross-step-qualified
+  signed critical-residual maps and normalized direct-gate distances.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -32,6 +34,15 @@ Regenerate the return-map controls and receipt:
       --manifest experiments/manifests/EXP-108-published-return-map-controls.json \
       --receipt artifacts/EXP-108/receipt.json \
       --output paper/figures/fig07-return-map-controls.png --dpi 260
+
+Regenerate the EXP-199 residual field and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp199_signed_residuals.py \
+      --manifest experiments/manifests/EXP-199-incomplete-local-barrio-signed-residual-scan.json \
+      --receipt artifacts/EXP-199/receipt.json \
+      --expected-receipt-sha256 384016b40113cfbcfbd415c514dfd52543e35c36c37132eb128f8fcd4624a4b2 \
+      --output paper/figures/fig09-exp199-signed-residual-field.png --dpi 260
 
 ## Promoted experiment figures
 

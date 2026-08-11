@@ -22,13 +22,19 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-11-exp200-lower-c-high-support-scan-frozen.md`](2026-08-11-exp200-lower-c-high-support-scan-frozen.md)
+  — the next result-informed test quadruples support on 168 previously
+  qualified lower-`c` stable orbits without changing the map oracle or center
+  gates.
+
 - [2026-08-09-visual-manuscript-rebuild.md](2026-08-09-visual-manuscript-rebuild.md)
   — the paper now presents nine provenance-tracked figures and Supplemental
   Movie S1; its concise abstract and all 28 rendered pages pass visual QA.
 
 - [`2026-08-09-exp199-incomplete-signed-residual-scan-frozen.md`](2026-08-09-exp199-incomplete-signed-residual-scan-frozen.md)
-  — a two-step signed-residual GPU diagnostic is frozen over the 685
-  individually valid, explicitly coverage-incomplete EXP-198 orbits.
+  — 126 cross-step-qualified maps contain neither a direct center nor a
+  simultaneous bracket: the first residual crosses zero while the second
+  stays positive throughout the incomplete field.
 - [`2026-08-09-exp198-local-orbit-mesh-frozen.md`](2026-08-09-exp198-local-orbit-mesh-frozen.md)
   — the frozen 2,511-point mesh reproduces the center and qualifies 685
   individual orbits but fails its 1,000-point coverage gate.
