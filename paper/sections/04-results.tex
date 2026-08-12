@@ -715,3 +715,28 @@ that failed the preceding coverage gate.
   rejection, not an extrapolation across the missing mesh coverage.}
   \label{fig:exp199-residuals}
 \end{figure}
+
+A targeted successor quadruples the initial-condition ensemble on 168
+previously qualified lower-$c$ orbits.  Only 10 and 9 candidates pass the full
+five-variant oracle at the two RK4 steps, and only 8 agree across steps, below
+the frozen minimum of 40.  Return-pair support and step parity pass; the
+failure is an oracle-scale effect.  All four baseline bin-count and prominence
+variants return three branches at both steps for 125 candidates, whereas the
+single high-smoothing variant reduces 104 of those to two at both steps
+(Figure~\ref{fig:exp200-smoothing}).  The eight strict survivors retain a
+positive second residual and none passes a direct-center gate.  Quadrupled
+support therefore rejects simple sample scarcity, but the scale dependence
+prevents the lower-$c$ boundary from being called a topological branch loss.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig10-exp200-oracle-sensitivity.png}
+  \caption{Oracle-scale diagnosis under quadrupled trajectory support.  Left:
+  125 of 168 candidates are three-branch under all four baseline bin-count and
+  prominence variants at both RK4 steps.  Center: the high-smoothing variant
+  alone classifies 104 of these as two-branch at both steps.  Right: requiring
+  all five variants leaves only eight cross-step-eligible candidates.  Gray
+  denotes failure of the panel's condition, not numerical integration failure;
+  the star marks the selected strict survivor.}
+  \label{fig:exp200-smoothing}
+\end{figure}

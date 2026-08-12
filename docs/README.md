@@ -189,6 +189,10 @@ what must be narrowed, and what is false or unresolved.
   shows that one critical residual crosses zero but the other remains positive
   throughout all 126 cross-step-qualified points, so neither a direct center
   nor a simultaneous bracket exists in the incomplete sampled field.
+- [`findings/FND-070-lower-c-critical-is-smoothing-sensitive-not-sample-starved.md`](findings/FND-070-lower-c-critical-is-smoothing-sensitive-not-sample-starved.md):
+  shows that quadrupled trajectory support preserves three branches under four
+  baseline variants while one high-smoothing variant removes the shallow
+  critical, rejecting sample scarcity but not qualifying a topology loss.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

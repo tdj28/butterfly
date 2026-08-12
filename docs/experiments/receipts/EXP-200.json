@@ -1,0 +1,84 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-summary.v1",
+  "experiment_id": "EXP-200",
+  "passed": false,
+  "source_commit": "f812494e17e5f08bad9e51646d7ae5869568337f",
+  "source_archive_sha256": "5fd342b9cd99dbfa4a9faa161f375ff2c9c67ac34bb62da7559f745fef82a79e",
+  "manifest_sha256": "41488e8d0e115a4a7379ca4a4a158e522124294e3016de84d1d0ed20587c7b7a",
+  "candidate_input_sha256": "818c93c0d65b1cbbd2109995c0ad6fcfdb058b9dc180396df910c9c9889c85eb",
+  "raw_artifact": "artifacts/EXP-200/receipt.json",
+  "raw_artifact_bytes": 891736,
+  "raw_artifact_sha256": "63199e4171c1f5a5c1fc1e309804b5f97b693567076c87ab6a94ac1b14fb4497",
+  "candidate_count": 168,
+  "ensemble_size": 8192,
+  "profiles": [
+    {
+      "name": "rk4_dt_001",
+      "dt": 0.01,
+      "eligible_candidate_count": 10,
+      "elapsed_seconds": 65.45380382984877,
+      "state_steps_per_second": 420527431.40113384
+    },
+    {
+      "name": "rk4_dt_0005",
+      "dt": 0.005,
+      "eligible_candidate_count": 9,
+      "elapsed_seconds": 126.33052752166986,
+      "state_steps_per_second": 435763556.7583383
+    }
+  ],
+  "cross_step_eligible_candidates": 8,
+  "minimum_cross_step_eligible_candidates": 40,
+  "baseline_four_variants_three_branch_at_both_steps": 125,
+  "baseline_three_high_smoothing_two_at_both_steps": 104,
+  "cross_step_assignment_counts": {"[7,5]": 8},
+  "eligible_parameter_range": {
+    "a": [0.21555000000000002, 0.21564],
+    "b": 0.2,
+    "c": [7.32, 7.34]
+  },
+  "maximum_cross_step_critical_difference": 0.0009363391636924012,
+  "maximum_cross_step_survivor_fraction_difference": 0.0028076171875,
+  "direct_gate_counts": {
+    "maximum_midpoint_distance_at_most_0.02": 0,
+    "maximum_interval_distance_at_most_0.005": 0,
+    "maximum_zero_slope_residual_at_most_0.1": 0,
+    "all_three": 0
+  },
+  "selected_candidate": {
+    "id": "local-a018-c030",
+    "parameters": {"a": 0.21558, "b": 0.2, "c": 7.32},
+    "assignment_indices": [7, 5],
+    "maximum_normalized_midpoint_distance": 0.034509062377223426,
+    "maximum_normalized_interval_distance": 0.030757041908060626,
+    "maximum_zero_slope_residual": 1.920800779212291,
+    "signed_residuals": {
+      "rk4_dt_001": [-0.000980324460207385, 0.034132017634912304],
+      "rk4_dt_0005": [-0.0009794391486869665, 0.034509062377223426]
+    }
+  },
+  "minimum_zero_slope_residual": {
+    "value": 1.7797234648329683,
+    "candidate_id": "local-a024-c033",
+    "parameters": {"a": 0.21564, "b": 0.2, "c": 7.332}
+  },
+  "environment": {
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0",
+    "gpu": "NVIDIA RTX A4500",
+    "gpu_memory_bytes": 21151088640
+  },
+  "provisioning": {
+    "runpod_id": "rq2b826twhlu0l",
+    "rate_usd_per_hour": 0.25,
+    "estimated_cost_upper_bound_usd": 0.11,
+    "remote_local_hash_match": true,
+    "task_worker_terminated": true,
+    "active_account_pods_after_teardown": 0
+  },
+  "interpretation": "Quadrupled support does not restore strict five-variant consensus below c=7.34. Four baseline bin/prominence variants return three branches at both steps for 125 candidates, but the high-smoothing variant alone returns two at both steps for 104 of them. The lower-c field is therefore smoothing-scale-sensitive rather than simply sample-starved or qualified as a topological branch loss."
+}

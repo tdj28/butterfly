@@ -22,10 +22,14 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-12-exp201-smoothing-scale-audit-frozen.md`](2026-08-12-exp201-smoothing-scale-audit-frozen.md)
+  — a seven-level smoothing ladder and nested 2,048/8,192 support are frozen
+  over the complete 104-point EXP-200 disagreement set.
+
 - [`2026-08-11-exp200-lower-c-high-support-scan-frozen.md`](2026-08-11-exp200-lower-c-high-support-scan-frozen.md)
-  — the next result-informed test quadruples support on 168 previously
-  qualified lower-`c` stable orbits without changing the map oracle or center
-  gates.
+  — quadrupled support rejects sample scarcity but exposes a shallow critical
+  that persists under four baseline variants and disappears under the single
+  high-smoothing variant.
 
 - [2026-08-09-visual-manuscript-rebuild.md](2026-08-09-visual-manuscript-rebuild.md)
   — the paper now presents nine provenance-tracked figures and Supplemental

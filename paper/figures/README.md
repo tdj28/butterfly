@@ -13,6 +13,8 @@ topology claims.
 - fig08-local-period6-mesh.png: EXP-198's 2,511-point corrected-orbit mesh.
 - fig09-exp199-signed-residual-field.png: EXP-199's 126 cross-step-qualified
   signed critical-residual maps and normalized direct-gate distances.
+- fig10-exp200-oracle-sensitivity.png: EXP-200's baseline versus high-smoothing
+  branch votes under quadrupled trajectory support.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -43,6 +45,15 @@ Regenerate the EXP-199 residual field and receipt:
       --receipt artifacts/EXP-199/receipt.json \
       --expected-receipt-sha256 384016b40113cfbcfbd415c514dfd52543e35c36c37132eb128f8fcd4624a4b2 \
       --output paper/figures/fig09-exp199-signed-residual-field.png --dpi 260
+
+Regenerate the EXP-200 oracle-sensitivity field and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp200_oracle_sensitivity.py \
+      --manifest experiments/manifests/EXP-200-lower-c-high-support-signed-residual-scan.json \
+      --receipt artifacts/EXP-200/receipt.json \
+      --expected-receipt-sha256 63199e4171c1f5a5c1fc1e309804b5f97b693567076c87ab6a94ac1b14fb4497 \
+      --output paper/figures/fig10-exp200-oracle-sensitivity.png --dpi 260
 
 ## Promoted experiment figures
 

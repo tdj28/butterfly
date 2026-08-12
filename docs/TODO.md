@@ -199,6 +199,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   with the same oracle and direct-center gates. Execute it, then either solve
   a new simultaneous bracket or replace support refinement with explicit
   critical-edge continuation if the second branch remains unresolved.
+  EXP-200 fails strict recovery with 8/40 cross-step candidates, but 125 points
+  are three-branch under all four baseline variants and 104 of those collapse
+  to two only under high smoothing at both steps. Freeze a logarithmic
+  smoothing ladder with nested 2,048/8,192 support on that complete 104-point
+  sensitivity set. Continue the residual only if its critical identity and
+  smoothing-transition scale converge.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

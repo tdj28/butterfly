@@ -40,10 +40,10 @@ only after the scientific closure gates are satisfied.
 
 The figure-generation commands and source hashes are recorded in
 [figures/README.md](figures/README.md). The manuscript currently contains
-ten figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the
+eleven figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the
 Hopf locus and connected family, three cascade diagnostics, direct return-map
-controls, the dense period-6 corrected-orbit mesh, and its signed two-critical
-residual field.
+controls, the dense period-6 corrected-orbit mesh, its signed two-critical
+residual field, and the lower-`c` oracle-smoothing sensitivity field.
 
 ## Writing rules
 
