@@ -1,7 +1,7 @@
 # EXP-201 — Jones critical smoothing-scale audit
 
-Status: prospectively frozen; prepared for secure GPU execution under the
-owner's standing sub-`$30` authorization
+Status: prospectively frozen; first worker terminated before transfer because
+the derived candidate artifact requires payload-specific egress authorization
 
 ## Question
 
@@ -43,3 +43,12 @@ or regularization model.
 
 Prepared artifact: `artifacts/EXP-201/candidates.json`, 164,041 bytes, SHA-256
 `79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0`.
+
+## Administrative attempt
+
+The frozen implementation and manifests were archived at clean pushed commit
+`63d9ec2`. A secure RTX A4500 worker (`c00dukcvwhq2um`) was provisioned at
+`$0.25/hour`, but the controller distinguished the owner's standing compute-
+cost authorization from authorization to transfer this new derived artifact.
+No file was transferred and no integration ran. The worker was terminated,
+the account was verified empty, and the conservative cost bound is `<$0.02`.

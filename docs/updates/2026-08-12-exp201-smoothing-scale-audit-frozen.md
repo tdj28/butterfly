@@ -10,3 +10,9 @@ nested 2,048-trajectory rectangular grid from the same run. A point qualifies
 only when the shallow critical's location and its monotone three-to-two
 smoothing transition remain stable across both supports and both steps. The
 164,041-byte candidate artifact is prepared and hash-bound before execution.
+
+The first secure RTX A4500 worker was stopped before any transfer or integration:
+the controller requires payload-specific authorization for the derived candidate
+artifact even though its `<$30` compute cost is already authorized. The worker
+was terminated, the RunPod account was verified empty, and the cost is bounded
+below `$0.02`.

@@ -204,7 +204,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   to two only under high smoothing at both steps. Freeze a logarithmic
   smoothing ladder with nested 2,048/8,192 support on that complete 104-point
   sensitivity set. Continue the residual only if its critical identity and
-  smoothing-transition scale converge.
+  smoothing-transition scale converge. EXP-201 is implemented, tested, frozen,
+  and pushed. Its first secure worker was terminated before transfer because
+  the new derived candidate artifact requires exact payload-specific egress
+  authorization; no integration ran and no worker remains active.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
