@@ -437,7 +437,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-277-jones-period768-sign-equivalence-refinement.md`](experiments/EXP-277-jones-period768-sign-equivalence-refinement.md):
   preserves the unchanged multiplier gate's tighter-step failure.
 - [`experiments/EXP-278-jones-period768-canonical-floquet-audit.md`](experiments/EXP-278-jones-period768-canonical-floquet-audit.md):
-  freezes a common-phase two-solver resolution without relaxing the gate.
+  passes a common-phase two-solver resolution without relaxing the gate.
+- [`experiments/EXP-279-jones-period768-segmented-continuation.md`](experiments/EXP-279-jones-period768-segmented-continuation.md):
+  freezes eight exact continuation steps toward a seventh-flip scan.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

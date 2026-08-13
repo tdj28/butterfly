@@ -1,6 +1,6 @@
 # EXP-278 — Canonical period-768 Floquet audit
 
-Status: frozen — not yet executed
+Status: completed — passed
 
 EXP-277 strengthens whole-orbit equivalence of the two switch signs but again
 fails only the four-representation multiplier-spread gate. The negative sign
@@ -19,3 +19,21 @@ the unified period-768 branch. It does not establish a seventh event.
 
 Manifest:
 [`../../experiments/manifests/EXP-278-jones-period768-canonical-floquet-audit.json`](../../experiments/manifests/EXP-278-jones-period768-canonical-floquet-audit.json).
+
+## Result
+
+All twelve gates pass. On the identical phase-fixed orbit, DOP853/Radau give
+stable moduli `0.0879289933/0.0879290911`, absolute spread `9.78e-8` against
+the unchanged `0.002` ceiling. Both corrections retain exact `896/1024`
+section identity and half-period closures above `6.13e-6`; matching residuals
+are at most `2.46e-11`.
+
+Together with EXP-277's passed whole-orbit sign identities, this resolves the
+four-representation failure as phase-conditioned product evaluation and
+qualifies one unified stable primitive period-768 branch. EXP-279 freezes its
+exact continuation toward a separately gated seventh-flip scan.
+
+Raw receipt: `artifacts/EXP-278/receipt.json`, 132,805 bytes, SHA-256
+`6f7ca773bcc0d8346b9a7293fd6143a39468d58681b7f576efbba1a65a15c114`.
+Compact receipt:
+[`receipts/EXP-278.json`](receipts/EXP-278.json).

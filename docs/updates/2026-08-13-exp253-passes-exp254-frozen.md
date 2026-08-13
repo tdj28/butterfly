@@ -146,3 +146,9 @@ EXP-277 again fails only multiplier spread, improving it to `0.002661` while
 sign and cross-solver whole-orbit RMS remain below `2.94e-8/8.80e-9`.
 EXP-278 freezes a canonical common-phase audit from the negative sign selected
 independently by EXP-275, retaining the unchanged `0.002` multiplier gate.
+
+EXP-278 passes all twelve gates. On one canonical phase representative,
+DOP853/Radau stable moduli are `0.0879289933/0.0879290911`, spread `9.78e-8`,
+with exact `896/1024` identity. This resolves the conditioning issue without
+rewriting the two failed receipts. EXP-279 freezes eight exact period-768
+continuation steps toward a seventh event.

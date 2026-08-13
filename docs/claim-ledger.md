@@ -182,6 +182,17 @@ supercritical birth, but not tangent-sign equivalence, a seventh event,
 limiting universality, paired boundaries, TBA membership, double-criticality,
 or a whole-plane result.
 
+CLM-008 addendum (EXP-276--278): two complete common-coordinate sign audits
+align both period-768 switch signs at half phase under DOP853 and Radau, while
+each preserves one isolated four-representation long-product spread failure.
+A prospectively frozen canonical audit binds those passed whole-orbit
+identities and the independently preselected EXP-275 negative sign, then
+corrects one common-phase seed under both solvers. The stable moduli agree to
+absolute `9.78e-8` under the unchanged `0.002` gate, and exact `896/1024`
+identity passes. Thus the two signs qualify as one stable primitive orbit for
+continuation, while both failed receipts remain part of the conditioning
+record. This does not establish a seventh event or universality.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

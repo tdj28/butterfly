@@ -34,6 +34,7 @@ SCHEMAS = {
     "butterfly.jones-period96-segmented-continuation-manifest.v1",
     "butterfly.jones-period192-segmented-continuation-manifest.v1",
     "butterfly.jones-period384-segmented-continuation-manifest.v1",
+    "butterfly.jones-period768-segmented-continuation-manifest.v1",
 }
 
 
@@ -61,6 +62,7 @@ def main() -> int:
     parser.add_argument("--switch-receipt", type=Path, required=True)
     parser.add_argument("--event-receipt", type=Path, required=True)
     parser.add_argument("--audit-receipt", type=Path)
+    parser.add_argument("--identity-receipt", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -84,6 +86,21 @@ def main() -> int:
         )
     except ValueError as error:
         raise SystemExit(str(error)) from error
+    identity_bytes = None
+    if "identity_receipt_sha256" in manifest:
+        if args.identity_receipt is None:
+            raise SystemExit("this continuation requires a bound identity receipt")
+        identity_bytes = args.identity_receipt.read_bytes()
+        if sha256_bytes(identity_bytes) != manifest["identity_receipt_sha256"]:
+            raise SystemExit("identity receipt hash mismatch")
+        identity = json.loads(identity_bytes)
+        if (
+            not identity.get("passed")
+            or identity.get("schema") != manifest["identity_schema"]
+            or int(identity.get("canonical_source_sign", 0))
+            != int(manifest["source_candidate"]["direction"])
+        ):
+            raise SystemExit("identity receipt does not qualify the source sign")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -284,6 +301,9 @@ def main() -> int:
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "audit_receipt_sha256": (
             sha256_bytes(audit_bytes) if audit_bytes is not None else None
+        ),
+        "identity_receipt_sha256": (
+            sha256_bytes(identity_bytes) if identity_bytes is not None else None
         ),
         "source": source,
         "environment": {

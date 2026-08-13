@@ -449,7 +449,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   to `0.002661`, but preserves the same isolated failure. EXP-278 freezes a
   canonical-phase two-solver correction from the negative sign independently
   preselected by EXP-275, retaining the `0.002` gate and exact identity;
-  deeper continuation remains blocked meanwhile.
+  EXP-278 passes all twelve gates with modulus spread `9.78e-8`. EXP-279
+  freezes eight exact continuation steps toward a separately gated seventh
+  event scan.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
