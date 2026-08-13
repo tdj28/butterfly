@@ -63,3 +63,8 @@ EXP-263 passes all eight full steps. Its terminal orbit has exact `224/256`
 identity, half-period closure `0.001032`, and preliminary multiplier
 `-265.739`. EXP-264 freezes a nine-row, eight-orders-separated block-Floquet
 scan before any exact fifth-event claim.
+
+EXP-264 passes with exactly one bracket,
+`[0.24070100795063762,0.24070100957644772]`, and minimum transverse-mode
+separation `1.146e18`. EXP-265 freezes the exact 256-segment orbit/tangent
+solve with segmented Radau parity; interpolation alone is not promoted.

@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.jones-period192-segmented-flip-scan-summary.v1",
+  "experiment_id": "EXP-264",
+  "passed": true,
+  "source_commit": "85e6e146581f8196fd52b7c5ae2fea2e86c7c59c",
+  "manifest_sha256": "2e9462eb0e5b009902f6ed3c8838b7c28b63b85c69e1eb9c2c00ea0db54b1123",
+  "continuation_receipt_sha256": "80d306c1fffc7f235800613095a9b19e6c13d4e2f36ed5365a1374a2d6990606",
+  "raw_artifact": "artifacts/EXP-264/receipt.json",
+  "raw_artifact_bytes": 22242,
+  "raw_artifact_sha256": "101337e5c93d799bd24aecd2f4f16efb272738e86da6e62ec130b181fedee23c",
+  "bracket_count": 1,
+  "a_bracket": [0.24070100795063762, 0.24070100957644772],
+  "endpoint_multipliers": [-2.0511879884316766, 0.46117806583666937],
+  "minimum_modulus_separation_ratio": 1.1459961465105285e18,
+  "maximum_cyclic_dominant_real_spread": 1.4104557521932293e-9,
+  "interpretation": "A magnitude-separated exact-row scan isolates one period-192 real-minus-one bracket for a separately frozen augmented event solve."
+}
