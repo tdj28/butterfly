@@ -22,9 +22,25 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-12-exp205-period6-flip-refinement-frozen.md`](2026-08-12-exp205-period6-flip-refinement-frozen.md)
+  — all seven prospectively selected real-minus-one Floquet brackets refine,
+  qualifying a sampled period-6 flip edge and its continuation seeds.
+
+- [`2026-08-12-exp204-lower-c-residual-replay-frozen.md`](2026-08-12-exp204-lower-c-residual-replay-frozen.md)
+  — a 551-orbit, 12-view GPU residual replay is frozen and awaits the exact
+  payload authorization required for its secure worker upload.
+
+- [`2026-08-12-exp203-lower-c-stable-extension-frozen.md`](2026-08-12-exp203-lower-c-stable-extension-frozen.md)
+  — the lower-c extension finds 551 qualified stable period-6 orbits in a
+  bounded strip but fails its preregistered 1,000-point coverage gate.
+
+- [`2026-08-12-exp202-scale-ensemble-residual-frozen.md`](2026-08-12-exp202-scale-ensemble-residual-frozen.md)
+  — all 94 candidates retain a common critical assignment, but the second
+  residual stays positive in every one of 1,128 scale/support/step views.
+
 - [`2026-08-12-exp201-smoothing-scale-audit-frozen.md`](2026-08-12-exp201-smoothing-scale-audit-frozen.md)
   — a seven-level smoothing ladder and nested 2,048/8,192 support are frozen
-  over the complete 104-point EXP-200 disagreement set.
+  over the complete 104-point EXP-200 disagreement set and passes at 94 points.
 
 - [`2026-08-11-exp200-lower-c-high-support-scan-frozen.md`](2026-08-11-exp200-lower-c-high-support-scan-frozen.md)
   — quadrupled support rejects sample scarcity but exposes a shallow critical

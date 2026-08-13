@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.jones-period6-flip-refinement-summary.v1",
+  "experiment_id": "EXP-205",
+  "passed": true,
+  "source_commit": "66a79ffc76c6bb18a9036b4264b6538ab77efeb1",
+  "manifest_sha256": "e1fd79d493ca086adedf1caa79c739c44767226f869e5bd53c8dd42de886c70f",
+  "candidate_input_sha256": "db4c841dd678e0355ff1ed1ecfb9c8d03e630ce00e4d892f2fc237d09c2e2a02",
+  "raw_artifact": "artifacts/EXP-205/receipt.json",
+  "raw_artifact_bytes": 6080,
+  "raw_artifact_sha256": "42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0",
+  "events": [
+    {"id": "flip-c7192", "c": 7.192, "a": 0.2157982842636108, "multiplier_residual": 1.1158282198220348e-7},
+    {"id": "flip-c7208", "c": 7.208, "a": 0.21578777446746822, "multiplier_residual": 8.106602977786537e-8},
+    {"id": "flip-c7224", "c": 7.224, "a": 0.2157761667251587, "multiplier_residual": 1.525089362575116e-7},
+    {"id": "flip-c7244", "c": 7.244, "a": 0.21576010829925535, "multiplier_residual": 2.578552305010362e-8},
+    {"id": "flip-c7264", "c": 7.264, "a": 0.21574233165740964, "multiplier_residual": -1.3715804936254017e-8},
+    {"id": "flip-c7284", "c": 7.284, "a": 0.2157228476333618, "multiplier_residual": -2.0119771138027431e-7},
+    {"id": "flip-c7288", "c": 7.288, "a": 0.21571874729156498, "multiplier_residual": -3.185817987194639e-8}
+  ],
+  "quality": {
+    "event_count": 7,
+    "maximum_a_bracket_width": 7.629394338515283e-11,
+    "maximum_absolute_multiplier_residual": 2.0119771138027431e-7,
+    "maximum_multiplier_imaginary_part": 0.0,
+    "maximum_closure_error": 2.824424441616178e-13,
+    "maximum_neutral_multiplier_error": 1.1933860566415433e-9,
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8
+  },
+  "elapsed_seconds": 27.704024207778275,
+  "interpretation": "All seven prospectively selected EXP-203 edge brackets refine to real -1 Floquet events while retaining flow closure and both section identities. The sampled high-a edge is therefore a genuine period-6 period-doubling boundary seed set, not a raster or threshold artifact. This does not yet establish continuous curve coverage, the period-12 child branch, supercriticality, critical membership, or the TBA curve."
+}

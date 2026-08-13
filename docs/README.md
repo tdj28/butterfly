@@ -204,6 +204,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-073-lower-c-extension-finds-a-bounded-stable-period6-strip.md`](findings/FND-073-lower-c-extension-finds-a-bounded-stable-period6-strip.md):
   records a 551-orbit lower-c stable strip, its correction/stability boundaries,
   and the failed coverage gate that blocks unconstrained residual extrapolation.
+- [`findings/FND-074-lower-c-stable-strip-has-a-real-flip-boundary.md`](findings/FND-074-lower-c-stable-strip-has-a-real-flip-boundary.md):
+  qualifies seven real-minus-one Floquet events on the stable strip edge and
+  promotes them to period-doubling curve and child-branch continuation seeds.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

@@ -21,6 +21,8 @@ topology claims.
   scale-ensemble residual fields and normalized direct-gate obstruction.
 - fig13-exp203-stable-period6-extension.png: EXP-203's qualified stable strip,
   connected components, and dominant Floquet stability margin.
+- fig14-exp205-period6-flip-curve.png: EXP-205's seven refined real-minus-one
+  period-6 Floquet events over the EXP-203 field and their sign brackets.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -87,6 +89,17 @@ Regenerate the EXP-203 stable-period-6 extension figure and receipt:
       --receipt artifacts/EXP-203/candidates.json \
       --expected-receipt-sha256 db4c841dd678e0355ff1ed1ecfb9c8d03e630ce00e4d892f2fc237d09c2e2a02 \
       --output paper/figures/fig13-exp203-stable-period6-extension.png --dpi 260
+
+Regenerate the EXP-205 period-6 flip-curve figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp205_period6_flip_curve.py \
+      --manifest experiments/manifests/EXP-205-lower-c-period6-flip-refinement.json \
+      --field artifacts/EXP-203/candidates.json \
+      --expected-field-sha256 db4c841dd678e0355ff1ed1ecfb9c8d03e630ce00e4d892f2fc237d09c2e2a02 \
+      --receipt artifacts/EXP-205/receipt.json \
+      --expected-receipt-sha256 42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0 \
+      --output paper/figures/fig14-exp205-period6-flip-curve.png --dpi 260
 
 ## Promoted experiment figures
 

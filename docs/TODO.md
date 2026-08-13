@@ -226,9 +226,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-204 now freezes the first branch: fresh two-step GPU trajectories and 12
   scale/support/step residual views over all 551 candidates, with a 250-point
   coverage gate and strict direct/bracket nomination rules. Independently,
-  EXP-205 now freezes scalar refinement of seven real `-1` period-6 Floquet
-  brackets across `c in [7.192,7.288]`; use passing seeds for a coupled flip-
-  curve continuation and child-branch audit.
+  EXP-205 passes scalar refinement of all seven real `-1` period-6 Floquet
+  brackets across `c in [7.192,7.288]`, with `7.63e-11` maximum bracket width
+  and exact two-section identity. Use these seeds for a coupled flip-curve
+  continuation and period-12 child-branch audit.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
