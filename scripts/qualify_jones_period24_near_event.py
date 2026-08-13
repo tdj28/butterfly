@@ -30,6 +30,7 @@ SCHEMAS = {
     "butterfly.jones-period48-near-event-qualification-manifest.v1",
     "butterfly.jones-period96-near-event-qualification-manifest.v1",
     "butterfly.jones-period192-near-event-qualification-manifest.v1",
+    "butterfly.jones-period384-near-event-qualification-manifest.v1",
 }
 
 

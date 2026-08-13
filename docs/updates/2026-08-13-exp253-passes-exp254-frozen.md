@@ -86,3 +86,8 @@ EXP-267 passes every tightened science gate at
 `5.31e-11/1.39e-11`. FND-095 records the fifth exact event and the finite
 spacing ratios `4.557/4.697/4.300`, which do not support monotone convergence.
 EXP-268 freezes the separate bilateral 512-segment period-384 switch.
+
+EXP-268 passes all six candidates with exact `448/512` identity. The largest
+negative/positive candidates have half-period closures
+`5.63e-5/5.45e-5` and preliminary stable moduli `0.391/0.433`. EXP-269 freezes
+the decisive two-solver stability exchange; period 384 is not yet promoted.
