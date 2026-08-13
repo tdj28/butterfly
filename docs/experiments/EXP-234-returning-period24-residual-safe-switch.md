@@ -1,6 +1,6 @@
 # EXP-234 — Residual-safe multiscale period-24 switch
 
-Status: frozen — not yet executed
+Status: complete — administrative failure before receipt
 
 EXP-233 stops before receipt on a primary-family `xtol` status. EXP-234 keeps
 the exact EXP-232 event, six predictor scales, both nullspace signs, solver,
@@ -16,3 +16,14 @@ qualification. It does not establish stability or supercriticality.
 
 Manifest:
 [`../../experiments/manifests/EXP-234-returning-period24-residual-safe-switch.json`](../../experiments/manifests/EXP-234-returning-period24-residual-safe-switch.json).
+
+## Result
+
+The residual-safe runner still stops before receipt because the positive
+`a` primary-family offset is not a qualified correction: at `+1e-5` it has
+raw closure `0.00801`, far outside the unchanged `2e-8` threshold. The center
+and `-1e-5` corrections pass with raw closures `1.81e-11` and `4.20e-11`.
+
+This is a failed symmetric tangent stencil, not evidence against the period-24
+branch. EXP-235 changes only that stencil to the qualified one-sided offsets
+`[-2e-5,-1e-5,0]`, retaining the exact event and every switch/candidate gate.

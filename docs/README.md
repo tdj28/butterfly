@@ -317,6 +317,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-234-returning-period24-residual-safe-switch.md`](experiments/EXP-234-returning-period24-residual-safe-switch.md):
   preserves the period-24 switch while making primary-family `xtol` handling
   residual-gated and receipt-visible.
+- [`experiments/EXP-235-returning-period24-one-sided-switch.md`](experiments/EXP-235-returning-period24-one-sided-switch.md):
+  replaces only the failed symmetric primary tangent stencil with three
+  qualified one-sided offsets.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

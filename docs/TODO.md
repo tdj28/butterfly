@@ -365,6 +365,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-233 stops before receipt on primary-family `xtol`. EXP-234 retains every
   switch and nomination gate while serializing a residual-qualified `xtol`
   exception, exactly as validated in EXP-232.
+  EXP-234 still stops because its positive primary offset has raw closure
+  `0.00801`, while the center and negative offsets pass near `1e-11`. EXP-235
+  freezes the qualified one-sided `[-2e-5,-1e-5,0]` tangent stencil with every
+  switch and period-24 gate unchanged.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
