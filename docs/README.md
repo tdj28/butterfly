@@ -225,6 +225,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-212-period6-flip-pseudoarclength-extension.md`](experiments/EXP-212-period6-flip-pseudoarclength-extension.md):
   freezes exact dual-parameter pseudo-arclength extension of the parent flip
   curve beyond the qualified child-sheet rectangle.
+- [`findings/FND-080-period6-flip-curve-crosses-a-historical-section-boundary.md`](findings/FND-080-period6-flip-curve-crosses-a-historical-section-boundary.md):
+  records the complete upper extension and the lower six-to-seven historical
+  phase change that nominates a section grazing rather than an orbit endpoint.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

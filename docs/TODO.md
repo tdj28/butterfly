@@ -250,6 +250,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   independently defined TBA curve. EXP-212 now freezes 100 exact-Jacobian
   pseudo-arclength points in each direction from EXP-206, with broad-`c`
   coverage and remote Radau gates, before extending the children.
+  EXP-212 fails the symmetric range gate: the upper 100 points reach
+  `c=8.40309`, while the lower arm stops after 23 accepted points when only the
+  historical count changes 6-to-7. Freeze EXP-213's continuous grazing
+  refinement before continuing the invariant event through that boundary.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

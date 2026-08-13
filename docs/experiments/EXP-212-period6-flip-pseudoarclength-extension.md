@@ -1,6 +1,6 @@
 # EXP-212 — Broad pseudo-arclength extension of the period-6 flip curve
 
-Status: prospectively frozen before execution
+Status: complete — failed symmetric range gate; upper extension passed
 
 ## Question
 
@@ -30,3 +30,24 @@ A pass establishes a broad regular sampled flip-curve segment. It does not
 find the physical endpoints, qualify period-12 children over the extension,
 identify the TBA, prove global connectivity, or establish double-critical
 membership.
+
+## Result
+
+The symmetric claim fails. The upper direction completes all 100 requested
+points and reaches `c=8.40309`; the lower direction accepts 23 points through
+`c=6.941289` before the next point fails historical phase identity. All 123
+retained points preserve exact 6/8 historical/Barrio counts, with maximum
+orbit residual `8.25e-13`, event-eigenvector residual `2.00e-12`, and
+arclength residual `2.75e-15`. Both retained terminal events independently
+recorrect under Radau.
+
+A deterministic replay of the rejected point at
+`(a,c)=(0.2158711064,6.9324593154)` retains an accurate real `-1` event and
+eight Barrio phases but has seven historical phases. Thus the stop nominates
+a historical-section grazing, not a physical termination of the flow-orbit
+flip curve. EXP-213 prospectively freezes its direct refinement.
+
+Raw receipt: `artifacts/EXP-212/receipt.json`, 162,359 bytes, SHA-256
+`a322c78612874a3735a169e647c66aaa4fdddf81397d39d691ecc6c6e7ec04f1`.
+Compact receipt:
+[`receipts/EXP-212.json`](receipts/EXP-212.json).
