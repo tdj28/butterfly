@@ -268,6 +268,9 @@ what must be narrowed, and what is false or unresolved.
   returning-arm events toward the unresolved middle slice.
 - [`experiments/EXP-222-returning-period12-child-first-bridge.md`](experiments/EXP-222-returning-period12-child-first-bridge.md):
   freezes a 16-substep bridge across EXP-221's first primitive-root jump.
+- [`findings/FND-087-fine-stepping-recovers-returning-child-across-root-jump.md`](findings/FND-087-fine-stepping-recovers-returning-child-across-root-jump.md):
+  qualifies stable-child persistence across that interval with three
+  independent solver controls.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

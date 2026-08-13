@@ -296,6 +296,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   highly unstable `14/16` root with the wrong period ratio. EXP-222 freezes a
   16-substep bridge from the closest-to-event qualified child over that exact
   interval before any longer child-sheet claim is retried.
+  EXP-222 passes all 17 bridge points and three independent controls, proving
+  the stable child persists across the coarse root jump. EXP-223 freezes
+  adaptive bisection across all 52 event intervals to the middle slice, with a
+  maximum accepted child-state step of `0.003` and unchanged science gates.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
