@@ -1,0 +1,82 @@
+{
+  "schema": "butterfly.jones-scale-ensemble-gpu-residual-manifest.v1",
+  "experiment_id": "EXP-204",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-203.json",
+      "sha256": "3dd394079bf4cb1af2afb3da365611767c561a57f0efc93b226953f2d2c8d198",
+      "role": "completed lower-c stable-orbit extension with 551 individual candidates"
+    },
+    {
+      "path": "experiments/manifests/EXP-204-lower-c-candidate-selection.json",
+      "sha256": "df93c04ce734e2198ce9dab26da4a6256e5c8bcb4839ba16b9e17beeb66194f8",
+      "role": "complete deterministic candidate selection"
+    }
+  ],
+  "candidate_input_sha256": "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012",
+  "expected_candidate_count": 551,
+  "section": {"kind": "barrio_positive_x"},
+  "cycle_state_count": 8,
+  "return_coordinate": {"name": "z", "axis": 2},
+  "profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01},
+    {"name": "rk4_dt_0005", "dt": 0.005}
+  ],
+  "ensemble": {
+    "x_range": [-14.0, -0.2],
+    "x_count": 128,
+    "z_range": [0.008, 0.55],
+    "z_count": 64,
+    "horizon": 200.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0],
+    "midpoint_window": [80.0, 140.0],
+    "escape_radius": 1000000.0
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [15.0, 0.01],
+    "radius": 0.0002,
+    "required_crossings": 5
+  },
+  "gpu": {"chunk_steps": 512, "max_recorded_crossings": 32, "dtype": "float64"},
+  "nested_support": [
+    {
+      "name": "nested_2048",
+      "x_stride": 2,
+      "z_stride": 2,
+      "initial_condition_count": 2048,
+      "minimum_return_pairs": 4000
+    },
+    {
+      "name": "full_8192",
+      "x_stride": 1,
+      "z_stride": 1,
+      "initial_condition_count": 8192,
+      "minimum_return_pairs": 16000
+    }
+  ],
+  "smoothing_values": [
+    0.000004641588833612782,
+    0.00001,
+    0.000021544346900318822
+  ],
+  "oracle_common": {
+    "bin_count": 25,
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.1,
+    "minimum_domain_coverage": 0.6,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 204
+  },
+  "acceptance": {
+    "minimum_eligible_candidates": 250,
+    "maximum_survivor_fraction_difference": 0.03,
+    "maximum_normalized_critical_location_span": 0.03,
+    "maximum_direct_absolute_residual": 0.02,
+    "minimum_signed_bracket_cells": 1
+  },
+  "claim_scope": "prospectively frozen fresh-trajectory scale-ensemble residual audit over all 551 individually qualified EXP-203 stable period-6 orbits; a pass nominates only a direct point or complete same-phase lattice cell for zero-slope and independent-integrator confirmation, while a failure rejects only the bounded incomplete stable strip and does not exclude fold-following or unstable continuation"
+}

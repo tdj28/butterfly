@@ -223,6 +223,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   points first fail correction and 806 first fail stability. Freeze a residual
   replay on the 551 points, and separately continue the stability/fold boundary
   or unstable family rather than extrapolating through the failed region.
+  EXP-204 now freezes the first branch: fresh two-step GPU trajectories and 12
+  scale/support/step residual views over all 551 candidates, with a 250-point
+  coverage gate and strict direct/bracket nomination rules.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
