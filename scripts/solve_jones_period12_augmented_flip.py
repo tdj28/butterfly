@@ -38,6 +38,7 @@ from solve_period1_c_flip import _orbit_nodes
 SCHEMAS = {
     "butterfly.jones-period12-augmented-flip-manifest.v1",
     "butterfly.jones-period24-augmented-flip-manifest.v1",
+    "butterfly.jones-period48-augmented-flip-manifest.v1",
 }
 
 
@@ -46,7 +47,10 @@ def source_child(receipt: dict, solver_name: str, manifest: dict | None = None) 
 
     if not receipt.get("passed"):
         raise ValueError("a passed source receipt is required")
-    if receipt.get("schema") == "butterfly.jones-period24-segmented-continuation-receipt.v1":
+    if receipt.get("schema") in {
+        "butterfly.jones-period24-segmented-continuation-receipt.v1",
+        "butterfly.jones-period48-segmented-continuation-receipt.v1",
+    }:
         if manifest is None or "source_row_index" not in manifest:
             raise ValueError("segmented source requires a frozen source row index")
         row = receipt["rows"][int(manifest["source_row_index"])]

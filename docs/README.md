@@ -360,7 +360,10 @@ what must be narrowed, and what is false or unresolved.
   passes eight exact child-continuation steps and reaches a strongly unstable
   period-48 endpoint.
 - [`experiments/EXP-248-jones-period48-segmented-flip-scan.md`](experiments/EXP-248-jones-period48-segmented-flip-scan.md):
-  freezes the magnitude-separated nine-row period-48-to-96 bracket scan.
+  passes the magnitude-separated nine-row scan and isolates one period-48
+  real-`-1` bracket.
+- [`experiments/EXP-249-jones-period48-augmented-flip.md`](experiments/EXP-249-jones-period48-augmented-flip.md):
+  freezes the exact 64-segment augmented solve for the period-96 event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
