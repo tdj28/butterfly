@@ -152,3 +152,8 @@ DOP853/Radau stable moduli are `0.0879289933/0.0879290911`, spread `9.78e-8`,
 with exact `896/1024` identity. This resolves the conditioning issue without
 rewriting the two failed receipts. EXP-279 freezes eight exact period-768
 continuation steps toward a seventh event.
+
+EXP-279 passes all eight full steps. Its terminal orbit retains exact
+`896/1024` identity, half-period closure `2.88e-5`, and preliminary multiplier
+`-946.310`. EXP-280 freezes a nine-row, eight-orders-separated block-Floquet
+scan before any exact seventh-event claim.
