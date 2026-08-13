@@ -111,6 +111,19 @@ qualifies the second doubling as supercritical. It does not establish a
 universality limit, global child sheet, paired shrimp boundaries, TBA
 membership, or double-criticality.
 
+CLM-008 addendum (EXP-247--253): exact continuation of the period-48 branch
+isolates its next real-`-1` event at `a=0.24070101640878155`. Although the
+EXP-250 optimizer reaches its evaluation ceiling, all DOP853 event residuals
+pass and the separately frozen EXP-251 segmented Radau audit independently
+qualifies the orbit, anti-periodic tangent, multiplier, cyclic products,
+proper-subperiod separation, and `56/64` identity. Hash-bound switching then
+nominates primitive period-96 candidates on both signs. At a near-event point,
+DOP853/Radau agree on an unstable period-48 parent and stable primitive
+period-96 child with exact `112/128` identity, qualifying a third local
+supercritical doubling. The two available event spacings have ratio `4.557`;
+this is finite cascade evidence, not a universality, full child-sheet,
+paired-boundary, TBA, double-criticality, or whole-plane result.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

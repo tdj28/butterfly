@@ -1099,3 +1099,45 @@ stability exchange, not for paired shrimp boundaries.
   center.}
   \label{fig:exp223-226-child-endpoint}
 \end{figure}
+
+Removing source-arm interpolation from the child path carries the primitive
+period-12 orbit beyond the false endpoint and reveals a genuine cascade at
+fixed $(b,c)=(0.2,7.625815600403827)$. Exact augmented multiple shooting
+locates real-$-1$ events of the period-12, period-24, and period-48 parents at
+\begin{equation}
+ a_{12}=0.24070118147582764,\quad
+ a_{24}=0.24070104611236293,\quad
+ a_{48}=0.24070101640878155.
+\end{equation}
+Each event passes orbit, anti-periodic tangent, proper-subperiod, exact
+two-section identity, and independent Radau gates. The last event requires a
+segmented residual-safe audit: the original optimizer exhausts its evaluation
+ceiling after reaching DOP853 orbit and tangent residuals
+$2.16\times10^{-10}$ and $1.31\times10^{-10}$, while segmented Radau gives
+$\mu=-1.000000032852$ with cyclic-product spread $2.37\times10^{-12}$.
+
+Exact node-doubling switches produce primitive period-24, period-48, and
+period-96 children. At prospectively frozen near-event samples, DOP853 and
+Radau agree that every parent is unstable and every child stable. For the
+third rung the parent moduli are $1.02642736/1.02641856$ and child moduli are
+$0.89393093/0.89393104$; the period-96 orbit retains exact $112/128$ section
+identity. Thus three local doublings are qualified as supercritical and the
+returning-arm cascade reaches stable period 96. The two available event
+spacings have ratio $4.557$. This is finite cascade evidence, not an estimate
+of an accumulation limit or proof of universality.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig22-exp237-253-returning-cascade.png}
+  \caption{The exact returning-arm cascade through stable period 96. Upper
+  left: three corrected real-$-1$ events converge rapidly in $a$ while the
+  parent period doubles. Upper right: the two available spacings give one
+  finite ratio, $4.557$, which is not a universality estimate. Lower left:
+  independent DOP853 and Radau calculations recover unstable parents and
+  stable primitive children at all three near-event samples. Lower right:
+  each event multiplier remains close to $-1$ under independent integration.
+  The figure establishes a finite local cascade, not a full child sheet,
+  paired shrimp boundaries, TBA membership, double-criticality, or a global
+  parameter-plane explanation.}
+  \label{fig:exp237-253-returning-cascade}
+\end{figure}

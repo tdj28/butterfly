@@ -42,6 +42,9 @@ topology claims.
   stable child strip, its recrossing of the known flip arm, the bilateral
   primitive-child versus parent-double-cover audit, and EXP-229's correction
   of the former interpolation-based distinct-boundary interpretation.
+- fig22-exp237-253-returning-cascade.png: three exact returning-arm flip
+  events, their finite spacing ratio, and two-solver supercritical stability
+  exchange through a stable primitive period-96 child.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -211,6 +214,24 @@ Regenerate the EXP-223--226 returning-child endpoint figure and receipt:
       --identity-receipt artifacts/EXP-229/receipt.json \
       --expected-identity-sha256 d09dce1e02a24d06279e30cb5bb8e2c5f19b28af56cdbeb8ce0c8ad46afe5efa \
       --output paper/figures/fig21-exp223-226-returning-child-endpoint.png --dpi 260
+
+Regenerate the EXP-237--253 returning-arm cascade figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp237_253_returning_cascade.py \
+      --event12-receipt artifacts/EXP-237/receipt.json \
+      --expected-event12-sha256 088258b0c0cca6f5cb847ced26ff44dff00a6c67bdd50858d4f504e45f4e2cba \
+      --qual24-receipt artifacts/EXP-241/receipt.json \
+      --expected-qual24-sha256 5ff13b1b705e15bf1dd68dbd78e788e863aab1981a7c8580b9945bec32f2aee6 \
+      --event24-receipt artifacts/EXP-244/receipt.json \
+      --expected-event24-sha256 9c3579c86500998daca262dda77b480beaaee913ab3089767bea3a20102defba \
+      --qual48-receipt artifacts/EXP-246/receipt.json \
+      --expected-qual48-sha256 eaccf68656f8aa856299c934a0a41c61ea28a4ae3d9ac7eea1c81fc20067dc52 \
+      --event48-receipt artifacts/EXP-251/receipt.json \
+      --expected-event48-sha256 db095fb0f303aee1d39418024517958b8b514e949ba6b82233eed49241cac2f5 \
+      --qual96-receipt artifacts/EXP-253/receipt.json \
+      --expected-qual96-sha256 6d084dea91779dd49e9ceb92918915ca278543db37de7c8130c076321ca8be7f \
+      --output paper/figures/fig22-exp237-253-returning-cascade.png --dpi 260
 
 ## Promoted experiment figures
 

@@ -19,3 +19,9 @@ exact `112/128` identity and have preliminary stable multipliers near `0.893`.
 EXP-253 freezes independent DOP853/Radau correction and a prospectively
 declared supercritical parent-unstable/child-stable test at the negative-mode
 near-event point.
+
+EXP-253 passes: DOP853/Radau find parent moduli
+`1.02642736/1.02641856` and child moduli `0.89393093/0.89393104`, with exact
+`112/128` child identity. FND-093 therefore records a third exact local
+supercritical doubling and a stable primitive period-96 child. This is strong
+finite cascade evidence, not a universality or whole-plane result.
