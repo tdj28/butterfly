@@ -31,6 +31,27 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 SCHEMA = "butterfly.jones-period6-flip-branch-switch-manifest.v1"
 
 
+def bounded_predictor(base, tangent, maximum_step, a_guard):
+    """Return a predictor inside the frozen a guard by shortening only."""
+
+    base = np.asarray(base, dtype=float)
+    tangent = np.asarray(tangent, dtype=float)
+    step = float(maximum_step)
+    a_component = float(tangent[4])
+    if a_component > 0.0:
+        available = float(a_guard[1]) - float(base[4])
+        step = min(step, 0.8 * available / a_component)
+    elif a_component < 0.0:
+        available = float(base[4]) - float(a_guard[0])
+        step = min(step, 0.8 * available / -a_component)
+    if not np.isfinite(step) or step <= max(1e-12, float(maximum_step) * 1e-8):
+        raise ValueError("no positive predictor step remains inside the frozen a guard")
+    predictor = base + step * tangent
+    if not float(a_guard[0]) < predictor[4] < float(a_guard[1]):
+        raise ValueError("guard-aware predictor is not strictly inside the a bounds")
+    return predictor, step
+
+
 def _extended_a_jacobian(variables, *, b, c, phase_direction, solver):
     state = np.asarray(variables[:3], dtype=float)
     duration = float(variables[3])
@@ -243,7 +264,12 @@ def _switch_event(event, manifest, solver):
     branches = []
     for direction in (-1, 1):
         tangent = direction * secondary_tangent
-        predictor = event_variables + float(continuation["step_length"]) * tangent
+        predictor, predictor_step = bounded_predictor(
+            event_variables,
+            tangent,
+            float(continuation["step_length"]),
+            a_guard,
+        )
         corrected, status = _correct_arclength(
             predictor,
             tangent,
@@ -256,7 +282,7 @@ def _switch_event(event, manifest, solver):
         )
         points = [event_variables]
         rows = []
-        statuses = [status]
+        statuses = [{**status, "predictor_step": predictor_step}]
         if status["success"]:
             points.append(corrected)
             rows.append(
@@ -273,18 +299,35 @@ def _switch_event(event, manifest, solver):
                 break
             tangent = points[-1] - points[-2]
             tangent /= np.linalg.norm(tangent)
-            predictor = points[-1] + float(continuation["step_length"]) * tangent
-            corrected, status = _correct_arclength(
-                predictor,
-                tangent,
-                points[-1],
-                b=b,
-                c=c,
-                a_guard=a_guard,
-                solver=solver,
-                corrector=manifest["corrector"],
-            )
-            statuses.append(status)
+            try:
+                predictor, predictor_step = bounded_predictor(
+                    points[-1],
+                    tangent,
+                    float(continuation["step_length"]),
+                    a_guard,
+                )
+                corrected, status = _correct_arclength(
+                    predictor,
+                    tangent,
+                    points[-1],
+                    b=b,
+                    c=c,
+                    a_guard=a_guard,
+                    solver=solver,
+                    corrector=manifest["corrector"],
+                )
+            except ValueError as error:
+                statuses.append(
+                    {
+                        "success": False,
+                        "evaluations": 0,
+                        "residual_norm": None,
+                        "message": str(error),
+                        "predictor_step": 0.0,
+                    }
+                )
+                break
+            statuses.append({**status, "predictor_step": predictor_step})
             if not status["success"]:
                 break
             points.append(corrected)
