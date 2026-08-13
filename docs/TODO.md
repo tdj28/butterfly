@@ -282,6 +282,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   auxiliary parent correction fails at the middle event. EXP-219 changes only
   to a successfully audited one-sided parent tangent and preserves the exact
   lower-`a` child prediction and every scientific gate.
+  EXP-219 completes but produces zero candidates in both signed directions at
+  all three slices; the remote doubled-period singularities are under-resolved.
+  EXP-220 freezes exact augmented event recorrection and a four-scale predictor
+  ladder while preserving every directional and child-qualification gate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

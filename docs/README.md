@@ -257,6 +257,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-219-returning-period12-children-one-sided.md`](experiments/EXP-219-returning-period12-children-one-sided.md):
   preserves that prediction after replacing an administratively fragile
   symmetric parent-tangent estimate.
+- [`experiments/EXP-220-returning-period12-children-multiscale.md`](experiments/EXP-220-returning-period12-children-multiscale.md):
+  freezes exact event recorrection and a declared four-scale child-switch
+  recovery after EXP-219's zero-candidate result.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
