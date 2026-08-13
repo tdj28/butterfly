@@ -216,6 +216,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-077-period6-to12-opening-is-locally-supercritical-at-three-slices.md`](findings/FND-077-period6-to12-opening-is-locally-supercritical-at-three-slices.md):
   replicates square-root opening, flip-multiplier scaling, cross-solver parity,
   and perturbed attraction at three fixed-`c` period-6-to-12 slices.
+- [`findings/FND-078-unconstrained-period12-surface-shooting-loses-child-identity.md`](findings/FND-078-unconstrained-period12-surface-shooting-loses-child-identity.md):
+  records 16 doubled-parent collapses in a complete 124-cell surface attempt
+  and requires explicit nonclosing-child root selection in its successor.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

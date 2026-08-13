@@ -1,6 +1,6 @@
 # EXP-210 — Dense fixed-offset period-12 surface patch
 
-Status: prospectively frozen before surface continuation
+Status: complete — failed child-identity and surface-coherence gates
 
 ## Question
 
@@ -32,3 +32,24 @@ A pass establishes a dense regular sampled period-12 surface patch with local
 normal-form scaling. It is not a formal continuous-surface theorem, global
 continuation or endpoint result, basin-size measurement, TBA curve, or
 double-superstability result.
+
+## Result
+
+The strict surface claim fails. Although all 124 cells complete and 108 pass
+their pointwise gates, 16 child corrections collapse onto the double-covered
+period-6 parent. At those cells the apparent opening RMS is below `1.69e-8`,
+proper-subperiod closure is at numerical zero, and the doubled-parent
+multiplier is unstable. These collapses corrupt the four-offset opening fits:
+the minimum `R^2` is `0.0264`, the exponent range is `[-3.72,7.95]`, and maximum
+adjacent whole-orbit RMS is `0.0870` versus the `0.05` gate.
+
+This is a root-selection failure, not evidence that the child sheet ends.
+Several collapsed cells are isolated between valid stable child corrections,
+and EXP-209 independently qualifies the child at all three anchor slices.
+EXP-211 must seed each grid cell independently from interpolated EXP-209 child
+orbits and enforce proper-subperiod nonclosure before accepting a root.
+
+Raw receipt: `artifacts/EXP-210/receipt.json`, 220,385 bytes, SHA-256
+`4f9c5885d91754a29ac59d2d0bdfae7916f7a19d5d91ea91ff797fc1ccb211ce`.
+Compact receipt:
+[`receipts/EXP-210.json`](receipts/EXP-210.json).

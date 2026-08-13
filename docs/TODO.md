@@ -240,8 +240,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   continuation at all three slices: opening exponents are
   `0.50258--0.50350`, multiplier-ratio medians are `4.034--4.047`, and all
   cross-solver and two-sided attraction gates pass. EXP-210 now freezes a
-  better-conditioned 31-by-4 fixed-parameter period-12 surface patch; retain
-  EXP-207's multi-point-arm failure.
+  31-by-4 fixed-parameter period-12 surface patch. EXP-210 completes but fails:
+  16/124 child corrections collapse to the doubled parent and corrupt the
+  surface fits. Freeze EXP-211 with independent EXP-209 anchor interpolation
+  and mandatory proper-subperiod nonclosure; retain EXP-207's multi-point-arm
+  failure.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
