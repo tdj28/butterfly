@@ -871,5 +871,37 @@ continuation, period-12 child, criticality, or identification with the TBA.
   sampled segment.  Right: coupled orbit/tangent and independent Floquet
   residuals remain below their frozen gates.  This curve is not identified
   with the topology-transition curve.}
-  \label{fig:exp206-flip-curve}
+\label{fig:exp206-flip-curve}
+\end{figure}
+
+The doubled-period nullspace switch does not satisfy its strict continuation
+gate: each negative switch direction produces only one point and each positive
+direction produces none, versus the frozen minimum of eight per arm.  Those
+three isolated points were therefore treated only as post-run nominations.
+A separately frozen experiment then corrects the period-6 parent and nominated
+child independently with DOP853 and Radau at $c=7.18,7.24,7.30$
+(Figure~\ref{fig:exp208-children}).  All three pass.  Radau gives unstable
+parent multiplier moduli $1.20713$, $1.24791$, and $1.29062$, paired with
+stable child moduli $0.149090$, $0.0235436$, and $0.206148$.  The three
+child/parent period ratios lie in $[1.999923,1.999932]$.  Every parent has six
+historical and eight Barrio phases; every child has twelve and sixteen.
+DOP853/Radau whole-orbit RMS is at most $6.29\times10^{-11}$, and every proper
+divisor of historical period 12 is rejected: the smallest subperiod return
+distance is $0.09413$, compared with full-period closures below
+$5.30\times10^{-11}$.  Thus three sampled primitive stable period-12 children
+are established even though the multi-point arm continuation remains failed.
+Normal-form scaling, attraction basins, a continuous child surface, and any
+identification with the TBA remain open.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig16-exp208-period12-children.png}
+  \caption{Independent qualification of three period-12 children.  Left:
+  sampled post-flip child coordinates relative to the EXP-206 period-6 flip
+  curve.  Center: independent Radau monodromy places every parent outside and
+  every child inside the transverse unit-modulus stability band.  Right: none
+  of the five proper-divisor fractions closes, whereas the full period closes
+  below $5.30\times10^{-11}$.  The result establishes three sampled children,
+  not a continuous period-12 surface or the TBA curve.}
+  \label{fig:exp208-children}
 \end{figure}

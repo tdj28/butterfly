@@ -25,6 +25,8 @@ topology claims.
   period-6 Floquet events over the EXP-203 field and their sign brackets.
 - fig15-exp206-period6-flip-continuation.png: EXP-206's 41-point coupled flip
   curve, event-period variation, and residual-quality controls.
+- fig16-exp208-period12-children.png: EXP-208's three sampled children,
+  parent/child stability exchange, and proper-subperiod rejection.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -115,6 +117,17 @@ Regenerate the EXP-206 coupled flip-curve figure and receipt:
       --receipt artifacts/EXP-206/receipt.json \
       --expected-receipt-sha256 e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba \
       --output paper/figures/fig15-exp206-period6-flip-continuation.png --dpi 260
+
+Regenerate the EXP-208 period-12 child-qualification figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp208_period12_children.py \
+      --manifest experiments/manifests/EXP-208-qualify-period12-children.json \
+      --curve-receipt artifacts/EXP-206/receipt.json \
+      --expected-curve-sha256 e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba \
+      --receipt artifacts/EXP-208/receipt.json \
+      --expected-receipt-sha256 dbe0bc6cfffdc39b7b2e7f7e1d967cbb2662871a388861d318f8ce781b0f7e69 \
+      --output paper/figures/fig16-exp208-period12-children.png --dpi 260
 
 ## Promoted experiment figures
 

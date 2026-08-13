@@ -210,6 +210,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-075-period6-flip-edge-continues-as-a-dense-coupled-curve.md`](findings/FND-075-period6-flip-edge-continues-as-a-dense-coupled-curve.md):
   continues the flip event with an exact augmented Jacobian through all 41
   frozen points, replacing the raster edge with a dense bifurcation curve.
+- [`findings/FND-076-three-period12-children-qualified.md`](findings/FND-076-three-period12-children-qualified.md):
+  independently qualifies primitive stable period-12 children paired with
+  unstable period-6 parents at three separated post-flip samples.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
