@@ -128,3 +128,10 @@ negative/positive candidates have half-period closures
 `6.10e-6/6.18e-6` and preliminary stable moduli `0.0813/0.0854`. EXP-275
 freezes the decisive two-solver stability exchange; period 768 is not yet
 promoted.
+
+EXP-275 passes every gate. At `a=0.24070100827074953`, DOP853/Radau classify
+the period-384 parent as unstable (`1.22260901/1.22168588`) and the primitive
+period-768 child as stable (`0.08362765/0.08362578`). FND-098 records the
+sixth local supercritical birth and cascade through stable period 768.
+EXP-276 freezes common-coordinate whole-orbit equivalence of both switch
+signs before deeper continuation.

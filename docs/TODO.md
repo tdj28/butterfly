@@ -440,8 +440,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   a sixth exact event (FND-097). The fourth finite spacing ratio is `4.836`,
   but the four-ratio sequence remains non-monotone. EXP-274 passes all six
   bilateral 1,024-segment period-768 switch candidates with exact `896/1024`
-  identity. EXP-275 freezes the independent period-384-parent/period-768-child
-  stability exchange; the sixth birth remains unqualified meanwhile.
+  identity. EXP-275 passes the independent period-384-parent/period-768-child
+  stability exchange, extending the qualified cascade through stable period
+  768 (FND-098). EXP-276 freezes whole-orbit equivalence of both tangent signs
+  before any deeper continuation.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

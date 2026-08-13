@@ -25,6 +25,7 @@ SUPPORTED_SCHEMAS = {
     SCHEMA,
     "butterfly.jones-period192-sign-equivalence-manifest.v1",
     "butterfly.jones-period384-sign-equivalence-manifest.v1",
+    "butterfly.jones-period768-sign-equivalence-manifest.v1",
 }
 
 

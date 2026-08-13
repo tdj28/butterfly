@@ -428,7 +428,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-274-jones-period768-segmented-switch.md`](experiments/EXP-274-jones-period768-segmented-switch.md):
   passes bilateral 1,024-segment period-768 child nomination.
 - [`experiments/EXP-275-jones-period768-near-event-qualification.md`](experiments/EXP-275-jones-period768-near-event-qualification.md):
-  freezes the independent sixth-birth stability-exchange test.
+  passes the independent sixth-birth stability-exchange test.
+- [`findings/FND-098-returning-arm-cascade-through-period768.md`](findings/FND-098-returning-arm-cascade-through-period768.md):
+  records six exact local doublings and a stable primitive period-768 child.
+- [`experiments/EXP-276-jones-period768-sign-equivalence.md`](experiments/EXP-276-jones-period768-sign-equivalence.md):
+  freezes common-coordinate phase equivalence of both period-768 switch signs.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

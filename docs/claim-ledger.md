@@ -172,6 +172,16 @@ tangent residuals below `2.53e-11`, proper-subperiod separation, and exact
 child. The four finite spacing ratios are `4.557`, `4.697`, `4.300`, and
 `4.836`; their non-monotonicity still forbids a limiting-universality claim.
 
+CLM-008 addendum (EXP-274--275): bilateral 1,024-segment switching from the
+sixth exact event produces six primitive period-768 candidates with exact
+`896/1024` identity. At a prospectively frozen near-event point, DOP853 and
+Radau independently classify the period-384 parent as unstable and the
+period-768 child as stable, with child moduli agreeing to relative `2.24e-5`.
+This qualifies a stable primitive period-768 orbit and a sixth local
+supercritical birth, but not tangent-sign equivalence, a seventh event,
+limiting universality, paired boundaries, TBA membership, double-criticality,
+or a whole-plane result.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
