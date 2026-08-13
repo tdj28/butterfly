@@ -320,6 +320,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   stable-parent double cover after it. Freeze two-direction pseudo-arclength
   continuation from this second event before assigning global sheet endpoints
   or paired shrimp-boundary connectivity.
+  EXP-227 first freezes the required local-curve gate: 21 exact fixed-`c`
+  events over `c_root±2e-4`, all separated below the source returning arm,
+  with endpoint/center Radau controls. Only a pass may seed broad
+  pseudo-arclength continuation.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

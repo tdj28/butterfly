@@ -286,6 +286,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-226-returning-child-strip-endpoint.md`](experiments/EXP-226-returning-child-strip-endpoint.md):
   passes a representation-safe two-solver double-cover audit after both scalar
   roots and the primitive left child qualify.
+- [`experiments/EXP-227-second-period6-flip-local-curve.md`](experiments/EXP-227-second-period6-flip-local-curve.md):
+  freezes exact local continuation and source-arm separation for the newly
+  qualified second period-6 flip.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

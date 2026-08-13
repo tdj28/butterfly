@@ -1,0 +1,42 @@
+{
+  "schema": "butterfly.jones-second-period6-flip-local-manifest.v1",
+  "experiment_id": "EXP-227",
+  "endpoint_receipt_sha256": "59c30304622fb842f5017d86ff804a1ae5f9f966e2b2f5fac4ee9d1e80d56251",
+  "source_arm_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "center_solver": "dop853",
+  "fixed_b": 0.2,
+  "a_guard": [0.239, 0.242],
+  "source_interval": {
+    "left_c": 7.620601779937221,
+    "right_c": 7.6352726301845655
+  },
+  "grid": {
+    "minimum_offset": -0.0002,
+    "maximum_offset": 0.0002,
+    "count": 21
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "independent_solver": {"method": "Radau", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "independent_control_indices": [0, 10, 20],
+  "acceptance": {
+    "required_points": 21,
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_independent_multiplier_residual": 1e-5,
+    "maximum_multiplier_imaginary_part": 1e-7,
+    "maximum_neutral_multiplier_error": 1e-5,
+    "historical_phase_count": 7,
+    "barrio_phase_count": 8,
+    "maximum_center_a_difference": 1e-8,
+    "maximum_adjacent_a_jump": 0.0001,
+    "minimum_source_arm_a_separation": 5e-8,
+    "maximum_solver_a_difference": 1e-8,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "maximum_solver_state_difference": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5
+  },
+  "claim_scope": "prospectively frozen 21-point exact coupled fixed-c continuation of the EXP-226 second period-6 real-minus-one crossing over c_root plus or minus 2e-4, seeded only by the endpoint receipt, required to remain at least 5e-8 lower in a than the interpolated EXP-217 returning arm at every point, with exact 7/8 two-section identity, adjacency, and endpoint/center DOP853-Radau controls; a pass establishes a distinct local second flip curve, not broad continuation, global child-sheet closure, connection to either broad arm, paired shrimp boundaries, TBA membership, or double-criticality"
+}
