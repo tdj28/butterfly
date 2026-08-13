@@ -372,7 +372,9 @@ what must be narrowed, and what is false or unresolved.
   qualifies the period-48 event via residual-safe source handling and an
   independent segmented Radau tangent/block-Floquet audit.
 - [`experiments/EXP-252-jones-period96-segmented-switch.md`](experiments/EXP-252-jones-period96-segmented-switch.md):
-  freezes the hash-bound, 128-segment period-96 child-switch attempt.
+  passes the hash-bound, 128-segment period-96 child-switch nomination.
+- [`experiments/EXP-253-jones-period96-near-event-qualification.md`](experiments/EXP-253-jones-period96-near-event-qualification.md):
+  freezes independent parent/child stability-exchange qualification.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

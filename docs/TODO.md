@@ -398,7 +398,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   optimizer status and a long single-shot Radau replay. EXP-251 freezes an
   unchanged-threshold residual-safe segmented Radau audit, which passes and
   qualifies the period-48 flip. EXP-252 freezes the hash-bound 128-segment
-  period-96 child switch.
+  period-96 child switch and passes all six candidate attempts. EXP-253 freezes
+  independent near-event parent/child stability-exchange qualification.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

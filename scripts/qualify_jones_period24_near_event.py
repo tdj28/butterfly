@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Qualify near-event Jones period-12/24 stability with two segmented solvers."""
+"""Qualify near-event Jones parent/child stability with two segmented solvers."""
 
 from __future__ import annotations
 
@@ -21,12 +21,14 @@ from qualify_jones_period24_segmented_endpoint import (
     corrected_family,
     cyclic_node_identity,
 )
+from switch_jones_period12_segmented_child import qualified_audit_bytes
 from validate_multiple_shooting_switch import half_closure
 
 
 SCHEMAS = {
     "butterfly.jones-period24-near-event-qualification-manifest.v1",
     "butterfly.jones-period48-near-event-qualification-manifest.v1",
+    "butterfly.jones-period96-near-event-qualification-manifest.v1",
 }
 
 
@@ -35,6 +37,7 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--switch", type=Path, required=True)
     parser.add_argument("--event", type=Path, required=True)
+    parser.add_argument("--audit", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
@@ -49,8 +52,14 @@ def main() -> int:
         raise SystemExit("event receipt hash mismatch")
     switch = json.loads(switch_bytes)
     event = json.loads(event_bytes)
-    if not switch.get("passed") or not event.get("passed"):
-        raise SystemExit("passed switch and event receipts are required")
+    if not switch.get("passed"):
+        raise SystemExit("a passed switch receipt is required")
+    try:
+        audit_bytes = qualified_audit_bytes(
+            event, event_bytes, manifest, args.audit
+        )
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -176,6 +185,9 @@ def main() -> int:
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "switch_receipt_sha256": sha256_bytes(switch_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),
+        "audit_receipt_sha256": (
+            sha256_bytes(audit_bytes) if audit_bytes is not None else None
+        ),
         "source": source,
         "environment": {"python": platform.python_version(), "platform": platform.platform(), "numpy": np.__version__, "scipy": scipy.__version__},
         "fixed_b": fixed_b,
