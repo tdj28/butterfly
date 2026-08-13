@@ -213,6 +213,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-076-three-period12-children-qualified.md`](findings/FND-076-three-period12-children-qualified.md):
   independently qualifies primitive stable period-12 children paired with
   unstable period-6 parents at three separated post-flip samples.
+- [`findings/FND-077-period6-to12-opening-is-locally-supercritical-at-three-slices.md`](findings/FND-077-period6-to12-opening-is-locally-supercritical-at-three-slices.md):
+  replicates square-root opening, flip-multiplier scaling, cross-solver parity,
+  and perturbed attraction at three fixed-`c` period-6-to-12 slices.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

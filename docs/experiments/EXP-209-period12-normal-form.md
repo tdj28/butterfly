@@ -1,6 +1,6 @@
 # EXP-209 — Three-point period-12 normal-form and attraction audit
 
-Status: prospectively frozen before child continuation
+Status: passed all normal-form, stability, identity, and attraction gates
 
 ## Question
 
@@ -36,3 +36,28 @@ estimate formal normal-form coefficients, measure basin size, repair EXP-207's
 branch-arm failure, construct a continuous two-parameter child surface,
 establish global supercriticality, identify the TBA curve, or establish double
 superstability.
+
+## Result
+
+All three fixed-`c` slices pass all seven branch points. The phase-aligned
+opening exponents are `0.502576`, `0.503031`, and `0.503504`, with respective
+`R^2` values `0.9999975`, `0.9999967`, and `0.9999957`. All 21 flip multiplier
+ratios lie in `4.01066--4.15024`; the three medians are
+`4.03423--4.04734`.
+
+The smallest sampled parent modulus is `1.02075`, the largest child modulus is
+`0.91679`, and all 21 rows preserve exact 6/8 versus 12/16 section identity.
+The minimum proper-subperiod return distance is `0.02935`. Nine Radau
+checkpoints agree with DOP853 to maximum whole-orbit RMS `1.34e-8`, multiplier
+modulus difference `1.94e-9`, and relative period difference `1.50e-13`.
+
+Both perturbation signs return at every full-offset child. Maximum terminal
+distance to the orbit is `6.57e-11`, and the largest phase-invariant RMS after
+recorrection is `1.41e-8`. The result establishes replicated sampled local
+supercritical signatures and attraction at three slices, within the stated
+claim boundary.
+
+Raw receipt: `artifacts/EXP-209/receipt.json`, 48,049 bytes, SHA-256
+`f57becaf08aa0ddb7a05bd7e258448cc95f3aca7611ebcd4cf00265303ebbfd0`.
+Compact receipt:
+[`receipts/EXP-209.json`](receipts/EXP-209.json).

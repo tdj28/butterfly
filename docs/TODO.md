@@ -236,10 +236,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   yields one accurate, stable 12-historical/16-Barrio-phase candidate separated
   from the doubled parent. EXP-208 independently recorrects all three with
   DOP853 and Radau and passes every primitivity, period-ratio, stability-
-  exchange, identity, and section-count gate. EXP-209 now freezes fixed-`c`
-  child continuation back toward each event to test square-root opening,
-  multiplier scaling, and perturbed attraction; retain EXP-207's multi-point-
-  arm failure.
+  exchange, identity, and section-count gate. EXP-209 passes fixed-`c` child
+  continuation at all three slices: opening exponents are
+  `0.50258--0.50350`, multiplier-ratio medians are `4.034--4.047`, and all
+  cross-solver and two-sided attraction gates pass. Build a true two-parameter
+  period-12 surface with a better-conditioned fixed-parameter/continuation
+  formulation; retain EXP-207's multi-point-arm failure.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -27,6 +27,8 @@ topology claims.
   curve, event-period variation, and residual-quality controls.
 - fig16-exp208-period12-children.png: EXP-208's three sampled children,
   parent/child stability exchange, and proper-subperiod rejection.
+- fig17-exp209-period12-normal-form.png: EXP-209's square-root child opening,
+  multiplier-ratio scaling, and two-sided perturbed-attraction checks.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -128,6 +130,15 @@ Regenerate the EXP-208 period-12 child-qualification figure and receipt:
       --receipt artifacts/EXP-208/receipt.json \
       --expected-receipt-sha256 dbe0bc6cfffdc39b7b2e7f7e1d967cbb2662871a388861d318f8ce781b0f7e69 \
       --output paper/figures/fig16-exp208-period12-children.png --dpi 260
+
+Regenerate the EXP-209 normal-form and attraction figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp209_period12_normal_form.py \
+      --manifest experiments/manifests/EXP-209-period12-normal-form.json \
+      --receipt artifacts/EXP-209/receipt.json \
+      --expected-receipt-sha256 f57becaf08aa0ddb7a05bd7e258448cc95f3aca7611ebcd4cf00265303ebbfd0 \
+      --output paper/figures/fig17-exp209-period12-normal-form.png --dpi 260
 
 ## Promoted experiment figures
 
