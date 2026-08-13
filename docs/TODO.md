@@ -369,6 +369,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `0.00801`, while the center and negative offsets pass near `1e-11`. EXP-235
   freezes the qualified one-sided `[-2e-5,-1e-5,0]` tangent stencil with every
   switch and period-24 gate unchanged.
+  EXP-235 completes with zero candidates despite singular value `7.64e-7` and
+  tangent dot `2.39e-15`. Its closest positive `0.00025` trial reaches
+  residual `1.19e-5` at the 160-evaluation ceiling. EXP-236 freezes a targeted
+  480-evaluation retry; on failure move directly to segmented multiple
+  shooting rather than another undirected scale ladder.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-returning-period24-multiscale-switch-summary.v1",
+  "experiment_id": "EXP-235",
+  "passed": false,
+  "source_commit": "b3da309e9880ef6be62fd94e62176559581d10e7",
+  "manifest_sha256": "07b3f4d181cdbae16360e1b3b5734c34fca7fb912f171c91801e169b3e1f2705",
+  "source_receipt_sha256": "462f8d2992327d1289a53bd0ed019b113c41d5512787765c2a56fc0147e85fa6",
+  "raw_artifact": "artifacts/EXP-235/receipt.json",
+  "raw_artifact_bytes": 12865,
+  "raw_artifact_sha256": "67eb323fab5db4622344df874deb73eb3a5c7cc78b26851fb74519f6011e5911",
+  "step_lengths": [0.008, 0.004, 0.002, 0.001, 0.0005, 0.00025],
+  "trial_count": 12,
+  "candidate_count": 0,
+  "accepted_candidate_count": 0,
+  "minimum_small_singular_value": 7.642929278644499e-7,
+  "maximum_tangent_dot": 2.3869795029440866e-15,
+  "minimum_corrector_residual": 1.1887496008357286e-5,
+  "closest_trial_step_length": 0.00025,
+  "closest_trial_direction": 1,
+  "closest_trial_evaluations": 160,
+  "elapsed_seconds": 2939.761206792202,
+  "interpretation": "The full-period one-step switch produces no period-24 candidates despite a qualified singularity and tangent separation. The closest positive small-scale trial motivates a higher-evaluation recovery before multiple shooting."
+}
