@@ -187,3 +187,11 @@ candidate is `2.776e-17`; the bracket spans 4,387,556 increments and implies
 promoting event seven. EXP-284 freezes a dependency-free 50-decimal-digit RK4
 pilot on four phase-separated state/variational segments before a full
 high-precision multiplier replay.
+
+EXP-284 passes all six gates. Four phase-separated endpoint/transition
+convergence ratios are approximately `15.86/15.73`; fine-grid orbit and
+tangent mismatch remain below `5.72e-10/3.61e-10`. EXP-285 freezes the full
+parallel 1,024-segment Decimal audit with nested 4,096/8,192-step profiles and
+four cyclic characteristic-polynomial roots. It supplies a converged
+high-precision multiplier at the immutable coordinate only, not event
+qualification.

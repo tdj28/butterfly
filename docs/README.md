@@ -451,7 +451,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-099-period768-event-reaches-float64-resolution-frontier.md`](findings/FND-099-period768-event-reaches-float64-resolution-frontier.md):
   records the numerical frontier without promoting a seventh event.
 - [`experiments/EXP-284-period768-decimal-segment-pilot.md`](experiments/EXP-284-period768-decimal-segment-pilot.md):
-  freezes a 50-decimal-digit four-segment convergence pilot.
+  passes a 50-decimal-digit four-segment convergence pilot.
+- [`experiments/EXP-285-period768-decimal-multiplier-audit.md`](experiments/EXP-285-period768-decimal-multiplier-audit.md):
+  freezes the full 1,024-segment high-precision multiplier audit.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
