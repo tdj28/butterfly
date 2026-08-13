@@ -16,3 +16,20 @@ stopped before evaluating it. The implementation now shortens predictor steps
 only as needed to remain strictly inside that unchanged guard and records each
 effective step. Events, gates, bounds, and the nominal maximum step are
 unchanged; regression tests cover both unchanged and shortened predictors.
+
+The clean rerun completes with a scientific failure. No event meets the frozen
+eight-points-per-direction requirement: each negative arm supplies one point,
+and every positive arm supplies zero. This honestly rejects the claim that the
+present nullspace predictor/corrector has traced local period-12 arms.
+
+The failed run nevertheless yields a consistent lead. At all three separated
+events the negative direction lands on one stable, accurate, non-parent-like
+orbit with the expected 12 historical and 16 Barrio phases. The three closure
+errors are below `4.13e-10`, the distances from the doubled primary exceed
+`0.00416`, and the dominant transverse multiplier moduli are `0.1491`,
+`0.02354`, and `0.2061`. These are post-run nominations, not accepted findings.
+EXP-208 will freeze their exact coordinates and independently recorrect both
+parent and child using DOP853 and Radau, adding half-period, period-ratio,
+stability-exchange, and phase-aligned identity gates.
+
+Receipt: [`../experiments/receipts/EXP-207.json`](../experiments/receipts/EXP-207.json).
