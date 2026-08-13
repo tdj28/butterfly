@@ -794,3 +794,30 @@ the rejection remains bounded to the sampled stable field.
   closest direct candidate; white cells were not EXP-201-qualified.}
   \label{fig:exp202-residuals}
 \end{figure}
+
+The direction suggested by the second residual is then tested without looking
+at new criticals.  A fresh $61\times103$ DOP853/Floquet mesh extends the stable
+period-6 family to lower $c$.  The seed passes, but only 551 of 6,283 points
+pass every orbit, identity, section, and stability gate, below the frozen
+minimum of 1,000.  The qualified points form five components of sizes
+$331,156,62,1,1$ over only $a\in[0.2155,0.2158]$ and
+$c\in[7.132,7.288]$ (Figure~\ref{fig:exp203-strip}).  The seed component
+touches the lower-$a$ boundary, while the upper component touches the overlap
+boundary at $c=7.288$.  Correction is the first failed gate at 4,921 points;
+stability is first at 806, and the qualified dominant Floquet modulus reaches
+$0.99945$.  Hence the residual descent meets a bounded correction/stability
+structure, not an open stable sheet.  This redirects the search toward
+boundary or unstable-family continuation while preserving the 551 qualified
+orbits for a separately frozen residual replay.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig13-exp203-stable-period6-extension.png}
+  \caption{Lower-$c$ corrected period-6 extension.  Left: qualified orbits,
+  first correction failures, and first stability failures.  Center: the five
+  eight-connected qualified components; the star marks the seed.  Right:
+  dominant nontrivial Floquet modulus on qualified points.  The failed
+  coverage gate prevents the strip from being treated as a closed search
+  domain.}
+  \label{fig:exp203-strip}
+\end{figure}

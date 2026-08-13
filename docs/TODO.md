@@ -218,7 +218,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   keep unstable inter-window continuation as a separate prospectively frozen
   experiment. EXP-203 now freezes a 6,283-point DOP853/Floquet extension over
   `a in [0.2155,0.2161]`, `c in [6.88,7.288]`, with no critical reconstruction
-  until its orbit-coverage result is sealed.
+  until its orbit-coverage result is sealed. EXP-203 completes but fails
+  coverage with 551/1,000 qualified orbits in five bounded components; 4,921
+  points first fail correction and 806 first fail stability. Freeze a residual
+  replay on the 551 points, and separately continue the stability/fold boundary
+  or unstable family rather than extrapolating through the failed region.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

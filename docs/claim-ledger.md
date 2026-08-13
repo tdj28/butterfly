@@ -32,6 +32,14 @@ are independently verified.
 
 ## Current scientific positioning
 
+Latest CLM-008 checkpoint (EXP-203): the lower-`c` DOP853/Floquet extension
+qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
+The five qualified components occupy a bounded strip, the seed component
+touches the lower-`a` boundary, and most exterior points first fail correction
+or stability. This preserves the EXP-202 scale-aware residual question on the
+551 individual orbits while redirecting global progress toward stability/fold
+and unstable-family continuation rather than unconstrained extrapolation.
+
 The safest working hypothesis is layered rather than exclusive:
 
 1. Local saddle-focus structure supplies a plausible setting.

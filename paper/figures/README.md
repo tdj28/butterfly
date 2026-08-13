@@ -19,6 +19,8 @@ topology claims.
   transition brackets, and second-critical stability under nested support.
 - fig12-exp202-scale-ensemble-residual-field.png: EXP-202's two signed
   scale-ensemble residual fields and normalized direct-gate obstruction.
+- fig13-exp203-stable-period6-extension.png: EXP-203's qualified stable strip,
+  connected components, and dominant Floquet stability margin.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -76,6 +78,15 @@ Regenerate the EXP-202 scale-ensemble residual figure and receipt:
       --receipt artifacts/EXP-202/receipt.json \
       --expected-receipt-sha256 11ca103e800c084431bf1283982fd8d1e55866f8a0d35f36b49ebd80e6402136 \
       --output paper/figures/fig12-exp202-scale-ensemble-residual-field.png --dpi 260
+
+Regenerate the EXP-203 stable-period-6 extension figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp203_stable_period6_extension.py \
+      --manifest experiments/manifests/EXP-203-lower-c-stable-period6-extension.json \
+      --receipt artifacts/EXP-203/candidates.json \
+      --expected-receipt-sha256 db4c841dd678e0355ff1ed1ecfb9c8d03e630ce00e4d892f2fc237d09c2e2a02 \
+      --output paper/figures/fig13-exp203-stable-period6-extension.png --dpi 260
 
 ## Promoted experiment figures
 

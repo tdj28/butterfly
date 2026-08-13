@@ -201,6 +201,9 @@ what must be narrowed, and what is false or unresolved.
   preserves all 94 scale-qualified candidates but finds the second signed
   residual positive in every low-smoothing/support/step reconstruction,
   rejecting the sampled stable field rather than global double superstability.
+- [`findings/FND-073-lower-c-extension-finds-a-bounded-stable-period6-strip.md`](findings/FND-073-lower-c-extension-finds-a-bounded-stable-period6-strip.md):
+  records a 551-orbit lower-c stable strip, its correction/stability boundaries,
+  and the failed coverage gate that blocks unconstrained residual extrapolation.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

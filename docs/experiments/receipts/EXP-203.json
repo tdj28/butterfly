@@ -1,0 +1,58 @@
+{
+  "schema": "butterfly.local-barrio-orbit-mesh-summary.v1",
+  "experiment_id": "EXP-203",
+  "passed": false,
+  "source_commit": "8b45cf6dac70c7375349a1e31a8e90bab0f504b5",
+  "manifest_sha256": "78f246133c7b59a6d67382077a3493a96b8d57aa0105eda529e9e181b6eb4dbb",
+  "seed_candidate_input_sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0",
+  "raw_artifact": "artifacts/EXP-203/candidates.json",
+  "raw_artifact_bytes": 9899065,
+  "raw_artifact_sha256": "db4c841dd678e0355ff1ed1ecfb9c8d03e630ce00e4d892f2fc237d09c2e2a02",
+  "grid": {
+    "shape": [61, 103],
+    "candidate_count": 6283,
+    "a_range": [0.2155, 0.2161],
+    "c_range": [6.88, 7.288],
+    "b": 0.2
+  },
+  "passed_candidate_count": 551,
+  "minimum_passed_candidates": 1000,
+  "center_passed": true,
+  "passing_geometry": {
+    "a_range": [0.2155, 0.2158],
+    "c_range": [7.132, 7.288],
+    "eight_connected_component_sizes": [331, 156, 62, 1, 1],
+    "seed_component_size": 331,
+    "seed_component_a_range": [0.2155, 0.21577],
+    "seed_component_c_range": [7.22, 7.268],
+    "seed_component_touches_lower_a_boundary": true,
+    "largest_upper_component_touches_upper_c_boundary": true,
+    "isolated_low_c_point": {"a": 0.21571, "c": 7.132}
+  },
+  "first_failed_gate_counts": {
+    "correction": 4921,
+    "stable": 806,
+    "correction_norm": 5
+  },
+  "all_failed_check_counts": {
+    "correction": 4921,
+    "closure": 4921,
+    "neutral": 4920,
+    "phase": 4920,
+    "historical_phase_count": 3357,
+    "stable": 2290,
+    "dominant_real": 706,
+    "correction_norm": 471,
+    "period_identity": 439,
+    "barrio_phase_count": 427
+  },
+  "qualified_ranges": {
+    "flow_closure": [3.018468696163781e-16, 8.300400855143457e-13],
+    "correction_norm": [0.0, 0.27175844131965304],
+    "period_time": [44.23744451350855, 44.44158535179895],
+    "dominant_multiplier_modulus": [0.00031559379618335164, 0.9994524526621874]
+  },
+  "environment": {"maximum_workers": 8},
+  "elapsed_seconds": 3456.146475041751,
+  "interpretation": "The lower-c extension preserves a substantial bounded stable period-6 strip but fails its 1,000-point coverage gate. The seed component touches the lower-a boundary, the upper component touches the upper-c overlap boundary, and direct correction largely fails outside the strip. The unconstrained residual gradient cannot be followed through the stable field without boundary or unstable continuation."
+}
