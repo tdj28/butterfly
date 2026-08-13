@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp244-period24-flip-exp245-frozen.md`](2026-08-13-exp244-period24-flip-exp245-frozen.md)
+  — the exact period-24 real-`-1` event passes DOP853/Radau and primitive
+  identity gates; its period-48 switch is frozen.
+
 - [`2026-08-13-exp243-brackets-exp244-frozen.md`](2026-08-13-exp243-brackets-exp244-frozen.md)
   — the magnitude-separated reclassification passes with one period-24 flip
   bracket; an exact augmented event solve is frozen.

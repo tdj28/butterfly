@@ -28,7 +28,10 @@ from switch_augmented_flip_child import phase_fixed_child_tangent
 from validate_multiple_shooting_switch import half_closure
 
 
-SCHEMA = "butterfly.jones-period12-segmented-child-switch-manifest.v1"
+SCHEMAS = {
+    "butterfly.jones-period12-segmented-child-switch-manifest.v1",
+    "butterfly.jones-period24-segmented-child-switch-manifest.v1",
+}
 
 
 def doubled_event_variables(event: dict) -> np.ndarray:
@@ -49,7 +52,7 @@ def main() -> int:
 
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
+    if manifest.get("schema") not in SCHEMAS:
         raise SystemExit("unsupported Jones segmented child-switch manifest")
     event_bytes = args.event.read_bytes()
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
@@ -243,7 +246,10 @@ def main() -> int:
         and len(accepted) >= int(acceptance["minimum_accepted_candidates"])
     )
     output = {
-        "schema": "butterfly.jones-period12-segmented-child-switch-receipt.v1",
+        "schema": manifest.get(
+            "output_schema",
+            "butterfly.jones-period12-segmented-child-switch-receipt.v1",
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),

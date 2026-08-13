@@ -346,8 +346,10 @@ what must be narrowed, and what is false or unresolved.
   passes an eight-orders-separated reclassification and retains exactly one
   period-24 real-`-1` bracket.
 - [`experiments/EXP-244-jones-period24-augmented-flip.md`](experiments/EXP-244-jones-period24-augmented-flip.md):
-  freezes the exact 32-segment orbit-and-anti-periodic-mode solve for that
-  bracket.
+  passes the exact 32-segment orbit-and-anti-periodic-mode solve for that
+  bracket with an independent Radau check.
+- [`experiments/EXP-245-jones-period48-segmented-switch.md`](experiments/EXP-245-jones-period48-segmented-switch.md):
+  freezes a 64-segment child switch from the exact period-24 event mode.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
