@@ -228,6 +228,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-080-period6-flip-curve-crosses-a-historical-section-boundary.md`](findings/FND-080-period6-flip-curve-crosses-a-historical-section-boundary.md):
   records the complete upper extension and the lower six-to-seven historical
   phase change that nominates a section grazing rather than an orbit endpoint.
+- [`findings/FND-081-standard-section-counter-loses-coalescing-crossings.md`](findings/FND-081-standard-section-counter-loses-coalescing-crossings.md):
+  preserves EXP-213's failed final count gate despite cross-solver convergence
+  of the continuous tangency and motivates extremum-partitioned counting.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
