@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp237-passes-exp238-frozen.md`](2026-08-13-exp237-passes-exp238-frozen.md)
+  — an exact 16-segment period-12 flip and anti-periodic mode pass every gate;
+  the first segmented period-24 switch is frozen.
+
 - [`2026-08-13-exp236-collapses-exp237-frozen.md`](2026-08-13-exp236-collapses-exp237-frozen.md)
   — the targeted corrector converges but fails primitivity by collapsing to
   the doubled period-12 parent; an exact segmented event solve is next.

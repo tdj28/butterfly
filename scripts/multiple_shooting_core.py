@@ -8,7 +8,11 @@ from scipy.optimize import least_squares
 from butterfly import RosslerParameters, SolverConfig, rossler_jacobian, rossler_rhs
 
 
-def integrate_segment(state, duration, parameters, solver):
+def integrate_segment(
+    state, duration, parameters, solver, continuation_parameter="b"
+):
+    if continuation_parameter not in {"a", "b", "c"}:
+        raise ValueError("continuation_parameter must be 'a', 'b', or 'c'")
     initial = np.r_[state, np.eye(3).ravel(), np.zeros(3)]
 
     def augmented(time, value):
@@ -16,10 +20,16 @@ def integrate_segment(state, duration, parameters, solver):
         jacobian = rossler_jacobian(point, parameters)
         transition = value[3:12].reshape(3, 3)
         sensitivity = value[12:15]
+        if continuation_parameter == "a":
+            parameter_forcing = np.asarray((0.0, point[1], 0.0))
+        elif continuation_parameter == "b":
+            parameter_forcing = np.asarray((0.0, 0.0, 1.0))
+        else:
+            parameter_forcing = np.asarray((0.0, 0.0, -point[2]))
         return np.r_[
             rossler_rhs(time, point, parameters),
             (jacobian @ transition).ravel(),
-            jacobian @ sensitivity + np.asarray((0.0, 0.0, 1.0)),
+            jacobian @ sensitivity + parameter_forcing,
         ]
 
     result = solve_ivp(
@@ -47,19 +57,47 @@ def seed_variables(state, total_duration, b, *, segment_count, a, c, solver):
     return np.r_[np.concatenate(nodes), total_duration, b]
 
 
-def base_system(variables, *, segment_count, a, c, phase, phase_reference, solver):
+def base_system(
+    variables,
+    *,
+    segment_count,
+    a,
+    c,
+    phase,
+    phase_reference,
+    solver,
+    continuation_parameter="b",
+    fixed_b=None,
+):
     nodes = variables[: 3 * segment_count].reshape(segment_count, 3)
     total_duration = float(variables[3 * segment_count])
-    b = float(variables[3 * segment_count + 1])
+    parameter_value = float(variables[3 * segment_count + 1])
     duration = total_duration / segment_count
-    parameters = RosslerParameters(a=a, b=b, c=c)
+    if continuation_parameter == "a":
+        if fixed_b is None or c is None:
+            raise ValueError("fixed b and c are required when continuing a")
+        parameters = RosslerParameters(a=parameter_value, b=fixed_b, c=c)
+    elif continuation_parameter == "b":
+        if a is None or c is None:
+            raise ValueError("fixed a and c are required when continuing b")
+        parameters = RosslerParameters(a=a, b=parameter_value, c=c)
+    elif continuation_parameter == "c":
+        if a is None or fixed_b is None:
+            raise ValueError("fixed a and b are required when continuing c")
+        parameters = RosslerParameters(a=a, b=fixed_b, c=parameter_value)
+    else:
+        raise ValueError("continuation_parameter must be 'a', 'b', or 'c'")
     rows = 3 * segment_count + 1
     columns = 3 * segment_count + 2
     residual = np.empty(rows)
     jacobian = np.zeros((rows, columns))
     for index, node in enumerate(nodes):
         endpoint, transition, sensitivity = integrate_segment(
-            node, duration, parameters, solver
+            node,
+            duration,
+            parameters,
+            solver,
+            continuation_parameter=continuation_parameter,
         )
         next_index = (index + 1) % segment_count
         row = slice(3 * index, 3 * index + 3)
@@ -89,6 +127,8 @@ def correct_arclength(
     solver,
     tolerance,
     max_evaluations,
+    continuation_parameter="b",
+    fixed_b=None,
 ):
     cached_variables = None
     cached_residual = None
@@ -106,6 +146,8 @@ def correct_arclength(
             phase=phase,
             phase_reference=phase_reference,
             solver=solver,
+            continuation_parameter=continuation_parameter,
+            fixed_b=fixed_b,
         )
         residual = np.r_[base_residual, np.dot(tangent, variables - predictor)]
         jacobian = np.vstack((base_jacobian, tangent))

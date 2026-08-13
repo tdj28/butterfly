@@ -324,8 +324,10 @@ what must be narrowed, and what is false or unresolved.
   shows that EXP-235's closest small-scale switch can converge, but only to the
   doubled period-12 parent; the frozen half-period gate correctly rejects it.
 - [`experiments/EXP-237-jones-period12-augmented-flip.md`](experiments/EXP-237-jones-period12-augmented-flip.md):
-  freezes an exact 16-segment orbit-and-anti-periodic-mode solve before the
-  next period-24 child-switch attempt.
+  passes an exact 16-segment orbit-and-anti-periodic-mode solve with independent
+  Radau and primitive section-identity gates.
+- [`experiments/EXP-238-jones-period24-segmented-switch.md`](experiments/EXP-238-jones-period24-segmented-switch.md):
+  freezes a 32-segment period-24 switch along EXP-237's exact child mode.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
