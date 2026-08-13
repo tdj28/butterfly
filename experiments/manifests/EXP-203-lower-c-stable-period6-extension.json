@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.local-barrio-orbit-mesh-manifest.v1",
+  "experiment_id": "EXP-203",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-202.json",
+      "sha256": "ec9ef2c54ab6873b535d3de02af748187748358d4acd1235db5c21e67c867b05",
+      "role": "prospective direction from the scale-ensemble residual obstruction"
+    }
+  ],
+  "seed_candidate_input": {
+    "path": "artifacts/EXP-201/candidates.json",
+    "sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0"
+  },
+  "seed": {
+    "candidate_id": "local-a020-c016",
+    "parameters": {"a": 0.2156, "b": 0.2, "c": 7.264},
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8
+  },
+  "grid": {
+    "a_range": [0.2155, 0.2161],
+    "a_count": 61,
+    "c_range": [6.88, 7.288],
+    "c_count": 103,
+    "b": 0.2,
+    "required_center": {"a": 0.2156, "c": 7.264},
+    "selection_reason": "extends 0.384 below the lowest-c EXP-201 seed while retaining a 0.024 overlap with the qualified field; the a range reaches 0.0005 beyond the seed in the direction favored by the second-residual affine diagnostic, with the unchanged 1e-5 by 0.004 local resolution"
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 40, "tolerance": 1e-11},
+  "parallel": {"maximum_workers": 8},
+  "acceptance": {
+    "minimum_passed_candidates": 1000,
+    "maximum_flow_closure": 1e-9,
+    "maximum_phase_residual": 1e-10,
+    "maximum_correction_norm": 2.0,
+    "maximum_period_time_difference": 1.5,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "maximum_dominant_imaginary_part": 1e-7
+  },
+  "claim_scope": "prospectively frozen target-word-blind lower-c extension of the stable historical-period-6 flow-orbit family from the EXP-202 minimum-residual edge, requiring six historical-section and eight Barrio-section phases plus unchanged closure, phase, Floquet, stability, and family-identity gates; passing supplies corrected candidates for a separately frozen scale-ensemble residual replay but does not reconstruct criticals, assert field completeness, or establish double superstability"
+}

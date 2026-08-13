@@ -216,7 +216,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   second residual is positive in all 1,128 views (`min=0.019945`). Extend the
   corrected stable family toward lower `c`, preserving the same scale ensemble;
   keep unstable inter-window continuation as a separate prospectively frozen
-  experiment.
+  experiment. EXP-203 now freezes a 6,283-point DOP853/Floquet extension over
+  `a in [0.2155,0.2161]`, `c in [6.88,7.288]`, with no critical reconstruction
+  until its orbit-coverage result is sealed.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
