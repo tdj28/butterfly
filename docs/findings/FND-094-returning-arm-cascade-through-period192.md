@@ -35,6 +35,11 @@ basin measure, the next event, a full child sheet, paired shrimp boundaries,
 TBA membership, double-criticality, and a global parameter-plane explanation
 remain separate.
 
+EXP-267 subsequently qualifies the next period-192 event. Its added finite
+spacing ratio is `4.300`, so the expanded sequence `4.557/4.697/4.300` does
+not support a monotone limiting-scaling inference (FND-095). The already
+qualified stable period-192 rung is unchanged.
+
 Evidence:
 [`../experiments/EXP-259-jones-period96-augmented-flip.md`](../experiments/EXP-259-jones-period96-augmented-flip.md),
 [`../experiments/EXP-260-jones-period192-segmented-switch.md`](../experiments/EXP-260-jones-period192-segmented-switch.md), and

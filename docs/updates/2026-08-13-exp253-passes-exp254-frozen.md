@@ -79,3 +79,10 @@ EXP-266 fails the unchanged gate under both tighter solvers: DOP853/Radau
 residuals are `2.25e-7/1.58e-7`, although their difference passes `1e-7`.
 EXP-267 therefore freezes a genuinely new tighter coupled recorrection with
 symmetric `1e-7` solver gates. The fifth event remains unqualified meanwhile.
+
+EXP-267 passes every tightened science gate at
+`a=0.24070100861338276`. DOP853/Radau flip residuals are
+`6.70e-9/7.60e-8`; orbit/tangent residuals are below
+`5.31e-11/1.39e-11`. FND-095 records the fifth exact event and the finite
+spacing ratios `4.557/4.697/4.300`, which do not support monotone convergence.
+EXP-268 freezes the separate bilateral 512-segment period-384 switch.

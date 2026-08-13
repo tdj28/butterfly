@@ -139,6 +139,17 @@ coordinates give only two finite spacing ratios, `4.557` and `4.697`; they do
 not establish a limiting constant, universality, a full child sheet, paired
 boundaries, TBA membership, double-criticality, or a whole-plane result.
 
+CLM-008 addendum (EXP-263--267): exact continuation of the unified period-192
+branch reaches a strongly unstable endpoint, and a magnitude-separated scan
+isolates one real-`-1` bracket. The first coupled solve and an unchanged-node
+precision audit preserve near-threshold multiplier failures. A prospectively
+frozen tighter coupled solve then passes symmetric DOP853/Radau `1e-7` flip
+gates at `a=0.24070100861338276`, with orbit/tangent residuals below
+`5.31e-11/1.39e-11`, proper-subperiod separation, and exact `224/256`
+identity. This qualifies a fifth exact event, not its period-384 child. The
+three finite spacing ratios are `4.557`, `4.697`, and `4.300`; their
+non-monotonicity strengthens the prohibition on a limiting-universality claim.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

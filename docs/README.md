@@ -406,7 +406,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-266-period192-flip-precision-audit.md`](experiments/EXP-266-period192-flip-precision-audit.md):
   preserves failure of the unchanged flip gate under both tighter solvers.
 - [`experiments/EXP-267-jones-period192-augmented-flip-refinement.md`](experiments/EXP-267-jones-period192-augmented-flip-refinement.md):
-  freezes a tighter coupled recorrection with symmetric `1e-7` solver gates.
+  passes a tighter coupled recorrection with symmetric `1e-7` solver gates.
+- [`findings/FND-095-five-exact-returning-arm-events.md`](findings/FND-095-five-exact-returning-arm-events.md):
+  records the fifth exact event and the non-monotone finite scaling ratios.
+- [`experiments/EXP-268-jones-period384-segmented-switch.md`](experiments/EXP-268-jones-period384-segmented-switch.md):
+  freezes bilateral 512-segment period-384 child nomination.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
