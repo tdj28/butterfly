@@ -363,7 +363,10 @@ what must be narrowed, and what is false or unresolved.
   passes the magnitude-separated nine-row scan and isolates one period-48
   real-`-1` bracket.
 - [`experiments/EXP-249-jones-period48-augmented-flip.md`](experiments/EXP-249-jones-period48-augmented-flip.md):
-  freezes the exact 64-segment augmented solve for the period-96 event.
+  preserves a failed endpoint-seeded 64-segment solve whose orbit residual
+  stalls above tolerance.
+- [`experiments/EXP-250-jones-period48-augmented-flip-secant.md`](experiments/EXP-250-jones-period48-augmented-flip-secant.md):
+  freezes an unchanged-gate, phase-aligned secant seed for the same event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

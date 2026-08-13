@@ -39,6 +39,7 @@ SCHEMAS = {
     "butterfly.jones-period12-augmented-flip-manifest.v1",
     "butterfly.jones-period24-augmented-flip-manifest.v1",
     "butterfly.jones-period48-augmented-flip-manifest.v1",
+    "butterfly.jones-period48-augmented-flip-manifest.v2",
 }
 
 
@@ -88,6 +89,7 @@ def main() -> int:
     if sha256_bytes(source_bytes) != manifest["source_receipt_sha256"]:
         raise SystemExit("source receipt hash mismatch")
     bracket_bytes = None
+    bracket = None
     if "bracket_receipt_sha256" in manifest:
         if args.bracket_receipt is None:
             raise SystemExit("this manifest requires a bracket receipt")
@@ -108,9 +110,45 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
 
-    seed = source_child(
-        json.loads(source_bytes), manifest["source_solver"], manifest
-    )
+    source_receipt = json.loads(source_bytes)
+    if manifest.get("seed_method") == "secant_interpolation":
+        if bracket is None:
+            raise SystemExit("secant interpolation requires a bracket receipt")
+        event_bracket = bracket["flip_brackets"][0]
+        left = source_receipt["rows"][int(event_bracket["left_index"])]
+        right = source_receipt["rows"][int(event_bracket["right_index"])]
+        left_residual = float(event_bracket["left_multiplier"]["real"]) + 1.0
+        right_residual = float(event_bracket["right_multiplier"]["real"]) + 1.0
+        seed_a = (
+            float(left["a"]) * right_residual
+            - float(right["a"]) * left_residual
+        ) / (right_residual - left_residual)
+        fraction = (seed_a - float(left["a"])) / (
+            float(right["a"]) - float(left["a"])
+        )
+        nodes = (1.0 - fraction) * np.asarray(left["nodes"], dtype=float)
+        nodes += fraction * np.asarray(right["nodes"], dtype=float)
+        seed = {
+            "a": float(seed_a),
+            "b": float(source_receipt["fixed_b"]),
+            "c": float(source_receipt["fixed_c"]),
+            "initial_state": nodes[0].tolist(),
+            "period_time": float(
+                (1.0 - fraction) * float(left["period_time"])
+                + fraction * float(right["period_time"])
+            ),
+            "nodes": nodes.tolist(),
+            "seed_method": "secant_interpolation",
+            "secant_fraction": float(fraction),
+            "source_row_indices": [
+                int(event_bracket["left_index"]),
+                int(event_bracket["right_index"]),
+            ],
+        }
+    else:
+        seed = source_child(
+            source_receipt, manifest["source_solver"], manifest
+        )
     fixed_b = float(manifest["fixed_b"])
     fixed_c = float(manifest["fixed_c"])
     if seed["b"] != fixed_b or seed["c"] != fixed_c:

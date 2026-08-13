@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp249-residual-failure-exp250-frozen.md`](2026-08-13-exp249-residual-failure-exp250-frozen.md)
+  — the endpoint-seeded 64-segment event solve stalls above its orbit gate; an
+  unchanged-gate secant-seeded successor is frozen.
+
 - [`2026-08-13-exp248-brackets-exp249-frozen.md`](2026-08-13-exp248-brackets-exp249-frozen.md)
   — the exact period-48 branch yields one clean period-96 bracket; its
   64-segment augmented event solve is frozen.
