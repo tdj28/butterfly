@@ -30,6 +30,18 @@ from scripts.refine_jones_period6_flip_section_grazing import (
 
 
 SCHEMA = "butterfly.jones-period6-flip-adaptive-below-grazing-manifest.v1"
+RETURNING_SCHEMA = "butterfly.jones-period6-flip-returning-arm-manifest.v1"
+
+
+def terminal_target_reached(row, acceptance, continuation):
+    """Evaluate the declared terminal direction without assuming monotone c."""
+
+    direction = continuation.get("terminal_direction", "decreasing")
+    if direction == "decreasing":
+        return row["c"] <= float(acceptance["required_maximum_terminal_c"])
+    if direction == "increasing":
+        return row["c"] >= float(acceptance["required_minimum_terminal_c"])
+    raise ValueError(f"unsupported terminal_direction: {direction}")
 
 
 def correction_status_passes(status, acceptance):
@@ -81,14 +93,14 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
+    if manifest.get("schema") not in {SCHEMA, RETURNING_SCHEMA}:
         raise SystemExit("unsupported adaptive below-grazing manifest")
     source_bytes = args.source_receipt.read_bytes()
     if sha256_bytes(source_bytes) != manifest["source_receipt_sha256"]:
         raise SystemExit("source receipt hash mismatch")
     source_receipt = json.loads(source_bytes)
     if source_receipt.get("passed") or int(source_receipt.get("point_count", 0)) < 2:
-        raise SystemExit("source must be the retained multi-point EXP-215 failure")
+        raise SystemExit("source must be a retained multi-point continuation failure")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -216,7 +228,7 @@ def main() -> int:
             break
         if (
             len(rows) >= int(continuation["minimum_accepted_points"])
-            and rows[-1]["c"] <= float(acceptance["required_maximum_terminal_c"])
+            and terminal_target_reached(rows[-1], acceptance, continuation)
         ):
             target_reached = True
             message = "terminal c target reached"
@@ -265,7 +277,10 @@ def main() -> int:
             ),
         }
 
-    c_differences = np.diff([row["c"] for row in rows])
+    c_differences = np.diff(
+        [source_rows[-2]["c"], source_rows[-1]["c"]]
+        + [row["c"] for row in rows]
+    )
     c_reversals = int(
         np.sum(c_differences[1:] * c_differences[:-1] < 0.0)
     ) if len(c_differences) >= 2 else 0
@@ -292,7 +307,10 @@ def main() -> int:
         and independent_passed
     )
     output = {
-        "schema": "butterfly.jones-period6-flip-adaptive-below-grazing-receipt.v1",
+        "schema": manifest.get(
+            "receipt_schema",
+            "butterfly.jones-period6-flip-adaptive-below-grazing-receipt.v1",
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source_receipt_sha256": sha256_bytes(source_bytes),

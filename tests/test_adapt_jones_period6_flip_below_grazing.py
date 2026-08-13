@@ -1,12 +1,26 @@
 from scripts.adapt_jones_period6_flip_below_grazing import (
     SCHEMA,
+    RETURNING_SCHEMA,
     adaptive_step_after_success,
     correction_status_passes,
+    terminal_target_reached,
 )
 
 
 def test_adaptive_below_grazing_schema_is_versioned():
     assert SCHEMA == "butterfly.jones-period6-flip-adaptive-below-grazing-manifest.v1"
+    assert RETURNING_SCHEMA == "butterfly.jones-period6-flip-returning-arm-manifest.v1"
+
+
+def test_terminal_target_supports_both_projection_directions():
+    assert terminal_target_reached(
+        {"c": 6.0}, {"required_maximum_terminal_c": 6.05}, {}
+    )
+    assert terminal_target_reached(
+        {"c": 8.3},
+        {"required_minimum_terminal_c": 8.25},
+        {"terminal_direction": "increasing"},
+    )
 
 
 def test_correction_status_gate_rejects_inaccurate_corrector():

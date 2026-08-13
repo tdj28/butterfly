@@ -243,6 +243,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-216-period6-flip-adaptive-below-grazing.md`](experiments/EXP-216-period6-flip-adaptive-below-grazing.md):
   freezes step-halving continuation of the same invariant flip locus toward
   `c=6.05` after EXP-215's fixed-step failure.
+- [`findings/FND-084-period6-flip-locus-has-a-lower-c-projection-turn.md`](findings/FND-084-period6-flip-locus-has-a-lower-c-projection-turn.md):
+  qualifies the exact locus's sampled lower-`c` turn and returning arm with
+  independent terminal recorrection.
+- [`experiments/EXP-217-period6-flip-returning-arm.md`](experiments/EXP-217-period6-flip-returning-arm.md):
+  freezes broad continuation of the returning arm toward `c=8.25`.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

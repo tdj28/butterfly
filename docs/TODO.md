@@ -269,6 +269,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   corrector is inaccurate rather than a dynamical endpoint. EXP-216 freezes
   adaptive step-halving from the last two accepted events, without relaxing
   any scientific gate.
+  EXP-216 rejects the assumed decreasing-`c` target: the locus turns near
+  `c=6.83093` and returns through 21 exact events to `c=6.99993`. Its stop is
+  the frozen upper `c` guard. EXP-217 expands only that guard and freezes broad
+  returning-arm continuation to `c>=8.25` with the same invariant gates.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

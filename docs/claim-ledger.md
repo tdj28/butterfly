@@ -40,6 +40,15 @@ seven-to-six while Barrio remains eight and the real-`-1` event persists.
 This strengthens the parent skeleton but establishes neither critical-point
 membership nor a TBA identification.
 
+CLM-008 addendum (EXP-215--216): invariant continuation crosses the qualified
+grazing and reaches a sampled minimum `c=6.83093274`, then reverses its
+`c`-projection and returns through 21 exact events to `c=6.99993288`. All
+returning points retain seven extremum-historical and eight Barrio phases, and
+the terminal event independently recorrects under Radau. This rejects the
+assumed monotone lower extension and reveals a candidate broad second arm; it
+does not yet prove global closure, a shrimp-boundary assignment, TBA
+membership, or double-criticality.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
