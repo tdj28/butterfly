@@ -247,7 +247,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `0.50264--0.50309`, minimum `R^2=0.99999696`, and maximum adjacent-orbit RMS
   is `0.00502`; retain EXP-207's multi-point-arm and EXP-210's root-selection
   failures while continuing the qualified sheet toward endpoints and a future
-  independently defined TBA curve.
+  independently defined TBA curve. EXP-212 now freezes 100 exact-Jacobian
+  pseudo-arclength points in each direction from EXP-206, with broad-`c`
+  coverage and remote Radau gates, before extending the children.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

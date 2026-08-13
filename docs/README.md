@@ -222,6 +222,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-079-period12-child-sheet-qualified-over-dense-flip-patch.md`](findings/FND-079-period12-child-sheet-qualified-over-dense-flip-patch.md):
   qualifies all 124 identity-selected primitive period-12 children, 31
   square-root opening fits, adjacency coherence, and six Radau controls.
+- [`experiments/EXP-212-period6-flip-pseudoarclength-extension.md`](experiments/EXP-212-period6-flip-pseudoarclength-extension.md):
+  freezes exact dual-parameter pseudo-arclength extension of the parent flip
+  curve beyond the qualified child-sheet rectangle.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
