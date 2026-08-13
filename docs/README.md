@@ -349,7 +349,11 @@ what must be narrowed, and what is false or unresolved.
   passes the exact 32-segment orbit-and-anti-periodic-mode solve for that
   bracket with an independent Radau check.
 - [`experiments/EXP-245-jones-period48-segmented-switch.md`](experiments/EXP-245-jones-period48-segmented-switch.md):
-  freezes a 64-segment child switch from the exact period-24 event mode.
+  passes a 64-segment child switch and nominates primitive period-48
+  candidates on both tangent signs.
+- [`experiments/EXP-246-jones-period48-near-event-qualification.md`](experiments/EXP-246-jones-period48-near-event-qualification.md):
+  freezes the independent DOP853/Radau stability exchange immediately beside
+  the period-24 flip.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

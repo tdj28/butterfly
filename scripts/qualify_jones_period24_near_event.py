@@ -24,7 +24,10 @@ from qualify_jones_period24_segmented_endpoint import (
 from validate_multiple_shooting_switch import half_closure
 
 
-SCHEMA = "butterfly.jones-period24-near-event-qualification-manifest.v1"
+SCHEMAS = {
+    "butterfly.jones-period24-near-event-qualification-manifest.v1",
+    "butterfly.jones-period48-near-event-qualification-manifest.v1",
+}
 
 
 def main() -> int:
@@ -36,7 +39,7 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
+    if manifest.get("schema") not in SCHEMAS:
         raise SystemExit("unsupported near-event qualification manifest")
     switch_bytes = args.switch.read_bytes()
     event_bytes = args.event.read_bytes()
@@ -165,7 +168,10 @@ def main() -> int:
         )
     )
     output = {
-        "schema": "butterfly.jones-period24-near-event-qualification-receipt.v1",
+        "schema": manifest.get(
+            "output_schema",
+            "butterfly.jones-period24-near-event-qualification-receipt.v1",
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "switch_receipt_sha256": sha256_bytes(switch_bytes),

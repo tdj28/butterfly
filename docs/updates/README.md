@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp245-period48-nominated-exp246-frozen.md`](2026-08-13-exp245-period48-nominated-exp246-frozen.md)
+  — exact switching nominates primitive period-48 candidates; independent
+  near-event stability exchange is frozen.
+
 - [`2026-08-13-exp244-period24-flip-exp245-frozen.md`](2026-08-13-exp244-period24-flip-exp245-frozen.md)
   — the exact period-24 real-`-1` event passes DOP853/Radau and primitive
   identity gates; its period-48 switch is frozen.
