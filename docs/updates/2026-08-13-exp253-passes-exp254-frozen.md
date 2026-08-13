@@ -100,3 +100,8 @@ local supercritical birth and the cascade through stable period 384.
 EXP-270 freezes a common-parameter correction of both period-384 tangent signs
 under both solvers, followed by continuous whole-orbit phase identity at 8,192
 samples. Deeper continuation remains blocked on this sign-equivalence gate.
+
+EXP-270 passes all ten gates after 1,192 seconds. Within-solver sign RMS is
+`2.15e-10/3.28e-9`, cross-solver whole-orbit RMS is below `4.33e-8`, and all
+four stable moduli remain near `0.412`. EXP-271 freezes eight 512-segment
+continuation steps toward a sixth event.

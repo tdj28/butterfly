@@ -15,6 +15,11 @@ exact `448/512` section identity. EXP-269 therefore qualifies a fifth local
 supercritical doubling and extends the finite returning-arm cascade through
 stable period 384.
 
+At the common coordinate `a=0.24070100850360543`, EXP-270 aligns both switch
+signs at a half-period shift with DOP853/Radau whole-orbit RMS
+`2.15e-10/3.28e-9`. Thus the bilateral candidates are one stable primitive
+period-384 orbit, not two neighboring cycles.
+
 The five exact event coordinates yield finite spacing ratios
 `4.557/4.697/4.300`. These are finite-cascade diagnostics, not evidence for a
 resolved accumulation limit or universality. Tangent-sign equivalence, basin
@@ -25,4 +30,5 @@ remain separate.
 Evidence:
 [`../experiments/EXP-267-jones-period192-augmented-flip-refinement.md`](../experiments/EXP-267-jones-period192-augmented-flip-refinement.md),
 [`../experiments/EXP-268-jones-period384-segmented-switch.md`](../experiments/EXP-268-jones-period384-segmented-switch.md), and
-[`../experiments/EXP-269-jones-period384-near-event-qualification.md`](../experiments/EXP-269-jones-period384-near-event-qualification.md).
+[`../experiments/EXP-269-jones-period384-near-event-qualification.md`](../experiments/EXP-269-jones-period384-near-event-qualification.md), and
+[`../experiments/EXP-270-jones-period384-sign-equivalence.md`](../experiments/EXP-270-jones-period384-sign-equivalence.md).

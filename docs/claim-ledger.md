@@ -155,9 +155,11 @@ fifth exact event produces six primitive period-384 candidates with exact
 `448/512` identity. At a prospectively frozen near-event point, DOP853 and
 Radau independently classify the period-192 parent as unstable and the
 period-384 child as stable, with child moduli agreeing to relative
-`1.83e-6`. This qualifies a fifth local supercritical birth and stable period
-384, but not tangent-sign equivalence, a sixth event, limiting universality,
-paired boundaries, TBA membership, double-criticality, or a whole-plane result.
+`1.83e-6`. A common-coordinate whole-orbit audit then aligns both switch signs
+at a half-period shift under both solvers. This qualifies one stable primitive
+period-384 orbit and a fifth local supercritical birth, but not a sixth event,
+limiting universality, paired boundaries, TBA membership, double-criticality,
+or a whole-plane result.
 
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.

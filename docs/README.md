@@ -416,7 +416,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-096-returning-arm-cascade-through-period384.md`](findings/FND-096-returning-arm-cascade-through-period384.md):
   records five exact local doublings and a stable primitive period-384 child.
 - [`experiments/EXP-270-jones-period384-sign-equivalence.md`](experiments/EXP-270-jones-period384-sign-equivalence.md):
-  freezes common-coordinate phase equivalence of both period-384 switch signs.
+  passes common-coordinate phase equivalence of both period-384 switch signs.
+- [`experiments/EXP-271-jones-period384-segmented-continuation.md`](experiments/EXP-271-jones-period384-segmented-continuation.md):
+  freezes eight exact continuation steps toward a sixth-flip scan.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
