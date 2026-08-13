@@ -38,3 +38,7 @@ EXP-259 converges in 10 evaluations and passes all DOP853/segmented-Radau
 gates at `a=0.2407010100842176`. The third event gap is `6.3246e-9`, giving
 successive finite ratios `4.557/4.697`. EXP-260 freezes the period-192 switch;
 no fourth supercritical rung is claimed before child qualification.
+
+EXP-260 passes all six bilateral 256-segment candidates with exact `224/256`
+identity. EXP-261 freezes the decisive two-solver parent-unstable/child-stable
+test at the negative-mode `0.002` point.

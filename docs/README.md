@@ -390,7 +390,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-259-jones-period96-augmented-flip.md`](experiments/EXP-259-jones-period96-augmented-flip.md):
   passes the fourth exact orbit/tangent event with segmented Radau parity.
 - [`experiments/EXP-260-jones-period192-segmented-switch.md`](experiments/EXP-260-jones-period192-segmented-switch.md):
-  freezes bilateral 256-segment period-192 child nomination.
+  passes bilateral 256-segment primitive period-192 child nomination.
+- [`experiments/EXP-261-jones-period192-near-event-qualification.md`](experiments/EXP-261-jones-period192-near-event-qualification.md):
+  freezes the independent fourth-rung stability-exchange test.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
