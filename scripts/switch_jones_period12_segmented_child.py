@@ -32,6 +32,7 @@ SCHEMAS = {
     "butterfly.jones-period12-segmented-child-switch-manifest.v1",
     "butterfly.jones-period24-segmented-child-switch-manifest.v1",
     "butterfly.jones-period48-segmented-child-switch-manifest.v1",
+    "butterfly.jones-period96-segmented-child-switch-manifest.v1",
 }
 
 

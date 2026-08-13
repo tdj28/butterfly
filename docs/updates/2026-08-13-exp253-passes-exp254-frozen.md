@@ -33,3 +33,8 @@ EXP-258 passes and isolates exactly one real-`-1` bracket with at least
 `1.38e18` transverse-mode separation. EXP-259 freezes the exact 128-segment
 orbit/tangent solve, using segmented Radau parity rather than a conditioned
 full-period replay.
+
+EXP-259 converges in 10 evaluations and passes all DOP853/segmented-Radau
+gates at `a=0.2407010100842176`. The third event gap is `6.3246e-9`, giving
+successive finite ratios `4.557/4.697`. EXP-260 freezes the period-192 switch;
+no fourth supercritical rung is claimed before child qualification.

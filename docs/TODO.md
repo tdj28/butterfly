@@ -408,7 +408,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-257 passes a short period-96 continuation to a strongly unstable
   endpoint. EXP-258 freezes the exact-row next-flip scan without claiming
   universality and passes with exactly one real-`-1` bracket. EXP-259 freezes
-  the exact 128-segment augmented event solve with segmented Radau parity.
+  the exact 128-segment augmented event solve with segmented Radau parity and
+  passes. EXP-260 freezes bilateral primitive period-192 child nomination;
+  stability exchange remains separate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
