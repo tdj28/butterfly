@@ -210,3 +210,23 @@ by `8.97e-9`, and the newest estimate is `-0.999999994828`. EXP-287 freezes a
 fully independent 50-digit RK4 3/8-tableau sequence at all three step counts,
 with an unchanged `1e-7` cross-tableau gate. Only a pass can rehabilitate the
 failed Float64 event representation and promote the seventh exact event.
+
+EXP-287 passes all thirteen gates from clean commit `d5bfe74`. The independent
+raw convergence ratio is `15.960`; successive Richardson flip estimates differ
+by `1.06e-8`, and the final RK4 3/8 estimate is `-0.999999994881`. It differs
+from the classical-RK4 estimate by only `5.22e-11`. Orbit/tangent matching
+remain below `3.76e-11/1.02e-11`, cyclic spread is `7.64e-44`, characteristic
+residual is `1.00e-49`, and exact `896/1024` identity passes. FND-100 therefore
+qualifies the seventh exact numerical event at `a=0.2407010081734325` while
+preserving the earlier Float64 failures as a conditioning result. The new
+finite spacing ratio is `2.239`; period-1536 child existence and criticality
+remain separate.
+
+EXP-288 freezes that next question before execution. It doubles the qualified
+event representation to 2,048 segments, tests both tangent signs at three
+predictor lengths, requires exact `1792/2048` section identity, and nominates a
+child only if at least two candidates pass every closure, neutral, primitive,
+displacement, and period-ratio gate. The analytic Jacobian is now optionally
+stored as sparse CSR; a dense/sparse regression test passes and the complete
+suite is 300/300. This removes the prohibitive dense 6,146-column storage and
+factorization without changing the multiple-shooting equations.

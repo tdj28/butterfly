@@ -193,6 +193,20 @@ identity passes. Thus the two signs qualify as one stable primitive orbit for
 continuation, while both failed receipts remain part of the conditioning
 record. This does not establish a seventh event or universality.
 
+CLM-008 addendum (EXP-279--287): exact continuation and a separated spectral
+scan isolate a period-768 real-`-1` event at `a=0.2407010081734325`. The
+Float64 augmented solve and tighter immutable replay preserve an independent
+multiplier failure because the local multiplier sensitivity exceeds Float64
+parameter resolution. Two prospectively frozen 50-digit, three-level,
+order-four integrations then pass independently: classical RK4 gives
+`-0.9999999948282761`, RK4 3/8 gives `-0.9999999948805051`, and their
+difference is `5.22e-11`. All Richardson, neutral, cyclic, characteristic,
+orbit, tangent, primitive, and exact `896/1024` identity gates pass. This
+qualifies a seventh exact numerical flip event and yields a fifth finite
+spacing ratio `2.239`; it does not qualify a period-1536 child, seventh
+supercritical birth, limiting universality, paired boundaries, TBA membership,
+double-criticality, or a whole-plane result.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

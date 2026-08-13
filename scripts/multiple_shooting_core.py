@@ -4,6 +4,7 @@ from __future__ import annotations
 import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import least_squares
+from scipy.sparse import csr_matrix, lil_matrix, vstack as sparse_vstack
 
 from butterfly import RosslerParameters, SolverConfig, rossler_jacobian, rossler_rhs
 
@@ -68,6 +69,7 @@ def base_system(
     solver,
     continuation_parameter="b",
     fixed_b=None,
+    sparse_jacobian=False,
 ):
     nodes = variables[: 3 * segment_count].reshape(segment_count, 3)
     total_duration = float(variables[3 * segment_count])
@@ -90,7 +92,11 @@ def base_system(
     rows = 3 * segment_count + 1
     columns = 3 * segment_count + 2
     residual = np.empty(rows)
-    jacobian = np.zeros((rows, columns))
+    jacobian = (
+        lil_matrix((rows, columns), dtype=float)
+        if sparse_jacobian
+        else np.zeros((rows, columns))
+    )
     for index, node in enumerate(nodes):
         endpoint, transition, sensitivity = integrate_segment(
             node,
@@ -112,7 +118,7 @@ def base_system(
         jacobian[row, 3 * segment_count + 1] = sensitivity
     residual[-1] = float(np.dot(phase, nodes[0] - phase_reference))
     jacobian[-1, :3] = phase
-    return residual, jacobian
+    return residual, jacobian.tocsr() if sparse_jacobian else jacobian
 
 
 def correct_arclength(
@@ -129,6 +135,7 @@ def correct_arclength(
     max_evaluations,
     continuation_parameter="b",
     fixed_b=None,
+    sparse_jacobian=False,
 ):
     cached_variables = None
     cached_residual = None
@@ -148,9 +155,17 @@ def correct_arclength(
             solver=solver,
             continuation_parameter=continuation_parameter,
             fixed_b=fixed_b,
+            sparse_jacobian=sparse_jacobian,
         )
         residual = np.r_[base_residual, np.dot(tangent, variables - predictor)]
-        jacobian = np.vstack((base_jacobian, tangent))
+        jacobian = (
+            sparse_vstack(
+                (base_jacobian, csr_matrix(tangent.reshape(1, -1))),
+                format="csr",
+            )
+            if sparse_jacobian
+            else np.vstack((base_jacobian, tangent))
+        )
         cached_variables = variables.copy()
         cached_residual = residual
         cached_jacobian = jacobian

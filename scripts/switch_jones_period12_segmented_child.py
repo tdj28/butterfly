@@ -35,6 +35,7 @@ SCHEMAS = {
     "butterfly.jones-period96-segmented-child-switch-manifest.v1",
     "butterfly.jones-period192-segmented-child-switch-manifest.v1",
     "butterfly.jones-period384-segmented-child-switch-manifest.v1",
+    "butterfly.jones-period768-segmented-child-switch-manifest.v1",
 }
 
 
@@ -114,6 +115,7 @@ def main() -> int:
         raise SystemExit("fixed coordinates do not match the event")
     event_a = float(event["corrected_a"])
     event_variables = doubled_event_variables(event)
+    sparse_jacobian = manifest.get("jacobian_storage") == "sparse_csr"
     solver = SolverConfig(**manifest["solver"])
     parameters = RosslerParameters(a=event_a, b=fixed_b, c=fixed_c)
     phase = rossler_rhs(0.0, event_variables[:3], parameters)
@@ -128,6 +130,7 @@ def main() -> int:
         solver=solver,
         continuation_parameter="a",
         fixed_b=fixed_b,
+        sparse_jacobian=sparse_jacobian,
     )
     secondary_tangent, phase_coefficient = phase_fixed_child_tangent(
         event, parameters, phase
@@ -135,7 +138,11 @@ def main() -> int:
     secondary_null_residual = float(
         np.linalg.norm(event_jacobian @ secondary_tangent)
     )
-    _, singular_values, _ = np.linalg.svd(event_jacobian, full_matrices=True)
+    singular_values = (
+        None
+        if sparse_jacobian
+        else np.linalg.svd(event_jacobian, full_matrices=True)[1][-2:].tolist()
+    )
     acceptance = manifest["acceptance"]
     attempts = []
     started = time.perf_counter()
@@ -156,6 +163,7 @@ def main() -> int:
                 max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
                 continuation_parameter="a",
                 fixed_b=fixed_b,
+                sparse_jacobian=sparse_jacobian,
             )
             row = {
                 "step_length": float(step_length),
@@ -306,7 +314,8 @@ def main() -> int:
         "source_segment_count": source_segment_count,
         "segment_count": segment_count,
         "event_matching_residual": float(np.linalg.norm(event_residual[:-1])),
-        "event_smallest_singular_values": singular_values[-2:].tolist(),
+        "jacobian_storage": manifest.get("jacobian_storage", "dense"),
+        "event_smallest_singular_values": singular_values,
         "phase_fix_coefficient": phase_coefficient,
         "secondary_null_residual": secondary_null_residual,
         "attempts": attempts,

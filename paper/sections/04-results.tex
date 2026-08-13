@@ -1104,17 +1104,18 @@ Removing source-arm interpolation from the child path carries the primitive
 period-12 orbit beyond the false endpoint and reveals a genuine cascade at
 fixed $(b,c)=(0.2,7.625815600403827)$. Exact augmented multiple shooting
 locates real-$-1$ events of the period-12, period-24, period-48, period-96,
-period-192, and period-384 parents at
+period-192, period-384, and period-768 parents at
 \begin{align}
  a_{12}&=0.24070118147582764,&
  a_{24}&=0.24070104611236293,&
  a_{48}&=0.24070101640878155,\\
  a_{96}&=0.24070101008421760,&
  a_{192}&=0.24070100861338276,&
- a_{384}&=0.24070100830924687.
+ a_{384}&=0.24070100830924687,\\
+ a_{768}&=0.24070100817343250.&&
 \end{align}
-Each event passes orbit, anti-periodic tangent, proper-subperiod, exact
-two-section identity, and independent Radau gates. The last event requires a
+The first six events pass orbit, anti-periodic tangent, proper-subperiod, exact
+two-section identity, and independent Radau gates. The period-384 event requires a
 segmented residual-safe audit: the original optimizer exhausts its evaluation
 ceiling after reaching DOP853 orbit and tangent residuals
 $2.16\times10^{-10}$ and $1.31\times10^{-10}$, while segmented Radau gives
@@ -1141,26 +1142,33 @@ passes the same gate with DOP853/Radau child moduli
 $0.0879289933/0.0879290911$ and spread $9.78\times10^{-8}$, identifying the
 discrepancy as phase-representation conditioning rather than evidence for a
 second cycle. Thus six local doublings are qualified as supercritical and the
-returning-arm cascade reaches stable period 768. The four finite event-spacing
-ratios are $4.557$, $4.697$, $4.300$, and $4.836$. Their non-monotonicity reinforces
+returning-arm cascade reaches stable period 768. Including the next event, the
+five finite event-spacing ratios are $4.557$, $4.697$, $4.300$, $4.836$, and
+$2.239$. Their non-monotonicity reinforces
 that this is finite cascade evidence, not an accumulation-limit estimate or
 proof of universality.
 
-A subsequent period-768 continuation isolates one seventh-flip bracket, but
-the exact-event calculation is not promoted. Its corrected DOP853 multiplier
-is $-1.00000000535$, whereas tighter immutable DOP853/Radau replay gives
-$-0.99999999629/-1.00000036358$ and fails the unchanged $10^{-7}$
-two-solver standard. At this $a$, one Float64 increment is
-$2.78\times10^{-17}$; the bracket secant corresponds to an estimated
-$1.02\times10^{-6}$ multiplier change per increment. This diagnoses a
-numerical-resolution frontier and motivates higher-precision continuation,
-not a seventh-event or universality claim.
+A subsequent period-768 continuation first reaches a Float64 resolution
+frontier. At the corrected event coordinate, tighter immutable replay gives
+the DOP853 value $-0.99999999629$ and the Radau value $-1.00000036358$;
+the latter fails the unchanged $10^{-7}$ two-solver standard. One Float64 increment in $a$ is
+$2.78\times10^{-17}$, while the bracket secant implies an estimated
+$1.02\times10^{-6}$ multiplier change per increment. The failed receipts are
+retained. Prospectively frozen 50-digit classical-RK4 and RK4 3/8 sequences,
+each using 4,096, 8,192, and 16,384 steps on every one of 1,024 segments, then
+show fourth-order convergence and give Richardson flip estimates
+$-0.9999999948283$ and $-0.9999999948805$. Their difference is
+$5.22\times10^{-11}$, both residuals are below $10^{-7}$, and all neutral,
+cyclic, characteristic, orbit, tangent, primitivity, and exact-section gates
+pass. This independently qualifies the seventh numerical event, but not a
+period-1536 child, its criticality, or universality.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}
-  \caption{The exact returning-arm cascade through stable period 768. Upper
-  left: six corrected real-$-1$ events converge rapidly in $a$ while the
+  \caption{The first six child-qualified rungs of the exact returning-arm
+  cascade through stable period 768. Upper left: six corrected real-$-1$
+  events converge rapidly in $a$ while the
   parent period doubles. Upper right: five spacings give four finite ratios,
   $4.557$, $4.697$, $4.300$, and $4.836$, which do not define a universality estimate. Lower left:
   independent DOP853 and Radau calculations recover unstable parents and

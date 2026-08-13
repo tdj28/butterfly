@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period768-decimal-independent-richardson-summary.v1",
+  "experiment_id": "EXP-287",
+  "passed": true,
+  "source_commit": "d5bfe74897f9706ee15965b723aaf6f2184a41e7",
+  "manifest_sha256": "5f874202723311824f134e3ff79f5e607b65cabb997fa8819421c80903fac42e",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "classical_receipt_sha256": "3010388772d5fc8f1e975f19171192bd35b21df375c1d416c1b2faafdb8e7b02",
+  "raw_artifact": "artifacts/EXP-287/receipt.json",
+  "raw_artifact_bytes": 9117,
+  "raw_artifact_sha256": "b0535b124411e3d7f4a18852843a9f47224ab4497bc9f27c10ecd9d8ccde939a",
+  "method": "rk4_three_eighths",
+  "decimal_digits": 50,
+  "step_counts": [4096, 8192, 16384],
+  "raw_convergence_ratio": 15.959946418099655,
+  "second_richardson_flip": -0.9999999948805051,
+  "second_richardson_flip_residual": 5.119494989314847e-9,
+  "successive_richardson_flip_difference": 1.0566867200383721e-8,
+  "cross_tableau_flip_difference": 5.2228918028587284e-11,
+  "maximum_fine_orbit_matching_residual": 3.75556979309976e-11,
+  "maximum_fine_tangent_matching_residual": 1.013060086240746e-11,
+  "interpretation": "An independent 50-digit RK4 3/8-tableau sequence passes every prospective gate and agrees with the classical-RK4 Richardson result, qualifying the seventh exact numerical period-768 real-minus-one event; period-1536 child existence and criticality remain open."
+}

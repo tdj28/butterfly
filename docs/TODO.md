@@ -467,9 +467,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   gates but fails raw 4,096/8,192-step convergence; the error ratio `15.988`
   is fourth-order. EXP-286 freezes an untouched 16,384-step profile and
   successive Richardson gates. EXP-286 passes with extrapolated flip residual
-  `5.17e-9` and successive-estimate difference `8.97e-9`. EXP-287 freezes an
-  independent 50-digit RK4 3/8-tableau three-level audit; period 1536 remains
-  separate.
+  `5.17e-9` and successive-estimate difference `8.97e-9`. EXP-287's independent
+  50-digit RK4 3/8-tableau sequence passes every frozen gate, agrees with the
+  classical extrapolation within `5.22e-11`, and qualifies the seventh exact
+  numerical event (FND-100). Next: switch and independently qualify a primitive
+  period-1536 child without folding child existence or criticality into the
+  event claim.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

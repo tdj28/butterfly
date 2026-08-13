@@ -457,7 +457,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-286-period768-decimal-richardson-audit.md`](experiments/EXP-286-period768-decimal-richardson-audit.md):
   passes an untouched third-level Richardson convergence test.
 - [`experiments/EXP-287-period768-decimal-independent-richardson.md`](experiments/EXP-287-period768-decimal-independent-richardson.md):
-  freezes an independent 50-digit RK4 3/8-tableau audit.
+  passes an independent 50-digit RK4 3/8-tableau audit.
+- [`findings/FND-100-seventh-returning-arm-event-qualified.md`](findings/FND-100-seventh-returning-arm-event-qualified.md):
+  qualifies the seventh exact numerical flip while keeping period 1536 open.
+- [`experiments/EXP-288-jones-period1536-segmented-switch.md`](experiments/EXP-288-jones-period1536-segmented-switch.md):
+  freezes the sparse 2,048-segment bilateral period-1536 switch.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
