@@ -447,7 +447,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-282-period768-flip-precision-audit.md`](experiments/EXP-282-period768-flip-precision-audit.md):
   preserves tighter-step multiplier and cross-solver failures.
 - [`experiments/EXP-283-period768-float64-resolution.md`](experiments/EXP-283-period768-float64-resolution.md):
-  freezes a deterministic ULP-scale conditioning diagnostic.
+  passes a deterministic ULP-scale conditioning diagnostic.
+- [`findings/FND-099-period768-event-reaches-float64-resolution-frontier.md`](findings/FND-099-period768-event-reaches-float64-resolution-frontier.md):
+  records the numerical frontier without promoting a seventh event.
+- [`experiments/EXP-284-period768-decimal-segment-pilot.md`](experiments/EXP-284-period768-decimal-segment-pilot.md):
+  freezes a 50-decimal-digit four-segment convergence pilot.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

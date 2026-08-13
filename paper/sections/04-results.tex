@@ -1146,6 +1146,16 @@ ratios are $4.557$, $4.697$, $4.300$, and $4.836$. Their non-monotonicity reinfo
 that this is finite cascade evidence, not an accumulation-limit estimate or
 proof of universality.
 
+A subsequent period-768 continuation isolates one seventh-flip bracket, but
+the exact-event calculation is not promoted. Its corrected DOP853 multiplier
+is $-1.00000000535$, whereas tighter immutable DOP853/Radau replay gives
+$-0.99999999629/-1.00000036358$ and fails the unchanged $10^{-7}$
+two-solver standard. At this $a$, one Float64 increment is
+$2.78\times10^{-17}$; the bracket secant corresponds to an estimated
+$1.02\times10^{-6}$ multiplier change per increment. This diagnoses a
+numerical-resolution frontier and motivates higher-precision continuation,
+not a seventh-event or universality claim.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}

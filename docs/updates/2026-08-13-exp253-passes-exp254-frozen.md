@@ -179,3 +179,11 @@ tangent, real-spectrum, cyclic, primitive, and exact-identity gates pass.
 EXP-283 freezes a deterministic diagnostic comparing that disagreement and the
 EXP-280 bracket-secant multiplier change per Float64 `a` increment with the
 unchanged `1e-7` gate before another coupled correction is chosen.
+
+EXP-283 passes all six deterministic diagnostics. Float64 spacing at the
+candidate is `2.776e-17`; the bracket spans 4,387,556 increments and implies
+`1.024e-6` multiplier change per increment. Half the tight solver gap is
+`1.836e-7`. FND-099 therefore records a Float64 resolution frontier without
+promoting event seven. EXP-284 freezes a dependency-free 50-decimal-digit RK4
+pilot on four phase-separated state/variational segments before a full
+high-precision multiplier replay.

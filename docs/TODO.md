@@ -458,8 +458,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   immutable-solution tighter-step precision audit with the unchanged gate.
   EXP-282 preserves the failure (`3.64e-7` Radau residual and `3.67e-7`
   cross-solver difference). EXP-283 freezes a Float64 ULP-scale feasibility
-  diagnostic before a new correction formulation is selected; period 1536
-  remains separate.
+  diagnostic before a new correction formulation is selected. EXP-283 passes:
+  the estimated `1.024e-6` multiplier change per Float64 `a` increment and
+  `1.836e-7` minimax solver-centering residual both exceed the `1e-7` gate
+  (FND-099). EXP-284 freezes a 50-decimal-digit segmented integration pilot;
+  period 1536 remains separate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
