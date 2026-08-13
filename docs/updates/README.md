@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp242-tracker-swap-exp243-frozen.md`](2026-08-13-exp242-tracker-swap-exp243-frozen.md)
+  — the frozen eigenvalue tracker swaps onto a collapsed mode; a strictly
+  magnitude-separated reclassification of the immutable spectra is frozen.
+
 - [`2026-08-13-exp241-supercritical-exp242-frozen.md`](2026-08-13-exp241-supercritical-exp242-frozen.md)
   — two solvers qualify the returning-arm period-12-to-24 flip as locally
   supercritical; a complete child Floquet scan is frozen.

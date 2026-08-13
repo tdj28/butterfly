@@ -340,7 +340,11 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-091-returning-arm-period12-to24-supercritical.md`](findings/FND-091-returning-arm-period12-to24-supercritical.md):
   records the primitive stable period-24 child and local stability exchange.
 - [`experiments/EXP-242-jones-period24-segmented-flip-scan.md`](experiments/EXP-242-jones-period24-segmented-flip-scan.md):
-  freezes a full 21-row multiplier track toward the child's next flip.
+  preserves a failed nearest-neighbor eigenvalue tracker despite complete
+  spectra showing the nontrivial crossing.
+- [`experiments/EXP-243-jones-period24-flip-scan-reclassification.md`](experiments/EXP-243-jones-period24-flip-scan-reclassification.md):
+  freezes an eight-orders-separated reclassification of EXP-242's immutable
+  transverse spectra.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

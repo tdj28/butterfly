@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.jones-period24-segmented-flip-scan-summary.v1",
+  "experiment_id": "EXP-242",
+  "passed": false,
+  "source_commit": "b175ecf2b97192ce02a9f313d0abda51134cdf42",
+  "manifest_sha256": "66b8b617b91a3ac76410feec8f305ba7ea8f8ff44883b84fd37ad9d847bf12a8",
+  "continuation_receipt_sha256": "e28fa5f0dc211c09803f2412737d384bc6823606d3b036731bfaf19696ac8a29",
+  "raw_artifact": "artifacts/EXP-242/receipt.json",
+  "raw_artifact_bytes": 47714,
+  "raw_artifact_sha256": "f86482271775b9f0ba2af25312c1522845b80bfaabd63ee25f3b52c44d88ad9c",
+  "point_count": 21,
+  "reported_flip_bracket_count": 0,
+  "pre_swap_tracked_multipliers": [0.9954981525346267, 0.4502522448156048],
+  "raw_dominant_multiplier_at_index_2": -1.06659469899932,
+  "raw_dominant_multiplier_at_index_20": -703.4363543934686,
+  "interpretation": "The frozen nearest-neighbor identity rule swaps onto the collapsed transverse multiplier at index 2. The complete immutable spectra support a magnitude-separated reclassification in EXP-243."
+}
