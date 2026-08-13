@@ -433,7 +433,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   qualified cascade through stable period 384 (FND-096). Next, resolve both
   period-384 tangent signs at a common coordinate before deeper continuation;
   EXP-270 passes that four-way DOP853/Radau whole-orbit phase audit. EXP-271
-  freezes eight exact continuation steps toward a sixth-flip scan.
+  passes eight full continuation steps, retains exact `448/512` identity, and
+  reaches preliminary multiplier `-533.597`. EXP-272 freezes the
+  magnitude-separated nine-row sixth-flip scan; an exact period-384 event is
+  not claimed before its separate augmented solve.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

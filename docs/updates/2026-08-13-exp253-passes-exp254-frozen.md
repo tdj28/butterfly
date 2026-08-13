@@ -105,3 +105,8 @@ EXP-270 passes all ten gates after 1,192 seconds. Within-solver sign RMS is
 `2.15e-10/3.28e-9`, cross-solver whole-orbit RMS is below `4.33e-8`, and all
 four stable moduli remain near `0.412`. EXP-271 freezes eight 512-segment
 continuation steps toward a sixth event.
+
+EXP-271 passes all eight full steps. Its terminal orbit retains exact
+`448/512` identity, half-period closure `5.04e-4`, and preliminary multiplier
+`-533.597`. EXP-272 freezes a nine-row, eight-orders-separated block-Floquet
+scan before any exact sixth-event claim.
