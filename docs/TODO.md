@@ -392,7 +392,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   bracket; EXP-244 qualifies the exact period-24 flip; EXP-245 nominates
   primitive period-48 children; and EXP-246 independently qualifies the
   near-event parent-unstable/child-stable pairing. EXP-247 freezes eight exact
-  period-48 continuation steps toward the next multiplier scan.
+  period-48 continuation steps toward the next multiplier scan. EXP-247/248
+  pass and isolate the next bracket. EXP-249 fails an endpoint-seeded event
+  solve; EXP-250's secant seed passes every DOP853 science residual but fails
+  optimizer status and a long single-shot Radau replay. EXP-251 freezes an
+  unchanged-threshold residual-safe segmented Radau audit before any period-96
+  switch.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

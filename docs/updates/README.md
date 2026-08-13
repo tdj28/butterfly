@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp250-science-residuals-exp251-frozen.md`](2026-08-13-exp250-science-residuals-exp251-frozen.md)
+  — the secant solve passes all DOP853 event residuals but not status or
+  single-shot Radau; a segmented independent audit is frozen.
+
 - [`2026-08-13-exp249-residual-failure-exp250-frozen.md`](2026-08-13-exp249-residual-failure-exp250-frozen.md)
   — the endpoint-seeded 64-segment event solve stalls above its orbit gate; an
   unchanged-gate secant-seeded successor is frozen.

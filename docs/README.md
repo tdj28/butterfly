@@ -366,7 +366,11 @@ what must be narrowed, and what is false or unresolved.
   preserves a failed endpoint-seeded 64-segment solve whose orbit residual
   stalls above tolerance.
 - [`experiments/EXP-250-jones-period48-augmented-flip-secant.md`](experiments/EXP-250-jones-period48-augmented-flip-secant.md):
-  freezes an unchanged-gate, phase-aligned secant seed for the same event.
+  passes every DOP853 event residual but preserves optimizer-status and
+  full-period Radau failures.
+- [`experiments/EXP-251-period48-flip-residual-safe-audit.md`](experiments/EXP-251-period48-flip-residual-safe-audit.md):
+  freezes residual-qualified source handling and an independent segmented
+  Radau tangent/block-Floquet audit without relaxing thresholds.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
