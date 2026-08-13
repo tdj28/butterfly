@@ -345,6 +345,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   seven remaining intervals through the middle slice at index 51. Only after
   this path passes should the child surface be expanded transversely to search
   for a genuinely distinct boundary.
+  EXP-230 rejects the middle-slice target after five accepted exact-arm points,
+  but for a new and informative reason: the primitive period-12 multiplier
+  approaches and crosses `-1` near `c=7.6258`. EXP-231 freezes independent
+  DOP853/Radau localization plus bilateral stable/unstable controls. A pass
+  should seed a period-24 branch switch; do not misclassify this cascade rung
+  as a child-sheet endpoint.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

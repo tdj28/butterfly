@@ -302,6 +302,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-230-returning-period12-child-exact-arm.md`](experiments/EXP-230-returning-period12-child-exact-arm.md):
   resumes the qualified child with fresh exact source-arm correction at every
   adaptive midpoint, removing the interpolation-induced false endpoint.
+- [`experiments/EXP-231-returning-period12-flip-exact-arm.md`](experiments/EXP-231-returning-period12-flip-exact-arm.md):
+  freezes two-solver localization and bilateral qualification of the genuine
+  period-12 flip exposed after exact-arm correction.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
