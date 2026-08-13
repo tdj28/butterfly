@@ -17,16 +17,41 @@ from butterfly import (
     RosslerParameters,
     SolverConfig,
     barrio_rossler_section,
+    collect_crossings,
     correct_periodic_orbit,
     flow_monodromy,
     legacy_rossler_section,
 )
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
-from scripts.prepare_local_barrio_orbit_mesh import _one_period_section_states
-from scripts.search_jones_floquet_center import signed_dominant_nontrivial
 
 
 SCHEMA = "butterfly.jones-period6-flip-refinement-manifest.v1"
+
+
+def _one_period_section_states(parameters, correction, section, expected_count, solver):
+    crossings = collect_crossings(
+        parameters,
+        correction.initial_state,
+        section,
+        transient=0.0,
+        observation_horizon=correction.period_time * (1.0 + 1e-7),
+        max_crossings=expected_count + 6,
+        config=solver,
+    )
+    keep = (crossings.times > correction.period_time * 1e-7) & (
+        crossings.times <= correction.period_time * (1.0 + 1e-7)
+    )
+    return crossings.states[keep], bool(crossings.integration_success)
+
+
+def signed_dominant_nontrivial(multipliers):
+    values = np.asarray(multipliers, dtype=np.complex128)
+    if values.shape != (3,):
+        raise ValueError("a three-dimensional flow must supply three multipliers")
+    neutral_index = int(np.argmin(np.abs(values - 1.0)))
+    transverse = np.delete(values, neutral_index)
+    dominant = complex(transverse[int(np.argmax(np.abs(transverse)))])
+    return dominant, complex(values[neutral_index]), neutral_index
 
 
 def _evaluate(a, c, seed, solver, corrector):

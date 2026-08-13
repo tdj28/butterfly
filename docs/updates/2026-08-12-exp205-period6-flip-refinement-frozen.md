@@ -7,3 +7,8 @@ closure, neutral multiplier, and two-section identity gates.
 
 A pass will supply seeds for coupled curve continuation, not identify the
 topology-changing curve or a double-superstable center.
+
+The first direct invocation stopped before loading candidate data or running
+an integration because the script-only import path omitted the repository
+root. The entrypoint received an import fallback plus a regression test; no
+event, threshold, evidence input, or acceptance rule changed before execution.
