@@ -35,6 +35,9 @@ topology claims.
 - fig19-exp212-214-flip-extension-grazing.png: EXP-212's broad parent-curve
   extension and EXP-213/214's continuous, extremum-aware qualification of a
   seven-to-six historical-section grazing.
+- fig20-exp215-217-folded-flip-locus.png: the qualified passage through that
+  grazing, lower-`c` projection turn, 135-point returning arm, widening
+  two-arm separation, and strict residual audit.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -170,6 +173,26 @@ Regenerate the EXP-212--214 flip-extension and grazing figure and receipt:
       --count-receipt artifacts/EXP-214/receipt.json \
       --expected-count-sha256 9ab2233c6f78a5a77d41b8912d45fd1387ea99c0816cabd0086379b2ec77510a \
       --output paper/figures/fig19-exp212-214-flip-extension-grazing.png --dpi 260
+
+Regenerate the EXP-215--217 folded flip-locus figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp215_217_folded_flip_locus.py \
+      --curve-receipt artifacts/EXP-206/receipt.json \
+      --expected-curve-sha256 e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba \
+      --child-receipt artifacts/EXP-211/receipt.json \
+      --expected-child-sha256 1e706b3c331c6261a358681ab127063c123fe8e30ba2e7ab24ee6a301edb9249 \
+      --extension-receipt artifacts/EXP-212/receipt.json \
+      --expected-extension-sha256 a322c78612874a3735a169e647c66aaa4fdddf81397d39d691ecc6c6e7ec04f1 \
+      --grazing-receipt artifacts/EXP-213/receipt.json \
+      --expected-grazing-sha256 7abc822a5683646e8dba007c2f34801762eb1f6ecdba8442e5217f9f41099b9f \
+      --through-receipt artifacts/EXP-215/receipt.json \
+      --expected-through-sha256 43488e68c43e6873ce1240f44d609c7a259fa1502d09ed6fb72946fdea346c3c \
+      --turn-receipt artifacts/EXP-216/receipt.json \
+      --expected-turn-sha256 c0dfcfc02153da3066e4e1198dd1a8ce9ada902c78afa4d584ab1c469b75f2e5 \
+      --returning-receipt artifacts/EXP-217/receipt.json \
+      --expected-returning-sha256 b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65 \
+      --output paper/figures/fig20-exp215-217-folded-flip-locus.png --dpi 260
 
 ## Promoted experiment figures
 

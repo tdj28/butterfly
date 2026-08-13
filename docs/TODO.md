@@ -273,6 +273,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `c=6.83093` and returns through 21 exact events to `c=6.99993`. Its stop is
   the frozen upper `c` guard. EXP-217 expands only that guard and freezes broad
   returning-arm continuation to `c>=8.25` with the same invariant gates.
+  EXP-217 passes all 135 accepted events through `c=8.25273`, with exact
+  `7/7/8` identity and terminal Radau parity. The returning arm is separated
+  from the original arm by `0.00891` in `a` at `c=7.16` and `0.05778` at
+  `c=8.25`. Freeze held-out period-12 branch switching and stability exchange
+  on the returning arm before calling the two arms shrimp boundaries.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

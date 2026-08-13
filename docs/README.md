@@ -248,6 +248,9 @@ what must be narrowed, and what is false or unresolved.
   independent terminal recorrection.
 - [`experiments/EXP-217-period6-flip-returning-arm.md`](experiments/EXP-217-period6-flip-returning-arm.md):
   freezes broad continuation of the returning arm toward `c=8.25`.
+- [`findings/FND-085-period6-flip-locus-has-two-broad-separated-arms.md`](findings/FND-085-period6-flip-locus-has-two-broad-separated-arms.md):
+  qualifies 135 returning-arm events and the widening separation from the
+  original period-6 flip arm.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

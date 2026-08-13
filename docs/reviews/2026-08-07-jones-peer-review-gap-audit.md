@@ -166,7 +166,9 @@ independent solver controls. EXP-212 adds 123 exact pseudo-arclength parent
 events and reaches `c=8.40309`; EXP-214 then qualifies a historical-section
 grazing without loss of the invariant flip event. EXP-215/216 continue through
 that grazing, qualify a lower-`c` projection turn near `c=6.83093`, and return
-to `c=6.99993` on a second exact sampled arm. Global endpoints and
+to `c=6.99993` on a second exact sampled arm. EXP-217 then passes 135 returning
+events to `c=8.25273`, producing two broadly separated arms over a shared
+`c` range. Child stability on the returning arm, global endpoints, and
 comparison with the TBA are still open.
 
 After RVR-003 through RVR-006 pass on Rössler, make held-out symbolic and curve

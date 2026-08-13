@@ -1004,3 +1004,37 @@ flow-orbit flip curve, not the TBA or another flow bifurcation.
   event, and is not identified with the TBA.}
   \label{fig:exp212-214-grazing}
 \end{figure}
+
+The apparent lower continuation target is itself incorrect.  Six fixed-step
+events first cross the qualified grazing and reach $c=6.83093$.  A separately
+frozen adaptive successor then turns in the $c$ projection and returns through
+21 exact events to $c=6.99993$, where it stops only at its declared upper
+parameter guard.  Expanding that guard prospectively yields 135/135 accepted
+events through $(a,c)=(0.27126703,8.25273305)$
+(Figure~\ref{fig:exp215-217-folded}).  Every returning event retains seven
+extremum-partitioned historical phases and eight Barrio phases.  Maximum orbit,
+event-eigenvector, arclength, and section-root residuals are
+$1.26\times10^{-11}$, $2.92\times10^{-12}$, $8.49\times10^{-12}$, and
+$4.55\times10^{-13}$.  The terminal event independently recorrects under
+Radau with parameter difference $6.90\times10^{-13}$.
+
+The connected sampled locus therefore has two widely separated arms over
+$c\in[7.01,8.25]$.  Their $a$ separation grows from $0.00891$ at $c=7.16$ to
+$0.05778$ at $c=8.25$.  This is an orbit-defined folded skeleton, not yet a
+proof that both arms bound the same stable shrimp.  Child switching and
+stability exchange on the returning arm remain required.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig20-exp215-217-folded-flip-locus.png}
+  \caption{The exact period-6 flip locus turns and forms a broad returning
+  arm. Upper left: the original and returning real-$-1$ arms, the sampled
+  period-12 child patch, the qualified historical-section grazing, and the
+  lower-$c$ turn. Upper right: the section grazing and parameter-projection
+  turn are distinct events. Lower left: arm separation grows across their
+  shared $c$ interval. Lower right: all 135 EXP-217 events satisfy the frozen
+  orbit, eigenvector, arclength, and section-root gates. The figure establishes
+  a folded event locus, not paired shrimp boundaries, a TBA curve, or a
+  doubly-superstable center.}
+  \label{fig:exp215-217-folded}
+\end{figure}

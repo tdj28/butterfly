@@ -49,6 +49,14 @@ assumed monotone lower extension and reveals a candidate broad second arm; it
 does not yet prove global closure, a shrimp-boundary assignment, TBA
 membership, or double-criticality.
 
+CLM-008 addendum (EXP-217): 135/135 accepted exact events extend the returning
+arm to `(a,c)=(0.27126703,8.25273305)`, retain extremum-historical/Barrio counts
+`7/8`, and pass terminal Radau recorrection. Across the common `c` range its
+separation from the original arm grows from `0.00891` in `a` at `c=7.16` to
+`0.05778` at `c=8.25`. This qualifies a broad folded orbit-defined skeleton,
+not yet paired shrimp boundaries, child stability on the returning arm, TBA
+membership, or double-criticality.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
