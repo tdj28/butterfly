@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp238-period24-nominated-exp239-frozen.md`](2026-08-13-exp238-period24-nominated-exp239-frozen.md)
+  — exact segmented switching nominates primitive period-24 candidates on
+  both signs; a separated child continuation is frozen next.
+
 - [`2026-08-13-exp237-passes-exp238-frozen.md`](2026-08-13-exp237-passes-exp238-frozen.md)
   — an exact 16-segment period-12 flip and anti-periodic mode pass every gate;
   the first segmented period-24 switch is frozen.
