@@ -100,7 +100,7 @@ def main() -> int:
     axes[0, 0].plot(
         offset, parent_periods, "o-", color="#7b3294", linewidth=2.0, markersize=7
     )
-    annotation_offsets = ((6, 7), (6, 7), (-116, 7))
+    annotation_offsets = ((6, 7), (6, 7), (-116, -55))
     for x_value, period, a_value, period_time, text_offset in zip(
         offset, parent_periods, event_a, event_period, annotation_offsets
     ):
@@ -139,14 +139,6 @@ def main() -> int:
             textcoords="offset points",
             fontsize=8,
         )
-    axes[0, 1].text(
-        0.5,
-        0.48,
-        "finite evidence; not a universality estimate",
-        transform=axes[0, 1].transAxes,
-        ha="center",
-        fontsize=8,
-    )
     axes[0, 1].grid(alpha=0.2, axis="y")
 
     x_values = np.arange(3)
