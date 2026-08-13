@@ -193,6 +193,10 @@ what must be narrowed, and what is false or unresolved.
   shows that quadrupled trajectory support preserves three branches under four
   baseline variants while one high-smoothing variant removes the shallow
   critical, rejecting sample scarcity but not qualifying a topology loss.
+- [`findings/FND-071-lower-c-critical-has-a-qualified-finite-data-scale.md`](findings/FND-071-lower-c-critical-has-a-qualified-finite-data-scale.md):
+  qualifies the shallow critical's smoothing-transition scale at 94/104 points
+  across two RK4 steps and nested 2,048/8,192 trajectory supports, while keeping
+  invariant topology and double superstability open.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

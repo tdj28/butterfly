@@ -1,7 +1,6 @@
 # EXP-201 — Jones critical smoothing-scale audit
 
-Status: prospectively frozen; first worker terminated before transfer because
-the derived candidate artifact requires payload-specific egress authorization
+Status: completed; passed 94/104 against the frozen 70/104 gate
 
 ## Question
 
@@ -52,3 +51,35 @@ The frozen implementation and manifests were archived at clean pushed commit
 cost authorization from authorization to transfer this new derived artifact.
 No file was transferred and no integration ran. The worker was terminated,
 the account was verified empty, and the conservative cost bound is `<$0.02`.
+
+After exact artifact authorization, the unchanged archive and candidate input
+were hash-verified on secure RTX A5000 worker `d0gj1ov2cojzfb`. Both RK4
+profiles completed without integration failure. The raw 1,261,031-byte receipt
+was retrieved with matching SHA-256
+`537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c`.
+The worker was terminated, the account was verified empty, and the conservative
+total cost bound for this worker is `<$0.12`.
+
+## Result
+
+EXP-201 passes: 94 of 104 candidates qualify, exceeding the frozen minimum of
+70. All 104 pass the nested return-pair gates. The ten failures arise solely
+because at least one step/support reconstruction lacks a monotone resolved
+three-to-two transition.
+
+Of the 94 qualified candidates, 86 have identical transition indices across
+all four reconstructions and eight span one ladder step. Their normalized
+second-critical location spans have median `0.01031` and maximum `0.01679`,
+below the `0.03` gate. Across 376 qualified reconstructions, the last-three to
+first-two brackets are `4.6416e-5 -> 1e-4` in 344 cases,
+`2.1544e-5 -> 1e-4` in 25, and `2.1544e-5 -> 4.6416e-5` in seven.
+
+The shallow critical is therefore a qualified reproducible finite-data scale
+object across the tested support and step limits. The result neither chooses
+the invariant zero-smoothing topology nor establishes double superstability.
+The next admissible step is a scale-ensemble reconstruction of the signed
+critical-membership residual, retaining explicit representation and
+regularization controls.
+
+Compact receipt:
+[`receipts/EXP-201.json`](receipts/EXP-201.json).

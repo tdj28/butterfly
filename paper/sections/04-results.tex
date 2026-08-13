@@ -740,3 +740,34 @@ prevents the lower-$c$ boundary from being called a topological branch loss.
   the star marks the selected strict survivor.}
   \label{fig:exp200-smoothing}
 \end{figure}
+
+The preregistered scale audit then replaces the binary smoothing veto with a
+seven-level logarithmic ladder and nested 2,048/8,192-trajectory supports at
+both RK4 steps.  It passes: 94 of 104 candidates qualify against the frozen
+minimum of 70.  Eighty-six have identical transition indices in all four
+step/support reconstructions and eight differ by one ladder step.  Their
+normalized second-critical spans have median $0.01031$ and maximum $0.01679$,
+below the $0.03$ gate.
+
+Of the 376 qualified support-profile reconstructions, 344 retain three branches
+through smoothing $4.6416\times10^{-5}$ and first return two at $10^{-4}$;
+25 bracket the transition between $2.1544\times10^{-5}$ and $10^{-4}$ because
+the intermediate level is unresolved, and seven transition one level earlier
+(Figure~\ref{fig:exp201-scale}).  Thus the shallow critical has a reproducible
+finite-data scale across the tested support and step limits.  This is not a
+choice of invariant zero-smoothing topology and does not establish double
+superstability; it licenses a scale-aware reconstruction of the signed
+critical-membership residual.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig11-exp201-smoothing-scale-audit.png}
+  \caption{Nested-support smoothing-scale audit.  Left: 94 of 104 candidates
+  qualify across both RK4 steps and both trajectory supports; the ten crosses
+  lack a monotone resolved transition in at least one reconstruction.  Center:
+  last-three to first-two smoothing brackets for all 376 qualified
+  support-profile reconstructions.  Right: every qualified normalized
+  second-critical span lies below the frozen $0.03$ gate.  The result qualifies
+  a finite-data scale transition, not an invariant branch count.}
+  \label{fig:exp201-scale}
+\end{figure}

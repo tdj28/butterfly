@@ -15,6 +15,8 @@ topology claims.
   signed critical-residual maps and normalized direct-gate distances.
 - fig10-exp200-oracle-sensitivity.png: EXP-200's baseline versus high-smoothing
   branch votes under quadrupled trajectory support.
+- fig11-exp201-smoothing-scale-audit.png: EXP-201's candidate qualification,
+  transition brackets, and second-critical stability under nested support.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -54,6 +56,15 @@ Regenerate the EXP-200 oracle-sensitivity field and receipt:
       --receipt artifacts/EXP-200/receipt.json \
       --expected-receipt-sha256 63199e4171c1f5a5c1fc1e309804b5f97b693567076c87ab6a94ac1b14fb4497 \
       --output paper/figures/fig10-exp200-oracle-sensitivity.png --dpi 260
+
+Regenerate the EXP-201 smoothing-scale audit figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp201_smoothing_scale_audit.py \
+      --manifest experiments/manifests/EXP-201-jones-critical-smoothing-scale-audit.json \
+      --receipt artifacts/EXP-201/receipt.json \
+      --expected-receipt-sha256 537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c \
+      --output paper/figures/fig11-exp201-smoothing-scale-audit.png --dpi 260
 
 ## Promoted experiment figures
 

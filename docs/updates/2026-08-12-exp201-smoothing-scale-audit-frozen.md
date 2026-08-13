@@ -16,3 +16,15 @@ the controller requires payload-specific authorization for the derived candidate
 artifact even though its `<$30` compute cost is already authorized. The worker
 was terminated, the RunPod account was verified empty, and the cost is bounded
 below `$0.02`.
+
+After the exact artifact was authorized, the unchanged experiment ran on a
+secure RTX A5000. It passes with 94/104 qualified candidates against the frozen
+70/104 minimum. Eighty-six have identical transition indices across all four
+step/support reconstructions, and eight differ by one ladder level. The
+qualified second-critical spans have median `0.01031` and maximum `0.01679`
+against the `0.03` gate. The receipt was retrieved by matching hash; the worker
+was terminated; no account pods remain; and its cost is bounded below `$0.12`.
+
+This qualifies a reproducible finite-data transition scale, not invariant
+topology. The next experiment may now reconstruct the signed critical-membership
+residual with a scale ensemble instead of treating `smoothing=1e-4` as a veto.
