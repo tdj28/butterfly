@@ -5,13 +5,14 @@ from scripts.localize_jones_returning_period12_flip_exact_arm import (
 
 
 def test_returning_period12_flip_exact_arm_schema_is_versioned():
-    assert SCHEMA == "butterfly.jones-returning-period12-flip-exact-arm-manifest.v1"
+    assert SCHEMA == "butterfly.jones-returning-period12-flip-exact-arm-manifest.v2"
 
 
 def test_root_gate_does_not_require_stable_child():
     row = {
         "checks": {
             "closure": True,
+            "correction": True,
             "parent_unstable": True,
             "child_stable": False,
             "period_ratio": True,

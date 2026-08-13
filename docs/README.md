@@ -305,6 +305,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-231-returning-period12-flip-exact-arm.md`](experiments/EXP-231-returning-period12-flip-exact-arm.md):
   freezes two-solver localization and bilateral qualification of the genuine
   period-12 flip exposed after exact-arm correction.
+- [`experiments/EXP-232-returning-period12-flip-residual-safe.md`](experiments/EXP-232-returning-period12-flip-residual-safe.md):
+  preserves EXP-231's science gates while making a residual-qualified Radau
+  `xtol` stop explicit and auditable.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

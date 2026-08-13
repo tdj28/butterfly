@@ -351,6 +351,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   DOP853/Radau localization plus bilateral stable/unstable controls. A pass
   should seed a period-24 branch switch; do not misclassify this cascade rung
   as a child-sheet endpoint.
+  EXP-231 stops before receipt on a Radau `xtol` status whose replayed closure,
+  phase, neutral, and multiplier diagnostics all satisfy the existing gates.
+  EXP-232 freezes a residual-safe, receipt-visible successor without changing
+  the bracket or any scientific threshold.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

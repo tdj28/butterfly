@@ -1,0 +1,67 @@
+{
+  "schema": "butterfly.jones-returning-period12-flip-exact-arm-manifest.v2",
+  "experiment_id": "EXP-232",
+  "event_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "exact_arm_receipt_sha256": "772ee87a47acae5d6c182944cb7c883905621c6aa1ddaca89ab1d6ae0fee4e4a",
+  "fixed_b": 0.2,
+  "expected_delta_a": -5.730236757039986e-7,
+  "child_seed_c": 7.625644884709747,
+  "source_interval": {"left_c": 7.620601779937221, "right_c": 7.6352726301845655},
+  "root": {
+    "c_bracket": [7.625644884709747, 7.625874116744861],
+    "xtol": 1e-11,
+    "rtol": 1e-12,
+    "maximum_iterations": 40
+  },
+  "bilateral_delta_c": 0.00015,
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "independent_solver": {"method": "Radau", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "correction_acceptance": {
+    "allowed_failure_message": "`xtol` termination condition is satisfied.",
+    "maximum_raw_correction_closure": 2e-8,
+    "maximum_phase_residual": 1e-8
+  },
+  "event_correction": {
+    "a_guard": [0.23, 0.26],
+    "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+    "acceptance": {
+      "maximum_orbit_residual": 1e-8,
+      "maximum_phase_residual": 1e-8,
+      "maximum_tangent_residual": 1e-8,
+      "maximum_normalization_residual": 1e-8,
+      "maximum_independent_multiplier_residual": 1e-5,
+      "maximum_multiplier_imaginary_part": 1e-7,
+      "maximum_neutral_multiplier_error": 1e-5,
+      "historical_phase_count": 7,
+      "barrio_phase_count": 8
+    }
+  },
+  "identity": {
+    "historical_parent_phase_count": 7,
+    "barrio_parent_phase_count": 8,
+    "historical_child_phase_count": 14,
+    "barrio_child_phase_count": 16
+  },
+  "acceptance": {
+    "maximum_closure_error": 2e-8,
+    "minimum_parent_multiplier_modulus": 1.0001,
+    "maximum_child_multiplier_modulus": 0.999,
+    "maximum_period_ratio_error": 0.0005,
+    "minimum_proper_subperiod_closure": 0.0001,
+    "maximum_adjacent_child_state_distance": 0.003,
+    "maximum_solver_identity_rms": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "minimum_subperiod_to_full_closure_ratio": 10000
+  },
+  "root_acceptance": {
+    "maximum_root_multiplier_residual": 5e-7,
+    "maximum_multiplier_imaginary_part": 1e-7,
+    "maximum_neutral_multiplier_error": 1e-5,
+    "maximum_solver_c_difference": 2e-7,
+    "maximum_left_child_multiplier_modulus": 0.999,
+    "minimum_right_child_multiplier_modulus": 1.001
+  },
+  "claim_scope": "scientifically unchanged residual-safe successor to EXP-231: independent DOP853/Radau localization of the primitive period-12 real-minus-one crossing on the exact returning-arm offset path, allowing only an explicitly recorded xtol optimizer stop whose raw correction closure is at most 2e-8 and phase residual at most 1e-8, while retaining fresh exact source-event correction, full 7/8 parent and 14/16 child identity, all root thresholds, and bilateral stable/unstable primitive-child controls at plus or minus 1.5e-4 in c; a pass establishes a sampled exact period-12 flip on this path, not a stable period-24 child, supercriticality, a complete cascade, a global child sheet, paired shrimp boundaries, TBA membership, double-criticality, or a full-plane explanation"
+}

@@ -13,19 +13,171 @@ import numpy as np
 import scipy
 from scipy.optimize import brentq
 
-from butterfly import RosslerParameters, SolverConfig
+from butterfly import (
+    RosslerParameters,
+    SolverConfig,
+    barrio_rossler_section,
+    correct_periodic_orbit,
+    flow_monodromy,
+    legacy_rossler_section,
+)
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 from scripts.bridge_jones_returning_period12_child import interpolate_event
 from scripts.continue_jones_period6_flip_curve import _solve_event
-from scripts.continue_jones_returning_period12_child import (
-    _continue_row,
-    _correct,
-)
 from scripts.continue_jones_returning_period12_child_exact_arm import event_manifest
-from scripts.qualify_jones_period12_children import _summary
+from scripts.qualify_jones_period12_children import (
+    _closure_at_fraction,
+    _section_count,
+    _summary,
+    proper_subperiod_fractions,
+)
 
 
-SCHEMA = "butterfly.jones-returning-period12-flip-exact-arm-manifest.v1"
+SCHEMA = "butterfly.jones-returning-period12-flip-exact-arm-manifest.v2"
+
+
+def correct_residual_safe(parameters, seed, solver, manifest):
+    """Accept only an explicitly allowed xtol stop with qualified residuals."""
+
+    orbit = correct_periodic_orbit(
+        parameters,
+        seed["initial_state"],
+        seed["period_time"],
+        config=solver,
+        tolerance=float(manifest["corrector"]["tolerance"]),
+        max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
+    )
+    acceptance = manifest["correction_acceptance"]
+    residual_qualified_xtol = bool(
+        acceptance["allowed_failure_message"] in str(orbit.message)
+        and float(orbit.closure_error)
+        <= float(acceptance["maximum_raw_correction_closure"])
+        and abs(float(orbit.phase_residual))
+        <= float(acceptance["maximum_phase_residual"])
+    )
+    accepted = bool(orbit.success or residual_qualified_xtol)
+    if not accepted:
+        raise RuntimeError(
+            f"periodic correction failed residual-safe gate: {orbit.message}"
+        )
+    monodromy = flow_monodromy(
+        parameters, orbit.initial_state, orbit.period_time, config=solver
+    )
+    return orbit, monodromy, {
+        "optimizer_success": bool(orbit.success),
+        "message": str(orbit.message),
+        "raw_correction_closure": float(orbit.closure_error),
+        "phase_residual": float(abs(orbit.phase_residual)),
+        "residual_qualified_xtol": residual_qualified_xtol,
+        "accepted": accepted,
+    }
+
+
+def diagnose_point(event, child_seed, delta_a, manifest, solver):
+    """Fully diagnose parent and primitive child using residual-safe correction."""
+
+    parameters = RosslerParameters(
+        a=float(event["a"]) + float(delta_a),
+        b=float(manifest["fixed_b"]),
+        c=float(event["c"]),
+    )
+    parent, parent_monodromy, parent_status = correct_residual_safe(
+        parameters, event, solver, manifest
+    )
+    child, child_monodromy, child_status = correct_residual_safe(
+        parameters, child_seed, solver, manifest
+    )
+    parent_summary = _summary(parent, parent_monodromy)
+    child_summary = _summary(child, child_monodromy)
+    identity = manifest["identity"]
+    counts = {
+        "parent_historical": _section_count(
+            parameters,
+            parent,
+            legacy_rossler_section(parameters),
+            int(identity["historical_parent_phase_count"]),
+            solver,
+        ),
+        "parent_barrio": _section_count(
+            parameters,
+            parent,
+            barrio_rossler_section(parameters),
+            int(identity["barrio_parent_phase_count"]),
+            solver,
+        ),
+        "child_historical": _section_count(
+            parameters,
+            child,
+            legacy_rossler_section(parameters),
+            int(identity["historical_child_phase_count"]),
+            solver,
+        ),
+        "child_barrio": _section_count(
+            parameters,
+            child,
+            barrio_rossler_section(parameters),
+            int(identity["barrio_child_phase_count"]),
+            solver,
+        ),
+    }
+    subperiod_closures = [
+        {
+            "fraction": fraction,
+            "closure": _closure_at_fraction(parameters, child, fraction, solver),
+        }
+        for fraction in proper_subperiod_fractions(
+            int(identity["historical_child_phase_count"])
+        )
+    ]
+    minimum_subperiod = min(item["closure"] for item in subperiod_closures)
+    period_ratio = float(child.period_time / parent.period_time)
+    acceptance = manifest["acceptance"]
+    expected_counts = {
+        "parent_historical": int(identity["historical_parent_phase_count"]),
+        "parent_barrio": int(identity["barrio_parent_phase_count"]),
+        "child_historical": int(identity["historical_child_phase_count"]),
+        "child_barrio": int(identity["barrio_child_phase_count"]),
+    }
+    checks = {
+        "closure": max(
+            parent_summary["closure_error"], child_summary["closure_error"]
+        )
+        <= float(acceptance["maximum_closure_error"]),
+        "parent_unstable": parent_summary["dominant_transverse_multiplier"][
+            "modulus"
+        ]
+        >= float(acceptance["minimum_parent_multiplier_modulus"]),
+        "child_stable": child_summary["dominant_transverse_multiplier"]["modulus"]
+        <= float(acceptance["maximum_child_multiplier_modulus"]),
+        "period_ratio": abs(period_ratio - 2.0)
+        <= float(acceptance["maximum_period_ratio_error"]),
+        "proper_subperiod": minimum_subperiod
+        >= float(acceptance["minimum_proper_subperiod_closure"]),
+        "section_identity": all(
+            counts[name][0] == expected and counts[name][1]
+            for name, expected in expected_counts.items()
+        ),
+        "correction": parent_status["accepted"] and child_status["accepted"],
+    }
+    return {
+        "a": parameters.a,
+        "b": parameters.b,
+        "c": parameters.c,
+        "event_a": float(event["a"]),
+        "delta_a": float(delta_a),
+        "parent": parent_summary,
+        "child": child_summary,
+        "period_ratio": period_ratio,
+        "proper_subperiod_closures": subperiod_closures,
+        "minimum_proper_subperiod_closure": float(minimum_subperiod),
+        "section_counts": {
+            name: {"count": value[0], "integration_success": value[1]}
+            for name, value in counts.items()
+        },
+        "correction_status": {"parent": parent_status, "child": child_status},
+        "checks": checks,
+        "passed": all(checks.values()),
+    }
 
 
 def root_row_passes(row, root_residual, acceptance):
@@ -34,6 +186,7 @@ def root_row_passes(row, root_residual, acceptance):
     multiplier = row["child"]["dominant_transverse_multiplier"]
     return bool(
         row["checks"]["closure"]
+        and row["checks"]["correction"]
         and row["checks"]["parent_unstable"]
         and row["checks"]["period_ratio"]
         and row["checks"]["proper_subperiod"]
@@ -122,12 +275,8 @@ def main() -> int:
                     b=float(manifest["fixed_b"]),
                     c=key,
                 )
-                orbit, monodromy = _correct(
-                    parameters,
-                    child_seed["initial_state"],
-                    child_seed["period_time"],
-                    solver,
-                    manifest["corrector"],
+                orbit, monodromy, correction_status = correct_residual_safe(
+                    parameters, child_seed, solver, manifest
                 )
                 summary = _summary(orbit, monodromy)
                 multiplier = summary["dominant_transverse_multiplier"]
@@ -136,6 +285,7 @@ def main() -> int:
                     "a": parameters.a,
                     "event": event,
                     "child": summary,
+                    "correction_status": correction_status,
                     "flip_residual": float(multiplier["real"]) + 1.0,
                 }
             return cache[key]
@@ -162,14 +312,14 @@ def main() -> int:
             disp=False,
         )
         root = evaluate(root_c)
-        root_full = _continue_row(
+        root_full = diagnose_point(
             root["event"], child_seed, delta_a, manifest, solver
         )
         bilateral = {}
         for side, sign in (("left", -1.0), ("right", 1.0)):
             c_value = root_c + sign * float(manifest["bilateral_delta_c"])
             point = evaluate(c_value)
-            full = _continue_row(
+            full = diagnose_point(
                 point["event"], child_seed, delta_a, manifest, solver
             )
             bilateral[side] = {
@@ -206,11 +356,17 @@ def main() -> int:
         )
         left = result["bilateral"]["left"]
         right = result["bilateral"]["right"]
+        required_bilateral_checks = (
+            "closure",
+            "correction",
+            "parent_unstable",
+            "period_ratio",
+            "proper_subperiod",
+            "section_identity",
+        )
         result["bilateral_passed"] = bool(
-            left["checks"]["proper_subperiod"]
-            and left["checks"]["section_identity"]
-            and right["checks"]["proper_subperiod"]
-            and right["checks"]["section_identity"]
+            all(left["checks"][name] for name in required_bilateral_checks)
+            and all(right["checks"][name] for name in required_bilateral_checks)
             and float(left["child_multiplier"]["real"])
             >= -float(acceptance["maximum_left_child_multiplier_modulus"])
             and float(left["child_multiplier"]["real"]) < 0.0
