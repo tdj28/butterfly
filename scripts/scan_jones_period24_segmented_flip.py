@@ -20,6 +20,7 @@ from audit_segmented_floquet_precision import block_and_product_floquet
 SCHEMAS = {
     "butterfly.jones-period24-segmented-flip-scan-manifest.v1",
     "butterfly.jones-period48-segmented-flip-scan-manifest.v1",
+    "butterfly.jones-period96-segmented-flip-scan-manifest.v1",
 }
 
 

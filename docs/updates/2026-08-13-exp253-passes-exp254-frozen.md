@@ -24,3 +24,7 @@ EXP-256 passes: DOP853/Radau whole-orbit sign RMS is
 `3.45e-10/4.57e-9` at a half-period shift, resolving both signs as one stable
 primitive period-96 orbit. EXP-257 freezes eight exact continuation steps
 toward a separately gated fourth-flip scan.
+
+EXP-257 passes all eight steps and retains exact `112/128` identity while the
+dominant multiplier reaches `-148.708`. EXP-258 freezes a magnitude-separated
+block-Floquet scan of all nine exact rows.
