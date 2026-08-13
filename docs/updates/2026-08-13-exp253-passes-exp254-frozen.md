@@ -195,3 +195,11 @@ parallel 1,024-segment Decimal audit with nested 4,096/8,192-step profiles and
 four cyclic characteristic-polynomial roots. It supplies a converged
 high-precision multiplier at the immutable coordinate only, not event
 qualification.
+
+EXP-285 passes nine of ten gates. Full-grid orbit/tangent mismatch remains
+below `5.54e-11/1.82e-10`, cyclic spread is `1.82e-43`, and characteristic
+residual is `1.01e-49`, but raw 4,096/8,192-step multipliers differ by
+`7.25e-5`. Their errors decrease by factor `15.988`, nearly the fourth-order
+factor 16. EXP-286 freezes a new 16,384-step profile and prospectively gates
+successive order-four Richardson estimates before any extrapolated multiplier
+is promoted.

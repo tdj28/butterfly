@@ -453,7 +453,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-284-period768-decimal-segment-pilot.md`](experiments/EXP-284-period768-decimal-segment-pilot.md):
   passes a 50-decimal-digit four-segment convergence pilot.
 - [`experiments/EXP-285-period768-decimal-multiplier-audit.md`](experiments/EXP-285-period768-decimal-multiplier-audit.md):
-  freezes the full 1,024-segment high-precision multiplier audit.
+  preserves a sole raw multiplier-convergence failure with fourth-order scaling.
+- [`experiments/EXP-286-period768-decimal-richardson-audit.md`](experiments/EXP-286-period768-decimal-richardson-audit.md):
+  freezes an untouched third-level Richardson convergence test.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
