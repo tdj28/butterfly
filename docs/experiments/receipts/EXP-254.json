@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.jones-period96-sign-equivalence-summary.v1",
+  "experiment_id": "EXP-254",
+  "passed": false,
+  "source_commit": "c888c3f2cd7635ac3257dfb5f2cdee352e945aeb",
+  "manifest_sha256": "25c7098e9eec48085206a34f105dbc82e9f534aae45f899d58740596d9595489",
+  "switch_receipt_sha256": "5cfed28b20ba1050486804ed39b4d09ebc2041baf9c81c710112e78d12f45a68",
+  "raw_artifact": "artifacts/EXP-254/receipt.json",
+  "raw_artifact_bytes": 45066,
+  "raw_artifact_sha256": "2d7d709643aa720c2910c9ac523c730b790aab2edb62f95e0bd82a1d8458ed07",
+  "target_a": 0.24070101600213994,
+  "failed_checks": ["sign_identity"],
+  "dop853_sign_identity_rms": 1.0723316311456066e-5,
+  "radau_sign_identity_rms": 1.0730633609216391e-5,
+  "final_phase_grid_spacing": 7.450580596923828e-9,
+  "maximum_solver_identity_rms": 3.9145297873008916e-8,
+  "modulus_spread": 3.5010104068033954e-5,
+  "interpretation": "All common-parameter orbit and solver gates pass, but the frozen phase grid is too coarse to meet the unchanged tangent-sign RMS threshold. EXP-255 freezes continuous phase minimization on the same corrected nodes."
+}

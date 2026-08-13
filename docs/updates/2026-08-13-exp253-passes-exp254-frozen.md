@@ -9,3 +9,9 @@ EXP-254 freezes a common-parameter, whole-orbit comparison of both tangent
 signs under both solvers. Its purpose is to distinguish one phase-shifted
 period-96 branch from two accidentally nearby switch roots before continuing
 the child toward a fourth event.
+
+EXP-254 passes every orbit and solver gate but fails sign identity at
+`1.07e-5` RMS. Both solvers identify a half-period shift; the final phase grid
+spacing is `7.45e-9`, too coarse for the frozen `1e-6` RMS gate. EXP-255
+preserves the failure and freezes continuous phase minimization on the same
+corrected nodes without relaxing the identity threshold.
