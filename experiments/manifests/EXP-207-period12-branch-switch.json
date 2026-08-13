@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.jones-period6-flip-branch-switch-manifest.v1",
+  "experiment_id": "EXP-207",
+  "source_receipt_sha256": "e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba",
+  "fixed_b": 0.2,
+  "event_c_values": [7.18, 7.24, 7.3],
+  "primary_a_offset": 0.00001,
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 40, "tolerance": 1e-10},
+  "continuation": {
+    "step_length": 0.004,
+    "steps_per_direction": 10,
+    "a_guard_offsets": [-0.00005, 0.0001]
+  },
+  "acceptance": {
+    "required_events": 3,
+    "maximum_small_singular_value": 0.000001,
+    "maximum_tangent_dot": 0.2,
+    "minimum_points_per_direction": 8,
+    "minimum_endpoint_distance": 0.0001,
+    "minimum_a_separation": 1e-7,
+    "maximum_closure_error": 1e-8,
+    "historical_child_phase_count": 12,
+    "barrio_child_phase_count": 16
+  },
+  "claim_scope": "prospectively frozen doubled-period nullspace switching from three separated EXP-206 period-6 flip events; a pass establishes distinct local period-12 branch arms with two-section identity, not child stability, supercriticality, attraction, a continuous period-12 surface, the TBA curve, or double superstability"
+}

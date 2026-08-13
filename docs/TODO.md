@@ -230,8 +230,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   brackets across `c in [7.192,7.288]`, with `7.63e-11` maximum bracket width
   and exact two-section identity. EXP-206 passes exact-Jacobian coupled
   continuation at all 41 fixed-c points across `c in [7.16,7.32]`, with
-  maximum orbit residual `1.10e-11`; freeze and execute a period-12
-  child-branch audit from separated curve points.
+  maximum orbit residual `1.10e-11`. EXP-207 now freezes doubled-period
+  nullspace switching at `c=7.18,7.24,7.30`; use passing arms for a separate
+  period-12 stability/identity/attraction audit.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
