@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-returning-period12-child-multiscale-summary.v1",
+  "experiment_id": "EXP-220",
+  "passed": false,
+  "source_commit": "abb844215a93f167a2f5743d9749b2fba96d4c5c",
+  "manifest_sha256": "2c44759edfba613fb15ea5b071ba961ef9f12f7378e9c60a840134279f7b0df9",
+  "source_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "raw_artifact": "artifacts/EXP-220/receipt.json",
+  "raw_artifact_bytes": 53510,
+  "raw_artifact_sha256": "077f88fd064b0825ed385fa9277f1552b44291e319a42abbc0f218dac142134a",
+  "elapsed_seconds": 3057.754923083354,
+  "exact_event_passes": [true, true, true],
+  "candidate_counts": [6, 1, 0],
+  "qualified_lower_a_counts": [4, 0, 0],
+  "smallest_singular_values": [4.677899799551406e-9, 1.9059282654764417e-7, 1.7788638705035031e-6],
+  "near_slice": {
+    "c": 7.162991043185879,
+    "event_a": 0.2248068699737432,
+    "passing_candidate_a_range": [0.22480321672223594, 0.22480629695006749],
+    "passing_period_ratio_range": [2.000018304884548, 2.0001104494717694],
+    "passing_parent_modulus_range": [1.0448585676411772, 1.2702612334799963],
+    "passing_child_modulus_range": [0.15646315521462248, 0.8184925619950048],
+    "passing_minimum_subperiod_closure_range": [0.044901006275885044, 0.11354878214059097],
+    "maximum_passing_child_solver_rms": 2.230411388605869e-9,
+    "parent_counts": {"historical": 7, "barrio": 8},
+    "child_counts": {"historical": 14, "barrio": 16}
+  },
+  "middle_slice": {
+    "c": 7.702475070546665,
+    "candidate_side": 1,
+    "candidate_qualified": false
+  },
+  "far_slice": {
+    "c": 8.201986179083645,
+    "candidate_count": 0
+  },
+  "interpretation": "The frozen three-slice claim fails, but four primitive stable lower-a children paired with unstable parents pass every independent gate at the untouched near returning-arm slice. This locally supports the opposing-boundary interpretation; remote slices remain unresolved, not negative for child existence."
+}

@@ -260,6 +260,12 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-220-returning-period12-children-multiscale.md`](experiments/EXP-220-returning-period12-children-multiscale.md):
   freezes exact event recorrection and a declared four-scale child-switch
   recovery after EXP-219's zero-candidate result.
+- [`findings/FND-086-returning-arm-has-local-opposing-side-stability-exchange.md`](findings/FND-086-returning-arm-has-local-opposing-side-stability-exchange.md):
+  qualifies four primitive stable lower-`a` children at one untouched
+  returning-arm event while preserving the unresolved remote switches.
+- [`experiments/EXP-221-returning-period12-child-continuation.md`](experiments/EXP-221-returning-period12-child-continuation.md):
+  freezes identity-safe continuation of one qualified child through 52
+  returning-arm events toward the unresolved middle slice.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

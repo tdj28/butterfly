@@ -57,6 +57,15 @@ separation from the original arm grows from `0.00891` in `a` at `c=7.16` to
 not yet paired shrimp boundaries, child stability on the returning arm, TBA
 membership, or double-criticality.
 
+CLM-008 addendum (EXP-220): the frozen three-slice child claim fails, but the
+untouched near returning-arm slice yields four primitive stable period-12
+children toward lower `a`, opposite the original arm's higher-`a` children.
+All four pair with unstable period-6 parents and pass exact section identity,
+primitivity, period-ratio, Floquet, and DOP853/Radau whole-orbit gates. This
+locally supports an opposing-boundary interpretation. The middle and far
+returning-arm children remain unresolved and prevent a global shrimp-boundary
+assignment.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
