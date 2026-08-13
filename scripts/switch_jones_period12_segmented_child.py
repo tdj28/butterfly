@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Switch the exact segmented Jones period-12 flip to period-24 candidates."""
+"""Switch a qualified segmented Jones flip to doubled-period candidates."""
 
 from __future__ import annotations
 
@@ -31,6 +31,7 @@ from validate_multiple_shooting_switch import half_closure
 SCHEMAS = {
     "butterfly.jones-period12-segmented-child-switch-manifest.v1",
     "butterfly.jones-period24-segmented-child-switch-manifest.v1",
+    "butterfly.jones-period48-segmented-child-switch-manifest.v1",
 }
 
 
@@ -43,10 +44,36 @@ def doubled_event_variables(event: dict) -> np.ndarray:
     ]
 
 
+def qualified_audit_bytes(
+    event: dict,
+    event_bytes: bytes,
+    manifest: dict,
+    audit_path: Path | None,
+) -> bytes | None:
+    """Return a bound passing audit for a failed event, or none for a pass."""
+    if event.get("passed"):
+        return None
+    if audit_path is None:
+        raise ValueError("a failed event requires its bound passing audit")
+    audit_bytes = audit_path.read_bytes()
+    if sha256_bytes(audit_bytes) != manifest.get("audit_receipt_sha256"):
+        raise ValueError("audit receipt hash mismatch")
+    audit = json.loads(audit_bytes)
+    if (
+        audit.get("schema") != manifest.get("audit_schema")
+        or not audit.get("passed")
+        or audit.get("event_receipt_sha256") != sha256_bytes(event_bytes)
+        or not all(audit.get("checks", {}).values())
+    ):
+        raise ValueError("event is not qualified by the bound audit")
+    return audit_bytes
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--event", type=Path, required=True)
+    parser.add_argument("--audit", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -58,8 +85,14 @@ def main() -> int:
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
         raise SystemExit("event receipt hash mismatch")
     event = json.loads(event_bytes)
-    if event.get("schema") != manifest["event_schema"] or not event.get("passed"):
-        raise SystemExit("a passed augmented period-12 event is required")
+    if event.get("schema") != manifest["event_schema"]:
+        raise SystemExit("event schema mismatch")
+    try:
+        audit_bytes = qualified_audit_bytes(
+            event, event_bytes, manifest, args.audit
+        )
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -253,6 +286,9 @@ def main() -> int:
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),
+        "audit_receipt_sha256": (
+            sha256_bytes(audit_bytes) if audit_bytes is not None else None
+        ),
         "source": source,
         "environment": {
             "python": platform.python_version(),

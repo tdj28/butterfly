@@ -369,8 +369,10 @@ what must be narrowed, and what is false or unresolved.
   passes every DOP853 event residual but preserves optimizer-status and
   full-period Radau failures.
 - [`experiments/EXP-251-period48-flip-residual-safe-audit.md`](experiments/EXP-251-period48-flip-residual-safe-audit.md):
-  freezes residual-qualified source handling and an independent segmented
-  Radau tangent/block-Floquet audit without relaxing thresholds.
+  qualifies the period-48 event via residual-safe source handling and an
+  independent segmented Radau tangent/block-Floquet audit.
+- [`experiments/EXP-252-jones-period96-segmented-switch.md`](experiments/EXP-252-jones-period96-segmented-switch.md):
+  freezes the hash-bound, 128-segment period-96 child-switch attempt.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
