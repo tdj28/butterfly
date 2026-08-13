@@ -257,7 +257,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-213 converges the continuous root and Radau parity but fails its final
   integer-count gate because the standard collector loses the close crossing
   pair. EXP-214 now freezes extremum-partitioned counting at eight bilateral
-  offsets and four Radau controls.
+  offsets and four Radau controls. EXP-214 passes: extremum-aware counts are
+  `7,7,7,7` below and `6,6,6,6` above `c=6.93831802121`, Barrio remains eight,
+  and all Radau controls agree. Continue the invariant flip curve through this
+  now-qualified representation boundary using orbit/Barrio identity.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

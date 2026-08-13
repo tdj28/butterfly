@@ -964,3 +964,43 @@ basin size, the TBA, and double-critical membership remain unestablished.
   a global continuity theorem, TBA curve, or doubly-superstable center.}
   \label{fig:exp211-surface}
 \end{figure}
+
+Dual-parameter pseudo-arclength then probes the parent flip curve beyond the
+child-sheet rectangle (Figure~\ref{fig:exp212-214-grazing}).  The frozen
+symmetric range claim fails: the upper arm completes all 100 requested points
+through $c=8.40309$, whereas the lower arm accepts 23 points and stops near
+$c=6.94$.  The rejected next point still closes to $1.87\times10^{-13}$,
+retains a real multiplier $-0.9999999980$, and has eight Barrio phases, but its
+historical count changes from six to seven.  Thus the failure nominates a
+section event rather than an invariant-curve endpoint.
+
+Direct continuous refinement locates the closest $y$ extremum's coincidence
+with the equilibrium-defined section plane and half-plane gate at
+$c=6.93831802121$, in a bracket of width $6.58\times10^{-11}$.  DOP853 gives
+clearance $2.22\times10^{-11}$, gate margin $4.81\times10^{-12}$, and
+$d^2y/dt^2=-13.6961$; Radau independently agrees.  That frozen experiment
+nevertheless fails because a standard sign-change collector skips the two
+coalescing roots and reports six crossings on both final sides.  A separately
+frozen extremum-partitioned audit resolves the numerical pathology: all four
+lower offsets have seven historical phases, all four upper offsets have six,
+and every Barrio count remains eight.  The standard collector misses three of
+the lower-side crossings.  Four Radau controls reproduce the extremum-aware
+counts with maximum clearance difference $4.86\times10^{-12}$.  This
+establishes a section-dependent representation boundary on an intact
+flow-orbit flip curve, not the TBA or another flow bifurcation.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig19-exp212-214-flip-extension-grazing.png}
+  \caption{Broad extension of the period-6 flip curve and qualification of a
+  historical-section grazing.  Upper left: the upper pseudo-arclength arm
+  reaches $c=8.40309$; the lower frozen range gate stops at the section event.
+  Upper right: the nearest-extremum clearance crosses zero nondegenerately.
+  Lower left: extremum-partitioned historical counts change seven-to-six while
+  the Barrio count remains eight; the standard collector misses three close
+  lower-side crossings.  Lower right: the section-plane clearance and
+  half-plane gate margin vanish together by the exact R\"ossler extremum
+  relation.  The grazing changes a representation, not the invariant flow
+  event, and is not identified with the TBA.}
+  \label{fig:exp212-214-grazing}
+\end{figure}

@@ -32,6 +32,9 @@ topology claims.
 - fig18-exp211-period12-surface.png: EXP-211's 124-point child sheet, 31
   square-root fits, stability exchange, and recovery of EXP-210's 16
   doubled-parent collapses.
+- fig19-exp212-214-flip-extension-grazing.png: EXP-212's broad parent-curve
+  extension and EXP-213/214's continuous, extremum-aware qualification of a
+  seven-to-six historical-section grazing.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -153,6 +156,20 @@ Regenerate the EXP-211 period-12 surface figure and receipt:
       --receipt artifacts/EXP-211/receipt.json \
       --expected-receipt-sha256 1e706b3c331c6261a358681ab127063c123fe8e30ba2e7ab24ee6a301edb9249 \
       --output paper/figures/fig18-exp211-period12-surface.png --dpi 260
+
+Regenerate the EXP-212--214 flip-extension and grazing figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp212_214_flip_extension_grazing.py \
+      --curve-receipt artifacts/EXP-206/receipt.json \
+      --expected-curve-sha256 e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba \
+      --extension-receipt artifacts/EXP-212/receipt.json \
+      --expected-extension-sha256 a322c78612874a3735a169e647c66aaa4fdddf81397d39d691ecc6c6e7ec04f1 \
+      --grazing-receipt artifacts/EXP-213/receipt.json \
+      --expected-grazing-sha256 7abc822a5683646e8dba007c2f34801762eb1f6ecdba8442e5217f9f41099b9f \
+      --count-receipt artifacts/EXP-214/receipt.json \
+      --expected-count-sha256 9ab2233c6f78a5a77d41b8912d45fd1387ea99c0816cabd0086379b2ec77510a \
+      --output paper/figures/fig19-exp212-214-flip-extension-grazing.png --dpi 260
 
 ## Promoted experiment figures
 

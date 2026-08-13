@@ -162,8 +162,10 @@ ambiguous turns rather than selecting only a clean sequence.
 The Rössler exploitation component is materially advanced: EXP-206 qualifies
 a 41-point period-6 flip curve, and EXP-211 qualifies an identity-safe
 124-point period-12 child-sheet patch with 31 square-root opening fits and
-independent solver controls. Global endpoints and comparison with the TBA are
-still open.
+independent solver controls. EXP-212 adds 123 exact pseudo-arclength parent
+events and reaches `c=8.40309`; EXP-214 then qualifies a historical-section
+grazing without loss of the invariant flip event. Global endpoints and
+comparison with the TBA are still open.
 
 After RVR-003 through RVR-006 pass on Rössler, make held-out symbolic and curve
 predictions. Then freeze the same definitions on two unlike flows before any
