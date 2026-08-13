@@ -19,3 +19,8 @@ corrected nodes without relaxing the identity threshold.
 EXP-255 completes the two phase searches but writes no receipt because a NumPy
 boolean status is not JSON serializable. EXP-256 freezes the scientifically
 identical successor after only that built-in-type conversion.
+
+EXP-256 passes: DOP853/Radau whole-orbit sign RMS is
+`3.45e-10/4.57e-9` at a half-period shift, resolving both signs as one stable
+primitive period-96 orbit. EXP-257 freezes eight exact continuation steps
+toward a separately gated fourth-flip scan.

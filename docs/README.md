@@ -382,7 +382,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-255-jones-period96-sign-phase-resolution-audit.md`](experiments/EXP-255-jones-period96-sign-phase-resolution-audit.md):
   preserves an administrative JSON-serialization failure after phase audits.
 - [`experiments/EXP-256-jones-period96-sign-phase-resolution-audit.md`](experiments/EXP-256-jones-period96-sign-phase-resolution-audit.md):
-  freezes the scientifically identical, serialization-corrected successor.
+  qualifies both tangent signs as one phase-shifted stable period-96 orbit.
+- [`experiments/EXP-257-jones-period96-segmented-continuation.md`](experiments/EXP-257-jones-period96-segmented-continuation.md):
+  freezes eight exact continuation steps toward a possible fourth flip.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
