@@ -163,3 +163,11 @@ EXP-280 passes with exactly one bracket,
 separation `1.875e17`. EXP-281 freezes the exact 1,024-segment orbit/tangent
 solve with tight-step DOP853 and segmented Radau parity; interpolation alone
 is not promoted.
+
+EXP-281 reaches `a=0.2407010081734325` with DOP853 orbit/tangent residuals
+`8.61e-11/2.31e-12` and multiplier `-1.00000000535`. It fails only the
+independent Radau flip gate: `3.22e-7 > 1e-7`, despite Radau orbit/tangent
+residuals `8.90e-11/3.80e-11`, cyclic spread `2.25e-10`, proper-subperiod
+closure `7.54e-6`, and exact `896/1024` identity. No seventh event is
+promoted. EXP-282 freezes a tighter-step DOP853/Radau precision audit of the
+unchanged solved representation; no gate is relaxed.

@@ -443,7 +443,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-280-jones-period768-segmented-flip-scan.md`](experiments/EXP-280-jones-period768-segmented-flip-scan.md):
   passes and isolates one magnitude-separated seventh-flip bracket.
 - [`experiments/EXP-281-jones-period768-augmented-flip.md`](experiments/EXP-281-jones-period768-augmented-flip.md):
-  freezes the exact 1,024-segment two-solver event solve.
+  preserves a sole independent-Radau flip-gate failure after the exact solve.
+- [`experiments/EXP-282-period768-flip-precision-audit.md`](experiments/EXP-282-period768-flip-precision-audit.md):
+  freezes an unchanged-solution tighter-step two-solver precision audit.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

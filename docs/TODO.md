@@ -452,9 +452,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-278 passes all twelve gates with modulus spread `9.78e-8`. EXP-279
   passes eight full steps with exact `896/1024` identity and reaches
   preliminary multiplier `-946.310`. EXP-280 passes the magnitude-separated
-  nine-row scan with exactly one seventh-flip bracket. EXP-281 freezes the
-  exact 1,024-segment two-solver augmented event solve; period 1536 remains
-  separate.
+  nine-row scan with exactly one seventh-flip bracket. EXP-281's exact
+  1,024-segment solve passes every gate except independent Radau flip residual
+  (`3.22e-7 > 1e-7`), so no seventh event is promoted. EXP-282 freezes an
+  immutable-solution tighter-step precision audit with the unchanged gate;
+  period 1536 remains separate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
