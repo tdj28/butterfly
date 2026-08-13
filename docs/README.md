@@ -197,6 +197,10 @@ what must be narrowed, and what is false or unresolved.
   qualifies the shallow critical's smoothing-transition scale at 94/104 points
   across two RK4 steps and nested 2,048/8,192 trajectory supports, while keeping
   invariant topology and double superstability open.
+- [`findings/FND-072-second-critical-residual-remains-positive-across-the-scale-ensemble.md`](findings/FND-072-second-critical-residual-remains-positive-across-the-scale-ensemble.md):
+  preserves all 94 scale-qualified candidates but finds the second signed
+  residual positive in every low-smoothing/support/step reconstruction,
+  rejecting the sampled stable field rather than global double superstability.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

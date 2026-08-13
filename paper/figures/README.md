@@ -17,6 +17,8 @@ topology claims.
   branch votes under quadrupled trajectory support.
 - fig11-exp201-smoothing-scale-audit.png: EXP-201's candidate qualification,
   transition brackets, and second-critical stability under nested support.
+- fig12-exp202-scale-ensemble-residual-field.png: EXP-202's two signed
+  scale-ensemble residual fields and normalized direct-gate obstruction.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -65,6 +67,15 @@ Regenerate the EXP-201 smoothing-scale audit figure and receipt:
       --receipt artifacts/EXP-201/receipt.json \
       --expected-receipt-sha256 537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c \
       --output paper/figures/fig11-exp201-smoothing-scale-audit.png --dpi 260
+
+Regenerate the EXP-202 scale-ensemble residual figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp202_scale_ensemble_residuals.py \
+      --manifest experiments/manifests/EXP-202-low-smoothing-scale-ensemble-residual.json \
+      --receipt artifacts/EXP-202/receipt.json \
+      --expected-receipt-sha256 11ca103e800c084431bf1283982fd8d1e55866f8a0d35f36b49ebd80e6402136 \
+      --output paper/figures/fig12-exp202-scale-ensemble-residual-field.png --dpi 260
 
 ## Promoted experiment figures
 

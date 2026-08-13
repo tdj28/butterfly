@@ -1,6 +1,7 @@
 # EXP-202 — Low-smoothing scale-ensemble residual audit
 
-Status: prospectively frozen before residual evaluation
+Status: completed; failed with 94 eligible, zero direct candidates, and zero
+strict two-residual bracket cells
 
 ## Question
 
@@ -38,3 +39,25 @@ DOP853/Radau, and coordinate/section confirmation. It does not itself establish
 double superstability. A failure rejects only the sampled, coverage-incomplete
 stable field under this declared scale ensemble; it does not exclude a center
 beyond the field or on an unstable continuation.
+
+## Result
+
+All 94 candidates remain eligible and use the same ordered phases `[7,5]` in
+all 12 reconstructions. No point passes the `0.02` direct gate and none of the
+40 complete lattice cells brackets both residuals in every reconstruction.
+
+The first residual spans zero across the field, from `-0.004116` to `0.002440`,
+but no complete cell brackets it view-by-view. The second residual is strictly
+positive in all 1,128 evaluations: minimum `0.019945`, median `0.030794`, and
+maximum `0.043328`. The closest candidate is `(a,c)=(0.21565,7.284)` with
+worst residual `0.028711`, or 1.436 times the direct gate.
+
+This scale-aware negative result validates the EXP-199 obstruction without
+using the smoothing level that caused EXP-200's disagreement. Extend the
+corrected stable family toward lower `c`, where the second residual is
+smallest, before rerunning this ensemble. Keep unstable inter-window
+continuation separate.
+
+Raw receipt: `artifacts/EXP-202/receipt.json`, 705,390 bytes, SHA-256
+`11ca103e800c084431bf1283982fd8d1e55866f8a0d35f36b49ebd80e6402136`.
+Compact receipt: [`receipts/EXP-202.json`](receipts/EXP-202.json).

@@ -212,6 +212,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   extending the corrected-orbit mesh. EXP-202 now freezes that audit over the
   universally three-branch smoothing indices 2--4, requiring one phase
   assignment and both residuals to pass at all 12 scale/support/step views.
+  EXP-202 retains all 94 candidates and assignment `[7,5]` but fails: the
+  second residual is positive in all 1,128 views (`min=0.019945`). Extend the
+  corrected stable family toward lower `c`, preserving the same scale ensemble;
+  keep unstable inter-window continuation as a separate prospectively frozen
+  experiment.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

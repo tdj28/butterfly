@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-scale-ensemble-residual-summary.v1",
+  "experiment_id": "EXP-202",
+  "passed": false,
+  "source_commit": "0c08d68338ebdcc83b725d168443ced94595179f",
+  "manifest_sha256": "dd355b090875c1d2b4feacb04bc0de372fee865a80a4c3c2e243e51faf5fc7cf",
+  "receipt_input_sha256": "537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c",
+  "candidate_input_sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0",
+  "raw_artifact": "artifacts/EXP-202/receipt.json",
+  "raw_artifact_bytes": 705390,
+  "raw_artifact_sha256": "11ca103e800c084431bf1283982fd8d1e55866f8a0d35f36b49ebd80e6402136",
+  "candidate_count": 94,
+  "eligible_candidate_count": 94,
+  "minimum_eligible_candidate_count": 70,
+  "reconstructions_per_candidate": 12,
+  "common_assignment_counts": {"[7,5]": 94},
+  "direct_candidate_count": 0,
+  "signed_residual_bracket_cell_count": 0,
+  "complete_lattice_cell_count": 40,
+  "first_residual": {
+    "all_reconstruction_minimum": -0.004116236168967618,
+    "all_reconstruction_median": -0.000280189840752343,
+    "all_reconstruction_maximum": 0.002439719139707376,
+    "candidate_uncertainty_strict_negative_count": 29,
+    "candidate_uncertainty_contains_zero_count": 44,
+    "candidate_uncertainty_strict_positive_count": 21,
+    "mean_field_bracket_cell_count": 8,
+    "all_reconstruction_bracket_cell_count": 0
+  },
+  "second_residual": {
+    "all_reconstruction_minimum": 0.019945325876685623,
+    "all_reconstruction_median": 0.03079355573544055,
+    "all_reconstruction_maximum": 0.04332841397501932,
+    "strict_positive_candidate_count": 94,
+    "mean_field_bracket_cell_count": 0,
+    "all_reconstruction_bracket_cell_count": 0
+  },
+  "selected_candidate": {
+    "id": "local-a025-c021",
+    "parameters": {"a": 0.21565, "b": 0.2, "c": 7.284},
+    "assignment_indices": [7, 5],
+    "maximum_absolute_residual": 0.028710641200705087,
+    "direct_gate": 0.02,
+    "maximum_gate_ratio": 1.4355320600352544,
+    "normalized_critical_spans": [0.0008496391488068689, 0.002838345837468337]
+  },
+  "interpretation": "All 94 candidates retain one phase assignment across all 12 low-smoothing/support/step views, but no direct point or strict two-residual cell exists. The first residual crosses zero only after averaging some views; the second is positive in every one of 1,128 reconstructions. This rejects the sampled stable field under the declared scale ensemble, not global double superstability."
+}
