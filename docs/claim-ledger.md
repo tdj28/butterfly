@@ -124,6 +124,19 @@ supercritical doubling. The two available event spacings have ratio `4.557`;
 this is finite cascade evidence, not a universality, full child-sheet,
 paired-boundary, TBA, double-criticality, or whole-plane result.
 
+CLM-008 addendum (EXP-254--261): continuous phase minimization first proves
+that both period-96 switch signs are one phase-shifted orbit. Exact
+continuation then reaches a fourth real-`-1` event at
+`a=0.2407010100842176`; DOP853 and segmented Radau independently agree on the
+orbit, anti-periodic tangent, multiplier, cyclic products, proper-subperiod
+separation, and `112/128` identity. Bilateral switching produces primitive
+`224/256` period-192 candidates, and a frozen near-event test classifies the
+period-96 parent as unstable and period-192 child as stable under both
+solvers. This qualifies a fourth local supercritical doubling. The four event
+coordinates give only two finite spacing ratios, `4.557` and `4.697`; they do
+not establish a limiting constant, universality, a full child sheet, paired
+boundaries, TBA membership, double-criticality, or a whole-plane result.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

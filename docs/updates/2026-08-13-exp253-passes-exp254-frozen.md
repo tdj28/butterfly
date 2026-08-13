@@ -42,3 +42,14 @@ no fourth supercritical rung is claimed before child qualification.
 EXP-260 passes all six bilateral 256-segment candidates with exact `224/256`
 identity. EXP-261 freezes the decisive two-solver parent-unstable/child-stable
 test at the negative-mode `0.002` point.
+
+EXP-261 passes every frozen gate. At `a=0.24070100957644772`, DOP853/Radau
+classify the period-96 parent as unstable (`1.13241659/1.13237635`) and the
+primitive period-192 child as stable (`0.46117807/0.46117779`). FND-094 records
+the fourth local supercritical doubling; tangent-sign equivalence remains the
+next prospective gate before continuation.
+
+EXP-262 freezes that common-parameter tangent-sign gate. It uses the bounded
+continuous phase method already validated by EXP-256, now prospectively, with
+the unchanged `1e-6` whole-orbit identity threshold and independent
+DOP853/Radau corrections.

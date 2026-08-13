@@ -14,12 +14,17 @@ import scipy
 
 from butterfly import RosslerParameters, SolverConfig
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
+from audit_jones_period96_sign_phase_resolution import continuous_phase_identity
 from compare_segmented_orbit_identity import segmented_dense
 from qualify_jones_period24_near_event import corrected_family
 from validate_multiple_shooting_switch import half_closure
 
 
 SCHEMA = "butterfly.jones-period96-sign-equivalence-manifest.v1"
+SUPPORTED_SCHEMAS = {
+    SCHEMA,
+    "butterfly.jones-period192-sign-equivalence-manifest.v1",
+}
 
 
 def phase_aligned_identity(left, right, comparison: dict) -> dict:
@@ -82,8 +87,8 @@ def main() -> int:
 
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
-        raise SystemExit("unsupported period-96 sign-equivalence manifest")
+    if manifest.get("schema") not in SUPPORTED_SCHEMAS:
+        raise SystemExit("unsupported sign-equivalence manifest")
     switch_bytes = args.switch.read_bytes()
     if sha256_bytes(switch_bytes) != manifest["switch_receipt_sha256"]:
         raise SystemExit("switch receipt hash mismatch")
@@ -143,22 +148,41 @@ def main() -> int:
             results[solver_name][direction] = corrected
 
     comparison = manifest["comparison"]
-    sign_identities = {
-        solver_name: phase_aligned_identity(
-            evaluators[solver_name]["-1"],
-            evaluators[solver_name]["1"],
-            comparison,
-        )
-        for solver_name in solvers
-    }
-    solver_identities = {
-        direction: phase_aligned_identity(
-            evaluators[manifest["reference_solver"]][direction],
-            evaluators[manifest["independent_solver"]][direction],
-            comparison,
-        )
-        for direction in ("-1", "1")
-    }
+    if comparison.get("method", "refined_grid") == "continuous_golden_section":
+        sign_identities = {
+            solver_name: continuous_phase_identity(
+                evaluators[solver_name]["-1"],
+                evaluators[solver_name]["1"],
+                comparison,
+            )
+            for solver_name in solvers
+        }
+        solver_comparison = {**comparison, "expected_phase_shift": 0.0}
+        solver_identities = {
+            direction: continuous_phase_identity(
+                evaluators[manifest["reference_solver"]][direction],
+                evaluators[manifest["independent_solver"]][direction],
+                solver_comparison,
+            )
+            for direction in ("-1", "1")
+        }
+    else:
+        sign_identities = {
+            solver_name: phase_aligned_identity(
+                evaluators[solver_name]["-1"],
+                evaluators[solver_name]["1"],
+                comparison,
+            )
+            for solver_name in solvers
+        }
+        solver_identities = {
+            direction: phase_aligned_identity(
+                evaluators[manifest["reference_solver"]][direction],
+                evaluators[manifest["independent_solver"]][direction],
+                comparison,
+            )
+            for direction in ("-1", "1")
+        }
     periods = [
         row[direction]["period_time"]
         for row in results.values()
@@ -198,7 +222,9 @@ def main() -> int:
         >= float(acceptance["minimum_half_period_closure"]),
     }
     output = {
-        "schema": "butterfly.jones-period96-sign-equivalence-receipt.v1",
+        "schema": manifest.get(
+            "output_schema", "butterfly.jones-period96-sign-equivalence-receipt.v1"
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "switch_receipt_sha256": sha256_bytes(switch_bytes),

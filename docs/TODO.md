@@ -410,8 +410,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   universality and passes with exactly one real-`-1` bracket. EXP-259 freezes
   the exact 128-segment augmented event solve with segmented Radau parity and
   passes. EXP-260 freezes bilateral primitive period-192 child nomination;
-  all six candidates pass. EXP-261 freezes independent near-event stability
-  exchange; the fourth rung remains unpromoted until it passes.
+  all six candidates pass. EXP-261 independently qualifies an unstable
+  period-96 parent and stable primitive period-192 child under DOP853/Radau,
+  promoting a fourth local supercritical rung (FND-094). EXP-262 freezes
+  continuous whole-orbit phase equivalence of both period-192 switch signs at
+  a common parameter before deeper continuation.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
