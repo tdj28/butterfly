@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-period6-flip-through-grazing-summary.v1",
+  "experiment_id": "EXP-215",
+  "passed": false,
+  "source_commit": "f6cf571e7c8c2fac6e0a5725c55be2f1fcbdcf36",
+  "manifest_sha256": "5680edd7adba33c6e1ad7fce8276dc62a6643df9fb2e1141f1045b7fcfadc158",
+  "extension_receipt_sha256": "a322c78612874a3735a169e647c66aaa4fdddf81397d39d691ecc6c6e7ec04f1",
+  "grazing_receipt_sha256": "9ab2233c6f78a5a77d41b8912d45fd1387ea99c0816cabd0086379b2ec77510a",
+  "raw_artifact": "artifacts/EXP-215/receipt.json",
+  "raw_artifact_bytes": 20148,
+  "raw_artifact_sha256": "43488e68c43e6873ce1240f44d609c7a259fa1502d09ed6fb72946fdea346c3c",
+  "accepted_point_count": 6,
+  "accepted_c_range": [6.830932735963652, 6.91937431037172],
+  "accepted_a_range": [0.2158803192980225, 0.216447801388688],
+  "maximum_orbit_residual": 4.609437066940631e-13,
+  "maximum_event_eigenvector_residual": 9.92463075843583e-13,
+  "maximum_arclength_residual": 1.4175076043509982e-13,
+  "maximum_extremum_section_residual": 2.650067665310729e-13,
+  "accepted_counts": {"historical_raw": 7, "historical_extremum": 7, "barrio": 8},
+  "rejected_corrector": {
+    "step_index": 6,
+    "evaluations": 22,
+    "orbit_residual": 0.0009245703307150365,
+    "event_eigenvector_residual": 0.00993273868230131,
+    "arclength_residual": 0.002987160854536811
+  },
+  "independent_radau": {
+    "scientific_event_passed": true,
+    "a_difference": 2.6854796164599293e-10,
+    "period_relative_difference": 6.784108363586359e-10,
+    "state_difference": 5.21730778101135e-10,
+    "multiplier_modulus_difference": 2.143863420123182e-9,
+    "historical_extremum_count": 7,
+    "barrio_count": 8
+  },
+  "elapsed_seconds": 60.00421233428642,
+  "interpretation": "The exact flip locus demonstrably crosses the EXP-214 representation boundary and continues to c=6.83093. The next frozen fixed-step corrector is inaccurate, so it is a numerical continuation failure rather than evidence for a physical endpoint."
+}

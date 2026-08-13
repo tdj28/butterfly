@@ -235,8 +235,14 @@ what must be narrowed, and what is false or unresolved.
   qualifies the seven-to-six historical phase change while Barrio remains
   eight and the exact real-minus-one flow event persists.
 - [`experiments/EXP-215-period6-flip-through-grazing.md`](experiments/EXP-215-period6-flip-through-grazing.md):
-  freezes invariant and Barrio-identity continuation below the qualified
-  historical-section representation boundary.
+  records six exact invariant events below the qualified historical-section
+  representation boundary and the subsequent fixed-step corrector failure.
+- [`findings/FND-083-flip-curve-crosses-qualified-section-grazing.md`](findings/FND-083-flip-curve-crosses-qualified-section-grazing.md):
+  qualifies local passage of the real-minus-one flow event through the
+  section grazing with terminal Radau control.
+- [`experiments/EXP-216-period6-flip-adaptive-below-grazing.md`](experiments/EXP-216-period6-flip-adaptive-below-grazing.md):
+  freezes step-halving continuation of the same invariant flip locus toward
+  `c=6.05` after EXP-215's fixed-step failure.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

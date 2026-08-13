@@ -263,6 +263,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   now-qualified representation boundary using orbit/Barrio identity. EXP-215
   freezes 100 such lower-arm points, an extremum-aware seven-phase check, a
   `c<=6.05` reach gate, and remote Radau recorrection.
+  EXP-215 fails its 100-point completion gate after six accepted events, but
+  those events cross the qualified grazing and reach `c=6.83093` with exact
+  `7/7/8` section identity and terminal Radau agreement. The rejected next
+  corrector is inaccurate rather than a dynamical endpoint. EXP-216 freezes
+  adaptive step-halving from the last two accepted events, without relaxing
+  any scientific gate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
