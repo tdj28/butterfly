@@ -299,6 +299,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-229-exp227-exact-source-identity.md`](experiments/EXP-229-exp227-exact-source-identity.md):
   passes a 21-point, three-control exact same-coordinate identity audit and
   formally retracts the EXP-227 distinctness claim.
+- [`experiments/EXP-230-returning-period12-child-exact-arm.md`](experiments/EXP-230-returning-period12-child-exact-arm.md):
+  resumes the qualified child with fresh exact source-arm correction at every
+  adaptive midpoint, removing the interpolation-induced false endpoint.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

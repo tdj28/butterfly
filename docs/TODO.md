@@ -339,6 +339,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   across the known returning flip arm. Require exact same-coordinate
   correction or certified interpolation bounds in every future branch-
   distinctness test.
+  EXP-230 freezes the corrected successor: resume the last qualified EXP-223
+  exact-event child at index 44, freshly solve the source arm at every direct
+  or bisected `c`, retain the exact `-5.730236757e-7` offset, and attempt all
+  seven remaining intervals through the middle slice at index 51. Only after
+  this path passes should the child surface be expanded transversely to search
+  for a genuinely distinct boundary.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
