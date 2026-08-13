@@ -432,7 +432,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-098-returning-arm-cascade-through-period768.md`](findings/FND-098-returning-arm-cascade-through-period768.md):
   records six exact local doublings and a stable primitive period-768 child.
 - [`experiments/EXP-276-jones-period768-sign-equivalence.md`](experiments/EXP-276-jones-period768-sign-equivalence.md):
-  freezes common-coordinate phase equivalence of both period-768 switch signs.
+  preserves one isolated long-product multiplier-spread failure despite strong
+  whole-orbit identity.
+- [`experiments/EXP-277-jones-period768-sign-equivalence-refinement.md`](experiments/EXP-277-jones-period768-sign-equivalence-refinement.md):
+  freezes the unchanged-gate tighter-step successor audit.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-period768-sign-equivalence-manifest.v1",
+  "output_schema": "butterfly.jones-period768-sign-equivalence-refinement-receipt.v1",
+  "experiment_id": "EXP-277",
+  "switch_receipt_sha256": "8f3cd67cbebc7dbf2b85db3b0fc666a3827b77bc03d4f97989ff64234fefc932",
+  "source_step_length": 0.0005,
+  "target_a": 0.24070100827079027,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 3e-12, "atol": 3e-14, "max_step": 0.01},
+    "radau": {"method": "Radau", "rtol": 3e-11, "atol": 3e-13, "max_step": 0.01}
+  },
+  "corrector": {"maximum_evaluations": 240, "tolerance": 1e-10},
+  "cyclic_shifts": {"1024": [0, 256, 512, 768]},
+  "comparison": {
+    "method": "continuous_golden_section",
+    "phase_samples": 16384,
+    "expected_phase_shift": 0.5,
+    "search_half_width": 1e-5,
+    "phase_tolerance": 1e-14,
+    "maximum_iterations": 100
+  },
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_sign_identity_rms": 1e-6,
+    "maximum_solver_identity_rms": 2e-5,
+    "maximum_segment_endpoint_error": 1e-8,
+    "maximum_period_spread": 4e-6,
+    "maximum_modulus_spread": 0.002,
+    "maximum_stable_modulus": 0.9999,
+    "minimum_half_period_closure": 4e-6
+  },
+  "claim_scope": "prospective tighter-step successor to the isolated EXP-276 modulus-agreement failure, repeating the identical common-a 1024-segment correction and 16384-sample continuous phase audit of both EXP-274 period-768 tangent signs under DOP853 and Radau; maximum step is reduced from 0.03 to 0.01, tolerances are tightened, and every scientific threshold including the failed 0.002 modulus-spread gate is unchanged; a pass establishes that the two switch signs represent one stable primitive period-768 orbit up to phase at the frozen coordinate, but does not establish attracting-basin measure, a continued period-768 branch or next flip, a limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

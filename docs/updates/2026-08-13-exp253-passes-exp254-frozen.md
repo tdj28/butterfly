@@ -135,3 +135,9 @@ period-768 child as stable (`0.08362765/0.08362578`). FND-098 records the
 sixth local supercritical birth and cascade through stable period 768.
 EXP-276 freezes common-coordinate whole-orbit equivalence of both switch
 signs before deeper continuation.
+
+EXP-276 passes all orbit-identity gates but fails its sole multiplier-spread
+gate: `0.003450` versus `0.002`. Within-solver sign RMS is
+`1.39e-8/2.72e-8`, and cross-solver RMS is below `4.11e-8`, so the failure is
+isolated to long-product precision rather than orbit mismatch. EXP-277 freezes
+a tighter-step repeat with no relaxed threshold.
