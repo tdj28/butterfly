@@ -372,8 +372,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-235 completes with zero candidates despite singular value `7.64e-7` and
   tangent dot `2.39e-15`. Its closest positive `0.00025` trial reaches
   residual `1.19e-5` at the 160-evaluation ceiling. EXP-236 freezes a targeted
-  480-evaluation retry; on failure move directly to segmented multiple
-  shooting rather than another undirected scale ladder.
+  480-evaluation retry. That retry converges after 329 evaluations, but its
+  half-period closure is `4.03e-9`: it is the period-12 parent traversed twice,
+  not a primitive period-24 child. EXP-237 therefore freezes an exact
+  segmented augmented solve of the period-12 flip before a segmented child
+  switch; do not run another undirected full-period scale ladder.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

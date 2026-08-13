@@ -321,8 +321,11 @@ what must be narrowed, and what is false or unresolved.
   replaces only the failed symmetric primary tangent stencil with three
   qualified one-sided offsets.
 - [`experiments/EXP-236-returning-period24-targeted-recovery.md`](experiments/EXP-236-returning-period24-targeted-recovery.md):
-  targets EXP-235's closest small-scale switch with a higher corrector ceiling
-  before escalating to multiple shooting.
+  shows that EXP-235's closest small-scale switch can converge, but only to the
+  doubled period-12 parent; the frozen half-period gate correctly rejects it.
+- [`experiments/EXP-237-jones-period12-augmented-flip.md`](experiments/EXP-237-jones-period12-augmented-flip.md):
+  freezes an exact 16-segment orbit-and-anti-periodic-mode solve before the
+  next period-24 child-switch attempt.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

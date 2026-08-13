@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp236-collapses-exp237-frozen.md`](2026-08-13-exp236-collapses-exp237-frozen.md)
+  — the targeted corrector converges but fails primitivity by collapsing to
+  the doubled period-12 parent; an exact segmented event solve is next.
+
 - [`2026-08-12-exp206-period6-flip-curve-frozen.md`](2026-08-12-exp206-period6-flip-curve-frozen.md)
   — exact-Jacobian coupled continuation passes all 41 points and establishes a
   dense sampled period-6 flip-curve segment over `c in [7.16,7.32]`.
