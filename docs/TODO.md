@@ -300,6 +300,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   the stable child persists across the coarse root jump. EXP-223 freezes
   adaptive bisection across all 52 event intervals to the middle slice, with a
   maximum accepted child-state step of `0.003` and unchanged science gates.
+  EXP-223 rejects the full range after accepting 212 points through 45 exact
+  events to `c=7.62518642`: the next narrow bracket collapses onto a
+  double-covered parent as that lower-offset parent becomes stable. EXP-224
+  freezes exact DOP853/Radau localization of the intervening real-`-1`
+  crossing and bilateral primitive-child/double-cover qualification.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

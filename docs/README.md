@@ -274,6 +274,12 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-223-returning-period12-child-adaptive.md`](experiments/EXP-223-returning-period12-child-adaptive.md):
   freezes adaptive, root-jump-safe child continuation across all 52 exact
   returning-arm events to the middle slice.
+- [`findings/FND-088-adaptive-returning-child-strip-ends-at-a-double-cover-candidate.md`](findings/FND-088-adaptive-returning-child-strip-ends-at-a-double-cover-candidate.md):
+  retains a 45-event qualified child strip while localizing the failed
+  full-range claim to a terminal double-covered-parent candidate.
+- [`experiments/EXP-224-returning-child-strip-endpoint.md`](experiments/EXP-224-returning-child-strip-endpoint.md):
+  freezes two-solver localization and bilateral qualification of the implied
+  second flip crossing on the exact EXP-223 offset path.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
