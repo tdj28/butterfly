@@ -1,0 +1,11 @@
+# EXP-253 passes; tangent-sign equivalence is frozen
+
+Independent DOP853/Radau corrections classify the period-48 parent as
+unstable and the primitive period-96 child as stable at the same near-event
+coordinate. FND-093 and the manuscript now record the exact returning-arm
+cascade through stable period 96.
+
+EXP-254 freezes a common-parameter, whole-orbit comparison of both tangent
+signs under both solvers. Its purpose is to distinguish one phase-shifted
+period-96 branch from two accidentally nearby switch roots before continuing
+the child toward a fourth event.

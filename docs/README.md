@@ -377,6 +377,8 @@ what must be narrowed, and what is false or unresolved.
   passes independent parent/child stability-exchange qualification.
 - [`findings/FND-093-returning-arm-cascade-through-period96.md`](findings/FND-093-returning-arm-cascade-through-period96.md):
   records the third exact local doubling and stable primitive period 96.
+- [`experiments/EXP-254-jones-period96-sign-equivalence.md`](experiments/EXP-254-jones-period96-sign-equivalence.md):
+  freezes a two-solver continuous-orbit identity test of both tangent signs.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

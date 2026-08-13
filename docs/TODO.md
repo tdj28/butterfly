@@ -401,7 +401,7 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   period-96 child switch and passes all six candidate attempts. EXP-253 freezes
   independent near-event parent/child stability-exchange qualification and
   passes, extending the exact locally supercritical cascade through stable
-  period 96 (FND-093). Next: freeze tangent-sign equivalence and a short
+  period 96 (FND-093). EXP-254 freezes tangent-sign equivalence before a short
   period-96 continuation toward the next flip without claiming universality.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all

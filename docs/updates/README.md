@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp253-passes-exp254-frozen.md`](2026-08-13-exp253-passes-exp254-frozen.md)
+  — stable primitive period 96 is qualified and its tangent-sign equivalence
+  audit is frozen.
+
 - [`2026-08-13-exp250-science-residuals-exp251-frozen.md`](2026-08-13-exp250-science-residuals-exp251-frozen.md)
   — the secant solve passes all DOP853 event residuals; segmented Radau
   independently qualifies the flip, period-96 children are nominated, and
