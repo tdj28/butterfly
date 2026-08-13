@@ -402,7 +402,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-264-jones-period192-segmented-flip-scan.md`](experiments/EXP-264-jones-period192-segmented-flip-scan.md):
   passes and isolates one magnitude-separated fifth-flip bracket.
 - [`experiments/EXP-265-jones-period192-augmented-flip.md`](experiments/EXP-265-jones-period192-augmented-flip.md):
-  freezes the exact 256-segment orbit/tangent event solve with Radau parity.
+  preserves a one-gate direct-product precision failure after the coupled solve.
+- [`experiments/EXP-266-period192-flip-precision-audit.md`](experiments/EXP-266-period192-flip-precision-audit.md):
+  freezes an unchanged-threshold tighter-step two-solver representation audit.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

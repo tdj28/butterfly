@@ -68,3 +68,9 @@ EXP-264 passes with exactly one bracket,
 `[0.24070100795063762,0.24070100957644772]`, and minimum transverse-mode
 separation `1.146e18`. EXP-265 freezes the exact 256-segment orbit/tangent
 solve with segmented Radau parity; interpolation alone is not promoted.
+
+EXP-265 converges in four evaluations with orbit/tangent residuals below
+`9.15e-11`, but fails one derived DOP853 flip gate: `1.06496e-7` versus
+`1e-7`. Every other reference and Radau gate passes. EXP-266 preserves that
+failure and freezes a tighter-step two-solver representation audit with the
+same threshold plus cross-solver agreement; no fifth event is yet promoted.
