@@ -149,6 +149,25 @@ def main() -> int:
                 int(event_bracket["right_index"]),
             ],
         }
+    elif manifest.get("seed_method") == "failed_event_refinement":
+        if source_receipt.get("passed"):
+            raise SystemExit("failed-event refinement requires a failed source")
+        expected_checks = {
+            key: key != manifest["isolated_failed_check"]
+            for key in source_receipt["checks"]
+        }
+        if source_receipt["checks"] != expected_checks:
+            raise SystemExit("source failure is not isolated as declared")
+        seed = {
+            "a": float(source_receipt["corrected_a"]),
+            "b": float(source_receipt["fixed_b"]),
+            "c": float(source_receipt["fixed_c"]),
+            "initial_state": list(source_receipt["nodes"][0]),
+            "period_time": float(source_receipt["period_time"]),
+            "nodes": source_receipt["nodes"],
+            "tangent_nodes": source_receipt["tangent_nodes"],
+            "seed_method": "failed_event_refinement",
+        }
     else:
         seed = source_child(
             source_receipt, manifest["source_solver"], manifest
@@ -171,9 +190,15 @@ def main() -> int:
             segment_count,
             solver,
         )
-    tangent_nodes, seed_multiplier = initial_tangent_nodes(
-        nodes, seed["period_time"], seed_parameters, solver
-    )
+    if "tangent_nodes" in seed:
+        tangent_nodes = np.asarray(seed["tangent_nodes"], dtype=float)
+        seed_multiplier = complex(
+            source_receipt["flip_spectrum"]["direct_flip_median"], 0.0
+        )
+    else:
+        tangent_nodes, seed_multiplier = initial_tangent_nodes(
+            nodes, seed["period_time"], seed_parameters, solver
+        )
     phase_reference = nodes[0].copy()
     phase = rossler_rhs(0.0, phase_reference, seed_parameters)
     phase /= np.linalg.norm(phase)

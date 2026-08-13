@@ -404,7 +404,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-265-jones-period192-augmented-flip.md`](experiments/EXP-265-jones-period192-augmented-flip.md):
   preserves a one-gate direct-product precision failure after the coupled solve.
 - [`experiments/EXP-266-period192-flip-precision-audit.md`](experiments/EXP-266-period192-flip-precision-audit.md):
-  freezes an unchanged-threshold tighter-step two-solver representation audit.
+  preserves failure of the unchanged flip gate under both tighter solvers.
+- [`experiments/EXP-267-jones-period192-augmented-flip-refinement.md`](experiments/EXP-267-jones-period192-augmented-flip-refinement.md):
+  freezes a tighter coupled recorrection with symmetric `1e-7` solver gates.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

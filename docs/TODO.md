@@ -422,6 +422,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   segmented Radau parity and fails only its DOP853 direct-product flip gate by
   `6.50e-9`. EXP-266 freezes an immutable-solution, tighter-step DOP853/Radau
   precision audit without relaxing the `1e-7` gate.
+  EXP-266 shows both tighter solvers still miss that gate while agreeing with
+  each other. EXP-267 freezes a new tighter coupled recorrection and applies
+  the same `1e-7` flip threshold to DOP853 and Radau.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

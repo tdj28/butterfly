@@ -74,3 +74,8 @@ EXP-265 converges in four evaluations with orbit/tangent residuals below
 `1e-7`. Every other reference and Radau gate passes. EXP-266 preserves that
 failure and freezes a tighter-step two-solver representation audit with the
 same threshold plus cross-solver agreement; no fifth event is yet promoted.
+
+EXP-266 fails the unchanged gate under both tighter solvers: DOP853/Radau
+residuals are `2.25e-7/1.58e-7`, although their difference passes `1e-7`.
+EXP-267 therefore freezes a genuinely new tighter coupled recorrection with
+symmetric `1e-7` solver gates. The fifth event remains unqualified meanwhile.
