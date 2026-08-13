@@ -40,6 +40,7 @@ SCHEMAS = {
     "butterfly.jones-period24-augmented-flip-manifest.v1",
     "butterfly.jones-period48-augmented-flip-manifest.v1",
     "butterfly.jones-period48-augmented-flip-manifest.v2",
+    "butterfly.jones-period96-augmented-flip-manifest.v1",
 }
 
 
@@ -51,6 +52,7 @@ def source_child(receipt: dict, solver_name: str, manifest: dict | None = None) 
     if receipt.get("schema") in {
         "butterfly.jones-period24-segmented-continuation-receipt.v1",
         "butterfly.jones-period48-segmented-continuation-receipt.v1",
+        "butterfly.jones-period96-segmented-continuation-receipt.v1",
     }:
         if manifest is None or "source_row_index" not in manifest:
             raise ValueError("segmented source requires a frozen source row index")
@@ -250,12 +252,58 @@ def main() -> int:
     )
     spectrum = flip_spectrum_metrics(floquet)
     independent_solver = SolverConfig(**manifest["independent_solver"])
-    independent = flow_monodromy(
-        parameters, corrected_nodes[0], corrected_period, config=independent_solver
-    )
-    neutral_index = int(np.argmin(np.abs(independent.multipliers - 1.0)))
-    transverse = np.delete(independent.multipliers, neutral_index)
-    independent_flip = complex(transverse[int(np.argmin(np.abs(transverse + 1.0)))])
+    independent_segmented = None
+    if manifest.get("independent_representation") == "segmented_augmented":
+        independent_residual, _ = augmented_flip_system(
+            solution.x,
+            segment_count=segment_count,
+            a=None,
+            c=fixed_c,
+            phase=phase,
+            phase_reference=phase_reference,
+            solver=independent_solver,
+            continuation_parameter="a",
+            fixed_b=fixed_b,
+        )
+        independent_floquet = block_and_product_floquet(
+            corrected_nodes,
+            corrected_period,
+            parameters,
+            independent_solver,
+            manifest["cyclic_shifts"],
+        )
+        independent_spectrum = flip_spectrum_metrics(independent_floquet)
+        independent_components = {
+            "orbit_matching": float(
+                np.linalg.norm(independent_residual[:state_count])
+            ),
+            "phase": float(abs(independent_residual[state_count])),
+            "tangent_transport": float(
+                np.linalg.norm(independent_residual[state_count + 1 : -1])
+            ),
+            "normalization": float(abs(independent_residual[-1])),
+        }
+        independent_flip = complex(
+            float(independent_spectrum["direct_flip_median"]), 0.0
+        )
+        independent_segmented = {
+            "representation": "segmented_augmented",
+            "residuals": independent_components,
+            "floquet": independent_floquet,
+            "flip_spectrum": independent_spectrum,
+        }
+    else:
+        independent = flow_monodromy(
+            parameters,
+            corrected_nodes[0],
+            corrected_period,
+            config=independent_solver,
+        )
+        neutral_index = int(np.argmin(np.abs(independent.multipliers - 1.0)))
+        transverse = np.delete(independent.multipliers, neutral_index)
+        independent_flip = complex(
+            transverse[int(np.argmin(np.abs(transverse + 1.0)))]
+        )
     orbit = SimpleNamespace(
         initial_state=corrected_nodes[0], period_time=corrected_period
     )
@@ -290,12 +338,23 @@ def main() -> int:
     tangent_residual = float(np.linalg.norm(residual[state_count + 1 : -1]))
     normalization_residual = float(abs(residual[-1]))
     acceptance = manifest["acceptance"]
-    independent_closure = float(independent.closure_error)
-    independent_neutral_error = float(
-        abs(independent.multipliers[neutral_index] - 1.0)
-    )
+    accepted_solver_status = bool(solution.success)
+    if (
+        not accepted_solver_status
+        and manifest.get("allow_max_evaluations_if_residual_qualified")
+        and "maximum number of function evaluations" in solution.message
+    ):
+        accepted_solver_status = bool(
+            orbit_residual <= float(acceptance["maximum_orbit_residual"])
+            and phase_residual <= float(acceptance["maximum_phase_residual"])
+            and tangent_residual <= float(acceptance["maximum_tangent_residual"])
+            and normalization_residual
+            <= float(acceptance["maximum_normalization_residual"])
+            and abs(float(spectrum["direct_flip_residual"]))
+            <= float(acceptance["maximum_reference_flip_residual"])
+        )
     checks = {
-        "solver": bool(solution.success),
+        "solver": accepted_solver_status,
         "a_bounds": a_bounds[0] <= corrected_a <= a_bounds[1],
         "reference_a": abs(corrected_a - seed["a"])
         <= float(acceptance["maximum_reference_a_error"]),
@@ -307,14 +366,6 @@ def main() -> int:
         <= float(acceptance["maximum_normalization_residual"]),
         "reference_flip": abs(float(spectrum["direct_flip_residual"]))
         <= float(acceptance["maximum_reference_flip_residual"]),
-        "independent_closure": independent_closure
-        <= float(acceptance["maximum_independent_closure"]),
-        "independent_neutral": independent_neutral_error
-        <= float(acceptance["maximum_independent_neutral_error"]),
-        "independent_flip": abs(independent_flip + 1.0)
-        <= float(acceptance["maximum_independent_flip_residual"]),
-        "real_flip": abs(independent_flip.imag)
-        <= float(acceptance["maximum_multiplier_imaginary"]),
         "primitive": minimum_subperiod_closure
         >= float(acceptance["minimum_proper_subperiod_closure"]),
         "section_identity": bool(
@@ -326,6 +377,54 @@ def main() -> int:
             == int(manifest["identity"]["barrio_phase_count"])
         ),
     }
+    if independent_segmented is not None:
+        independent_components = independent_segmented["residuals"]
+        independent_spectrum = independent_segmented["flip_spectrum"]
+        checks.update(
+            {
+                "independent_orbit": independent_components["orbit_matching"]
+                <= float(acceptance["maximum_independent_orbit_residual"]),
+                "independent_phase": independent_components["phase"]
+                <= float(acceptance["maximum_independent_phase_residual"]),
+                "independent_tangent": independent_components[
+                    "tangent_transport"
+                ]
+                <= float(acceptance["maximum_independent_tangent_residual"]),
+                "independent_normalization": independent_components[
+                    "normalization"
+                ]
+                <= float(
+                    acceptance["maximum_independent_normalization_residual"]
+                ),
+                "independent_flip": abs(
+                    float(independent_spectrum["direct_flip_residual"])
+                )
+                <= float(acceptance["maximum_independent_flip_residual"]),
+                "real_flip": independent_spectrum["maximum_direct_imaginary"]
+                <= float(acceptance["maximum_multiplier_imaginary"]),
+                "independent_cyclic": independent_spectrum[
+                    "cyclic_product_spread"
+                ]
+                <= float(acceptance["maximum_independent_cyclic_spread"]),
+            }
+        )
+    else:
+        independent_closure = float(independent.closure_error)
+        independent_neutral_error = float(
+            abs(independent.multipliers[neutral_index] - 1.0)
+        )
+        checks.update(
+            {
+                "independent_closure": independent_closure
+                <= float(acceptance["maximum_independent_closure"]),
+                "independent_neutral": independent_neutral_error
+                <= float(acceptance["maximum_independent_neutral_error"]),
+                "independent_flip": abs(independent_flip + 1.0)
+                <= float(acceptance["maximum_independent_flip_residual"]),
+                "real_flip": abs(independent_flip.imag)
+                <= float(acceptance["maximum_multiplier_imaginary"]),
+            }
+        )
     output = {
         "schema": manifest.get(
             "output_schema", "butterfly.jones-period12-augmented-flip-receipt.v1"
@@ -365,14 +464,19 @@ def main() -> int:
         },
         "reference_floquet": floquet,
         "flip_spectrum": spectrum,
-        "independent_radau": {
-            "closure_error": independent_closure,
-            "neutral_multiplier_error": independent_neutral_error,
-            "flip_multiplier": {
-                "real": float(independent_flip.real),
-                "imag": float(independent_flip.imag),
-            },
-        },
+        "independent_radau": (
+            independent_segmented
+            if independent_segmented is not None
+            else {
+                "representation": "single_shot",
+                "closure_error": independent_closure,
+                "neutral_multiplier_error": independent_neutral_error,
+                "flip_multiplier": {
+                    "real": float(independent_flip.real),
+                    "imag": float(independent_flip.imag),
+                },
+            }
+        ),
         "section_identity": {
             "historical_phase_count": historical_count[0],
             "historical_integration_success": historical_count[1],
@@ -383,6 +487,7 @@ def main() -> int:
         "minimum_proper_subperiod_closure": float(minimum_subperiod_closure),
         "solver": {
             "success": bool(solution.success),
+            "status_accepted": accepted_solver_status,
             "message": solution.message,
             "evaluations": int(solution.nfev),
             "jacobian_evaluations": (

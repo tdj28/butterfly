@@ -386,7 +386,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-257-jones-period96-segmented-continuation.md`](experiments/EXP-257-jones-period96-segmented-continuation.md):
   passes eight exact continuation steps to a strongly unstable endpoint.
 - [`experiments/EXP-258-jones-period96-segmented-flip-scan.md`](experiments/EXP-258-jones-period96-segmented-flip-scan.md):
-  freezes a magnitude-separated nine-row search for the fourth flip bracket.
+  passes and isolates one magnitude-separated fourth-flip bracket.
+- [`experiments/EXP-259-jones-period96-augmented-flip.md`](experiments/EXP-259-jones-period96-augmented-flip.md):
+  freezes the exact orbit/tangent event solve with segmented Radau parity.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

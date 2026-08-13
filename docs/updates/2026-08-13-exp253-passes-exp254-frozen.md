@@ -28,3 +28,8 @@ toward a separately gated fourth-flip scan.
 EXP-257 passes all eight steps and retains exact `112/128` identity while the
 dominant multiplier reaches `-148.708`. EXP-258 freezes a magnitude-separated
 block-Floquet scan of all nine exact rows.
+
+EXP-258 passes and isolates exactly one real-`-1` bracket with at least
+`1.38e18` transverse-mode separation. EXP-259 freezes the exact 128-segment
+orbit/tangent solve, using segmented Radau parity rather than a conditioned
+full-period replay.
