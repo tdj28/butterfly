@@ -230,3 +230,14 @@ displacement, and period-ratio gate. The analytic Jacobian is now optionally
 stored as sparse CSR; a dense/sparse regression test passes and the complete
 suite is 300/300. This removes the prohibitive dense 6,146-column storage and
 factorization without changing the multiple-shooting equations.
+
+EXP-288 passes all six candidates in 801 seconds. Every correction needs only
+two evaluations, all matching residuals are below `1.21e-10`, and all retain
+exact `1792/2048` identity and period ratio two. The largest-predictor positive
+candidate has half-period closure `4.42e-6`, half-node RMS `6.31e-6`, direct
+closure `5.32e-7`, and preliminary modulus `0.686`; the six preliminary
+multipliers disagree strongly, so none is promoted. EXP-289 prospectively
+selects that candidate by separation and closure, not by its apparent
+stability, and freezes independent DOP853/Radau correction. Either consistently
+supercritical or consistently subcritical exchange passes; an unresolved
+classification fails.

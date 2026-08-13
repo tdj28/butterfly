@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period1536-segmented-switch-summary.v1",
+  "experiment_id": "EXP-288",
+  "passed": true,
+  "source_commit": "88a75f5bebf4f299976b1249d43229c77b8fcfce",
+  "manifest_sha256": "de5d343496f128af58d7216382f0b9d23f81f8f6d7379869258a98c6ec31ff44",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "audit_receipt_sha256": "b0535b124411e3d7f4a18852843a9f47224ab4497bc9f27c10ecd9d8ccde939a",
+  "raw_artifact": "artifacts/EXP-288/receipt.json",
+  "raw_artifact_bytes": 1520816,
+  "raw_artifact_sha256": "d06fe7cb53d69d7b4692d14c8947f7db6ebd9ed6952b610eb2817b95c6cf4de0",
+  "segment_count": 2048,
+  "accepted_candidates": 6,
+  "maximum_matching_residual": 1.2082739001819217e-10,
+  "event_matching_residual": 1.379913743424184e-10,
+  "secondary_null_residual": 1.843181859626147e-12,
+  "selected_step_length": 0.00025,
+  "selected_direction": 1,
+  "selected_a": 0.24070100817350334,
+  "selected_half_period_closure": 4.422507274608328e-6,
+  "selected_half_node_rms": 6.314077604154099e-6,
+  "interpretation": "All six bilateral sparse multiple-shooting candidates pass and nominate a primitive period-1536 child; stability, criticality, and tangent-sign identity remain separate."
+}

@@ -281,6 +281,7 @@ def correct_fixed_parameter(
     max_evaluations,
     continuation_parameter="b",
     fixed_b=None,
+    sparse_jacobian=False,
 ):
     """Correct cyclic nodes and duration while holding the chosen parameter."""
 
@@ -303,6 +304,7 @@ def correct_fixed_parameter(
             solver=solver,
             continuation_parameter=continuation_parameter,
             fixed_b=fixed_b,
+            sparse_jacobian=sparse_jacobian,
         )
         cached_variables = variables.copy()
         cached_residual = residual

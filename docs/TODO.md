@@ -470,9 +470,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `5.17e-9` and successive-estimate difference `8.97e-9`. EXP-287's independent
   50-digit RK4 3/8-tableau sequence passes every frozen gate, agrees with the
   classical extrapolation within `5.22e-11`, and qualifies the seventh exact
-  numerical event (FND-100). Next: switch and independently qualify a primitive
-  period-1536 child without folding child existence or criticality into the
-  event claim.
+  numerical event (FND-100). EXP-288 then passes all six bilateral sparse
+  2,048-segment switches and nominates primitive period-1536 candidates with
+  exact `1792/2048` identity. EXP-289 freezes the independent DOP853/Radau
+  criticality test without assuming whether the local exchange is
+  supercritical or subcritical.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

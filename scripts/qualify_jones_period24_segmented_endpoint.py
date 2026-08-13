@@ -59,6 +59,7 @@ def corrected_family(seed, segment_count, parameters, solver, manifest):
         max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
         continuation_parameter="a",
         fixed_b=parameters.b,
+        sparse_jacobian=manifest.get("jacobian_storage") == "sparse_csr",
     )
     corrected_nodes = corrected[: 3 * segment_count].reshape(segment_count, 3)
     duration = float(corrected[3 * segment_count])

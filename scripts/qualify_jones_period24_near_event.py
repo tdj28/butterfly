@@ -32,6 +32,7 @@ SCHEMAS = {
     "butterfly.jones-period192-near-event-qualification-manifest.v1",
     "butterfly.jones-period384-near-event-qualification-manifest.v1",
     "butterfly.jones-period768-near-event-qualification-manifest.v1",
+    "butterfly.jones-period1536-near-event-qualification-manifest.v1",
 }
 
 
@@ -152,6 +153,12 @@ def main() -> int:
     else:
         criticality = "other-or-unresolved"
     acceptance = manifest["acceptance"]
+    expected_criticality = manifest["expected_criticality"]
+    criticality_passed = (
+        criticality != "other-or-unresolved"
+        if expected_criticality == "resolved"
+        else criticality == expected_criticality
+    )
     families = [family for row in results.values() for family in row.values()]
     child_moduli = [row["child"]["dominant_modulus"] for row in results.values()]
     parent_moduli = [row["parent"]["dominant_modulus"] for row in results.values()]
@@ -159,7 +166,7 @@ def main() -> int:
     parent_spread = (max(parent_moduli) - min(parent_moduli)) / max(parent_moduli)
     identities_rows = [row["child"]["section_identity"] for row in results.values()]
     passed = bool(
-        criticality == manifest["expected_criticality"]
+        criticality_passed
         and all(family["status"]["success"] for family in families)
         and max(family["status"]["matching_residual"] for family in families)
         <= float(acceptance["maximum_matching_residual"])
