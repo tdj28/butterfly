@@ -455,7 +455,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-285-period768-decimal-multiplier-audit.md`](experiments/EXP-285-period768-decimal-multiplier-audit.md):
   preserves a sole raw multiplier-convergence failure with fourth-order scaling.
 - [`experiments/EXP-286-period768-decimal-richardson-audit.md`](experiments/EXP-286-period768-decimal-richardson-audit.md):
-  freezes an untouched third-level Richardson convergence test.
+  passes an untouched third-level Richardson convergence test.
+- [`experiments/EXP-287-period768-decimal-independent-richardson.md`](experiments/EXP-287-period768-decimal-independent-richardson.md):
+  freezes an independent 50-digit RK4 3/8-tableau audit.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

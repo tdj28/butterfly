@@ -203,3 +203,10 @@ residual is `1.01e-49`, but raw 4,096/8,192-step multipliers differ by
 factor 16. EXP-286 freezes a new 16,384-step profile and prospectively gates
 successive order-four Richardson estimates before any extrapolated multiplier
 is promoted.
+
+EXP-286 passes all eleven gates. The untouched 16,384-step profile preserves
+raw convergence ratio `15.970`; successive Richardson flip estimates differ
+by `8.97e-9`, and the newest estimate is `-0.999999994828`. EXP-287 freezes a
+fully independent 50-digit RK4 3/8-tableau sequence at all three step counts,
+with an unchanged `1e-7` cross-tableau gate. Only a pass can rehabilitate the
+failed Float64 event representation and promote the seventh exact event.

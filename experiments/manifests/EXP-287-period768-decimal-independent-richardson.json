@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period768-decimal-independent-richardson-manifest.v1",
+  "experiment_id": "EXP-287",
+  "event_schema": "butterfly.jones-period768-augmented-flip-receipt.v1",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "classical_schema": "butterfly.jones-period768-decimal-richardson-audit-receipt.v1",
+  "classical_receipt_sha256": "3010388772d5fc8f1e975f19171192bd35b21df375c1d416c1b2faafdb8e7b02",
+  "decimal_digits": 50,
+  "step_counts": [4096, 8192, 16384],
+  "method": "rk4_three_eighths",
+  "method_order": 4,
+  "workers": 8,
+  "cyclic_shifts": [0, 256, 512, 768],
+  "identity": {"historical_phase_count": 896, "barrio_phase_count": 1024},
+  "acceptance": {
+    "minimum_raw_convergence_ratio": 12.0,
+    "maximum_raw_convergence_ratio": 20.0,
+    "maximum_successive_richardson_flip_difference": 1e-7,
+    "maximum_extrapolated_flip_residual": 1e-7,
+    "maximum_cross_tableau_flip_difference": 1e-7,
+    "maximum_successive_richardson_neutral_difference": 1e-7,
+    "maximum_extrapolated_neutral_residual": 1e-6,
+    "maximum_cross_tableau_neutral_difference": 1e-7,
+    "maximum_fine_cyclic_spread": 1e-7,
+    "maximum_fine_characteristic_residual": 1e-30,
+    "maximum_fine_orbit_matching_residual": 1e-7,
+    "maximum_fine_tangent_matching_residual": 1e-6,
+    "minimum_proper_subperiod_closure": 2e-6
+  },
+  "claim_scope": "prospective independent 50-decimal-digit RK4 three-eighths-tableau audit of the immutable EXP-281 period-768 event, allowed only after EXP-286 qualifies a converged classical-RK4 Richardson estimate; complete 4096/8192/16384-step profiles are computed over all 1024 segments, fourth-order raw and Richardson convergence is gated, and extrapolated flip and neutral multipliers must agree with the independently tableaued classical result under unchanged 1e-7 gates while cyclic, characteristic, orbit, tangent, primitive, and exact-section checks pass; a pass qualifies the seventh exact numerical real-minus-one event and tangent representation but does not establish a period-1536 child, criticality, attraction, limiting scaling law, universality, child sheet, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}
