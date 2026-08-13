@@ -228,8 +228,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   coverage gate and strict direct/bracket nomination rules. Independently,
   EXP-205 passes scalar refinement of all seven real `-1` period-6 Floquet
   brackets across `c in [7.192,7.288]`, with `7.63e-11` maximum bracket width
-  and exact two-section identity. Use these seeds for a coupled flip-curve
-  continuation and period-12 child-branch audit.
+  and exact two-section identity. EXP-206 now freezes exact-Jacobian coupled
+  continuation at 41 fixed-c points across `c in [7.16,7.32]`; use a passing
+  curve for a period-12 child-branch audit.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

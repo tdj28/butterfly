@@ -36,13 +36,14 @@ def integrate_flip_segment(
 
     Returns the endpoint, state transition, endpoint parameter sensitivity,
     transported tangent, its initial-state Jacobian, and its parameter
-    sensitivity. ``continuation_parameter`` may be ``"b"`` or ``"c"``.
+    sensitivity. ``continuation_parameter`` may be ``"a"``, ``"b"``, or
+    ``"c"``.
     The latter two quantities are exact second-variational actions for the
     Rössler equations.
     """
 
-    if continuation_parameter not in {"b", "c"}:
-        raise ValueError("continuation_parameter must be 'b' or 'c'")
+    if continuation_parameter not in {"a", "b", "c"}:
+        raise ValueError("continuation_parameter must be 'a', 'b', or 'c'")
 
     initial = np.r_[
         state,
@@ -70,7 +71,10 @@ def integrate_flip_segment(
         parameter_tangent_forcing = rossler_hessian_action(
             parameter_sensitivity, transported
         )
-        if continuation_parameter == "b":
+        if continuation_parameter == "a":
+            vector_field_parameter = np.asarray((0.0, point[1], 0.0))
+            jacobian_parameter_action = np.asarray((0.0, transported[1], 0.0))
+        elif continuation_parameter == "b":
             vector_field_parameter = np.asarray((0.0, 0.0, 1.0))
             jacobian_parameter_action = np.zeros(3)
         else:
@@ -115,7 +119,7 @@ def augmented_flip_system(
     variables: np.ndarray,
     *,
     segment_count: int,
-    a: float,
+    a: float | None,
     c: float | None,
     phase: np.ndarray,
     phase_reference: np.ndarray,
@@ -125,9 +129,10 @@ def augmented_flip_system(
 ):
     """Return the square anti-periodic multiple-shooting residual and Jacobian.
 
-    The historical/default form continues ``b`` at fixed ``(a,c)``.  Setting
-    ``continuation_parameter="c"`` instead interprets the parameter unknown as
-    ``c`` and requires ``fixed_b``.
+    The historical/default form continues ``b`` at fixed ``(a,c)``. Setting
+    ``continuation_parameter="a"`` interprets the parameter unknown as ``a``
+    and requires fixed ``b`` and ``c``; setting it to ``"c"`` requires fixed
+    ``a`` and ``b``.
     """
 
     state_count = 3 * segment_count
@@ -140,16 +145,20 @@ def augmented_flip_system(
     tangent_offset = state_count + 2
     tangents = variables[tangent_offset:].reshape(segment_count, 3)
     segment_duration = total_duration / segment_count
-    if continuation_parameter == "b":
-        if c is None:
-            raise ValueError("fixed c is required when continuing b")
+    if continuation_parameter == "a":
+        if c is None or fixed_b is None:
+            raise ValueError("fixed b and c are required when continuing a")
+        parameters = RosslerParameters(a=parameter_value, b=fixed_b, c=c)
+    elif continuation_parameter == "b":
+        if a is None or c is None:
+            raise ValueError("fixed a and c are required when continuing b")
         parameters = RosslerParameters(a=a, b=parameter_value, c=c)
     elif continuation_parameter == "c":
-        if fixed_b is None:
-            raise ValueError("fixed_b is required when continuing c")
+        if a is None or fixed_b is None:
+            raise ValueError("fixed a and b are required when continuing c")
         parameters = RosslerParameters(a=a, b=fixed_b, c=parameter_value)
     else:
-        raise ValueError("continuation_parameter must be 'b' or 'c'")
+        raise ValueError("continuation_parameter must be 'a', 'b', or 'c'")
     residual = np.zeros(variable_count)
     jacobian = np.zeros((variable_count, variable_count))
 
