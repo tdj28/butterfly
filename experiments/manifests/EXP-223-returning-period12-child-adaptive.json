@@ -1,0 +1,50 @@
+{
+  "schema": "butterfly.jones-returning-period12-child-adaptive-manifest.v1",
+  "experiment_id": "EXP-223",
+  "event_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "seed_receipt_sha256": "077f88fd064b0825ed385fa9277f1552b44291e319a42abbc0f218dac142134a",
+  "bridge_receipt_sha256": "03b9c508929688ed81265848a77d617b0cd7120cafe2d0137fe2f0dd3996fd18",
+  "fixed_b": 0.2,
+  "seed_selector": {
+    "c": 7.162991043185879,
+    "step_length": 0.00025,
+    "source_direction": 1,
+    "candidate_a": 0.22480629695006749
+  },
+  "target": {
+    "minimum_c": 7.162991043185879,
+    "maximum_c": 7.702475070546665,
+    "required_event_count": 52
+  },
+  "adaptive": {
+    "maximum_bisection_depth": 6
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "independent_solver": {"method": "Radau", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "comparison": {
+    "phase_samples": 2048,
+    "coarse_shifts": 256,
+    "shift_tolerance": 1e-10
+  },
+  "identity": {
+    "historical_parent_phase_count": 7,
+    "barrio_parent_phase_count": 8,
+    "historical_child_phase_count": 14,
+    "barrio_child_phase_count": 16
+  },
+  "independent_control_event_indices": [0, 25, 51],
+  "acceptance": {
+    "maximum_closure_error": 2e-8,
+    "minimum_parent_multiplier_modulus": 1.0001,
+    "maximum_child_multiplier_modulus": 0.999,
+    "maximum_period_ratio_error": 0.0005,
+    "minimum_proper_subperiod_closure": 0.0001,
+    "maximum_adjacent_child_state_distance": 0.003,
+    "maximum_solver_identity_rms": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "minimum_subperiod_to_full_closure_ratio": 10000
+  },
+  "claim_scope": "prospectively frozen adaptive identity-safe continuation of the EXP-220 child closest to the returning flip event at constant event-relative a offset across all 52 EXP-217 event endpoints from c=7.16299 through 7.70248; every accepted DOP853 step must retain unstable-parent/stable-child exchange, period ratio two, proper-subperiod nonclosure, 7/8 versus 14/16 section identity, closure, and child-state distance at most 0.003, while rejected coarse trials trigger recursive event-seed bisection to depth six and remain recorded, and exact event endpoints 0, 25, and 51 receive whole-orbit Radau controls; a pass establishes a regular sampled returning-arm child strip to the middle slice, not a global child sheet, paired shrimp boundaries, TBA membership, or double-criticality"
+}
