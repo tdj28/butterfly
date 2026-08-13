@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp247-passes-exp248-frozen.md`](2026-08-13-exp247-passes-exp248-frozen.md)
+  — the exact period-48 branch reaches a strongly unstable endpoint; a
+  magnitude-separated nine-row next-flip scan is frozen.
+
 - [`2026-08-13-exp246-period48-qualified-exp247-frozen.md`](2026-08-13-exp246-period48-qualified-exp247-frozen.md)
   — two solvers qualify a stable primitive period-48 child and local
   supercriticality; a short exact continuation is frozen.

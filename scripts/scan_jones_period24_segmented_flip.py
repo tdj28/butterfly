@@ -17,7 +17,10 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 from audit_segmented_floquet_precision import block_and_product_floquet
 
 
-SCHEMA = "butterfly.jones-period24-segmented-flip-scan-manifest.v1"
+SCHEMAS = {
+    "butterfly.jones-period24-segmented-flip-scan-manifest.v1",
+    "butterfly.jones-period48-segmented-flip-scan-manifest.v1",
+}
 
 
 def transverse_values(floquet: dict) -> list[complex]:
@@ -37,7 +40,7 @@ def main() -> int:
     args = parser.parse_args()
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
+    if manifest.get("schema") not in SCHEMAS:
         raise SystemExit("unsupported period-24 flip-scan manifest")
     continuation_bytes = args.continuation.read_bytes()
     if sha256_bytes(continuation_bytes) != manifest["continuation_receipt_sha256"]:
@@ -72,10 +75,19 @@ def main() -> int:
             cyclic_shifts,
         )
         values = transverse_values(floquet)
-        if previous is None:
+        if manifest.get("tracking_method") == "magnitude_separated":
+            ordered = sorted(values, key=abs, reverse=True)
+            tracked = ordered[0]
+            collapsed = ordered[1]
+            modulus_separation_ratio = float(
+                abs(tracked) / max(abs(collapsed), 1e-300)
+            )
+        elif previous is None:
             tracked = max(values, key=abs)
+            modulus_separation_ratio = None
         else:
             tracked = min(values, key=lambda value: abs(value - previous))
+            modulus_separation_ratio = None
         previous = tracked
         cyclic = [
             complex(
@@ -96,6 +108,7 @@ def main() -> int:
                 "modulus": float(abs(tracked)),
             },
             "flip_residual": float(tracked.real + 1.0),
+            "modulus_separation_ratio": modulus_separation_ratio,
             "cyclic_dominant_real_spread": float(
                 max(value.real for value in cyclic)
                 - min(value.real for value in cyclic)
@@ -144,9 +157,17 @@ def main() -> int:
         <= float(acceptance["maximum_initial_multiplier_modulus"])
         and rows[-1]["tracked_multiplier"]["real"]
         <= float(acceptance["maximum_terminal_multiplier_real"])
+        and (
+            manifest.get("tracking_method") != "magnitude_separated"
+            or min(row["modulus_separation_ratio"] for row in rows)
+            >= float(acceptance["minimum_modulus_separation_ratio"])
+        )
     )
     output = {
-        "schema": "butterfly.jones-period24-segmented-flip-scan-receipt.v1",
+        "schema": manifest.get(
+            "output_schema",
+            "butterfly.jones-period24-segmented-flip-scan-receipt.v1",
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "continuation_receipt_sha256": sha256_bytes(continuation_bytes),

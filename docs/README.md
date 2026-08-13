@@ -357,7 +357,10 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-092-returning-arm-cascade-through-period48.md`](findings/FND-092-returning-arm-cascade-through-period48.md):
   records the exact returning-arm cascade through stable primitive period 48.
 - [`experiments/EXP-247-jones-period48-segmented-continuation.md`](experiments/EXP-247-jones-period48-segmented-continuation.md):
-  freezes eight exact child-continuation steps toward a period-96 event scan.
+  passes eight exact child-continuation steps and reaches a strongly unstable
+  period-48 endpoint.
+- [`experiments/EXP-248-jones-period48-segmented-flip-scan.md`](experiments/EXP-248-jones-period48-segmented-flip-scan.md):
+  freezes the magnitude-separated nine-row period-48-to-96 bracket scan.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

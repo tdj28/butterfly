@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period48-segmented-continuation-summary.v1",
+  "experiment_id": "EXP-247",
+  "passed": true,
+  "source_commit": "fe5e245e03026e56c2079e09867342ac27bd6be8",
+  "manifest_sha256": "a4bc82a2788696415fed12c4194770adc151d6802c876b20b8c38ffc581a660f",
+  "switch_receipt_sha256": "a94cc3efe278fdc6ddae53ac4610d46564beab1c7424e29253ae746606038527",
+  "event_receipt_sha256": "9c3579c86500998daca262dda77b480beaaee913ab3089767bea3a20102defba",
+  "raw_artifact": "artifacts/EXP-247/receipt.json",
+  "raw_artifact_bytes": 42540,
+  "raw_artifact_sha256": "18003b5b2974fcda199ad9081af67d4b1c4e61879b18be2771697dbdae022ea1",
+  "point_count": 9,
+  "a_span_from_event": 2.5119892754776885e-7,
+  "terminal_a": 0.24070079491343538,
+  "terminal_period_time": 357.7409462255175,
+  "terminal_half_node_rms": 0.007405864464583063,
+  "terminal_half_period_closure": 0.016822941253469136,
+  "terminal_preliminary_multiplier": -29.237004708850456,
+  "terminal_historical_phase_count": 56,
+  "terminal_barrio_phase_count": 64,
+  "interpretation": "A primitive period-48 branch continues smoothly away from its birth and changes from independently stable near the event to strongly unstable at the terminal point."
+}
