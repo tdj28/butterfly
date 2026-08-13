@@ -283,6 +283,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-225-returning-child-strip-endpoint.md`](experiments/EXP-225-returning-child-strip-endpoint.md):
   preserves that endpoint test after moving an ill-conditioned bilateral
   control farther from the root and making control exceptions receipt-visible.
+- [`experiments/EXP-226-returning-child-strip-endpoint.md`](experiments/EXP-226-returning-child-strip-endpoint.md):
+  freezes a representation-safe Radau double-cover audit after both scalar
+  roots, the primitive left child, and the DOP853 right double cover pass.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

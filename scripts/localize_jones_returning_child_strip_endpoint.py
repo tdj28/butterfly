@@ -8,16 +8,29 @@ import json
 import platform
 import time
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import scipy
 from scipy.optimize import brentq
 
-from butterfly import RosslerParameters, SolverConfig
+from butterfly import (
+    RosslerParameters,
+    SolverConfig,
+    barrio_rossler_section,
+    flow_monodromy,
+    legacy_rossler_section,
+)
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 from scripts.bridge_jones_returning_period12_child import interpolate_event
 from scripts.continue_jones_returning_period12_child import _continue_row, _correct
-from scripts.qualify_jones_period12_children import _qualify_target, _summary
+from scripts.qualify_jones_period12_children import (
+    _closure_at_fraction,
+    _qualify_target,
+    _section_count,
+    _summary,
+    proper_subperiod_fractions,
+)
 
 
 SCHEMA = "butterfly.jones-returning-child-strip-endpoint-manifest.v1"
@@ -73,6 +86,127 @@ def double_cover_passes(row, metrics, acceptance):
         and metrics["multiplier_square_error"]
         <= float(acceptance["maximum_multiplier_square_error"])
     )
+
+
+def direct_parent_double_cover(event, delta_a, manifest, solver):
+    """Audit a double cover without an ill-conditioned redundant 2T correction."""
+
+    parameters = RosslerParameters(
+        a=float(event["a"]) + float(delta_a),
+        b=float(manifest["fixed_b"]),
+        c=float(event["c"]),
+    )
+    parent_orbit, parent_monodromy = _correct(
+        parameters,
+        event["initial_state"],
+        event["period_time"],
+        solver,
+        manifest["corrector"],
+    )
+    doubled_orbit = SimpleNamespace(
+        initial_state=parent_orbit.initial_state,
+        period_time=2.0 * float(parent_orbit.period_time),
+        phase_residual=float(parent_orbit.phase_residual),
+    )
+    doubled_monodromy = flow_monodromy(
+        parameters,
+        doubled_orbit.initial_state,
+        doubled_orbit.period_time,
+        config=solver,
+    )
+    parent_summary = _summary(parent_orbit, parent_monodromy)
+    child_summary = _summary(doubled_orbit, doubled_monodromy)
+    identity = manifest["identity"]
+    counts = {
+        "parent_historical": _section_count(
+            parameters,
+            parent_orbit,
+            legacy_rossler_section(parameters),
+            int(identity["historical_parent_phase_count"]),
+            solver,
+        ),
+        "parent_barrio": _section_count(
+            parameters,
+            parent_orbit,
+            barrio_rossler_section(parameters),
+            int(identity["barrio_parent_phase_count"]),
+            solver,
+        ),
+        "child_historical": _section_count(
+            parameters,
+            doubled_orbit,
+            legacy_rossler_section(parameters),
+            int(identity["historical_child_phase_count"]),
+            solver,
+        ),
+        "child_barrio": _section_count(
+            parameters,
+            doubled_orbit,
+            barrio_rossler_section(parameters),
+            int(identity["barrio_child_phase_count"]),
+            solver,
+        ),
+    }
+    fractions = proper_subperiod_fractions(
+        int(identity["historical_child_phase_count"])
+    )
+    subperiod_closures = [
+        {
+            "fraction": fraction,
+            "closure": _closure_at_fraction(
+                parameters, doubled_orbit, fraction, solver
+            ),
+        }
+        for fraction in fractions
+    ]
+    minimum_subperiod = min(item["closure"] for item in subperiod_closures)
+    acceptance = manifest["acceptance"]
+    expected_counts = {
+        "parent_historical": int(identity["historical_parent_phase_count"]),
+        "parent_barrio": int(identity["barrio_parent_phase_count"]),
+        "child_historical": int(identity["historical_child_phase_count"]),
+        "child_barrio": int(identity["barrio_child_phase_count"]),
+    }
+    period_ratio = doubled_orbit.period_time / parent_orbit.period_time
+    checks = {
+        "closure": max(
+            parent_summary["closure_error"], child_summary["closure_error"]
+        )
+        <= float(acceptance["maximum_closure_error"]),
+        "parent_unstable": parent_summary["dominant_transverse_multiplier"][
+            "modulus"
+        ]
+        >= float(acceptance["minimum_parent_multiplier_modulus"]),
+        "child_stable": child_summary["dominant_transverse_multiplier"]["modulus"]
+        <= float(acceptance["maximum_child_multiplier_modulus"]),
+        "period_ratio": abs(period_ratio - 2.0)
+        <= float(acceptance["maximum_period_ratio_error"]),
+        "proper_subperiod": minimum_subperiod
+        >= float(acceptance["minimum_proper_subperiod_closure"]),
+        "section_identity": all(
+            counts[name][0] == expected and counts[name][1]
+            for name, expected in expected_counts.items()
+        ),
+    }
+    return {
+        "a": parameters.a,
+        "b": parameters.b,
+        "c": parameters.c,
+        "event_a": float(event["a"]),
+        "delta_a": float(delta_a),
+        "parent": parent_summary,
+        "child": child_summary,
+        "period_ratio": float(period_ratio),
+        "proper_subperiod_closures": subperiod_closures,
+        "minimum_proper_subperiod_closure": float(minimum_subperiod),
+        "section_counts": {
+            name: {"count": value[0], "integration_success": value[1]}
+            for name, value in counts.items()
+        },
+        "checks": checks,
+        "passed": all(checks.values()),
+        "construction": "independently corrected parent integrated for exactly 2T",
+    }
 
 
 def main() -> int:
@@ -263,13 +397,18 @@ def main() -> int:
         }
     if "row" in right_double_cover["dop853"]:
         try:
-            right_radau = _continue_row(
-                right_event,
-                right_double_cover["dop853"]["row"]["child"],
-                delta_a,
-                manifest,
-                solvers["radau"],
-            )
+            if manifest.get("radau_double_cover_mode") == "parent_square":
+                right_radau = direct_parent_double_cover(
+                    right_event, delta_a, manifest, solvers["radau"]
+                )
+            else:
+                right_radau = _continue_row(
+                    right_event,
+                    right_double_cover["dop853"]["row"]["child"],
+                    delta_a,
+                    manifest,
+                    solvers["radau"],
+                )
             metrics = double_cover_metrics(right_radau)
             right_double_cover["radau"] = {
                 "row": right_radau,

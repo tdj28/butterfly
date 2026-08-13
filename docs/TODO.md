@@ -309,6 +309,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   only `5e-5` below the root fails the strict corrector success rule. EXP-225
   changes only the bilateral distance to `1.5e-4`, preserves all science gates,
   and makes qualification exceptions receipt-visible.
+  EXP-225 independently localizes the real-`-1` root to `3.96e-9` across
+  solvers; its left primitive child and DOP853 right double cover pass. The
+  remaining failure is singular redundant-`2T` Radau correction. EXP-226
+  freezes independent Radau parent correction, exact `2T` integration, doubled
+  section counts, and monodromy squaring without changing any threshold.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

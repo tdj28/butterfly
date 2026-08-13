@@ -1,7 +1,7 @@
 # FND-088 — The sampled returning-child strip ends at a double-cover candidate
 
-Status: broad sampled strip qualified; terminal event candidate awaits exact
-two-solver refinement
+Status: broad sampled strip qualified; terminal real-`-1` root independently
+localized, final representation-safe double-cover control pending
 
 EXP-223 tracks the closest-to-event stable primitive period-12 child through
 212 accepted points, 45 exact returning-arm events, and `c=7.62518642` without
@@ -22,6 +22,12 @@ refine the implied real-`-1` crossing and verify primitive child versus
 double-cover behavior bilaterally before the endpoint is called a qualified
 second flip boundary. Nothing here yet proves global child-sheet termination,
 paired shrimp boundaries, TBA membership, or double-criticality.
+
+EXP-225 independently refines the implied parent real-`-1` crossing to
+`c=7.62537829761` (DOP853) and `7.62537829365` (Radau), a `3.96e-9`
+difference. Its primitive left child and DOP853 right double cover pass. The
+only remaining gate is a representation-safe Radau double-cover audit;
+redundant `2T` Newton correction is singular at the object being tested.
 
 Evidence:
 [`../experiments/EXP-223-returning-period12-child-adaptive.md`](../experiments/EXP-223-returning-period12-child-adaptive.md).
