@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period768-sign-equivalence-refinement-summary.v1",
+  "experiment_id": "EXP-277",
+  "passed": false,
+  "source_commit": "6aa25ee46499326092c2999a55e604d1ce1ebf74",
+  "manifest_sha256": "38b10e121b94b866ac58bacc91d234d3cc000b91c6f3dee6244c338f8d575eee",
+  "switch_receipt_sha256": "8f3cd67cbebc7dbf2b85db3b0fc666a3827b77bc03d4f97989ff64234fefc932",
+  "raw_artifact": "artifacts/EXP-277/receipt.json",
+  "raw_artifact_bytes": 264319,
+  "raw_artifact_sha256": "88a9beffd13f9688ac7c193e8127548d933ec4b411e6b8218c23629812e6847c",
+  "target_a": 0.24070100827079027,
+  "isolated_failed_check": "modulus_agreement",
+  "modulus_spread": 0.002661369907838246,
+  "maximum_allowed_modulus_spread": 0.002,
+  "dop853_sign_identity_rms": 2.0564161063286176e-8,
+  "radau_sign_identity_rms": 2.9301144942827727e-8,
+  "maximum_solver_identity_rms": 8.799666984498808e-9,
+  "maximum_segment_endpoint_error": 1.0289464579405851e-11,
+  "period_spread": 6.689333531539887e-9,
+  "modulus_range": [0.08606644758607539, 0.08872781749391363],
+  "interpretation": "Tighter integration strengthens whole-orbit identity and improves but does not pass the unchanged four-representation multiplier-spread gate."
+}

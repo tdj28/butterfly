@@ -141,3 +141,8 @@ gate: `0.003450` versus `0.002`. Within-solver sign RMS is
 `1.39e-8/2.72e-8`, and cross-solver RMS is below `4.11e-8`, so the failure is
 isolated to long-product precision rather than orbit mismatch. EXP-277 freezes
 a tighter-step repeat with no relaxed threshold.
+
+EXP-277 again fails only multiplier spread, improving it to `0.002661` while
+sign and cross-solver whole-orbit RMS remain below `2.94e-8/8.80e-9`.
+EXP-278 freezes a canonical common-phase audit from the negative sign selected
+independently by EXP-275, retaining the unchanged `0.002` multiplier gate.

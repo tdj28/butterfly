@@ -445,8 +445,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   768 (FND-098). EXP-276 freezes whole-orbit equivalence of both tangent signs
   before any deeper continuation. EXP-276 passes nine of ten gates, including
   strong phase identity, but fails modulus spread `0.003450 > 0.002`.
-  EXP-277 freezes a tighter-step complete repeat with every science threshold
-  unchanged; deeper continuation remains blocked meanwhile.
+  EXP-277 tightens integration, strengthens identity, and improves the spread
+  to `0.002661`, but preserves the same isolated failure. EXP-278 freezes a
+  canonical-phase two-solver correction from the negative sign independently
+  preselected by EXP-275, retaining the `0.002` gate and exact identity;
+  deeper continuation remains blocked meanwhile.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
