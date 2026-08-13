@@ -332,8 +332,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-239-jones-period24-segmented-continuation.md`](experiments/EXP-239-jones-period24-segmented-continuation.md):
   passes a 20-step continuation to a separated primitive period-24 endpoint.
 - [`experiments/EXP-240-jones-period24-segmented-qualification.md`](experiments/EXP-240-jones-period24-segmented-qualification.md):
-  freezes independent segmented DOP853/Radau parent-child stability and
-  criticality classification at that endpoint.
+  confirms the separated child is strongly unstable under both solvers while
+  retaining an unresolved criticality label at the farther endpoint.
+- [`experiments/EXP-241-jones-period24-near-event-qualification.md`](experiments/EXP-241-jones-period24-near-event-qualification.md):
+  freezes the decisive two-solver parent/child stability audit immediately
+  beside the period-12 flip.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

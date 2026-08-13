@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp240-unstable-endpoint-exp241-frozen.md`](2026-08-13-exp240-unstable-endpoint-exp241-frozen.md)
+  — two solvers confirm the separated period-24 endpoint is strongly unstable;
+  criticality is returned to a frozen near-event parent/child audit.
+
 - [`2026-08-13-exp239-passes-exp240-frozen.md`](2026-08-13-exp239-passes-exp240-frozen.md)
   — a separated primitive period-24 branch passes 20 continuation steps; an
   independent parent/child criticality audit is frozen.
