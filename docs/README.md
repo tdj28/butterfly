@@ -207,6 +207,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-074-lower-c-stable-strip-has-a-real-flip-boundary.md`](findings/FND-074-lower-c-stable-strip-has-a-real-flip-boundary.md):
   qualifies seven real-minus-one Floquet events on the stable strip edge and
   promotes them to period-doubling curve and child-branch continuation seeds.
+- [`findings/FND-075-period6-flip-edge-continues-as-a-dense-coupled-curve.md`](findings/FND-075-period6-flip-edge-continues-as-a-dense-coupled-curve.md):
+  continues the flip event with an exact augmented Jacobian through all 41
+  frozen points, replacing the raster edge with a dense bifurcation curve.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

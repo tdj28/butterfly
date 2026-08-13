@@ -39,11 +39,12 @@ only after the scientific closure gates are satisfied.
 ## Visual build
 
 The figure-generation commands and source hashes are recorded in
-[figures/README.md](figures/README.md). The manuscript currently contains 15
+[figures/README.md](figures/README.md). The manuscript currently contains 16
 figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the Hopf
 locus and connected family, cascade and return-map controls, the dense
 period-6 corrected-orbit fields, scale-aware two-critical audits, the lower-c
-stable strip, and its refined real-minus-one Floquet edge.
+stable strip, its refined real-minus-one Floquet edge, and the dense coupled
+continuation of that edge.
 
 ## Writing rules
 

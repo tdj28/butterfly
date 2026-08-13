@@ -23,6 +23,8 @@ topology claims.
   connected components, and dominant Floquet stability margin.
 - fig14-exp205-period6-flip-curve.png: EXP-205's seven refined real-minus-one
   period-6 Floquet events over the EXP-203 field and their sign brackets.
+- fig15-exp206-period6-flip-continuation.png: EXP-206's 41-point coupled flip
+  curve, event-period variation, and residual-quality controls.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -100,6 +102,19 @@ Regenerate the EXP-205 period-6 flip-curve figure and receipt:
       --receipt artifacts/EXP-205/receipt.json \
       --expected-receipt-sha256 42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0 \
       --output paper/figures/fig14-exp205-period6-flip-curve.png --dpi 260
+
+Regenerate the EXP-206 coupled flip-curve figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python .venv/bin/python \
+      scripts/plot_exp206_period6_flip_curve.py \
+      --manifest experiments/manifests/EXP-206-lower-c-period6-flip-curve.json \
+      --field artifacts/EXP-203/candidates.json \
+      --expected-field-sha256 db4c841dd678e0355ff1ed1ecfb9c8d03e630ce00e4d892f2fc237d09c2e2a02 \
+      --source-receipt artifacts/EXP-205/receipt.json \
+      --expected-source-sha256 42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0 \
+      --receipt artifacts/EXP-206/receipt.json \
+      --expected-receipt-sha256 e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba \
+      --output paper/figures/fig15-exp206-period6-flip-continuation.png --dpi 260
 
 ## Promoted experiment figures
 

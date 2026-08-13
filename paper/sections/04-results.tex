@@ -848,3 +848,28 @@ tested independently.
   a period-12 child.}
   \label{fig:exp205-flip}
 \end{figure}
+
+The central event is next continued with $a$ free while orbit closure, phase,
+and an anti-periodic tangent are solved simultaneously using the exact first-
+and second-variational Jacobian.  Both directions complete at all 41 frozen
+$c$ values from $7.16$ to $7.32$ (Figure~\ref{fig:exp206-flip-curve}).  The
+curve is monotone over the sampled segment, from
+$(a,c)=(0.2158160512,7.16)$ to $(0.2156835308,7.32)$, and its maximum adjacent
+$a$ step is $4.64\times10^{-6}$.  Maximum orbit and tangent residuals are
+$1.10\times10^{-11}$ and $1.71\times10^{-12}$; independent monodromy places
+the real multiplier within $2.05\times10^{-9}$ of $-1$ and the neutral
+multiplier within $1.82\times10^{-9}$ of $+1$.  Both section identities remain
+exact.  This is a dense orbit-defined flip-curve segment, not yet its global
+continuation, period-12 child, criticality, or identification with the TBA.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig15-exp206-period6-flip-continuation.png}
+  \caption{Coupled continuation of the period-6 flip boundary.  Left: the
+  41-point exact-Jacobian curve extends beyond the seven independently refined
+  scalar roots.  Center: event $a$ and flow period vary monotonically over the
+  sampled segment.  Right: coupled orbit/tangent and independent Floquet
+  residuals remain below their frozen gates.  This curve is not identified
+  with the topology-transition curve.}
+  \label{fig:exp206-flip-curve}
+\end{figure}
