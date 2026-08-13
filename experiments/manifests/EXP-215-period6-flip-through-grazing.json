@@ -1,0 +1,39 @@
+{
+  "schema": "butterfly.jones-period6-flip-through-grazing-manifest.v1",
+  "experiment_id": "EXP-215",
+  "extension_receipt_sha256": "a322c78612874a3735a169e647c66aaa4fdddf81397d39d691ecc6c6e7ec04f1",
+  "grazing_receipt_sha256": "9ab2233c6f78a5a77d41b8912d45fd1387ea99c0816cabd0086379b2ec77510a",
+  "fixed_b": 0.2,
+  "a_guard": [0.18, 0.25],
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "independent_solver": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 40, "tolerance": 1e-10},
+  "continuation": {
+    "steps": 100,
+    "step_scale": 2.5,
+    "a_guard": [0.18, 0.25],
+    "c_guard": [5.5, 7.0]
+  },
+  "acceptance": {
+    "required_maximum_terminal_c": 6.05,
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_arclength_residual": 1e-8,
+    "maximum_independent_multiplier_residual": 0.00001,
+    "maximum_multiplier_imaginary_part": 1e-7,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "maximum_adjacent_a_jump": 0.001,
+    "maximum_adjacent_c_jump": 0.025,
+    "historical_phase_count": 6,
+    "historical_extremum_count": 7,
+    "barrio_phase_count": 8,
+    "maximum_section_residual": 1e-9,
+    "maximum_solver_a_difference": 1e-8,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "maximum_solver_state_difference": 1e-7,
+    "maximum_solver_modulus_difference": 0.00001
+  },
+  "claim_scope": "prospectively frozen exact dual-parameter pseudo-arclength continuation of 100 real-minus-one period-6 parent events through the qualified EXP-214 historical-section grazing, using invariant event gates, persistent eight-phase Barrio identity, extremum-partitioned seven-phase historical identity, and a remote Radau control; a pass establishes a broad lower sampled parent arm through the representation boundary, not a physical endpoint, child sheet, TBA curve, global connectivity, or double-critical membership"
+}

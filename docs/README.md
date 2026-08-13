@@ -234,6 +234,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-082-flip-curve-grazing-is-a-qualified-representation-boundary.md`](findings/FND-082-flip-curve-grazing-is-a-qualified-representation-boundary.md):
   qualifies the seven-to-six historical phase change while Barrio remains
   eight and the exact real-minus-one flow event persists.
+- [`experiments/EXP-215-period6-flip-through-grazing.md`](experiments/EXP-215-period6-flip-through-grazing.md):
+  freezes invariant and Barrio-identity continuation below the qualified
+  historical-section representation boundary.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

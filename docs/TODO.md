@@ -260,7 +260,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   offsets and four Radau controls. EXP-214 passes: extremum-aware counts are
   `7,7,7,7` below and `6,6,6,6` above `c=6.93831802121`, Barrio remains eight,
   and all Radau controls agree. Continue the invariant flip curve through this
-  now-qualified representation boundary using orbit/Barrio identity.
+  now-qualified representation boundary using orbit/Barrio identity. EXP-215
+  freezes 100 such lower-arm points, an extremum-aware seven-phase check, a
+  `c<=6.05` reach gate, and remote Radau recorrection.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
