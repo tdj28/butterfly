@@ -266,6 +266,8 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-221-returning-period12-child-continuation.md`](experiments/EXP-221-returning-period12-child-continuation.md):
   freezes identity-safe continuation of one qualified child through 52
   returning-arm events toward the unresolved middle slice.
+- [`experiments/EXP-222-returning-period12-child-first-bridge.md`](experiments/EXP-222-returning-period12-child-first-bridge.md):
+  freezes a 16-substep bridge across EXP-221's first primitive-root jump.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

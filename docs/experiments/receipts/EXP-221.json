@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.jones-returning-period12-child-continuation-summary.v1",
+  "experiment_id": "EXP-221",
+  "passed": false,
+  "source_commit": "3974330888e851db5d0d05ed3eaae1b8ee5ad53c",
+  "manifest_sha256": "f0689131f0361a36aebce2eb7b0ff4a9a7d2759e17904d0171cea2eec6a42ef9",
+  "event_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "seed_receipt_sha256": "077f88fd064b0825ed385fa9277f1552b44291e319a42abbc0f218dac142134a",
+  "raw_artifact": "artifacts/EXP-221/receipt.json",
+  "raw_artifact_bytes": 5623,
+  "raw_artifact_sha256": "af57efbcc111ab3c9c16c6ea286f4027218f4b2b55578b3f2cd708bb19ea5575",
+  "target_event_count": 52,
+  "accepted_point_count": 1,
+  "delta_a": -3.65325150725182e-6,
+  "failure": {
+    "index": 1,
+    "c": 7.17534379804184,
+    "failed_checks": ["child_stable", "period_ratio"],
+    "child_multiplier_modulus": 5588.88453766676,
+    "period_ratio": 2.01045460932718,
+    "minimum_proper_subperiod_closure": 4.899125215655839,
+    "parent_historical_count": 7,
+    "parent_barrio_count": 8,
+    "child_historical_count": 14,
+    "child_barrio_count": 16
+  },
+  "seed_independent_control_passed": true,
+  "elapsed_seconds": 36.47941004065797,
+  "interpretation": "The coarse first event step selects a different primitive unstable 14/16-section root rather than the continued stable child. This is a root-selection failure and motivates a prospectively frozen finer path."
+}
