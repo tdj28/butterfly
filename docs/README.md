@@ -426,7 +426,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-097-six-exact-returning-arm-events.md`](findings/FND-097-six-exact-returning-arm-events.md):
   records the sixth exact event and four non-monotone finite scaling ratios.
 - [`experiments/EXP-274-jones-period768-segmented-switch.md`](experiments/EXP-274-jones-period768-segmented-switch.md):
-  freezes bilateral 1,024-segment period-768 child nomination.
+  passes bilateral 1,024-segment period-768 child nomination.
+- [`experiments/EXP-275-jones-period768-near-event-qualification.md`](experiments/EXP-275-jones-period768-near-event-qualification.md):
+  freezes the independent sixth-birth stability-exchange test.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

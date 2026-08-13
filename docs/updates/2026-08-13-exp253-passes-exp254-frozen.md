@@ -122,3 +122,9 @@ flip residuals are `1.33e-9/3.62e-8`; all orbit/tangent residuals are below
 `2.53e-11`, and exact `448/512` identity passes. FND-097 records the sixth
 exact event and the non-monotone finite ratios `4.557/4.697/4.300/4.836`.
 EXP-274 freezes the separate bilateral 1,024-segment period-768 switch.
+
+EXP-274 passes all six candidates with exact `896/1024` identity. The largest
+negative/positive candidates have half-period closures
+`6.10e-6/6.18e-6` and preliminary stable moduli `0.0813/0.0854`. EXP-275
+freezes the decisive two-solver stability exchange; period 768 is not yet
+promoted.
