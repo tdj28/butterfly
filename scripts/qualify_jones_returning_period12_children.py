@@ -31,7 +31,19 @@ def parameter_side(candidate_a, event_a, tolerance=1e-12):
 
 
 def _event_result(source_row, manifest, switch_solver, qualification_solvers):
-    switched = _switch_event(source_row, manifest, switch_solver)
+    try:
+        switched = _switch_event(source_row, manifest, switch_solver)
+    except Exception as error:
+        return {
+            "c": float(source_row["c"]),
+            "event_a": float(source_row["a"]),
+            "source_row": source_row,
+            "switch_error": f"{type(error).__name__}: {error}",
+            "candidate_count": 0,
+            "qualified_expected_side_count": 0,
+            "candidates": [],
+            "passed": False,
+        }
     event_a = float(switched["event_a"])
     expected_side = int(manifest["prediction"]["stable_child_parameter_side"])
     candidates = []

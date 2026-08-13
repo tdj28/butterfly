@@ -278,6 +278,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   from the original arm by `0.00891` in `a` at `c=7.16` and `0.05778` at
   `c=8.25`. Freeze held-out period-12 branch switching and stability exchange
   on the returning arm before calling the two arms shrimp boundaries.
+  EXP-218 aborts before testing the prediction because its inherited symmetric
+  auxiliary parent correction fails at the middle event. EXP-219 changes only
+  to a successfully audited one-sided parent tangent and preserves the exact
+  lower-`a` child prediction and every scientific gate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -1,0 +1,54 @@
+{
+  "schema": "butterfly.jones-returning-period12-child-qualification-manifest.v1",
+  "experiment_id": "EXP-219",
+  "source_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "fixed_b": 0.2,
+  "event_c_values": [7.162991043185879, 7.702475070546665, 8.201986179083645],
+  "primary_a_offset": 0.00001,
+  "primary_tangent_offsets": [-0.00002, -0.00001, 0.0],
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "reference_solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "independent_solver": {"method": "Radau", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "continuation": {
+    "step_length": 0.004,
+    "steps_per_direction": 4,
+    "a_guard_offsets": [-0.00015, 0.00015]
+  },
+  "comparison": {
+    "phase_samples": 2048,
+    "coarse_shifts": 256,
+    "shift_tolerance": 1e-10
+  },
+  "identity": {
+    "historical_parent_phase_count": 7,
+    "barrio_parent_phase_count": 8,
+    "historical_child_phase_count": 14,
+    "barrio_child_phase_count": 16
+  },
+  "prediction": {
+    "stable_child_parameter_side": -1,
+    "rationale": "if the returning arm is the opposing boundary of the same local stability domain, the supercritical period-12 child should open toward lower a, opposite the original arm's qualified higher-a child"
+  },
+  "acceptance": {
+    "required_events": 3,
+    "minimum_children_per_event": 1,
+    "maximum_small_singular_value": 0.000001,
+    "maximum_tangent_dot": 0.2,
+    "minimum_points_per_direction": 0,
+    "minimum_endpoint_distance": 0.0,
+    "minimum_a_separation": 0.0,
+    "historical_child_phase_count": 14,
+    "barrio_child_phase_count": 16,
+    "maximum_closure_error": 2e-8,
+    "maximum_solver_identity_rms": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "minimum_parent_multiplier_modulus": 1.0001,
+    "maximum_child_multiplier_modulus": 0.999,
+    "maximum_period_ratio_error": 0.0005,
+    "minimum_proper_subperiod_closure": 0.0001,
+    "minimum_subperiod_to_full_closure_ratio": 10000
+  },
+  "claim_scope": "prospectively frozen one-sided-parent-tangent nullspace switching and independent DOP853/Radau qualification of primitive stable period-12 children at the same three held-out EXP-217 events and unchanged lower-a directional prediction; a pass establishes local supercritical stability exchange on the returning arm compatible with an opposing shrimp boundary, not global window connectivity, a child surface, TBA membership, double-criticality, or a full-plane explanation"
+}

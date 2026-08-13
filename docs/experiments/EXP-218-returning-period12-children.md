@@ -1,6 +1,6 @@
 # EXP-218 — Held-out period-12 children on the returning flip arm
 
-Status: prospectively frozen before execution
+Status: complete — administrative failure before candidate evaluation
 
 ## Question
 
@@ -33,3 +33,22 @@ A pass establishes local stability exchange on the returning arm compatible
 with an opposing shrimp boundary. It does not prove that both arms bound one
 globally connected window, qualify a returning child sheet, identify the TBA,
 establish double-criticality, or explain the full parameter plane.
+
+## Result
+
+The runner aborts before evaluating the directional child prediction. The
+inherited switcher estimates the fixed-`c` parent tangent from symmetric
+natural corrections at `a_event+-1e-5`. The higher-`a` auxiliary parent fails
+generic periodic-orbit correction at the `c=7.70247507` slice, raising
+`RuntimeError: primary period-6 correction failed`; no candidate receipt is
+written.
+
+A post-failure administrative audit changes no child or stability gate. It
+shows that the declared one-sided offsets `[-2e-5,-1e-5,0]` correct at all
+three frozen events, whereas the positive offset also fails at the
+`c=8.20198618` event. EXP-219 prospectively freezes this one-sided tangent
+estimate and adds failure serialization. The lower-`a` child prediction remains
+untested.
+
+Compact failure record:
+[`receipts/EXP-218.json`](receipts/EXP-218.json).

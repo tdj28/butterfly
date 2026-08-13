@@ -216,6 +216,21 @@ def _primary_distance(variables, primary_rows):
     return float(np.linalg.norm(variables - primary))
 
 
+def primary_tangent_offsets(manifest):
+    """Return declared parent-family offsets, preserving the legacy symmetric rule."""
+
+    if "primary_tangent_offsets" in manifest:
+        offsets = [float(value) for value in manifest["primary_tangent_offsets"]]
+    else:
+        offset = float(manifest["primary_a_offset"])
+        offsets = [-offset, 0.0, offset]
+    if len(offsets) < 2 or offsets != sorted(offsets) or len(set(offsets)) != len(offsets):
+        raise ValueError("primary tangent offsets must be distinct and increasing")
+    if 0.0 not in offsets:
+        raise ValueError("primary tangent offsets must include the event")
+    return offsets
+
+
 def _switch_event(event, manifest, solver):
     b = float(manifest["fixed_b"])
     c = float(event["c"])
@@ -231,7 +246,7 @@ def _switch_event(event, manifest, solver):
     )
     _, singular_values, right_vectors = np.linalg.svd(jacobian, full_matrices=True)
     null_basis = right_vectors[-2:].T
-    primary_offset = float(manifest["primary_a_offset"])
+    primary_offsets = primary_tangent_offsets(manifest)
     primary_rows = [
         _parent_variables(
             event,
@@ -241,7 +256,7 @@ def _switch_event(event, manifest, solver):
             solver=solver,
             corrector=manifest["corrector"],
         )
-        for offset in (-primary_offset, 0.0, primary_offset)
+        for offset in primary_offsets
     ]
     observed_primary = primary_rows[-1] - primary_rows[0]
     observed_primary /= np.linalg.norm(observed_primary)
