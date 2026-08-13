@@ -324,6 +324,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   events over `c_root±2e-4`, all separated below the source returning arm,
   with endpoint/center Radau controls. Only a pass may seed broad
   pseudo-arclength continuation.
+  EXP-227 passes all 21 exact events and three Radau controls while remaining
+  `5.60e-7--5.85e-7` lower in `a` than the source arm. EXP-228 freezes 80
+  pseudo-arclength events per direction toward `c<=7.46` and `c>=7.78`, with
+  that distinctness condition enforced at every accepted point.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

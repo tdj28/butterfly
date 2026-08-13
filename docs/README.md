@@ -289,6 +289,12 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-227-second-period6-flip-local-curve.md`](experiments/EXP-227-second-period6-flip-local-curve.md):
   freezes exact local continuation and source-arm separation for the newly
   qualified second period-6 flip.
+- [`findings/FND-089-second-period6-flip-is-a-distinct-local-curve.md`](findings/FND-089-second-period6-flip-is-a-distinct-local-curve.md):
+  qualifies 21 exact points and three Radau controls on a second event curve
+  distinct from the known returning arm.
+- [`experiments/EXP-228-second-period6-flip-pseudoarclength.md`](experiments/EXP-228-second-period6-flip-pseudoarclength.md):
+  freezes broad two-direction continuation of that second curve with explicit
+  source-arm separation at every event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
