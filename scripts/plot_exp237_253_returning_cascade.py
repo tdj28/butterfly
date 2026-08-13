@@ -100,13 +100,14 @@ def main() -> int:
     axes[0, 0].plot(
         offset, parent_periods, "o-", color="#7b3294", linewidth=2.0, markersize=7
     )
-    for x_value, period, a_value, period_time in zip(
-        offset, parent_periods, event_a, event_period
+    annotation_offsets = ((6, 7), (6, 7), (-116, 7))
+    for x_value, period, a_value, period_time, text_offset in zip(
+        offset, parent_periods, event_a, event_period, annotation_offsets
     ):
         axes[0, 0].annotate(
             f"$P={period}$\n$a={a_value:.12f}$\n$T={period_time:.3f}$",
             (x_value, period),
-            xytext=(6, 7),
+            xytext=text_offset,
             textcoords="offset points",
             fontsize=7.3,
         )
@@ -125,6 +126,7 @@ def main() -> int:
         width=0.62,
     )
     axes[0, 1].set_yscale("log")
+    axes[0, 1].set_ylim(2e-8, 2e-7)
     axes[0, 1].set_ylabel(r"successive event spacing $\Delta a$")
     axes[0, 1].set_title(f"one finite spacing ratio: {spacing_ratio:.3f}")
     for bar, value in zip(bars, spacings):
@@ -139,7 +141,7 @@ def main() -> int:
         )
     axes[0, 1].text(
         0.5,
-        0.08,
+        0.48,
         "finite evidence; not a universality estimate",
         transform=axes[0, 1].transAxes,
         ha="center",
