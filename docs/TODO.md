@@ -402,9 +402,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   independent near-event parent/child stability-exchange qualification and
   passes, extending the exact locally supercritical cascade through stable
   period 96 (FND-093). EXP-254 passes every orbit gate except its phase-grid
-  sign-identity resolution; EXP-255 freezes unchanged-threshold continuous
-  phase minimization before a short period-96 continuation toward the next
-  flip without claiming universality.
+  sign-identity resolution; EXP-255 completes the continuous calculations but
+  fails administrative JSON serialization. EXP-256 freezes the scientifically
+  identical corrected successor before a short period-96 continuation toward
+  the next flip without claiming universality.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

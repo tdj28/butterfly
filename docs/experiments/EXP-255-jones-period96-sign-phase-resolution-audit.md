@@ -1,6 +1,6 @@
 # EXP-255 — Period-96 sign phase-resolution audit
 
-Status: frozen — not yet executed
+Status: completed — failed administrative receipt serialization
 
 EXP-254 passes every scientific gate except full-orbit tangent-sign identity.
 Its best shift is one final grid increment from exactly one half period, and
@@ -15,3 +15,10 @@ equivalence; a failure preserves the possibility of two nearby stable cycles.
 
 Manifest:
 [`../../experiments/manifests/EXP-255-jones-period96-sign-phase-resolution-audit.json`](../../experiments/manifests/EXP-255-jones-period96-sign-phase-resolution-audit.json).
+
+## Result
+
+Both continuous phase audits complete, but the script passes a NumPy boolean
+to the canonical JSON writer and terminates before writing a receipt. No
+scientific result is accepted under EXP-255. EXP-256 freezes a scientifically
+identical successor after converting that status to a built-in boolean.

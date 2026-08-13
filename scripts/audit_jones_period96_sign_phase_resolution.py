@@ -69,7 +69,7 @@ def continuous_phase_identity(left, right, comparison: dict) -> dict:
     )
     evaluations += 1
     best_shift, best_value = min(candidates, key=lambda row: row[1])
-    success = upper - lower <= float(comparison["phase_tolerance"])
+    success = bool(upper - lower <= float(comparison["phase_tolerance"]))
     return {
         "success": success,
         "message": "declared phase width reached" if success else "iteration ceiling reached",

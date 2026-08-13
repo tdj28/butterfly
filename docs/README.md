@@ -380,7 +380,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-254-jones-period96-sign-equivalence.md`](experiments/EXP-254-jones-period96-sign-equivalence.md):
   preserves a two-solver sign-identity failure caused by phase-grid resolution.
 - [`experiments/EXP-255-jones-period96-sign-phase-resolution-audit.md`](experiments/EXP-255-jones-period96-sign-phase-resolution-audit.md):
-  freezes continuous phase minimization on EXP-254's immutable corrected orbits.
+  preserves an administrative JSON-serialization failure after phase audits.
+- [`experiments/EXP-256-jones-period96-sign-phase-resolution-audit.md`](experiments/EXP-256-jones-period96-sign-phase-resolution-audit.md):
+  freezes the scientifically identical, serialization-corrected successor.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

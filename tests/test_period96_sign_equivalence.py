@@ -54,5 +54,6 @@ def test_continuous_phase_identity_resolves_subgrid_shift() -> None:
     )
 
     assert result["success"]
+    assert type(result["success"]) is bool
     assert result["rms"] < 1e-10
     assert abs(result["phase_shift"] - true_shift) < 1e-10

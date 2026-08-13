@@ -15,3 +15,7 @@ EXP-254 passes every orbit and solver gate but fails sign identity at
 spacing is `7.45e-9`, too coarse for the frozen `1e-6` RMS gate. EXP-255
 preserves the failure and freezes continuous phase minimization on the same
 corrected nodes without relaxing the identity threshold.
+
+EXP-255 completes the two phase searches but writes no receipt because a NumPy
+boolean status is not JSON serializable. EXP-256 freezes the scientifically
+identical successor after only that built-in-type conversion.
