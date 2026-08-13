@@ -380,7 +380,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   passes all event and Radau gates. EXP-238 then passes and nominates primitive
   `28/32` period-24 candidates on both mode signs. EXP-239 freezes a separated
   20-step child continuation before two-solver identity, sign-equivalence,
-  stability-exchange, and attraction qualification.
+  stability-exchange, and attraction qualification. EXP-239 passes all 20
+  steps. EXP-240 proves the separated child is strongly unstable but retains
+  an unresolved birth classification; EXP-241 then qualifies the near-event
+  parent-unstable/child-stable pairing under both solvers, establishing local
+  supercriticality. EXP-242 freezes the complete 21-row Floquet track to
+  bracket the child's subsequent real-`-1` crossing.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

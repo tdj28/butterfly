@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-08-12
+Last updated: 2026-08-13
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -90,6 +90,16 @@ in `c`, retain `7/8` parent versus `14/16` primitive-child identity, and show
 stable-before/unstable-after period-12 multipliers bilaterally. This qualifies
 a deeper local cascade rung, not yet its period-24 child, supercriticality, a
 paired shrimp boundary, TBA membership, or double-criticality.
+
+CLM-008 addendum (EXP-237--241): an exact 16-segment augmented representation
+of the period-12 event passes all DOP853/Radau gates. Exact anti-periodic
+switching then produces a primitive `28/32` period-24 branch, which continues
+for 20 points. At a near-event offset of `-3.22e-10` in `a`, both solvers find
+the period-12 parent unstable and period-24 child stable, qualifying the local
+flip as supercritical. Farther along the same continued child, both solvers
+agree on a strongly unstable multiplier near `-703.436`; this motivates a
+frozen next-flip scan but does not yet establish the intervening event, a
+period-48 child, a full child sheet, TBA membership, or double-criticality.
 
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.

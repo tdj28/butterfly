@@ -335,8 +335,12 @@ what must be narrowed, and what is false or unresolved.
   confirms the separated child is strongly unstable under both solvers while
   retaining an unresolved criticality label at the farther endpoint.
 - [`experiments/EXP-241-jones-period24-near-event-qualification.md`](experiments/EXP-241-jones-period24-near-event-qualification.md):
-  freezes the decisive two-solver parent/child stability audit immediately
-  beside the period-12 flip.
+  passes the decisive two-solver parent/child stability audit and classifies
+  the period-12-to-24 birth as locally supercritical.
+- [`findings/FND-091-returning-arm-period12-to24-supercritical.md`](findings/FND-091-returning-arm-period12-to24-supercritical.md):
+  records the primitive stable period-24 child and local stability exchange.
+- [`experiments/EXP-242-jones-period24-segmented-flip-scan.md`](experiments/EXP-242-jones-period24-segmented-flip-scan.md):
+  freezes a full 21-row multiplier track toward the child's next flip.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

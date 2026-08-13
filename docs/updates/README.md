@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp241-supercritical-exp242-frozen.md`](2026-08-13-exp241-supercritical-exp242-frozen.md)
+  — two solvers qualify the returning-arm period-12-to-24 flip as locally
+  supercritical; a complete child Floquet scan is frozen.
+
 - [`2026-08-13-exp240-unstable-endpoint-exp241-frozen.md`](2026-08-13-exp240-unstable-endpoint-exp241-frozen.md)
   — two solvers confirm the separated period-24 endpoint is strongly unstable;
   criticality is returned to a frozen near-event parent/child audit.

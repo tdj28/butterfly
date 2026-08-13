@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.jones-period24-segmented-flip-scan-manifest.v1",
+  "experiment_id": "EXP-242",
+  "continuation_receipt_sha256": "e28fa5f0dc211c09803f2412737d384bc6823606d3b036731bfaf19696ac8a29",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "cyclic_shifts": [0, 8, 16, 24],
+  "acceptance": {
+    "required_points": 21,
+    "minimum_flip_brackets": 1,
+    "maximum_matching_residual": 1e-8,
+    "maximum_multiplier_imaginary": 1e-6,
+    "maximum_initial_multiplier_modulus": 0.9999,
+    "maximum_terminal_multiplier_real": -2.0
+  },
+  "claim_scope": "prospective branch-continuous Floquet scan of all 21 exact segmented period-24 rows from EXP-239, tracking the initially dominant real multiplier by nearest-neighbor eigenvalue identity and requiring a real-minus-one bracket between the independently qualified stable near-event child and strongly unstable terminal child; a pass nominates a period-24-to-48 flip bracket for an exact augmented segmented solve but does not establish the event, a period-48 child, its criticality or attraction, sign equivalence, a child sheet, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}
