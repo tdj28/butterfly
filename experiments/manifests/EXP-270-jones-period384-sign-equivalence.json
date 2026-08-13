@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-period384-sign-equivalence-manifest.v1",
+  "output_schema": "butterfly.jones-period384-sign-equivalence-receipt.v1",
+  "experiment_id": "EXP-270",
+  "switch_receipt_sha256": "f361d0d23327ef8b66e17312fbeea0b6b90781220889e459127ac8825379f064",
+  "source_step_length": 0.001,
+  "target_a": 0.24070100850360543,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+    "radau": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.03}
+  },
+  "corrector": {"maximum_evaluations": 120, "tolerance": 1e-10},
+  "cyclic_shifts": {"512": [0, 128, 256, 384]},
+  "comparison": {
+    "method": "continuous_golden_section",
+    "phase_samples": 8192,
+    "expected_phase_shift": 0.5,
+    "search_half_width": 1e-5,
+    "phase_tolerance": 1e-14,
+    "maximum_iterations": 100
+  },
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_sign_identity_rms": 1e-6,
+    "maximum_solver_identity_rms": 2e-5,
+    "maximum_segment_endpoint_error": 1e-8,
+    "maximum_period_spread": 2e-6,
+    "maximum_modulus_spread": 0.002,
+    "maximum_stable_modulus": 0.9999,
+    "minimum_half_period_closure": 4e-5
+  },
+  "claim_scope": "prospective common-a 512-segment correction of both EXP-268 period-384 tangent signs under DOP853 and Radau, followed by bounded continuous whole-orbit phase alignment within each solver and across solvers, with matching, phase, segment endpoint, period, multiplier, stability, and half-period primitivity gates; a pass establishes that the two switch signs represent one stable primitive period-384 orbit up to phase at the frozen coordinate, but does not establish attracting-basin measure, a continued period-384 branch or next flip, a limiting scaling law, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

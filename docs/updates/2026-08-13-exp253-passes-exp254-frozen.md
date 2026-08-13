@@ -96,3 +96,7 @@ EXP-269 passes every gate. At `a=0.24070100850046297`, DOP853/Radau classify
 the period-192 parent as unstable (`1.14929836/1.14909171`) and the primitive
 period-384 child as stable (`0.39117576/0.39117648`). FND-096 records a fifth
 local supercritical birth and the cascade through stable period 384.
+
+EXP-270 freezes a common-parameter correction of both period-384 tangent signs
+under both solvers, followed by continuous whole-orbit phase identity at 8,192
+samples. Deeper continuation remains blocked on this sign-equivalence gate.
