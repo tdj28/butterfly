@@ -251,6 +251,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-085-period6-flip-locus-has-two-broad-separated-arms.md`](findings/FND-085-period6-flip-locus-has-two-broad-separated-arms.md):
   qualifies 135 returning-arm events and the widening separation from the
   original period-6 flip arm.
+- [`experiments/EXP-218-returning-period12-children.md`](experiments/EXP-218-returning-period12-children.md):
+  freezes a held-out directional period-12 stability-exchange test on the
+  returning arm.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
