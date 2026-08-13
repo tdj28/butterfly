@@ -328,6 +328,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `5.60e-7--5.85e-7` lower in `a` than the source arm. EXP-228 freezes 80
   pseudo-arclength events per direction toward `c<=7.46` and `c>=7.78`, with
   that distinctness condition enforced at every accepted point.
+  EXP-228 rejects that condition after 30 down-curve and 23 up-curve points:
+  exact event gates still pass, but the interpolated separation falls below
+  `5e-8` in both directions. Same-`c` diagnostic corrections show that the
+  EXP-227 events coincide with the known returning arm and that the apparent
+  separation was chord-interpolation error. EXP-229 freezes a full 21-point
+  exact-coordinate identity audit before the claim ledger and manuscript are
+  corrected.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

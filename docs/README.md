@@ -295,6 +295,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-228-second-period6-flip-pseudoarclength.md`](experiments/EXP-228-second-period6-flip-pseudoarclength.md):
   freezes broad two-direction continuation of that second curve with explicit
   source-arm separation at every event.
+- [`experiments/EXP-229-exp227-exact-source-identity.md`](experiments/EXP-229-exp227-exact-source-identity.md):
+  exact same-coordinate audit of the interpolation-based EXP-227 distinctness
+  claim.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
