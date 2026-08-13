@@ -110,3 +110,9 @@ EXP-271 passes all eight full steps. Its terminal orbit retains exact
 `448/512` identity, half-period closure `5.04e-4`, and preliminary multiplier
 `-533.597`. EXP-272 freezes a nine-row, eight-orders-separated block-Floquet
 scan before any exact sixth-event claim.
+
+EXP-272 passes with exactly one bracket,
+`[0.24070100810074033,0.24070100850046297]`, and minimum transverse-mode
+separation `1.908e18`. EXP-273 freezes the exact 512-segment orbit/tangent
+solve with tight-step DOP853 and segmented Radau parity; interpolation alone
+is not promoted.

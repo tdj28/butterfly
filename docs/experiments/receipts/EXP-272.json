@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.jones-period384-segmented-flip-scan-summary.v1",
+  "experiment_id": "EXP-272",
+  "passed": true,
+  "source_commit": "8ed840dbb37a280543686d66514a969c65fff23e",
+  "manifest_sha256": "bf0ae2334a3f7e17dc24545826ff7a14f5096949754ab76a98231c7ede391f7f",
+  "continuation_receipt_sha256": "3f351eb00322c6f3284dfdcaf3e1a1d023abdad51939c854a319647adbeefc0a",
+  "raw_artifact": "artifacts/EXP-272/receipt.json",
+  "raw_artifact_bytes": 22217,
+  "raw_artifact_sha256": "43fbf99939a8f1b6bdc60a5b42405e96fa30b7481b278ccb507e6fa4da8c7a06",
+  "point_count": 9,
+  "flip_bracket_count": 1,
+  "a_bracket": [0.24070100810074033, 0.24070100850046297],
+  "stable_endpoint_multiplier": 0.39117575952657285,
+  "unstable_endpoint_multiplier": -2.550098521665246,
+  "minimum_modulus_separation_ratio": 1.907704434629501e18,
+  "maximum_cyclic_product_spread": 4.9938648771785665e-9,
+  "maximum_matching_residual": 3.464553126984192e-13,
+  "interpretation": "The exact period-384 continuation contains one spectrally isolated real-minus-one bracket suitable for a separately frozen augmented event solve."
+}
