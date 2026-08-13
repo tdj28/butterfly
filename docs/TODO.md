@@ -455,8 +455,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   nine-row scan with exactly one seventh-flip bracket. EXP-281's exact
   1,024-segment solve passes every gate except independent Radau flip residual
   (`3.22e-7 > 1e-7`), so no seventh event is promoted. EXP-282 freezes an
-  immutable-solution tighter-step precision audit with the unchanged gate;
-  period 1536 remains separate.
+  immutable-solution tighter-step precision audit with the unchanged gate.
+  EXP-282 preserves the failure (`3.64e-7` Radau residual and `3.67e-7`
+  cross-solver difference). EXP-283 freezes a Float64 ULP-scale feasibility
+  diagnostic before a new correction formulation is selected; period 1536
+  remains separate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

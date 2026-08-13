@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.jones-period768-float64-resolution-manifest.v1",
+  "experiment_id": "EXP-283",
+  "scan_schema": "butterfly.jones-period768-segmented-flip-scan-receipt.v1",
+  "scan_receipt_sha256": "882a2943be868e3f1ed0edbd0cd4c4912d88d38a09fa3985c3302a3bed6034b2",
+  "precision_schema": "butterfly.jones-augmented-flip-precision-audit-receipt.v1",
+  "precision_receipt_sha256": "41e409957e70b7069434d845cc9cd7135a3fc7523c62f4f1b5dfe734d940c4e1",
+  "bracket_row_indices": [0, 1],
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "expected_precision_failed_checks": ["cross_solver_flip", "flip"],
+  "acceptance": {
+    "maximum_flip_residual": 1e-7,
+    "minimum_solver_disagreement": 2e-7,
+    "minimum_estimated_multiplier_increment_per_ulp": 1e-7,
+    "minimum_bracket_width_ulps": 1000000
+  },
+  "claim_scope": "deterministic result-informed Float64 resolution diagnostic binding the passed EXP-280 period-768 bracket and failed EXP-282 immutable precision audit; it compares the tight two-solver multiplier disagreement and the bracket-secant multiplier change corresponding to one representable a increment against the unchanged 1e-7 event gate; a pass diagnoses that an identical Float64 coupled recorrection is poorly resolved and motivates a separately frozen higher-precision or better-conditioned formulation, but does not prove that no Float64 representation can pass, qualify the seventh event, establish a period-1536 child, or support a limiting scaling or universality claim"
+}

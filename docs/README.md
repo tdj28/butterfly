@@ -445,7 +445,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-281-jones-period768-augmented-flip.md`](experiments/EXP-281-jones-period768-augmented-flip.md):
   preserves a sole independent-Radau flip-gate failure after the exact solve.
 - [`experiments/EXP-282-period768-flip-precision-audit.md`](experiments/EXP-282-period768-flip-precision-audit.md):
-  freezes an unchanged-solution tighter-step two-solver precision audit.
+  preserves tighter-step multiplier and cross-solver failures.
+- [`experiments/EXP-283-period768-float64-resolution.md`](experiments/EXP-283-period768-float64-resolution.md):
+  freezes a deterministic ULP-scale conditioning diagnostic.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

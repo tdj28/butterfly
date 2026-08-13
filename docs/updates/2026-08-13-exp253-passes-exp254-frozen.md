@@ -171,3 +171,11 @@ residuals `8.90e-11/3.80e-11`, cyclic spread `2.25e-10`, proper-subperiod
 closure `7.54e-6`, and exact `896/1024` identity. No seventh event is
 promoted. EXP-282 freezes a tighter-step DOP853/Radau precision audit of the
 unchanged solved representation; no gate is relaxed.
+
+EXP-282 preserves the failure under tighter immutable evaluation. DOP853 gives
+`-0.99999999629`, while Radau gives `-1.00000036358`; the `3.67e-7`
+cross-solver difference and Radau `3.64e-7` flip residual fail. All orbit,
+tangent, real-spectrum, cyclic, primitive, and exact-identity gates pass.
+EXP-283 freezes a deterministic diagnostic comparing that disagreement and the
+EXP-280 bracket-secant multiplier change per Float64 `a` increment with the
+unchanged `1e-7` gate before another coupled correction is chosen.
