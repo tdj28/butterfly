@@ -21,6 +21,7 @@ SCHEMAS = {
     "butterfly.jones-period24-segmented-flip-scan-manifest.v1",
     "butterfly.jones-period48-segmented-flip-scan-manifest.v1",
     "butterfly.jones-period96-segmented-flip-scan-manifest.v1",
+    "butterfly.jones-period192-segmented-flip-scan-manifest.v1",
 }
 
 

@@ -58,3 +58,8 @@ EXP-262 passes all ten gates. Within-solver sign RMS is
 `9.18e-10/5.62e-10`, cross-solver whole-orbit RMS is below `2.72e-8`, and all
 four stable moduli remain near `0.491`. Both signs are one period-192 orbit.
 EXP-263 freezes eight 256-segment continuation steps toward a fifth event.
+
+EXP-263 passes all eight full steps. Its terminal orbit has exact `224/256`
+identity, half-period closure `0.001032`, and preliminary multiplier
+`-265.739`. EXP-264 freezes a nine-row, eight-orders-separated block-Floquet
+scan before any exact fifth-event claim.

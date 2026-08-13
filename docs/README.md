@@ -398,7 +398,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-262-jones-period192-sign-equivalence.md`](experiments/EXP-262-jones-period192-sign-equivalence.md):
   passes continuous-phase equivalence of the two period-192 switch signs.
 - [`experiments/EXP-263-jones-period192-segmented-continuation.md`](experiments/EXP-263-jones-period192-segmented-continuation.md):
-  freezes eight exact continuation steps toward a fifth-flip scan.
+  passes eight exact continuation steps to a strongly unstable endpoint.
+- [`experiments/EXP-264-jones-period192-segmented-flip-scan.md`](experiments/EXP-264-jones-period192-segmented-flip-scan.md):
+  freezes the exact-row magnitude-separated fifth-flip scan.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
