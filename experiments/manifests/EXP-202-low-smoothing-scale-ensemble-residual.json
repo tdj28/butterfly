@@ -1,0 +1,39 @@
+{
+  "schema": "butterfly.jones-scale-ensemble-residual-manifest.v1",
+  "experiment_id": "EXP-202",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-201.json",
+      "sha256": "83c5c6f8f97b2b847d49e96a0f1373eff7003d4ce01c71fa08a497df6e5e3b34",
+      "role": "prospectively qualified smoothing-scale audit summary"
+    },
+    {
+      "path": "artifacts/EXP-201/receipt.json",
+      "sha256": "537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c",
+      "role": "full hash-bound smoothing/support/step reconstructions"
+    },
+    {
+      "path": "artifacts/EXP-201/candidates.json",
+      "sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0",
+      "role": "unchanged corrected period-6 orbit states"
+    }
+  ],
+  "receipt_input_sha256": "537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c",
+  "candidate_input_sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0",
+  "expected_candidate_count": 94,
+  "return_coordinate": {"name": "z", "axis": 2},
+  "smoothing_indices": [2, 3, 4],
+  "smoothing_values": [
+    0.000004641588833612782,
+    0.00001,
+    0.000021544346900318822
+  ],
+  "acceptance": {
+    "minimum_eligible_candidates": 70,
+    "maximum_normalized_critical_location_span": 0.03,
+    "maximum_direct_absolute_residual": 0.02,
+    "minimum_signed_bracket_cells": 1,
+    "require_common_phase_assignment": true
+  },
+  "claim_scope": "prospective scale-ensemble residual audit over the 94 EXP-201-qualified lower-c candidates; a pass nominates only a direct point or complete same-phase lattice cell for fresh zero-slope and independent-integrator confirmation, while a failure rejects only the sampled incomplete stable field under the declared low-smoothing ensemble"
+}

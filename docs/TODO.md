@@ -209,7 +209,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   differ by one ladder step, and every qualified critical-location span is
   below `0.01680` versus the `0.03` ceiling. Freeze a scale-ensemble signed
   residual from the low-smoothing three-branch regime, then test it before
-  extending the corrected-orbit mesh.
+  extending the corrected-orbit mesh. EXP-202 now freezes that audit over the
+  universally three-branch smoothing indices 2--4, requiring one phase
+  assignment and both residuals to pass at all 12 scale/support/step views.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
