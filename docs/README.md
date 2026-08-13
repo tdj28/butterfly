@@ -396,7 +396,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-094-returning-arm-cascade-through-period192.md`](findings/FND-094-returning-arm-cascade-through-period192.md):
   records four exact local doublings and a stable primitive period-192 child.
 - [`experiments/EXP-262-jones-period192-sign-equivalence.md`](experiments/EXP-262-jones-period192-sign-equivalence.md):
-  freezes continuous-phase equivalence of the two period-192 switch signs.
+  passes continuous-phase equivalence of the two period-192 switch signs.
+- [`experiments/EXP-263-jones-period192-segmented-continuation.md`](experiments/EXP-263-jones-period192-segmented-continuation.md):
+  freezes eight exact continuation steps toward a fifth-flip scan.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

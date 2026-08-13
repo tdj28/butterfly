@@ -414,7 +414,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   period-96 parent and stable primitive period-192 child under DOP853/Radau,
   promoting a fourth local supercritical rung (FND-094). EXP-262 freezes
   continuous whole-orbit phase equivalence of both period-192 switch signs at
-  a common parameter before deeper continuation.
+  a common parameter and passes. EXP-263 freezes eight exact continuation
+  steps toward a separately gated fifth-flip scan.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

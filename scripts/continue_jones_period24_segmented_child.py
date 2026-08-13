@@ -32,6 +32,7 @@ SCHEMAS = {
     "butterfly.jones-period24-segmented-continuation-manifest.v1",
     "butterfly.jones-period48-segmented-continuation-manifest.v1",
     "butterfly.jones-period96-segmented-continuation-manifest.v1",
+    "butterfly.jones-period192-segmented-continuation-manifest.v1",
 }
 
 

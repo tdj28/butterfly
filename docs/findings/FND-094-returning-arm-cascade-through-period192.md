@@ -22,6 +22,11 @@ parent as unstable (`1.13241659/1.13237635`) and the period-192 child as stable
 `1.067e-4`. EXP-261 therefore qualifies a fourth local supercritical doubling
 and extends the finite returning-arm cascade through stable period 192.
 
+At the common coordinate `a=0.24070100959763152`, EXP-262 aligns both switch
+signs at a half-period shift with DOP853/Radau whole-orbit RMS
+`9.18e-10/5.62e-10`. Thus the bilateral candidates are one stable primitive
+period-192 orbit, not two neighboring cycles.
+
 The successive event spacings are about `1.35363e-7`, `2.97036e-8`, and
 `6.32456e-9`, giving two finite ratios `4.557` and `4.697`. Their proximity to
 the classical period-doubling constant is a promising observation, not an
@@ -33,4 +38,5 @@ remain separate.
 Evidence:
 [`../experiments/EXP-259-jones-period96-augmented-flip.md`](../experiments/EXP-259-jones-period96-augmented-flip.md),
 [`../experiments/EXP-260-jones-period192-segmented-switch.md`](../experiments/EXP-260-jones-period192-segmented-switch.md), and
-[`../experiments/EXP-261-jones-period192-near-event-qualification.md`](../experiments/EXP-261-jones-period192-near-event-qualification.md).
+[`../experiments/EXP-261-jones-period192-near-event-qualification.md`](../experiments/EXP-261-jones-period192-near-event-qualification.md), and
+[`../experiments/EXP-262-jones-period192-sign-equivalence.md`](../experiments/EXP-262-jones-period192-sign-equivalence.md).

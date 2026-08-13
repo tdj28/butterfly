@@ -132,7 +132,9 @@ orbit, anti-periodic tangent, multiplier, cyclic products, proper-subperiod
 separation, and `112/128` identity. Bilateral switching produces primitive
 `224/256` period-192 candidates, and a frozen near-event test classifies the
 period-96 parent as unstable and period-192 child as stable under both
-solvers. This qualifies a fourth local supercritical doubling. The four event
+solvers. A common-parameter whole-orbit audit then aligns both switch signs at
+a half-period shift under both integrators, showing one stable primitive
+period-192 orbit. This qualifies a fourth local supercritical doubling. The four event
 coordinates give only two finite spacing ratios, `4.557` and `4.697`; they do
 not establish a limiting constant, universality, a full child sheet, paired
 boundaries, TBA membership, double-criticality, or a whole-plane result.

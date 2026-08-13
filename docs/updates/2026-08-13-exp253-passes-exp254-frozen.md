@@ -53,3 +53,8 @@ EXP-262 freezes that common-parameter tangent-sign gate. It uses the bounded
 continuous phase method already validated by EXP-256, now prospectively, with
 the unchanged `1e-6` whole-orbit identity threshold and independent
 DOP853/Radau corrections.
+
+EXP-262 passes all ten gates. Within-solver sign RMS is
+`9.18e-10/5.62e-10`, cross-solver whole-orbit RMS is below `2.72e-8`, and all
+four stable moduli remain near `0.491`. Both signs are one period-192 orbit.
+EXP-263 freezes eight 256-segment continuation steps toward a fifth event.
