@@ -388,7 +388,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   bracket the child's subsequent real-`-1` crossing. EXP-242 retains all 21
   spectra but fails when nearest-neighbor identity swaps onto the collapsed
   transverse mode. EXP-243 freezes a no-reintegration, eight-orders-separated
-  reclassification before any exact next-event solve.
+  reclassification before any exact next-event solve. EXP-243 passes with one
+  bracket; EXP-244 qualifies the exact period-24 flip; EXP-245 nominates
+  primitive period-48 children; and EXP-246 independently qualifies the
+  near-event parent-unstable/child-stable pairing. EXP-247 freezes eight exact
+  period-48 continuation steps toward the next multiplier scan.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

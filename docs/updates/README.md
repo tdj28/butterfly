@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp246-period48-qualified-exp247-frozen.md`](2026-08-13-exp246-period48-qualified-exp247-frozen.md)
+  — two solvers qualify a stable primitive period-48 child and local
+  supercriticality; a short exact continuation is frozen.
+
 - [`2026-08-13-exp245-period48-nominated-exp246-frozen.md`](2026-08-13-exp245-period48-nominated-exp246-frozen.md)
   — exact switching nominates primitive period-48 candidates; independent
   near-event stability exchange is frozen.

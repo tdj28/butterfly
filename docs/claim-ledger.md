@@ -101,6 +101,16 @@ agree on a strongly unstable multiplier near `-703.436`; this motivates a
 frozen next-flip scan but does not yet establish the intervening event, a
 period-48 child, a full child sheet, TBA membership, or double-criticality.
 
+CLM-008 addendum (EXP-242--246): after preserving and correcting an
+eigenvalue-identity failure, the exact period-24 branch reaches a second
+real-`-1` event at `a=0.24070104611236293`. A 64-segment mode switch produces
+primitive `56/64` period-48 candidates, and DOP853/Radau independently qualify
+an unstable period-24 parent with a stable period-48 child immediately beside
+the event. This extends the local returning-arm cascade through period 48 and
+qualifies the second doubling as supercritical. It does not establish a
+universality limit, global child sheet, paired shrimp boundaries, TBA
+membership, or double-criticality.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

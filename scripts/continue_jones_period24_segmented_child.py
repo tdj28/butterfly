@@ -27,7 +27,10 @@ from qualify_jones_period12_children import _section_count
 from validate_multiple_shooting_switch import half_closure
 
 
-SCHEMA = "butterfly.jones-period24-segmented-continuation-manifest.v1"
+SCHEMAS = {
+    "butterfly.jones-period24-segmented-continuation-manifest.v1",
+    "butterfly.jones-period48-segmented-continuation-manifest.v1",
+}
 
 
 def variables(row: dict, segment_count: int) -> np.ndarray:
@@ -58,7 +61,7 @@ def main() -> int:
 
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
+    if manifest.get("schema") not in SCHEMAS:
         raise SystemExit("unsupported Jones period-24 continuation manifest")
     switch_bytes = args.switch_receipt.read_bytes()
     event_bytes = args.event_receipt.read_bytes()
@@ -260,7 +263,10 @@ def main() -> int:
         == int(manifest["identity"]["barrio_phase_count"])
     )
     output = {
-        "schema": "butterfly.jones-period24-segmented-continuation-receipt.v1",
+        "schema": manifest.get(
+            "output_schema",
+            "butterfly.jones-period24-segmented-continuation-receipt.v1",
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "switch_receipt_sha256": sha256_bytes(switch_bytes),

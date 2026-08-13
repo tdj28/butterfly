@@ -352,8 +352,12 @@ what must be narrowed, and what is false or unresolved.
   passes a 64-segment child switch and nominates primitive period-48
   candidates on both tangent signs.
 - [`experiments/EXP-246-jones-period48-near-event-qualification.md`](experiments/EXP-246-jones-period48-near-event-qualification.md):
-  freezes the independent DOP853/Radau stability exchange immediately beside
-  the period-24 flip.
+  passes the independent DOP853/Radau stability exchange and qualifies a
+  locally supercritical period-24-to-48 birth.
+- [`findings/FND-092-returning-arm-cascade-through-period48.md`](findings/FND-092-returning-arm-cascade-through-period48.md):
+  records the exact returning-arm cascade through stable primitive period 48.
+- [`experiments/EXP-247-jones-period48-segmented-continuation.md`](experiments/EXP-247-jones-period48-segmented-continuation.md):
+  freezes eight exact child-continuation steps toward a period-96 event scan.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
