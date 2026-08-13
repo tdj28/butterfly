@@ -39,7 +39,7 @@ only after the scientific closure gates are satisfied.
 ## Visual build
 
 The figure-generation commands and source hashes are recorded in
-[figures/README.md](figures/README.md). The manuscript currently contains 21
+[figures/README.md](figures/README.md). The manuscript currently contains 22
 figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the Hopf
 locus and connected family, cascade and return-map controls, the dense
 period-6 corrected-orbit fields, scale-aware two-critical audits, the lower-c
@@ -52,7 +52,10 @@ of 16 doubled-parent shooting collapses.  The final figure broadens the parent
 flip curve to `c=8.40309` and separates its qualified historical-section
 grazing from the persistent invariant orbit event. The newest figure follows
 that event through its lower-`c` turn and across a 135-point returning arm,
-making the broad two-arm skeleton and its present claim boundary visible.
+making the broad two-arm skeleton and its present claim boundary visible. The
+latest figure follows a stable primitive period-12 child through 45 exact
+returning-arm events and shows its independently localized second flip with
+bilateral primitive-child and parent-double-cover controls.
 
 ## Writing rules
 

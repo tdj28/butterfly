@@ -314,6 +314,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   remaining failure is singular redundant-`2T` Radau correction. EXP-226
   freezes independent Radau parent correction, exact `2T` integration, doubled
   section counts, and monodromy squaring without changing any threshold.
+  EXP-226 passes every gate: the second parent flip lies at
+  `(a,c)=(0.24068435298,7.62537829761)` under DOP853, agrees with Radau to
+  `3.96e-9` in `c`, has a primitive stable child before it, and a qualified
+  stable-parent double cover after it. Freeze two-direction pseudo-arclength
+  continuation from this second event before assigning global sheet endpoints
+  or paired shrimp-boundary connectivity.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

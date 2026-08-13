@@ -38,6 +38,9 @@ topology claims.
 - fig20-exp215-217-folded-flip-locus.png: the qualified passage through that
   grazing, lower-`c` projection turn, 135-point returning arm, widening
   two-arm separation, and strict residual audit.
+- fig21-exp223-226-returning-child-endpoint.png: the 45-event returning-arm
+  stable child strip, independently localized second flip, and bilateral
+  primitive-child versus parent-double-cover audit.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -193,6 +196,18 @@ Regenerate the EXP-215--217 folded flip-locus figure and receipt:
       --returning-receipt artifacts/EXP-217/receipt.json \
       --expected-returning-sha256 b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65 \
       --output paper/figures/fig20-exp215-217-folded-flip-locus.png --dpi 260
+
+Regenerate the EXP-223--226 returning-child endpoint figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp223_226_returning_child_endpoint.py \
+      --event-receipt artifacts/EXP-217/receipt.json \
+      --expected-event-sha256 b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65 \
+      --adaptive-receipt artifacts/EXP-223/receipt.json \
+      --expected-adaptive-sha256 1ee1f5c4c59e15403b06c745e5c66ce64944f01700d02bfb54fafb2a86dd1782 \
+      --endpoint-receipt artifacts/EXP-226/receipt.json \
+      --expected-endpoint-sha256 59c30304622fb842f5017d86ff804a1ae5f9f966e2b2f5fac4ee9d1e80d56251 \
+      --output paper/figures/fig21-exp223-226-returning-child-endpoint.png --dpi 260
 
 ## Promoted experiment figures
 

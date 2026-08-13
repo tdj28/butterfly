@@ -1048,3 +1048,42 @@ exchange but not a whole-arm shrimp-boundary identification.
   doubly-superstable center.}
   \label{fig:exp215-217-folded}
 \end{figure}
+
+Adaptive branch-coherent continuation then tests whether the local returning
+child persists.  The frozen 52-event claim fails, but only after 212 accepted
+points spanning 45 exact returning-arm events to $c=7.62518642$.  Every
+accepted point retains unstable period-6 parent, stable primitive period-12
+child, period ratio two, proper-subperiod nonclosure, and $7/8$ versus $14/16$
+two-section identity.  The largest accepted child-state step is $0.002965$
+against a prospective $0.003$ gate.  At the next narrow interval, the nominal
+child collapses onto the parent traversed twice rather than jumping to another
+primitive root.
+
+A representation-safe successor solves the intervening parent real-$-1$
+crossing independently.  DOP853 gives
+$(a,c)=(0.240684352976565,7.62537829761012)$; Radau gives
+$c=7.62537829364544$, differing by $3.96\times10^{-9}$.  At
+$c_{\rm root}-1.5\times10^{-4}$, the primitive child passes full cross-solver
+qualification.  At $c_{\rm root}+1.5\times10^{-4}$, both solvers instead
+recover a stable parent and its double cover: parent moduli are
+$0.99209826/0.99209804$, double-cover moduli $0.98425894/0.98425852$, and
+multiplier-square errors $2.08\times10^{-8}/5.91\times10^{-9}$.  This
+qualifies a second flip boundary of the sampled child strip along one fixed
+offset path.  It does not yet continue that boundary in two parameters or
+prove that the broad arms bound one shrimp.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig21-exp223-226-returning-child-endpoint.png}
+  \caption{A stable returning-arm period-12 strip meets a second period-6
+  flip on the frozen offset path. Upper left: 212 qualified child points span
+  45 exact returning-arm event samples. Upper right: DOP853 and Radau localize
+  the terminal parent real-$-1$ crossing to $3.96\times10^{-9}$ in $c$.
+  Lower left: the primitive child occupies the unstable-parent side of the
+  crossing. Lower right: proper-subperiod separation is finite before the
+  root, whereas independent post-root double-cover audits close after half
+  the nominal period. This establishes a bounded one-path child strip, not a
+  globally continued second flip curve, paired shrimp boundaries, the TBA, or
+  a doubly-superstable center.}
+  \label{fig:exp223-226-child-endpoint}
+\end{figure}
