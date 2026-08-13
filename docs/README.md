@@ -308,6 +308,12 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-232-returning-period12-flip-residual-safe.md`](experiments/EXP-232-returning-period12-flip-residual-safe.md):
   preserves EXP-231's science gates while making a residual-qualified Radau
   `xtol` stop explicit and auditable.
+- [`findings/FND-090-exact-arm-reveals-period12-flip.md`](findings/FND-090-exact-arm-reveals-period12-flip.md):
+  qualifies the corrected primitive period-12 flip with two roots and
+  bilateral stability controls.
+- [`experiments/EXP-233-returning-period24-multiscale-switch.md`](experiments/EXP-233-returning-period24-multiscale-switch.md):
+  freezes a six-scale, two-direction period-24 branch switch from the corrected
+  period-12 flip.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

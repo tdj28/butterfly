@@ -82,6 +82,15 @@ linear interpolation error. The second-boundary inference is retracted. The
 result demonstrates stability exchange across the known flip locus, not
 whole-shrimp connectivity, TBA membership, or double-criticality.
 
+CLM-008 addendum (EXP-230 and EXP-232): removing source-arm interpolation from
+the child path carries the primitive period-12 branch past the false endpoint.
+It then loses stability at a genuine real-`-1` event near
+`(a,c)=(0.2407011815,7.6258156004)`. DOP853 and Radau roots agree to `3.38e-8`
+in `c`, retain `7/8` parent versus `14/16` primitive-child identity, and show
+stable-before/unstable-after period-12 multipliers bilaterally. This qualifies
+a deeper local cascade rung, not yet its period-24 child, supercriticality, a
+paired shrimp boundary, TBA membership, or double-criticality.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

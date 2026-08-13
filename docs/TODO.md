@@ -355,6 +355,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   phase, neutral, and multiplier diagnostics all satisfy the existing gates.
   EXP-232 freezes a residual-safe, receipt-visible successor without changing
   the bracket or any scientific threshold.
+  EXP-232 passes: roots agree to `3.38e-8` in `c`, retain primitive `14/16`
+  child identity, and show `-0.998722` versus `-1.001278` bilateral
+  multipliers under both solvers. Freeze multiscale period-24 branch switching
+  and independent qualification; this is a cascade rung, not a sheet endpoint.
+  EXP-233 freezes the first half: six predictor scales, both nullspace signs,
+  and primitive `28/32` period-24 nomination gates. Independently requalify any
+  survivors before calling the period-12 flip supercritical.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
