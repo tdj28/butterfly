@@ -122,6 +122,9 @@ def main() -> int:
                 "shooting_singular_values": switched["shooting_singular_values"],
                 "absolute_tangent_dot": switched["absolute_tangent_dot"],
                 "primary_rows": switched["primary_rows"],
+                "primary_correction_statuses": switched[
+                    "primary_correction_statuses"
+                ],
                 "branches": [
                     {
                         "direction": branch["direction"],

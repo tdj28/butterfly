@@ -362,6 +362,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-233 freezes the first half: six predictor scales, both nullspace signs,
   and primitive `28/32` period-24 nomination gates. Independently requalify any
   survivors before calling the period-12 flip supercritical.
+  EXP-233 stops before receipt on primary-family `xtol`. EXP-234 retains every
+  switch and nomination gate while serializing a residual-qualified `xtol`
+  exception, exactly as validated in EXP-232.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

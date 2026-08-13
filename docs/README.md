@@ -314,6 +314,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-233-returning-period24-multiscale-switch.md`](experiments/EXP-233-returning-period24-multiscale-switch.md):
   freezes a six-scale, two-direction period-24 branch switch from the corrected
   period-12 flip.
+- [`experiments/EXP-234-returning-period24-residual-safe-switch.md`](experiments/EXP-234-returning-period24-residual-safe-switch.md):
+  preserves the period-24 switch while making primary-family `xtol` handling
+  residual-gated and receipt-visible.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

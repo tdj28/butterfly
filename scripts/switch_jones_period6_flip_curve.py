@@ -189,7 +189,16 @@ def _diagnose(variables, *, b, c, solver, acceptance):
     }
 
 
-def _parent_variables(event, a, *, b, c, solver, corrector):
+def _parent_variables(
+    event,
+    a,
+    *,
+    b,
+    c,
+    solver,
+    corrector,
+    correction_acceptance=None,
+):
     parameters = RosslerParameters(a=float(a), b=float(b), c=float(c))
     correction = correct_periodic_orbit(
         parameters,
@@ -199,9 +208,30 @@ def _parent_variables(event, a, *, b, c, solver, corrector):
         max_evaluations=int(corrector["maximum_evaluations"]),
         tolerance=float(corrector["tolerance"]),
     )
-    if not correction.success:
+    residual_qualified_xtol = bool(
+        not correction.success
+        and correction_acceptance is not None
+        and correction_acceptance["allowed_failure_message"]
+        in str(correction.message)
+        and float(correction.closure_error)
+        <= float(correction_acceptance["maximum_raw_correction_closure"])
+        and abs(float(correction.phase_residual))
+        <= float(correction_acceptance["maximum_phase_residual"])
+    )
+    if not correction.success and not residual_qualified_xtol:
         raise RuntimeError("primary period-6 correction failed")
-    return np.r_[correction.initial_state, 2.0 * correction.period_time, float(a)]
+    return (
+        np.r_[correction.initial_state, 2.0 * correction.period_time, float(a)],
+        {
+            "a": float(a),
+            "optimizer_success": bool(correction.success),
+            "message": str(correction.message),
+            "raw_correction_closure": float(correction.closure_error),
+            "phase_residual": float(abs(correction.phase_residual)),
+            "residual_qualified_xtol": residual_qualified_xtol,
+            "accepted": bool(correction.success or residual_qualified_xtol),
+        },
+    )
 
 
 def _primary_distance(variables, primary_rows):
@@ -247,7 +277,7 @@ def _switch_event(event, manifest, solver):
     _, singular_values, right_vectors = np.linalg.svd(jacobian, full_matrices=True)
     null_basis = right_vectors[-2:].T
     primary_offsets = primary_tangent_offsets(manifest)
-    primary_rows = [
+    primary_results = [
         _parent_variables(
             event,
             event_a + offset,
@@ -255,9 +285,12 @@ def _switch_event(event, manifest, solver):
             c=c,
             solver=solver,
             corrector=manifest["corrector"],
+            correction_acceptance=manifest.get("correction_acceptance"),
         )
         for offset in primary_offsets
     ]
+    primary_rows = [result[0] for result in primary_results]
+    primary_correction_statuses = [result[1] for result in primary_results]
     observed_primary = primary_rows[-1] - primary_rows[0]
     observed_primary /= np.linalg.norm(observed_primary)
     primary_tangent = null_basis @ (null_basis.T @ observed_primary)
@@ -403,6 +436,7 @@ def _switch_event(event, manifest, solver):
         "secondary_tangent": secondary_tangent.tolist(),
         "absolute_tangent_dot": abs(float(np.dot(primary_tangent, secondary_tangent))),
         "primary_rows": [row.tolist() for row in primary_rows],
+        "primary_correction_statuses": primary_correction_statuses,
         "branches": branches,
         "passed": passed,
     }

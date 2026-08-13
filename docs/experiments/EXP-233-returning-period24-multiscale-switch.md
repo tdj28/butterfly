@@ -1,6 +1,6 @@
 # EXP-233 — Multiscale period-24 branch switch
 
-Status: frozen — not yet executed
+Status: complete — administrative failure before receipt
 
 EXP-232 qualifies a primitive period-12 real-`-1` event on the exact returning-
 arm offset path. EXP-233 represents that orbit over twice its period, separates
@@ -16,3 +16,14 @@ and test parent/child stability exchange.
 
 Manifest:
 [`../../experiments/manifests/EXP-233-returning-period24-multiscale-switch.json`](../../experiments/manifests/EXP-233-returning-period24-multiscale-switch.json).
+
+## Result
+
+The run stops before atomic receipt while constructing the primary period-12
+family tangent. One offset correction reports optimizer failure at `xtol`, and
+the inherited switch helper raises before testing its orbit residuals. No
+period-24 nomination decision is available.
+
+EXP-234 preserves the event, solver, predictor scales, nullspace construction,
+and every scientific gate. It adds only the residual-safe `xtol` rule already
+validated by EXP-232 and serializes all primary-correction statuses.
