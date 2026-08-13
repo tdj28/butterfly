@@ -42,9 +42,9 @@ topology claims.
   stable child strip, its recrossing of the known flip arm, the bilateral
   primitive-child versus parent-double-cover audit, and EXP-229's correction
   of the former interpolation-based distinct-boundary interpretation.
-- fig22-exp237-253-returning-cascade.png: three exact returning-arm flip
-  events, their finite spacing ratio, and two-solver supercritical stability
-  exchange through a stable primitive period-96 child.
+- fig22-exp237-269-returning-cascade.png: five exact returning-arm flip
+  events, three finite spacing ratios, and two-solver supercritical stability
+  exchange through a stable primitive period-384 child.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -215,7 +215,7 @@ Regenerate the EXP-223--226 returning-child endpoint figure and receipt:
       --expected-identity-sha256 d09dce1e02a24d06279e30cb5bb8e2c5f19b28af56cdbeb8ce0c8ad46afe5efa \
       --output paper/figures/fig21-exp223-226-returning-child-endpoint.png --dpi 260
 
-Regenerate the EXP-237--253 returning-arm cascade figure and receipt:
+Regenerate the EXP-237--269 returning-arm cascade figure and receipt:
 
     MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
       scripts/plot_exp237_253_returning_cascade.py \
@@ -231,7 +231,15 @@ Regenerate the EXP-237--253 returning-arm cascade figure and receipt:
       --expected-event48-sha256 db095fb0f303aee1d39418024517958b8b514e949ba6b82233eed49241cac2f5 \
       --qual96-receipt artifacts/EXP-253/receipt.json \
       --expected-qual96-sha256 6d084dea91779dd49e9ceb92918915ca278543db37de7c8130c076321ca8be7f \
-      --output paper/figures/fig22-exp237-253-returning-cascade.png --dpi 260
+      --event96-receipt artifacts/EXP-259/receipt.json \
+      --expected-event96-sha256 189d4ba3b89b93611456a68c3c0a6ea793b151ebf7bc7bedaa8bc09a655cb3be \
+      --qual192-receipt artifacts/EXP-261/receipt.json \
+      --expected-qual192-sha256 70e5b63627408a8fce360bbff5c4375d40b277f82a70c1c599645494473de732 \
+      --event192-receipt artifacts/EXP-267/receipt.json \
+      --expected-event192-sha256 b2ae9d6ec1ecdd56de14d9c97a7a6dd56d444f6d4ace9dc1ea35a9be851243dd \
+      --qual384-receipt artifacts/EXP-269/receipt.json \
+      --expected-qual384-sha256 3136e119680f9b0e4e6f7a6a42f5eba7c89b5ff7a8c1e2b2ae22930a8e15ce65 \
+      --output paper/figures/fig22-exp237-269-returning-cascade.png --dpi 260
 
 ## Promoted experiment figures
 

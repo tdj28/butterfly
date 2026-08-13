@@ -412,7 +412,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-268-jones-period384-segmented-switch.md`](experiments/EXP-268-jones-period384-segmented-switch.md):
   passes bilateral 512-segment period-384 child nomination.
 - [`experiments/EXP-269-jones-period384-near-event-qualification.md`](experiments/EXP-269-jones-period384-near-event-qualification.md):
-  freezes the independent sixth-rung stability-exchange test.
+  passes the independent fifth-birth stability-exchange test.
+- [`findings/FND-096-returning-arm-cascade-through-period384.md`](findings/FND-096-returning-arm-cascade-through-period384.md):
+  records five exact local doublings and a stable primitive period-384 child.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

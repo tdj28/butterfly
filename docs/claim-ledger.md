@@ -150,6 +150,15 @@ identity. This qualifies a fifth exact event, not its period-384 child. The
 three finite spacing ratios are `4.557`, `4.697`, and `4.300`; their
 non-monotonicity strengthens the prohibition on a limiting-universality claim.
 
+CLM-008 addendum (EXP-268--269): bilateral 512-segment switching from the
+fifth exact event produces six primitive period-384 candidates with exact
+`448/512` identity. At a prospectively frozen near-event point, DOP853 and
+Radau independently classify the period-192 parent as unstable and the
+period-384 child as stable, with child moduli agreeing to relative
+`1.83e-6`. This qualifies a fifth local supercritical birth and stable period
+384, but not tangent-sign equivalence, a sixth event, limiting universality,
+paired boundaries, TBA membership, double-criticality, or a whole-plane result.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

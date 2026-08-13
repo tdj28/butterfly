@@ -429,7 +429,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `4.300`, explicitly rejecting a monotone scaling inference. EXP-268 freezes
   the separate 512-segment period-384 child switch and all six candidates
   pass. EXP-269 freezes the independent period-192-parent/period-384-child
-  stability-exchange test; the sixth rung remains unpromoted until it passes.
+  stability-exchange test and passes under both solvers, extending the
+  qualified cascade through stable period 384 (FND-096). Next, resolve both
+  period-384 tangent signs at a common coordinate before deeper continuation.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

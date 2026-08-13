@@ -91,3 +91,8 @@ EXP-268 passes all six candidates with exact `448/512` identity. The largest
 negative/positive candidates have half-period closures
 `5.63e-5/5.45e-5` and preliminary stable moduli `0.391/0.433`. EXP-269 freezes
 the decisive two-solver stability exchange; period 384 is not yet promoted.
+
+EXP-269 passes every gate. At `a=0.24070100850046297`, DOP853/Radau classify
+the period-192 parent as unstable (`1.14929836/1.14909171`) and the primitive
+period-384 child as stable (`0.39117576/0.39117648`). FND-096 records a fifth
+local supercritical birth and the cascade through stable period 384.
