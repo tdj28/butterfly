@@ -931,3 +931,36 @@ two-parameter child surface, or identify the flip set with the TBA.
   replicated finite-slice result, not a global period-12 or TBA surface.}
   \label{fig:exp209-normal-form}
 \end{figure}
+
+The first dense two-parameter attempt is retained as a negative method result.
+Direct single-shooting correction completes 124 cells but converges to the
+double-covered period-6 parent in 16 of them, including isolated cells between
+valid children.  Their half-period returns close numerically, so this is a
+root-identity failure rather than evidence that the sampled child family ends.
+A separately frozen recovery interpolates the three qualified child families
+first in physical post-flip offset and then in $c$, and requires nonclosure at
+half period before accepting a root (Figure~\ref{fig:exp211-surface}).  All
+124 cells pass without invoking either declared fallback.  Every parent is
+unstable, every child is stable and primitive, and every row retains exactly
+six/eight parent phases and twelve/sixteen child phases on the historical and
+Barrio sections.  The 31 opening exponents lie in
+$[0.502636,0.503088]$ with minimum $R^2=0.99999696$; all multiplier ratios lie
+in $[4.01176,4.12635]$.  Neighboring child orbits agree to maximum RMS
+$0.005020$, while six independent Radau controls agree with DOP853 to maximum
+whole-orbit RMS $1.32\times10^{-8}$.  Thus the flip segment carries a dense
+regular sampled period-12 child sheet.  Formal continuity, sheet endpoints,
+basin size, the TBA, and double-critical membership remain unestablished.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig18-exp211-period12-surface.png}
+  \caption{Identity-safe period-12 child sheet over the sampled period-6 flip
+  segment.  Upper left: whole-orbit opening over the 31-by-4 parameter grid.
+  Upper right: every fixed-$c$ fit follows the square-root law.  Lower left:
+  unstable period-6 parents (dashed) are paired with stable period-12 children
+  (solid).  Lower right: the prospective identity rule recovers all 16 cells
+  where direct shooting had converged to the doubled parent, and all 124 cells
+  pass without fallback.  The figure establishes a regular sampled sheet, not
+  a global continuity theorem, TBA curve, or doubly-superstable center.}
+  \label{fig:exp211-surface}
+\end{figure}

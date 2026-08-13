@@ -159,6 +159,12 @@ ambiguous turns rather than selecting only a clean sequence.
 
 ### RVR-007 — Exploit and generalize the method
 
+The Rössler exploitation component is materially advanced: EXP-206 qualifies
+a 41-point period-6 flip curve, and EXP-211 qualifies an identity-safe
+124-point period-12 child-sheet patch with 31 square-root opening fits and
+independent solver controls. Global endpoints and comparison with the TBA are
+still open.
+
 After RVR-003 through RVR-006 pass on Rössler, make held-out symbolic and curve
 predictions. Then freeze the same definitions on two unlike flows before any
 claim about broad dynamical-systems generality.

@@ -242,9 +242,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   cross-solver and two-sided attraction gates pass. EXP-210 now freezes a
   31-by-4 fixed-parameter period-12 surface patch. EXP-210 completes but fails:
   16/124 child corrections collapse to the doubled parent and corrupt the
-  surface fits. Freeze EXP-211 with independent EXP-209 anchor interpolation
-  and mandatory proper-subperiod nonclosure; retain EXP-207's multi-point-arm
-  failure.
+  surface fits. EXP-211 then passes all 124/124 cells from independent EXP-209
+  anchor interpolation with zero fallbacks. Its 31 opening exponents are
+  `0.50264--0.50309`, minimum `R^2=0.99999696`, and maximum adjacent-orbit RMS
+  is `0.00502`; retain EXP-207's multi-point-arm and EXP-210's root-selection
+  failures while continuing the qualified sheet toward endpoints and a future
+  independently defined TBA curve.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
@@ -742,11 +745,14 @@ exposition requirements.
   and `p -> p+1` transitions over complete spiral turns.
 - [ ] **RVR-007 — Exploit/generalize.** Make held-out symbolic/curve predictions
   on Rössler, then freeze the qualified method on two structurally different
-  flows before claiming broad generality.
+  flows before claiming broad generality. The Rössler orbit-level exploitation
+  now includes the 41-point EXP-206 flip curve and the 124-point EXP-211 child
+  sheet with 31 square-root fits; endpoints, TBA comparison, symbolic held-out
+  predictions, and cross-flow transfer remain open.
 - [ ] **RVR-008 — Manuscript exposition.** Equations and definitions first;
   complete citations; plain-language mechanism; claim/evidence/limitations
-  conclusion; independent readability review. The first visual rebuild now
-  integrates nine figures, a global-to-period-6 shrimp zoom, an eleven-slice
+  conclusion; independent readability review. The visual rebuild now
+  integrates nineteen figures, a global-to-period-6 shrimp zoom, an eleven-slice
   multi-b atlas, Supplemental Movie S1, and a concise abstract. The remaining
   closure items are the complete unfolded-spiral mechanism figure and an
   independent readability review.

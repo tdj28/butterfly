@@ -29,6 +29,9 @@ topology claims.
   parent/child stability exchange, and proper-subperiod rejection.
 - fig17-exp209-period12-normal-form.png: EXP-209's square-root child opening,
   multiplier-ratio scaling, and two-sided perturbed-attraction checks.
+- fig18-exp211-period12-surface.png: EXP-211's 124-point child sheet, 31
+  square-root fits, stability exchange, and recovery of EXP-210's 16
+  doubled-parent collapses.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -139,6 +142,17 @@ Regenerate the EXP-209 normal-form and attraction figure and receipt:
       --receipt artifacts/EXP-209/receipt.json \
       --expected-receipt-sha256 f57becaf08aa0ddb7a05bd7e258448cc95f3aca7611ebcd4cf00265303ebbfd0 \
       --output paper/figures/fig17-exp209-period12-normal-form.png --dpi 260
+
+Regenerate the EXP-211 period-12 surface figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp211_period12_surface.py \
+      --manifest experiments/manifests/EXP-211-period12-surface-recovery.json \
+      --failed-receipt artifacts/EXP-210/receipt.json \
+      --expected-failed-sha256 4f9c5885d91754a29ac59d2d0bdfae7916f7a19d5d91ea91ff797fc1ccb211ce \
+      --receipt artifacts/EXP-211/receipt.json \
+      --expected-receipt-sha256 1e706b3c331c6261a358681ab127063c123fe8e30ba2e7ab24ee6a301edb9249 \
+      --output paper/figures/fig18-exp211-period12-surface.png --dpi 260
 
 ## Promoted experiment figures
 
