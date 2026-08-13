@@ -14,10 +14,9 @@ exactly twice its period. The resulting doubled trajectory must pass full
 closure, `14/16` doubled section counts, half-period collapse, parent/child
 state identity, stability, and monodromy-square gates.
 
-A pass establishes a second period-6 flip crossing bounding this sampled
-one-dimensional child strip. It does not establish a global child-sheet
-endpoint, a second continued flip curve, paired shrimp boundaries, TBA
-membership, or double-criticality.
+A pass establishes a period-6 flip crossing bounding this sampled
+one-dimensional path segment. At execution time it was interpreted as a
+second crossing; EXP-229 later tests that interpretation directly.
 
 Manifest:
 [`../../experiments/manifests/EXP-226-returning-child-strip-endpoint.json`](../../experiments/manifests/EXP-226-returning-child-strip-endpoint.json).
@@ -38,10 +37,12 @@ double-cover moduli are `0.98425894/0.98425852`. Their half-period closures are
 `2.08e-8/5.91e-9`.
 
 Together with EXP-223, this qualifies a sampled stable period-12 strip through
-45 exact returning-arm events and a second period-6 flip crossing bounding
-that strip on the frozen one-dimensional offset path. It does not establish a
-global child-sheet endpoint, continue the second crossing as a plane curve,
-pair the broad arms as boundaries of one shrimp, identify the TBA, or locate a
+45 exact returning-arm events and a period-6 flip crossing bounding that
+strip on the frozen one-dimensional offset path. EXP-229 subsequently proves
+that the crossing is the already-known EXP-217 returning arm: the path
+recrosses the same event locus because its linearly interpolated offset drifts
+by the curvature error. It does not establish a second plane curve, global
+child-sheet endpoint, paired shrimp boundaries, TBA membership, or a
 double-critical center.
 
 Raw receipt: `artifacts/EXP-226/receipt.json`, 20,736 bytes, SHA-256

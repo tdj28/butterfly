@@ -14,3 +14,7 @@ The result is now integrated into a new four-panel manuscript figure. The
 rebuilt paper has 41 pages and 22 figures; all rendered pages pass visual QA.
 The PDF SHA-256 is
 `15e5036f84f5d6220e68c934b73a94643e7e245e6f0b5a045c21bd2efd4b7fd7`.
+
+Correction (EXP-229): the crossing is the known EXP-217 returning flip arm,
+not a distinct second boundary. The numerical root and bilateral stability
+audit remain valid; the branch-distinctness interpretation is retracted.

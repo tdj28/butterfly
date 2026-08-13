@@ -21,6 +21,10 @@ one-dimensional child strip. It does not establish a global child-sheet
 endpoint, continue a second flip curve in the plane, pair the broad arms as
 shrimp boundaries, identify the TBA, or locate a double-critical center.
 
+Retrospective correction: EXP-229 identifies this candidate crossing with the
+known EXP-217 returning arm. The frozen test remains part of the provenance,
+but its former second-boundary interpretation is retracted.
+
 Manifest:
 [`../../experiments/manifests/EXP-224-returning-child-strip-endpoint.json`](../../experiments/manifests/EXP-224-returning-child-strip-endpoint.json).
 

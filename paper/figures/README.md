@@ -39,8 +39,9 @@ topology claims.
   grazing, lower-`c` projection turn, 135-point returning arm, widening
   two-arm separation, and strict residual audit.
 - fig21-exp223-226-returning-child-endpoint.png: the 45-event returning-arm
-  stable child strip, independently localized second flip, and bilateral
-  primitive-child versus parent-double-cover audit.
+  stable child strip, its recrossing of the known flip arm, the bilateral
+  primitive-child versus parent-double-cover audit, and EXP-229's correction
+  of the former interpolation-based distinct-boundary interpretation.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -207,6 +208,8 @@ Regenerate the EXP-223--226 returning-child endpoint figure and receipt:
       --expected-adaptive-sha256 1ee1f5c4c59e15403b06c745e5c66ce64944f01700d02bfb54fafb2a86dd1782 \
       --endpoint-receipt artifacts/EXP-226/receipt.json \
       --expected-endpoint-sha256 59c30304622fb842f5017d86ff804a1ae5f9f966e2b2f5fac4ee9d1e80d56251 \
+      --identity-receipt artifacts/EXP-229/receipt.json \
+      --expected-identity-sha256 d09dce1e02a24d06279e30cb5bb8e2c5f19b28af56cdbeb8ce0c8ad46afe5efa \
       --output paper/figures/fig21-exp223-226-returning-child-endpoint.png --dpi 260
 
 ## Promoted experiment figures

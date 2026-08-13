@@ -274,12 +274,13 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-223-returning-period12-child-adaptive.md`](experiments/EXP-223-returning-period12-child-adaptive.md):
   freezes adaptive, root-jump-safe child continuation across all 52 exact
   returning-arm events to the middle slice.
-- [`findings/FND-088-returning-child-strip-is-bounded-by-second-flip.md`](findings/FND-088-returning-child-strip-is-bounded-by-second-flip.md):
-  qualifies a 45-event stable child strip and an independent second period-6
-  flip crossing bounding it on one frozen parameter path.
+- [`findings/FND-088-returning-child-strip-recrosses-known-flip-arm.md`](findings/FND-088-returning-child-strip-recrosses-known-flip-arm.md):
+  retains the 45-event stable child strip but corrects its endpoint to a
+  recrossing of the known returning flip arm.
 - [`experiments/EXP-224-returning-child-strip-endpoint.md`](experiments/EXP-224-returning-child-strip-endpoint.md):
   freezes two-solver localization and bilateral qualification of the implied
-  second flip crossing on the exact EXP-223 offset path.
+  flip crossing on the exact EXP-223 offset path, later identified by EXP-229
+  with the known returning arm.
 - [`experiments/EXP-225-returning-child-strip-endpoint.md`](experiments/EXP-225-returning-child-strip-endpoint.md):
   preserves that endpoint test after moving an ill-conditioned bilateral
   control farther from the root and making control exceptions receipt-visible.
@@ -287,17 +288,17 @@ what must be narrowed, and what is false or unresolved.
   passes a representation-safe two-solver double-cover audit after both scalar
   roots and the primitive left child qualify.
 - [`experiments/EXP-227-second-period6-flip-local-curve.md`](experiments/EXP-227-second-period6-flip-local-curve.md):
-  freezes exact local continuation and source-arm separation for the newly
-  qualified second period-6 flip.
-- [`findings/FND-089-second-period6-flip-is-a-distinct-local-curve.md`](findings/FND-089-second-period6-flip-is-a-distinct-local-curve.md):
-  qualifies 21 exact points and three Radau controls on a second event curve
-  distinct from the known returning arm.
+  records 21 valid exact events whose interpolation-based distinctness
+  interpretation is retracted by EXP-229.
+- [`findings/FND-089-exp227-distinct-curve-claim-retracted.md`](findings/FND-089-exp227-distinct-curve-claim-retracted.md):
+  retracts the second-curve claim after exact same-coordinate source
+  corrections identify all 21 points with the known arm.
 - [`experiments/EXP-228-second-period6-flip-pseudoarclength.md`](experiments/EXP-228-second-period6-flip-pseudoarclength.md):
-  freezes broad two-direction continuation of that second curve with explicit
-  source-arm separation at every event.
+  records the failed broad distinctness gate and the diagnostic that exposed
+  source-arm interpolation error.
 - [`experiments/EXP-229-exp227-exact-source-identity.md`](experiments/EXP-229-exp227-exact-source-identity.md):
-  exact same-coordinate audit of the interpolation-based EXP-227 distinctness
-  claim.
+  passes a 21-point, three-control exact same-coordinate identity audit and
+  formally retracts the EXP-227 distinctness claim.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
@@ -305,6 +306,9 @@ what must be narrowed, and what is false or unresolved.
 - [`decisions/DEC-014-independent-symbol-partition-before-word-matching.md`](decisions/DEC-014-independent-symbol-partition-before-word-matching.md):
   prevents circular word recovery by requiring dense-cloud critical intervals
   before an independently corrected target cycle is assigned a symbol word.
+- [`decisions/DEC-015-exact-coordinate-branch-distinctness.md`](decisions/DEC-015-exact-coordinate-branch-distinctness.md):
+  forbids interpolation-only branch-distinctness claims and requires exact
+  same-coordinate correction or a certified error bound.
 - [`updates/`](updates/): dated progress summaries, evidence, limits, source
   checkpoints, and the next concrete execution item.
 - [`TODO.md`](TODO.md): executable, evidence-gated implementation backlog.

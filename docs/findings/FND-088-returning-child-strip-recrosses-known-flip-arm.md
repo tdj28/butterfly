@@ -1,6 +1,7 @@
-# FND-088 — A second flip bounds the sampled returning-child strip
+# FND-088 — The returning-child path recrosses the known flip arm
 
-Status: numerically qualified on one frozen parameter path
+Status: corrected by EXP-229; the former second-boundary interpretation is
+retracted
 
 EXP-223 tracks the closest-to-event stable primitive period-12 child through
 212 accepted points, 45 exact returning-arm events, and `c=7.62518642` without
@@ -24,12 +25,21 @@ stable child before the root and, after it, a stable parent whose DOP853 and
 Radau `2T` traversals satisfy closure, doubled section counts, state identity,
 and monodromy squaring.
 
-This establishes a second flip boundary of the sampled child strip along one
-precisely defined path. It materially strengthens the interpretation of the
-returning-arm geometry as organized shrimp anatomy. It does not yet prove that
-the child sheet ends globally, that the new crossing continues as a curve and
-connects to either broad arm, that those arms bound one shrimp, or that any of
-these sets coincide with the TBA or a double-critical center.
+EXP-229 changes the interpretation, not these orbit calculations. Fresh
+fixed-`c` correction from EXP-217 source-arm seeds reproduces all 21 EXP-227
+events with maximum `a` difference `1.46e-14`, state difference `4.77e-11`,
+and sign-invariant tangent difference `4.04e-12`. The supposed
+`5.60e-7--5.85e-7` separation is exactly the error from linearly interpolating
+the curved EXP-217 arm.
+
+The fixed offset path therefore recrosses the already-qualified returning
+flip arm; it does not discover a second boundary. The child and bilateral
+stability calculations still demonstrate the expected primitive-child versus
+parent-double-cover exchange across that known flip locus. They do not close a
+child sheet, pair shrimp boundaries, identify the TBA, or locate a
+double-critical center.
 
 Evidence: [`../experiments/EXP-223-returning-period12-child-adaptive.md`](../experiments/EXP-223-returning-period12-child-adaptive.md)
 and [`../experiments/EXP-226-returning-child-strip-endpoint.md`](../experiments/EXP-226-returning-child-strip-endpoint.md).
+Corrective evidence:
+[`../experiments/EXP-229-exp227-exact-source-identity.md`](../experiments/EXP-229-exp227-exact-source-identity.md).

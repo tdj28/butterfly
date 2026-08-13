@@ -25,5 +25,7 @@
   "radau_double_cover": {"passed": true, "parent_modulus": 0.9920980372295399, "child_modulus": 0.9842585213835556, "half_period_closure": 1.746470478776009e-11, "state_distance": 0.0, "multiplier_square_error": 5.908850075897476e-9},
   "identity": {"parent_historical": 7, "parent_barrio": 8, "double_cover_historical": 14, "double_cover_barrio": 16},
   "elapsed_seconds": 198.71542895771563,
-  "interpretation": "A primitive stable period-12 child exists before, and only the stable period-6 parent double cover exists after, an independently localized second parent flip on the exact EXP-223 offset path. This bounds the sampled one-dimensional child strip but does not yet continue a second plane curve or establish shrimp connectivity."
+  "interpretation": "A primitive stable period-12 child exists before, and only the stable period-6 parent double cover exists after, an independently localized parent flip on the exact EXP-223 offset path. EXP-229 identifies it with the known EXP-217 returning arm, so it does not establish a second plane curve or paired shrimp boundary.",
+  "interpretation_status": "corrected_by_EXP-229",
+  "corrective_receipt_sha256": "d09dce1e02a24d06279e30cb5bb8e2c5f19b28af56cdbeb8ce0c8ad46afe5efa"
 }

@@ -1,10 +1,11 @@
-# EXP-228 — Broad second-flip pseudo-arclength continuation
+# EXP-228 — Broad candidate-flip pseudo-arclength continuation
 
 Status: complete — failed the frozen distinctness gate
 
-EXP-227 qualifies a distinct local second period-6 flip curve. EXP-228 uses
-both ends of that receipt to continue 80 exact pseudo-arclength events in each
-direction, targeting `c<=7.46` and `c>=7.78`.
+EXP-227 initially appeared to qualify a distinct local period-6 flip curve.
+EXP-228 uses both ends of that receipt to continue 80 exact pseudo-arclength
+events in each direction, targeting `c<=7.46` and `c>=7.78`. EXP-229 later
+retracts the premise after exact same-coordinate comparison.
 
 Every event must retain strict augmented-system residuals, real-`-1` and
 neutral multipliers, historical/Barrio identity `7/8`, bounded parameter

@@ -1,10 +1,10 @@
-# EXP-227 — Local continuation of the second period-6 flip
+# EXP-227 — Local continuation of the candidate endpoint flip
 
-Status: complete — passed all frozen gates
+Status: complete — event solves passed; distinctness interpretation retracted
 
-EXP-226 proves that the stable child strip meets a second period-6 flip on one
-fixed offset path. EXP-227 tests whether that crossing belongs to a distinct
-local plane curve rather than being an isolated or path-dependent coincidence.
+EXP-226 proves that the stable child strip meets a period-6 flip on one fixed
+offset path. At the time this was interpreted as a candidate second boundary;
+EXP-227 tests whether the crossing belongs to a distinct local plane curve.
 
 Starting only from the DOP853 endpoint receipt, the exact augmented
 orbit--real-`-1` system is solved at 21 fixed `c` values over
@@ -37,9 +37,11 @@ center pass independent Radau correction; the largest solver differences are
 `1.37e-13` in `a`, `9.08e-14` relative period, `3.59e-12` in state, and
 `5.52e-10` in multiplier modulus.
 
-This promotes the EXP-226 path crossing to a distinct local second period-6
-flip curve. EXP-228 freezes broad two-direction pseudo-arclength continuation
-while preserving explicit separation from the source returning arm.
+This originally appeared to promote the EXP-226 path crossing to a distinct
+local second period-6 flip curve. EXP-229 subsequently shows that every one of
+these 21 events is the known EXP-217 returning arm at exactly matched `c`; the
+apparent separation was linear interpolation error. The event solutions remain
+valid, but the distinct-curve conclusion is retracted.
 
 Raw receipt: `artifacts/EXP-227/receipt.json`, 26,411 bytes, SHA-256
 `eb6581841bb60424300fd7eaf4c5aa6c4a22d0d508eec6d33ebf622b950bf806`.

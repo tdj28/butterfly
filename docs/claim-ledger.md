@@ -66,7 +66,7 @@ locally supports an opposing-boundary interpretation. The middle and far
 returning-arm children remain unresolved and prevent a global shrimp-boundary
 assignment.
 
-CLM-008 addendum (EXP-223 and EXP-226): adaptive identity-safe continuation
+CLM-008 addendum (EXP-223, EXP-226, and EXP-229): adaptive identity-safe continuation
 qualifies one stable primitive period-12 child through 212 points and 45 exact
 returning-arm events. The full middle-slice target fails where the nominal
 child becomes the parent traversed twice. DOP853 and Radau then independently
@@ -75,8 +75,12 @@ localize the intervening period-6 real-`-1` crossing at
 after it, both solvers qualify the stable parent's double cover through
 half-period closure, state identity, doubled `14/16` section counts, and
 monodromy squaring. This establishes a bounded sampled child strip on one
-frozen path, not a globally continued second boundary, whole-shrimp
-connectivity, TBA membership, or double-criticality.
+frozen path. EXP-229 subsequently identifies this crossing with the known
+EXP-217 returning arm at all 21 tested coordinates: maximum `a` difference is
+`1.46e-14`, while the former `5.60e-7--5.85e-7` apparent separation is exactly
+linear interpolation error. The second-boundary inference is retracted. The
+result demonstrates stability exchange across the known flip locus, not
+whole-shrimp connectivity, TBA membership, or double-criticality.
 
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.

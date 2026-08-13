@@ -314,12 +314,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   remaining failure is singular redundant-`2T` Radau correction. EXP-226
   freezes independent Radau parent correction, exact `2T` integration, doubled
   section counts, and monodromy squaring without changing any threshold.
-  EXP-226 passes every gate: the second parent flip lies at
+  EXP-226 passes every gate: the parent flip crossing lies at
   `(a,c)=(0.24068435298,7.62537829761)` under DOP853, agrees with Radau to
   `3.96e-9` in `c`, has a primitive stable child before it, and a qualified
-  stable-parent double cover after it. Freeze two-direction pseudo-arclength
-  continuation from this second event before assigning global sheet endpoints
-  or paired shrimp-boundary connectivity.
+  stable-parent double cover after it. It was initially interpreted as a
+  second boundary.
   EXP-227 first freezes the required local-curve gate: 21 exact fixed-`c`
   events over `c_root±2e-4`, all separated below the source returning arm,
   with endpoint/center Radau controls. Only a pass may seed broad
@@ -333,8 +332,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `5e-8` in both directions. Same-`c` diagnostic corrections show that the
   EXP-227 events coincide with the known returning arm and that the apparent
   separation was chord-interpolation error. EXP-229 freezes a full 21-point
-  exact-coordinate identity audit before the claim ledger and manuscript are
-  corrected.
+  exact-coordinate identity audit. EXP-229 passes all 21 DOP853 comparisons
+  and three Radau controls: maximum `a` difference is `1.46e-14`, whereas the
+  old interpolated gap is `5.60e-7--5.85e-7`. Retract the distinct-curve and
+  paired-boundary interpretations; retain the valid child/stability exchange
+  across the known returning flip arm. Require exact same-coordinate
+  correction or certified interpolation bounds in every future branch-
+  distinctness test.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

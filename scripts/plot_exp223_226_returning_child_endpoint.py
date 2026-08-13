@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot the qualified returning-child strip and its second flip crossing."""
+"""Plot the returning-child strip and its recrossing of the known flip arm."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ import numpy as np
 from butterfly.scan import atomic_write, canonical_json, sha256_bytes
 
 
-SCHEMA = "butterfly.exp223-226-returning-child-endpoint-figure.v1"
+SCHEMA = "butterfly.exp223-229-returning-child-endpoint-figure.v2"
 
 
 def _read_bound(path, expected, label):
@@ -43,6 +43,8 @@ def main() -> int:
     parser.add_argument("--expected-adaptive-sha256", required=True)
     parser.add_argument("--endpoint-receipt", type=Path, required=True)
     parser.add_argument("--expected-endpoint-sha256", required=True)
+    parser.add_argument("--identity-receipt", type=Path, required=True)
+    parser.add_argument("--expected-identity-sha256", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--dpi", type=int, default=260)
     args = parser.parse_args()
@@ -56,8 +58,11 @@ def main() -> int:
     endpoint_bytes, endpoint = _read_bound(
         args.endpoint_receipt, args.expected_endpoint_sha256, "endpoint"
     )
-    if endpoint.get("passed") is not True:
-        raise SystemExit("endpoint receipt must have passed")
+    identity_bytes, identity = _read_bound(
+        args.identity_receipt, args.expected_identity_sha256, "identity"
+    )
+    if endpoint.get("passed") is not True or identity.get("passed") is not True:
+        raise SystemExit("endpoint and identity receipts must have passed")
 
     accepted = adaptive["accepted_rows"]
     accepted = sorted(accepted, key=lambda row: float(row["c"]))
@@ -114,7 +119,7 @@ def main() -> int:
         color="#d73027",
         edgecolor="white",
         linewidth=0.7,
-        label="second period-6 flip crossing",
+        label="recrossing of known period-6 flip arm",
         zorder=5,
     )
     axes[0, 0].set_xlabel(r"$a$")
@@ -150,7 +155,7 @@ def main() -> int:
     )
     axes[0, 1].set_xlabel(r"$c$ on $a=a_{\rm event}(c)-5.73024\times10^{-7}$")
     axes[0, 1].set_ylabel(r"parent flip residual $\Re(\mu)+1$")
-    axes[0, 1].set_title("two solvers independently localize the second crossing")
+    axes[0, 1].set_title("two solvers localize the return to the known arm")
     axes[0, 1].legend(fontsize=7.5)
     axes[0, 1].grid(alpha=0.2)
 
@@ -232,7 +237,7 @@ def main() -> int:
     axes[1, 1].grid(alpha=0.2, which="both")
 
     figure.suptitle(
-        "EXP-223--226: a broad returning-arm period-12 strip ends at a second period-6 flip",
+        "EXP-223--229: a returning-arm period-12 strip recrosses the same flip arm",
         fontsize=13,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -243,10 +248,11 @@ def main() -> int:
     output_bytes = args.output.read_bytes()
     receipt = {
         "schema": SCHEMA,
-        "experiment_ids": ["EXP-217", "EXP-223", "EXP-226"],
+        "experiment_ids": ["EXP-217", "EXP-223", "EXP-226", "EXP-229"],
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "adaptive_receipt_sha256": sha256_bytes(adaptive_bytes),
         "endpoint_receipt_sha256": sha256_bytes(endpoint_bytes),
+        "identity_receipt_sha256": sha256_bytes(identity_bytes),
         "output": args.output.name,
         "output_bytes": len(output_bytes),
         "output_sha256": hashlib.sha256(output_bytes).hexdigest(),
@@ -255,6 +261,12 @@ def main() -> int:
         "exact_event_count": int(adaptive["exact_event_count"]),
         "root": {"a": root_a, "c": root_c},
         "root_solver_c_difference": float(endpoint["root_solver_c_difference"]),
+        "maximum_exact_source_a_difference": float(
+            identity["summary"]["maximum_a_difference"]
+        ),
+        "linear_interpolation_a_error_range": identity["summary"][
+            "linear_interpolation_a_error_range"
+        ],
     }
     atomic_write(
         args.output.with_suffix(args.output.suffix + ".receipt.json"),

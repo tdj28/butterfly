@@ -26,5 +26,7 @@
   "maximum_control_state_difference": 3.5864685058547215e-12,
   "maximum_control_multiplier_modulus_difference": 5.514402268147478e-10,
   "elapsed_seconds": 139.72114391671494,
-  "interpretation": "The EXP-226 one-path crossing lies on a distinct local period-6 real-minus-one curve that remains separated below the known EXP-217 returning arm throughout the frozen neighborhood."
+  "interpretation": "The EXP-226 one-path crossing appeared separated from a linearly interpolated EXP-217 arm; EXP-229 retracts that interpretation after exact same-c corrections identify all 21 events with the known arm.",
+  "interpretation_status": "retracted_by_EXP-229",
+  "corrective_receipt_sha256": "d09dce1e02a24d06279e30cb5bb8e2c5f19b28af56cdbeb8ce0c8ad46afe5efa"
 }

@@ -54,8 +54,9 @@ grazing from the persistent invariant orbit event. The newest figure follows
 that event through its lower-`c` turn and across a 135-point returning arm,
 making the broad two-arm skeleton and its present claim boundary visible. The
 latest figure follows a stable primitive period-12 child through 45 exact
-returning-arm events and shows its independently localized second flip with
-bilateral primitive-child and parent-double-cover controls.
+returning-arm events, shows its recrossing of the known returning flip arm with
+bilateral primitive-child and parent-double-cover controls, and records the
+EXP-229 correction of the former interpolation-based second-boundary claim.
 
 ## Writing rules
 
