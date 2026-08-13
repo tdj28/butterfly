@@ -305,6 +305,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   double-covered parent as that lower-offset parent becomes stable. EXP-224
   freezes exact DOP853/Radau localization of the intervening real-`-1`
   crossing and bilateral primitive-child/double-cover qualification.
+  EXP-224 stops administratively before receipt when its Radau child control
+  only `5e-5` below the root fails the strict corrector success rule. EXP-225
+  changes only the bilateral distance to `1.5e-4`, preserves all science gates,
+  and makes qualification exceptions receipt-visible.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -1,6 +1,6 @@
 # EXP-224 — Returning-child strip endpoint localization
 
-Status: frozen — awaiting execution
+Status: complete — administrative failure before receipt
 
 EXP-223's full-range claim stops inside
 `c=[7.6251864206,7.6254156527]` when the lower-offset parent becomes stable and
@@ -23,3 +23,15 @@ shrimp boundaries, identify the TBA, or locate a double-critical center.
 
 Manifest:
 [`../../experiments/manifests/EXP-224-returning-child-strip-endpoint.json`](../../experiments/manifests/EXP-224-returning-child-strip-endpoint.json).
+
+## Result
+
+The scalar root stage completes, but the run stops before its atomic receipt
+when the independent Radau child correction only `5e-5` below the root reports
+`xtol` termination without satisfying the frozen corrector success condition.
+No scientific pass/fail decision is available from EXP-224.
+
+EXP-225 changes only the bilateral diagnostic distance to `1.5e-4`, retaining
+both independently solved roots and every scientific threshold. The runner now
+also serializes qualification exceptions as failed controls so a successor
+cannot again terminate without an audit receipt.

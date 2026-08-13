@@ -207,53 +207,86 @@ def main() -> int:
     left_row = _continue_row(
         left_event, seed_child, delta_a, manifest, solvers["dop853"]
     )
-    left_control = _qualify_target(
-        {
-            "c": left_row["c"],
-            "candidate_a": left_row["a"],
-            "source_direction": 1,
-        },
-        {
-            "c": left_row["c"],
-            "event_a": left_event["a"],
-            "event_variables": [
-                *left_event["initial_state"],
-                2.0 * float(left_event["period_time"]),
-                float(left_event["a"]),
-            ],
-        },
-        {
-            "initial_state": left_row["child"]["initial_state"],
-            "period_time": left_row["child"]["period_time"],
-        },
-        manifest,
-        (solvers["dop853"], solvers["radau"]),
-    )
+    try:
+        left_control = _qualify_target(
+            {
+                "c": left_row["c"],
+                "candidate_a": left_row["a"],
+                "source_direction": 1,
+            },
+            {
+                "c": left_row["c"],
+                "event_a": left_event["a"],
+                "event_variables": [
+                    *left_event["initial_state"],
+                    2.0 * float(left_event["period_time"]),
+                    float(left_event["a"]),
+                ],
+            },
+            {
+                "initial_state": left_row["child"]["initial_state"],
+                "period_time": left_row["child"]["period_time"],
+            },
+            manifest,
+            (solvers["dop853"], solvers["radau"]),
+        )
+    except Exception as error:
+        left_control = {
+            "c": float(left_row["c"]),
+            "a": float(left_row["a"]),
+            "passed": False,
+            "error": f"{type(error).__name__}: {error}",
+        }
 
     right_event = event_at(right_c)
-    right_rows = {
-        "dop853": _continue_row(
+    right_double_cover = {}
+    try:
+        right_dop853 = _continue_row(
             right_event,
             left_row["child"],
             delta_a,
             manifest,
             solvers["dop853"],
         )
-    }
-    right_rows["radau"] = _continue_row(
-        right_event,
-        right_rows["dop853"]["child"],
-        delta_a,
-        manifest,
-        solvers["radau"],
-    )
-    right_double_cover = {}
-    for name, row in right_rows.items():
-        metrics = double_cover_metrics(row)
-        right_double_cover[name] = {
-            "row": row,
+        metrics = double_cover_metrics(right_dop853)
+        right_double_cover["dop853"] = {
+            "row": right_dop853,
             "metrics": metrics,
-            "passed": double_cover_passes(row, metrics, manifest["acceptance"]),
+            "passed": double_cover_passes(
+                right_dop853, metrics, manifest["acceptance"]
+            ),
+        }
+    except Exception as error:
+        right_double_cover["dop853"] = {
+            "passed": False,
+            "error": f"{type(error).__name__}: {error}",
+        }
+    if "row" in right_double_cover["dop853"]:
+        try:
+            right_radau = _continue_row(
+                right_event,
+                right_double_cover["dop853"]["row"]["child"],
+                delta_a,
+                manifest,
+                solvers["radau"],
+            )
+            metrics = double_cover_metrics(right_radau)
+            right_double_cover["radau"] = {
+                "row": right_radau,
+                "metrics": metrics,
+                "passed": double_cover_passes(
+                    right_radau, metrics, manifest["acceptance"]
+                ),
+            }
+        except Exception as error:
+            right_double_cover["radau"] = {
+                "passed": False,
+                "error": f"{type(error).__name__}: {error}",
+            }
+    else:
+        right_double_cover["radau"] = {
+            "passed": False,
+            "error": "DOP853 right control unavailable",
         }
 
     acceptance = manifest["acceptance"]
