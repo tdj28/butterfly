@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot the exact returning-arm cascade through stable period 384."""
+"""Plot the exact returning-arm cascade through stable period 768."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ import numpy as np
 from butterfly.scan import atomic_write, canonical_json, sha256_bytes
 
 
-SCHEMA = "butterfly.exp237-269-returning-cascade-figure.v1"
+SCHEMA = "butterfly.exp237-275-returning-cascade-figure.v1"
 
 
 def _read_bound(path: Path, expected: str, label: str) -> tuple[bytes, dict]:
@@ -73,6 +73,8 @@ def main() -> int:
         "qual192",
         "event192",
         "qual384",
+        "event384",
+        "qual768",
     )
     for label in labels:
         parser.add_argument(f"--{label}-receipt", type=Path, required=True)
@@ -91,19 +93,25 @@ def main() -> int:
 
     events = [
         bound[name][1]
-        for name in ("event12", "event24", "event48", "event96", "event192")
+        for name in (
+            "event12", "event24", "event48", "event96", "event192", "event384"
+        )
     ]
     qualifications = [
         bound[name][1]
-        for name in ("qual24", "qual48", "qual96", "qual192", "qual384")
+        for name in (
+            "qual24", "qual48", "qual96", "qual192", "qual384", "qual768"
+        )
     ]
     event = np.asarray([_event_metrics(row) for row in events])
     event_a = event[:, 0]
     event_period = event[:, 1]
     spacings = event_a[:-1] - event_a[1:]
     spacing_ratios = spacings[:-1] / spacings[1:]
-    parent_periods = np.asarray([12, 24, 48, 96, 192])
-    transition_labels = ["12→24", "24→48", "48→96", "96→192", "192→384"]
+    parent_periods = np.asarray([12, 24, 48, 96, 192, 384])
+    transition_labels = [
+        "12→24", "24→48", "48→96", "96→192", "192→384", "384→768"
+    ]
     solver_names = ("dop853", "radau")
     parent_moduli = np.asarray(
         [
@@ -124,7 +132,7 @@ def main() -> int:
     axes[0, 0].plot(
         offset, parent_periods, "o-", color="#7b3294", linewidth=2.0, markersize=7
     )
-    annotation_offsets = ((5, 7), (5, 7), (5, 7), (5, 7), (-48, -14))
+    annotation_offsets = ((5, 7), (5, 7), (5, 7), (5, 7), (5, 7), (-48, -14))
     for x_value, period, a_value, period_time, text_offset in zip(
         offset, parent_periods, event_a, event_period, annotation_offsets
     ):
@@ -138,19 +146,22 @@ def main() -> int:
     axes[0, 0].invert_xaxis()
     axes[0, 0].set_yscale("log", base=2)
     axes[0, 0].set_yticks(parent_periods, labels=[str(value) for value in parent_periods])
-    axes[0, 0].set_xlabel(r"$(a-a_{192\to384})\times10^8$")
+    axes[0, 0].set_xlabel(r"$(a-a_{384\to768})\times10^8$")
     axes[0, 0].set_ylabel("parent section period")
-    axes[0, 0].set_title("five exact real-$-1$ events accumulate in $a$")
+    axes[0, 0].set_title("six exact real-$-1$ events accumulate in $a$")
     axes[0, 0].grid(alpha=0.2)
 
     bars = axes[0, 1].bar(
-        [r"$\Delta_{12}$", r"$\Delta_{24}$", r"$\Delta_{48}$", r"$\Delta_{96}$"],
+        [
+            r"$\Delta_{12}$", r"$\Delta_{24}$", r"$\Delta_{48}$",
+            r"$\Delta_{96}$", r"$\Delta_{192}$"
+        ],
         spacings,
-        color=["#2166ac", "#4393c3", "#f4a582", "#d6604d"],
+        color=["#2166ac", "#4393c3", "#92c5de", "#f4a582", "#d6604d"],
         width=0.62,
     )
     axes[0, 1].set_yscale("log")
-    axes[0, 1].set_ylim(8e-10, 2e-7)
+    axes[0, 1].set_ylim(1e-10, 2e-7)
     axes[0, 1].set_ylabel(r"successive event spacing $\Delta a$")
     ratio_text = ", ".join(f"{value:.3f}" for value in spacing_ratios)
     axes[0, 1].set_title(f"finite spacing ratios: {ratio_text}")
@@ -224,12 +235,12 @@ def main() -> int:
     axes[1, 1].set_yscale("log")
     axes[1, 1].set_xticks(x_values, transition_labels)
     axes[1, 1].set_ylabel(r"event multiplier residual $|\Re(\mu)+1|$")
-    axes[1, 1].set_title("all five events survive independent integration")
+    axes[1, 1].set_title("all six events survive independent integration")
     axes[1, 1].legend(fontsize=7.2)
     axes[1, 1].grid(alpha=0.2, axis="y")
 
     figure.suptitle(
-        "EXP-237--269: exact returning-arm cascade through stable period 384",
+        "EXP-237--275: exact returning-arm cascade through stable period 768",
         fontsize=13,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -251,6 +262,8 @@ def main() -> int:
             "EXP-261",
             "EXP-267",
             "EXP-269",
+            "EXP-273",
+            "EXP-275",
         ],
         **{
             f"{label}_receipt_sha256": sha256_bytes(value[0])

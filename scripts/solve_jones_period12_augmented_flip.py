@@ -43,6 +43,7 @@ SCHEMAS = {
     "butterfly.jones-period96-augmented-flip-manifest.v1",
     "butterfly.jones-period192-augmented-flip-manifest.v1",
     "butterfly.jones-period384-augmented-flip-manifest.v1",
+    "butterfly.jones-period768-augmented-flip-manifest.v1",
 }
 
 
@@ -57,6 +58,7 @@ def source_child(receipt: dict, solver_name: str, manifest: dict | None = None) 
         "butterfly.jones-period96-segmented-continuation-receipt.v1",
         "butterfly.jones-period192-segmented-continuation-receipt.v1",
         "butterfly.jones-period384-segmented-continuation-receipt.v1",
+        "butterfly.jones-period768-segmented-continuation-receipt.v1",
     }:
         if manifest is None or "source_row_index" not in manifest:
             raise ValueError("segmented source requires a frozen source row index")

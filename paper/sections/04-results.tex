@@ -1104,13 +1104,14 @@ Removing source-arm interpolation from the child path carries the primitive
 period-12 orbit beyond the false endpoint and reveals a genuine cascade at
 fixed $(b,c)=(0.2,7.625815600403827)$. Exact augmented multiple shooting
 locates real-$-1$ events of the period-12, period-24, period-48, period-96,
-and period-192 parents at
+period-192, and period-384 parents at
 \begin{align}
  a_{12}&=0.24070118147582764,&
  a_{24}&=0.24070104611236293,&
  a_{48}&=0.24070101640878155,\\
  a_{96}&=0.24070101008421760,&
- a_{192}&=0.24070100861338276.
+ a_{192}&=0.24070100861338276,&
+ a_{384}&=0.24070100830924687.
 \end{align}
 Each event passes orbit, anti-periodic tangent, proper-subperiod, exact
 two-section identity, and independent Radau gates. The last event requires a
@@ -1122,32 +1123,41 @@ At period 192 an initial solve and unchanged-node precision audit preserve
 near-threshold product failures. A separately frozen tighter coupled
 correction then passes symmetric DOP853/Radau multiplier gates, giving
 $-0.99999999330/-0.99999992395$ with orbit/tangent residuals below
-$5.31\times10^{-11}/1.39\times10^{-11}$.
+$5.31\times10^{-11}/1.39\times10^{-11}$. The period-384 event independently
+passes with DOP853/Radau multipliers
+$-0.999999998671/-1.00000003625$, orbit residuals below
+$2.26\times10^{-11}$, and exact $448/512$ section identity.
 
 Exact node-doubling switches produce primitive period-24, period-48,
-period-96, period-192, and period-384 children. At prospectively frozen
+period-96, period-192, period-384, and period-768 children. At prospectively frozen
 near-event samples, DOP853 and
 Radau agree that every parent is unstable and every child stable. For the
-fifth birth the parent moduli are $1.14929836/1.14909171$ and child moduli are
-$0.39117576/0.39117648$; the period-384 orbit retains exact $448/512$ section
-identity. Thus five local doublings are qualified as supercritical and the
-returning-arm cascade reaches stable period 384. The three finite event-spacing
-ratios are $4.557$, $4.697$, and $4.300$. Their non-monotonicity reinforces
+sixth birth the parent moduli are $1.22260901/1.22168588$ and child moduli are
+$0.08362765/0.08362578$; the period-768 orbit retains exact $896/1024$ section
+identity. Two full-orbit sign-equivalence audits pass their orbit-identity
+gates but fail a common $0.002$ four-representation multiplier-spread gate
+($0.003450$ and $0.002661$). A prospectively frozen common-phase audit then
+passes the same gate with DOP853/Radau child moduli
+$0.0879289933/0.0879290911$ and spread $9.78\times10^{-8}$, identifying the
+discrepancy as phase-representation conditioning rather than evidence for a
+second cycle. Thus six local doublings are qualified as supercritical and the
+returning-arm cascade reaches stable period 768. The four finite event-spacing
+ratios are $4.557$, $4.697$, $4.300$, and $4.836$. Their non-monotonicity reinforces
 that this is finite cascade evidence, not an accumulation-limit estimate or
 proof of universality.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{figures/fig22-exp237-269-returning-cascade.png}
-  \caption{The exact returning-arm cascade through stable period 384. Upper
-  left: five corrected real-$-1$ events converge rapidly in $a$ while the
-  parent period doubles. Upper right: four spacings give three finite ratios,
-  $4.557$, $4.697$, and $4.300$, which do not define a universality estimate. Lower left:
+  \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}
+  \caption{The exact returning-arm cascade through stable period 768. Upper
+  left: six corrected real-$-1$ events converge rapidly in $a$ while the
+  parent period doubles. Upper right: five spacings give four finite ratios,
+  $4.557$, $4.697$, $4.300$, and $4.836$, which do not define a universality estimate. Lower left:
   independent DOP853 and Radau calculations recover unstable parents and
-  stable primitive children at all five near-event samples. Lower right:
+  stable primitive children at all six near-event samples. Lower right:
   each event multiplier remains close to $-1$ under independent integration.
   The figure establishes a finite local cascade, not a full child sheet,
   paired shrimp boundaries, TBA membership, double-criticality, or a global
   parameter-plane explanation.}
-  \label{fig:exp237-269-returning-cascade}
+  \label{fig:exp237-275-returning-cascade}
 \end{figure}
