@@ -330,8 +330,10 @@ what must be narrowed, and what is false or unresolved.
   passes a 32-segment switch and nominates primitive `28/32` period-24
   candidates on both tangent signs.
 - [`experiments/EXP-239-jones-period24-segmented-continuation.md`](experiments/EXP-239-jones-period24-segmented-continuation.md):
-  freezes a 20-step continuation to separate the child from its singular
-  birth point before independent qualification.
+  passes a 20-step continuation to a separated primitive period-24 endpoint.
+- [`experiments/EXP-240-jones-period24-segmented-qualification.md`](experiments/EXP-240-jones-period24-segmented-qualification.md):
+  freezes independent segmented DOP853/Radau parent-child stability and
+  criticality classification at that endpoint.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

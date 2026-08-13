@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp239-passes-exp240-frozen.md`](2026-08-13-exp239-passes-exp240-frozen.md)
+  — a separated primitive period-24 branch passes 20 continuation steps; an
+  independent parent/child criticality audit is frozen.
+
 - [`2026-08-13-exp238-period24-nominated-exp239-frozen.md`](2026-08-13-exp238-period24-nominated-exp239-frozen.md)
   — exact segmented switching nominates primitive period-24 candidates on
   both signs; a separated child continuation is frozen next.
