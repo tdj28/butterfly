@@ -343,8 +343,11 @@ what must be narrowed, and what is false or unresolved.
   preserves a failed nearest-neighbor eigenvalue tracker despite complete
   spectra showing the nontrivial crossing.
 - [`experiments/EXP-243-jones-period24-flip-scan-reclassification.md`](experiments/EXP-243-jones-period24-flip-scan-reclassification.md):
-  freezes an eight-orders-separated reclassification of EXP-242's immutable
-  transverse spectra.
+  passes an eight-orders-separated reclassification and retains exactly one
+  period-24 real-`-1` bracket.
+- [`experiments/EXP-244-jones-period24-augmented-flip.md`](experiments/EXP-244-jones-period24-augmented-flip.md):
+  freezes the exact 32-segment orbit-and-anti-periodic-mode solve for that
+  bracket.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

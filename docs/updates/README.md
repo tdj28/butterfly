@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-13-exp243-brackets-exp244-frozen.md`](2026-08-13-exp243-brackets-exp244-frozen.md)
+  — the magnitude-separated reclassification passes with one period-24 flip
+  bracket; an exact augmented event solve is frozen.
+
 - [`2026-08-13-exp242-tracker-swap-exp243-frozen.md`](2026-08-13-exp242-tracker-swap-exp243-frozen.md)
   — the frozen eigenvalue tracker swaps onto a collapsed mode; a strictly
   magnitude-separated reclassification of the immutable spectra is frozen.

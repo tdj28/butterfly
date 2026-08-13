@@ -35,14 +35,29 @@ from solve_augmented_segmented_flip import initial_tangent_nodes
 from solve_period1_c_flip import _orbit_nodes
 
 
-SCHEMA = "butterfly.jones-period12-augmented-flip-manifest.v1"
+SCHEMAS = {
+    "butterfly.jones-period12-augmented-flip-manifest.v1",
+    "butterfly.jones-period24-augmented-flip-manifest.v1",
+}
 
 
-def source_child(receipt: dict, solver_name: str) -> dict:
-    """Extract the exact period-12 event seed from a passed EXP-232 receipt."""
+def source_child(receipt: dict, solver_name: str, manifest: dict | None = None) -> dict:
+    """Extract an event seed from EXP-232 or an exact segmented continuation."""
 
     if not receipt.get("passed"):
-        raise ValueError("a passed period-12 flip receipt is required")
+        raise ValueError("a passed source receipt is required")
+    if receipt.get("schema") == "butterfly.jones-period24-segmented-continuation-receipt.v1":
+        if manifest is None or "source_row_index" not in manifest:
+            raise ValueError("segmented source requires a frozen source row index")
+        row = receipt["rows"][int(manifest["source_row_index"])]
+        return {
+            "a": float(row["a"]),
+            "b": float(receipt["fixed_b"]),
+            "c": float(receipt["fixed_c"]),
+            "initial_state": list(row["nodes"][0]),
+            "period_time": float(row["period_time"]),
+            "nodes": row["nodes"],
+        }
     root = receipt["root_results"][solver_name]["root_full"]
     return {
         "a": float(root["a"]),
@@ -57,16 +72,30 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--source-receipt", type=Path, required=True)
+    parser.add_argument("--bracket-receipt", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
     manifest_bytes = args.manifest.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("schema") != SCHEMA:
-        raise SystemExit("unsupported Jones period-12 augmented-flip manifest")
+    if manifest.get("schema") not in SCHEMAS:
+        raise SystemExit("unsupported Jones augmented-flip manifest")
     source_bytes = args.source_receipt.read_bytes()
     if sha256_bytes(source_bytes) != manifest["source_receipt_sha256"]:
         raise SystemExit("source receipt hash mismatch")
+    bracket_bytes = None
+    if "bracket_receipt_sha256" in manifest:
+        if args.bracket_receipt is None:
+            raise SystemExit("this manifest requires a bracket receipt")
+        bracket_bytes = args.bracket_receipt.read_bytes()
+        if sha256_bytes(bracket_bytes) != manifest["bracket_receipt_sha256"]:
+            raise SystemExit("bracket receipt hash mismatch")
+        bracket = json.loads(bracket_bytes)
+        if not bracket.get("passed") or len(bracket["flip_brackets"]) != 1:
+            raise SystemExit("a passed unique flip bracket is required")
+        frozen_bracket = list(map(float, bracket["flip_brackets"][0]["a_bracket"]))
+        if frozen_bracket != list(map(float, manifest["a_bounds"])):
+            raise SystemExit("manifest a bounds do not match the bracket receipt")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -75,7 +104,9 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
 
-    seed = source_child(json.loads(source_bytes), manifest["source_solver"])
+    seed = source_child(
+        json.loads(source_bytes), manifest["source_solver"], manifest
+    )
     fixed_b = float(manifest["fixed_b"])
     fixed_c = float(manifest["fixed_c"])
     if seed["b"] != fixed_b or seed["c"] != fixed_c:
@@ -84,13 +115,16 @@ def main() -> int:
     solver = SolverConfig(**manifest["reference_solver"])
     segment_count = int(manifest["segment_count"])
     seed_parameters = RosslerParameters(a=seed["a"], b=fixed_b, c=fixed_c)
-    nodes = _orbit_nodes(
-        seed_parameters,
-        np.asarray(seed["initial_state"], dtype=float),
-        seed["period_time"],
-        segment_count,
-        solver,
-    )
+    if "nodes" in seed and len(seed["nodes"]) == segment_count:
+        nodes = np.asarray(seed["nodes"], dtype=float)
+    else:
+        nodes = _orbit_nodes(
+            seed_parameters,
+            np.asarray(seed["initial_state"], dtype=float),
+            seed["period_time"],
+            segment_count,
+            solver,
+        )
     tangent_nodes, seed_multiplier = initial_tangent_nodes(
         nodes, seed["period_time"], seed_parameters, solver
     )
@@ -251,10 +285,15 @@ def main() -> int:
         ),
     }
     output = {
-        "schema": "butterfly.jones-period12-augmented-flip-receipt.v1",
+        "schema": manifest.get(
+            "output_schema", "butterfly.jones-period12-augmented-flip-receipt.v1"
+        ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "source_receipt_sha256": sha256_bytes(source_bytes),
+        "bracket_receipt_sha256": (
+            sha256_bytes(bracket_bytes) if bracket_bytes is not None else None
+        ),
         "source": source,
         "environment": {
             "python": platform.python_version(),
