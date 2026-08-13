@@ -422,7 +422,11 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-272-jones-period384-segmented-flip-scan.md`](experiments/EXP-272-jones-period384-segmented-flip-scan.md):
   passes and isolates one magnitude-separated sixth-flip bracket.
 - [`experiments/EXP-273-jones-period384-augmented-flip.md`](experiments/EXP-273-jones-period384-augmented-flip.md):
-  freezes the exact 512-segment two-solver event solve.
+  passes the exact 512-segment two-solver event solve.
+- [`findings/FND-097-six-exact-returning-arm-events.md`](findings/FND-097-six-exact-returning-arm-events.md):
+  records the sixth exact event and four non-monotone finite scaling ratios.
+- [`experiments/EXP-274-jones-period768-segmented-switch.md`](experiments/EXP-274-jones-period768-segmented-switch.md):
+  freezes bilateral 1,024-segment period-768 child nomination.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

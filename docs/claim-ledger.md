@@ -161,6 +161,17 @@ period-384 orbit and a fifth local supercritical birth, but not a sixth event,
 limiting universality, paired boundaries, TBA membership, double-criticality,
 or a whole-plane result.
 
+CLM-008 addendum (EXP-270--273): common-coordinate whole-orbit phase matching
+first identifies both period-384 switch signs as one orbit. Eight exact
+continuation steps then reach a strongly unstable endpoint, and a
+magnitude-separated scan isolates one real-`-1` bracket. A prospectively
+frozen 512-segment coupled solve terminates normally and passes symmetric
+DOP853/Radau `1e-7` flip gates at `a=0.24070100830924687`, with all orbit and
+tangent residuals below `2.53e-11`, proper-subperiod separation, and exact
+`448/512` identity. This qualifies a sixth exact event, not its period-768
+child. The four finite spacing ratios are `4.557`, `4.697`, `4.300`, and
+`4.836`; their non-monotonicity still forbids a limiting-universality claim.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

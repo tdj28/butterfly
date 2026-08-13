@@ -436,8 +436,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   passes eight full continuation steps, retains exact `448/512` identity, and
   reaches preliminary multiplier `-533.597`. EXP-272 passes the
   magnitude-separated nine-row scan with exactly one sixth-flip bracket.
-  EXP-273 freezes the exact 512-segment two-solver augmented event solve; the
-  period-768 child remains separate.
+  EXP-273 passes the exact 512-segment two-solver augmented solve and qualifies
+  a sixth exact event (FND-097). The fourth finite spacing ratio is `4.836`,
+  but the four-ratio sequence remains non-monotone. EXP-274 freezes the
+  bilateral 1,024-segment period-768 child switch; stability exchange remains
+  separate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
