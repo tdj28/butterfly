@@ -497,6 +497,18 @@ what must be narrowed, and what is false or unresolved.
   passes the maximally separated bilateral switch from the 8,192-step event.
 - [`experiments/EXP-299-jones-period1536-qualified-criticality.md`](experiments/EXP-299-jones-period1536-qualified-criticality.md):
   freezes independent DOP853/Radau criticality at the corrected child coordinate.
+- [`experiments/EXP-300-jones-period1536-qualified-continuation.md`](experiments/EXP-300-jones-period1536-qualified-continuation.md):
+  preserves a failed full-length gate while retaining an exact accepted child prefix.
+- [`experiments/EXP-301-jones-period1536-first-threshold-criticality.md`](experiments/EXP-301-jones-period1536-first-threshold-criticality.md):
+  independently finds both parent and child unstable at the first separated row.
+- [`experiments/EXP-302-jones-period1536-stability-scan.md`](experiments/EXP-302-jones-period1536-stability-scan.md):
+  nominates a real-`-1` stability-loss interval from the exact accepted prefix.
+- [`experiments/EXP-303-jones-period1536-augmented-flip.md`](experiments/EXP-303-jones-period1536-augmented-flip.md):
+  records an administrative dense-solver termination without a scientific verdict.
+- [`experiments/EXP-304-jones-period1536-decimal-augmented-bracket.md`](experiments/EXP-304-jones-period1536-decimal-augmented-bracket.md):
+  validates scalable 50-digit cyclic elimination while failing coarse-grid bounds.
+- [`experiments/EXP-305-jones-period1536-decimal-augmented-refinement.md`](experiments/EXP-305-jones-period1536-decimal-augmented-refinement.md):
+  passes multi-resolution convergence but rejects EXP-302's inherited physical bracket.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

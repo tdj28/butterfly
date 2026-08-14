@@ -496,3 +496,15 @@ cyclic solve. Fourth-order `a` and period ratios, Richardson recovery into the
 untouched bracket, `1e-22` residuals, primitive separation, bounded node
 motion, and pointwise tangent-line cosine at least `0.99` are mandatory. A
 pass remains classical-tableau evidence only.
+
+EXP-305 completes after 505 seconds and fails exactly the inherited bracket
+gate. The 2,048/4,096 profiles converge with orbit/tangent residuals below
+`1.32e-24`; parameter and period increment ratios `15.7178/15.7060` pass the
+frozen fourth-order interval. Primitive separation, node identity, and every
+pointwise tangent-line comparison pass, with minimum cosine
+`0.9999999999999599`. The Richardson coordinate
+`a=0.2407010082240912813` nevertheless lies `1.362e-11` below EXP-302's
+lower endpoint. The result therefore diagnoses the old `1.04e-13` interval as
+narrower than its continuation-row correction uncertainty. No eighth event is
+promoted; a new target-blind ladder of independently corrected period-1536
+endpoints must rebuild the stable/unstable bracket.

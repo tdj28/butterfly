@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-augmented-refinement-summary.v1",
+  "experiment_id": "EXP-305",
+  "passed": false,
+  "source_commit": "9a0fc00b8b5dfba2d9d48f583f3d405e6065873d",
+  "manifest_sha256": "ed5a6ef5c4e3fbb9fc4cdb3d98ce64910119cbc5554b89124cc1aac1b339ebff",
+  "pilot_receipt_sha256": "3b850e0544ec3edd0647de53dc3d0fbbd1fab654694796f9d1fa3895c0d411b2",
+  "raw_artifact": "artifacts/EXP-305/receipt.json",
+  "raw_artifact_bytes": 702705,
+  "raw_artifact_sha256": "095cbdb2e5c7421371428fa43fb92f3ab10fe1e139dcfd0a5f70dd724b95fb19",
+  "elapsed_seconds": 504.9276600838639,
+  "step_counts": [1024, 2048, 4096],
+  "a_convergence_ratio": 15.717831769863412,
+  "period_convergence_ratio": 15.706015690188976,
+  "extrapolated_a_decimal": "0.24070100822409128130272349728517379820343641374236",
+  "extrapolated_period_decimal": "11447.732839778012545725476596860242527152210395911",
+  "distance_below_bracket_decimal": "1.361844869727650271482620180E-11",
+  "maximum_node_displacement": 2.599720936302674e-7,
+  "minimum_tangent_line_cosine": 0.9999999999999599,
+  "half_node_rms_separation": 7.988493187700812e-6,
+  "checks": {
+    "a_convergence": true,
+    "correction": true,
+    "extrapolated_a_bounds": false,
+    "node_identity": true,
+    "period_convergence": true,
+    "primitive_half_separation": true,
+    "tangent_line_identity": true
+  },
+  "interpretation": "The 1024/2048/4096 classical-RK4 augmented sequence passes residual, fourth-order convergence, primitivity, node-identity, and tangent-line gates, but its Richardson event coordinate lies 1.362e-11 below EXP-302's inherited bracket. The physical bracket must be rebuilt from independently corrected child endpoints; no eighth event is promoted."
+}

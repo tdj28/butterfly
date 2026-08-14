@@ -585,6 +585,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   augmented residuals, primitive separation, node identity, and minimum
   pointwise tangent-line cosine `0.99`. A pass still requires independent RK4
   3/8 reproduction.
+  EXP-305 passes every numerical-convergence, residual, primitivity, node, and
+  tangent-line gate. Parameter and period ratios are `15.7178/15.7060`, but
+  the Richardson coordinate `a=0.2407010082240912813` lies `1.362e-11` below
+  the EXP-302 bracket, so `extrapolated_a_bounds` fails and no eighth event is
+  promoted. Preserve the failure. Freeze a target-blind ladder that
+  independently recorrects child endpoints and re-evaluates their Floquet
+  stability; do not reuse the too-narrow continuation-row bracket as a
+  physical bound.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

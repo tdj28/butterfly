@@ -298,6 +298,17 @@ while preserving primitive period-1536 separation. Its coarse coordinate lies
 source neighborhood, so no eighth event is promoted. Multi-resolution and an
 independent RK tableau remain mandatory.
 
+CLM-008 addendum (EXP-305): the 50-digit classical-RK4 augmented sequence
+passes all correction, fourth-order convergence, primitive-separation,
+node-identity, and tangent-line gates at 1,024/2,048/4,096 steps per segment.
+Its parameter and period convergence ratios are `15.7178/15.7060`, but the
+Richardson event coordinate `a=0.2407010082240912813` lies `1.362e-11` below
+EXP-302's `1.04e-13` continuation-row bracket. The sole failed bracket gate is
+preserved. This invalidates that interval as a physical event bound without
+invalidating the converged cyclic formulation; independently corrected child
+endpoints must rebuild the stability bracket. The secure count remains seven
+exact events and six independently supercritical births.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
