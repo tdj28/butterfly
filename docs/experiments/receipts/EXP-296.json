@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.jones-period768-to1536-segmented-child-switch-receipt.v1",
+  "experiment_id": "EXP-296",
+  "source_commit": "e1a7fcc60fd0d3b83a20dbd48199b6e038077489",
+  "manifest_sha256": "e19eec6e334be32230f345e0b9b9b5249fec448e3b346fb14452f899f6b13402",
+  "raw_receipt_sha256": "b95912543e0b15566bb93dda64994c1cbd178625655200c1988e89e4bf69f4ac",
+  "event_a": 0.2407010082216298,
+  "event_matching_residual": 1.4411625044156979e-08,
+  "secondary_null_residual": 4.476025161320998e-11,
+  "accepted_candidates": 6,
+  "candidate_a_range": [0.2407010082377675, 0.24070100823779156],
+  "half_node_rms_range": [1.5767047239568927e-06, 6.306916495148072e-06],
+  "half_period_closure_range": [5.556866240036359e-07, 3.073328769465059e-06],
+  "checks": {
+    "candidate_count": true,
+    "secondary_null": true,
+    "source_event_matching": false
+  },
+  "passed": false
+}

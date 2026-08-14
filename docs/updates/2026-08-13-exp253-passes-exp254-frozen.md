@@ -354,3 +354,12 @@ passed EXP-295 4,096-step RK4 3/8 event nodes and tangent. Predictor lengths,
 DOP853 tolerances, event and secondary-null gates, child residual and
 primitivity gates, period ratio, and exact `1792/2048` identity are unchanged.
 A pass nominates corrected children only; it cannot decide birth direction.
+
+EXP-296 fails only the unchanged source event-matching gate after 805 seconds.
+All six period-1536 candidates pass every child gate in two evaluations, with
+half-node RMS `1.58e-6`--`6.31e-6`, half-period closure
+`5.56e-7`--`3.07e-6`, and coordinates within `2.01e-13` of the qualified
+Richardson event. The doubled finite-tableau source has DOP853 matching norm
+`1.441e-8 > 1e-8`; its secondary-null residual is `4.48e-11`. No candidate is
+promoted from the failed source. EXP-297 will extend the independent augmented
+event to 8,192 steps and must pass the same DOP853 source gate.

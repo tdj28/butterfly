@@ -513,8 +513,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `a≈0.24070100823759`; the corrected fifth spacing ratio is `4.244`.
   Criticality of the period-1536 birth remains unresolved. EXP-296 now freezes
   a fresh sparse bilateral period-1536 switch from the passed 4,096-step RK4
-  3/8 event representation, preserving every EXP-288 switch gate before a new
-  independent criticality test.
+  3/8 event representation. All six children pass, but the overall receipt
+  preserves a sole source event-matching failure `1.441e-8 > 1e-8`; the
+  secondary-null residual is `4.48e-11`. EXP-297 must refine the augmented
+  event to 8,192 steps, verify fourth-order increments and the same DOP853
+  source gate, then support a new switch before any criticality test.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
