@@ -238,6 +238,17 @@ whose maximum pointwise displacement remains `4.162` across resolution. No
 event is restored until an independent tableau agrees with the new corrected
 orbit and tangent line.
 
+CLM-008 addendum (EXP-295 and FND-102): an independent three-resolution RK4
+3/8 augmented sequence passes all ten gates. Its `a` and period ratios are
+`15.721/15.707`; its Richardson coordinate differs from the classical value
+by `2.05e-14`; finest nodes and base tangents agree within `1.24e-10` and
+`1.61e-13`; and all tangent-line gates pass. This supersedes the old Float64
+tangent field and qualifies a seventh primitive real-`-1` event near
+`a=0.24070100823759`. The fifth finite spacing ratio is corrected from the
+retracted `2.239` to `4.244`. The ledger now supports seven exact events, six
+supercritical births, and a stable primitive period-768 child; the seventh
+birth's criticality and period-1536 stability remain open.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

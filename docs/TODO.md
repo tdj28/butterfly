@@ -505,11 +505,15 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   original bracket, residuals fall below `1.32e-26`, and primitivity persists.
   Only pointwise identity with the old Float64 tangent field fails, remaining
   `4.162 > 0.1` at every resolution even as the median direction cosine is
-  `0.99999987`. Preserve that failure. EXP-295 now freezes independent
-  1,024/2,048/4,096-step RK4 3/8 augmented corrections and prospectively
-  compares convergence, coordinates, orbit nodes, base tangent, tangent-line
-  directions, residuals, and primitivity before the old tangent representation
-  can be superseded.
+  `0.99999987`. Preserve that failure. EXP-295 passes all ten independent
+  RK4 3/8 gates: `a` and period converge at `15.721/15.707`, the Richardson
+  coordinates agree within `2.05e-14`, finest nodes within `1.24e-10`, and the
+  sign-aligned tangent lines to effectively unit cosine. FND-102 supersedes the
+  old tangent representation and qualifies event seven at
+  `a≈0.24070100823759`; the corrected fifth spacing ratio is `4.244`.
+  Criticality of the period-1536 birth remains unresolved. Freeze the next
+  test against the qualified augmented representation, not the retracted
+  Float64 coordinate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

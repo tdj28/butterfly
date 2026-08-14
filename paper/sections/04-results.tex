@@ -1169,6 +1169,41 @@ candidate, and the corresponding unqualified spacing ratio $2.239$ is excluded
 from the qualified sequence. An augmented high-precision orbit--antiperiodic-
 tangent solve is required before the event or a period-1536 birth is promoted.
 
+That augmented solve changes the conclusion. Classical RK4 corrections of all
+1,024 orbit and antiperiodic-tangent nodes at 1,024, 2,048, and 4,096 steps per
+segment give $a$ and period convergence ratios $15.718/15.706$. The finest and
+order-four Richardson coordinates are $0.24070100821945930$ and
+$0.24070100823758015$. An algebraically distinct RK4 3/8 sequence gives
+independent ratios $15.721/15.707$. Its finest and Richardson coordinates are
+$0.24070100822162979$ and $0.24070100823760069$, respectively. The two
+Richardson coordinates differ by
+$2.05\times10^{-14}$; finest orbit nodes agree within $1.24\times10^{-10}$,
+base tangents within $1.61\times10^{-13}$, and every sign-aligned pointwise
+tangent direction passes its prospective cosine gate. Orbit and tangent
+residuals are below $7.84\times10^{-27}$, while half-orbit node RMS remains
+$2.58\times10^{-5}$ and excludes the period-384 double cover. These augmented
+results supersede the frozen tangent representation and qualify the seventh
+primitive real-$-1$ event at consensus
+$a_{768}\simeq0.24070100823759042$. The corrected fifth finite spacing ratio is
+$4.244$, giving $4.557/4.697/4.300/4.836/4.244$. The sequence remains
+non-monotone; the seventh birth's criticality and stable period-1536 attraction
+remain unqualified.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig23-exp293-295-augmented-event.png}
+  \caption{High-precision augmented qualification of the seventh returning-arm
+  event. Upper left: classical RK4 and RK4 3/8 coordinates converge toward
+  their Richardson limits with fourth-order slopes. Upper right: every
+  orbit--antiperiodic-tangent system closes below the prospective residual
+  gate. Lower left: the corrected coordinate adds the fifth finite spacing
+  ratio $4.244$. Lower right: independent coordinate, period, node, base-
+  tangent, and tangent-line discrepancies consume only small fractions of
+  their frozen gates. This qualifies the primitive real-$-1$ event, not the
+  period-1536 birth's criticality or a limiting universality constant.}
+  \label{fig:exp293-295-augmented-event}
+\end{figure}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}

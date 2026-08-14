@@ -1,6 +1,6 @@
 # FND-100 — A seventh returning-arm flip event is numerically qualified
 
-Status: retracted as an event claim — superseded by FND-101
+Status: retracted as formulated by FND-101; event later requalified by FND-102
 
 Post-qualification correction changed the evidential status. EXP-292 attempts
 to correct the period-768 orbit itself in 50-digit arithmetic rather than only

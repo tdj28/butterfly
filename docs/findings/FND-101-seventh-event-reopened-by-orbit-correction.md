@@ -1,6 +1,6 @@
 # FND-101 — High-precision orbit correction reopens the seventh-event claim
 
-Status: qualified negative result and claim retraction
+Status: qualified negative result; event retraction superseded by FND-102
 
 EXP-286/287 establish exceptionally close agreement between two 50-digit
 multiplier integrations of the frozen EXP-281 period-768 representation. That
@@ -52,6 +52,11 @@ does not shrink with resolution, independent agreement on the new orbit and
 tangent line—not retroactive relaxation—is now required. FND-101 remains in
 force until that test passes.
 
+EXP-295 passes that test. FND-101 remains the reason frozen-node multiplier
+agreement and unconstrained orbit correction were insufficient, but its open-
+event conclusion is superseded by the independently converged augmented
+orbit-plus-tangent result in FND-102.
+
 Evidence:
 [`../experiments/EXP-291-period768-decimal-parent-side.md`](../experiments/EXP-291-period768-decimal-parent-side.md)
 and
@@ -59,4 +64,6 @@ and
 with augmented follow-up in
 [`../experiments/EXP-293-period768-decimal-augmented-correction.md`](../experiments/EXP-293-period768-decimal-augmented-correction.md)
 and
-[`../experiments/EXP-294-period768-decimal-augmented-refinement.md`](../experiments/EXP-294-period768-decimal-augmented-refinement.md).
+[`../experiments/EXP-294-period768-decimal-augmented-refinement.md`](../experiments/EXP-294-period768-decimal-augmented-refinement.md),
+with the superseding independent result in
+[`../experiments/EXP-295-period768-decimal-augmented-independent.md`](../experiments/EXP-295-period768-decimal-augmented-independent.md).

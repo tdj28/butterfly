@@ -336,3 +336,14 @@ Separate gates compare orbit nodes, the normalized base tangent, and the
 globally sign-aligned tangent-line field. Only a complete pass can supersede
 the old Float64 tangent representation and restore the seventh event; birth
 criticality and period-1536 stability remain separate.
+
+EXP-295 passes all ten gates after 337 seconds. The independent RK4 3/8 `a`
+and period sequences converge at `15.721/15.707`; its Richardson coordinate
+`0.24070100823760069` differs from the classical value by `2.05e-14`.
+Extrapolated periods differ by `3.60e-11`, finest nodes by `1.24e-10` maximum,
+and base tangents by `1.61e-13`. The global tangent-line cosine is one to the
+reported precision and every pointwise direction passes. FND-102 therefore
+supersedes the old Float64 tangent representation and restores the seventh
+primitive real-`-1` event near `a=0.24070100823759`. The corrected fifth
+finite spacing ratio is `4.244`, not the retracted `2.239`. Only six births
+are independently supercritical; period-1536 criticality remains open.
