@@ -574,6 +574,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   steps per segment, eight workers, and six 8-by-8 Newton updates. It retains
   the untouched bracket, `1e-22` augmented residual gate, and primitive
   half-node separation; a pass remains a single-discretization pilot only.
+  EXP-304 converges in 145 seconds to `6.69e-33/2.70e-31` orbit/tangent
+  residuals and preserves `7.99e-6` half-node RMS, but its 1,024-step
+  coordinate shifts `4.576e-9` outside the bracket and raw tangent displacement
+  reaches `54.55`. Preserve the failure. Warm-start 2,048/4,096-step profiles,
+  require fourth-order/Richardson bracket recovery, and gate sign-aligned
+  tangent lines rather than raw tangent coordinates.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -289,6 +289,15 @@ is at most `2.35e-6`. This nominates an eighth real-`-1` cascade event for an
 augmented exact solve. It does not yet change the secure count of seven exact
 events and six independently supercritical births.
 
+CLM-008 addendum (EXP-303--304): the dense 2,048-segment augmented solve is
+terminated without a scientific verdict after stagnation and catastrophic
+trial divergence. The replacement 50-digit cyclic formulation reduces the
+system to 8-by-8 and converges in 145 seconds to residuals below `2.71e-31`
+while preserving primitive period-1536 separation. Its coarse coordinate lies
+`4.576e-9` outside the physical bracket and raw tangent coordinates leave the
+source neighborhood, so no eighth event is promoted. Multi-resolution and an
+independent RK tableau remain mandatory.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

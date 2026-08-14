@@ -481,3 +481,11 @@ tangent at 50 decimal digits with 1,024 classical-RK4 steps per segment. Eight
 workers feed a cyclic reduction to an 8-by-8 Newton solve. The untouched
 bracket, `1e-22` augmented residual, source-neighborhood, and primitive
 half-node gates remain mandatory; a pass is only a discrete pilot.
+
+EXP-304 completes after 145 seconds and validates the scalable formulation
+without passing the physical-event gates. Five 8-by-8 Newton updates reduce
+orbit/tangent residuals to `6.69e-33/2.70e-31`, and primitive half-node RMS is
+`7.99e-6`. The coarse 1,024-step coordinate shifts `4.576e-9` outside the
+bracket, while raw tangent displacement reaches `54.55`; `a_bounds` and source
+neighborhood therefore fail. Multi-resolution Richardson recovery and
+sign-aligned tangent-line identity are required next.
