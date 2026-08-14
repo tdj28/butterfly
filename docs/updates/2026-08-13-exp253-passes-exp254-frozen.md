@@ -347,3 +347,10 @@ supersedes the old Float64 tangent representation and restores the seventh
 primitive real-`-1` event near `a=0.24070100823759`. The corrected fifth
 finite spacing ratio is `4.244`, not the retracted `2.239`. Only six births
 are independently supercritical; period-1536 criticality remains open.
+
+EXP-296 is frozen before execution. It discards the old period-1536 candidates
+as criticality evidence and repeats all six sparse bilateral switches from the
+passed EXP-295 4,096-step RK4 3/8 event nodes and tangent. Predictor lengths,
+DOP853 tolerances, event and secondary-null gates, child residual and
+primitivity gates, period ratio, and exact `1792/2048` identity are unchanged.
+A pass nominates corrected children only; it cannot decide birth direction.

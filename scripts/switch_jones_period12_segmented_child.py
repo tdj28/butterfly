@@ -48,6 +48,25 @@ def doubled_event_variables(event: dict) -> np.ndarray:
     ]
 
 
+def normalized_event(event: dict, manifest: dict) -> dict:
+    """Expose a passed Decimal augmented receipt as a switch event."""
+
+    if event.get("schema") != "butterfly.jones-period768-decimal-augmented-independent-receipt.v1":
+        return event
+    finest = event["profiles"][-1]
+    return {
+        "schema": event["schema"],
+        "passed": event["passed"],
+        "segment_count": len(event["nodes_decimal"]),
+        "nodes": event["nodes_decimal"],
+        "tangent_nodes": event["tangent_nodes_decimal"],
+        "period_time": finest["period_time_decimal"],
+        "corrected_a": finest["a_decimal"],
+        "fixed_b": manifest["fixed_b"],
+        "fixed_c": manifest["fixed_c"],
+    }
+
+
 def qualified_audit_bytes(
     event: dict,
     event_bytes: bytes,
@@ -88,12 +107,12 @@ def main() -> int:
     event_bytes = args.event.read_bytes()
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
         raise SystemExit("event receipt hash mismatch")
-    event = json.loads(event_bytes)
-    if event.get("schema") != manifest["event_schema"]:
+    raw_event = json.loads(event_bytes)
+    if raw_event.get("schema") != manifest["event_schema"]:
         raise SystemExit("event schema mismatch")
     try:
         audit_bytes = qualified_audit_bytes(
-            event, event_bytes, manifest, args.audit
+            raw_event, event_bytes, manifest, args.audit
         )
     except ValueError as error:
         raise SystemExit(str(error)) from error
@@ -104,6 +123,8 @@ def main() -> int:
     }
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
+
+    event = normalized_event(raw_event, manifest)
 
     source_segment_count = int(event["segment_count"])
     segment_count = int(manifest["segment_count"])

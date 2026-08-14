@@ -488,6 +488,8 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-102-seventh-returning-arm-event-augmented.md`](findings/FND-102-seventh-returning-arm-event-augmented.md):
   qualifies the seventh primitive real-`-1` event from two converged augmented
   tableau sequences while keeping birth criticality open.
+- [`experiments/EXP-296-jones-period1536-qualified-event-switch.md`](experiments/EXP-296-jones-period1536-qualified-event-switch.md):
+  freezes a fresh period-1536 switch from the qualified augmented event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

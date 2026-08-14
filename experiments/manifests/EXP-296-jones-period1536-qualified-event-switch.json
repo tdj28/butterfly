@@ -1,0 +1,41 @@
+{
+  "schema": "butterfly.jones-period768-segmented-child-switch-manifest.v1",
+  "output_schema": "butterfly.jones-period768-to1536-segmented-child-switch-receipt.v1",
+  "experiment_id": "EXP-296",
+  "event_schema": "butterfly.jones-period768-decimal-augmented-independent-receipt.v1",
+  "event_receipt_sha256": "447f5b7b73206f985b21b0848f2804117aef5c47602df82a6dd7bbf947a39c77",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 2048,
+  "jacobian_storage": "sparse_csr",
+  "step_lengths": [0.0000625, 0.000125, 0.00025],
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {
+    "maximum_evaluations": 720,
+    "tolerance": 1e-10
+  },
+  "identity": {
+    "historical_phase_count": 1792,
+    "barrio_phase_count": 2048
+  },
+  "acceptance": {
+    "maximum_event_matching_residual": 1e-8,
+    "maximum_secondary_null_residual": 1e-6,
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_closure_error": 0.08,
+    "maximum_neutral_error": 0.08,
+    "minimum_half_period_closure": 5e-8,
+    "minimum_half_node_rms": 5e-8,
+    "minimum_parameter_displacement": 1e-16,
+    "maximum_parameter_displacement": 0.0001,
+    "maximum_period_ratio_error": 0.001,
+    "minimum_accepted_candidates": 2
+  },
+  "claim_scope": "prospective sparse-Jacobian 2048-segment bilateral period-1536 switch from the independently qualified EXP-295 4096-step RK4 3/8 augmented period-768 event representation, using its corrected antiperiodic tangent mode, the unchanged EXP-288 predictor lengths and DOP853 gates, exact 1792/2048 section identity, and fixed b=0.2 and c=7.625815600403827; a pass nominates period-1536 candidates rooted in the corrected event for separately frozen independent-solver criticality and stability tests, but does not qualify the seventh birth's direction, attraction, an eighth event, a limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

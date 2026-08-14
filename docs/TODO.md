@@ -511,9 +511,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   sign-aligned tangent lines to effectively unit cosine. FND-102 supersedes the
   old tangent representation and qualifies event seven at
   `a≈0.24070100823759`; the corrected fifth spacing ratio is `4.244`.
-  Criticality of the period-1536 birth remains unresolved. Freeze the next
-  test against the qualified augmented representation, not the retracted
-  Float64 coordinate.
+  Criticality of the period-1536 birth remains unresolved. EXP-296 now freezes
+  a fresh sparse bilateral period-1536 switch from the passed 4,096-step RK4
+  3/8 event representation, preserving every EXP-288 switch gate before a new
+  independent criticality test.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

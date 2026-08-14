@@ -1,11 +1,18 @@
 from __future__ import annotations
 
 import json
+import sys
+from pathlib import Path
 
 import pytest
 
 from butterfly.scan import canonical_json, sha256_bytes
-from scripts.switch_jones_period12_segmented_child import qualified_audit_bytes
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from scripts.switch_jones_period12_segmented_child import (
+    normalized_event,
+    qualified_audit_bytes,
+)
 
 
 def test_passed_event_needs_no_audit() -> None:
@@ -55,3 +62,22 @@ def test_failed_event_rejects_unbound_audit(tmp_path) -> None:
 
     with pytest.raises(ValueError, match="not qualified"):
         qualified_audit_bytes(event, event_bytes, manifest, audit_path)
+
+
+def test_normalized_event_exposes_decimal_augmented_finest_profile() -> None:
+    receipt = {
+        "schema": "butterfly.jones-period768-decimal-augmented-independent-receipt.v1",
+        "passed": True,
+        "nodes_decimal": [["1", "2", "3"], ["4", "5", "6"]],
+        "tangent_nodes_decimal": [["0", "1", "0"], ["1", "0", "0"]],
+        "profiles": [
+            {"a_decimal": "0.24", "period_time_decimal": "57"},
+            {"a_decimal": "0.25", "period_time_decimal": "58"},
+        ],
+    }
+    event = normalized_event(receipt, {"fixed_b": 0.2, "fixed_c": 7.6})
+    assert event["corrected_a"] == "0.25"
+    assert event["period_time"] == "58"
+    assert event["segment_count"] == 2
+    assert event["nodes"] == receipt["nodes_decimal"]
+    assert event["tangent_nodes"] == receipt["tangent_nodes_decimal"]
