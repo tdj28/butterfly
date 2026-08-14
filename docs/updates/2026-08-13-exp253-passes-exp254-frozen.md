@@ -371,3 +371,9 @@ estimates, source displacement, residuals, bracket containment, and primitive
 separation. It then directly evaluates the doubled event with EXP-296's
 unchanged DOP853 source and secondary-null gates before another switch is
 allowed.
+
+EXP-297 passes all ten gates after 374 seconds. The 8,192-step augmented solve
+reaches `1.28e-31/5.67e-31` residuals; `a` and period increments converge at
+`15.860/15.853`, and the new Richardson coordinate changes by only `1.41e-13`.
+The doubled DOP853 source residual falls to `9.64e-10 < 1e-8`, with
+secondary-null residual `3.61e-12`. A new switch may now use this representation.

@@ -492,7 +492,7 @@ what must be narrowed, and what is false or unresolved.
   accepts all six fresh period-1536 candidates but preserves one marginal
   source event-representation failure.
 - [`experiments/EXP-297-period768-decimal-augmented-8192.md`](experiments/EXP-297-period768-decimal-augmented-8192.md):
-  freezes an 8,192-step event refinement against the failed DOP853 source gate.
+  passes 8,192-step refinement and the formerly failed DOP853 source gate.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

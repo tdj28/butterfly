@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+  "experiment_id": "EXP-297",
+  "source_commit": "e4ee3b353bde7a2168fada1b7bdb1bf6174080ab",
+  "manifest_sha256": "67d569a19ee55d0d15e73a862b97fd8d1d9ed576f57c74b6340e5599da7d5cd0",
+  "raw_receipt_sha256": "8942a66a3bad641624ddb188630c4e0f882a0b806d6519dfe0b48ee622118c95",
+  "steps_per_segment": 8192,
+  "corrected_a_decimal": "0.24070100823673457069287427915045855725306404197387",
+  "extrapolated_a_decimal": "0.24070100823774155628344662789988788533269533972917",
+  "a_increment_convergence_ratio": 15.860111620430171,
+  "period_increment_convergence_ratio": 15.852858143751646,
+  "successive_richardson_a_difference": 1.4086558251533368e-13,
+  "successive_richardson_period_difference": 2.965758343618794e-10,
+  "final_orbit_residual": 1.282119665522467e-31,
+  "final_tangent_residual": 5.6721243726678095e-31,
+  "dop853_event_matching_residual": 9.63819555542832e-10,
+  "secondary_null_residual": 3.6087224133898797e-12,
+  "half_node_rms_separation": 2.580090713990868e-05,
+  "checks": {
+    "correction": true,
+    "a_convergence": true,
+    "period_convergence": true,
+    "richardson_a": true,
+    "richardson_period": true,
+    "a_bounds": true,
+    "source_neighborhood": true,
+    "primitive_half_separation": true,
+    "dop853_event_matching": true,
+    "secondary_null": true
+  },
+  "passed": true
+}
