@@ -474,3 +474,10 @@ scientific verdict. The 12,290-variable dense trust-region seed residual is
 result is produced, and EXP-302's bracket is unchanged. The production event
 solve will retain the same target while replacing dense factorization with the
 validated 8-by-8 Decimal cyclic elimination.
+
+EXP-304 is frozen before execution. It reuses the identical hash-bound bracket
+and source rows but evaluates the full 2,048-segment orbit and antiperiodic
+tangent at 50 decimal digits with 1,024 classical-RK4 steps per segment. Eight
+workers feed a cyclic reduction to an 8-by-8 Newton solve. The untouched
+bracket, `1e-22` augmented residual, source-neighborhood, and primitive
+half-node gates remain mandatory; a pass is only a discrete pilot.

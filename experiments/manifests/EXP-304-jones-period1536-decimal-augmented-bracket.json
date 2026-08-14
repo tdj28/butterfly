@@ -1,0 +1,34 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-augmented-bracket-manifest.v1",
+  "experiment_id": "EXP-304",
+  "source_schema": "butterfly.jones-period1536-segmented-continuation-receipt.v1",
+  "source_receipt_sha256": "c91fadcd01f8ac6095b97538796cc7e4c25b51a1af94f15531bb47e14ab41bf8",
+  "allow_failed_source_prefix": true,
+  "maximum_source_matching_residual": 1e-8,
+  "bracket_receipt_sha256": "d3b23f17076d21ed890c5a3ab41afdd3270042ec7beaa99a9a1712cbf5372c4b",
+  "bracket_collection": "stability_brackets",
+  "bracket_index": 0,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 2048,
+  "decimal_digits": 50,
+  "method": "classical_rk4",
+  "steps_per_segment": 1024,
+  "workers": 8,
+  "maximum_newton_updates": 6,
+  "a_bounds": [0.24070100823770973, 0.24070100823781396],
+  "tangent_seed_solver": {
+    "method": "DOP853",
+    "rtol": 3e-12,
+    "atol": 3e-14,
+    "max_step": 0.01
+  },
+  "acceptance": {
+    "maximum_augmented_residual": 1e-22,
+    "maximum_source_node_displacement": 0.001,
+    "maximum_source_tangent_displacement": 10.0,
+    "maximum_source_period_displacement": 0.05,
+    "minimum_half_node_rms_separation": 5e-6
+  },
+  "claim_scope": "prospective 50-decimal-digit discrete augmented orbit-plus-antiperiodic-tangent pilot for the first EXP-302 period-1536 real-minus-one bracket, using the two exact successful EXP-300 endpoint rows, a nodewise secant orbit, a tight DOP853 tangent seed, classical RK4 with 1024 steps per segment, eight workers, and cyclic block elimination to an 8-by-8 Newton system in base state, base tangent, total period, and a; all orbit, tangent, phase, and normalization residuals must fall below 1e-22, the corrected coordinate must remain in the untouched bracket, source displacement must remain bounded, and half-orbit RMS must stay above 5e-6 so a period-768 double cover cannot pass; a pass validates one discrete high-precision augmented formulation only, not a resolution-converged or independently reproduced eighth event, a period-3072 child, eighth-birth criticality, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

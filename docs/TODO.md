@@ -570,6 +570,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `2.91e6/1.84e5`. Preserve the administrative termination. Freeze the same
   bracket as a 50-digit discrete augmented solve using the validated 8-by-8
   cyclic elimination; do not relax any event gate.
+  EXP-304 freezes the replacement at 50 decimal digits, 1,024 classical-RK4
+  steps per segment, eight workers, and six 8-by-8 Newton updates. It retains
+  the untouched bracket, `1e-22` augmented residual gate, and primitive
+  half-node separation; a pass remains a single-discretization pilot only.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
