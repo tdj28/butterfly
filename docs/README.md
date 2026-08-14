@@ -515,6 +515,10 @@ what must be narrowed, and what is false or unresolved.
   promotes the eighth exact numerical event while keeping period 3072 open.
 - [`experiments/EXP-307-jones-period1536-decimal-augmented-8192.md`](experiments/EXP-307-jones-period1536-decimal-augmented-8192.md):
   qualifies an 8,192-step event-eight representation for a period-3072 switch.
+- [`experiments/EXP-308-jones-period3072-8192-switch.md`](experiments/EXP-308-jones-period3072-8192-switch.md):
+  preserves a one-gate bilateral near miss at the inherited predictor length.
+- [`experiments/EXP-309-jones-period3072-separated-switch.md`](experiments/EXP-309-jones-period3072-separated-switch.md):
+  nominates bilateral primitive period-3072 candidates after deterministic separation.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

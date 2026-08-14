@@ -338,6 +338,14 @@ half-period nonclosure at `4.41e-8 < 5e-8`. The bilateral candidate-count gate
 therefore fails without relaxation. No period-3072 child or birth direction is
 promoted.
 
+CLM-008 addendum (EXP-309): deterministic factor-two predictor separation
+produces two accepted primitive period-3072 candidates. Both correct in two
+evaluations, with matching below `8.92e-11`, half-node RMS `9.02e-6`, direct
+half-period nonclosure `2.25e-6/3.52e-7`, period ratio within `1.11e-12` of
+two, and exact `3584/4096` identities. This nominates period-3072 children for
+independent stability qualification; it does not yet establish attraction or
+eighth-birth direction.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

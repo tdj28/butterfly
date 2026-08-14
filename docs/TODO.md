@@ -627,6 +627,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   is `4.41e-8 < 5e-8`; preserve the bilateral failure. EXP-309 freezes the
   deterministic factor-two predictor increase to `0.0005`, with both signs
   and every gate unchanged.
+  EXP-309 passes both signs at predictor `0.0005`: matching stays below
+  `8.92e-11`, half-node RMS is `9.02e-6`, half-period nonclosures are
+  `2.25e-6/3.52e-7`, and exact `3584/4096` identities pass. EXP-310 freezes an
+  independent DOP853/Radau parent/child stability audit of the negative sign,
+  selected solely by its larger nonclosure; preliminary multipliers remain
+  discarded.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

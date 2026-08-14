@@ -554,3 +554,9 @@ within `1.09e-12` of two, and exact doubled section identities. The negative
 sign passes; the positive sign's direct half-period nonclosure is
 `4.41e-8 < 5e-8`. EXP-309 is frozen with the deterministic factor-two
 predictor increase to `0.0005`, retaining both signs and every gate.
+
+EXP-309 passes both signs after 533 seconds. Matching remains below
+`8.92e-11`, half-node RMS doubles to `9.02e-6`, half-period nonclosures are
+`2.25e-6/3.52e-7`, and exact doubled section identities pass. EXP-310 is
+frozen to independently audit the negative sign under DOP853/Radau, selected
+solely by larger nonclosure and never by its preliminary multiplier.
