@@ -479,7 +479,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   but parent moduli `0.9999973/1.0000022` straddle one inside the frozen neutral
   margin. EXP-290 freezes eight sparse continuation steps to move the same
   child away from that parent-resolution frontier before another independent
-  audit.
+  audit. EXP-290 passes all eight exact steps, but the branch's sub-precision
+  `a` bend is not promoted as a fold. EXP-291 freezes complete 50-digit
+  classical-RK4 and RK4 3/8 parent multiplier sequences at the original
+  same-coordinate EXP-289 sample; a ten-to-one classification/error margin is
+  required before the seventh birth can be called subcritical.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

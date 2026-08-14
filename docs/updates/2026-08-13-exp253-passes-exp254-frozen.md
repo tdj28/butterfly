@@ -251,3 +251,13 @@ This points toward a subcritical seventh birth but does not qualify it.
 EXP-290 freezes eight sparse period-1536 continuation steps to obtain a farther
 child coordinate at which the parent classification can be resolved without
 relaxing the margin.
+
+EXP-290 passes nine exact rows after 670 seconds, with no step halving. The
+terminal child lies `3.014e-12` below the event, its half-node RMS has grown to
+`6.95e-5`, half-period closure is `9.07e-5`, and exact `1792/2048` identity
+persists. The initial `a` bend occurs below the Float64 conditioning scale and
+is not called a fold without a real `+1` event. Because criticality must be
+decided on the same side as the unstable EXP-289 child, EXP-291 instead freezes
+independent three-level 50-digit classical-RK4 and RK4 3/8 evaluation of the
+period-768 parent at exactly that coordinate. The stable-side signal must be
+at least `1e-6`, ten times the `1e-7` cross-tableau gate.

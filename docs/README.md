@@ -466,7 +466,9 @@ what must be narrowed, and what is false or unresolved.
   preserves a sole neutral-parent classification failure while both solvers
   classify the child as unstable.
 - [`experiments/EXP-290-jones-period1536-segmented-continuation.md`](experiments/EXP-290-jones-period1536-segmented-continuation.md):
-  freezes an eight-step child continuation away from the event.
+  passes an eight-step child continuation away from the event.
+- [`experiments/EXP-291-period768-decimal-parent-side.md`](experiments/EXP-291-period768-decimal-parent-side.md):
+  freezes a two-tableau high-precision parent-side classification.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
