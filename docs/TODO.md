@@ -493,9 +493,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `7.32e-5`--`9.32e-5` from the source while the tracked `-1` root collapses
   toward zero, consistent with convergence to a lower-period double cover.
   FND-101 therefore retracts event seven; six exact supercritical births and a
-  stable primitive period-768 child remain qualified. EXP-293 must freeze an
-  augmented 50-digit orbit-plus-antiperiodic-tangent solve that excludes the
-  double cover before the candidate is reconsidered.
+  stable primitive period-768 child remain qualified. EXP-293 now freezes an
+  augmented 50-digit orbit-plus-antiperiodic-tangent pilot that excludes the
+  double cover. It reduces the 6,146-variable cyclic Newton system to 8-by-8,
+  uses 1,024 RK4 steps on every segment, and requires `1e-22` augmented
+  residuals plus explicit source-neighborhood and half-orbit-separation gates
+  before the candidate is reconsidered.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

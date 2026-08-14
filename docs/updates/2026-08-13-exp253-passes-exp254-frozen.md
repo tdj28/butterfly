@@ -284,3 +284,14 @@ supercritical births through a stable primitive period-768 child, while the
 seventh coordinate and ratio `2.239` return to candidate status. EXP-293 will
 couple the high-precision orbit to an antiperiodic tangent so the double cover
 cannot satisfy the augmented equations.
+
+EXP-293 is frozen before execution. It integrates the exact 30-component
+orbit/first-/second-variational system in 50-digit arithmetic at 1,024 steps
+on each of 1,024 segments. Cyclic block elimination reduces every Newton
+update to an 8-by-8 system in base state, base tangent, period, and `a`; an
+algebraic regression test verifies the eliminated orbit, tangent, phase, and
+normalization equations. A period-384 double cover cannot pass the
+antiperiodic tangent boundary, and an independent half-orbit separation gate
+checks that exclusion directly. This is a formulation pilot only: even a pass
+will require multi-resolution and independent-tableau reproduction before the
+seventh event is restored.

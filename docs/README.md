@@ -477,6 +477,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-101-seventh-event-reopened-by-orbit-correction.md`](findings/FND-101-seventh-event-reopened-by-orbit-correction.md):
   retracts the seventh-event promotion and restores the secure result to six
   exact supercritical births through stable period 768.
+- [`experiments/EXP-293-period768-decimal-augmented-correction.md`](experiments/EXP-293-period768-decimal-augmented-correction.md):
+  freezes a 50-digit orbit-plus-antiperiodic-tangent pilot that excludes the
+  lower-period double cover from the augmented equations.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
