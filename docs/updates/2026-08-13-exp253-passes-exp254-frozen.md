@@ -307,3 +307,11 @@ period neighborhoods pass. No gate is relaxed. EXP-294 will use the complete
 Decimal solution as a warm start at 2,048 and 4,096 steps, testing whether the
 coordinate and tangent field converge at fourth order into the physical
 source neighborhood.
+
+EXP-294 is frozen before execution. It preserves the complete 1,024-step
+failure and warm-starts 2,048- and 4,096-step augmented corrections. The three
+coordinates and periods must converge with ratios in `[12,20]`; both the finest
+and fourth-order Richardson coordinate must enter the untouched EXP-280
+bracket. All original residual, source-neighborhood, and primitive-separation
+gates remain unchanged. A pass will still require an independent RK4 3/8
+correction before event seven is restored.

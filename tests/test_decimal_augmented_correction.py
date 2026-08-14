@@ -13,6 +13,7 @@ from correct_jones_period768_decimal_augmented import (  # noqa: E402
     vector_add,
     vector_scale,
 )
+from refine_jones_period768_decimal_augmented import convergence_ratio  # noqa: E402
 
 
 def _matrix(seed):
@@ -105,3 +106,8 @@ def test_augmented_block_elimination_solves_all_linearized_equations():
             Decimal(2) * sum(a * b for a, b in zip(tangent0, tangent[0]))
             + norm_residual
         ) < tolerance
+
+
+def test_augmented_resolution_ratio_detects_fourth_order_sequence():
+    values = [Decimal("1.0625"), Decimal("1.00390625"), Decimal("1.000244140625")]
+    assert convergence_ratio(values) == Decimal(16)
