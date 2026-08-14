@@ -281,6 +281,14 @@ Combined with EXP-299's independently stable child at the source coordinate,
 it brackets a child stability loss on the exact continuation prefix; it does
 not yet qualify a real-`-1` eighth event or change the secure event/birth count.
 
+CLM-008 addendum (EXP-302): the complete 18-row block-Floquet prefix passes and
+isolates exactly one stability-loss bracket in its first interval. The real
+period-1536 multiplier changes from `-0.12419628` to `-4.49514241` over
+`a in [0.24070100823770973,0.24070100823781396]`; four-shift relative spread
+is at most `2.35e-6`. This nominates an eighth real-`-1` cascade event for an
+augmented exact solve. It does not yet change the secure count of seven exact
+events and six independently supercritical births.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

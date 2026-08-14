@@ -555,6 +555,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   tracks dominant modulus rather than presuming a flip, requires cyclic
   agreement and at least one unit-modulus bracket, and separately reports real
   `-1` and `+1` brackets when admissible.
+  EXP-302 passes all 18 rows and isolates exactly one stability-loss bracket
+  in the first interval: real multipliers `-0.12419628 -> -4.49514241` over
+  `a in [0.24070100823770973,0.24070100823781396]`, width `1.04e-13`.
+  Four-shift relative spread stays below `2.35e-6`. Freeze an augmented exact
+  period-1536 orbit-plus-antiperiodic-tangent solve on this bracket; do not call
+  it an eighth event until the exact event and independent precision gates pass.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

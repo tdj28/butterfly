@@ -451,3 +451,11 @@ relative-modulus agreement and isolate at least one dominant-modulus crossing
 of one. The scan does not assume the boundary is a real `-1` flip; real `-1`
 and `+1` brackets are reported separately when their endpoint imaginary parts
 are below `1e-6`.
+
+EXP-302 passes after 2,035 seconds. All 18 rows retain matching below
+`9.97e-9`, and the maximum four-shift relative-modulus spread is `2.35e-6`.
+Exactly one stability-loss bracket occurs in the first interval, where the
+real multiplier changes from `-0.12419628` to `-4.49514241` over an `a` width
+of only `1.04e-13`. This nominates the next cascade flip. A later coarse sign
+transition remains outside the unit circle and is not classified. An augmented
+exact period-1536 event solve is required before an eighth event is promoted.
