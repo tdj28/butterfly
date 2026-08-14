@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-augmented-refinement-manifest.v1",
+  "experiment_id": "EXP-305",
+  "pilot_schema": "butterfly.jones-period1536-decimal-augmented-bracket-receipt.v1",
+  "pilot_receipt_sha256": "3b850e0544ec3edd0647de53dc3d0fbbd1fab654694796f9d1fa3895c0d411b2",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "decimal_digits": 50,
+  "method": "classical_rk4",
+  "method_order": 4,
+  "new_step_counts": [2048, 4096],
+  "workers": 8,
+  "maximum_newton_updates": 5,
+  "a_bounds": [0.24070100823770973, 0.24070100823781396],
+  "acceptance": {
+    "maximum_augmented_residual": 1e-22,
+    "minimum_convergence_ratio": 12.0,
+    "maximum_convergence_ratio": 20.0,
+    "maximum_node_displacement": 0.001,
+    "minimum_tangent_line_cosine": 0.99,
+    "minimum_half_node_rms_separation": 5e-6
+  },
+  "claim_scope": "prospective three-resolution 50-decimal-digit classical-RK4 augmented sequence for the first EXP-302 period-1536 flip bracket, preserving the failed 1024-step EXP-304 pilot and warm-starting 2048 and 4096 steps per segment with the identical 2048 nodes, antiperiodic tangent field, fixed b/c, phase, 8-by-8 cyclic Newton formulation, and 1e-22 residual gate; a and period increments must converge with fourth-order ratios in [12,20], the 2048/4096 fourth-order Richardson a must enter the untouched 1.04e-13 bracket, nodes must remain within 1e-3, every pointwise tangent line must retain absolute cosine at least 0.99, and primitive half-node RMS must remain above 5e-6; a pass validates one resolution-converged classical tableau sequence only, not independent reproduction or an eighth event, period-3072 existence, criticality, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

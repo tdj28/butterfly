@@ -580,6 +580,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   reaches `54.55`. Preserve the failure. Warm-start 2,048/4,096-step profiles,
   require fourth-order/Richardson bracket recovery, and gate sign-aligned
   tangent lines rather than raw tangent coordinates.
+  EXP-305 freezes the classical 1,024/2,048/4,096-step sequence with fourth-
+  order `a`/period ratios in `[12,20]`, Richardson bracket recovery, `1e-22`
+  augmented residuals, primitive separation, node identity, and minimum
+  pointwise tangent-line cosine `0.99`. A pass still requires independent RK4
+  3/8 reproduction.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -489,3 +489,10 @@ orbit/tangent residuals to `6.69e-33/2.70e-31`, and primitive half-node RMS is
 bracket, while raw tangent displacement reaches `54.55`; `a_bounds` and source
 neighborhood therefore fail. Multi-resolution Richardson recovery and
 sign-aligned tangent-line identity are required next.
+
+EXP-305 is frozen before execution. It preserves the failed 1,024-step pilot
+and warm-starts 2,048/4,096-step classical-RK4 profiles through the same 8-by-8
+cyclic solve. Fourth-order `a` and period ratios, Richardson recovery into the
+untouched bracket, `1e-22` residuals, primitive separation, bounded node
+motion, and pointwise tangent-line cosine at least `0.99` are mandatory. A
+pass remains classical-tableau evidence only.
