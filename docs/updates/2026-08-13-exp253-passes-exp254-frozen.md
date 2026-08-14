@@ -414,3 +414,14 @@ matching, branch-separation, closure, neutral, period-ratio, and exact section
 identity gates. All 33 rows and at least `1e-11` separation from the finite
 8,192-step event coordinate are required. A pass only supplies the terminal
 child for a separately frozen DOP853/Radau criticality audit.
+
+EXP-300 fails the unchanged 33-row gate after accepting 23 exact rows. Four
+allowed halvings rescue step 15; seven further reduced steps pass before step
+22 exhausts the minimum step with matching residual `1.00075e-8`, just above
+the `1e-8` gate. The accepted prefix reaches `7.56e-11` event separation and
+passes closure, neutral, half-period nonclosure, and exact `1792/2048` terminal
+identity. Its preliminary terminal multiplier is discarded. The first row to
+cross the prospectively declared `1e-11` separation is step 16, with matching
+residual `9.82e-9` and half-node RMS `1.255e-4`. A new frozen audit may select
+that first-threshold row for independent parent/child correction without
+relabeling EXP-300 as passed.

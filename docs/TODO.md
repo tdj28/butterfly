@@ -534,6 +534,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-300 freezes that continuation for 32 exact sparse steps, requiring all
   33 rows and at least `1e-11` terminal separation from the finite 8,192-step
   event coordinate before another criticality audit may be defined.
+  EXP-300 accepts only 23/33 rows and therefore fails without relaxation. Its
+  exact prefix nevertheless crosses `1e-11` separation at the prospectively
+  identifiable first-threshold row (step 16), while the terminal row reaches
+  `7.56e-11` and passes all terminal diagnostics. Freeze a new audit that
+  selects only the first-threshold row, independently recorrects parent and
+  child, and does not treat the failed continuation itself as qualified.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

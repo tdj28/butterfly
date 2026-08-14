@@ -263,6 +263,15 @@ supercritical seventh-birth interpretation; the ledger remains at seven exact
 events, six qualified supercritical births, and a stable primitive period-768
 child.
 
+CLM-008 addendum (EXP-300): a 32-step continuation from the independently
+stable EXP-299 child accepts only 23/33 required rows, so the receipt fails
+without relaxation. Its exact accepted prefix crosses the frozen `1e-11`
+event-separation threshold at step 16 and reaches `7.56e-11`; terminal closure,
+neutral, half-period nonclosure, and exact two-section identity all pass. The
+terminal preliminary multiplier is not evidence. A separately frozen audit may
+select the first-threshold row and independently correct it, but EXP-300 does
+not itself change the ledger's seven-event/six-supercritical-birth status.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
