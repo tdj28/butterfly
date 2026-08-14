@@ -495,6 +495,8 @@ what must be narrowed, and what is false or unresolved.
   passes 8,192-step refinement and the formerly failed DOP853 source gate.
 - [`experiments/EXP-298-jones-period1536-8192-switch.md`](experiments/EXP-298-jones-period1536-8192-switch.md):
   passes the maximally separated bilateral switch from the 8,192-step event.
+- [`experiments/EXP-299-jones-period1536-qualified-criticality.md`](experiments/EXP-299-jones-period1536-qualified-criticality.md):
+  freezes independent DOP853/Radau criticality at the corrected child coordinate.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

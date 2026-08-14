@@ -521,8 +521,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fresh two-sign switch from this passed representation at predictor length
   `0.00025`. Both signs pass at a common coordinate only `7.24e-14` above the
   Richardson event, with half-node RMS `6.31e-6`. Their preliminary multipliers
-  disagree and are discarded. Freeze DOP853/Radau parent/child correction from
-  the positive sign, preselected only by its larger half-period closure.
+  disagree and are discarded. EXP-299 now freezes DOP853/Radau parent/child
+  correction from the positive sign, preselected only by its larger half-period
+  closure; either resolved criticality passes and mixed/unresolved fails.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

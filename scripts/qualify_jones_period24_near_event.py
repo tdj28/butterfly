@@ -21,7 +21,7 @@ from qualify_jones_period24_segmented_endpoint import (
     corrected_family,
     cyclic_node_identity,
 )
-from switch_jones_period12_segmented_child import qualified_audit_bytes
+from switch_jones_period12_segmented_child import normalized_event, qualified_audit_bytes
 from validate_multiple_shooting_switch import half_closure
 
 
@@ -55,12 +55,14 @@ def main() -> int:
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
         raise SystemExit("event receipt hash mismatch")
     switch = json.loads(switch_bytes)
-    event = json.loads(event_bytes)
+    raw_event = json.loads(event_bytes)
     if not switch.get("passed"):
         raise SystemExit("a passed switch receipt is required")
+    if raw_event.get("schema") != manifest.get("event_schema"):
+        raise SystemExit("event schema mismatch")
     try:
         audit_bytes = qualified_audit_bytes(
-            event, event_bytes, manifest, args.audit
+            raw_event, event_bytes, manifest, args.audit
         )
     except ValueError as error:
         raise SystemExit(str(error)) from error
@@ -71,6 +73,7 @@ def main() -> int:
     }
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
+    event = normalized_event(raw_event, manifest)
     target = manifest["source_candidate"]
     selected = [
         row

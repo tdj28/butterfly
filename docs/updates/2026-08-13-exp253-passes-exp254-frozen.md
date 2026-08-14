@@ -390,3 +390,10 @@ Half-node RMS is `6.31e-6`, half-period closures are `2.11e-6/2.97e-6`, and
 exact `1792/2048` identity passes. The preliminary sign multipliers disagree
 and are discarded. The positive sign is selected for an independent
 DOP853/Radau audit solely by its larger half-period closure.
+
+EXP-299 is frozen before execution. DOP853 and Radau independently correct the
+qualified parent and the positive-sign period-1536 child at their common
+coordinate. Residual, node-identity, multiplier-spread, child nonclosure, and
+exact section gates are unchanged from the prior criticality design, with a
+`2e-6` nonclosure floor fixed from the passed EXP-298 pair. Either consistently
+supercritical or subcritical exchange passes; mixed or unresolved fails.
