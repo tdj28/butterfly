@@ -36,10 +36,75 @@ SCHEMAS = {
 }
 
 
+def selected_child_seed(
+    source_receipt: dict, event: dict, manifest: dict, source_kind: str
+) -> dict:
+    """Select the prospectively declared child without using stability."""
+
+    target = manifest["source_candidate"]
+    if source_kind == "switch":
+        if not source_receipt.get("passed"):
+            raise ValueError("a passed switch receipt is required")
+        selected = [
+            row
+            for row in source_receipt["accepted_candidates"]
+            if float(row["step_length"]) == float(target["step_length"])
+            and int(row["direction"]) == int(target["direction"])
+        ]
+        if len(selected) != 1:
+            raise ValueError("source candidate is not uniquely selected")
+        return selected[0]
+
+    if source_receipt.get("schema") != manifest.get("continuation_schema"):
+        raise ValueError("continuation schema mismatch")
+    if not source_receipt.get("passed") and not manifest.get(
+        "allow_failed_continuation_prefix", False
+    ):
+        raise ValueError("a failed continuation prefix is not authorized")
+    if target.get("selection_rule") != "first_absolute_event_separation":
+        raise ValueError("unsupported continuation source-selection rule")
+    minimum_separation = float(target["minimum_absolute_event_separation"])
+    rows = source_receipt.get("rows", [])
+    selected_index = next(
+        (
+            index
+            for index, row in enumerate(rows)
+            if abs(float(row["a"]) - float(event["corrected_a"]))
+            >= minimum_separation
+        ),
+        None,
+    )
+    if selected_index is None:
+        raise ValueError("continuation has no row at the declared event separation")
+    prefix = rows[: selected_index + 1]
+    if not all(row["status"]["success"] for row in prefix):
+        raise ValueError("continuation prefix contains an unsuccessful row")
+    if max(float(row["status"]["matching_residual"]) for row in prefix) > float(
+        target["maximum_prefix_matching_residual"]
+    ):
+        raise ValueError("continuation prefix exceeds the matching gate")
+    if min(float(row["half_node_rms"]) for row in prefix) < float(
+        target["minimum_prefix_half_node_rms"]
+    ):
+        raise ValueError("continuation prefix fails the primitive-separation gate")
+    selected = rows[selected_index]
+    if "expected_step_index" in target and int(selected["step_index"]) != int(
+        target["expected_step_index"]
+    ):
+        raise ValueError("first-threshold row does not match the frozen step index")
+    if "expected_a" in target and float(selected["a"]) != float(
+        target["expected_a"]
+    ):
+        raise ValueError("first-threshold row does not match the frozen coordinate")
+    return selected
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
-    parser.add_argument("--switch", type=Path, required=True)
+    source_group = parser.add_mutually_exclusive_group(required=True)
+    source_group.add_argument("--switch", type=Path)
+    source_group.add_argument("--continuation", type=Path)
     parser.add_argument("--event", type=Path, required=True)
     parser.add_argument("--audit", type=Path)
     parser.add_argument("--output", type=Path, required=True)
@@ -48,18 +113,28 @@ def main() -> int:
     manifest = json.loads(manifest_bytes)
     if manifest.get("schema") not in SCHEMAS:
         raise SystemExit("unsupported near-event qualification manifest")
-    switch_bytes = args.switch.read_bytes()
+    source_kind = "switch" if args.switch is not None else "continuation"
+    source_path = args.switch if args.switch is not None else args.continuation
+    source_bytes = source_path.read_bytes()
     event_bytes = args.event.read_bytes()
-    if sha256_bytes(switch_bytes) != manifest["switch_receipt_sha256"]:
-        raise SystemExit("switch receipt hash mismatch")
+    source_hash_key = (
+        "switch_receipt_sha256"
+        if source_kind == "switch"
+        else "continuation_receipt_sha256"
+    )
+    if sha256_bytes(source_bytes) != manifest[source_hash_key]:
+        raise SystemExit(f"{source_kind} receipt hash mismatch")
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
         raise SystemExit("event receipt hash mismatch")
-    switch = json.loads(switch_bytes)
+    source_receipt = json.loads(source_bytes)
     raw_event = json.loads(event_bytes)
-    if not switch.get("passed"):
-        raise SystemExit("a passed switch receipt is required")
     if raw_event.get("schema") != manifest.get("event_schema"):
         raise SystemExit("event schema mismatch")
+    if (
+        source_kind == "continuation"
+        and source_receipt.get("event_receipt_sha256") != sha256_bytes(event_bytes)
+    ):
+        raise SystemExit("continuation is not bound to the selected event")
     try:
         audit_bytes = qualified_audit_bytes(
             raw_event, event_bytes, manifest, args.audit
@@ -74,16 +149,12 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
     event = normalized_event(raw_event, manifest)
-    target = manifest["source_candidate"]
-    selected = [
-        row
-        for row in switch["accepted_candidates"]
-        if float(row["step_length"]) == float(target["step_length"])
-        and int(row["direction"]) == int(target["direction"])
-    ]
-    if len(selected) != 1:
-        raise SystemExit("source candidate is not uniquely selected")
-    child_seed = selected[0]
+    try:
+        child_seed = selected_child_seed(
+            source_receipt, event, manifest, source_kind
+        )
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     parent_seed = {"nodes": event["nodes"], "period_time": event["period_time"]}
     fixed_b = float(manifest["fixed_b"])
     fixed_c = float(manifest["fixed_c"])
@@ -99,7 +170,11 @@ def main() -> int:
             parent_seed, int(event["segment_count"]), parameters, solver, manifest
         )
         child = corrected_family(
-            child_seed, int(switch["segment_count"]), parameters, solver, manifest
+            child_seed,
+            int(source_receipt["segment_count"]),
+            parameters,
+            solver,
+            manifest,
         )
         orbit = SimpleNamespace(
             initial_state=child["nodes"][0], period_time=child["period_time"]
@@ -196,7 +271,13 @@ def main() -> int:
         ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
-        "switch_receipt_sha256": sha256_bytes(switch_bytes),
+        "source_receipt_kind": source_kind,
+        "switch_receipt_sha256": (
+            sha256_bytes(source_bytes) if source_kind == "switch" else None
+        ),
+        "continuation_receipt_sha256": (
+            sha256_bytes(source_bytes) if source_kind == "continuation" else None
+        ),
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "audit_receipt_sha256": (
             sha256_bytes(audit_bytes) if audit_bytes is not None else None

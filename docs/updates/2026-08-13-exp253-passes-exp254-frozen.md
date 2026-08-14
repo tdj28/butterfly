@@ -425,3 +425,11 @@ cross the prospectively declared `1e-11` separation is step 16, with matching
 residual `9.82e-9` and half-node RMS `1.255e-4`. A new frozen audit may select
 that first-threshold row for independent parent/child correction without
 relabeling EXP-300 as passed.
+
+EXP-301 is frozen before execution. It selects the first accepted EXP-300 row
+whose absolute event separation reaches `1e-11`: step 16 at
+`a=0.24070100822533044`. The entire source prefix must retain the unchanged
+matching and primitive-separation gates, and no preliminary multiplier enters
+the rule. DOP853 and Radau then independently recorrect parent and child under
+the same residual, node-identity, multiplier-spread, half-period nonclosure,
+classification-margin, and exact section gates used by EXP-299.

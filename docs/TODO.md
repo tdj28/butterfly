@@ -540,6 +540,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `7.56e-11` and passes all terminal diagnostics. Freeze a new audit that
   selects only the first-threshold row, independently recorrects parent and
   child, and does not treat the failed continuation itself as qualified.
+  EXP-301 freezes that audit at the deterministic first-threshold row, step 16
+  at `a=0.24070100822533044`. The same two solvers, `1e-4` classification
+  margin, `0.02` multiplier-spread ceiling, and exact section identities apply;
+  either resolved criticality passes and unresolved fails.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
