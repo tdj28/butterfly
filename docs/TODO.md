@@ -519,7 +519,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   augmented refinement with `15.860/15.853` increment ratios and reduces the
   doubled DOP853 source residual to `9.64e-10 < 1e-8`. EXP-298 now freezes a
   fresh two-sign switch from this passed representation at predictor length
-  `0.00025`, preselected only from EXP-296's maximum separation and closure.
+  `0.00025`. Both signs pass at a common coordinate only `7.24e-14` above the
+  Richardson event, with half-node RMS `6.31e-6`. Their preliminary multipliers
+  disagree and are discarded. Freeze DOP853/Radau parent/child correction from
+  the positive sign, preselected only by its larger half-period closure.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -494,7 +494,7 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-297-period768-decimal-augmented-8192.md`](experiments/EXP-297-period768-decimal-augmented-8192.md):
   passes 8,192-step refinement and the formerly failed DOP853 source gate.
 - [`experiments/EXP-298-jones-period1536-8192-switch.md`](experiments/EXP-298-jones-period1536-8192-switch.md):
-  freezes the maximally separated bilateral switch from the 8,192-step event.
+  passes the maximally separated bilateral switch from the 8,192-step event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

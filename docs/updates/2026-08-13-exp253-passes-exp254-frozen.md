@@ -383,3 +383,10 @@ length `0.00025`, preselected from EXP-296 by maximum half-node and half-period
 separation. Both must pass all unchanged source, null, correction, primitive,
 period-ratio, displacement, and exact identity gates before a criticality audit
 is frozen.
+
+EXP-298 passes both signs after 268 seconds. Each corrects in two evaluations
+at `a=0.24070100823781396`, only `7.24e-14` above the EXP-297 Richardson event.
+Half-node RMS is `6.31e-6`, half-period closures are `2.11e-6/2.97e-6`, and
+exact `1792/2048` identity passes. The preliminary sign multipliers disagree
+and are discarded. The positive sign is selected for an independent
+DOP853/Radau audit solely by its larger half-period closure.
