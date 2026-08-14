@@ -633,6 +633,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   independent DOP853/Radau parent/child stability audit of the negative sign,
   selected solely by its larger nonclosure; preliminary multipliers remain
   discarded.
+  EXP-310 passes every nonclassification gate and finds the period-3072 child
+  strongly unstable under both solvers (`18.981764/18.981804`). The parent
+  moduli `1.00003875/0.99995754` remain inside the frozen `1e-4` neutral
+  margin, so criticality is unresolved rather than promoted. Preserve the
+  strong subcritical evidence. Continue the selected child to a farther
+  same-side coordinate, then repeat the independent parent/child audit without
+  relaxing the margin.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

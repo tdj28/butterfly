@@ -346,6 +346,16 @@ two, and exact `3584/4096` identities. This nominates period-3072 children for
 independent stability qualification; it does not yet establish attraction or
 eighth-birth direction.
 
+CLM-008 addendum (EXP-310): DOP853/Radau independently classify the primitive
+period-3072 child as strongly unstable with moduli
+`18.98176427/18.98180420`; every orbit, identity, nonclosure, and agreement
+gate passes. Parent moduli `1.00003875/0.99995754` remain inside the frozen
+`1e-4` neutral margin, so the combined result correctly fails as
+`other-or-unresolved`. This is strong evidence consistent with a subcritical
+eighth birth, but the secure ledger remains eight exact events and six
+independently qualified supercritical births until a farther same-side audit
+resolves the parent.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

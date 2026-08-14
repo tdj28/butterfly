@@ -519,6 +519,8 @@ what must be narrowed, and what is false or unresolved.
   preserves a one-gate bilateral near miss at the inherited predictor length.
 - [`experiments/EXP-309-jones-period3072-separated-switch.md`](experiments/EXP-309-jones-period3072-separated-switch.md):
   nominates bilateral primitive period-3072 candidates after deterministic separation.
+- [`experiments/EXP-310-jones-period3072-qualified-criticality.md`](experiments/EXP-310-jones-period3072-qualified-criticality.md):
+  finds a strongly unstable child while preserving the parent neutral-margin failure.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

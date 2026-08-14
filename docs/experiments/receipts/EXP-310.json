@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.jones-period3072-near-event-qualification-summary.v1",
+  "experiment_id": "EXP-310",
+  "passed": false,
+  "source_commit": "8809e7e3a76072140de2b79609cf6e01ce9d7095",
+  "manifest_sha256": "ff1b9c74bfd13a174c78126ec8d45d24009696f2f5d58b761cb2e879a540f34e",
+  "switch_receipt_sha256": "f4991cc53e1fe68eea5a0a60e3f52ec2f731b43371d943db49ae1e3a19c0510a",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "raw_artifact": "artifacts/EXP-310/receipt.json",
+  "raw_artifact_bytes": 765920,
+  "raw_artifact_sha256": "503612aa82a1feb0f717063d0f021229cc7e5f6fef93c7a058b0823cd4b53fad",
+  "elapsed_seconds": 6276.001271374989,
+  "target_a": 0.24070100822429846,
+  "classifications": {
+    "dop853": {"parent": "neutral", "child": "unstable"},
+    "radau": {"parent": "neutral", "child": "unstable"}
+  },
+  "parent_moduli": [1.0000387536067337, 0.9999575396977309],
+  "child_moduli": [18.98176426821229, 18.98180420177177],
+  "parent_multiplier_relative_spread": 8.121076179280579e-5,
+  "child_multiplier_relative_spread": 2.103781023835317e-6,
+  "local_criticality_classification": "other-or-unresolved",
+  "interpretation": "Both solvers independently classify the primitive period-3072 child as strongly unstable and pass every orbit, identity, nonclosure, and agreement gate. The parent remains inside the frozen 1e-4 neutral margin under both solvers, so the result is strong subcritical evidence but does not promote the eighth-birth direction."
+}

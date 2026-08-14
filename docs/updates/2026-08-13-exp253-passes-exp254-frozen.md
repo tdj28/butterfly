@@ -560,3 +560,11 @@ EXP-309 passes both signs after 533 seconds. Matching remains below
 `2.25e-6/3.52e-7`, and exact doubled section identities pass. EXP-310 is
 frozen to independently audit the negative sign under DOP853/Radau, selected
 solely by larger nonclosure and never by its preliminary multiplier.
+
+EXP-310 completes after 6,276 seconds and fails only the parent neutral-margin
+classification. Both solvers classify the primitive period-3072 child as
+strongly unstable (`18.981764/18.981804`), while matching, exact identities,
+nonclosure, node identity, and multiplier spread all pass. Parent moduli
+`1.00003875/0.99995754` remain inside the frozen `1e-4` margin. The result is
+strong subcritical evidence, not a promotion. A farther same-side child
+continuation and unchanged-margin re-audit are next.
