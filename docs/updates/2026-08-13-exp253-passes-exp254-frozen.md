@@ -466,3 +466,11 @@ augmented orbit-plus-antiperiodic-tangent solve. DOP853 and segmented Radau
 retain maximum step `0.01`, symmetric real-flip residual gates, cyclic and
 proper-subperiod checks, and exact `1792/2048` section identity. A pass would
 qualify an eighth event only, not a period-3072 child or birth direction.
+
+EXP-303 is administratively terminated after four evaluations and has no
+scientific verdict. The 12,290-variable dense trust-region seed residual is
+`0.251`; a second trial stagnates and two later trials diverge to
+`2.91e6/1.84e5`, with multi-minute dense factorizations. No raw receipt or gate
+result is produced, and EXP-302's bracket is unchanged. The production event
+solve will retain the same target while replacing dense factorization with the
+validated 8-by-8 Decimal cyclic elimination.

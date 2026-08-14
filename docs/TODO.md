@@ -565,6 +565,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   solve with DOP853 and segmented Radau, maximum step `0.01`, the exact bracket
   bounds, and unchanged event/primitive/two-section gates. A pass is event-only;
   period-3072 existence and criticality remain separate.
+  EXP-303 is terminated without a scientific verdict after the 12,290-variable
+  dense trust-region residual stagnates at `0.251` and two trials diverge to
+  `2.91e6/1.84e5`. Preserve the administrative termination. Freeze the same
+  bracket as a 50-digit discrete augmented solve using the validated 8-by-8
+  cyclic elimination; do not relax any event gate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
