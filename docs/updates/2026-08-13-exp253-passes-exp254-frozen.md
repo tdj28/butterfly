@@ -397,3 +397,13 @@ coordinate. Residual, node-identity, multiplier-spread, child nonclosure, and
 exact section gates are unchanged from the prior criticality design, with a
 `2e-6` nonclosure floor fixed from the passed EXP-298 pair. Either consistently
 supercritical or subcritical exchange passes; mixed or unresolved fails.
+
+EXP-299 finishes after 2,704 seconds and preserves a single classification
+failure. DOP853/Radau independently classify the primitive period-1536 child
+as stable with moduli `0.12419628/0.12419164`; matching, phase, node identity,
+multiplier spread, half-period nonclosure, and exact `1792/2048` section
+identity all pass. The period-768 parent remains inside the frozen `1e-4`
+neutral margin at moduli `0.99999149/1.00002167`, so the combined result is
+`other-or-unresolved`. This is strong evidence consistent with a supercritical
+seventh birth, not a promotion. The next run will continue the qualified child
+farther from the event before repeating the independent criticality audit.

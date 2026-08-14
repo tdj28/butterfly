@@ -524,6 +524,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   disagree and are discarded. EXP-299 now freezes DOP853/Radau parent/child
   correction from the positive sign, preselected only by its larger half-period
   closure; either resolved criticality passes and mixed/unresolved fails.
+  EXP-299 passes every nonclassification gate. DOP853/Radau independently give
+  stable child moduli `0.12419628/0.12419164` with `3.73e-5` relative spread,
+  but parent moduli `0.99999149/1.00002167` remain inside the frozen `1e-4`
+  neutral margin, so the receipt is preserved as `other-or-unresolved`. Freeze
+  an exact sparse continuation of the stable child away from the event, then
+  repeat the independent parent/child audit at the terminal coordinate without
+  relaxing the classification margin.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

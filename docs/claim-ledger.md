@@ -249,6 +249,20 @@ retracted `2.239` to `4.244`. The ledger now supports seven exact events, six
 supercritical births, and a stable primitive period-768 child; the seventh
 birth's criticality and period-1536 stability remain open.
 
+CLM-008 addendum (EXP-296--299): the first fresh switch fails only because its
+qualified 4,096-step event source misses the unchanged DOP853 matching gate by
+`4.41e-9`. An 8,192-step augmented refinement then passes all ten gates and
+reduces that residual to `9.64e-10`; both largest-predictor switch signs pass
+from the refined source. A prospectively selected positive sign is corrected
+independently under DOP853 and Radau. Both solvers classify the primitive
+period-1536 child as strongly stable, with moduli `0.12419628/0.12419164`, and
+pass every orbit, identity, and agreement gate. The parent remains inside the
+frozen `1e-4` neutral margin at `0.99999149/1.00002167`, so EXP-299 correctly
+fails as `other-or-unresolved`. This strengthens, but does not yet promote, a
+supercritical seventh-birth interpretation; the ledger remains at seven exact
+events, six qualified supercritical births, and a stable primitive period-768
+child.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
