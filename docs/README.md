@@ -463,7 +463,10 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-288-jones-period1536-segmented-switch.md`](experiments/EXP-288-jones-period1536-segmented-switch.md):
   passes all six sparse 2,048-segment bilateral period-1536 switches.
 - [`experiments/EXP-289-jones-period1536-near-event-qualification.md`](experiments/EXP-289-jones-period1536-near-event-qualification.md):
-  freezes a two-solver criticality test without assuming its direction.
+  preserves a sole neutral-parent classification failure while both solvers
+  classify the child as unstable.
+- [`experiments/EXP-290-jones-period1536-segmented-continuation.md`](experiments/EXP-290-jones-period1536-segmented-continuation.md):
+  freezes an eight-step child continuation away from the event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

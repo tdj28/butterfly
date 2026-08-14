@@ -241,3 +241,13 @@ selects that candidate by separation and closure, not by its apparent
 stability, and freezes independent DOP853/Radau correction. Either consistently
 supercritical or consistently subcritical exchange passes; an unresolved
 classification fails.
+
+EXP-289 fails only that resolution requirement after 2,686 seconds. DOP853 and
+Radau independently classify the child as unstable with moduli
+`1.1073340/1.1073277` and relative spread `5.74e-6`; all correction, node,
+half-period, identity, and spread gates pass. The parent moduli are
+`0.9999973/1.0000022`, straddling one inside the frozen `1e-4` neutral margin.
+This points toward a subcritical seventh birth but does not qualify it.
+EXP-290 freezes eight sparse period-1536 continuation steps to obtain a farther
+child coordinate at which the parent classification can be resolved without
+relaxing the margin.

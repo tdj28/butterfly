@@ -35,6 +35,7 @@ SCHEMAS = {
     "butterfly.jones-period192-segmented-continuation-manifest.v1",
     "butterfly.jones-period384-segmented-continuation-manifest.v1",
     "butterfly.jones-period768-segmented-continuation-manifest.v1",
+    "butterfly.jones-period1536-segmented-continuation-manifest.v1",
 }
 
 
@@ -171,6 +172,7 @@ def main() -> int:
                 max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
                 continuation_parameter="a",
                 fixed_b=fixed_b,
+                sparse_jacobian=manifest.get("jacobian_storage") == "sparse_csr",
             )
             status = {
                 **status,

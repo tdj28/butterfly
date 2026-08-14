@@ -474,7 +474,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   2,048-segment switches and nominates primitive period-1536 candidates with
   exact `1792/2048` identity. EXP-289 freezes the independent DOP853/Radau
   criticality test without assuming whether the local exchange is
-  supercritical or subcritical.
+  supercritical or subcritical. EXP-289 preserves a sole resolution failure:
+  both solvers classify the child as unstable with `5.74e-6` relative spread,
+  but parent moduli `0.9999973/1.0000022` straddle one inside the frozen neutral
+  margin. EXP-290 freezes eight sparse continuation steps to move the same
+  child away from that parent-resolution frontier before another independent
+  audit.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
