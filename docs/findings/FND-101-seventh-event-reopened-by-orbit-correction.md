@@ -34,7 +34,17 @@ seventh criticality direction, period-1536 attraction, limiting scaling,
 universality, paired shrimp boundaries, TBA membership, double-criticality, or
 global parameter-plane topology follows.
 
+EXP-293 subsequently shows that the proposed augmented formulation can solve
+the discrete orbit and antiperiodic-tangent equations without collapsing to
+the double cover: residuals reach `2.75e-31/1.23e-30` and half-orbit RMS stays
+`2.58e-5`. At 1,024 steps per segment, however, the corrected `a` lies
+`4.50e-9` outside the source coordinate and beyond the frozen bracket, while
+the pointwise tangent-neighborhood gate also fails. This promising pilot does
+not supersede the retraction; resolution convergence remains mandatory.
+
 Evidence:
 [`../experiments/EXP-291-period768-decimal-parent-side.md`](../experiments/EXP-291-period768-decimal-parent-side.md)
 and
-[`../experiments/EXP-292-period768-decimal-parent-correction.md`](../experiments/EXP-292-period768-decimal-parent-correction.md).
+[`../experiments/EXP-292-period768-decimal-parent-correction.md`](../experiments/EXP-292-period768-decimal-parent-correction.md),
+with augmented follow-up in
+[`../experiments/EXP-293-period768-decimal-augmented-correction.md`](../experiments/EXP-293-period768-decimal-augmented-correction.md).

@@ -221,6 +221,14 @@ seventh-event coordinate and ratio `2.239` are candidates only; an augmented
 orbit-plus-antiperiodic-tangent correction is required to resolve them
 (FND-101).
 
+CLM-008 addendum (EXP-293): the first 50-digit augmented orbit-plus-tangent
+pilot converges the 1,024-step discrete equations to residuals below `1.24e-30`
+and preserves `2.58e-5` half-orbit separation, thereby avoiding the
+lower-period double-cover collapse seen in EXP-292. It still fails the frozen
+physical bracket after a `-4.50e-9` coordinate shift and fails the pointwise
+tangent-source gate. The seventh-event retraction remains in force pending
+multi-resolution and independent-tableau reproduction.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

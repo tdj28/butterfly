@@ -295,3 +295,15 @@ antiperiodic tangent boundary, and an independent half-orbit separation gate
 checks that exclusion directly. This is a formulation pilot only: even a pass
 will require multi-resolution and independent-tableau reproduction before the
 seventh event is restored.
+
+EXP-293 fails two of four gates after 69 seconds, but resolves the structural
+question that motivated it. Five Newton updates reduce maximum orbit and
+antiperiodic-tangent residuals to `2.75e-31/1.23e-30`; half-orbit RMS remains
+`2.58e-5`, so the augmented solution does not collapse to the lower-period
+double cover. The 1,024-step coordinate shifts `-4.50e-9` beyond the frozen
+bracket, and maximum along-orbit tangent displacement is `4.16 > 0.1` even
+though the normalized base tangent changes only `2.24e-4`. The state and
+period neighborhoods pass. No gate is relaxed. EXP-294 will use the complete
+Decimal solution as a warm start at 2,048 and 4,096 steps, testing whether the
+coordinate and tangent field converge at fourth order into the physical
+source neighborhood.

@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.jones-period768-decimal-augmented-correction-receipt.v1",
+  "experiment_id": "EXP-293",
+  "source_commit": "0704f097a08befc8bc512faaecd70a65af1371f6",
+  "manifest_sha256": "fdf0bc0a75511267b601daf2c6f95de56022c07332ccb14771bdcbbb7d148737",
+  "raw_receipt_sha256": "67bde56cc9dea819a105757157129a9279b8d1ce837ed7cd4ee713aa2e6ddc08",
+  "steps_per_segment": 1024,
+  "newton_updates": 5,
+  "corrected_a_decimal": "0.24070100367533995725548194100836231300585583960266",
+  "period_time_decimal": "5723.8664299387172268311735692509530526682759794852",
+  "final_orbit_residual": 2.745522895036157e-31,
+  "final_tangent_residual": 1.2302311408276838e-30,
+  "final_phase_residual": 2.207684601506e-52,
+  "final_normalization_residual": 1.9039705443e-39,
+  "parameter_displacement": 4.498092542744518e-09,
+  "maximum_source_node_displacement": 4.7953898346194484e-05,
+  "maximum_source_tangent_displacement": 4.162033317188582,
+  "source_period_displacement": 1.3973649226831173e-05,
+  "half_node_rms_separation": 2.5800914301915208e-05,
+  "checks": {
+    "correction": true,
+    "a_bounds": false,
+    "source_neighborhood": false,
+    "primitive_half_separation": true
+  },
+  "passed": false
+}

@@ -495,10 +495,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   FND-101 therefore retracts event seven; six exact supercritical births and a
   stable primitive period-768 child remain qualified. EXP-293 now freezes an
   augmented 50-digit orbit-plus-antiperiodic-tangent pilot that excludes the
-  double cover. It reduces the 6,146-variable cyclic Newton system to 8-by-8,
-  uses 1,024 RK4 steps on every segment, and requires `1e-22` augmented
-  residuals plus explicit source-neighborhood and half-orbit-separation gates
-  before the candidate is reconsidered.
+  double cover. It reduces the 6,146-variable cyclic Newton system to 8-by-8
+  and converges the 1,024-step discrete equations to `2.75e-31/1.23e-30`
+  orbit/tangent residuals while retaining `2.58e-5` half-orbit separation.
+  It nevertheless fails `a_bounds` after a `-4.50e-9` coordinate shift and
+  fails the pointwise tangent-neighborhood gate. Preserve that failure.
+  EXP-294 must refine the same augmented solution at 2,048 and 4,096 steps,
+  test fourth-order coordinate convergence, and apply the original physical
+  bracket and source/primitive gates to the finest result.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
