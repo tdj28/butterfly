@@ -551,6 +551,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Freeze a magnitude-separated block-Floquet scan from the source through step
   16, requiring the exact prefix gates and at least one real-`-1` bracket;
   refine any bracket separately before discussing an eighth event.
+  EXP-302 freezes the complete 18-row source-to-step-16 block-Floquet scan. It
+  tracks dominant modulus rather than presuming a flip, requires cyclic
+  agreement and at least one unit-modulus bracket, and separately reports real
+  `-1` and `+1` brackets when admissible.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

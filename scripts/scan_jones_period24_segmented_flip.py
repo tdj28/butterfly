@@ -24,6 +24,7 @@ SCHEMAS = {
     "butterfly.jones-period192-segmented-flip-scan-manifest.v1",
     "butterfly.jones-period384-segmented-flip-scan-manifest.v1",
     "butterfly.jones-period768-segmented-flip-scan-manifest.v1",
+    "butterfly.jones-period1536-segmented-flip-scan-manifest.v1",
 }
 
 
@@ -34,6 +35,26 @@ def transverse_values(floquet: dict) -> list[complex]:
     )
     neutral = int(np.argmin(np.abs(eigenvalues - 1.0)))
     return [complex(value) for index, value in enumerate(eigenvalues) if index != neutral]
+
+
+def selected_source_rows(continuation: dict, manifest: dict) -> list[dict]:
+    """Return either a passed continuation or an explicitly allowed exact prefix."""
+
+    if continuation.get("passed"):
+        return continuation["rows"]
+    if not manifest.get("allow_failed_continuation_prefix", False):
+        raise ValueError("a passed period-24 continuation is required")
+    maximum_step = int(manifest["maximum_source_step_index"])
+    rows = [
+        row
+        for row in continuation.get("rows", [])
+        if int(row["step_index"]) <= maximum_step
+    ]
+    if not rows or int(rows[-1]["step_index"]) != maximum_step:
+        raise ValueError("failed continuation does not contain the frozen prefix")
+    if not all(row["status"]["success"] for row in rows):
+        raise ValueError("failed continuation prefix contains an unsuccessful row")
+    return rows
 
 
 def main() -> int:
@@ -50,8 +71,10 @@ def main() -> int:
     if sha256_bytes(continuation_bytes) != manifest["continuation_receipt_sha256"]:
         raise SystemExit("continuation receipt hash mismatch")
     continuation = json.loads(continuation_bytes)
-    if not continuation.get("passed"):
-        raise SystemExit("a passed period-24 continuation is required")
+    try:
+        source_rows = selected_source_rows(continuation, manifest)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -66,7 +89,7 @@ def main() -> int:
     rows = []
     previous = None
     started = time.perf_counter()
-    for index, source_row in enumerate(continuation["rows"]):
+    for index, source_row in enumerate(source_rows):
         nodes = np.asarray(source_row["nodes"], dtype=float)
         parameters = RosslerParameters(
             a=float(source_row["a"]), b=fixed_b, c=fixed_c
@@ -87,6 +110,9 @@ def main() -> int:
                 abs(tracked) / max(abs(collapsed), 1e-300)
             )
         elif previous is None:
+            tracked = max(values, key=abs)
+            modulus_separation_ratio = None
+        elif manifest.get("tracking_method") == "dominant_modulus":
             tracked = max(values, key=abs)
             modulus_separation_ratio = None
         else:
@@ -112,10 +138,16 @@ def main() -> int:
                 "modulus": float(abs(tracked)),
             },
             "flip_residual": float(tracked.real + 1.0),
+            "fold_residual": float(tracked.real - 1.0),
+            "stability_residual": float(abs(tracked) - 1.0),
             "modulus_separation_ratio": modulus_separation_ratio,
             "cyclic_dominant_real_spread": float(
                 max(value.real for value in cyclic)
                 - min(value.real for value in cyclic)
+            ),
+            "cyclic_dominant_modulus_relative_spread": float(
+                (max(abs(value) for value in cyclic) - min(abs(value) for value in cyclic))
+                / max(abs(value) for value in cyclic)
             ),
             "floquet": floquet,
         }
@@ -132,8 +164,20 @@ def main() -> int:
             flush=True,
         )
     brackets = []
+    fold_brackets = []
+    stability_brackets = []
     imaginary_limit = float(manifest["acceptance"]["maximum_multiplier_imaginary"])
     for left, right in zip(rows[:-1], rows[1:]):
+        if left["stability_residual"] * right["stability_residual"] <= 0.0:
+            stability_brackets.append(
+                {
+                    "left_index": left["index"],
+                    "right_index": right["index"],
+                    "a_bracket": sorted([left["a"], right["a"]]),
+                    "left_multiplier": left["tracked_multiplier"],
+                    "right_multiplier": right["tracked_multiplier"],
+                }
+            )
         if max(
             abs(left["tracked_multiplier"]["imag"]),
             abs(right["tracked_multiplier"]["imag"]),
@@ -149,23 +193,48 @@ def main() -> int:
                     "right_multiplier": right["tracked_multiplier"],
                 }
             )
+        if left["fold_residual"] * right["fold_residual"] <= 0.0:
+            fold_brackets.append(
+                {
+                    "left_index": left["index"],
+                    "right_index": right["index"],
+                    "a_bracket": sorted([left["a"], right["a"]]),
+                    "left_multiplier": left["tracked_multiplier"],
+                    "right_multiplier": right["tracked_multiplier"],
+                }
+            )
     acceptance = manifest["acceptance"]
     passed = bool(
         len(rows) == int(acceptance["required_points"])
-        and len(brackets) >= int(acceptance["minimum_flip_brackets"])
+        and len(stability_brackets)
+        >= int(acceptance.get("minimum_stability_brackets", 0))
+        and len(brackets) >= int(acceptance.get("minimum_flip_brackets", 0))
         and max(row["matching_residual"] for row in rows)
         <= float(acceptance["maximum_matching_residual"])
-        and max(abs(row["tracked_multiplier"]["imag"]) for row in rows)
-        <= imaginary_limit
+        and (
+            manifest.get("tracking_method") == "dominant_modulus"
+            or max(abs(row["tracked_multiplier"]["imag"]) for row in rows)
+            <= imaginary_limit
+        )
         and rows[0]["tracked_multiplier"]["modulus"]
         <= float(acceptance["maximum_initial_multiplier_modulus"])
-        and rows[-1]["tracked_multiplier"]["real"]
-        <= float(acceptance["maximum_terminal_multiplier_real"])
+        and (
+            "maximum_terminal_multiplier_real" not in acceptance
+            or rows[-1]["tracked_multiplier"]["real"]
+            <= float(acceptance["maximum_terminal_multiplier_real"])
+        )
+        and (
+            "minimum_terminal_multiplier_modulus" not in acceptance
+            or rows[-1]["tracked_multiplier"]["modulus"]
+            >= float(acceptance["minimum_terminal_multiplier_modulus"])
+        )
         and (
             manifest.get("tracking_method") != "magnitude_separated"
             or min(row["modulus_separation_ratio"] for row in rows)
             >= float(acceptance["minimum_modulus_separation_ratio"])
         )
+        and max(row["cyclic_dominant_modulus_relative_spread"] for row in rows)
+        <= float(acceptance.get("maximum_cyclic_modulus_relative_spread", 1.0))
     )
     output = {
         "schema": manifest.get(
@@ -181,6 +250,8 @@ def main() -> int:
         "fixed_c": fixed_c,
         "rows": rows,
         "flip_brackets": brackets,
+        "fold_brackets": fold_brackets,
+        "stability_brackets": stability_brackets,
         "elapsed_seconds": time.perf_counter() - started,
         "passed": passed,
         "claim_scope": manifest["claim_scope"],

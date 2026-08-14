@@ -443,3 +443,11 @@ result therefore cannot classify the seventh birth, but EXP-299 and EXP-301
 together bracket a stability loss of the primitive period-1536 child along the
 exact accepted EXP-300 prefix. A prospective block-Floquet scan must isolate
 that loss before any eighth-event claim.
+
+EXP-302 is frozen before execution. It scans all 18 exact accepted EXP-300 rows
+from the independently stable source through the independently unstable step
+16. DOP853 block-Floquet spectra at four cyclic shifts must retain `0.02`
+relative-modulus agreement and isolate at least one dominant-modulus crossing
+of one. The scan does not assume the boundary is a real `-1` flip; real `-1`
+and `+1` brackets are reported separately when their endpoint imaginary parts
+are below `1e-6`.
