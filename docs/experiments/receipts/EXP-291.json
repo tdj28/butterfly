@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.jones-period768-decimal-parent-side-summary.v1",
+  "experiment_id": "EXP-291",
+  "passed": false,
+  "source_commit": "cb6d3e4a1c1458fae10c786ce2c47b7316a0e348",
+  "manifest_sha256": "bb5364c49366fac42a0be8eda895c756087159e0b79f1e5d36809542e3c58c26",
+  "qualification_receipt_sha256": "546a199d1c3747d2eeaaa868f420c5bcc5ab3de9b8a3ab6a144e957d0a13f16c",
+  "raw_artifact": "artifacts/EXP-291/receipt.json",
+  "raw_artifact_bytes": 15371,
+  "raw_artifact_sha256": "0030def998d90f85158c6ba23659a6b1f7eb49cb28c972962e1f19289c3ac230",
+  "classical_second_flip": -1.0000001149595736,
+  "independent_second_flip": -1.0000001150118025,
+  "cross_tableau_flip_difference": 5.2228887881256014e-11,
+  "classical_successive_difference": 8.97191388811714e-9,
+  "independent_successive_difference": 1.0566867151009719e-8,
+  "failed_check": "stable_side",
+  "interpretation": "Both high-precision tableaux converge and agree, but classify the Float64-corrected parent representation weakly on the unstable side; because orbit-representation differences dominate the small side signal, criticality remains unresolved pending high-precision orbit correction."
+}

@@ -261,3 +261,14 @@ decided on the same side as the unstable EXP-289 child, EXP-291 instead freezes
 independent three-level 50-digit classical-RK4 and RK4 3/8 evaluation of the
 period-768 parent at exactly that coordinate. The stable-side signal must be
 at least `1e-6`, ten times the `1e-7` cross-tableau gate.
+
+EXP-291 passes nine of ten gates in 438 seconds but fails stable-side
+classification. The two extrapolated multipliers are
+`-1.000000114960/-1.000000115012`, agreeing within `5.22e-11` and lying only
+`1.15e-7` on the unstable side. Thus neither subcritical nor supercritical
+seventh birth is promoted. The EXP-289 corrected parent differs from the event
+representation by only `1.18e-12` node RMS and `2.30e-10` in period, which is
+still enough to dominate this tiny multiplier signal. EXP-292 freezes a
+50-digit correction of the orbit itself. Cyclic block elimination reduces the
+1,024-segment matching Newton step to a phase-fixed 4-by-4 system; a regression
+test verifies the eliminated equations and the full suite is 302/302.
