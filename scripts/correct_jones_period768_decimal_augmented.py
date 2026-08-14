@@ -114,6 +114,49 @@ def rk4_augmented(initial, duration, steps, a, b, c):
     return value
 
 
+def rk_three_eighths_augmented(initial, duration, steps, a, b, c):
+    """Algebraically distinct fourth-order RK 3/8 integration."""
+
+    value = initial.copy()
+    step = duration / Decimal(steps)
+    third = step / Decimal(3)
+    eighth = step / Decimal(8)
+    for _ in range(steps):
+        k1 = augmented_rhs(value, a, b, c)
+        k2 = augmented_rhs(
+            [v + third * d1 for v, d1 in zip(value, k1)], a, b, c
+        )
+        k3 = augmented_rhs(
+            [
+                v + step * (-d1 / Decimal(3) + d2)
+                for v, d1, d2 in zip(value, k1, k2)
+            ],
+            a,
+            b,
+            c,
+        )
+        k4 = augmented_rhs(
+            [
+                v + step * (d1 - d2 + d3)
+                for v, d1, d2, d3 in zip(value, k1, k2, k3)
+            ],
+            a,
+            b,
+            c,
+        )
+        value = [
+            v + eighth * (d1 + Decimal(3) * d2 + Decimal(3) * d3 + d4)
+            for v, d1, d2, d3, d4 in zip(value, k1, k2, k3, k4)
+        ]
+    return value
+
+
+METHODS = {
+    "classical_rk4": rk4_augmented,
+    "rk4_three_eighths": rk_three_eighths_augmented,
+}
+
+
 def integrate_task(task):
     with localcontext() as context:
         context.prec = int(task["digits"])
@@ -126,7 +169,7 @@ def integrate_task(task):
         tangent = [Decimal(value) for value in task["tangent"]]
         zeros = [Decimal(0)] * 3
         initial = node + identity_matrix() + zeros + tangent + [Decimal(0)] * 12
-        result = rk4_augmented(
+        result = METHODS[task["method"]](
             initial, duration, int(task["steps_per_segment"]), a, b, c
         )
         endpoint = result[:3]
@@ -166,6 +209,7 @@ def evaluate(executor, nodes, tangents, period_time, a, b, c, manifest):
             "node": [str(value) for value in nodes[index]],
             "tangent": [str(value) for value in tangents[index]],
             "steps_per_segment": manifest["steps_per_segment"],
+            "method": manifest["method"],
         }
         for index in range(count)
     ]

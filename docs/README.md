@@ -483,6 +483,8 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-294-period768-decimal-augmented-refinement.md`](experiments/EXP-294-period768-decimal-augmented-refinement.md):
   passes fourth-order coordinate/period refinement and fails only identity
   with the old Float64 tangent field.
+- [`experiments/EXP-295-period768-decimal-augmented-independent.md`](experiments/EXP-295-period768-decimal-augmented-independent.md):
+  freezes an independent three-resolution RK4 3/8 augmented audit.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

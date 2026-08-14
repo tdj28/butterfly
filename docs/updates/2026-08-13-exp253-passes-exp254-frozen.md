@@ -327,3 +327,12 @@ across resolution even though the base tangent differs by only `2.24e-4` and
 the median direction cosine is `0.99999987`. EXP-295 will prospectively test
 the converged representation with the independent RK4 3/8 tableau rather than
 relax this historical-source gate.
+
+EXP-295 is frozen before execution. It performs independent RK4 3/8 augmented
+corrections at all three 1,024/2,048/4,096-step levels, requiring its own
+fourth-order `a` and period convergence. Its finest and Richardson coordinates
+must stay in the original bracket and agree with EXP-294 within `1e-10`.
+Separate gates compare orbit nodes, the normalized base tangent, and the
+globally sign-aligned tangent-line field. Only a complete pass can supersede
+the old Float64 tangent representation and restore the seventh event; birth
+criticality and period-1536 stability remain separate.

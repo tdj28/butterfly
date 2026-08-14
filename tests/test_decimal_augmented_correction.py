@@ -10,10 +10,15 @@ from correct_jones_period768_decimal_augmented import (  # noqa: E402
     augmented_newton_correction,
     augmented_rhs,
     matvec,
+    rk4_augmented,
+    rk_three_eighths_augmented,
     vector_add,
     vector_scale,
 )
 from refine_jones_period768_decimal_augmented import convergence_ratio  # noqa: E402
+from audit_jones_period768_decimal_augmented_independent import (  # noqa: E402
+    tangent_line_metrics,
+)
 
 
 def _matrix(seed):
@@ -111,3 +116,23 @@ def test_augmented_block_elimination_solves_all_linearized_equations():
 def test_augmented_resolution_ratio_detects_fourth_order_sequence():
     values = [Decimal("1.0625"), Decimal("1.00390625"), Decimal("1.000244140625")]
     assert convergence_ratio(values) == Decimal(16)
+
+
+def test_augmented_tableaux_preserve_initial_value_at_zero_duration():
+    initial = [Decimal(index) / Decimal(10) for index in range(30)]
+    parameters = (Decimal("0.2"), Decimal("0.2"), Decimal("7.6"))
+    assert rk4_augmented(initial, Decimal(0), 1, *parameters) == initial
+    assert rk_three_eighths_augmented(initial, Decimal(0), 1, *parameters) == initial
+
+
+def test_tangent_line_identity_is_invariant_to_global_sign():
+    reference = [
+        [Decimal("1"), Decimal("2"), Decimal("3")],
+        [Decimal("-2"), Decimal("1"), Decimal("4")],
+    ]
+    candidate = [[-value for value in row] for row in reference]
+    metrics = tangent_line_metrics(reference, candidate)
+    assert metrics["alignment_sign"] == -1
+    assert metrics["base_maximum_difference"] == 0.0
+    assert metrics["global_cosine"] == 1.0
+    assert metrics["median_absolute_pointwise_cosine"] == 1.0
