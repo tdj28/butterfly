@@ -322,6 +322,14 @@ eight exact events, six independently supercritical births, and a stable
 primitive period-768 child; period-3072 existence and the seventh/eighth birth
 directions remain open.
 
+CLM-008 addendum (EXP-307): an 8,192-step RK4 3/8 extension of event eight
+passes all ten representation gates. Parameter and period increments converge
+at `15.8601/15.8529`; augmented residuals are below `1.37e-29`; and the
+doubled DOP853 event-matching and secondary-null residuals are
+`1.36e-9/3.60e-12`. This qualifies the representation as a source for a
+period-3072 switch but does not change the eight-event/six-supercritical-birth
+ledger or establish a period-3072 child.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

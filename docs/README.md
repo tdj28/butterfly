@@ -513,6 +513,8 @@ what must be narrowed, and what is false or unresolved.
   independently reproduces and qualifies the primitive period-1536 real-`-1` event.
 - [`findings/FND-103-eighth-returning-arm-event-augmented.md`](findings/FND-103-eighth-returning-arm-event-augmented.md):
   promotes the eighth exact numerical event while keeping period 3072 open.
+- [`experiments/EXP-307-jones-period1536-decimal-augmented-8192.md`](experiments/EXP-307-jones-period1536-decimal-augmented-8192.md):
+  qualifies an 8,192-step event-eight representation for a period-3072 switch.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

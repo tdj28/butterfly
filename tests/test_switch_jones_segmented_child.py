@@ -83,9 +83,16 @@ def test_normalized_event_exposes_decimal_augmented_finest_profile() -> None:
     assert event["tangent_nodes"] == receipt["tangent_nodes_decimal"]
 
 
-def test_normalized_event_exposes_8192_profile() -> None:
+@pytest.mark.parametrize(
+    "schema",
+    [
+        "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+        "butterfly.jones-period1536-decimal-augmented-8192-receipt.v1",
+    ],
+)
+def test_normalized_event_exposes_8192_profile(schema: str) -> None:
     receipt = {
-        "schema": "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+        "schema": schema,
         "passed": True,
         "nodes_decimal": [["1", "2", "3"]],
         "tangent_nodes_decimal": [["0", "1", "0"]],

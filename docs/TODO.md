@@ -612,6 +612,16 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   2,048/4,096/8,192 convergence and successive Richardson agreement, and then
   directly applies the unchanged DOP853 event-matching and secondary-null
   gates to the doubled source. Only a pass permits the period-3072 switch.
+  EXP-307 passes all ten gates. The 8,192-step residuals are
+  `1.25e-31/1.37e-29`, fourth-order ratios are `15.8601/15.8529`, and the
+  doubled DOP853 event/secondary-null residuals are `1.36e-9/3.60e-12`.
+  Freeze the bilateral 4,096-segment period-3072 switch from this exact source;
+  require both tangent signs and doubled exact section identities before
+  nominating a child.
+  EXP-308 freezes that bilateral switch at the unchanged `0.00025` predictor
+  length. Both signs must pass all sparse correction, primitivity, period-ratio,
+  displacement, and exact doubled `3584/4096` section gates before any child
+  is nominated; preliminary multipliers remain non-evidentiary.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

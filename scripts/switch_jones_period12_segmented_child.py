@@ -36,6 +36,7 @@ SCHEMAS = {
     "butterfly.jones-period192-segmented-child-switch-manifest.v1",
     "butterfly.jones-period384-segmented-child-switch-manifest.v1",
     "butterfly.jones-period768-segmented-child-switch-manifest.v1",
+    "butterfly.jones-period1536-segmented-child-switch-manifest.v1",
 }
 
 
@@ -51,7 +52,10 @@ def doubled_event_variables(event: dict) -> np.ndarray:
 def normalized_event(event: dict, manifest: dict) -> dict:
     """Expose a passed Decimal augmented receipt as a switch event."""
 
-    if event.get("schema") == "butterfly.jones-period768-decimal-augmented-8192-receipt.v1":
+    if event.get("schema") in {
+        "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+        "butterfly.jones-period1536-decimal-augmented-8192-receipt.v1",
+    }:
         finest = event["profile"]
     elif event.get("schema") == "butterfly.jones-period768-decimal-augmented-independent-receipt.v1":
         finest = event["profiles"][-1]

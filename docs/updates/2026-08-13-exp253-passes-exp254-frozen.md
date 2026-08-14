@@ -533,3 +533,17 @@ fourth-order and successive-Richardson convergence, then evaluates the doubled
 source under the same direct DOP853 event-matching and secondary-null gates
 that protected the preceding rung. A period-3072 switch remains locked until
 all ten representation gates pass.
+
+EXP-307 passes all ten gates after 774 seconds. Two Newton updates reduce the
+8,192-step augmented orbit/tangent residuals to `1.25e-31/1.37e-29`; parameter
+and period increments converge at `15.8601/15.8529`. The doubled DOP853
+event-matching residual is `1.36e-9` and the secondary-null residual is
+`3.60e-12`. The period-3072 switch is now unlocked from a qualified source;
+child existence and criticality remain separate.
+
+EXP-308 is frozen before execution. It doubles the qualified 2,048-node event
+source to 4,096 segments and follows both antiperiodic tangent signs at the
+unchanged `0.00025` predictor length. Both candidates must pass sparse
+correction, primitivity, period-ratio, displacement, and exact doubled
+`3584/4096` section identities; a pass nominates children without classifying
+their stability.
