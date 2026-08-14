@@ -377,3 +377,9 @@ reaches `1.28e-31/5.67e-31` residuals; `a` and period increments converge at
 `15.860/15.853`, and the new Richardson coordinate changes by only `1.41e-13`.
 The doubled DOP853 source residual falls to `9.64e-10 < 1e-8`, with
 secondary-null residual `3.61e-12`. A new switch may now use this representation.
+
+EXP-298 is frozen before execution. It repeats only the two signs at predictor
+length `0.00025`, preselected from EXP-296 by maximum half-node and half-period
+separation. Both must pass all unchanged source, null, correction, primitive,
+period-ratio, displacement, and exact identity gates before a criticality audit
+is frozen.

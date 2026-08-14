@@ -81,3 +81,17 @@ def test_normalized_event_exposes_decimal_augmented_finest_profile() -> None:
     assert event["segment_count"] == 2
     assert event["nodes"] == receipt["nodes_decimal"]
     assert event["tangent_nodes"] == receipt["tangent_nodes_decimal"]
+
+
+def test_normalized_event_exposes_8192_profile() -> None:
+    receipt = {
+        "schema": "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+        "passed": True,
+        "nodes_decimal": [["1", "2", "3"]],
+        "tangent_nodes_decimal": [["0", "1", "0"]],
+        "profile": {"a_decimal": "0.26", "period_time_decimal": "59"},
+    }
+    event = normalized_event(receipt, {"fixed_b": 0.2, "fixed_c": 7.6})
+    assert event["corrected_a"] == "0.26"
+    assert event["period_time"] == "59"
+    assert event["segment_count"] == 1
