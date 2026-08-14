@@ -459,3 +459,10 @@ real multiplier changes from `-0.12419628` to `-4.49514241` over an `a` width
 of only `1.04e-13`. This nominates the next cascade flip. A later coarse sign
 transition remains outside the unit circle and is not classified. An augmented
 exact period-1536 event solve is required before an eighth event is promoted.
+
+EXP-303 is frozen before execution. It uses only EXP-302's first stability
+bracket and the two bound successful EXP-300 rows to seed a 2,048-segment
+augmented orbit-plus-antiperiodic-tangent solve. DOP853 and segmented Radau
+retain maximum step `0.01`, symmetric real-flip residual gates, cyclic and
+proper-subperiod checks, and exact `1792/2048` section identity. A pass would
+qualify an eighth event only, not a period-3072 child or birth direction.

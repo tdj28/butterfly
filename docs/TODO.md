@@ -561,6 +561,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Four-shift relative spread stays below `2.35e-6`. Freeze an augmented exact
   period-1536 orbit-plus-antiperiodic-tangent solve on this bracket; do not call
   it an eighth event until the exact event and independent precision gates pass.
+  EXP-303 freezes that 2,048-segment augmented orbit-plus-antiperiodic-tangent
+  solve with DOP853 and segmented Radau, maximum step `0.01`, the exact bracket
+  bounds, and unchanged event/primitive/two-section gates. A pass is event-only;
+  period-3072 existence and criticality remain separate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -44,6 +44,7 @@ SCHEMAS = {
     "butterfly.jones-period192-augmented-flip-manifest.v1",
     "butterfly.jones-period384-augmented-flip-manifest.v1",
     "butterfly.jones-period768-augmented-flip-manifest.v1",
+    "butterfly.jones-period1536-augmented-flip-manifest.v1",
 }
 
 
@@ -59,6 +60,7 @@ def source_child(receipt: dict, solver_name: str, manifest: dict | None = None) 
         "butterfly.jones-period192-segmented-continuation-receipt.v1",
         "butterfly.jones-period384-segmented-continuation-receipt.v1",
         "butterfly.jones-period768-segmented-continuation-receipt.v1",
+        "butterfly.jones-period1536-segmented-continuation-receipt.v1",
     }:
         if manifest is None or "source_row_index" not in manifest:
             raise ValueError("segmented source requires a frozen source row index")
@@ -81,6 +83,28 @@ def source_child(receipt: dict, solver_name: str, manifest: dict | None = None) 
     }
 
 
+def selected_event_bracket(receipt: dict, manifest: dict) -> dict:
+    """Select a hash-bound bracket collection and index."""
+
+    if not receipt.get("passed"):
+        raise ValueError("a passed bracket receipt is required")
+    collection = manifest.get("bracket_collection", "flip_brackets")
+    brackets = receipt.get(collection, [])
+    if "bracket_index" in manifest:
+        index = int(manifest["bracket_index"])
+        if not 0 <= index < len(brackets):
+            raise ValueError("frozen bracket index is unavailable")
+    else:
+        if len(brackets) != 1:
+            raise ValueError("a passed unique flip bracket is required")
+        index = 0
+    selected = brackets[index]
+    frozen_bracket = list(map(float, selected["a_bracket"]))
+    if frozen_bracket != list(map(float, manifest["a_bounds"])):
+        raise ValueError("manifest a bounds do not match the bracket receipt")
+    return selected
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -98,6 +122,7 @@ def main() -> int:
         raise SystemExit("source receipt hash mismatch")
     bracket_bytes = None
     bracket = None
+    event_bracket = None
     if "bracket_receipt_sha256" in manifest:
         if args.bracket_receipt is None:
             raise SystemExit("this manifest requires a bracket receipt")
@@ -105,11 +130,10 @@ def main() -> int:
         if sha256_bytes(bracket_bytes) != manifest["bracket_receipt_sha256"]:
             raise SystemExit("bracket receipt hash mismatch")
         bracket = json.loads(bracket_bytes)
-        if not bracket.get("passed") or len(bracket["flip_brackets"]) != 1:
-            raise SystemExit("a passed unique flip bracket is required")
-        frozen_bracket = list(map(float, bracket["flip_brackets"][0]["a_bracket"]))
-        if frozen_bracket != list(map(float, manifest["a_bounds"])):
-            raise SystemExit("manifest a bounds do not match the bracket receipt")
+        try:
+            event_bracket = selected_event_bracket(bracket, manifest)
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -119,12 +143,27 @@ def main() -> int:
         raise SystemExit("clean source required")
 
     source_receipt = json.loads(source_bytes)
+    if (
+        "source_schema" in manifest
+        and source_receipt.get("schema") != manifest["source_schema"]
+    ):
+        raise SystemExit("source receipt schema mismatch")
     if manifest.get("seed_method") == "secant_interpolation":
-        if bracket is None:
+        if event_bracket is None:
             raise SystemExit("secant interpolation requires a bracket receipt")
-        event_bracket = bracket["flip_brackets"][0]
+        if not source_receipt.get("passed") and not manifest.get(
+            "allow_failed_source_prefix", False
+        ):
+            raise SystemExit("failed source prefix is not authorized")
         left = source_receipt["rows"][int(event_bracket["left_index"])]
         right = source_receipt["rows"][int(event_bracket["right_index"])]
+        if not left["status"]["success"] or not right["status"]["success"]:
+            raise SystemExit("bracket source rows are not successful")
+        if max(
+            float(left["status"]["matching_residual"]),
+            float(right["status"]["matching_residual"]),
+        ) > float(manifest.get("maximum_source_matching_residual", 1e-8)):
+            raise SystemExit("bracket source rows exceed the matching gate")
         left_residual = float(event_bracket["left_multiplier"]["real"]) + 1.0
         right_residual = float(event_bracket["right_multiplier"]["real"]) + 1.0
         seed_a = (
