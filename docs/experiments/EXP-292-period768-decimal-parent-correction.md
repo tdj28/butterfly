@@ -1,6 +1,6 @@
 # EXP-292 — High-precision correction of the seventh-birth parent
 
-Status: frozen — not yet executed
+Status: completed — failed correction, neighborhood, and raw-convergence gates
 
 EXP-291 shows that accurately integrating the Float64-corrected parent is not
 enough: a `1.18e-12` orbit-representation difference exceeds the remaining
@@ -20,3 +20,29 @@ correction must agree before the side of the event can be promoted.
 
 Manifest:
 [`../../experiments/manifests/EXP-292-period768-decimal-parent-correction.json`](../../experiments/manifests/EXP-292-period768-decimal-parent-correction.json).
+
+## Result
+
+All three Newton sequences reduce maximum matching residuals from
+`6.15e-10/5.77e-11/3.49e-11` to
+`1.18e-16/1.63e-15/1.85e-15` after four updates, with phase residuals below
+`7.05e-52`. None reaches the frozen `1e-25` completion gate. More decisively,
+the profiles move `7.32e-5/9.21e-5/9.32e-5` in state, well beyond the `1e-6`
+source neighborhood, and their periods move by as much as `1.56e-6`.
+
+The tracked `-1` characteristic root collapses toward zero in all profiles;
+the raw convergence ratio is `3.339`, not fourth order. This is consistent
+with unconstrained Newton correction approaching the nearby lower-period
+double cover. The cyclic, characteristic, neutral, and Richardson-difference
+checks happen to pass for that wrong representation and do not rescue the
+claim.
+
+EXP-292 therefore invalidates the promotion of event seven from frozen-node
+multiplier agreement alone. FND-101 retracts FND-100's event claim. EXP-293
+freezes an augmented high-precision orbit-plus-antiperiodic-tangent pilot whose
+`-1` transport constraint excludes the double cover.
+
+Raw receipt: `artifacts/EXP-292/receipt.json`, 13,198 bytes, SHA-256
+`acbc7accff4e480536affad6ea062768b9936f870518e0afa5a81eb521bc5dd5`.
+Compact receipt:
+[`receipts/EXP-292.json`](receipts/EXP-292.json).

@@ -468,9 +468,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   is fourth-order. EXP-286 freezes an untouched 16,384-step profile and
   successive Richardson gates. EXP-286 passes with extrapolated flip residual
   `5.17e-9` and successive-estimate difference `8.97e-9`. EXP-287's independent
-  50-digit RK4 3/8-tableau sequence passes every frozen gate, agrees with the
-  classical extrapolation within `5.22e-11`, and qualifies the seventh exact
-  numerical event (FND-100). EXP-288 then passes all six bilateral sparse
+  50-digit RK4 3/8-tableau sequence passes every frozen gate and agrees with the
+  classical extrapolation within `5.22e-11` on the stored representation; its
+  former event promotion (FND-100) is superseded below. EXP-288 then passes all six bilateral sparse
   2,048-segment switches and nominates primitive period-1536 candidates with
   exact `1792/2048` identity. EXP-289 freezes the independent DOP853/Radau
   criticality test without assuming whether the local exchange is
@@ -486,9 +486,16 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   required before the seventh birth can be called subcritical. EXP-291 passes
   every convergence gate but fails that side test: both tableaux give
   approximately `-1.000000115`, so parent and child are both unstable in the
-  stored representation. EXP-292 freezes a true 50-digit cyclic
+  stored representation. EXP-292 applies a true 50-digit cyclic
   multiple-shooting correction at three discretization levels, using block
-  elimination to solve the full matching problem before any side claim.
+  elimination to solve the full matching problem before any side claim. It
+  fails the correction and source-neighborhood gates: all three solves move
+  `7.32e-5`--`9.32e-5` from the source while the tracked `-1` root collapses
+  toward zero, consistent with convergence to a lower-period double cover.
+  FND-101 therefore retracts event seven; six exact supercritical births and a
+  stable primitive period-768 child remain qualified. EXP-293 must freeze an
+  augmented 50-digit orbit-plus-antiperiodic-tangent solve that excludes the
+  double cover before the candidate is reconsidered.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

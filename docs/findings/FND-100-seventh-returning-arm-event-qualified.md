@@ -1,9 +1,17 @@
 # FND-100 — A seventh returning-arm flip event is numerically qualified
 
-Status: qualified finite numerical finding
+Status: retracted as an event claim — superseded by FND-101
 
-The exact returning-arm continuation contains a seventh period-doubling event
-at `a=0.2407010081734325` on the primitive period-768 branch. The original
+Post-qualification correction changed the evidential status. EXP-292 attempts
+to correct the period-768 orbit itself in 50-digit arithmetic rather than only
+integrating its frozen Float64 nodes. All three corrections leave the frozen
+`1e-6` source neighborhood by `7.32e-5` to `9.32e-5` and their tracked `-1`
+root collapses toward the lower-period solution. Therefore the independent
+multiplier agreement below remains valid for the frozen representation, but it
+does not qualify an exact primitive event. FND-101 records the reopened claim.
+
+The former claim placed a seventh period-doubling event at
+`a=0.2407010081734325` on the primitive period-768 branch. The original
 Float64 DOP853/Radau representation could not pass the unchanged `1e-7`
 multiplier gate because its parameter sensitivity exceeds Float64 resolution
 (FND-099). That failure is preserved rather than rewritten.
@@ -22,15 +30,16 @@ converged Richardson estimates:
 Their difference is `5.22e-11`; the independent value lies `5.12e-9` from
 `-1`. All prospective convergence, neutral-mode, cyclic-product,
 characteristic-polynomial, orbit, tangent, primitive, and exact-section gates
-pass. The seventh coordinate adds a fifth finite spacing ratio, `2.239`, to
+pass. Under that now-retracted interpretation, the seventh coordinate added a
+fifth finite spacing ratio, `2.239`, to
 the previous `4.557/4.697/4.300/4.836` sequence. The stronger non-monotonicity
 is evidence against estimating an accumulation constant from these early
 rungs; it does not refute a later asymptotic regime.
 
-This finding qualifies seven exact numerical flip events on one returning-arm
-orbit. Only the first six have separately qualified stable children, through
-period 768. A period-1536 switch and two-solver stability exchange are required
-before calling the seventh birth supercritical. Nothing here establishes a
+This finding formerly qualified seven exact numerical flip events on one
+returning-arm orbit. That statement is withdrawn pending an augmented
+high-precision orbit-plus-tangent correction. The first six exact events and
+their stable children through period 768 remain qualified. Nothing here establishes a
 limiting scaling constant, universality, child sheet, paired shrimp boundaries,
 TBA membership, double-criticality, or a global parameter-plane topology.
 

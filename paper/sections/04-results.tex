@@ -1103,16 +1103,15 @@ stability exchange, not for paired shrimp boundaries.
 Removing source-arm interpolation from the child path carries the primitive
 period-12 orbit beyond the false endpoint and reveals a genuine cascade at
 fixed $(b,c)=(0.2,7.625815600403827)$. Exact augmented multiple shooting
-locates real-$-1$ events of the period-12, period-24, period-48, period-96,
-period-192, period-384, and period-768 parents at
+locates qualified real-$-1$ events of the period-12, period-24, period-48,
+period-96, period-192, and period-384 parents at
 \begin{align}
  a_{12}&=0.24070118147582764,&
  a_{24}&=0.24070104611236293,&
  a_{48}&=0.24070101640878155,\\
  a_{96}&=0.24070101008421760,&
  a_{192}&=0.24070100861338276,&
- a_{384}&=0.24070100830924687,\\
- a_{768}&=0.24070100817343250.&&
+ a_{384}&=0.24070100830924687.&&
 \end{align}
 The first six events pass orbit, anti-periodic tangent, proper-subperiod, exact
 two-section identity, and independent Radau gates. The period-384 event requires a
@@ -1142,9 +1141,9 @@ passes the same gate with DOP853/Radau child moduli
 $0.0879289933/0.0879290911$ and spread $9.78\times10^{-8}$, identifying the
 discrepancy as phase-representation conditioning rather than evidence for a
 second cycle. Thus six local doublings are qualified as supercritical and the
-returning-arm cascade reaches stable period 768. Including the next event, the
-five finite event-spacing ratios are $4.557$, $4.697$, $4.300$, $4.836$, and
-$2.239$. Their non-monotonicity reinforces
+returning-arm cascade reaches stable period 768. The four qualified finite
+event-spacing ratios are $4.557$, $4.697$, $4.300$, and $4.836$. Their
+non-monotonicity reinforces
 that this is finite cascade evidence, not an accumulation-limit estimate or
 proof of universality.
 
@@ -1159,9 +1158,16 @@ each using 4,096, 8,192, and 16,384 steps on every one of 1,024 segments, then
 show fourth-order convergence and give Richardson flip estimates
 $-0.9999999948283$ and $-0.9999999948805$. Their difference is
 $5.22\times10^{-11}$, both residuals are below $10^{-7}$, and all neutral,
-cyclic, characteristic, orbit, tangent, primitivity, and exact-section gates
-pass. This independently qualifies the seventh numerical event, but not a
-period-1536 child, its criticality, or universality.
+cyclic, characteristic, frozen-node, tangent, primitivity, and exact-section
+gates pass. However, three subsequent 50-digit corrections of the orbit itself
+move $7.32\times10^{-5}$--$9.32\times10^{-5}$ from those nodes, exceeding the
+prospective $10^{-6}$ source-neighborhood gate, while the tracked $-1$ root
+collapses toward zero. This is consistent with unconstrained correction to a
+nearby lower-period double cover. The coordinate
+$a_{768}=0.24070100817343250$ is therefore retained only as a seventh-event
+candidate, and the corresponding unqualified spacing ratio $2.239$ is excluded
+from the qualified sequence. An augmented high-precision orbit--antiperiodic-
+tangent solve is required before the event or a period-1536 birth is promoted.
 
 \begin{figure}[H]
   \centering

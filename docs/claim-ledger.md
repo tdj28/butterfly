@@ -207,6 +207,20 @@ spacing ratio `2.239`; it does not qualify a period-1536 child, seventh
 supercritical birth, limiting universality, paired boundaries, TBA membership,
 double-criticality, or a whole-plane result.
 
+CLM-008 superseding addendum (EXP-288--292): the event promotion above is
+retracted without deleting its numerical history. Sparse switching produces
+six well-corrected period-1536 candidates, but the independent parent/child
+criticality audit cannot resolve the parent side. Two 50-digit tableaux agree
+on the stored parent multiplier near `-1.000000115`, yet a true 50-digit orbit
+correction at three step counts leaves the prospective `1e-6` source
+neighborhood by `7.32e-5`--`9.32e-5` and drives the tracked `-1` root toward
+zero. This is consistent with unconstrained correction to the nearby
+lower-period double cover. The qualified claim therefore returns to six exact
+supercritical births through a stable primitive period-768 child. The
+seventh-event coordinate and ratio `2.239` are candidates only; an augmented
+orbit-plus-antiperiodic-tangent correction is required to resolve them
+(FND-101).
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

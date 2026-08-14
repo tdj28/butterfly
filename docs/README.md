@@ -459,7 +459,8 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-287-period768-decimal-independent-richardson.md`](experiments/EXP-287-period768-decimal-independent-richardson.md):
   passes an independent 50-digit RK4 3/8-tableau audit.
 - [`findings/FND-100-seventh-returning-arm-event-qualified.md`](findings/FND-100-seventh-returning-arm-event-qualified.md):
-  qualifies the seventh exact numerical flip while keeping period 1536 open.
+  preserves the former frozen-representation qualification and marks it
+  retracted after the orbit-correction audit.
 - [`experiments/EXP-288-jones-period1536-segmented-switch.md`](experiments/EXP-288-jones-period1536-segmented-switch.md):
   passes all six sparse 2,048-segment bilateral period-1536 switches.
 - [`experiments/EXP-289-jones-period1536-near-event-qualification.md`](experiments/EXP-289-jones-period1536-near-event-qualification.md):
@@ -471,7 +472,11 @@ what must be narrowed, and what is false or unresolved.
   preserves a sole stable-side failure after two tableaux converge weakly on
   the unstable side.
 - [`experiments/EXP-292-period768-decimal-parent-correction.md`](experiments/EXP-292-period768-decimal-parent-correction.md):
-  freezes a 50-digit cyclic multiple-shooting correction of the parent itself.
+  fails its correction and source-neighborhood gates as the unconstrained solve
+  approaches a lower-period double cover.
+- [`findings/FND-101-seventh-event-reopened-by-orbit-correction.md`](findings/FND-101-seventh-event-reopened-by-orbit-correction.md):
+  retracts the seventh-event promotion and restores the secure result to six
+  exact supercritical births through stable period 768.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

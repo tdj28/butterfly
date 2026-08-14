@@ -272,3 +272,15 @@ still enough to dominate this tiny multiplier signal. EXP-292 freezes a
 50-digit correction of the orbit itself. Cyclic block elimination reduces the
 1,024-segment matching Newton step to a phase-fixed 4-by-4 system; a regression
 test verifies the eliminated equations and the full suite is 302/302.
+
+EXP-292 fails the correction, source-neighborhood, and raw-convergence gates.
+Although the three matching residuals fall to
+`1.18e-16/1.63e-15/1.85e-15`, the corrected nodes move
+`7.32e-5/9.21e-5/9.32e-5` from the frozen representation and the tracked
+`-1` root collapses toward zero. The unconstrained solve is therefore
+consistent with attraction to a nearby lower-period double cover. FND-101
+retracts FND-100's event promotion: the secure result is six exact
+supercritical births through a stable primitive period-768 child, while the
+seventh coordinate and ratio `2.239` return to candidate status. EXP-293 will
+couple the high-precision orbit to an antiperiodic tangent so the double cover
+cannot satisfy the augmented equations.
