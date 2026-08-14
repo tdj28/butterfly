@@ -229,6 +229,15 @@ physical bracket after a `-4.50e-9` coordinate shift and fails the pointwise
 tangent-source gate. The seventh-event retraction remains in force pending
 multi-resolution and independent-tableau reproduction.
 
+CLM-008 addendum (EXP-294): the augmented classical-RK4 coordinate and period
+converge across 1,024/2,048/4,096 steps with ratios `15.718/15.706`. The finest
+and Richardson coordinates lie inside the original event bracket, residuals
+are below `1.32e-26`, and primitive half-orbit separation persists. The frozen
+receipt nevertheless fails only identity with the old Float64 tangent field,
+whose maximum pointwise displacement remains `4.162` across resolution. No
+event is restored until an independent tableau agrees with the new corrected
+orbit and tangent line.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

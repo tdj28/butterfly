@@ -315,3 +315,15 @@ and fourth-order Richardson coordinate must enter the untouched EXP-280
 bracket. All original residual, source-neighborhood, and primitive-separation
 gates remain unchanged. A pass will still require an independent RK4 3/8
 correction before event seven is restored.
+
+EXP-294 passes six of seven gates after 241 seconds. Both new augmented
+systems converge, and `a` and period show fourth-order ratios
+`15.718/15.706`. The 4,096-step coordinate
+`0.24070100821945930` and Richardson value `0.24070100823758015` both lie
+inside the original bracket; residuals are below `1.32e-26`, state and period
+neighborhoods pass, and half-orbit separation remains `2.58e-5`. The sole
+failure is maximum pointwise tangent displacement `4.162 > 0.1`, unchanged
+across resolution even though the base tangent differs by only `2.24e-4` and
+the median direction cosine is `0.99999987`. EXP-295 will prospectively test
+the converged representation with the independent RK4 3/8 tableau rather than
+relax this historical-source gate.

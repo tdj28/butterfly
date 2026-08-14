@@ -42,9 +42,21 @@ the double cover: residuals reach `2.75e-31/1.23e-30` and half-orbit RMS stays
 the pointwise tangent-neighborhood gate also fails. This promising pilot does
 not supersede the retraction; resolution convergence remains mandatory.
 
+EXP-294 supplies that resolution convergence under classical RK4. The
+1,024/2,048/4,096-step `a` and period ratios are `15.718/15.706`; both the
+finest coordinate `0.24070100821945930` and Richardson coordinate
+`0.24070100823758015` lie inside the original bracket, and the primitive
+augmented residuals fall below `1.32e-26`. The sole failure is persistent
+pointwise disagreement with the old Float64 tangent field. Because that failure
+does not shrink with resolution, independent agreement on the new orbit and
+tangent line—not retroactive relaxation—is now required. FND-101 remains in
+force until that test passes.
+
 Evidence:
 [`../experiments/EXP-291-period768-decimal-parent-side.md`](../experiments/EXP-291-period768-decimal-parent-side.md)
 and
 [`../experiments/EXP-292-period768-decimal-parent-correction.md`](../experiments/EXP-292-period768-decimal-parent-correction.md),
 with augmented follow-up in
-[`../experiments/EXP-293-period768-decimal-augmented-correction.md`](../experiments/EXP-293-period768-decimal-augmented-correction.md).
+[`../experiments/EXP-293-period768-decimal-augmented-correction.md`](../experiments/EXP-293-period768-decimal-augmented-correction.md)
+and
+[`../experiments/EXP-294-period768-decimal-augmented-refinement.md`](../experiments/EXP-294-period768-decimal-augmented-refinement.md).

@@ -500,10 +500,15 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   orbit/tangent residuals while retaining `2.58e-5` half-orbit separation.
   It nevertheless fails `a_bounds` after a `-4.50e-9` coordinate shift and
   fails the pointwise tangent-neighborhood gate. Preserve that failure.
-  EXP-294 now freezes refinement of the same augmented solution at 2,048 and
-  4,096 steps. It requires fourth-order `a` and period convergence, both the
-  finest and Richardson coordinates inside the original bracket, and the
-  unchanged source/primitive gates at the finest level.
+  EXP-294 passes six of seven gates: `a` and period converge at
+  `15.718/15.706`, the finest and Richardson coordinates both enter the
+  original bracket, residuals fall below `1.32e-26`, and primitivity persists.
+  Only pointwise identity with the old Float64 tangent field fails, remaining
+  `4.162 > 0.1` at every resolution even as the median direction cosine is
+  `0.99999987`. Preserve that failure. EXP-295 must independently correct the
+  4,096-step augmented representation with RK4 3/8 and prospectively compare
+  coordinates, orbit nodes, base tangent, tangent-line directions, residuals,
+  and primitivity before the old tangent representation can be superseded.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

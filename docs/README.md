@@ -481,7 +481,8 @@ what must be narrowed, and what is false or unresolved.
   converges the 50-digit augmented equations without double-cover collapse but
   preserves coarse-grid coordinate and tangent-neighborhood failures.
 - [`experiments/EXP-294-period768-decimal-augmented-refinement.md`](experiments/EXP-294-period768-decimal-augmented-refinement.md):
-  freezes 2,048/4,096-step refinement and fourth-order convergence gates.
+  passes fourth-order coordinate/period refinement and fails only identity
+  with the old Float64 tangent field.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
