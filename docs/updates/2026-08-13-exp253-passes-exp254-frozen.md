@@ -508,3 +508,11 @@ lower endpoint. The result therefore diagnoses the old `1.04e-13` interval as
 narrower than its continuation-row correction uncertainty. No eighth event is
 promoted; a new target-blind ladder of independently corrected period-1536
 endpoints must rebuild the stable/unstable bracket.
+
+EXP-306 is frozen before execution. Rather than spending another multi-hour
+Float64 audit on endpoints whose direct closure is too coarse for the required
+scale, it applies the independent RK4 3/8 augmented design that qualified the
+seventh event. Three resolutions must converge at fourth order and agree with
+EXP-305 in coordinate, period, orbit nodes, and tangent lines. The parameter
+gate is the entire successful EXP-300 continuation envelope, fixed without
+using any stability value; EXP-302's rejected micro-bracket is not reused.

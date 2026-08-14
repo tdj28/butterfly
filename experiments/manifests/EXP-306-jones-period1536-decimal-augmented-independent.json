@@ -1,0 +1,39 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-augmented-independent-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-decimal-augmented-independent-receipt.v1",
+  "experiment_id": "EXP-306",
+  "classical_schema": "butterfly.jones-period1536-decimal-augmented-refinement-receipt.v1",
+  "classical_receipt_sha256": "095cbdb2e5c7421371428fa43fb92f3ab10fe1e139dcfd0a5f70dd724b95fb19",
+  "required_classical_failed_checks": ["extrapolated_a_bounds"],
+  "continuation_schema": "butterfly.jones-period1536-segmented-continuation-receipt.v1",
+  "continuation_receipt_sha256": "c91fadcd01f8ac6095b97538796cc7e4c25b51a1af94f15531bb47e14ab41bf8",
+  "continuation_envelope": {
+    "minimum_successful_rows": 23,
+    "expected_lower_a_decimal": "0.24070100816116163",
+    "expected_upper_a_decimal": "0.24070100823781396"
+  },
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "method_order": 4,
+  "step_counts": [1024, 2048, 4096],
+  "workers": 8,
+  "maximum_newton_updates": 5,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "acceptance": {
+    "maximum_augmented_residual": 1e-22,
+    "minimum_convergence_ratio": 12.0,
+    "maximum_convergence_ratio": 20.0,
+    "maximum_cross_tableau_finest_a_difference": 1e-10,
+    "maximum_cross_tableau_extrapolated_a_difference": 1e-10,
+    "maximum_cross_tableau_extrapolated_period_difference": 1e-6,
+    "maximum_node_difference": 1e-5,
+    "maximum_node_rms_difference": 1e-6,
+    "maximum_base_tangent_difference": 1e-3,
+    "minimum_global_tangent_cosine": 0.9999,
+    "minimum_median_pointwise_tangent_cosine": 0.999999,
+    "minimum_fraction_pointwise_tangent_cosine": 0.99,
+    "minimum_half_node_rms_separation": 5e-6
+  },
+  "claim_scope": "prospective independent 50-decimal-digit augmented correction of the period-1536 orbit-plus-antiperiodic-tangent root with the algebraically distinct RK4 3/8 tableau at 1024, 2048, and 4096 steps per each of 2048 segments; the bound classical source must retain exactly its sole EXP-305 extrapolated-bracket failure, all discrete corrections must reach 1e-22 residuals, independent a and period sequences must converge with ratios in [12,20], finest and extrapolated a must remain inside the target-blind full successful EXP-300 continuation envelope, coordinates and period must agree with EXP-305 under frozen cross-tableau gates, orbit nodes and the globally sign-aligned tangent line must pass frozen identity gates, and half-orbit node RMS must remain above 5e-6; a pass independently qualifies a resolution-converged primitive eighth real-minus-one event representation despite rejecting EXP-302's invalid micro-bracket, but it does not establish a period-3072 child, eighth-birth criticality, a limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

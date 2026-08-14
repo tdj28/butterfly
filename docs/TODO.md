@@ -593,6 +593,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   independently recorrects child endpoints and re-evaluates their Floquet
   stability; do not reuse the too-narrow continuation-row bracket as a
   physical bound.
+  EXP-306 instead freezes the stronger exact-root test before a costly Float64
+  endpoint ladder: an algebraically independent RK4 3/8 augmented sequence at
+  1,024/2,048/4,096 steps per segment. The only parameter bound is the full
+  successful EXP-300 continuation envelope, selected without stability. A pass
+  requires fourth-order convergence and cross-tableau agreement with EXP-305;
+  it may qualify the eighth event directly, while period-3072 existence and
+  birth direction remain separately locked.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
