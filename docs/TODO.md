@@ -607,6 +607,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `a=0.24070100822410155263`. The next cascade task is a prospectively frozen
   bilateral period-3072 switch from a sufficiently refined event source;
   stability and birth direction require an independent successor audit.
+  EXP-307 freezes the representation safeguard first. It extends the passed
+  RK4 3/8 event to 8,192 steps on each of 2,048 segments, requires order-four
+  2,048/4,096/8,192 convergence and successive Richardson agreement, and then
+  directly applies the unchanged DOP853 event-matching and secondary-null
+  gates to the doubled source. Only a pass permits the period-3072 switch.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

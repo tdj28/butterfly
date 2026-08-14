@@ -526,3 +526,10 @@ the eighth primitive numerical real-`-1` event at consensus
 `a=0.24070100822410155263`. The finite spacing sequence gains `5.312` but
 remains non-monotone. A period-3072 switch and its independent stability audit
 are next; neither child existence nor eighth-birth direction is inferred here.
+
+EXP-307 is frozen before execution. It extends the independently passed event
+eight representation to 8,192 RK4 3/8 steps on each of 2,048 segments, checks
+fourth-order and successive-Richardson convergence, then evaluates the doubled
+source under the same direct DOP853 event-matching and secondary-null gates
+that protected the preceding rung. A period-3072 switch remains locked until
+all ten representation gates pass.
