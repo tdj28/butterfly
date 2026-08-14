@@ -1,0 +1,37 @@
+{
+  "schema": "butterfly.jones-period768-decimal-augmented-8192-manifest.v1",
+  "experiment_id": "EXP-297",
+  "independent_schema": "butterfly.jones-period768-decimal-augmented-independent-receipt.v1",
+  "independent_receipt_sha256": "447f5b7b73206f985b21b0848f2804117aef5c47602df82a6dd7bbf947a39c77",
+  "switch_schema": "butterfly.jones-period768-to1536-segmented-child-switch-receipt.v1",
+  "switch_receipt_sha256": "b95912543e0b15566bb93dda64994c1cbd178625655200c1988e89e4bf69f4ac",
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "method_order": 4,
+  "steps_per_segment": 8192,
+  "workers": 8,
+  "maximum_newton_updates": 4,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "a_bounds": [0.24070100814897039, 0.24070100827074953],
+  "dop853_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "acceptance": {
+    "maximum_augmented_residual": 1e-22,
+    "minimum_convergence_ratio": 12.0,
+    "maximum_convergence_ratio": 20.0,
+    "maximum_successive_richardson_a_difference": 1e-11,
+    "maximum_successive_richardson_period_difference": 1e-6,
+    "maximum_source_node_displacement": 1e-5,
+    "maximum_source_tangent_displacement": 1e-3,
+    "maximum_source_period_displacement": 1e-6,
+    "minimum_half_node_rms_separation": 2e-6,
+    "maximum_dop853_event_matching_residual": 1e-8,
+    "maximum_secondary_null_residual": 1e-6
+  },
+  "claim_scope": "prospective 50-decimal-digit RK4 3/8 extension of the independently qualified augmented period-768 event from 4096 to 8192 steps per each of 1024 segments, bound to the sole EXP-296 DOP853 source-representation failure; the 2048/4096/8192 increments in a and period must show order-four ratios in [12,20], successive Richardson estimates and source displacement must pass frozen gates, finest and extrapolated a must remain in the untouched event bracket, augmented residuals and primitive half-orbit separation must pass, and the doubled 8192-step representation must satisfy the unchanged EXP-296 DOP853 event-matching and secondary-null gates; a pass qualifies this representation for a fresh period-1536 switch only, not child existence, seventh-birth criticality, attraction, an eighth event, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

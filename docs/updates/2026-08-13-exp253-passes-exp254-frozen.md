@@ -363,3 +363,11 @@ Richardson event. The doubled finite-tableau source has DOP853 matching norm
 `1.441e-8 > 1e-8`; its secondary-null residual is `4.48e-11`. No candidate is
 promoted from the failed source. EXP-297 will extend the independent augmented
 event to 8,192 steps and must pass the same DOP853 source gate.
+
+EXP-297 is frozen before execution. It warm-starts an 8,192-step RK4 3/8
+augmented correction from EXP-295, requires the 2,048/4,096/8,192 `a` and
+period increments to converge at fourth order, and gates successive Richardson
+estimates, source displacement, residuals, bracket containment, and primitive
+separation. It then directly evaluates the doubled event with EXP-296's
+unchanged DOP853 source and secondary-null gates before another switch is
+allowed.
