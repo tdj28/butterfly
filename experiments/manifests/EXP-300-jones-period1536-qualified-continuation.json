@@ -1,0 +1,49 @@
+{
+  "schema": "butterfly.jones-period1536-segmented-continuation-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-segmented-continuation-receipt.v1",
+  "experiment_id": "EXP-300",
+  "switch_receipt_sha256": "b929effef1dd0f84073631f6da60b6dd0324331af434e7f6d6fc40edf89d6b26",
+  "event_schema": "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+  "event_receipt_sha256": "8942a66a3bad641624ddb188630c4e0f882a0b806d6519dfe0b48ee622118c95",
+  "source_candidate": {
+    "step_length": 0.00025,
+    "direction": 1
+  },
+  "selection_reason": "the EXP-298 positive sign was prospectively selected for EXP-299 only by larger half-period closure, and EXP-299 independently classifies that child as stable under both solvers while leaving only the parent inside the neutral margin",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 2048,
+  "jacobian_storage": "sparse_csr",
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {
+    "maximum_evaluations": 720,
+    "tolerance": 1e-10
+  },
+  "continuation": {
+    "nominal_step": 0.0003125,
+    "minimum_step": 0.000009765625,
+    "growth_factor": 1.0,
+    "maximum_steps": 32,
+    "a_guard": [0.24069, 0.24071]
+  },
+  "identity": {
+    "historical_phase_count": 1792,
+    "barrio_phase_count": 2048
+  },
+  "acceptance": {
+    "minimum_points": 33,
+    "minimum_a_span": 1e-11,
+    "maximum_matching_residual": 1e-8,
+    "minimum_half_node_rms": 5e-6,
+    "maximum_closure_error": 0.04,
+    "maximum_neutral_error": 0.04,
+    "minimum_half_period_closure": 1e-5,
+    "maximum_period_ratio_error": 0.005
+  },
+  "claim_scope": "prospective 32-step sparse 2048-segment pseudo-arclength continuation of the EXP-298 positive-mode primitive period-1536 child after EXP-299 independently classifies the child as stable but leaves the period-768 parent inside the unchanged neutral margin; all matching, branch-separation, terminal closure, neutral, period-ratio, and exact 1792/2048 section-identity gates remain fixed, and at least 1e-11 separation from the finite 8192-step event coordinate is required; a pass supplies only a farther exact child row for a separately frozen two-solver criticality audit, not child stability at the terminal row, supercriticality, tangent-sign equivalence, an eighth event, limiting universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

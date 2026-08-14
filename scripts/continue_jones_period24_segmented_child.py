@@ -25,7 +25,7 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 from multiple_shooting_core import correct_arclength
 from qualify_jones_period12_children import _section_count
 from validate_multiple_shooting_switch import half_closure
-from switch_jones_period12_segmented_child import qualified_audit_bytes
+from switch_jones_period12_segmented_child import normalized_event, qualified_audit_bytes
 
 
 SCHEMAS = {
@@ -78,12 +78,12 @@ def main() -> int:
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
         raise SystemExit("event receipt hash mismatch")
     switch = json.loads(switch_bytes)
-    event = json.loads(event_bytes)
+    raw_event = json.loads(event_bytes)
     if not switch.get("passed"):
         raise SystemExit("a passed switch receipt is required")
     try:
         audit_bytes = qualified_audit_bytes(
-            event, event_bytes, manifest, args.audit_receipt
+            raw_event, event_bytes, manifest, args.audit_receipt
         )
     except ValueError as error:
         raise SystemExit(str(error)) from error
@@ -110,6 +110,7 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
 
+    event = normalized_event(raw_event, manifest)
     segment_count = int(manifest["segment_count"])
     target = manifest["source_candidate"]
     candidates = [

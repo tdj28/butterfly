@@ -407,3 +407,10 @@ neutral margin at moduli `0.99999149/1.00002167`, so the combined result is
 `other-or-unresolved`. This is strong evidence consistent with a supercritical
 seventh birth, not a promotion. The next run will continue the qualified child
 farther from the event before repeating the independent criticality audit.
+
+EXP-300 is frozen before execution. It continues the same prospectively
+selected child for 32 sparse pseudo-arclength steps, preserving the previous
+matching, branch-separation, closure, neutral, period-ratio, and exact section
+identity gates. All 33 rows and at least `1e-11` separation from the finite
+8,192-step event coordinate are required. A pass only supplies the terminal
+child for a separately frozen DOP853/Radau criticality audit.

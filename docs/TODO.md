@@ -531,6 +531,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   an exact sparse continuation of the stable child away from the event, then
   repeat the independent parent/child audit at the terminal coordinate without
   relaxing the classification margin.
+  EXP-300 freezes that continuation for 32 exact sparse steps, requiring all
+  33 rows and at least `1e-11` terminal separation from the finite 8,192-step
+  event coordinate before another criticality audit may be defined.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
