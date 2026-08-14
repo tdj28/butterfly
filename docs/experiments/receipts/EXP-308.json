@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period1536-to3072-segmented-child-switch-summary.v1",
+  "experiment_id": "EXP-308",
+  "passed": false,
+  "source_commit": "084f6b78b7cb98081cd5da1c7b88a6d8b4185dcd",
+  "manifest_sha256": "0cc100e1d879d7e8da6fe095f00688baa169a51cba659bdb87a4909290e5348e",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "raw_artifact": "artifacts/EXP-308/receipt.json",
+  "raw_artifact_bytes": 758390,
+  "raw_artifact_sha256": "ced9b5fbc564027c005ef36a3beea505b6e4c25edd3cde32b9d0aef13c5a446f",
+  "elapsed_seconds": 533.8818373330869,
+  "event_matching_residual": 1.3629757821131011e-9,
+  "secondary_null_residual": 3.603689288049654e-12,
+  "accepted_candidates": 1,
+  "required_candidates": 2,
+  "negative_sign_half_period_closure": 5.687903032471369e-7,
+  "positive_sign_half_period_closure": 4.407381363066297e-8,
+  "minimum_half_period_closure": 5e-8,
+  "common_half_node_rms": 4.509479741199673e-6,
+  "common_parameter_displacement": 1.092015367021304e-12,
+  "interpretation": "Both 4096-segment period-3072 signs correct and pass matching, phase, closure, neutral, node-primitivity, displacement, period-ratio, and exact 3584/4096 section gates. The negative sign passes, while the positive sign misses only the unchanged direct half-period nonclosure floor by 11.9 percent; the bilateral candidate count therefore fails and no child is nominated."
+}

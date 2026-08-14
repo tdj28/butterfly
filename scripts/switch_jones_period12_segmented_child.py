@@ -104,6 +104,7 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--event", type=Path, required=True)
     parser.add_argument("--audit", type=Path)
+    parser.add_argument("--failed-switch", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -123,6 +124,20 @@ def main() -> int:
         )
     except ValueError as error:
         raise SystemExit(str(error)) from error
+    failed_switch_bytes = None
+    if "failed_switch_receipt_sha256" in manifest:
+        if args.failed_switch is None:
+            raise SystemExit("bound failed switch is required")
+        failed_switch_bytes = args.failed_switch.read_bytes()
+        if sha256_bytes(failed_switch_bytes) != manifest["failed_switch_receipt_sha256"]:
+            raise SystemExit("failed switch receipt hash mismatch")
+        failed_switch = json.loads(failed_switch_bytes)
+        if (
+            failed_switch.get("schema") != manifest.get("failed_switch_schema")
+            or failed_switch.get("passed")
+            or len(failed_switch.get("accepted_candidates", [])) != 1
+        ):
+            raise SystemExit("failed switch pattern changed")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -327,6 +342,11 @@ def main() -> int:
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "audit_receipt_sha256": (
             sha256_bytes(audit_bytes) if audit_bytes is not None else None
+        ),
+        "failed_switch_receipt_sha256": (
+            sha256_bytes(failed_switch_bytes)
+            if failed_switch_bytes is not None
+            else None
         ),
         "source": source,
         "environment": {

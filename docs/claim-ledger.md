@@ -330,6 +330,14 @@ doubled DOP853 event-matching and secondary-null residuals are
 period-3072 switch but does not change the eight-event/six-supercritical-birth
 ledger or establish a period-3072 child.
 
+CLM-008 addendum (EXP-308): both bilateral 4,096-segment period-3072 signs
+correct in two evaluations and pass matching, phase, closure, neutral,
+node-primitivity, displacement, period-ratio, and exact `3584/4096` identities.
+The negative sign passes every gate; the positive sign fails only direct
+half-period nonclosure at `4.41e-8 < 5e-8`. The bilateral candidate-count gate
+therefore fails without relaxation. No period-3072 child or birth direction is
+promoted.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

@@ -622,6 +622,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   length. Both signs must pass all sparse correction, primitivity, period-ratio,
   displacement, and exact doubled `3584/4096` section gates before any child
   is nominated; preliminary multipliers remain non-evidentiary.
+  EXP-308 corrects both signs in two evaluations and passes every shared gate,
+  but only the negative sign passes the half-period floor. The positive value
+  is `4.41e-8 < 5e-8`; preserve the bilateral failure. EXP-309 freezes the
+  deterministic factor-two predictor increase to `0.0005`, with both signs
+  and every gate unchanged.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

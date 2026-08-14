@@ -547,3 +547,10 @@ unchanged `0.00025` predictor length. Both candidates must pass sparse
 correction, primitivity, period-ratio, displacement, and exact doubled
 `3584/4096` section identities; a pass nominates children without classifying
 their stability.
+
+EXP-308 fails one unchanged gate after 534 seconds. Both signs correct in two
+evaluations with matching `2.22e-11`, half-node RMS `4.51e-6`, period ratio
+within `1.09e-12` of two, and exact doubled section identities. The negative
+sign passes; the positive sign's direct half-period nonclosure is
+`4.41e-8 < 5e-8`. EXP-309 is frozen with the deterministic factor-two
+predictor increase to `0.0005`, retaining both signs and every gate.
