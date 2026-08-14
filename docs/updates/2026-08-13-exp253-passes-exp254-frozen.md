@@ -433,3 +433,13 @@ matching and primitive-separation gates, and no preliminary multiplier enters
 the rule. DOP853 and Radau then independently recorrect parent and child under
 the same residual, node-identity, multiplier-spread, half-period nonclosure,
 classification-margin, and exact section gates used by EXP-299.
+
+EXP-301 finishes after 2,878 seconds and fails for a new, well-resolved reason.
+DOP853/Radau agree that the parent is unstable at moduli
+`1.00132578/1.00130325`, but they also agree that the child is strongly
+unstable at `284.80804/284.80915`. All residual, node-identity,
+multiplier-spread, half-period nonclosure, and exact section gates pass. The
+result therefore cannot classify the seventh birth, but EXP-299 and EXP-301
+together bracket a stability loss of the primitive period-1536 child along the
+exact accepted EXP-300 prefix. A prospective block-Floquet scan must isolate
+that loss before any eighth-event claim.

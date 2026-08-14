@@ -544,6 +544,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   at `a=0.24070100822533044`. The same two solvers, `1e-4` classification
   margin, `0.02` multiplier-spread ceiling, and exact section identities apply;
   either resolved criticality passes and unresolved fails.
+  EXP-301 passes every nonclassification gate but finds both parent and child
+  unstable: parent moduli `1.00132578/1.00130325`, child moduli
+  `284.80804/284.80915`. Together with EXP-299's independently stable child,
+  this brackets a period-1536 stability loss on the accepted EXP-300 prefix.
+  Freeze a magnitude-separated block-Floquet scan from the source through step
+  16, requiring the exact prefix gates and at least one real-`-1` bracket;
+  refine any bracket separately before discussing an eighth event.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

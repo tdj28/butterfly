@@ -272,6 +272,15 @@ terminal preliminary multiplier is not evidence. A separately frozen audit may
 select the first-threshold row and independently correct it, but EXP-300 does
 not itself change the ledger's seven-event/six-supercritical-birth status.
 
+CLM-008 addendum (EXP-301): independent DOP853/Radau correction at the
+deterministic first `1e-11`-separated prefix row passes every orbit and
+agreement gate, but parent and child are both unstable. Parent moduli are
+`1.00132578/1.00130325`; child moduli are `284.80804/284.80915`. This fails the
+required stability exchange and leaves the seventh birth direction open.
+Combined with EXP-299's independently stable child at the source coordinate,
+it brackets a child stability loss on the exact continuation prefix; it does
+not yet qualify a real-`-1` eighth event or change the secure event/birth count.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`
