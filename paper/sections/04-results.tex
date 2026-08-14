@@ -1204,6 +1204,46 @@ remain unqualified.
   \label{fig:exp293-295-augmented-event}
 \end{figure}
 
+The primitive period-1536 branch can be carried one rung farther, but only
+after separating exact-root evidence from a misleading Float64 bracket. A
+block-Floquet scan of approximately corrected continuation rows initially
+nominates a $1.04\times10^{-13}$ interval. A 50-digit, 2,048-segment
+orbit--antiperiodic-tangent solve reduced by cyclic elimination converges at
+1,024, 2,048, and 4,096 steps per segment, with parameter and period ratios
+$15.7178/15.7060$. Its Richardson coordinate,
+$0.24070100822409128$, lies $1.36\times10^{-11}$ below that inherited
+interval, so the bracket gate is retained as failed rather than relaxed.
+
+An algebraically independent RK4 3/8 sequence then converges with ratios
+$15.7210/15.7069$ and Richardson coordinate
+$0.24070100822411182$. The two extrapolated coordinates differ by only
+$2.05\times10^{-14}$, extrapolated periods by $7.21\times10^{-11}$, and
+finest nodes by $1.24\times10^{-10}$ maximum. Base tangents agree within
+$5.73\times10^{-13}$, the global tangent-line cosine differs from one by
+$4.51\times10^{-23}$, and the finest independent orbit/tangent residuals are
+$5.05\times10^{-28}/7.72\times10^{-25}$. Half-orbit node RMS remains
+$7.99\times10^{-6}$ and excludes the period-768 double cover. These two exact
+augmented sequences qualify the eighth primitive real-$-1$ event at consensus
+$a_{1536}\simeq0.24070100822410155$. The sixth finite spacing ratio is
+$5.312$, extending the non-monotone sequence to
+$4.557/4.697/4.300/4.836/4.244/5.312$. A period-3072 child and the seventh and
+eighth birth directions remain unqualified.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig24-exp304-306-augmented-event.png}
+  \caption{Two-tableau augmented qualification of the eighth returning-arm
+  event. Upper left: classical RK4 and RK4 3/8 coordinates converge with
+  fourth-order slopes. Upper right: all augmented systems close below the
+  frozen $10^{-22}$ gate. Lower left: the eighth event adds the sixth finite
+  spacing ratio, $5.312$, without producing a monotone sequence. Lower right:
+  the independently converged exact roots coincide inside the target-blind
+  successful-continuation envelope while rejecting EXP-302's inherited
+  micro-bracket. The result qualifies the event, not a period-3072 child,
+  birth criticality, or a universality limit.}
+  \label{fig:exp304-306-augmented-event}
+\end{figure}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}

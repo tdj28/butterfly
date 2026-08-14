@@ -600,6 +600,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   requires fourth-order convergence and cross-tableau agreement with EXP-305;
   it may qualify the eighth event directly, while period-3072 existence and
   birth direction remain separately locked.
+  EXP-306 passes all ten gates. Its Richardson coordinate differs from the
+  classical result by `2.05e-14`; period, finest-node, base-tangent, and full
+  tangent-line identities all pass. FND-103 promotes the eighth primitive
+  numerical real-`-1` event at consensus
+  `a=0.24070100822410155263`. The next cascade task is a prospectively frozen
+  bilateral period-3072 switch from a sufficiently refined event source;
+  stability and birth direction require an independent successor audit.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

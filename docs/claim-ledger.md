@@ -309,6 +309,19 @@ invalidating the converged cyclic formulation; independently corrected child
 endpoints must rebuild the stability bracket. The secure count remains seven
 exact events and six independently supercritical births.
 
+CLM-008 addendum (EXP-306 and FND-103): an algebraically independent
+three-resolution RK4 3/8 augmented sequence passes all ten gates. Parameter
+and period ratios are `15.7210/15.7069`; its Richardson coordinate differs
+from EXP-305 by `2.05e-14`; extrapolated periods differ by `7.21e-11`; finest
+nodes agree within `1.24e-10`; and every tangent-line gate passes. This
+qualifies the eighth primitive numerical real-`-1` event at consensus
+`a=0.24070100822410155263` despite preserving the rejection of EXP-302's
+micro-bracket. The sixth finite spacing ratio is `5.312`, extending the
+non-monotone sequence without establishing a limit. The ledger now supports
+eight exact events, six independently supercritical births, and a stable
+primitive period-768 child; period-3072 existence and the seventh/eighth birth
+directions remain open.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

@@ -516,3 +516,13 @@ seventh event. Three resolutions must converge at fourth order and agree with
 EXP-305 in coordinate, period, orbit nodes, and tangent lines. The parameter
 gate is the entire successful EXP-300 continuation envelope, fixed without
 using any stability value; EXP-302's rejected micro-bracket is not reused.
+
+EXP-306 passes all ten gates after 705 seconds. Its parameter and period
+convergence ratios are `15.7210/15.7069`; the independent Richardson
+coordinate differs from EXP-305 by `2.05e-14`, and the extrapolated periods by
+`7.21e-11`. Finest nodes agree within `1.24e-10`, base tangents within
+`5.73e-13`, and every tangent-line gate passes. FND-103 therefore qualifies
+the eighth primitive numerical real-`-1` event at consensus
+`a=0.24070100822410155263`. The finite spacing sequence gains `5.312` but
+remains non-monotone. A period-3072 switch and its independent stability audit
+are next; neither child existence nor eighth-birth direction is inferred here.

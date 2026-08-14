@@ -509,6 +509,10 @@ what must be narrowed, and what is false or unresolved.
   validates scalable 50-digit cyclic elimination while failing coarse-grid bounds.
 - [`experiments/EXP-305-jones-period1536-decimal-augmented-refinement.md`](experiments/EXP-305-jones-period1536-decimal-augmented-refinement.md):
   passes multi-resolution convergence but rejects EXP-302's inherited physical bracket.
+- [`experiments/EXP-306-jones-period1536-decimal-augmented-independent.md`](experiments/EXP-306-jones-period1536-decimal-augmented-independent.md):
+  independently reproduces and qualifies the primitive period-1536 real-`-1` event.
+- [`findings/FND-103-eighth-returning-arm-event-augmented.md`](findings/FND-103-eighth-returning-arm-event-augmented.md):
+  promotes the eighth exact numerical event while keeping period 3072 open.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
