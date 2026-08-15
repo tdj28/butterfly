@@ -61,7 +61,9 @@ def half_node_rms(value: np.ndarray, segment_count: int) -> float:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
-    parser.add_argument("--switch-receipt", type=Path, required=True)
+    source_group = parser.add_mutually_exclusive_group(required=True)
+    source_group.add_argument("--switch-receipt", type=Path)
+    source_group.add_argument("--continuation-receipt", type=Path)
     parser.add_argument("--event-receipt", type=Path, required=True)
     parser.add_argument("--audit-receipt", type=Path)
     parser.add_argument("--identity-receipt", type=Path)
@@ -72,15 +74,26 @@ def main() -> int:
     manifest = json.loads(manifest_bytes)
     if manifest.get("schema") not in SCHEMAS:
         raise SystemExit("unsupported Jones period-24 continuation manifest")
-    switch_bytes = args.switch_receipt.read_bytes()
+    source_kind = "switch" if args.switch_receipt is not None else "continuation"
+    source_path = (
+        args.switch_receipt
+        if args.switch_receipt is not None
+        else args.continuation_receipt
+    )
+    source_bytes = source_path.read_bytes()
     event_bytes = args.event_receipt.read_bytes()
-    if sha256_bytes(switch_bytes) != manifest["switch_receipt_sha256"]:
-        raise SystemExit("switch receipt hash mismatch")
+    source_hash_key = (
+        "switch_receipt_sha256"
+        if source_kind == "switch"
+        else "continuation_receipt_sha256"
+    )
+    if sha256_bytes(source_bytes) != manifest[source_hash_key]:
+        raise SystemExit(f"{source_kind} receipt hash mismatch")
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
         raise SystemExit("event receipt hash mismatch")
-    switch = json.loads(switch_bytes)
+    source_receipt = json.loads(source_bytes)
     raw_event = json.loads(event_bytes)
-    if not switch.get("passed"):
+    if source_kind == "switch" and not source_receipt.get("passed"):
         raise SystemExit("a passed switch receipt is required")
     try:
         audit_bytes = qualified_audit_bytes(
@@ -113,22 +126,64 @@ def main() -> int:
 
     event = normalized_event(raw_event, manifest)
     segment_count = int(manifest["segment_count"])
-    target = manifest["source_candidate"]
-    candidates = [
-        row
-        for row in switch["accepted_candidates"]
-        if float(row["step_length"]) == float(target["step_length"])
-        and int(row["direction"]) == int(target["direction"])
-    ]
-    if len(candidates) != 1:
-        raise SystemExit("source candidate is not uniquely selected")
-    seed = candidates[0]
-    event_variables = np.r_[
-        np.tile(np.asarray(event["nodes"], dtype=float), (2, 1)).ravel(),
-        2.0 * float(event["period_time"]),
-        float(event["corrected_a"]),
-    ]
-    points = [event_variables, variables(seed, segment_count)]
+    if source_kind == "switch":
+        target = manifest["source_candidate"]
+        candidates = [
+            row
+            for row in source_receipt["accepted_candidates"]
+            if float(row["step_length"]) == float(target["step_length"])
+            and int(row["direction"]) == int(target["direction"])
+        ]
+        if len(candidates) != 1:
+            raise SystemExit("source candidate is not uniquely selected")
+        seed = candidates[0]
+        event_variables = np.r_[
+            np.tile(np.asarray(event["nodes"], dtype=float), (2, 1)).ravel(),
+            2.0 * float(event["period_time"]),
+            float(event["corrected_a"]),
+        ]
+        points = [event_variables, variables(seed, segment_count)]
+        bound_switch_hash = sha256_bytes(source_bytes)
+        continuation_bytes = None
+    else:
+        resume = manifest.get("resume", {})
+        if source_receipt.get("schema") != manifest.get("continuation_schema"):
+            raise SystemExit("continuation schema mismatch")
+        if (
+            not source_receipt.get("passed")
+            and not resume.get("allow_failed_prefix", False)
+        ):
+            raise SystemExit("a failed continuation prefix is not authorized")
+        if source_receipt.get("event_receipt_sha256") != sha256_bytes(event_bytes):
+            raise SystemExit("continuation event binding mismatch")
+        if int(source_receipt.get("segment_count", 0)) != segment_count:
+            raise SystemExit("continuation segment count mismatch")
+        source_rows = source_receipt.get("rows", [])
+        if len(source_rows) < int(resume.get("minimum_source_rows", 2)):
+            raise SystemExit("continuation prefix is too short")
+        if not all(row["status"]["success"] for row in source_rows):
+            raise SystemExit("continuation prefix contains an unsuccessful row")
+        if max(float(row["status"]["matching_residual"]) for row in source_rows) > float(
+            resume["maximum_prefix_matching_residual"]
+        ):
+            raise SystemExit("continuation prefix exceeds the matching gate")
+        if min(float(row["half_node_rms"]) for row in source_rows) < float(
+            resume["minimum_prefix_half_node_rms"]
+        ):
+            raise SystemExit("continuation prefix fails the primitive-separation gate")
+        seed = source_rows[-1]
+        if int(seed["step_index"]) != int(resume["expected_terminal_step_index"]):
+            raise SystemExit("continuation terminal step mismatch")
+        if float(seed["a"]) != float(resume["expected_terminal_a"]):
+            raise SystemExit("continuation terminal coordinate mismatch")
+        points = [
+            variables(source_rows[-2], segment_count),
+            variables(seed, segment_count),
+        ]
+        bound_switch_hash = source_receipt.get("switch_receipt_sha256")
+        if bound_switch_hash != manifest.get("switch_receipt_sha256"):
+            raise SystemExit("continuation switch binding mismatch")
+        continuation_bytes = source_bytes
     fixed_b = float(manifest["fixed_b"])
     fixed_c = float(manifest["fixed_c"])
     solver = SolverConfig(**manifest["solver"])
@@ -301,7 +356,12 @@ def main() -> int:
         ),
         "experiment_id": manifest["experiment_id"],
         "manifest_sha256": sha256_bytes(manifest_bytes),
-        "switch_receipt_sha256": sha256_bytes(switch_bytes),
+        "switch_receipt_sha256": bound_switch_hash,
+        "continuation_receipt_sha256": (
+            sha256_bytes(continuation_bytes)
+            if continuation_bytes is not None
+            else None
+        ),
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "audit_receipt_sha256": (
             sha256_bytes(audit_bytes) if audit_bytes is not None else None

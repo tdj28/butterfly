@@ -1,0 +1,55 @@
+{
+  "schema": "butterfly.jones-period3072-segmented-continuation-manifest.v1",
+  "output_schema": "butterfly.jones-period3072-resumed-continuation-receipt.v1",
+  "experiment_id": "EXP-312",
+  "continuation_schema": "butterfly.jones-period3072-segmented-continuation-receipt.v1",
+  "continuation_receipt_sha256": "641d2f47ee6f1d726157469ebaff855300a2ca4dfad64476be52499dba6deaeb",
+  "switch_receipt_sha256": "f4991cc53e1fe68eea5a0a60e3f52ec2f731b43371d943db49ae1e3a19c0510a",
+  "event_schema": "butterfly.jones-period1536-decimal-augmented-8192-receipt.v1",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "resume": {
+    "allow_failed_prefix": true,
+    "minimum_source_rows": 5,
+    "maximum_prefix_matching_residual": 1e-8,
+    "minimum_prefix_half_node_rms": 5e-6,
+    "expected_terminal_step_index": 3,
+    "expected_terminal_a": 0.2407010082224685
+  },
+  "selection_reason": "receipt-bound resumption from the final two exact EXP-311 rows after all four full-step corrections and every orbit-level gate pass but the prospectively frozen terminal event-separation gate fails",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 4096,
+  "jacobian_storage": "sparse_csr",
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {
+    "maximum_evaluations": 720,
+    "tolerance": 1e-10
+  },
+  "continuation": {
+    "nominal_step": 0.000625,
+    "minimum_step": 0.00001953125,
+    "growth_factor": 1.0,
+    "maximum_steps": 8,
+    "a_guard": [0.24069, 0.24071]
+  },
+  "identity": {
+    "historical_phase_count": 3584,
+    "barrio_phase_count": 4096
+  },
+  "acceptance": {
+    "minimum_points": 9,
+    "minimum_a_span": 1e-11,
+    "maximum_matching_residual": 1e-8,
+    "minimum_half_node_rms": 5e-6,
+    "maximum_closure_error": 0.04,
+    "maximum_neutral_error": 0.04,
+    "minimum_half_period_closure": 2e-6,
+    "maximum_period_ratio_error": 0.005
+  },
+  "claim_scope": "prospective eight-step sparse 4096-segment pseudo-arclength resumption from the exact final two EXP-311 period-3072 rows; the failed EXP-311 receipt is admitted only through its bound five-row prefix, whose rows must all remain successful with matching below 1e-8 and primitive half-node separation above 5e-6; all nine resumed rows, at least 1e-11 terminal separation from the bound finite 8192-step event coordinate, matching, branch-separation, terminal closure, neutral, period-ratio, and exact 3584/4096 section-identity gates are fixed; a pass supplies only farther exact child rows for a separately frozen two-solver criticality audit, not child stability at any resumed row, subcriticality, supercriticality, sign equivalence, attracting-basin measure, a global period-3072 branch, a ninth event, limiting universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

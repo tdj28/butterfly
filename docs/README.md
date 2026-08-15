@@ -523,6 +523,8 @@ what must be narrowed, and what is false or unresolved.
   finds a strongly unstable child while preserving the parent neutral-margin failure.
 - [`experiments/EXP-311-jones-period3072-qualified-continuation.md`](experiments/EXP-311-jones-period3072-qualified-continuation.md):
   preserves a four-step exact prefix while rejecting insufficient parameter separation.
+- [`experiments/EXP-312-jones-period3072-resumed-continuation.md`](experiments/EXP-312-jones-period3072-resumed-continuation.md):
+  freezes receipt-bound resumption from the final two exact prefix rows.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

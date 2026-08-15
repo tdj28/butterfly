@@ -644,9 +644,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   period-ratio, and exact `3584/4096` identity gates. EXP-311 accepts all four
   full steps and passes every orbit-level gate, but the branch bends across
   the finite event coordinate and ends only `7.77e-13` away; preserve the
-  distance-gate failure. Resume prospectively from the exact final two rows
-  until the first `1e-11` separation is reached, then run the farther
-  independent parent/child audit with the `1e-4` margin unchanged.
+  distance-gate failure. EXP-312 binds the raw EXP-311 receipt, rechecks its
+  complete accepted prefix, and freezes eight additional steps from the exact
+  final tangent under unchanged orbit gates and the same `1e-11` separation
+  target. Execute EXP-312, then select the first qualifying separated row for
+  the independent parent/child audit with the `1e-4` margin unchanged.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
