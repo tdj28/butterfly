@@ -527,6 +527,8 @@ what must be narrowed, and what is false or unresolved.
   freezes receipt-bound resumption from the final two exact prefix rows.
 - [`experiments/EXP-313-jones-period3072-first-separated-criticality.md`](experiments/EXP-313-jones-period3072-first-separated-criticality.md):
   independently finds both parent and child unstable at the first `4e-12` prefix row.
+- [`experiments/EXP-314-jones-period1536-solver-event-brackets.md`](experiments/EXP-314-jones-period1536-solver-event-brackets.md):
+  freezes parent-only DOP853/Radau brackets for the eighth real-`-1` event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

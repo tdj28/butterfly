@@ -659,7 +659,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   that the curved daughter crosses to the parent-unstable side. Next localize
   the period-1536 real-`-1` coordinate separately under DOP853 and Radau, then
   switch or sample the period-3072 child on their common coexistence side;
-  do not launch another blind farther continuation.
+  do not launch another blind farther continuation. EXP-314 now binds the
+  EXP-310/313 signed parent residuals, replays their two-point solver-specific
+  root estimates, and freezes one outward 2,048-segment parent evaluation per
+  solver. Execute EXP-314; both signs must reverse by at least `1e-4` inside
+  `7e-13` brackets before any solver-specific child switch is designed.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
