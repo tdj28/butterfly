@@ -356,6 +356,15 @@ eighth birth, but the secure ledger remains eight exact events and six
 independently qualified supercritical births until a farther same-side audit
 resolves the parent.
 
+CLM-008 addendum (EXP-311): four full-step sparse corrections extend the
+primitive period-3072 child while matching stays below `3.22e-9` and half-node
+RMS grows from `9.02e-6` to `5.41e-5`. Terminal closure, neutral mode,
+half-period nonclosure, period ratio, and exact `3584/4096` identity pass. The
+branch crosses the finite event coordinate but ends only `7.77e-13` away, so
+the frozen `1e-11` separation gate fails. This preserves an exact resumable
+prefix but neither resolves parent stability nor changes the secure event and
+birth ledger.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

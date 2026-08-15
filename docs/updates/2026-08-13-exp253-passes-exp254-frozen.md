@@ -568,3 +568,12 @@ nonclosure, node identity, and multiplier spread all pass. Parent moduli
 `1.00003875/0.99995754` remain inside the frozen `1e-4` margin. The result is
 strong subcritical evidence, not a promotion. A farther same-side child
 continuation and unchanged-margin re-audit are next.
+
+EXP-311 completes after 741 seconds and fails only its `1e-11` event-separation
+gate. All four period-3072 pseudo-arclength corrections pass at the full step;
+matching stays below `3.22e-9`, primitive separation grows sixfold, terminal
+full/half closure and neutral mode pass, and exact `3584/4096` identities are
+retained. The branch bends across the finite event coordinate and ends only
+`7.77e-13` away. This is a valid exact prefix, not a farther audit point. The
+next experiment will resume from the final two rows without recomputing them
+and retain the same `1e-11` target and all scientific gates.

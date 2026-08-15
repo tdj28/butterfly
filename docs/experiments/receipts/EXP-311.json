@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.jones-period3072-segmented-continuation-summary.v1",
+  "experiment_id": "EXP-311",
+  "passed": false,
+  "source_commit": "6687478e74ddadd64df436c47f9cb888c822e199",
+  "manifest_sha256": "8b5d035d68b3ac53a4a759623850a38f13db176b5457c431fb8712dfbf548eb7",
+  "switch_receipt_sha256": "f4991cc53e1fe68eea5a0a60e3f52ec2f731b43371d943db49ae1e3a19c0510a",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "raw_artifact": "artifacts/EXP-311/receipt.json",
+  "raw_artifact_bytes": 1261376,
+  "raw_artifact_sha256": "641d2f47ee6f1d726157469ebaff855300a2ca4dfad64476be52499dba6deaeb",
+  "elapsed_seconds": 741.1114174160175,
+  "point_count": 5,
+  "terminal_a": 0.2407010082224685,
+  "a_span_from_event": 7.771838728132252e-13,
+  "maximum_matching_residual": 3.212164003743192e-9,
+  "terminal_half_node_rms": 5.4113759249642976e-5,
+  "terminal_diagnostics": {
+    "closure_error": 1.7263120815202e-5,
+    "neutral_multiplier_error": 0.003336176429180271,
+    "half_period_closure": 2.0308754563156064e-5,
+    "historical_phase_count": 3584,
+    "barrio_phase_count": 4096
+  },
+  "interpretation": "All four full-step corrections and every orbit-level gate pass, but the curved branch ends only 7.77e-13 from the finite event coordinate and therefore fails the frozen 1e-11 separation gate. The exact prefix may seed a prospectively frozen resumption; parent stability and eighth-birth direction remain unresolved."
+}
