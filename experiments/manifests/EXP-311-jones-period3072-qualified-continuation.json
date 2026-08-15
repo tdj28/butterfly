@@ -1,0 +1,49 @@
+{
+  "schema": "butterfly.jones-period3072-segmented-continuation-manifest.v1",
+  "output_schema": "butterfly.jones-period3072-segmented-continuation-receipt.v1",
+  "experiment_id": "EXP-311",
+  "switch_receipt_sha256": "f4991cc53e1fe68eea5a0a60e3f52ec2f731b43371d943db49ae1e3a19c0510a",
+  "event_schema": "butterfly.jones-period1536-decimal-augmented-8192-receipt.v1",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "source_candidate": {
+    "step_length": 0.0005,
+    "direction": -1
+  },
+  "selection_reason": "the EXP-309 negative sign was prospectively selected for EXP-310 only by larger direct half-period nonclosure, and EXP-310 independently classifies that child as unstable under both solvers while leaving only the parent inside the unchanged neutral margin",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 4096,
+  "jacobian_storage": "sparse_csr",
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {
+    "maximum_evaluations": 720,
+    "tolerance": 1e-10
+  },
+  "continuation": {
+    "nominal_step": 0.000625,
+    "minimum_step": 0.00001953125,
+    "growth_factor": 1.0,
+    "maximum_steps": 4,
+    "a_guard": [0.24069, 0.24071]
+  },
+  "identity": {
+    "historical_phase_count": 3584,
+    "barrio_phase_count": 4096
+  },
+  "acceptance": {
+    "minimum_points": 5,
+    "minimum_a_span": 1e-11,
+    "maximum_matching_residual": 1e-8,
+    "minimum_half_node_rms": 5e-6,
+    "maximum_closure_error": 0.04,
+    "maximum_neutral_error": 0.04,
+    "minimum_half_period_closure": 2e-6,
+    "maximum_period_ratio_error": 0.005
+  },
+  "claim_scope": "prospective four-step sparse 4096-segment pseudo-arclength continuation of the EXP-309 negative-mode primitive period-3072 child after EXP-310 independently classifies the child as unstable but leaves the period-1536 parent inside the unchanged neutral margin; all five rows, at least 1e-11 terminal separation from the bound finite 8192-step event coordinate, matching, branch-separation, terminal closure, neutral, period-ratio, and exact 3584/4096 section-identity gates are fixed; a pass supplies only a farther exact child row for a separately frozen two-solver criticality audit, not child stability at the terminal row, subcriticality, supercriticality, sign equivalence, attracting-basin measure, a global period-3072 branch, a ninth event, limiting universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}
