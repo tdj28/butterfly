@@ -526,7 +526,7 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-312-jones-period3072-resumed-continuation.md`](experiments/EXP-312-jones-period3072-resumed-continuation.md):
   freezes receipt-bound resumption from the final two exact prefix rows.
 - [`experiments/EXP-313-jones-period3072-first-separated-criticality.md`](experiments/EXP-313-jones-period3072-first-separated-criticality.md):
-  freezes the unchanged-margin two-solver audit at the first `4e-12` prefix row.
+  independently finds both parent and child unstable at the first `4e-12` prefix row.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

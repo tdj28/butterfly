@@ -373,6 +373,16 @@ closure, neutral mode, nonclosure, period ratio, and exact `3584/4096`
 identity pass. The first row beyond `4e-12` was selected without stability and
 is reserved for independent audit; no birth direction is promoted here.
 
+CLM-008 addendum (EXP-313): at the stability-blind first prefix row beyond
+`4e-12`, DOP853/Radau independently find the period-1536 parent unstable
+(`1.00230292/1.00236720`) and the primitive period-3072 child extremely
+unstable (`22667.8829/22667.8902`). Every residual, node-identity, nonclosure,
+exact section-identity, and cross-solver agreement gate passes. The result
+fails only because both families are unstable. Thus the daughter continuation
+has crossed to the parent-unstable side; eighth-birth direction remains open
+and requires solver-specific parent-event localization rather than a farther
+parameter-distance proxy.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

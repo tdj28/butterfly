@@ -652,7 +652,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   while all terminal orbit/identity gates pass. EXP-313 now binds the failed
   prefix and freezes the first row beyond `4e-12` (nearly four times the
   finite-to-Richardson event shift) for independent DOP853/Radau audit with
-  the `1e-4` margin and all scientific gates unchanged. Execute EXP-313.
+  the `1e-4` margin and all scientific gates unchanged. EXP-313 passes every
+  nonclassification gate but finds both parent and child unstable: parent
+  moduli are `1.00230292/1.00236720`, while child moduli are
+  `22667.8829/22667.8902`. Preserve the unresolved criticality and the evidence
+  that the curved daughter crosses to the parent-unstable side. Next localize
+  the period-1536 real-`-1` coordinate separately under DOP853 and Radau, then
+  switch or sample the period-3072 child on their common coexistence side;
+  do not launch another blind farther continuation.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
