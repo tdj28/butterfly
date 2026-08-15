@@ -365,6 +365,14 @@ the frozen `1e-11` separation gate fails. This preserves an exact resumable
 prefix but neither resolves parent stability nor changes the secure event and
 birth ledger.
 
+CLM-008 addendum (EXP-312): receipt-bound resumption accepts six more exact
+period-3072 rows before a minimum-step trial reaches matching
+`1.00429e-8 > 1e-8`. The seven-row receipt fails its nine-row and `1e-11`
+separation gates, ending `4.744e-12` from the finite event, while terminal
+closure, neutral mode, nonclosure, period ratio, and exact `3584/4096`
+identity pass. The first row beyond `4e-12` was selected without stability and
+is reserved for independent audit; no birth direction is promoted here.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

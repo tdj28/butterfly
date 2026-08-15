@@ -577,3 +577,13 @@ retained. The branch bends across the finite event coordinate and ends only
 `7.77e-13` away. This is a valid exact prefix, not a farther audit point. The
 next experiment will resume from the final two rows without recomputing them
 and retain the same `1e-11` target and all scientific gates.
+
+EXP-312 resumes from the bound final tangent and accepts six exact rows over
+1,980 seconds. Three full steps pass before matching forces deterministic
+halving to `0.0003125`, `0.000078125`, and finally `0.00001953125`; the next
+minimum-step row misses matching at `1.00429e-8`. Terminal orbit and exact
+identity gates pass, but point count and the `1e-11` target fail at
+`4.744e-12`. EXP-313 is frozen at the stability-blind first row beyond
+`4e-12`, nearly four times the event receipt's finite-to-Richardson shift. It
+retains the same DOP853/Radau profiles, `1e-4` classification margin, and all
+orbit, identity, agreement, and nonclosure gates.

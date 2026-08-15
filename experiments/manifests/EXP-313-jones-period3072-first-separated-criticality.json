@@ -1,0 +1,60 @@
+{
+  "schema": "butterfly.jones-period3072-near-event-qualification-manifest.v1",
+  "output_schema": "butterfly.jones-period3072-first-separated-criticality-receipt.v1",
+  "experiment_id": "EXP-313",
+  "continuation_schema": "butterfly.jones-period3072-resumed-continuation-receipt.v1",
+  "continuation_receipt_sha256": "d12f7e73df018745e031384c1174342a39a45e8982f69312f589935db5258e02",
+  "allow_failed_continuation_prefix": true,
+  "event_schema": "butterfly.jones-period1536-decimal-augmented-8192-receipt.v1",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "source_candidate": {
+    "selection_rule": "first_absolute_event_separation",
+    "minimum_absolute_event_separation": 4e-12,
+    "maximum_prefix_matching_residual": 1e-8,
+    "minimum_prefix_half_node_rms": 5e-6,
+    "expected_step_index": 3,
+    "expected_a": 0.24070100821872153
+  },
+  "selection_reason": "the first accepted EXP-312 row whose absolute distance from the bound finite 8192-step event reaches 4e-12, nearly four times the finite-to-Richardson source-coordinate shift; selection uses only row order, event separation, matching, and primitive separation, never a preliminary multiplier",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "jacobian_storage": "sparse_csr",
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "expected_criticality": "resolved",
+  "solvers": {
+    "dop853": {
+      "method": "DOP853",
+      "rtol": 1e-11,
+      "atol": 1e-13,
+      "max_step": 0.03
+    },
+    "radau": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.03
+    }
+  },
+  "corrector": {
+    "maximum_evaluations": 240,
+    "tolerance": 1e-10
+  },
+  "cyclic_shifts": {
+    "2048": [0, 512, 1024, 1536],
+    "4096": [0, 1024, 2048, 3072]
+  },
+  "identity": {
+    "historical_phase_count": 3584,
+    "barrio_phase_count": 4096
+  },
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_solver_node_rms": 0.00002,
+    "maximum_multiplier_relative_spread": 0.02,
+    "minimum_half_period_closure": 2e-6,
+    "classification_margin": 0.0001
+  },
+  "claim_scope": "prospective independent fixed-a sparse 2048/4096-segment DOP853/Radau correction of the period-1536 parent and the deterministic first EXP-312 period-3072 child row whose absolute separation from the bound finite 8192-step event reaches 4e-12; the failed continuation is admitted only through its exact prefix, whose rows through the selected step must all retain matching below 1e-8 and primitive half-node separation above 5e-6; selection is frozen to step 3 and a=0.24070100821872153 without using any preliminary multiplier; the unchanged 1e-4 classification margin and all residual, cyclic-identity, multiplier-spread, nonclosure, and exact 3584/4096 section gates apply; either consistently parent-unstable/child-stable or parent-stable/child-unstable classifications pass, and other-or-unresolved fails; a pass establishes the sampled local stability exchange and eighth-birth direction only, not later EXP-312 branch geometry, sign equivalence, attracting-basin measure, a global period-3072 branch, a ninth event, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

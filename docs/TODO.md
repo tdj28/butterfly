@@ -647,8 +647,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   distance-gate failure. EXP-312 binds the raw EXP-311 receipt, rechecks its
   complete accepted prefix, and freezes eight additional steps from the exact
   final tangent under unchanged orbit gates and the same `1e-11` separation
-  target. Execute EXP-312, then select the first qualifying separated row for
-  the independent parent/child audit with the `1e-4` margin unchanged.
+  target. EXP-312 accepts six rows before the next frozen minimum-step trial
+  misses matching; it fails point count and ends `4.744e-12` from the event,
+  while all terminal orbit/identity gates pass. EXP-313 now binds the failed
+  prefix and freezes the first row beyond `4e-12` (nearly four times the
+  finite-to-Richardson event shift) for independent DOP853/Radau audit with
+  the `1e-4` margin and all scientific gates unchanged. Execute EXP-313.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
