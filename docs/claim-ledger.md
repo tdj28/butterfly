@@ -383,6 +383,16 @@ has crossed to the parent-unstable side; eighth-birth direction remains open
 and requires solver-specific parent-event localization rather than a farther
 parameter-distance proxy.
 
+CLM-008 addendum (EXP-314): parent-only DOP853 and Radau evaluations pass
+oppositely placed signed real-`-1` brackets of width
+`5.9544e-13/5.9827e-13`. Their new endpoint residuals are
+`+3.27617e-4/-2.16818e-4`, safely beyond the fixed `1e-4` floor, with all
+correction, direct-orbit, neutral, and block-Floquet gates passing. The shared
+EXP-310 coordinate is barely unstable for DOP853 and barely stable for Radau
+because it lies between the solver-specific numerical events. This explains
+the neutral split without changing physical criticality or the secure birth
+ledger.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

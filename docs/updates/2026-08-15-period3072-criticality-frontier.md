@@ -50,3 +50,14 @@ dominant multiplier brackets. Bind both coordinates and their discrepancy.
 Only then switch or sample the period-3072 daughter on a coordinate that both
 solvers place on the same parent-stability side. Keep the `1e-4`
 classification margin and all orbit/identity gates unchanged.
+
+## EXP-314: solver-specific parent-event brackets
+
+One new parent-only endpoint per solver passes after 1,810 seconds. DOP853
+brackets real `-1` over width `5.9544e-13`; Radau brackets it over
+`5.9827e-13`, on the opposite side of the shared EXP-310 coordinate. Both
+outward residuals exceed `1e-4` and all numerical gates pass. The EXP-310
+neutral classification is therefore explained by solver-specific event
+coordinates straddling its sampled `a`, not physical multistability. EXP-315
+is frozen for two deterministic bisections of each bracket before any new
+period-3072 switch.

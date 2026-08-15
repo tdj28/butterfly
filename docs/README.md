@@ -529,6 +529,8 @@ what must be narrowed, and what is false or unresolved.
   independently finds both parent and child unstable at the first `4e-12` prefix row.
 - [`experiments/EXP-314-jones-period1536-solver-event-brackets.md`](experiments/EXP-314-jones-period1536-solver-event-brackets.md):
   freezes parent-only DOP853/Radau brackets for the eighth real-`-1` event.
+- [`experiments/EXP-315-jones-period1536-solver-event-refinement.md`](experiments/EXP-315-jones-period1536-solver-event-refinement.md):
+  freezes two deterministic bisections of each solver-specific event bracket.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

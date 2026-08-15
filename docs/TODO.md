@@ -664,6 +664,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   root estimates, and freezes one outward 2,048-segment parent evaluation per
   solver. Execute EXP-314; both signs must reverse by at least `1e-4` inside
   `7e-13` brackets before any solver-specific child switch is designed.
+  EXP-314 passes both brackets at widths `5.954e-13/5.983e-13`; the shared
+  EXP-310 coordinate lies between the solver events, explaining the neutral
+  split. EXP-315 now freezes two deterministic bisections per solver and
+  requires final signed widths at most `1.6e-13`. Execute EXP-315 before
+  designing the representation-aware child switch.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.jones-period1536-solver-event-bracket-summary.v1",
+  "experiment_id": "EXP-314",
+  "passed": true,
+  "source_commit": "8fa34db59323a99e5dcf7ea3357364426215c38e",
+  "manifest_sha256": "ebb794e96226fbd90634bb1e427f74c9e67b9350713cecfe2ed9c657c8d3638a",
+  "near_receipt_sha256": "503612aa82a1feb0f717063d0f021229cc7e5f6fef93c7a058b0823cd4b53fad",
+  "far_receipt_sha256": "31713599cd595f690cec64a3a5a32f72a1e326fa0cde52e78adebc24fa1ae39a",
+  "raw_artifact": "artifacts/EXP-314/receipt.json",
+  "raw_artifact_bytes": 258632,
+  "raw_artifact_sha256": "29b3155f3cfd650afe220f0e2babefaf74250353eae7e60ee20d78de17d6fb6b",
+  "elapsed_seconds": 1810.4309814581648,
+  "brackets": {
+    "dop853": {
+      "lower_a": 0.24070100822429846,
+      "upper_a": 0.2407010082248939,
+      "width": 5.954403636820871e-13,
+      "lower_residual": -3.875360682759066e-5,
+      "upper_residual": 3.276173680979433e-4
+    },
+    "radau": {
+      "lower_a": 0.2407010082237002,
+      "upper_a": 0.24070100822429846,
+      "width": 5.982714323948812e-13,
+      "lower_residual": -2.168176306511782e-4,
+      "upper_residual": 4.24603022125547e-5
+    }
+  },
+  "interpretation": "Both solver-specific signed real-minus-one event brackets pass. Their opposite placement around the shared EXP-310 coordinate explains its DOP853/Radau neutral split as numerical event-coordinate uncertainty and supplies bounded inputs for deterministic refinement."
+}
