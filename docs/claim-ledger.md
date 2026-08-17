@@ -404,6 +404,17 @@ absolute coordinate cannot securely determine the parent side at the frozen
 margin. It establishes neither two physical events nor the eighth-birth
 direction; the next child switch must be event-relative under each solver.
 
+CLM-008 addendum (EXP-316): equal-offset event-relative DOP853/Radau samples
+independently classify the period-1536 parent as stable
+(`0.99968068/0.99965539`) and the period-3072 candidate as strongly unstable
+(`18.98363/18.98308`). Cross-solver node RMS values are
+`4.51e-9/3.34e-10`, multiplier spreads are below `2.90e-5`, and every
+correction, direct-orbit, neutral-mode, and exact section-identity gate passes.
+The experiment still fails because child half-period nonclosure is only
+`9.43e-7/1.61e-6`, below the frozen `2e-6` primitive-child floor. This is
+strong solver-consistent subcritical evidence, but the secure birth ledger is
+unchanged until a separation-constrained daughter passes the identity gate.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

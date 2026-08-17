@@ -675,7 +675,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-316 now freezes the multiplier-blind EXP-309 negative child and parent
   exactly `5e-13` above each solver's own upper event bound, with the
   preregistered stable-parent/unstable-child prediction and unchanged
-  classification, identity, and cross-solver gates. Execute EXP-316 next.
+  classification, identity, and cross-solver gates. EXP-316 independently
+  finds stable parents (`0.99968068/0.99965539`) and strongly unstable children
+  (`18.98363/18.98308`), with all solver-agreement and section gates passing,
+  but fails the `2e-6` child half-period-nonclosure floor at
+  `9.43e-7/1.61e-6`. Preserve the nonpromotion. Next construct an
+  arclength- or separation-constrained event-relative daughter that cannot
+  contract toward the doubled parent, then repeat the same stability gates.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

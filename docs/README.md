@@ -533,8 +533,8 @@ what must be narrowed, and what is false or unresolved.
   passes two deterministic bisections of each solver-specific event bracket,
   resolving both to about `1.5e-13` and bounding their numerical separation.
 - [`experiments/EXP-316-jones-period3072-solver-relative-criticality.md`](experiments/EXP-316-jones-period3072-solver-relative-criticality.md):
-  freezes the same-side DOP853/Radau parent-child audit at equal offsets from
-  each solver's own event bound.
+  finds solver-consistent subcritical stability but preserves a failed
+  primitive-child direct-nonclosure gate.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

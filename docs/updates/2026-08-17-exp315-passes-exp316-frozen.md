@@ -18,3 +18,17 @@ All EXP-310 classification and identity gates remain, with explicit direct
 closure and neutral-mode bounds added for every corrected family. Failure is
 preserved if either solver remains neutral, the child loses its primitive
 identity, or the two event-relative representations disagree.
+
+## EXP-316 result
+
+Both solvers return the predicted stable-parent/unstable-child pattern with
+excellent node and multiplier agreement. Exact `3584/4096` section identities
+also pass. The result nevertheless fails solely because the direct child
+half-period nonclosures, `9.43e-7/1.61e-6`, fall below `2e-6`.
+
+The interpretation is strong but bounded: event-relative sampling removes the
+parent-neutral ambiguity and supports a subcritical eighth birth, while the
+fixed-parameter daughter correction contracts too close to the doubled-parent
+limit for secure promotion. The next protocol must hold a geometric daughter
+separation through arclength or an explicit separation equation and repeat the
+same two-solver stability audit without relaxing the failed gate.
