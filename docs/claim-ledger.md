@@ -413,7 +413,11 @@ correction, direct-orbit, neutral-mode, and exact section-identity gate passes.
 The experiment still fails because child half-period nonclosure is only
 `9.43e-7/1.61e-6`, below the frozen `2e-6` primitive-child floor. This is
 strong solver-consistent subcritical evidence, but the secure birth ledger is
-unchanged until a separation-constrained daughter passes the identity gate.
+unchanged. Post-run diagnosis finds unchanged `9.01896e-6` half-node RMS and
+only `3.34e-10` cross-solver child RMS, so geometric collapse is rejected; the
+long single-shot diagnostic is below its own closure-error scale. Promotion
+requires a prospectively frozen segmented and tolerance-converged identity
+audit, not retrospective relaxation of EXP-316.
 
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.

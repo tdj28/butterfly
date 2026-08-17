@@ -679,9 +679,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   finds stable parents (`0.99968068/0.99965539`) and strongly unstable children
   (`18.98363/18.98308`), with all solver-agreement and section gates passing,
   but fails the `2e-6` child half-period-nonclosure floor at
-  `9.43e-7/1.61e-6`. Preserve the nonpromotion. Next construct an
-  arclength- or separation-constrained event-relative daughter that cannot
-  contract toward the doubled parent, then repeat the same stability gates.
+  `9.43e-7/1.61e-6`. Preserve the nonpromotion. Post-run node diagnosis shows
+  no daughter collapse: half-node RMS remains `9.01896e-6` versus only
+  `3.34e-10` cross-solver child RMS. The direct 22,895-time-unit diagnostic is
+  below its accumulated integration-error scale. Next freeze an independent
+  segmented and tolerance-converged primitive-identity audit; do not relax or
+  retrospectively reinterpret the failed EXP-316 gate.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

@@ -28,7 +28,9 @@ half-period nonclosures, `9.43e-7/1.61e-6`, fall below `2e-6`.
 
 The interpretation is strong but bounded: event-relative sampling removes the
 parent-neutral ambiguity and supports a subcritical eighth birth, while the
-fixed-parameter daughter correction contracts too close to the doubled-parent
-limit for secure promotion. The next protocol must hold a geometric daughter
-separation through arclength or an explicit separation equation and repeat the
-same two-solver stability audit without relaxing the failed gate.
+single-shot half-period diagnostic does not resolve primitive separation above
+its own accumulated integration error. Post-run node geometry remains strongly
+distinct (`9.01896e-6` half-node RMS) and solver-consistent (`3.34e-10` RMS),
+rejecting daughter collapse. The next protocol must independently qualify
+segmented, tolerance-converged primitive identity without relaxing the failed
+EXP-316 gate.

@@ -21,5 +21,5 @@
     "radau": 1.6054525646973142e-6
   },
   "failed_gate": "minimum_half_period_closure_2e-6",
-  "interpretation": "Both solver-relative samples support a local subcritical eighth birth, but the fixed-a daughter contracts too close to the doubled-parent limit and fails the frozen primitive-child direct-nonclosure gate; no birth-direction promotion is made."
+  "interpretation": "Both solver-relative samples support a local subcritical eighth birth but fail the frozen primitive-child direct-nonclosure gate. Post-run diagnosis finds unchanged 9.01896e-6 half-node RMS and 3.34e-10 cross-solver child RMS, so daughter collapse is rejected; the long single-shot diagnostic lies below its accumulated closure-error scale. No birth-direction promotion is made pending a segmented precision audit."
 }

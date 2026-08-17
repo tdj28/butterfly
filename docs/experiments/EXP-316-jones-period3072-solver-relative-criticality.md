@@ -41,15 +41,17 @@ differences are only `4.51e-9` and `3.34e-10`; multiplier relative spreads are
 cross-solver, and exact `3584/4096` section gates pass.
 
 The receipt nevertheless fails. DOP853/Radau direct half-period nonclosures
-are `9.43e-7/1.61e-6`, both below the frozen `2e-6` primitive-child floor. The
-fixed-`a` correction has moved the known daughter closer to its doubled-parent
-limit, so its identity is not strong enough for promotion under the existing
-gate.
+are `9.43e-7/1.61e-6`, both below the frozen `2e-6` primitive-child floor.
+Post-run diagnosis shows that the node geometry did not collapse: half-node
+RMS remains `9.01896e-6`, essentially unchanged from EXP-309, while the two
+solver child representations differ by only `3.34e-10` RMS. Instead, the
+22,895-time-unit single-shot half-period diagnostic is below its own accumulated
+integration-error scale; DOP853 direct full-period closure is `2.76e-6`.
 
 This is strong, solver-consistent evidence for a local subcritical eighth
 birth, but it does not change the secure six-supercritical-birth ledger. The
-successor must preserve daughter identity through an arclength or explicit
-separation constraint and repeat the same event-relative stability audit.
+successor must independently qualify primitive identity with segmented and
+tolerance-converged diagnostics before the stability result can be promoted.
 
 Raw receipt: `artifacts/EXP-316/receipt.json`, 766,025 bytes, SHA-256
 `3cf9fa153187e9a82a06f34d5ffc83ec3a547defa0fdd58824ea70e382f2368e`.
