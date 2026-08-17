@@ -672,6 +672,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Design the next period-3072 switch in solver-relative event coordinates,
   using each solver's own corrected parent and the same signed offset from its
   bracket. Do not use one shared absolute `a` coordinate to infer criticality.
+  EXP-316 now freezes the multiplier-blind EXP-309 negative child and parent
+  exactly `5e-13` above each solver's own upper event bound, with the
+  preregistered stable-parent/unstable-child prediction and unchanged
+  classification, identity, and cross-solver gates. Execute EXP-316 next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

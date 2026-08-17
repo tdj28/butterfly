@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-17-exp315-passes-exp316-frozen.md`](2026-08-17-exp315-passes-exp316-frozen.md)
+  — both solver-event brackets pass at `1.5e-13` scale and the equal-offset
+  period-3072 criticality audit is frozen.
+
 - [`2026-08-13-exp253-passes-exp254-frozen.md`](2026-08-13-exp253-passes-exp254-frozen.md)
   — stable primitive period 96 is qualified and its tangent-sign equivalence
   audit is frozen.
