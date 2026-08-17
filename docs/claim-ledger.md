@@ -393,6 +393,17 @@ because it lies between the solver-specific numerical events. This explains
 the neutral split without changing physical criticality or the secure birth
 ledger.
 
+CLM-008 addendum (EXP-315): two prospective bisections per solver pass every
+fresh correction, direct-orbit, neutral, and block-Floquet gate. DOP853
+retains event eight in
+`[0.24070100822429846,0.24070100822444732]`; Radau independently retains it in
+`[0.24070100822399930,0.24070100822414890]`. The widths are
+`1.48853e-13/1.49575e-13`, and the brackets are disjoint by `1.49575e-13`.
+This bounds the solver-representation uncertainty and explains why a shared
+absolute coordinate cannot securely determine the parent side at the frozen
+margin. It establishes neither two physical events nor the eighth-birth
+direction; the next child switch must be event-relative under each solver.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

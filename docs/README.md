@@ -530,7 +530,8 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-314-jones-period1536-solver-event-brackets.md`](experiments/EXP-314-jones-period1536-solver-event-brackets.md):
   freezes parent-only DOP853/Radau brackets for the eighth real-`-1` event.
 - [`experiments/EXP-315-jones-period1536-solver-event-refinement.md`](experiments/EXP-315-jones-period1536-solver-event-refinement.md):
-  freezes two deterministic bisections of each solver-specific event bracket.
+  passes two deterministic bisections of each solver-specific event bracket,
+  resolving both to about `1.5e-13` and bounding their numerical separation.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

@@ -61,3 +61,23 @@ neutral classification is therefore explained by solver-specific event
 coordinates straddling its sampled `a`, not physical multistability. EXP-315
 is frozen for two deterministic bisections of each bracket before any new
 period-3072 switch.
+
+## EXP-315: event-scale refinement
+
+Both two-step solver-specific bisections pass. DOP853 ends with width
+`1.48853e-13`; Radau ends with width `1.49575e-13`. The intervals are disjoint
+by `1.49575e-13`, while all midpoint corrections and independent orbit/Floquet
+checks pass. This converts the earlier qualitative solver split into a bounded
+event-coordinate uncertainty.
+
+The scientific conclusion is deliberately narrow: there is no evidence here
+for physical multistability or two bifurcations. Instead, at period 1536 the
+two adaptive flow representations place the numerical real-`-1` event a few
+`1e-13` apart. A common absolute `a` coordinate cannot securely put both
+solvers on the same side with the unchanged `1e-4` margin.
+
+The next executable gate is an event-relative child switch. For each solver,
+correct the parent from its own bracket, generate the anti-periodic daughter,
+and evaluate parent and child at an identical signed offset measured from that
+solver's event. Only cross-solver agreement in those relative coordinates can
+resolve the eighth birth direction.

@@ -667,8 +667,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-314 passes both brackets at widths `5.954e-13/5.983e-13`; the shared
   EXP-310 coordinate lies between the solver events, explaining the neutral
   split. EXP-315 now freezes two deterministic bisections per solver and
-  requires final signed widths at most `1.6e-13`. Execute EXP-315 before
-  designing the representation-aware child switch.
+  requires final signed widths at most `1.6e-13`. EXP-315 passes with widths
+  `1.48853e-13/1.49575e-13`; the brackets are disjoint by `1.49575e-13`.
+  Design the next period-3072 switch in solver-relative event coordinates,
+  using each solver's own corrected parent and the same signed offset from its
+  bracket. Do not use one shared absolute `a` coordinate to infer criticality.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of
