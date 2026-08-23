@@ -1,6 +1,6 @@
 # EXP-318 — High-precision criticality audit of the seventh birth
 
-Status: frozen; not yet run
+Status: completed — failed at the frozen stability-exchange gate
 
 EXP-299 independently corrects the primitive period-1536 daughter under
 DOP853 and Radau at `a=0.24070100823781396`. Both solvers classify it as
@@ -26,3 +26,24 @@ parameter-plane topology.
 
 Manifest:
 [`../../experiments/manifests/EXP-318-jones-period768-decimal-criticality.json`](../../experiments/manifests/EXP-318-jones-period768-decimal-criticality.json).
+
+## Result
+
+Both 50-digit tableaux resolve the parent cleanly, but on the stable side.
+Classical RK4 and RK4 3/8 give real-`-1` residuals
+`+6.4226805e-6/+6.4226424e-6`. Their successive-Richardson/cross-tableau
+uncertainty is at most `7.7932e-9`, giving an `824.1` signal/error ratio.
+Fourth-order convergence ratios are `15.970/15.960`; all orbit, neutral,
+cyclic, characteristic, and arithmetic-agreement gates pass.
+
+EXP-299 already qualifies the primitive period-1536 candidate as strongly
+stable under DOP853 and Radau. The sampled pair is therefore stable/stable,
+not a stability exchange, and EXP-318 correctly fails its sole
+`resolved_criticality` check. This rejects a simple supercritical reading of
+that sampled candidate. It does not determine whether the candidate is the
+immediate local daughter, lies beyond an ultranarrow fold or restabilization,
+or belongs to a distinct nearby sheet. Seventh-birth criticality remains open.
+
+Raw receipt: `artifacts/EXP-318/receipt.json`, 16,020 bytes, SHA-256
+`e109f5304a932823ace29b862ff7ff5088b735ca4d88797554546a4928bcd4dc`.
+Compact receipt: [`receipts/EXP-318.json`](receipts/EXP-318.json).

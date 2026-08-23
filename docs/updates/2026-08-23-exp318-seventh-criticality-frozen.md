@@ -17,3 +17,27 @@ direction may pass; a same-side or unresolved result fails.
 This is the shortest decisive successor for the only unresolved birth among
 the eight exact returning-arm flip events. It uses local CPU arithmetic and
 incurs no RunPod cost.
+
+## Result
+
+The run completes in 517.29 seconds and preserves a scientifically useful
+failure. Both tableaux place the parent on the stable side, with flip residuals
+`+6.4226805e-6/+6.4226424e-6`; the largest empirical arithmetic uncertainty is
+`7.7932e-9`, so the side decision clears a factor `824.1`. Every numerical
+gate passes, but EXP-299's child is also stable. The required exchange is
+therefore absent and the receipt fails without relaxation.
+
+This removes the former solver ambiguity but not the seventh-birth question.
+The next experiment must recover the immediate doubled branch in the same
+high-precision event representation and distinguish a local subcritical
+daughter from a later stable sheet, fold, or restabilization.
+
+## EXP-319 frozen
+
+The successor now uses one shared 50-digit RK4 3/8 discrete map for both the
+passed 4,096-step event and its doubled child. A five-variable cyclic Newton
+reduction makes a 6,146-variable dense solve unnecessary. Both tangent signs
+and two predictor scales are frozen, with quadratic-opening, side,
+primitivity, period, Floquet, and stability gates. A pass nominates the local
+direction at one resolution; an 8,192-step or independent-tableau replication
+remains mandatory before promotion.

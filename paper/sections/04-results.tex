@@ -1189,6 +1189,22 @@ $4.244$, giving $4.557/4.697/4.300/4.836/4.244$. The sequence remains
 non-monotone; the seventh birth's criticality and stable period-1536 attraction
 remain unqualified.
 
+A subsequent same-coordinate audit resolves why the first criticality attempt
+cannot be promoted. At $a=0.24070100823781396$, only
+$7.24\times10^{-14}$ above the extrapolated event coordinate, DOP853 and Radau
+independently classify a primitive period-1536 candidate as strongly stable,
+with transverse moduli $0.12419628/0.12419164$. Independent 50-digit
+classical-RK4 and RK4 3/8 profiles then place the period-768 parent on the
+stable side as well: its signed real-$-1$ residuals are
+$+6.4226805\times10^{-6}$ and $+6.4226424\times10^{-6}$. The largest
+successive-Richardson or cross-tableau uncertainty is
+$7.7932\times10^{-9}$, giving an $824.1$ signal-to-error ratio. Thus the
+frozen criticality test fails as stable/stable, not because the parent remains
+numerically neutral. This rules out interpreting that sampled pair as a
+supercritical exchange. It does not yet show whether the stable candidate is
+the immediate local daughter, lies beyond an ultranarrow fold or
+restabilization, or occupies a distinct nearby sheet.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig23-exp293-295-augmented-event.png}
@@ -1243,6 +1259,20 @@ eighth birth directions remain unqualified.
   birth criticality, or a universality limit.}
   \label{fig:exp304-306-augmented-event}
 \end{figure}
+
+Solver-specific event bracketing and a tighter identity audit resolve the
+eighth birth separately. DOP853 and Radau place the event in disjoint numerical
+intervals of width $1.49\times10^{-13}$, so each representation is sampled
+exactly $5\times10^{-13}$ above its own upper event bound. Both then classify
+the period-1536 parent as stable, with moduli $0.99968068/0.99965539$, and the
+primitive period-3072 daughter as strongly unstable, with moduli
+$18.98363/18.98308$. A preserved single-shot half-period diagnostic falls
+below its frozen floor, but a separately frozen tighter segmented audit retains
+phase-invariant half-orbit separation $8.66425\times10^{-6}$ against only
+$3.34029\times10^{-10}$ cross-solver node RMS, a separation/error ratio of
+$25{,}938.6$. The combined evidence qualifies the eighth local birth as
+subcritical while retaining the failed single-shot gate. The seventh birth
+direction remains open.
 
 \begin{figure}[H]
   \centering

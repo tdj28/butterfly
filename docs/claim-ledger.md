@@ -430,6 +430,21 @@ secure ledger is now eight exact events, six independently supercritical
 births, and one independently qualified subcritical eighth birth; the seventh
 birth remains unresolved. EXP-316's failed single-shot gate remains preserved.
 
+CLM-008 addendum (EXP-318): independent 50-digit classical-RK4 and RK4 3/8
+profiles resolve the period-768 parent at EXP-299's stable primitive
+period-1536 coordinate. The signed real-`-1` residuals are
+`+6.4226805e-6/+6.4226424e-6`, while empirical Richardson/cross-tableau
+uncertainty is at most `7.7932e-9`, a signal/error ratio of `824.1`. All
+arithmetic, orbit, neutral, cyclic, and characteristic gates pass, but the
+frozen experiment fails because parent and candidate child are both stable.
+This rules out promoting EXP-299's sampled pair as a supercritical stability
+exchange. It does not retract the seventh exact event or decide its local
+criticality: the stable period-1536 candidate may lie beyond an ultranarrow
+fold/restabilization or on a distinct nearby sheet. The secure ledger remains
+eight exact events, six independently supercritical births, and one
+independently qualified subcritical eighth birth; the seventh birth remains
+unresolved.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

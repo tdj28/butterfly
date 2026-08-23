@@ -1236,7 +1236,15 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
 - [x] Require fourth-order/Richardson convergence, cross-tableau agreement,
   at least `1e-7` signed flip signal, and a ten-to-one empirical
   signal-to-error margin.
-- [ ] Execute EXP-318 from clean committed source and preserve its receipt.
-- [ ] If it passes, update the claim ledger and manuscript to resolve the
-  seventh birth; if it fails, freeze a high-precision corrected-parent
-  successor without relaxing EXP-318.
+- [x] Execute EXP-318 from clean committed source and preserve its receipt.
+  Both tableaux resolve the parent as stable with an `824.1` signal/error
+  ratio, so the stable/stable pair fails only the required exchange gate.
+- [x] Preserve the failure and update the ledger/manuscript: the sampled
+  candidate cannot be promoted as a supercritical exchange.
+- [ ] Recover the immediate period-1536 daughter in the same high-precision
+  discrete representation as the exact event; determine whether the stable
+  EXP-299 candidate lies beyond a fold/restabilization or on another sheet.
+  EXP-319 is frozen at 50 digits with one shared 4,096-step RK4 3/8 map,
+  bilateral tangent signs, two predictor scales, quadratic-opening gates, and
+  child Floquet stability. Execute it from clean source; a pass still requires
+  an independent 8,192-step or second-tableau replication.
