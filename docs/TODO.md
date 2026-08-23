@@ -1227,3 +1227,16 @@ exposition requirements.
 Commit and push after a coherent, verified milestone—not each file edit. The
 current planned checkpoints are: reference core; event/classifier vertical
 slice; first tiny atlas; GPU qualification; and each frozen experiment result.
+## EXP-318 — resolve the seventh-birth criticality in 50-digit arithmetic
+
+- [x] Bind the passed EXP-297 augmented event and the preserved EXP-299
+  neutral-parent/stable-child source by raw receipt hash.
+- [x] Freeze independent classical-RK4 and RK4 3/8 spectra at
+  4,096/8,192/16,384 steps on all 1,024 parent segments.
+- [x] Require fourth-order/Richardson convergence, cross-tableau agreement,
+  at least `1e-7` signed flip signal, and a ten-to-one empirical
+  signal-to-error margin.
+- [ ] Execute EXP-318 from clean committed source and preserve its receipt.
+- [ ] If it passes, update the claim ledger and manuscript to resolve the
+  seventh birth; if it fails, freeze a high-precision corrected-parent
+  successor without relaxing EXP-318.

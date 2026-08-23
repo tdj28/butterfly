@@ -1,0 +1,42 @@
+{
+  "schema": "butterfly.jones-period768-decimal-criticality-manifest.v1",
+  "output_schema": "butterfly.jones-period768-decimal-criticality-receipt.v1",
+  "experiment_id": "EXP-318",
+  "qualification_schema": "butterfly.jones-period1536-near-event-qualification-receipt.v1",
+  "qualification_receipt_sha256": "0cf411d935ff4bd8fcedc70a55d0ea574aa5c1bac9a877885612394c8c209988",
+  "event_schema": "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+  "event_receipt_sha256": "8942a66a3bad641624ddb188630c4e0f882a0b806d6519dfe0b48ee622118c95",
+  "qualification_solvers": ["dop853", "radau"],
+  "parent_seed_solver": "dop853",
+  "decimal_digits": 50,
+  "step_counts": [4096, 8192, 16384],
+  "methods": ["classical_rk4", "rk4_three_eighths"],
+  "method_order": 4,
+  "workers": 8,
+  "cyclic_shifts": [0, 256, 512, 768],
+  "minimum_event_separation": 5e-14,
+  "source_requirements": {
+    "parent_classification": "neutral",
+    "child_classification": "stable",
+    "maximum_child_multiplier_relative_spread": 0.02,
+    "minimum_child_half_period_closure": 2e-6,
+    "historical_phase_count": 1792,
+    "barrio_phase_count": 2048
+  },
+  "acceptance": {
+    "minimum_raw_convergence_ratio": 12.0,
+    "maximum_raw_convergence_ratio": 20.0,
+    "maximum_successive_richardson_flip_difference": 2e-8,
+    "maximum_cross_tableau_flip_difference": 1e-8,
+    "minimum_absolute_flip_residual": 1e-7,
+    "minimum_signal_to_error_ratio": 10.0,
+    "accepted_criticality": ["supercritical", "subcritical"],
+    "maximum_successive_richardson_neutral_difference": 2e-8,
+    "maximum_cross_tableau_neutral_difference": 1e-8,
+    "maximum_extrapolated_neutral_residual": 1e-6,
+    "maximum_fine_cyclic_spread": 1e-7,
+    "maximum_fine_characteristic_residual": 1e-30,
+    "maximum_fine_orbit_matching_residual": 1e-7
+  },
+  "claim_scope": "prospective 50-decimal-digit parent-side audit at the exact EXP-299 coordinate where DOP853 and Radau independently qualify a strongly stable primitive period-1536 child but leave the period-768 parent inside the unchanged Float64 neutral margin; the bound passed 8192-step RK4 3/8 augmented event must place that coordinate at least 5e-14 above its extrapolated event estimate; complete 4096/8192/16384-step profiles over all 1024 corrected parent segments under independent classical-RK4 and RK4 3/8 tableaux must show fourth-order convergence, a common resolved parent side with at least 1e-7 absolute real-minus-one signal and ten-to-one signal over the empirical Richardson/cross-tableau uncertainty, plus neutral, cyclic, characteristic, and orbit-matching gates; either resolved stability exchange passes and a same-side result fails; a pass qualifies only the local seventh-birth criticality at the sampled returning-arm coordinate, not a global stable period-1536 branch, an attracting-basin measure, limiting universality, paired shrimp boundaries, TBA membership, double-criticality, a homoclinic connection, or global parameter-plane topology"
+}

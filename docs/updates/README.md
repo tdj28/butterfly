@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-23-exp318-seventh-criticality-frozen.md`](2026-08-23-exp318-seventh-criticality-frozen.md)
+  — the two-tableau, 50-digit parent-side audit is frozen at EXP-299's
+  independently stable period-1536 child coordinate.
+
 - [`2026-08-17-exp315-passes-exp316-frozen.md`](2026-08-17-exp315-passes-exp316-frozen.md)
   — both solver-event brackets pass at `1.5e-13` scale and the equal-offset
   period-3072 criticality audit is frozen.
