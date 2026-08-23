@@ -125,9 +125,12 @@ def main() -> int:
             raise SystemExit(f"{name} receipt hash mismatch")
     if (
         target_receipt.get("schema") != manifest["target_schema"]
-        or not target_receipt.get("passed")
+        or target_receipt.get("classifications", {})
+        .get(manifest["target_solver"], {})
+        .get("child")
+        != "stable"
     ):
-        raise SystemExit("passed EXP-299 target receipt required")
+        raise SystemExit("preserved stable EXP-299 child seed required")
     if (
         event_receipt.get("schema") != manifest["event_schema"]
         or not event_receipt.get("passed")
