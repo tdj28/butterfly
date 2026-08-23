@@ -1192,7 +1192,7 @@ remain unqualified at this stage.
 A subsequent same-coordinate audit resolves why the first criticality attempt
 cannot be promoted. At $a=0.24070100823781396$, only
 $7.24\times10^{-14}$ above the extrapolated event coordinate, DOP853 and Radau
-independently classify a primitive period-1536 candidate as strongly stable,
+initially classify a nominal period-1536 candidate as strongly stable,
 with transverse moduli $0.12419628/0.12419164$. Independent 50-digit
 classical-RK4 and RK4 3/8 profiles then place the period-768 parent on the
 stable side as well: its signed real-$-1$ residuals are
@@ -1201,9 +1201,10 @@ successive-Richardson or cross-tableau uncertainty is
 $7.7932\times10^{-9}$, giving an $824.1$ signal-to-error ratio. Thus the
 frozen criticality test fails as stable/stable, not because the parent remains
 numerically neutral. This rules out interpreting that sampled pair as a
-supercritical exchange. It does not yet show whether the stable candidate is
-the immediate local daughter, lies beyond an ultranarrow fold or
-restabilization, or occupies a distinct nearby sheet.
+supercritical exchange at that stage. The candidate retains
+$2.53\times10^{-11}$ multiple-shooting mismatch and $2.86\times10^{-7}$ direct
+closure, however, so its primitive identity requires exact-map correction
+below.
 
 Same-map high-precision branch switching resolves the immediate daughter.
 Starting independently from the passed 4,096- and 8,192-step RK4 3/8 augmented
@@ -1218,9 +1219,21 @@ Resolution doubling changes displacement by at most $9.08\times10^{-10}$
 relatively, amplitude by $9.27\times10^{-13}$, and child modulus by
 $1.41\times10^{-10}$. Child moduli range from $0.92877$ to $0.98228$, and
 matching residuals remain below $2.84\times10^{-21}$. This qualifies the
-seventh local birth as supercritical and shows that the stable higher-$a$
-candidate is not the immediate daughter. Its global sheet connectivity remains
-open.
+seventh local birth as supercritical and shows that the nominal stable
+higher-$a$ candidate is not the immediate daughter.
+
+Six further 50-digit same-map continuation rows carry the immediate daughter
+from half-node RMS $1.58\times10^{-6}$ to $6.27\times10^{-6}$. Every row is
+stable, $a$ decreases monotonically, and no fold appears. Direct correction of
+the original higher-$a$ Float64 seed is initially ill conditioned: undamped
+Newton and a factor-independent decrease rule fail prospectively. A frozen
+step-scaled Armijo rule then converges in thirteen accepted updates, reducing
+matching from $5.37\times10^{-10}$ to $1.20\times10^{-23}$ and half-node RMS
+from $6.31\times10^{-6}$ to $7.38\times10^{-20}$. Cyclic spread is zero and
+the neutral residual is $1.22\times10^{-20}$. In the 4,096-step exact map the
+nominal higher-$a$ child is therefore the doubled period-768 parent, not a
+primitive daughter or a distinct nearby sheet. A complete 8,192-step replay
+from the original seed is frozen before cross-resolution promotion.
 
 \begin{figure}[H]
   \centering

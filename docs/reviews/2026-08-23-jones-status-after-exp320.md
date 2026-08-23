@@ -18,22 +18,24 @@ supercritical; the eighth is qualified as subcritical.
   repeating one universal pattern.
 - A misleading stable/stable sample is explained by same-map branch switching:
   the stable higher-`a` period-1536 candidate is not the immediate seventh
-  daughter. This is added topology, not a retraction of the event.
+  daughter. EXP-324 goes farther: exact correction collapses that old Float64
+  seed to the doubled parent. This removes spurious topology rather than
+  retracting the event.
 
 ## What this corrects or narrows
 
 The results reject any simple assumption that every successive local birth in
 the hub is supercritical or that one shared Float64 coordinate is sufficient
 near the accumulation scale. They do not reject Jones's observed cascade or
-nested periodic organization. They show that the superstructure contains an
-extra branch/fold/restabilization problem that the original raster methodology
-could not resolve.
+nested periodic organization. They also show that an apparently primitive
+Float64 candidate can lie along a near-neutral doubled-parent direction and
+disappear under exact correction.
 
 ## What remains open
 
 The evidence does not yet validate the claimed homoclinic endpoint, prove
 Jones's finite symbolic agreement as a global conjugacy, identify TTL23 with
 the Barrio-Blesa-Serrano TBA everywhere, establish paired shrimp boundaries,
-or explain the full `(a,c)` plane. The next local task is to trace the stable
-higher-`a` period-1536 candidate; the next global tasks remain continuation of
-the TBA, shrimp boundaries, and homoclinic boundary-value problem.
+or explain the full `(a,c)` plane. EXP-325 must replicate the target collapse
+at doubled resolution; the global tasks remain continuation of the TBA,
+shrimp boundaries, and homoclinic boundary-value problem.

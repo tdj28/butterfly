@@ -547,6 +547,18 @@ what must be narrowed, and what is false or unresolved.
   passes the unchanged 8,192-step resolution-doubled daughter replication.
 - [`findings/FND-105-seventh-birth-locally-supercritical.md`](findings/FND-105-seventh-birth-locally-supercritical.md):
   combines EXP-318--320 to qualify the seventh local birth as supercritical.
+- [`experiments/EXP-321-jones-period1536-decimal-sheet-continuation.md`](experiments/EXP-321-jones-period1536-decimal-sheet-continuation.md):
+  maps six exact stable lower-`a` daughter rows without a fold.
+- [`experiments/EXP-322-jones-period1536-decimal-target-correction.md`](experiments/EXP-322-jones-period1536-decimal-target-correction.md):
+  preserves the unresolved undamped correction of the old EXP-299 seed.
+- [`experiments/EXP-323-jones-period1536-decimal-target-backtracking.md`](experiments/EXP-323-jones-period1536-decimal-target-backtracking.md):
+  preserves a factor-independent backtracking boundary.
+- [`experiments/EXP-324-jones-period1536-decimal-target-armijo.md`](experiments/EXP-324-jones-period1536-decimal-target-armijo.md):
+  closes the old seed at 50 digits and collapses it to the doubled parent.
+- [`experiments/EXP-325-jones-period1536-decimal-target-armijo-8192.md`](experiments/EXP-325-jones-period1536-decimal-target-armijo-8192.md):
+  freezes the complete resolution-doubled replay from the original seed.
+- [`findings/FND-106-exp299-child-collapses-to-parent.md`](findings/FND-106-exp299-child-collapses-to-parent.md):
+  nominates removal of the apparent higher-`a` child as a Float64 artifact.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

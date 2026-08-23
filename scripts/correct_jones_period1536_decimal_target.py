@@ -107,6 +107,23 @@ def trial_is_acceptable(current, trial, tolerance, factor, damping) -> bool:
     return trial <= current * maximum_ratio
 
 
+def predecessor_is_admissible(receipt, schema, requirement) -> bool:
+    if receipt.get("schema") != schema:
+        return False
+    if requirement == "unresolved_failure":
+        return not receipt.get("passed") and not receipt.get("checks", {}).get(
+            "correction"
+        )
+    if requirement == "passed_collapse":
+        return (
+            receipt.get("passed")
+            and receipt.get("checks", {}).get("correction")
+            and receipt.get("periodicity_classification")
+            == "doubled_period768_parent"
+        )
+    raise ValueError(f"unsupported predecessor requirement: {requirement}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -143,13 +160,19 @@ def main() -> int:
             raise SystemExit("predecessor failure receipt required")
         if sha256_bytes(predecessor_bytes) != manifest["predecessor_receipt_sha256"]:
             raise SystemExit("predecessor receipt hash mismatch")
-        if (
-            predecessor_receipt.get("schema")
-            != manifest["predecessor_schema"]
-            or predecessor_receipt.get("passed")
-            or predecessor_receipt.get("checks", {}).get("correction")
-        ):
-            raise SystemExit("bound unresolved predecessor failure required")
+        requirement = manifest.get(
+            "predecessor_requirement", "unresolved_failure"
+        )
+        try:
+            admissible = predecessor_is_admissible(
+                predecessor_receipt,
+                manifest["predecessor_schema"],
+                requirement,
+            )
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
+        if not admissible:
+            raise SystemExit(f"bound {requirement} predecessor required")
     if (
         target_receipt.get("schema") != manifest["target_schema"]
         or target_receipt.get("classifications", {})

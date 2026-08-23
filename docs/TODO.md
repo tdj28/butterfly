@@ -1261,4 +1261,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   backtracking successor EXP-323 without relaxing the `1e-20` gate. EXP-323
   finds descent but its fixed five-percent rule rejects the small `1/32`
   trial. EXP-324 freezes a step-scaled Armijo successor with unchanged science
-  gates.
+  gates. EXP-324 passes and collapses the old EXP-299 child seed to the doubled
+  parent at `1.20e-23` matching and `7.38e-20` half-node amplitude. Run frozen
+  8,192-step EXP-325 before promoting FND-106 across resolutions.

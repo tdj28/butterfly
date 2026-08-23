@@ -113,3 +113,16 @@ promoted.
 EXP-324 replaces only that globalization rule with step-scaled Armijo
 sufficient decrease and extends the frozen factor ladder. Exact closure and
 all science gates are unchanged.
+
+## EXP-324 passes; old higher-a child collapses
+
+Thirteen accepted Armijo steps move from the original EXP-299 seed to an exact
+solution with `1.196e-23` matching. Half-node RMS collapses from `6.307e-6` to
+`7.382e-20`, classifying the result as the doubled period-768 parent. Cyclic
+and neutral gates pass.
+
+This retracts the interim higher-`a` child-sheet interpretation and strengthens
+the local Jones cascade: the only exact immediate period-1536 daughter found
+here is the qualified lower-`a` supercritical branch. EXP-325 now freezes a
+complete 8,192-step replay from the original seed before cross-resolution
+promotion.

@@ -7,6 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from scripts.correct_jones_period1536_decimal_target import (
     periodicity_classification,
+    predecessor_is_admissible,
     reduced_fixed_parameter_correction,
     trial_is_acceptable,
 )
@@ -76,3 +77,17 @@ def test_armijo_reduction_scales_with_step_fraction() -> None:
     assert not trial_is_acceptable(
         current, Decimal("0.9999e-8"), Decimal("1e-20"), Decimal("0.03125"), damping
     )
+
+
+def test_predecessor_requirement_distinguishes_failure_and_collapse() -> None:
+    schema = "receipt.v1"
+    failure = {"schema": schema, "passed": False, "checks": {"correction": False}}
+    collapse = {
+        "schema": schema,
+        "passed": True,
+        "checks": {"correction": True},
+        "periodicity_classification": "doubled_period768_parent",
+    }
+    assert predecessor_is_admissible(failure, schema, "unresolved_failure")
+    assert predecessor_is_admissible(collapse, schema, "passed_collapse")
+    assert not predecessor_is_admissible(collapse, schema, "unresolved_failure")

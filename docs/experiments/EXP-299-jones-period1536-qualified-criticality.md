@@ -47,3 +47,12 @@ Raw receipt: `artifacts/EXP-299/receipt.json`, 388,925 bytes, SHA-256
 `0cf411d935ff4bd8fcedc70a55d0ea574aa5c1bac9a877885612394c8c209988`.
 Compact receipt:
 [`receipts/EXP-299.json`](receipts/EXP-299.json).
+
+## High-precision supersession
+
+EXP-324 replays the exact stored DOP853 child seed under the 50-digit,
+4,096-step RK4 3/8 map and converges below `1.20e-23`. Its half-node amplitude
+collapses to `7.38e-20`, identifying the solution as the doubled period-768
+parent. The stable primitive-child interpretation above is therefore retained
+as the honest historical EXP-299 result but is not admissible as exact-orbit
+evidence. EXP-325 freezes a resolution-doubled replay.
