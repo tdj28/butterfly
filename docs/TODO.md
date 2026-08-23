@@ -684,7 +684,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `3.34e-10` cross-solver child RMS. The direct 22,895-time-unit diagnostic is
   below its accumulated integration-error scale. Next freeze an independent
   segmented and tolerance-converged primitive-identity audit; do not relax or
-  retrospectively reinterpret the failed EXP-316 gate.
+  retrospectively reinterpret the failed EXP-316 gate. EXP-317 now freezes
+  tighter DOP853/Radau child corrections, all-phase segmented half identity,
+  and a 100-fold separation-to-representation-error requirement. Execute
+  EXP-317 next.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

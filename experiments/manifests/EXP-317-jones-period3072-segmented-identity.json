@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.jones-period3072-segmented-identity-manifest.v1",
+  "output_schema": "butterfly.jones-period3072-segmented-identity-receipt.v1",
+  "experiment_id": "EXP-317",
+  "source_schema": "butterfly.jones-period3072-solver-relative-criticality-receipt.v1",
+  "source_receipt_sha256": "3cf9fa153187e9a82a06f34d5ffc83ec3a547defa0fdd58824ea70e382f2368e",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "target_a": {
+    "dop853": 0.2407010082249473,
+    "radau": 0.24070100822464888
+  },
+  "jacobian_storage": "sparse_csr",
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 3e-12, "atol": 3e-14, "max_step": 0.01},
+    "radau": {"method": "Radau", "rtol": 3e-11, "atol": 3e-13, "max_step": 0.01}
+  },
+  "corrector": {"maximum_evaluations": 240, "tolerance": 1e-10},
+  "source_identity": {"historical_phase_count": 3584, "barrio_phase_count": 4096},
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "minimum_phase_invariant_half_rms": 5e-6,
+    "maximum_base_to_tight_node_rms": 2e-5,
+    "maximum_cross_solver_node_rms": 2e-5,
+    "minimum_separation_error_ratio": 100.0,
+    "maximum_period_difference": 0.001
+  },
+  "claim_scope": "prospective tighter-profile sparse fixed-a re-correction of both preserved EXP-316 period-3072 children followed by phase-invariant segmented half-orbit comparison over every cyclic node shift; source exact 3584/4096 section identities remain bound, primitive separation must exceed both base-to-tight and cross-solver empirical representation errors by at least 100, and no EXP-316 gate is relaxed or retrospectively passed; a pass independently qualifies segmented primitive period-3072 identity and, combined with EXP-316's unchanged two-solver stability classification, may promote a local subcritical eighth birth, but does not validate the failed long single-shot half-period gate, sign equivalence, attracting-basin measure, a global stable period-3072 branch, a ninth event, universality, TBA membership, a homoclinic connection, or global parameter-plane topology"
+}
