@@ -97,8 +97,14 @@ def periodicity_classification(amplitude: Decimal, manifest: dict) -> str:
     return "unresolved"
 
 
-def trial_is_acceptable(current, trial, tolerance, maximum_ratio) -> bool:
-    return trial <= tolerance or trial <= current * maximum_ratio
+def trial_is_acceptable(current, trial, tolerance, factor, damping) -> bool:
+    if trial <= tolerance:
+        return True
+    if "armijo_coefficient" in damping:
+        coefficient = Decimal(str(damping["armijo_coefficient"]))
+        return trial <= current * (Decimal(1) - coefficient * factor)
+    maximum_ratio = Decimal(str(damping["maximum_accepted_ratio"]))
+    return trial <= current * maximum_ratio
 
 
 def main() -> int:
@@ -236,7 +242,6 @@ def main() -> int:
                     continue
 
                 current_residual = max(matching, abs(phase_residual))
-                maximum_ratio = Decimal(str(damping["maximum_accepted_ratio"]))
                 accepted = False
                 for factor_value in damping["factors"]:
                     factor = Decimal(str(factor_value))
@@ -280,7 +285,8 @@ def main() -> int:
                         current_residual,
                         trial_residual,
                         tolerance,
-                        maximum_ratio,
+                        factor,
+                        damping,
                     ):
                         nodes = trial_nodes
                         period_time = trial_period

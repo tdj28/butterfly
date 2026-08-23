@@ -1,0 +1,36 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-target-correction-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-decimal-target-correction-receipt.v1",
+  "experiment_id": "EXP-324",
+  "target_schema": "butterfly.jones-period1536-near-event-qualification-receipt.v1",
+  "target_receipt_sha256": "0cf411d935ff4bd8fcedc70a55d0ea574aa5c1bac9a877885612394c8c209988",
+  "event_schema": "butterfly.jones-period1536-decimal-child-switch-receipt.v1",
+  "event_receipt_sha256": "6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33",
+  "branch_schema": "butterfly.jones-period1536-decimal-continuation-receipt.v1",
+  "branch_receipt_sha256": "09dc671c78489d38d90d08c1c89458a247fbe51a04582bf3775e2ed6a7e6989a",
+  "predecessor_schema": "butterfly.jones-period1536-decimal-target-correction-receipt.v1",
+  "predecessor_receipt_sha256": "76e98740943d62b7de6a28366b6916cd2aa213cf03c1951380e3e9e5d94d2702",
+  "target_solver": "dop853",
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "steps_per_segment": 4096,
+  "workers": 8,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "cyclic_shifts": [0, 512, 1024, 1536],
+  "maximum_newton_updates": 20,
+  "damping": {
+    "factors": [1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625],
+    "armijo_coefficient": 0.01
+  },
+  "acceptance": {
+    "maximum_residual": 1e-20,
+    "minimum_primitive_half_node_rms": 1e-7,
+    "maximum_doubled_parent_half_node_rms": 1e-10,
+    "maximum_period_ratio_error": 1e-7,
+    "maximum_cyclic_spread": 1e-18,
+    "maximum_neutral_residual": 1e-10,
+    "stability_margin": 1e-6
+  },
+  "claim_scope": "prospective outcome-neutral Armijo-globalized successor to failed EXP-323, retaining its exact stored EXP-299 seed, fixed a=0.24070100823781396, 50 digits, 4096-step RK4 3/8 map, and all 1e-20 closure, periodicity, period-ratio, cyclic-Floquet, and neutral gates; each Newton update tests the frozen power-of-two factors from 1 through 1/1024 and accepts the first trial satisfying R_trial <= (1 - 0.01 alpha) R_current or reaching tolerance, with failure if none qualifies and at most twenty accepted updates; either primitive-period1536 survival or doubled-period768 collapse and any resolved stability class may pass; a pass distinguishes the seed's fate only in one exact discrete representation and does not by itself prove a disconnected sheet, fold, cross-resolution persistence, basin measure, paired shrimp boundaries, TBA membership, double-criticality, a homoclinic connection, or global parameter-plane topology"
+}

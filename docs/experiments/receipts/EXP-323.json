@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-target-correction-summary.v1",
+  "experiment_id": "EXP-323",
+  "passed": false,
+  "source_commit": "cb3270537e9d228534fb06e562fda1c48b46d1bc",
+  "manifest_sha256": "1a1ae2ca57c59605533f5aed9db20f69749ca59469acd27aa9dc5bd71ca50f97",
+  "predecessor_receipt_sha256": "5b5538d0ffa49e1fd0061b4824581e7049041d85c944e04e92f5660bf05f03eb",
+  "raw_artifact": "artifacts/EXP-323/receipt.json",
+  "raw_artifact_bytes": 351951,
+  "raw_artifact_sha256": "76e98740943d62b7de6a28366b6916cd2aa213cf03c1951380e3e9e5d94d2702",
+  "elapsed_seconds": 522.9955846657977,
+  "termination_reason": "backtracking_failed",
+  "initial_matching_residual": 5.365994546969651e-10,
+  "accepted_matching_residual": 2.71084189069048e-10,
+  "accepted_factor": 0.5,
+  "rejected_descent_factor": 0.03125,
+  "rejected_descent_residual": 2.6969313738858373e-10,
+  "rejected_descent_ratio": 0.9948685621052212,
+  "correction_passed": false,
+  "neutral_spectrum_passed": false,
+  "interpretation": "Backtracking finds a descent path but the frozen factor-independent five-percent rule rejects the small 1/32 descent trial. The seed remains unresolved and no periodicity or Floquet classification is admissible."
+}

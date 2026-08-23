@@ -1258,4 +1258,7 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   freezes its fixed-`a` 50-digit correction before any separate-sheet claim.
   It fails unresolved: undamped Newton never improves the initial exact-map
   residual. Preserve that failure and run the frozen residual-decreasing
-  backtracking successor EXP-323 without relaxing the `1e-20` gate.
+  backtracking successor EXP-323 without relaxing the `1e-20` gate. EXP-323
+  finds descent but its fixed five-percent rule rejects the small `1/32`
+  trial. EXP-324 freezes a step-scaled Armijo successor with unchanged science
+  gates.

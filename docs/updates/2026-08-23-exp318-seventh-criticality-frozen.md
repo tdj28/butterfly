@@ -101,3 +101,15 @@ admissible from the final iterate.
 This preserves rather than answers the target-topology question. EXP-323 will
 retain every scientific gate and add only a deterministic backtracking rule
 that accepts a Newton trial when it strictly reduces the current residual.
+
+## EXP-323 fails at its frozen decrease rule; Armijo successor required
+
+The first accepted half step cuts matching from `5.366e-10` to `2.711e-10`
+and amplitude from `6.307e-6` to `1.682e-6`. On the next update, the `1/32`
+trial still descends to `2.697e-10`, but its `0.99487` ratio cannot satisfy the
+factor-independent `0.95` rule. The failure is preserved and no spectrum is
+promoted.
+
+EXP-324 replaces only that globalization rule with step-scaled Armijo
+sufficient decrease and extends the frozen factor ladder. Exact closure and
+all science gates are unchanged.

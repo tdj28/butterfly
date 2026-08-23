@@ -57,7 +57,22 @@ def test_fixed_parameter_reduction_solves_identity_closure() -> None:
 def test_backtracking_requires_frozen_residual_reduction() -> None:
     current = Decimal("1e-8")
     tolerance = Decimal("1e-20")
-    ratio = Decimal("0.95")
-    assert trial_is_acceptable(current, Decimal("9e-9"), tolerance, ratio)
-    assert not trial_is_acceptable(current, Decimal("9.6e-9"), tolerance, ratio)
-    assert trial_is_acceptable(current, Decimal("1e-21"), tolerance, ratio)
+    damping = {"maximum_accepted_ratio": 0.95}
+    assert trial_is_acceptable(current, Decimal("9e-9"), tolerance, Decimal(1), damping)
+    assert not trial_is_acceptable(
+        current, Decimal("9.6e-9"), tolerance, Decimal(1), damping
+    )
+    assert trial_is_acceptable(
+        current, Decimal("1e-21"), tolerance, Decimal(1), damping
+    )
+
+
+def test_armijo_reduction_scales_with_step_fraction() -> None:
+    current = Decimal("1e-8")
+    damping = {"armijo_coefficient": 0.01}
+    assert trial_is_acceptable(
+        current, Decimal("0.999e-8"), Decimal("1e-20"), Decimal("0.03125"), damping
+    )
+    assert not trial_is_acceptable(
+        current, Decimal("0.9999e-8"), Decimal("1e-20"), Decimal("0.03125"), damping
+    )
