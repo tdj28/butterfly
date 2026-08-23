@@ -1253,4 +1253,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   period-1536 candidate to a fold, restabilization, or disconnected sheet.
   EXP-321 freezes six 50-digit 4,096-step pseudo-arclength rows from the
   immediate daughter to the target's amplitude scale; no fold or target match
-  is required to pass.
+  is required to pass. It passes with six stable lower-`a` rows and no fold.
+  Because EXP-299's candidate has only `2.86e-7` direct closure, EXP-322 now
+  freezes its fixed-`a` 50-digit correction before any separate-sheet claim.

@@ -77,3 +77,16 @@ immediate daughter toward the higher-amplitude regime. It preserves the
 Floquet stability, fold nominations, and phase-invariant distance to the
 EXP-299 stable candidate. The pass criteria require a resolved branch segment,
 not a fold or target match, so the topology remains outcome-neutral.
+
+## EXP-321 passes; EXP-322 frozen
+
+All six exact rows pass. The primitive amplitude grows from `1.58e-6` to
+`6.27e-6`; all rows remain stable, `a` decreases monotonically, and no fold is
+present. The dominant modulus falls as low as `0.0992`, while cyclic distance
+to EXP-299's candidate decreases to `9.57e-7`.
+
+This exposes a precision gap in the earlier target: EXP-299's nominal child
+has `2.53e-11` matching residual but `2.86e-7` direct closure. EXP-322 is now
+frozen to correct that exact stored seed at its fixed higher `a` under the
+same 50-digit RK4 3/8 map. A primitive orbit, doubled-parent collapse, or an
+unresolved correction are all admissible scientific outcomes.
