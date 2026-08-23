@@ -181,7 +181,15 @@ def phase_fixed_child_tangent(nodes, tangents, parameter, b, c):
     return [[value / norm for value in row] for row in mode], phase, coefficient
 
 
-def reduced_newton_correction(rows, phase, phase_residual, tangent, arclength):
+def reduced_newton_correction(
+    rows,
+    phase,
+    phase_residual,
+    tangent,
+    arclength,
+    tangent_period=Decimal(0),
+    tangent_parameter=Decimal(0),
+):
     """Eliminate cyclic node blocks to a five-variable Newton system."""
 
     mapping = [Decimal(0)] * 15
@@ -231,6 +239,8 @@ def reduced_newton_correction(rows, phase, phase_residual, tangent, arclength):
             tangent_row[state_row] * node_forcing[state_row]
             for state_row in range(3)
         )
+    arclength_row[3] += tangent_period
+    arclength_row[4] += tangent_parameter
     system.append(arclength_row)
     base = solve_linear(
         system,

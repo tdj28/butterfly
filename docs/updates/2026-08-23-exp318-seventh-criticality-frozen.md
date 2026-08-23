@@ -68,3 +68,12 @@ returning-arm ledger now contains eight exact events, seven supercritical
 births, and a subcritical eighth birth. EXP-318 remains a valid stable/stable
 failure and exposes an additional higher-`a` period-1536 sheet whose fold,
 restabilization, or connectivity must now be traced.
+
+## EXP-321 frozen
+
+EXP-321 will take six same-map, 50-digit pseudo-arclength steps from the
+immediate daughter toward the higher-amplitude regime. It preserves the
+4,096-step RK4 3/8 map and records parameter direction, primitive amplitude,
+Floquet stability, fold nominations, and phase-invariant distance to the
+EXP-299 stable candidate. The pass criteria require a resolved branch segment,
+not a fold or target match, so the topology remains outcome-neutral.

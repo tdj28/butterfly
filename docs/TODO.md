@@ -1251,3 +1251,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   passes the identical 8,192-step replication. FND-105 promotes the seventh
   local birth as supercritical. Next trace the separate stable higher-`a`
   period-1536 candidate to a fold, restabilization, or disconnected sheet.
+  EXP-321 freezes six 50-digit 4,096-step pseudo-arclength rows from the
+  immediate daughter to the target's amplitude scale; no fold or target match
+  is required to pass.
