@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from scripts.switch_jones_period1536_decimal_child import (
     phase_fixed_child_tangent,
     scaling_exponent,
+    selected_event_profile,
     transverse_spectrum,
 )
 
@@ -49,3 +50,9 @@ def test_scaling_exponent_recovers_quadratic_opening() -> None:
         for sign in (-1, 1)
     ]
     assert scaling_exponent(rows)["parameter_amplitude_exponent"] == pytest.approx(2.0)
+
+
+def test_event_profile_supports_sequence_and_single_profile_receipts() -> None:
+    profile = {"steps_per_segment": 8192, "a_decimal": "1"}
+    assert selected_event_profile({"profile": profile}, 8192) is profile
+    assert selected_event_profile({"profiles": [profile]}, 8192) is profile

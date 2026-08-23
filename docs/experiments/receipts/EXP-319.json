@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-child-switch-summary.v1",
+  "experiment_id": "EXP-319",
+  "passed": true,
+  "source_commit": "82e9b8dbfb7f384c950018df4ab3c37f6a045cc7",
+  "manifest_sha256": "36b2cd572cf247b16a6b257a6dd2011a3acb7271928fd791905f64311bc48f38",
+  "event_receipt_sha256": "447f5b7b73206f985b21b0848f2804117aef5c47602df82a6dd7bbf947a39c77",
+  "criticality_audit_receipt_sha256": "e109f5304a932823ace29b862ff7ff5088b735ca4d88797554546a4928bcd4dc",
+  "raw_artifact": "artifacts/EXP-319/receipt.json",
+  "raw_artifact_bytes": 1393853,
+  "raw_artifact_sha256": "6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33",
+  "elapsed_seconds": 710.0461436668411,
+  "branch_side": "lower_a",
+  "local_criticality_classification": "supercritical",
+  "parameter_amplitude_exponent": 2.000728180629384,
+  "minimum_half_node_rms": 7.880638273076805e-7,
+  "maximum_matching_residual": 2.835441640268501e-21,
+  "child_modulus_range": [0.9287717191364074, 0.9822819114867279],
+  "maximum_direction_a_relative_spread": 0.00304593777987361,
+  "interpretation": "The same-map 4096-step RK4 3/8 switch passes both tangent signs and two amplitudes. The primitive stable daughter opens toward lower a with a 2.00073 parameter-amplitude exponent, nominating a local supercritical seventh birth; independent 8192-step replication remains mandatory."
+}

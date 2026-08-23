@@ -41,3 +41,16 @@ and two predictor scales are frozen, with quadratic-opening, side,
 primitivity, period, Floquet, and stability gates. A pass nominates the local
 direction at one resolution; an 8,192-step or independent-tableau replication
 remains mandatory before promotion.
+
+## EXP-319 passes; EXP-320 frozen
+
+All four same-map children pass. They are primitive and stable, open toward
+lower `a` under both tangent signs, and yield a parameter-amplitude exponent
+`2.000728`. Final matching is below `2.84e-21`; child moduli range from
+`0.92877` to `0.98228`. This nominates a supercritical seventh birth and
+identifies the EXP-299 stable higher-`a` orbit as something other than the
+immediate local daughter.
+
+EXP-320 now binds the raw 1.39 MB receipt and repeats the unchanged bilateral,
+two-amplitude experiment at 8,192 steps per segment. A pass is required before
+the ledger or manuscript promotes the seventh-birth direction.

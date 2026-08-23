@@ -1,6 +1,6 @@
 # EXP-319 — Same-map high-precision switch to the immediate seventh daughter
 
-Status: frozen; not yet run
+Status: passed — one-resolution supercritical nomination
 
 EXP-318 resolves the tested period-768 parent and primitive period-1536
 candidate as stable/stable. That rules out promoting the sampled pair as a
@@ -30,3 +30,27 @@ universality, TBA membership, homoclinic geometry, or full-plane topology.
 
 Manifest:
 [`../../experiments/manifests/EXP-319-jones-period1536-decimal-child-switch.json`](../../experiments/manifests/EXP-319-jones-period1536-decimal-child-switch.json).
+
+## Result
+
+All four corrections pass. At predictor length `3.125e-5`, both tangent signs
+produce primitive half-node RMS near `7.88e-7`, lower-`a` displacements near
+`1.292e-13`, and stable child moduli `0.982255/0.982282`. Doubling the
+predictor produces half-node RMS near `1.577e-6`, lower-`a` displacements near
+`5.171e-13`, and stable moduli `0.928772/0.928989`.
+
+The fitted parameter-versus-amplitude exponent is `2.000728`, essentially the
+quadratic opening required for a generic flip branch. Tangent-sign relative
+spreads are only `0.00305` in displacement and `0.00152` in amplitude. Final
+matching residuals are below `2.84e-21`; cyclic spectra agree at stored
+precision and neutral residuals remain below `1.06e-18`.
+
+Because the immediate stable daughter opens toward lower `a`, opposite
+EXP-318's independently stable higher-`a` parent side, this nominates the
+seventh birth as locally supercritical. It also shows that EXP-299's stable
+higher-`a` candidate is not the immediate local daughter in this
+representation. Promotion still requires the frozen 8,192-step replication.
+
+Raw receipt: `artifacts/EXP-319/receipt.json`, 1,393,853 bytes, SHA-256
+`6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33`.
+Compact receipt: [`receipts/EXP-319.json`](receipts/EXP-319.json).

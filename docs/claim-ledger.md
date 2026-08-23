@@ -445,6 +445,17 @@ eight exact events, six independently supercritical births, and one
 independently qualified subcritical eighth birth; the seventh birth remains
 unresolved.
 
+CLM-008 addendum (EXP-319): a same-map 50-digit RK4 3/8 branch switch removes
+the discrete-event/continuous-child coordinate mismatch. Both tangent signs
+and two predictor amplitudes pass, producing primitive stable period-1536
+daughters on the lower-`a` side with moduli `0.92877`--`0.98228`. Mean
+parameter displacement grows from `1.29205e-13` to `5.17089e-13` as half-node
+RMS doubles from `7.88364e-7` to `1.57674e-6`, giving exponent `2.000728`.
+This nominates a local supercritical seventh birth and shows that EXP-299's
+higher-`a` stable candidate is not the immediate daughter in this discrete
+representation. The secure ledger does not change until EXP-320 independently
+replicates the result at 8,192 steps per segment.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

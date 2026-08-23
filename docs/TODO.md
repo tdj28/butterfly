@@ -1246,5 +1246,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   EXP-299 candidate lies beyond a fold/restabilization or on another sheet.
   EXP-319 is frozen at 50 digits with one shared 4,096-step RK4 3/8 map,
   bilateral tangent signs, two predictor scales, quadratic-opening gates, and
-  child Floquet stability. Execute it from clean source; a pass still requires
-  an independent 8,192-step or second-tableau replication.
+  child Floquet stability. It passes with lower-`a` stable daughters and a
+  `2.000728` opening exponent, nominating a supercritical birth. EXP-320 now
+  freezes the identical 8,192-step replication; execute it from clean source.

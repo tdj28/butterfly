@@ -412,11 +412,28 @@ def scaling_exponent(rows):
     }
 
 
+def selected_event_profile(event: dict, steps_per_segment: int) -> dict:
+    """Select the exact discrete event profile bound to the requested map."""
+
+    profiles = event.get("profiles")
+    if profiles is None and "profile" in event:
+        profiles = [event["profile"]]
+    selected = [
+        row
+        for row in profiles or []
+        if int(row["steps_per_segment"]) == int(steps_per_segment)
+    ]
+    if len(selected) != 1:
+        raise ValueError("event profile is not uniquely selected")
+    return selected[0]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--event", type=Path, required=True)
     parser.add_argument("--criticality-audit", type=Path, required=True)
+    parser.add_argument("--nomination", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -426,6 +443,7 @@ def main() -> int:
     manifest = json.loads(manifest_bytes)
     event = json.loads(event_bytes)
     audit = json.loads(audit_bytes)
+    nomination_bytes = None
     if manifest.get("schema") != SCHEMA:
         raise SystemExit("unsupported Decimal child-switch manifest")
     if sha256_bytes(event_bytes) != manifest["event_receipt_sha256"]:
@@ -443,6 +461,21 @@ def main() -> int:
         != ["resolved_criticality"]
     ):
         raise SystemExit("the preserved stable/stable audit is required")
+    if "nomination_receipt_sha256" in manifest:
+        if args.nomination is None:
+            raise SystemExit("the bound lower-resolution nomination is required")
+        nomination_bytes = args.nomination.read_bytes()
+        if sha256_bytes(nomination_bytes) != manifest["nomination_receipt_sha256"]:
+            raise SystemExit("nomination receipt hash mismatch")
+        nomination = json.loads(nomination_bytes)
+        if (
+            nomination.get("schema") != manifest["nomination_schema"]
+            or not nomination.get("passed")
+            or nomination.get("branch_side") != "lower_a"
+            or nomination.get("local_criticality_classification")
+            != "supercritical"
+        ):
+            raise SystemExit("the bound supercritical nomination changed")
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),
@@ -451,9 +484,10 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
 
-    profile = event["profiles"][-1]
-    if int(profile["steps_per_segment"]) != int(manifest["steps_per_segment"]):
-        raise SystemExit("event and switch discretizations differ")
+    try:
+        profile = selected_event_profile(event, int(manifest["steps_per_segment"]))
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     started = time.perf_counter()
     with localcontext() as context:
         context.prec = int(manifest["decimal_digits"])
@@ -575,6 +609,9 @@ def main() -> int:
         "manifest_sha256": sha256_bytes(manifest_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "criticality_audit_receipt_sha256": sha256_bytes(audit_bytes),
+        "nomination_receipt_sha256": (
+            sha256_bytes(nomination_bytes) if nomination_bytes is not None else None
+        ),
         "source": source,
         "environment": {
             "python": platform.python_version(),
