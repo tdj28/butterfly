@@ -97,12 +97,17 @@ def periodicity_classification(amplitude: Decimal, manifest: dict) -> str:
     return "unresolved"
 
 
+def trial_is_acceptable(current, trial, tolerance, maximum_ratio) -> bool:
+    return trial <= tolerance or trial <= current * maximum_ratio
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--target", type=Path, required=True)
     parser.add_argument("--event", type=Path, required=True)
     parser.add_argument("--branch", type=Path, required=True)
+    parser.add_argument("--predecessor", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -110,10 +115,14 @@ def main() -> int:
     target_bytes = args.target.read_bytes()
     event_bytes = args.event.read_bytes()
     branch_bytes = args.branch.read_bytes()
+    predecessor_bytes = args.predecessor.read_bytes() if args.predecessor else None
     manifest = json.loads(manifest_bytes)
     target_receipt = json.loads(target_bytes)
     event_receipt = json.loads(event_bytes)
     branch_receipt = json.loads(branch_bytes)
+    predecessor_receipt = (
+        json.loads(predecessor_bytes) if predecessor_bytes is not None else None
+    )
     if manifest.get("schema") != SCHEMA:
         raise SystemExit("unsupported Decimal target-correction manifest")
     for name, payload, expected in (
@@ -123,6 +132,18 @@ def main() -> int:
     ):
         if sha256_bytes(payload) != expected:
             raise SystemExit(f"{name} receipt hash mismatch")
+    if manifest.get("predecessor_receipt_sha256"):
+        if predecessor_bytes is None:
+            raise SystemExit("predecessor failure receipt required")
+        if sha256_bytes(predecessor_bytes) != manifest["predecessor_receipt_sha256"]:
+            raise SystemExit("predecessor receipt hash mismatch")
+        if (
+            predecessor_receipt.get("schema")
+            != manifest["predecessor_schema"]
+            or predecessor_receipt.get("passed")
+            or predecessor_receipt.get("checks", {}).get("correction")
+        ):
+            raise SystemExit("bound unresolved predecessor failure required")
     if (
         target_receipt.get("schema") != manifest["target_schema"]
         or target_receipt.get("classifications", {})
@@ -163,6 +184,8 @@ def main() -> int:
     tolerance = Decimal(str(manifest["acceptance"]["maximum_residual"]))
     started = time.perf_counter()
     history = []
+    trial_history = []
+    termination_reason = "maximum_updates"
     rows = None
     with localcontext() as context:
         context.prec = int(manifest["decimal_digits"])
@@ -171,8 +194,8 @@ def main() -> int:
         phase = [value / phase_norm for value in phase]
         workers = min(int(manifest["workers"]), os.cpu_count() or 1)
         with ProcessPoolExecutor(max_workers=workers) as executor:
+            rows = evaluate(executor, nodes, period_time, parameter, manifest)
             for iteration in range(int(manifest["maximum_newton_updates"]) + 1):
-                rows = evaluate(executor, nodes, period_time, parameter, manifest)
                 matching = max(
                     abs(value) for row in rows for value in row["residual"]
                 )
@@ -195,17 +218,78 @@ def main() -> int:
                 )
                 print(json.dumps(history[-1], sort_keys=True), flush=True)
                 if max(matching, abs(phase_residual)) <= tolerance:
+                    termination_reason = "converged"
                     break
                 if iteration == int(manifest["maximum_newton_updates"]):
                     break
                 corrections, period_delta = reduced_fixed_parameter_correction(
                     rows, phase, phase_residual
                 )
-                nodes = [
-                    vector_add(node, correction)
-                    for node, correction in zip(nodes, corrections)
-                ]
-                period_time += period_delta
+                damping = manifest.get("damping")
+                if damping is None:
+                    nodes = [
+                        vector_add(node, correction)
+                        for node, correction in zip(nodes, corrections)
+                    ]
+                    period_time += period_delta
+                    rows = evaluate(executor, nodes, period_time, parameter, manifest)
+                    continue
+
+                current_residual = max(matching, abs(phase_residual))
+                maximum_ratio = Decimal(str(damping["maximum_accepted_ratio"]))
+                accepted = False
+                for factor_value in damping["factors"]:
+                    factor = Decimal(str(factor_value))
+                    trial_nodes = [
+                        [
+                            value + factor * correction
+                            for value, correction in zip(node, correction_row)
+                        ]
+                        for node, correction_row in zip(nodes, corrections)
+                    ]
+                    trial_period = period_time + factor * period_delta
+                    trial_rows = evaluate(
+                        executor, trial_nodes, trial_period, parameter, manifest
+                    )
+                    trial_matching = max(
+                        abs(value)
+                        for row in trial_rows
+                        for value in row["residual"]
+                    )
+                    trial_phase = abs(
+                        sum(
+                            phase[column]
+                            * (trial_nodes[0][column] - source_nodes[0][column])
+                            for column in range(3)
+                        )
+                    )
+                    trial_residual = max(trial_matching, trial_phase)
+                    trial_record = {
+                        "update": iteration + 1,
+                        "factor": float(factor),
+                        "matching_residual_decimal": str(trial_matching),
+                        "matching_residual": float(trial_matching),
+                        "phase_residual_decimal": str(trial_phase),
+                        "phase_residual": float(trial_phase),
+                        "residual_ratio": float(trial_residual / current_residual),
+                        "half_node_rms_decimal": str(half_node_rms(trial_nodes)),
+                    }
+                    trial_history.append(trial_record)
+                    print(json.dumps({"trial": trial_record}, sort_keys=True), flush=True)
+                    if trial_is_acceptable(
+                        current_residual,
+                        trial_residual,
+                        tolerance,
+                        maximum_ratio,
+                    ):
+                        nodes = trial_nodes
+                        period_time = trial_period
+                        rows = trial_rows
+                        accepted = True
+                        break
+                if not accepted:
+                    termination_reason = "backtracking_failed"
+                    break
 
         amplitude = half_node_rms(nodes)
         periodicity = periodicity_classification(amplitude, manifest)
@@ -251,6 +335,11 @@ def main() -> int:
         "target_receipt_sha256": sha256_bytes(target_bytes),
         "event_receipt_sha256": sha256_bytes(event_bytes),
         "branch_receipt_sha256": sha256_bytes(branch_bytes),
+        "predecessor_receipt_sha256": (
+            sha256_bytes(predecessor_bytes)
+            if predecessor_bytes is not None
+            else None
+        ),
         "source": source,
         "environment": {
             "python": platform.python_version(),
@@ -272,6 +361,8 @@ def main() -> int:
         "source_target_identity": source_identity,
         "exp321_terminal_identity": branch_identity,
         "history": history,
+        "trial_history": trial_history,
+        "termination_reason": termination_reason,
         "nodes_decimal": [[str(value) for value in row] for row in nodes],
         "checks": checks,
         "elapsed_seconds": time.perf_counter() - started,

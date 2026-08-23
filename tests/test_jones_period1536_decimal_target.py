@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from scripts.correct_jones_period1536_decimal_target import (
     periodicity_classification,
     reduced_fixed_parameter_correction,
+    trial_is_acceptable,
 )
 
 
@@ -51,3 +52,12 @@ def test_fixed_parameter_reduction_solves_identity_closure() -> None:
             Decimal("6"),
             Decimal(16) / Decimal(3),
         ]
+
+
+def test_backtracking_requires_frozen_residual_reduction() -> None:
+    current = Decimal("1e-8")
+    tolerance = Decimal("1e-20")
+    ratio = Decimal("0.95")
+    assert trial_is_acceptable(current, Decimal("9e-9"), tolerance, ratio)
+    assert not trial_is_acceptable(current, Decimal("9.6e-9"), tolerance, ratio)
+    assert trial_is_acceptable(current, Decimal("1e-21"), tolerance, ratio)

@@ -1256,3 +1256,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   is required to pass. It passes with six stable lower-`a` rows and no fold.
   Because EXP-299's candidate has only `2.86e-7` direct closure, EXP-322 now
   freezes its fixed-`a` 50-digit correction before any separate-sheet claim.
+  It fails unresolved: undamped Newton never improves the initial exact-map
+  residual. Preserve that failure and run the frozen residual-decreasing
+  backtracking successor EXP-323 without relaxing the `1e-20` gate.

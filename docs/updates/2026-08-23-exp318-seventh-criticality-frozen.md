@@ -90,3 +90,14 @@ has `2.53e-11` matching residual but `2.86e-7` direct closure. EXP-322 is now
 frozen to correct that exact stored seed at its fixed higher `a` under the
 same 50-digit RK4 3/8 map. A primitive orbit, doubled-parent collapse, or an
 unresolved correction are all admissible scientific outcomes.
+
+## EXP-322 fails unresolved; damped successor required
+
+The seed's initial exact-map residual is `5.366e-10`. Six full Newton steps
+oscillate in amplitude and never improve it; the final `1.029e-9` matching and
+`6.89e-8` neutral residuals fail. No Floquet or periodicity interpretation is
+admissible from the final iterate.
+
+This preserves rather than answers the target-topology question. EXP-323 will
+retain every scientific gate and add only a deterministic backtracking rule
+that accepts a Newton trial when it strictly reduces the current residual.

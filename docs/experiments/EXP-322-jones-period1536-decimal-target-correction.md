@@ -1,6 +1,6 @@
 # EXP-322 — Correct the EXP-299 target in the exact Decimal map
 
-Status: frozen; not yet run
+Status: failed as unresolved — undamped Newton does not contract
 
 EXP-299 preserved a stable period-1536 candidate at
 `a=0.24070100823781396`, but its DOP853 solution retained `2.53e-11`
@@ -26,3 +26,24 @@ seed and EXP-321 endpoint are recorded without selecting the outcome.
 
 Manifest:
 [`../../experiments/manifests/EXP-322-jones-period1536-decimal-target-correction.json`](../../experiments/manifests/EXP-322-jones-period1536-decimal-target-correction.json).
+
+## Result
+
+EXP-322 fails after 385.27 seconds. The stored seed begins with exact-map
+matching residual `5.366e-10`. Six undamped Newton updates oscillate between
+half-node amplitudes `2.12e-6` and `1.51e-5`; none improves the initial
+residual, and the final residual is `1.029e-9`. The final neutral residual
+`6.89e-8` also fails its gate.
+
+Consequently, the apparent final primitive amplitude and `0.471` transverse
+modulus are inadmissible and must not be interpreted as an exact stable
+period-1536 orbit. The experiment establishes only that the old EXP-299 seed
+is unresolved by full-step Newton in this exact map. It neither proves a
+separate sheet nor proves doubled-parent collapse.
+
+EXP-323 freezes deterministic residual-decreasing backtracking while retaining
+the same seed, map, precision, and `1e-20` closure gate.
+
+Raw receipt: `artifacts/EXP-322/receipt.json`, 351,020 bytes, SHA-256
+`5b5538d0ffa49e1fd0061b4824581e7049041d85c944e04e92f5660bf05f03eb`.
+Compact receipt: [`receipts/EXP-322.json`](receipts/EXP-322.json).
