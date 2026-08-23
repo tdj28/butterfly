@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.jones-period3072-segmented-identity-summary.v1",
+  "experiment_id": "EXP-317",
+  "passed": true,
+  "source_commit": "8c437156e1640018a4f895b74378ac41f02a18c5",
+  "manifest_sha256": "836b567e927380720df4bb455527876180f53c0f17bd827dbdf6eed223551daf",
+  "source_receipt_sha256": "3cf9fa153187e9a82a06f34d5ffc83ec3a547defa0fdd58824ea70e382f2368e",
+  "raw_artifact": "artifacts/EXP-317/receipt.json",
+  "raw_artifact_bytes": 505250,
+  "raw_artifact_sha256": "eef0f6c1e5171a4cb8028503c852e559132e5b28b2dd096ee0cb299bb1cedea3",
+  "elapsed_seconds": 1330.4920730004087,
+  "minimum_phase_invariant_half_rms": 8.66424725228267e-6,
+  "cross_solver_node_rms": 3.3402922720571623e-10,
+  "separation_error_ratio": 25938.590238831646,
+  "period_difference": 1.2167220120318234e-7,
+  "interpretation": "Tighter DOP853/Radau corrections independently qualify segmented primitive period-3072 identity. Combined with EXP-316's unchanged stable-parent/unstable-child classification, this promotes a local subcritical eighth birth while preserving EXP-316's failed long single-shot gate."
+}

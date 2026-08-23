@@ -687,7 +687,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   retrospectively reinterpret the failed EXP-316 gate. EXP-317 now freezes
   tighter DOP853/Radau child corrections, all-phase segmented half identity,
   and a 100-fold separation-to-representation-error requirement. Execute
-  EXP-317 next.
+  EXP-317 next. EXP-317 passes with `8.66425e-6` minimum all-phase half-orbit
+  separation, `3.34029e-10` cross-solver RMS, and a `25,938.6` separation/error
+  ratio. Combined with EXP-316, promote the eighth local birth as subcritical;
+  keep the seventh birth, global period-3072 branch, and ninth event open.
   EXP-023 now naturally continues period-3 and period-5 flow orbits in `b` and
   brackets three `-1` and one `+1` multiplier crossings. EXP-024 refines all
   three period-doubling seeds but rejects the `+1` scalar solve because of

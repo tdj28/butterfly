@@ -419,6 +419,17 @@ long single-shot diagnostic is below its own closure-error scale. Promotion
 requires a prospectively frozen segmented and tolerance-converged identity
 audit, not retrospective relaxation of EXP-316.
 
+CLM-008 addendum (EXP-317): tighter DOP853/Radau corrections independently
+retain phase-invariant primitive period-3072 half-orbit separation
+`8.66424730e-6/8.66424725e-6`. Cross-solver child RMS is only
+`3.34029e-10`, giving a `25,938.6` separation/error ratio; matching remains
+below `2.13e-10`, period difference is `1.22e-7`, and the bound exact section
+identities hold. Combined with EXP-316's stable-parent/unstable-child
+classification, this qualifies the eighth local birth as subcritical. The
+secure ledger is now eight exact events, six independently supercritical
+births, and one independently qualified subcritical eighth birth; the seventh
+birth remains unresolved. EXP-316's failed single-shot gate remains preserved.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

@@ -536,7 +536,9 @@ what must be narrowed, and what is false or unresolved.
   finds solver-consistent subcritical stability but preserves a failed
   primitive-child direct-nonclosure gate.
 - [`experiments/EXP-317-jones-period3072-segmented-identity.md`](experiments/EXP-317-jones-period3072-segmented-identity.md):
-  freezes a tighter-profile, phase-invariant segmented primitive-identity audit.
+  passes a tighter-profile, phase-invariant segmented primitive-identity audit.
+- [`findings/FND-104-eighth-birth-locally-subcritical.md`](findings/FND-104-eighth-birth-locally-subcritical.md):
+  combines EXP-316/317 to qualify the eighth local birth as subcritical.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

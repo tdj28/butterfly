@@ -34,3 +34,17 @@ distinct (`9.01896e-6` half-node RMS) and solver-consistent (`3.34e-10` RMS),
 rejecting daughter collapse. The next protocol must independently qualify
 segmented, tolerance-converged primitive identity without relaxing the failed
 EXP-316 gate.
+
+## EXP-317 result
+
+The tighter segmented identity audit passes. Both solvers retain at least
+`8.66424725e-6` all-phase half-orbit separation, while their child node sets
+differ by only `3.34029e-10` RMS. The resulting separation/error ratio is
+`25,938.6`, versus the preregistered minimum of 100.
+
+Together, EXP-316 and EXP-317 now qualify the eighth returning-arm birth as
+locally subcritical: a primitive strongly unstable period-3072 daughter exists
+on the stable-parent side. The ledger becomes eight exact events, six
+supercritical births, and one subcritical eighth birth; the seventh birth is
+still unresolved. The failed EXP-316 single-shot gate remains documented as a
+failure and is not retroactively changed.
