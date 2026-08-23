@@ -1187,7 +1187,7 @@ primitive real-$-1$ event at consensus
 $a_{768}\simeq0.24070100823759042$. The corrected fifth finite spacing ratio is
 $4.244$, giving $4.557/4.697/4.300/4.836/4.244$. The sequence remains
 non-monotone; the seventh birth's criticality and stable period-1536 attraction
-remain unqualified.
+remain unqualified at this stage.
 
 A subsequent same-coordinate audit resolves why the first criticality attempt
 cannot be promoted. At $a=0.24070100823781396$, only
@@ -1204,6 +1204,23 @@ numerically neutral. This rules out interpreting that sampled pair as a
 supercritical exchange. It does not yet show whether the stable candidate is
 the immediate local daughter, lies beyond an ultranarrow fold or
 restabilization, or occupies a distinct nearby sheet.
+
+Same-map high-precision branch switching resolves the immediate daughter.
+Starting independently from the passed 4,096- and 8,192-step RK4 3/8 augmented
+events, both antiperiodic tangent signs are corrected at two amplitudes in
+50-digit arithmetic. At each resolution the primitive period-1536 daughter is
+stable and opens toward lower $a$, opposite the higher-$a$ stable-parent side.
+Mean event-relative displacement grows from $1.29205\times10^{-13}$ to
+$5.17089\times10^{-13}$ as half-node RMS doubles from
+$7.88364\times10^{-7}$ to $1.57674\times10^{-6}$. The independently repeated
+parameter-amplitude exponents are $2.000728180629$ and $2.000728180631$.
+Resolution doubling changes displacement by at most $9.08\times10^{-10}$
+relatively, amplitude by $9.27\times10^{-13}$, and child modulus by
+$1.41\times10^{-10}$. Child moduli range from $0.92877$ to $0.98228$, and
+matching residuals remain below $2.84\times10^{-21}$. This qualifies the
+seventh local birth as supercritical and shows that the stable higher-$a$
+candidate is not the immediate daughter. Its global sheet connectivity remains
+open.
 
 \begin{figure}[H]
   \centering
@@ -1272,7 +1289,24 @@ phase-invariant half-orbit separation $8.66425\times10^{-6}$ against only
 $3.34029\times10^{-10}$ cross-solver node RMS, a separation/error ratio of
 $25{,}938.6$. The combined evidence qualifies the eighth local birth as
 subcritical while retaining the failed single-shot gate. The seventh birth
-direction remains open.
+is independently qualified as supercritical by the same-map switches above.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig25-exp316-320-birth-criticality.png}
+  \caption{Opposite criticality at the seventh and eighth returning-arm births.
+  Upper left: both 4,096- and 8,192-step same-map switches show quadratic
+  lower-$a$ opening of the immediate seventh daughter. Upper right: every
+  immediate period-1536 daughter is stable. Lower left: resolution doubling
+  reproduces displacement, amplitude, child modulus, and opening exponent.
+  Lower right: event-relative DOP853 and Radau calculations place the eighth
+  primitive period-3072 daughter on the unstable side of a stable parent;
+  segmented identity clears its empirical representation error by a factor
+  $25{,}938.6$. Thus event seven is locally supercritical and event eight
+  locally subcritical; neither result establishes global sheet connectivity or
+  a universality limit.}
+  \label{fig:exp316-320-criticality}
+\end{figure}
 
 \begin{figure}[H]
   \centering

@@ -54,3 +54,17 @@ immediate local daughter.
 EXP-320 now binds the raw 1.39 MB receipt and repeats the unchanged bilateral,
 two-amplitude experiment at 8,192 steps per segment. A pass is required before
 the ledger or manuscript promotes the seventh-birth direction.
+
+## EXP-320 passes; seventh birth promoted
+
+The 8,192-step replication passes every unchanged gate. Event-relative
+displacement, half-node amplitude, and child modulus reproduce the 4,096-step
+results within `9.08e-10`, `9.27e-13`, and `1.41e-10` relative. The repeated
+opening exponent is `2.000728180631`; all four children remain stable and open
+toward lower `a`.
+
+FND-105 therefore qualifies the seventh birth as locally supercritical. The
+returning-arm ledger now contains eight exact events, seven supercritical
+births, and a subcritical eighth birth. EXP-318 remains a valid stable/stable
+failure and exposes an additional higher-`a` period-1536 sheet whose fold,
+restabilization, or connectivity must now be traced.

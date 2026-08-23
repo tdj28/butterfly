@@ -45,6 +45,9 @@ topology claims.
 - fig22-exp237-275-returning-cascade.png: six exact returning-arm flip events,
   four finite spacing ratios, and two-solver supercritical stability exchange
   through a stable primitive period-768 child.
+- fig25-exp316-320-birth-criticality.png: resolution-doubled quadratic opening
+  and stable immediate daughters at the supercritical seventh birth, plus the
+  stable-parent/unstable-daughter evidence for the subcritical eighth birth.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 

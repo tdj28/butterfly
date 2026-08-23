@@ -456,6 +456,19 @@ higher-`a` stable candidate is not the immediate daughter in this discrete
 representation. The secure ledger does not change until EXP-320 independently
 replicates the result at 8,192 steps per segment.
 
+CLM-008 addendum (EXP-320 and FND-105): the unchanged 8,192-step replication
+passes every bilateral, correction, primitivity, direction, quadratic-opening,
+period, cyclic, neutral, and child-stability gate. Its event-relative
+displacements, amplitudes, and stable child moduli reproduce EXP-319 within
+`9.08e-10`, `9.27e-13`, and `1.41e-10` relative, respectively; the independent
+opening exponents are `2.000728180629/2.000728180631`. The immediate stable
+daughter opens toward lower `a`, opposite EXP-318's higher-`a` stable-parent
+side. This qualifies the seventh local birth as supercritical while preserving
+EXP-318's stable/stable failure: the higher-`a` EXP-299 candidate is not the
+immediate daughter. The secure ledger is now eight exact events, seven
+independently qualified supercritical births, and one independently qualified
+subcritical eighth birth.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

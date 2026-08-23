@@ -539,6 +539,14 @@ what must be narrowed, and what is false or unresolved.
   passes a tighter-profile, phase-invariant segmented primitive-identity audit.
 - [`findings/FND-104-eighth-birth-locally-subcritical.md`](findings/FND-104-eighth-birth-locally-subcritical.md):
   combines EXP-316/317 to qualify the eighth local birth as subcritical.
+- [`experiments/EXP-318-jones-period768-decimal-criticality.md`](experiments/EXP-318-jones-period768-decimal-criticality.md):
+  resolves the sampled seventh-event parent/candidate pair as stable/stable.
+- [`experiments/EXP-319-jones-period1536-decimal-child-switch.md`](experiments/EXP-319-jones-period1536-decimal-child-switch.md):
+  nominates a distinct immediate stable daughter with quadratic lower-`a` opening.
+- [`experiments/EXP-320-jones-period1536-decimal-child-switch-8192.md`](experiments/EXP-320-jones-period1536-decimal-child-switch-8192.md):
+  passes the unchanged 8,192-step resolution-doubled daughter replication.
+- [`findings/FND-105-seventh-birth-locally-supercritical.md`](findings/FND-105-seventh-birth-locally-supercritical.md):
+  combines EXP-318--320 to qualify the seventh local birth as supercritical.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

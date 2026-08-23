@@ -1248,4 +1248,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   bilateral tangent signs, two predictor scales, quadratic-opening gates, and
   child Floquet stability. It passes with lower-`a` stable daughters and a
   `2.000728` opening exponent, nominating a supercritical birth. EXP-320 now
-  freezes the identical 8,192-step replication; execute it from clean source.
+  passes the identical 8,192-step replication. FND-105 promotes the seventh
+  local birth as supercritical. Next trace the separate stable higher-`a`
+  period-1536 candidate to a fold, restabilization, or disconnected sheet.
