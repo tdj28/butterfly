@@ -612,6 +612,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-342-jones-homoclinic-radau-32-segment.md`](experiments/EXP-342-jones-homoclinic-radau-32-segment.md):
   independent Radau, doubled-segmentation reproduction of EXP-341's first
   sub-`1e-8` root nomination without unstable direct replay.
+- [`experiments/EXP-343-jones-homoclinic-radius025-radau.md`](experiments/EXP-343-jones-homoclinic-radius025-radau.md):
+  prospective radius-`0.025` persistence test seeded from the passed 32-arc
+  Radau homoclinic candidate.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

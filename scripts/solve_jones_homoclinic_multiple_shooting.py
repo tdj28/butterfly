@@ -195,6 +195,13 @@ def main() -> int:
             )
             midpoint_nodes.append(midpoint)
         seed_nodes = interleave_split_nodes(source_nodes, midpoint_nodes)
+    elif seed_mode == "bound_nodes":
+        source_segment_count = int(binding["segment_count"])
+        if segment_count != source_segment_count:
+            raise SystemExit("bound-node seed requires unchanged segment count")
+        seed_nodes = np.asarray(source_receipt["final_nodes"], dtype=np.float64)
+        if seed_nodes.shape != (segment_count - 1, 3):
+            raise SystemExit("bound source-node shape mismatch")
     else:
         raise SystemExit("unsupported multiple-shooting seed mode")
     initial_variables = np.r_[
@@ -373,9 +380,9 @@ def main() -> int:
         "total_flight_time": abs(final_time - seed_time),
     }
     checks = {
-        "failed_source_preserved": bool(
-            source_receipt["passed"] is False
-            and source_receipt["failed_checks"] == ["optimizer_terminated"]
+        "source_status_bound": bool(
+            source_receipt["passed"] is binding["passed"]
+            and source_receipt["failed_checks"] == binding["failed_checks"]
         ),
         "initial_residual": bool(
             initial_details["maximum_block_norm"]

@@ -882,9 +882,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   independent 32-arc Radau correction by splitting the matched EXP-341 arcs,
   not by direct long replay, and adds prospective source-root agreement gates.
   It passes at maximum defect `1.08861e-9`, reproducing `a` within `3.13e-11`.
-  Freeze the radius-`0.025` 32-arc Radau successor from these matched nodes,
-  requiring parameter persistence. Then repeat at radius `0.02` and continue
-  the resulting root before a uniqueness claim.
+  EXP-343 freezes the radius-`0.025` 32-arc Radau successor from these matched
+  nodes with a prospective `2e-6` parameter-persistence gate. Run it locally.
+  Then repeat at radius `0.02` and continue the resulting root before a
+  uniqueness claim.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
