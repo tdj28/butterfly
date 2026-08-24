@@ -51,6 +51,9 @@ topology claims.
 - fig26-exp324-325-target-collapse.png: matching, primitive amplitude, Armijo
   factors, and phase-space convergence for the independently repeated
   4,096/8,192-step collapse of the old EXP-299 seed to its doubled parent.
+- fig27-exp321-327-sheet-connection.png: exact daughter continuation through
+  event eight, signed real-`-1` crossing, shared-phase identity convergence,
+  and normalized gate margins.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -260,6 +263,18 @@ Regenerate the EXP-324/325 target-collapse figure and receipt:
       --exp325 artifacts/EXP-325/receipt.json \
       --exp325-sha256 352b2254cca632f644b8c55b236d6f4487801e9223e87810eb3db4596e7cfbcc \
       --output paper/figures/fig26-exp324-325-target-collapse.png --dpi 260
+
+Regenerate the EXP-321/326/327 sheet-connection figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp321_327_sheet_connection.py \
+      --exp321 artifacts/EXP-321/receipt.json \
+      --exp321-sha256 09dc671c78489d38d90d08c1c89458a247fbe51a04582bf3775e2ed6a7e6989a \
+      --exp326 artifacts/EXP-326/receipt.json \
+      --exp326-sha256 f94a3c63dad90c729138c4902b5af44d7194bda42dd18c42f730737f640ff89f \
+      --exp327 artifacts/EXP-327/receipt.json \
+      --exp327-sha256 c9ec92bd735fb8460ed0e7986ef07102943ff2032261c0c72edabcfa6b54d9c9 \
+      --output paper/figures/fig27-exp321-327-sheet-connection.png --dpi 260
 
 ## Promoted experiment figures
 

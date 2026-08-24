@@ -22,6 +22,9 @@ supercritical; the eighth is qualified as subcritical.
   seed to the doubled parent, and EXP-325 independently reproduces that result
   at twice the step resolution. This removes spurious topology rather than
   retracting the event.
+- EXP-326/327 then continue the exact immediate daughter through event eight
+  and register the independently constructed meshes to `6.35e-18` node RMS.
+  The eight-event connected chain no longer depends on the collapsed seed.
 
 ## What this corrects or narrows
 

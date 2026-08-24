@@ -567,7 +567,9 @@ what must be narrowed, and what is false or unresolved.
   crosses and exactly closes at the eighth-event coordinate but preserves one
   integer-node phase-identity failure.
 - [`experiments/EXP-327-jones-period1536-shared-phase-registration.md`](experiments/EXP-327-jones-period1536-shared-phase-registration.md):
-  freezes exact shared-phase registration of the connected and event meshes.
+  passes exact shared-phase registration of the connected and event meshes.
+- [`findings/FND-107-seventh-daughter-connects-to-eighth-event.md`](findings/FND-107-seventh-daughter-connects-to-eighth-event.md):
+  qualifies the immediate seventh daughter as the parent sheet of event eight.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

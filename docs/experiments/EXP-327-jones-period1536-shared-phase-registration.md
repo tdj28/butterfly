@@ -1,6 +1,6 @@
 # EXP-327 — Shared-phase registration at event eight
 
-Status: frozen; not yet run
+Status: passed — exact shared-phase identity qualified
 
 EXP-326 continues the exact immediate seventh daughter across the 4,096-step
 event-eight coordinate and corrects it there below `9e-23`. The connected
@@ -23,3 +23,20 @@ bounded sheet connection; EXP-326 itself remains failed.
 
 Manifest:
 [`../../experiments/manifests/EXP-327-jones-period1536-shared-phase-registration.json`](../../experiments/manifests/EXP-327-jones-period1536-shared-phase-registration.json).
+
+## Result
+
+EXP-327 passes every frozen gate after 161.38 seconds and two full Newton
+steps. The first step removes the continuous phase mismatch and reduces direct
+node RMS from `1.1986e-6` to `1.5079e-13`. The second restores exact-map
+closure and reduces the same-phase node RMS to `6.3542e-18`.
+
+Final matching is `8.57e-26`, connected-period difference is `1.02e-21`, and
+half-node RMS remains `7.9884935e-6`. Cyclic spread is zero, neutral residual
+is `2.37e-23`, and the transverse multiplier is
+`-0.9999999999999993`. Combined with EXP-326's passed bracket and connected
+root, this qualifies the bounded sheet connection tracked as FND-107.
+
+Raw receipt: `artifacts/EXP-327/receipt.json`, 350,053 bytes, SHA-256
+`c9ec92bd735fb8460ed0e7986ef07102943ff2032261c0c72edabcfa6b54d9c9`.
+Compact receipt: [`receipts/EXP-327.json`](receipts/EXP-327.json).

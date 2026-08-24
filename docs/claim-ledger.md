@@ -485,6 +485,20 @@ supercritical daughter are strengthened. This seed-specific result does not
 exclude every remote period-1536 sheet, and the secure event/birth count is
 unchanged.
 
+CLM-008 addendum (EXP-326/327 and FND-107): four more exact 4,096-step
+continuation rows carry the immediate seventh daughter across EXP-306's event
+coordinate. A fixed-`a` root closes to `8.98e-23`, remains primitive at
+`7.98849e-6` half-node RMS, matches the target period to `3.13e-22`, and
+recovers the real multiplier `-1.00000000000025`. EXP-326 preserves one
+integer-node identity failure because the independently built meshes use
+different continuous phase hyperplanes. The prospectively frozen shared-phase
+replay then passes: direct node RMS is `6.35e-18`, matching `8.57e-26`, period
+difference `1.02e-21`, and multiplier `-0.9999999999999993`. The immediate
+seventh daughter is therefore directly connected to the eighth event in the
+same exact map. The secure ledger remains eight connected exact events, seven
+qualified supercritical births, and one qualified subcritical eighth birth,
+now without relying on EXP-299's retracted orbit identity.
+
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.
 Seven prospectively selected edge brackets then all refine to real `-1`

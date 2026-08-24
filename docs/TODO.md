@@ -1276,4 +1276,6 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   correction, period, primitivity, multiplier, cyclic, and neutral gates but
   preserves one integer-node identity failure caused by a `3.16e-6` phase-
   hyperplane offset. Run frozen EXP-327's exact shared-phase registration;
-  do not relax or overwrite EXP-326.
+  do not relax or overwrite EXP-326. EXP-327 passes with `6.35e-18` direct
+  same-phase node RMS, `8.57e-26` matching, and `1.02e-21` period difference.
+  FND-107 now qualifies the seventh-daughter-to-eighth-event connection.

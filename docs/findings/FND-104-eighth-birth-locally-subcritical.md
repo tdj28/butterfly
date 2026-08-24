@@ -26,5 +26,10 @@ This finding does not resolve the seventh birth, prove a global period-3072
 branch, establish attraction or basin measure, identify a ninth event, prove
 universality, locate a TBA curve, or test a homoclinic connection.
 
+FND-107 subsequently proves in the 4,096-step exact map that this event's
+period-1536 parent sheet is the immediate daughter born at event seven. That
+connection strengthens the eighth-rung interpretation without changing this
+finding's local criticality gates.
+
 Tracked receipts: [`../experiments/receipts/EXP-316.json`](../experiments/receipts/EXP-316.json)
 and [`../experiments/receipts/EXP-317.json`](../experiments/receipts/EXP-317.json).

@@ -139,3 +139,18 @@ FND-106 is therefore qualified. We retract our interim interpretation of the
 EXP-299 candidate as a separate stable primitive sheet; Jones's local cascade
 is not debunked. The conclusion is specific to that stored seed and does not
 assert global nonexistence of other period-1536 sheets.
+
+## EXP-326/327 restore the exact connection to event eight
+
+The EXP-299 collapse reopens only the provenance of the next exact event.
+EXP-326 extends the immediate daughter through that event's 4,096-step
+coordinate, closes there to `8.98e-23`, and recovers its period, primitive
+amplitude, and real-`-1` multiplier. It preserves an integer-node identity
+failure caused by differing continuous phase hyperplanes.
+
+EXP-327 retains that failure and recorrects the bound event mesh on the
+connected orbit's phase hyperplane. Direct node RMS falls from `1.20e-6` to
+`6.35e-18`; matching is `8.57e-26`, period difference `1.02e-21`, and every
+gate passes. FND-107 qualifies the immediate seventh daughter as the parent
+sheet of event eight. Thus the connected eight-event cascade is restored by
+direct exact evidence rather than the retracted EXP-299 source.
