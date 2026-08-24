@@ -49,6 +49,16 @@ def validate_source_receipts(manifest: dict) -> list[dict]:
             raise SystemExit(f"source receipt experiment mismatch: {path}")
         if receipt.get("passed") is not True or receipt.get("candidate_count") != 0:
             raise SystemExit(f"source receipt status mismatch: {path}")
+        if "expected_classification" in binding and (
+            receipt.get("classification") != binding["expected_classification"]
+        ):
+            raise SystemExit(f"source receipt classification mismatch: {path}")
+        if "expected_closest_match" in binding:
+            expected = binding["expected_closest_match"]
+            observed = receipt.get("closest_match", {})
+            for field in ("c", "angle_index", "chord_mismatch"):
+                if observed.get(field) != expected[field]:
+                    raise SystemExit(f"source closest-match binding mismatch: {path}: {field}")
         validated.append(receipt)
     return validated
 

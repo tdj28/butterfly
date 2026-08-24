@@ -582,6 +582,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-332-jones-homoclinic-manifold-match-pilot.md`](experiments/EXP-332-jones-homoclinic-manifold-match-pilot.md):
   parameter-aware signed matching of unstable returns to the nonlinear local
   stable manifold near Jones's approximately printed hub.
+- [`experiments/EXP-333-jones-homoclinic-manifold-match-upper-c.md`](experiments/EXP-333-jones-homoclinic-manifold-match-upper-c.md):
+  unchanged-method upper-`c` extension selected by EXP-332's monotone boundary
+  mismatch trend.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

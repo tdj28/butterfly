@@ -46,6 +46,18 @@ components. Repeat over shrinking spheres and with an independent integrator
 before qualifying a connection. Only after one root is continued over the
 declared historical segment can uniqueness receive a bounded test.
 
+## EXP-332 parameter-aware pilot
+
+The first implementation of that gate now passes. Nine `c` slices and 96
+angles per slice produce 223 inward intersections with the radius-`0.02`
+matching sphere. No direct chord candidate or signed-zero cell is present.
+However, the best stable-target chord mismatch decreases monotonically from
+`0.0156595` at `c=10.3044` to `0.00656684` at the upper boundary
+`c=10.3124`; both signed tangent residuals shrink together and remain
+positive. This is the first coherent parameter-direction signal, but not a
+root. Hash-bound EXP-333 prospectively extends the unchanged scan through
+`c=10.3224`.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`

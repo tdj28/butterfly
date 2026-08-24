@@ -839,6 +839,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   spheres and an independent integrator, then continue every detected root
   over a declared segment before testing uniqueness. CPU runtime is only 31
   seconds for 257 rows, so no paid GPU is justified for the current stage.
+  EXP-332 then passes all nonlinear-target and execution gates on nine `c`
+  slices: 223 inward sphere intersections yield no candidate or signed-zero
+  cell, but the per-slice minimum chord mismatch decreases monotonically and
+  reaches `0.00656684` at the upper boundary with both tangent residuals still
+  positive. Run frozen EXP-333's unchanged-method extension through
+  `c=10.3224`; if it nominates a root cell, freeze a coupled solve before any
+  claim update.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
