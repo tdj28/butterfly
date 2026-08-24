@@ -171,6 +171,19 @@ than four-decimal rounding. Shrinking-radius persistence is now the next gate
 for distinguishing a true invariant-manifold connection from a finite-radius
 boundary-value coincidence.
 
+## EXP-343 radius persistence with a nuisance-gauge failure
+
+At radius `0.025`, Radau again solves the matched arcs below the root threshold:
+maximum defect `5.49708e-9`. More importantly, the inferred parameter changes
+by only `1.30e-13`. The frozen run still fails because its nearly null
+angle/time coordinates shift by `0.04983` and `0.10973`, with angle landing at
+the old search-box boundary. This failure is preserved and is not counted as a
+passing persistence test.
+
+The result is favorable to the invariant-manifold interpretation but exposes a
+bad gauge choice. The next successor widens only the nuisance angle/time box,
+keeps the exact matched nodes, and retains the parameter and residual gates.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

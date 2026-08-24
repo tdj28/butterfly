@@ -883,9 +883,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   not by direct long replay, and adds prospective source-root agreement gates.
   It passes at maximum defect `1.08861e-9`, reproducing `a` within `3.13e-11`.
   EXP-343 freezes the radius-`0.025` 32-arc Radau successor from these matched
-  nodes with a prospective `2e-6` parameter-persistence gate. Run it locally.
-  Then repeat at radius `0.02` and continue the resulting root before a
-  uniqueness claim.
+  nodes with a prospective `2e-6` parameter-persistence gate. It reaches
+  `5.49708e-9` and preserves `a` within `1.30e-13`, but fails because the
+  ill-conditioned angle/time gauge hits the angle boundary and exceeds its
+  nuisance agreement limits. Preserve the failure; widen only that gauge and
+  validate the exact matched seed before proceeding to radius `0.02`.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
