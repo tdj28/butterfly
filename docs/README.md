@@ -654,6 +654,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-355-jones-homoclinic-crossing-warm-restart.md`](experiments/EXP-355-jones-homoclinic-crossing-warm-restart.md):
   exact-node same-`c` continuation correction while the EXP-354 descent signal
   remains active.
+- [`experiments/EXP-356-jones-homoclinic-crossing-correction-2.md`](experiments/EXP-356-jones-homoclinic-crossing-correction-2.md):
+  second exact-node correction of the prospective crossing while retaining
+  the unchanged root and boundary gates.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

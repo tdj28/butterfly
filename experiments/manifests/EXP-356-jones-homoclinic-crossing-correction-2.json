@@ -1,0 +1,81 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+  "experiment_id": "EXP-356",
+  "source_receipt": {
+    "path": "artifacts/EXP-355/receipt.json",
+    "sha256": "78911336ad90fdac0df83828c1fa0712361702ed6788f54c84cd8c811c552964",
+    "schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+    "experiment_id": "EXP-355",
+    "passed": false,
+    "classification": "multiple_shooting_unresolved",
+    "failed_checks": ["optimizer_terminated_or_root_gate"],
+    "segment_count": 128,
+    "expected": {
+      "root_nominated": false,
+      "final_maximum_block_residual": 0.000008302024398557372,
+      "final_residual_norm": 0.000008410159224942903
+    }
+  },
+  "solve_parameter": "a",
+  "fixed_parameters": {"b": 0.2, "c": 10.317135394165936},
+  "reference_a": 0.1798,
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 128,
+  "seed_mode": "bound_nodes",
+  "node_bound_radius": 0.5,
+  "search_center": {
+    "angle": 2.365056310094984,
+    "a": 0.1798386480583239,
+    "total_flight_time": 234.37917306153525
+  },
+  "search_scales": {
+    "angle": 0.5,
+    "a": 0.002,
+    "total_flight_time": 5.0
+  },
+  "normalized_bounds": {
+    "lower": [-1.0, -1.0, -1.0],
+    "upper": [1.0, 1.0, 1.0]
+  },
+  "solver": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "independent_integrator": {
+    "source_method": "Radau",
+    "qualification_method": "Radau",
+    "segment_count_multiplier": 1,
+    "changed_geometry": "same_crossing_c_exact_node_correction_2"
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "segment_a_sensitivity": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_a_sensitivity": "absolute_central",
+    "parameter_absolute_step": 1e-7
+  },
+  "optimization": {
+    "method": "trf", "jacobian": "dense_analytic_segmented", "x_scale": "jac",
+    "ftol": 1e-11, "xtol": 1e-11, "gtol": 1e-11,
+    "maximum_function_evaluations": 40
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.0001,
+    "maximum_root_block_residual": 1e-8,
+    "minimum_normalized_boundary_margin": 0.001,
+    "minimum_node_boundary_margin": 0.01,
+    "allow_root_gate_as_termination": true,
+    "source_root_agreement": {
+      "maximum_a_difference": 0.002,
+      "maximum_angle_difference": 0.5,
+      "maximum_total_flight_time_difference": 2.0
+    }
+  },
+  "claim_scope": "second failure-bound exact-node correction of the crossing predictor at fixed (b,c)=(0.2,10.3171353942): retain solved a, manifold geometry, 128 Radau arcs, tolerances, node guardrail and margin gate, global box widths, 40-evaluation budget, and 1e-8 residual threshold; passing qualifies the curve point and its a offset before exact fixed a is reimposed, but does not establish the exact intersection, completeness, uniqueness, a computer-assisted proof, or global hub topology"
+}

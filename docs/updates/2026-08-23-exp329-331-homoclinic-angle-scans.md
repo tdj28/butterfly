@@ -302,6 +302,14 @@ The first crossing correction reduces maximum defect from `8.74733e-3` to
 the gate. Optimizer optimality is still `2.85e-6`, unlike the fixed-`a`
 residual floor, so EXP-355 freezes an exact-node same-`c` warm restart.
 
+## EXP-355 crossing correction continues
+
+The exact-node restart reduces maximum defect to `8.30202e-6` and moves to
+diagnostic `a=0.1798386481`, only `3.86481e-5` above the historical value.
+Nine blocks remain above the gate and optimizer optimality is still
+`9.76e-7`; EXP-356 preserves every exact node for a second same-`c`
+correction.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

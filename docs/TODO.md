@@ -926,8 +926,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   prospectively declared crossing `c=10.3171353942`, measure the residual
   `a-0.1798`, and only then reimpose exact fixed `a`. EXP-354 is preserved as
   failed after reducing the defect to `3.83423e-5`; it remains interior and
-  its optimizer optimality `2.85e-6` shows active descent. EXP-355 freezes an
-  exact-node same-`c` warm restart without changing any gate; run it locally.
+  its optimizer optimality `2.85e-6` shows active descent. EXP-355 lowers the
+  defect again to `8.30202e-6` and moves to `a=0.1798386481`, with active
+  descent and nine failing blocks. EXP-356 freezes the next exact-node same-`c`
+  correction without changing any gate; run it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
