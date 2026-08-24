@@ -18,6 +18,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
     SCHEMA as MULTIPLE_SHOOTING_SCHEMA,
     block_norms,
     interleave_split_nodes,
+    node_bounds,
     solution_parameters,
     variable_layout,
 )
@@ -50,6 +51,13 @@ def test_homoclinic_solution_parameters_support_fixed_a_intersection():
     fixed_a = solution_parameters("c", 10.3171, {"a": 0.1798, "b": 0.2})
     assert (fixed_c.a, fixed_c.b, fixed_c.c) == (0.1826, 0.2, 10.3084)
     assert (fixed_a.a, fixed_a.b, fixed_a.c) == (0.1798, 0.2, 10.3171)
+
+
+def test_homoclinic_node_bounds_are_source_centered():
+    seed = np.array([[1.0, 2.0, 3.0], [-1.0, -2.0, -3.0]])
+    lower, upper = node_bounds(seed, 0.25)
+    assert np.allclose(lower, seed.ravel() - 0.25)
+    assert np.allclose(upper, seed.ravel() + 0.25)
 
 
 def test_homoclinic_matching_block_norms_preserve_segment_order():

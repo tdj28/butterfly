@@ -916,7 +916,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   is preserved as failed at `2.09830e-4`; 121/128 blocks already pass and the
   remaining defect localizes near the stable endpoint. EXP-352 freezes a
   hash-bound exact-node warm restart with the same 128 arcs, budget, and
-  `1e-8` gate; run it locally.
+  `1e-8` gate. EXP-352 aborts before receipt generation when an unbounded
+  trust-region node trial makes Radau's step size collapse; do not classify it
+  as a scientific failure. EXP-353 adds only a prospective `+/-0.5`
+  source-centered component guardrail with an explicit node-margin gate; run
+  it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

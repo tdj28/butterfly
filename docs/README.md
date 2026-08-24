@@ -645,6 +645,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-352-jones-homoclinic-fixed-a-warm-restart.md`](experiments/EXP-352-jones-homoclinic-fixed-a-warm-restart.md):
   failure-bound exact-node warm restart of the direct historical-path solve
   with unchanged physical and residual gates.
+- [`experiments/EXP-353-jones-homoclinic-fixed-a-node-bounded-restart.md`](experiments/EXP-353-jones-homoclinic-fixed-a-node-bounded-restart.md):
+  source-centered internal-node guardrail after EXP-352's invalid Radau trial,
+  with an explicit node-boundary acceptance margin.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

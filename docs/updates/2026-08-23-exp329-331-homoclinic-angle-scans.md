@@ -271,6 +271,17 @@ while five of the seven failures occupy the final five arcs beside the stable
 target. EXP-352 binds all exact failed nodes for a same-geometry warm restart;
 no scientific threshold is relaxed.
 
+## EXP-352 unbounded trial abort
+
+EXP-352 accepts its source binding and initial evaluation but aborts before a
+receipt when an unbounded internal-node trust-region trial makes Radau report
+that its required step is below machine spacing. This is an execution abort,
+not a scientific negative result.
+
+EXP-353 prospectively adds a `+/-0.5` source-centered component box to every
+internal node and requires a `0.01` normalized node-boundary margin. All
+physical, residual, segmentation, tolerance, and budget gates remain fixed.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

@@ -82,6 +82,17 @@ def solution_parameters(
     raise ValueError("solve_parameter must be 'a' or 'c'")
 
 
+def node_bounds(seed_nodes: np.ndarray, radius: float) -> tuple[np.ndarray, np.ndarray]:
+    """Return finite source-centered component bounds for shooting nodes."""
+    seed_nodes = np.asarray(seed_nodes, dtype=np.float64)
+    if seed_nodes.ndim != 2 or seed_nodes.shape[1:] != (3,):
+        raise ValueError("seed nodes must have shape (node_count, 3)")
+    if not np.isfinite(radius) or radius <= 0.0:
+        raise ValueError("node bound radius must be finite and positive")
+    flattened = seed_nodes.ravel()
+    return flattened - radius, flattened + radius
+
+
 def interleave_split_nodes(
     source_nodes: np.ndarray, midpoint_nodes: np.ndarray
 ) -> np.ndarray:
@@ -263,6 +274,11 @@ def main() -> int:
     normalized_upper = np.asarray(manifest["normalized_bounds"]["upper"], dtype=float)
     lower = np.full(layout["variable_count"], -np.inf)
     upper = np.full(layout["variable_count"], np.inf)
+    node_bound_radius = manifest.get("node_bound_radius")
+    if node_bound_radius is not None:
+        lower[: layout["node_size"]], upper[: layout["node_size"]] = node_bounds(
+            seed_nodes, float(node_bound_radius)
+        )
     global_indices = np.asarray(
         [layout["time_index"], layout["a_index"], layout["angle_index"]]
     )
@@ -410,6 +426,19 @@ def main() -> int:
     boundary_margins = np.minimum(
         normalized_globals - normalized_lower, normalized_upper - normalized_globals
     )
+    if node_bound_radius is None:
+        maximum_normalized_node_displacement = None
+        node_boundary_margin = None
+    else:
+        maximum_normalized_node_displacement = float(
+            np.max(
+                np.abs(
+                    (final_nodes - np.asarray(seed_nodes, dtype=np.float64))
+                    / float(node_bound_radius)
+                )
+            )
+        )
+        node_boundary_margin = 1.0 - maximum_normalized_node_displacement
 
     replay_initial, replay_target, _ = geometry(final_parameter, final_angle)
     replay_parameters = solution_parameters(solve_parameter, final_parameter, fixed)
@@ -437,6 +466,11 @@ def main() -> int:
         <= float(acceptance["maximum_root_block_residual"])
         and np.min(boundary_margins)
         >= float(acceptance["minimum_normalized_boundary_margin"])
+        and (
+            node_boundary_margin is None
+            or node_boundary_margin
+            >= float(acceptance.get("minimum_node_boundary_margin", 0.0))
+        )
     )
     source_root_differences = {
         solve_parameter: abs(final_parameter - seed_parameter),
@@ -469,6 +503,11 @@ def main() -> int:
         "positive_flight_time": final_time > 0.0,
         "segment_count": len(final_details["block_norms"]) == segment_count,
     }
+    if node_boundary_margin is not None:
+        checks["node_status_bound"] = bool(
+            node_boundary_margin
+            >= float(acceptance.get("minimum_node_boundary_margin", 0.0))
+        )
     source_agreement = acceptance.get("source_root_agreement")
     if source_agreement is not None:
         checks["source_root_agreement"] = bool(
@@ -516,6 +555,9 @@ def main() -> int:
         },
         "final_normalized_variables": normalized_globals.tolist(),
         "final_normalized_boundary_margins": boundary_margins.tolist(),
+        "node_bound_radius": node_bound_radius,
+        "maximum_normalized_node_displacement": maximum_normalized_node_displacement,
+        "node_boundary_margin": node_boundary_margin,
         "source_root_differences": source_root_differences,
         "final_nodes": final_nodes.tolist(),
         "final_residual_norm": final_details["residual_norm"],
