@@ -896,7 +896,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   exact-node gauge validation. EXP-346 is frozen with no further optimization;
   it passes at `5.60724e-9`, completing a three-radius root sequence with `a`
   stable to about `1e-12`. Freeze local continuation of the homoclinic curve
-  toward fixed `a=0.1798` before any bounded uniqueness statement.
+  toward fixed `a=0.1798` before any bounded uniqueness statement. EXP-347
+  freezes the first step at `c=10.3104`; run it and use its secant only after
+  the prospective gates pass.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

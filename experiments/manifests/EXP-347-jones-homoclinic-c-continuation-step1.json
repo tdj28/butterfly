@@ -1,0 +1,87 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+  "experiment_id": "EXP-347",
+  "source_receipt": {
+    "path": "docs/experiments/receipts/EXP-346.json",
+    "sha256": "653c29e20349201e43d97e38e19804cc686c0149af8c907c5352249015904f32",
+    "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+    "experiment_id": "EXP-346",
+    "passed": true,
+    "classification": "multiple_shooting_root_nominated",
+    "failed_checks": [],
+    "segment_count": 32,
+    "expected": {
+      "root_nominated": true,
+      "matching_radius": 0.02,
+      "final_maximum_block_residual": 5.607241066824036e-9
+    }
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3104},
+  "reference_a": 0.1798,
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 32,
+  "seed_mode": "bound_nodes",
+  "search_center": {
+    "angle": 2.320731722354473,
+    "a": 0.18264360817372402,
+    "total_flight_time": 234.49867484062986
+  },
+  "search_scales": {
+    "angle": 0.5,
+    "a": 0.001,
+    "total_flight_time": 5.0
+  },
+  "normalized_bounds": {
+    "lower": [-1.0, -1.0, -1.0],
+    "upper": [1.0, 1.0, 1.0]
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "independent_integrator": {
+    "source_method": "Radau",
+    "qualification_method": "Radau",
+    "segment_count_multiplier": 1,
+    "changed_geometry": "fixed_c_10.3084_to_10.3104"
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "segment_a_sensitivity": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_a_sensitivity": "absolute_central",
+    "a_absolute_step": 1e-7
+  },
+  "optimization": {
+    "method": "trf",
+    "jacobian": "dense_analytic_segmented",
+    "x_scale": "jac",
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 40
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.1,
+    "maximum_root_block_residual": 1e-8,
+    "minimum_normalized_boundary_margin": 0.001,
+    "allow_root_gate_as_termination": true,
+    "source_root_agreement": {
+      "maximum_a_difference": 0.001,
+      "maximum_angle_difference": 0.5,
+      "maximum_total_flight_time_difference": 2.0
+    }
+  },
+  "claim_scope": "first local continuation step from the qualified radius-0.02 root: retain b=0.2, stable branch, unstable seed, radius, 32 Radau nodes, residual gate, and corrected nuisance gauge; change fixed c prospectively from 10.3084 to 10.3104 and solve for a, angle, flight time, and matched nodes within declared local bounds; passing establishes one curve step and a secant direction only, not intersection with a=0.1798, completeness, uniqueness, or global hub topology"
+}
