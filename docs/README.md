@@ -659,6 +659,8 @@ what must be narrowed, and what is false or unresolved.
   the unchanged root and boundary gates.
 - [`experiments/EXP-357-jones-homoclinic-crossing-correction-3.md`](experiments/EXP-357-jones-homoclinic-crossing-correction-3.md):
   third exact-node crossing correction after another monotone defect reduction.
+- [`experiments/EXP-358-jones-homoclinic-fixed-a-corrected-source.md`](experiments/EXP-358-jones-homoclinic-fixed-a-corrected-source.md):
+  renewed direct historical fixed-`a` solve from locally corrected curve nodes.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

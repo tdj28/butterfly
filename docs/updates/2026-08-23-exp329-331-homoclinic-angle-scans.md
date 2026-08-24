@@ -316,6 +316,13 @@ The second exact-node correction reaches maximum defect `4.10058e-6` and
 diagnostic `a=0.1798190580`, retaining `0.93883` node margin. It remains failed
 under the unchanged gate; EXP-357 binds its exact nodes for the next correction.
 
+## EXP-357 fixed-c floor supplies a close direct source
+
+The third correction stalls at `3.76458e-6` with optimizer optimality
+`2.20e-10`, so another same-point restart is not justified. Its
+`a=0.1798174900` nodes are only `1.749e-5` from the historical path. EXP-358
+reimposes exact `a=0.1798` from that corrected source and solves `c` directly.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

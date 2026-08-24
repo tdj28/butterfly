@@ -930,7 +930,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   defect again to `8.30202e-6` and moves to `a=0.1798386481`, with active
   descent and nine failing blocks. EXP-356 halves the defect again to
   `4.10058e-6` and moves to `a=0.1798190580`. EXP-357 freezes the next exact-node
-  same-`c` correction without changing any gate; run it locally.
+  same-`c` correction without changing any gate. EXP-357 reaches a
+  `3.76458e-6` conditioning floor at `a=0.1798174900`, but its nodes are now
+  only `1.749e-5` from exact historical `a`. EXP-358 reimposes fixed
+  `a=0.1798` from that corrected source and solves `c`; run it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
