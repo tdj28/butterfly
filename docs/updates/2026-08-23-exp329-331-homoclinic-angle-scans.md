@@ -196,6 +196,19 @@ case that the root is an invariant-manifold connection rather than a
 finite-radius endpoint coincidence; radius `0.02` remains the next frozen
 test.
 
+## EXP-345 radius-0.02 match and repeated gauge boundary
+
+The radius-`0.02` Radau correction again falls below the root threshold at
+maximum defect `5.60724e-9` and preserves `a` within `4.34e-13`. It is formally
+failed because the nearly null angle coordinate reaches even the wider frozen
+boundary and the optimizer exhausts its budget without an interior root
+nomination.
+
+This repeat makes the separation unusually clear: the scientific invariant
+and manifold equations persist, while only the gauge coordinate drifts. The
+exact nodes will be validated prospectively under a still wider angle box with
+no further optimization.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

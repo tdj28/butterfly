@@ -891,8 +891,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   seed with unchanged `a` and residual gates. It passes at `5.49708e-9`,
   qualifying persistence from radius `0.03` to `0.025`. Freeze the radius
   `0.02` correction with the same wider gauge and parameter-invariance gate.
-  EXP-345 is frozen; run it locally, then freeze local continuation of the
-  resulting root before any bounded uniqueness statement.
+  EXP-345 reaches `5.60724e-9` and preserves `a` within `4.34e-13`, but again
+  hits the nuisance-angle boundary and is preserved as failed. Freeze a wider
+  exact-node gauge validation, then local continuation of the resulting root
+  before any bounded uniqueness statement.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
