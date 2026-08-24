@@ -43,6 +43,34 @@ vector-field residuals, and equilibrium invariance under DOP853 pass.  This
 verifies the local eigenstructure asserted at the proposed hub coordinate; it
 does not exhibit a homoclinic orbit or prove uniqueness on a parameter segment.
 
+As a first global-manifold search, 96 midpoint directions on a radius
+$10^{-7}$ circle in the two-dimensional unstable eigenspace were integrated
+through an outward radius-$0.01$ event and for 400 further time units.  No row
+met the joint return-distance and stable-alignment gates.  A prospectively
+selected 257-angle refinement over the closest coarse neighborhood improved
+the minimum distance only from $0.01047463$ to $0.01045101$; at the latter
+point the displacement remained $0.9992957$ transverse to the stable
+eigendirection.  Figure~\ref{fig:homoclinic-angle-scan} shows why the small
+distance alone is not evidence of a homoclinic approach.  Because the source
+coordinate is printed only approximately and the parameter direction was not
+varied, this finite null scan neither rejects a nearby connection nor tests
+uniqueness.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig28-exp329-331-homoclinic-angle-scan.png}
+  \caption{Forward unstable-manifold discovery scans at the approximately
+  printed hub coordinate. Left: 96 departures cover the unstable-eigenspace
+  circle. Right: 257 prospectively selected directions refine the closest
+  coarse neighborhood. The upper panels compare return distance with the
+  $0.01$ discovery gate; the lower panels compare stable-direction cosine with
+  the equivalent $\sqrt{0.99}$ alignment gate. A few trajectories return near
+  the equilibrium, but all sampled approaches are overwhelmingly transverse.
+  The result excludes a sampled candidate on these finite grids, not a nearby
+  codimension-one homoclinic connection.}
+  \label{fig:homoclinic-angle-scan}
+\end{figure}
+
 \subsection{Analytic small-equilibrium Hopf locus}
 
 Writing an equilibrium as $(az,-z,z)$ and defining $r=b/z=c-az$, the

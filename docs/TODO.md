@@ -829,11 +829,16 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   problems and bounded focal-point uniqueness claim. EXP-328 freezes the first
   printed-hub CPU reference scan of 96 unstable-manifold departure angles,
   with event-driven exit, dense return-minimum refinement, and stable-direction
-  alignment. EXP-328 completes computation but has an administrative NumPy-
-  boolean serialization failure and no receipt. Run otherwise unchanged
-  EXP-329 after the JSON-native type fix. Use its measured return and runtime
-  scales to freeze a GPU parity tile before any dense angular/parameter
-  refinement.
+  alignment. EXP-328's serialization failure is preserved; unchanged EXP-329
+  passes all 96 rows but finds no jointly close and stable-aligned return.
+  EXP-330's pre-integration import failure is preserved; unchanged EXP-331
+  passes all 257 receipt-selected local rows. Its closest return improves only
+  to `0.0104510073` and remains `0.9992957` transverse. Do not interpret this
+  finite rounded-coordinate null scan as rejection. Freeze a two-variable
+  angle/`c` nonlinear stable/unstable manifold match, replicate over shrinking
+  spheres and an independent integrator, then continue every detected root
+  over a declared segment before testing uniqueness. CPU runtime is only 31
+  seconds for 257 rows, so no paid GPU is justified for the current stage.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

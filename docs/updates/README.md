@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-23-exp329-331-homoclinic-angle-scans.md`](2026-08-23-exp329-331-homoclinic-angle-scans.md)
+  — 96-angle full-circle and 257-angle local scans find no sampled
+  stable-aligned return at Jones's rounded hub coordinate, motivating a
+  parameter-aware manifold-matching solve.
+
 - [`2026-08-23-exp318-seventh-criticality-frozen.md`](2026-08-23-exp318-seventh-criticality-frozen.md)
   — the two-tableau, 50-digit audit resolves the parent as stable and
   preserves the stable/stable failure that redirects work to child-sheet
