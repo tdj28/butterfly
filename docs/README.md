@@ -630,6 +630,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-347-jones-homoclinic-c-continuation-step1.md`](experiments/EXP-347-jones-homoclinic-c-continuation-step1.md):
   first local fixed-`c` continuation step from the qualified radius-`0.02`
   homoclinic root toward the historical fixed-`a` path.
+- [`experiments/EXP-348-jones-homoclinic-c-continuation-step2.md`](experiments/EXP-348-jones-homoclinic-c-continuation-step2.md):
+  second bounded fixed-`c` continuation step testing the first secant before
+  solving the historical fixed-`a` intersection.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

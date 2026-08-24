@@ -898,8 +898,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   stable to about `1e-12`. Freeze local continuation of the homoclinic curve
   toward fixed `a=0.1798` before any bounded uniqueness statement. EXP-347
   passes the first step at `c=10.3104`, giving `da/dc=-0.325514` and predicting
-  the historical-path crossing near `c=10.31714`. Freeze a second bounded step
-  before solving the fixed-`a` intersection directly.
+  the historical-path crossing near `c=10.31714`. EXP-348 freezes a second
+  bounded step at `c=10.3144`; run it before solving the fixed-`a` intersection
+  directly.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
