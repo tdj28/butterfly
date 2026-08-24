@@ -904,7 +904,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   recovery from its exact nodes before solving the fixed-`a` intersection.
   EXP-349's 64 arcs lower the defect to `1.18448e-8` and preserve `a` within
   `3.13e-14`, but still miss the gate. Preserve the failure and freeze a
-  hash-bound 128-arc successor without relaxing thresholds.
+  hash-bound 128-arc successor without relaxing thresholds. EXP-350 is frozen
+  against the exact raw receipt; run it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

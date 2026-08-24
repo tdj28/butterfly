@@ -636,6 +636,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-349-jones-homoclinic-c-step2-64segment-recovery.md`](experiments/EXP-349-jones-homoclinic-c-step2-64segment-recovery.md):
   failure-bound 64-arc same-`c` conditioning recovery of EXP-348's unresolved
   second continuation point.
+- [`experiments/EXP-350-jones-homoclinic-c-step2-128segment-recovery.md`](experiments/EXP-350-jones-homoclinic-c-step2-128segment-recovery.md):
+  second failure-bound segmentation doubling with all physical and residual
+  gates unchanged.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

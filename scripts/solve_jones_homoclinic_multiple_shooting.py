@@ -111,7 +111,12 @@ def main() -> int:
     for field in ("schema", "experiment_id", "passed", "classification"):
         if source_receipt.get(field) != binding[field]:
             raise SystemExit(f"source receipt binding mismatch: {field}")
-    if source_receipt.get("failed_checks") != binding["failed_checks"]:
+    source_failed_checks = source_receipt.get("failed_checks")
+    if source_failed_checks is None:
+        source_failed_checks = sorted(
+            key for key, value in source_receipt.get("checks", {}).items() if value is False
+        )
+    if source_failed_checks != binding["failed_checks"]:
         raise SystemExit("source failed-check binding mismatch")
     for field, expected in binding["expected"].items():
         if source_receipt.get(field) != expected:
@@ -399,7 +404,7 @@ def main() -> int:
     checks = {
         "source_status_bound": bool(
             source_receipt["passed"] is binding["passed"]
-            and source_receipt["failed_checks"] == binding["failed_checks"]
+            and source_failed_checks == binding["failed_checks"]
         ),
         "initial_residual": bool(
             initial_details["maximum_block_norm"]
@@ -440,7 +445,7 @@ def main() -> int:
             "experiment_id": source_receipt["experiment_id"],
             "sha256": binding["sha256"],
             "passed": source_receipt["passed"],
-            "failed_checks": source_receipt["failed_checks"],
+            "failed_checks": source_failed_checks,
         },
         "environment": {
             "python": platform.python_version(),
