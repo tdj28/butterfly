@@ -651,6 +651,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-354-jones-homoclinic-crossing-predictor-corrector.md`](experiments/EXP-354-jones-homoclinic-crossing-predictor-corrector.md):
   qualified fixed-`c` curve correction at the prospective historical-path
   crossing before exact `a=0.1798` is reimposed.
+- [`experiments/EXP-355-jones-homoclinic-crossing-warm-restart.md`](experiments/EXP-355-jones-homoclinic-crossing-warm-restart.md):
+  exact-node same-`c` continuation correction while the EXP-354 descent signal
+  remains active.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

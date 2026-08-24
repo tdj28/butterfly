@@ -924,7 +924,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `2.09825e-4`, showing that a same-point warm restart is insufficient. Freeze
   EXP-354 from the last qualified fixed-`c` root: correct its 128 nodes at the
   prospectively declared crossing `c=10.3171353942`, measure the residual
-  `a-0.1798`, and only then reimpose exact fixed `a`; run EXP-354 locally.
+  `a-0.1798`, and only then reimpose exact fixed `a`. EXP-354 is preserved as
+  failed after reducing the defect to `3.83423e-5`; it remains interior and
+  its optimizer optimality `2.85e-6` shows active descent. EXP-355 freezes an
+  exact-node same-`c` warm restart without changing any gate; run it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

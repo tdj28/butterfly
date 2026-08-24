@@ -294,6 +294,14 @@ the prospectively predicted crossing. A pass will provide corrected local
 nodes and quantify the remaining `a-0.1798` error before exact fixed `a` is
 reimposed; it cannot itself qualify the intersection.
 
+## EXP-354 predictor-corrector remains active but unresolved
+
+The first crossing correction reduces maximum defect from `8.74733e-3` to
+`3.83423e-5`, remains well inside the node box, and moves to diagnostic
+`a=0.1799788276`. It is preserved as failed because 12/128 blocks remain above
+the gate. Optimizer optimality is still `2.85e-6`, unlike the fixed-`a`
+residual floor, so EXP-355 freezes an exact-node same-`c` warm restart.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
