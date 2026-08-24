@@ -1,0 +1,68 @@
+{
+  "schema": "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+  "experiment_id": "EXP-335",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-333/receipt.json",
+      "sha256": "aa9c0daa7f56a4b130448294045c24b90f7cea48a44c07958a30540d7b9a4cdf",
+      "schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+      "experiment_id": "EXP-333",
+      "expected_classification": "direct_match_nominated",
+      "expected_candidate_count": 25,
+      "expected_nominated_cell_count": 3,
+      "expected_closest_match": {
+        "c": 10.3194,
+        "angle_index": 28,
+        "chord_mismatch": 0.0013378700961282038
+      }
+    },
+    {
+      "path": "artifacts/EXP-334/receipt.json",
+      "sha256": "127e0b62f673fe2c164075cebad30069503ecf48492aa54a51b6207bef7774ac",
+      "schema": "butterfly.jones-homoclinic-residual-cell-audit-receipt.v1",
+      "experiment_id": "EXP-334",
+      "expected_classification": "hull_nominations_rejected_by_winding",
+      "expected_degree_cell_count": 0
+    }
+  ],
+  "fixed_parameters": {"a": 0.1798, "b": 0.2},
+  "c_grid": {
+    "minimum": 10.3164,
+    "maximum": 10.3224,
+    "count": 13,
+    "reference": 10.3084
+  },
+  "angle_count": 192,
+  "angle_offset_fraction": 0.5,
+  "workers": 8,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.025,
+  "maximum_exit_time": 250.0,
+  "minimum_return_time_after_exit": 10.0,
+  "return_horizon": 400.0,
+  "divergence_radius": 1000.0,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "candidate": {
+    "maximum_chord_mismatch": 0.0025
+  },
+  "continuity": {
+    "maximum_corner_crossing_time_spread": 1.0
+  },
+  "acceptance": {
+    "maximum_sphere_residual": 1e-9,
+    "minimum_exit_fraction": 0.95,
+    "minimum_return_crossing_fraction": 0.3
+  },
+  "claim_scope": "prospective finer band selected after EXP-333's 25 direct radius-0.02 near matches and EXP-334's degree-zero rejection of all three coarse componentwise hull cells; bind both raw receipts and exact classifications, retain fixed (a,b), reference gauge, nonlinear stable targets, event logic, DOP853 settings, horizon, and nonclaim scope; enlarge the matching radius to 0.025 to increase continuous inward-return coverage, scan thirteen c values at 0.0005 spacing over 10.3164--10.3224 and 192 midpoint angles, scale the direct chord gate to 0.0025, compute oriented residual winding in-grid, and require at most one time unit of corner crossing-time spread for a degree-cell nomination; neither a direct candidate nor a continuous nonzero-degree cell proves a homoclinic orbit without a coupled root, shrinking-radius reproduction, and independent integration, while their absence would not reject a connection outside this finite mesh"
+}

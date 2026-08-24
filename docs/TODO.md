@@ -850,7 +850,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   promote: run EXP-334's frozen residual-winding and first-return-continuity
   audit, then refine only nonzero-degree continuous cells. If all three hull
   cells fail degree, retain the direct candidates and freeze a finer
-  parameter-angle mesh around their bounded band.
+  parameter-angle mesh around their bounded band. EXP-334 passes and rejects
+  all three hull cells at winding number zero; only 28 cells had complete
+  radius-`0.02` returns. Run frozen EXP-335's radius-`0.025`, 13-by-192 fine
+  band with in-scan degree and return-time gates. A continuous nonzero-degree
+  cell may seed a coupled solve; direct distance candidates alone may not.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

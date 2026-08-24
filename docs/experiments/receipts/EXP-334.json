@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.jones-homoclinic-residual-cell-audit-summary.v1",
+  "experiment_id": "EXP-334",
+  "passed": true,
+  "source_commit": "f648930137909798e05e523e961b86181920eeab",
+  "manifest_sha256": "d41bee4aab5787a577f3d8fbdb85317d8c00ce4bd6a914adbfcc1f19bcefeee1",
+  "source_receipt_sha256": "aa9c0daa7f56a4b130448294045c24b90f7cea48a44c07958a30540d7b9a4cdf",
+  "raw_artifact": "artifacts/EXP-334/receipt.json",
+  "raw_artifact_bytes": 2879,
+  "raw_artifact_sha256": "127e0b62f673fe2c164075cebad30069503ecf48492aa54a51b6207bef7774ac",
+  "audited_cell_count": 28,
+  "hull_cell_count": 3,
+  "degree_cell_count": 0,
+  "continuous_degree_cell_count": 0,
+  "hull_cell_crossing_time_spreads": [116.61434529073648, 0.057449260724098394, 159.59155737348232],
+  "classification": "hull_nominations_rejected_by_winding",
+  "interpretation": "The immutable audit exactly reproduces EXP-333's three componentwise sign-hull cells, but every oriented residual polygon has winding number zero. Even the return-time-continuous cell therefore fails the degree nomination. This rejects the coarse independent-component rectangle rule, not EXP-333's direct near matches and not a root that may appear on a finer mesh or larger matching sphere."
+}

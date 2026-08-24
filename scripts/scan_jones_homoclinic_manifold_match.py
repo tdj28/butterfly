@@ -21,8 +21,10 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 
 try:
     from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces
+    from scripts.audit_jones_homoclinic_residual_cells import winding_number
 except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
     from scan_jones_homoclinic_unstable_angles import eigenspaces
+    from audit_jones_homoclinic_residual_cells import winding_number
 
 
 SCHEMA = "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1"
@@ -47,8 +49,15 @@ def validate_source_receipts(manifest: dict) -> list[dict]:
             raise SystemExit(f"source receipt schema mismatch: {path}")
         if receipt.get("experiment_id") != binding["experiment_id"]:
             raise SystemExit(f"source receipt experiment mismatch: {path}")
-        if receipt.get("passed") is not True or receipt.get("candidate_count") != 0:
+        if receipt.get("passed") is not True:
             raise SystemExit(f"source receipt status mismatch: {path}")
+        for binding_field, receipt_field in (
+            ("expected_candidate_count", "candidate_count"),
+            ("expected_nominated_cell_count", "nominated_cell_count"),
+            ("expected_degree_cell_count", "degree_cell_count"),
+        ):
+            if binding_field in binding and receipt.get(receipt_field) != binding[binding_field]:
+                raise SystemExit(f"source receipt count mismatch: {path}: {receipt_field}")
         if "expected_classification" in binding and (
             receipt.get("classification") != binding["expected_classification"]
         ):
@@ -297,8 +306,8 @@ def nominate_cells(rows: list[dict], c_count: int, angle_count: int) -> list[dic
             corners = [
                 lookup[(c_index, angle_index)],
                 lookup[(c_index, (angle_index + 1) % angle_count)],
-                lookup[(c_index + 1, angle_index)],
                 lookup[(c_index + 1, (angle_index + 1) % angle_count)],
+                lookup[(c_index + 1, angle_index)],
             ]
             if not all(row["status"] in {"completed", "candidate"} for row in corners):
                 continue
@@ -306,7 +315,13 @@ def nominate_cells(rows: list[dict], c_count: int, angle_count: int) -> list[dic
             if len(branch_signs) != 1:
                 continue
             residuals = np.asarray([row["tangent_residual"] for row in corners])
-            if all(float(np.min(residuals[:, axis])) <= 0.0 <= float(np.max(residuals[:, axis])) for axis in (0, 1)):
+            hull_contains_zero = all(
+                float(np.min(residuals[:, axis])) <= 0.0 <= float(np.max(residuals[:, axis]))
+                for axis in (0, 1)
+            )
+            winding, total_angle, closure_error = winding_number(residuals)
+            if hull_contains_zero or winding != 0:
+                crossing_times = [row["inward_crossing_time_after_exit"] for row in corners]
                 cells.append(
                     {
                         "lower_c_index": c_index,
@@ -315,6 +330,11 @@ def nominate_cells(rows: list[dict], c_count: int, angle_count: int) -> list[dic
                             [row["c_index"], row["angle_index"]] for row in corners
                         ],
                         "stable_branch_sign": next(iter(branch_signs)),
+                        "hull_contains_zero": hull_contains_zero,
+                        "winding_number": winding,
+                        "total_residual_angle": total_angle,
+                        "winding_closure_error": closure_error,
+                        "crossing_time_spread": float(np.ptp(crossing_times)),
                         "maximum_corner_chord_mismatch": max(row["chord_mismatch"] for row in corners),
                         "minimum_corner_chord_mismatch": min(row["chord_mismatch"] for row in corners),
                     }
@@ -403,6 +423,11 @@ def main() -> int:
     candidates = [row for row in completed if row["candidate"]]
     closest = min(completed, key=lambda row: row["chord_mismatch"]) if completed else None
     nominated_cells = nominate_cells(rows, len(c_values), angle_count)
+    degree_cells = [cell for cell in nominated_cells if cell["winding_number"] != 0]
+    continuity_limit = float(manifest.get("continuity", {}).get("maximum_corner_crossing_time_spread", np.inf))
+    continuous_degree_cells = [
+        cell for cell in degree_cells if cell["crossing_time_spread"] <= continuity_limit
+    ]
     acceptance = manifest["acceptance"]
     checks = {
         "source_receipts_passed": all(receipt["passed"] for receipt in source_receipts),
@@ -467,8 +492,16 @@ def main() -> int:
         "closest_match": closest,
         "nominated_cell_count": len(nominated_cells),
         "nominated_cells": nominated_cells,
+        "degree_cell_count": len(degree_cells),
+        "degree_cells": degree_cells,
+        "continuous_degree_cell_count": len(continuous_degree_cells),
+        "continuous_degree_cells": continuous_degree_cells,
         "classification": (
-            "direct_match_nominated"
+            "continuous_degree_cell_nominated"
+            if continuous_degree_cells
+            else "degree_cell_without_time_continuity"
+            if degree_cells
+            else "direct_match_nominated"
             if candidates
             else "signed_cells_nominated"
             if nominated_cells

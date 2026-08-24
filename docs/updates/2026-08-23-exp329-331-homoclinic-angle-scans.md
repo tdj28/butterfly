@@ -69,6 +69,17 @@ componentwise cell rule is not a degree test and two cells have large corner
 return-time spreads. EXP-334 therefore freezes an immutable residual-polygon
 winding audit before any coupled solve or claim promotion.
 
+## EXP-334 coarse-cell rejection and EXP-335 response
+
+EXP-334 passes and exactly reproduces the three coarse hull cells, but every
+residual polygon has winding number zero. Even the cell with only `0.05745`
+time units of corner return spread fails the degree test. This rejects the
+independent-coordinate rectangle criterion, not the 25 direct near matches.
+Because only 28 cells had four radius-`0.02` returns, EXP-335 prospectively
+enlarges the sphere to `0.025`, doubles angular resolution, halves `c` spacing,
+and builds winding plus a one-time-unit continuity gate directly into the
+scan.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
