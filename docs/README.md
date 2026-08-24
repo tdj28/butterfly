@@ -621,6 +621,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-345-jones-homoclinic-radius020-radau.md`](experiments/EXP-345-jones-homoclinic-radius020-radau.md):
   second shrinking-radius correction testing whether the independently
   reproduced parameter persists at radius `0.02`.
+- [`experiments/EXP-346-jones-homoclinic-radius020-gauge-validation.md`](experiments/EXP-346-jones-homoclinic-radius020-gauge-validation.md):
+  exact-node one-evaluation validation of the radius-`0.02` match under a
+  corrected nuisance-angle gauge.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
