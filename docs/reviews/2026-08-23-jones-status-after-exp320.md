@@ -19,7 +19,8 @@ supercritical; the eighth is qualified as subcritical.
 - A misleading stable/stable sample is explained by same-map branch switching:
   the stable higher-`a` period-1536 candidate is not the immediate seventh
   daughter. EXP-324 goes farther: exact correction collapses that old Float64
-  seed to the doubled parent. This removes spurious topology rather than
+  seed to the doubled parent, and EXP-325 independently reproduces that result
+  at twice the step resolution. This removes spurious topology rather than
   retracting the event.
 
 ## What this corrects or narrows
@@ -36,6 +37,6 @@ disappear under exact correction.
 The evidence does not yet validate the claimed homoclinic endpoint, prove
 Jones's finite symbolic agreement as a global conjugacy, identify TTL23 with
 the Barrio-Blesa-Serrano TBA everywhere, establish paired shrimp boundaries,
-or explain the full `(a,c)` plane. EXP-325 must replicate the target collapse
-at doubled resolution; the global tasks remain continuation of the TBA,
-shrimp boundaries, and homoclinic boundary-value problem.
+or explain the full `(a,c)` plane. EXP-325 has now replicated the target
+collapse at doubled resolution; the global tasks remain continuation of the
+TBA, shrimp boundaries, and homoclinic boundary-value problem.

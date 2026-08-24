@@ -556,9 +556,10 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-324-jones-period1536-decimal-target-armijo.md`](experiments/EXP-324-jones-period1536-decimal-target-armijo.md):
   closes the old seed at 50 digits and collapses it to the doubled parent.
 - [`experiments/EXP-325-jones-period1536-decimal-target-armijo-8192.md`](experiments/EXP-325-jones-period1536-decimal-target-armijo-8192.md):
-  freezes the complete resolution-doubled replay from the original seed.
+  independently reproduces the seed collapse at 8,192 steps per segment.
 - [`findings/FND-106-exp299-child-collapses-to-parent.md`](findings/FND-106-exp299-child-collapses-to-parent.md):
-  nominates removal of the apparent higher-`a` child as a Float64 artifact.
+  qualifies removal of the apparent higher-`a` child as a Float64 artifact
+  across two exact-map resolutions.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

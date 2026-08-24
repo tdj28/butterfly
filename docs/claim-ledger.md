@@ -469,17 +469,21 @@ immediate daughter. The secure ledger is now eight exact events, seven
 independently qualified supercritical births, and one independently qualified
 subcritical eighth birth.
 
-CLM-008 addendum (EXP-321--324 and FND-106 nomination): six exact continuation
+CLM-008 addendum (EXP-321--325 and FND-106): six exact continuation
 rows carry the immediate stable period-1536 daughter to half-node RMS
 `6.273e-6` while `a` decreases monotonically and no fold appears. The old
 EXP-299 higher-`a` seed begins with `5.366e-10` mismatch in the same map.
 Undamped and factor-independent backtracking failures are preserved. A frozen
 Armijo-globalized correction then reaches `1.196e-23` matching and
 `7.382e-20` half-node RMS, unambiguously collapsing to the doubled period-768
-parent. Thus the apparent stable primitive EXP-299 child and its inferred
-extra sheet are retracted in the 4,096-step exact representation; the seventh
-event and lower-`a` supercritical daughter are strengthened. EXP-325 is frozen
-for resolution-doubled promotion, so the secure event/birth count is unchanged.
+parent. EXP-325 independently starts from the unchanged original seed in the
+8,192-step map and reduces matching to `7.219e-30` while the half-node RMS
+falls to `6.026e-25`, again yielding the doubled period-768 parent. Thus the
+apparent stable primitive EXP-299 child and its inferred extra sheet are
+retracted across two exact-map resolutions; the seventh event and lower-`a`
+supercritical daughter are strengthened. This seed-specific result does not
+exclude every remote period-1536 sheet, and the secure event/birth count is
+unchanged.
 
 Latest CLM-008 checkpoint (EXP-214): the lower-`c` DOP853/Floquet extension
 qualifies 551 stable period-6 orbits but fails its 1,000-point coverage gate.

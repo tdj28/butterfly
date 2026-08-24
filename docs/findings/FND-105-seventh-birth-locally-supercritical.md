@@ -27,8 +27,11 @@ This qualifies the immediate seventh daughter on the unstable-parent side and
 therefore the seventh local birth as supercritical. EXP-324 then corrects the
 stored higher-`a` EXP-299 seed below `1e-20`; its half-node RMS collapses from
 `6.31e-6` to `7.38e-20`. In the 4,096-step exact map it is the doubled
-period-768 parent, not a primitive daughter or a distinct sheet. EXP-325 is
-frozen to repeat that correction at 8,192 steps.
+period-768 parent, not a primitive daughter or a distinct sheet. EXP-325
+independently repeats the collapse from the unchanged seed at 8,192 steps,
+reaching `7.22e-30` matching and `6.03e-25` half-node RMS. The correction
+therefore strengthens rather than complicates the qualified supercritical
+birth.
 
 The finding does not establish a global period-1536 basin, a limiting scaling
 constant, paired shrimp boundaries, TBA membership, double-criticality, a

@@ -48,6 +48,9 @@ topology claims.
 - fig25-exp316-320-birth-criticality.png: resolution-doubled quadratic opening
   and stable immediate daughters at the supercritical seventh birth, plus the
   stable-parent/unstable-daughter evidence for the subcritical eighth birth.
+- fig26-exp324-325-target-collapse.png: matching, primitive amplitude, Armijo
+  factors, and phase-space convergence for the independently repeated
+  4,096/8,192-step collapse of the old EXP-299 seed to its doubled parent.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
@@ -247,6 +250,16 @@ Regenerate the EXP-237--269 returning-arm cascade figure and receipt:
       --qual768-receipt artifacts/EXP-275/receipt.json \
       --expected-qual768-sha256 98a47619175a39aa776f3a4c82234d94019ca3d9e766ff525613378035544e61 \
       --output paper/figures/fig22-exp237-275-returning-cascade.png --dpi 260
+
+Regenerate the EXP-324/325 target-collapse figure and receipt:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp324_325_target_collapse.py \
+      --exp324 artifacts/EXP-324/receipt.json \
+      --exp324-sha256 c077aeaa23ca74fd64fc74f98d39ca7ad6ba81a255955ccf87647f3a0bf233e6 \
+      --exp325 artifacts/EXP-325/receipt.json \
+      --exp325-sha256 352b2254cca632f644b8c55b236d6f4487801e9223e87810eb3db4596e7cfbcc \
+      --output paper/figures/fig26-exp324-325-target-collapse.png --dpi 260
 
 ## Promoted experiment figures
 

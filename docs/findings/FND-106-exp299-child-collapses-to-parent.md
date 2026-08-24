@@ -1,6 +1,6 @@
 # FND-106 — The EXP-299 higher-a child seed collapses to the parent
 
-Status: nominated by EXP-324; resolution-doubled replication frozen as EXP-325
+Status: qualified by the combined EXP-324/325 evidence
 
 EXP-299's Float64 DOP853 candidate at `a=0.24070100823781396` appeared to be a
 stable primitive period-1536 orbit, but retained `2.53e-11` multiple-shooting
@@ -22,11 +22,21 @@ repeated quadratic opening. The new result instead strengthens the local
 supercritical interpretation and demonstrates why Float64 orbit labels cannot
 be trusted at the accumulation scale without exact closure.
 
-The finding remains nominated until EXP-325 repeats the complete correction
-from the original seed at 8,192 steps per segment. It does not establish basin
-measure, the eighth-event global sheet, a homoclinic connection, or full-plane
-topology.
+EXP-325 independently repeats the complete correction from the unchanged
+original seed at 8,192 steps per segment. Nineteen accepted updates reduce
+matching from `4.675e-11` to `7.219e-30` and half-node RMS from `6.307e-6` to
+`6.026e-25`. The result is again the doubled period-768 parent; cyclic spread
+is zero and the neutral residual is `7.11e-27`. This resolution-doubled
+agreement promotes the finding from nominated to qualified.
+
+The scope is deliberately seed-specific. It qualifies the collapse of the
+stored EXP-299 candidate and invalidates conclusions downstream that require
+that candidate to be a primitive exact orbit. It does not prove global
+nonexistence of remote period-1536 sheets, establish basin measure, resolve
+the eighth-event global sheet, validate a homoclinic connection, or explain
+full-plane topology.
 
 Tracked receipts: [`../experiments/receipts/EXP-322.json`](../experiments/receipts/EXP-322.json),
 [`../experiments/receipts/EXP-323.json`](../experiments/receipts/EXP-323.json),
-and [`../experiments/receipts/EXP-324.json`](../experiments/receipts/EXP-324.json).
+[`../experiments/receipts/EXP-324.json`](../experiments/receipts/EXP-324.json),
+and [`../experiments/receipts/EXP-325.json`](../experiments/receipts/EXP-325.json).

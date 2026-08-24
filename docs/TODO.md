@@ -1263,4 +1263,8 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   trial. EXP-324 freezes a step-scaled Armijo successor with unchanged science
   gates. EXP-324 passes and collapses the old EXP-299 child seed to the doubled
   parent at `1.20e-23` matching and `7.38e-20` half-node amplitude. Run frozen
-  8,192-step EXP-325 before promoting FND-106 across resolutions.
+  8,192-step EXP-325 before promoting FND-106 across resolutions. EXP-325
+  passes from the unchanged seed with `7.22e-30` matching and `6.03e-25`
+  half-node RMS, independently collapsing to the doubled parent. FND-106 is
+  now qualified; audit EXP-300--302 and any later conclusions that inherited
+  EXP-299's primitive-child identity before reusing them.

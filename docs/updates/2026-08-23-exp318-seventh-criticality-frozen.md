@@ -125,4 +125,17 @@ This retracts the interim higher-`a` child-sheet interpretation and strengthens
 the local Jones cascade: the only exact immediate period-1536 daughter found
 here is the qualified lower-`a` supercritical branch. EXP-325 now freezes a
 complete 8,192-step replay from the original seed before cross-resolution
-promotion.
+promotion. The next section records that completed replay.
+
+## EXP-325 passes; collapse is resolution-doubled
+
+The unchanged original EXP-299 seed independently converges in the 8,192-step
+50-digit map after nineteen accepted Armijo updates. Matching falls from
+`4.675e-11` to `7.219e-30`, and half-node RMS falls from `6.307e-6` to
+`6.026e-25`. The corrected solution is again the doubled period-768 parent,
+with zero cyclic spread and `7.11e-27` maximum neutral residual.
+
+FND-106 is therefore qualified. We retract our interim interpretation of the
+EXP-299 candidate as a separate stable primitive sheet; Jones's local cascade
+is not debunked. The conclusion is specific to that stored seed and does not
+assert global nonexistence of other period-1536 sheets.

@@ -1233,7 +1233,28 @@ from $6.31\times10^{-6}$ to $7.38\times10^{-20}$. Cyclic spread is zero and
 the neutral residual is $1.22\times10^{-20}$. In the 4,096-step exact map the
 nominal higher-$a$ child is therefore the doubled period-768 parent, not a
 primitive daughter or a distinct nearby sheet. A complete 8,192-step replay
-from the original seed is frozen before cross-resolution promotion.
+then starts independently from the unchanged original seed. Nineteen accepted
+updates reduce matching from $4.67\times10^{-11}$ to
+$7.22\times10^{-30}$ and half-node RMS from $6.31\times10^{-6}$ to
+$6.03\times10^{-25}$. It again closes on the doubled parent, with zero cyclic
+spread and maximum neutral residual $7.11\times10^{-27}$. Thus the fate of
+this stored seed is qualified across two exact-map resolutions; this does not
+exclude every remote period-1536 sheet.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig26-exp324-325-target-collapse.png}
+  \caption{Resolution-doubled correction of the nominal higher-$a$
+  period-1536 seed. Upper left: both exact maps cross the frozen closure gate.
+  Upper right: primitive half-node amplitude collapses below the parent-class
+  gate. Lower left: the accepted Armijo factors expose severe near-flip
+  conditioning before full Newton steps take over. Lower right: distinct
+  correction paths reach the same doubled-parent class. This retracts the
+  primitive interpretation of the stored EXP-299 seed, not Jones's local
+  cascade, and does not prove global nonexistence of remote period-1536
+  sheets.}
+  \label{fig:exp324-325-target-collapse}
+\end{figure}
 
 \begin{figure}[H]
   \centering
