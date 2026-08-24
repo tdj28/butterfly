@@ -204,7 +204,7 @@ def main() -> int:
     acceptance = manifest["acceptance"]
     checks = {
         "equilibrium": equilibrium_residual <= float(acceptance["maximum_equilibrium_residual"]),
-        "saddle_focus_signature": (
+        "saddle_focus_signature": bool(
             sum(value.real > 0 and abs(value.imag) > 0 for value in eigenvalues) == 2
             and sum(value.real < 0 and abs(value.imag) < 1e-12 for value in eigenvalues) == 1
         ),

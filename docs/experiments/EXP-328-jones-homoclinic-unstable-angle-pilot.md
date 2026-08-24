@@ -1,6 +1,6 @@
 # EXP-328 — Printed-hub unstable-angle return pilot
 
-Status: frozen; not yet run
+Status: administrative failure — no receipt; EXP-329 frozen
 
 CLM-003 remains the largest untested Jones claim: the reported hub coordinate
 is said to be a saddle-focus homoclinic point. EXP-001 proves the local
@@ -23,3 +23,11 @@ GPU parity contract.
 
 Manifest:
 [`../../experiments/manifests/EXP-328-jones-homoclinic-unstable-angle-pilot.json`](../../experiments/manifests/EXP-328-jones-homoclinic-unstable-angle-pilot.json).
+
+## Administrative result
+
+All 96 integrations completed in about 15 seconds, but serialization of the
+final receipt stopped on a NumPy boolean in the saddle-signature check. No raw
+receipt was written and no scientific classification is recoverable from
+stdout. EXP-329 changes only that value to a JSON-native boolean and freezes an
+otherwise identical replay. EXP-328 is not re-run or reclassified.

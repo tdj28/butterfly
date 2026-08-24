@@ -16,3 +16,9 @@ def test_eigenspaces_have_expected_dimensions_and_orthogonality():
     assert plane.shape == (3, 2)
     assert np.isclose(np.linalg.norm(stable), 1.0)
     assert np.allclose(plane.T @ plane, np.eye(2))
+
+
+def test_numpy_boolean_is_not_json_native_regression():
+    value = np.float64(1.0) > 0.0
+    assert type(value) is np.bool_
+    assert type(bool(value)) is bool

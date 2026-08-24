@@ -571,7 +571,9 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-107-seventh-daughter-connects-to-eighth-event.md`](findings/FND-107-seventh-daughter-connects-to-eighth-event.md):
   qualifies the immediate seventh daughter as the parent sheet of event eight.
 - [`experiments/EXP-328-jones-homoclinic-unstable-angle-pilot.md`](experiments/EXP-328-jones-homoclinic-unstable-angle-pilot.md):
-  freezes the CPU reference unstable-manifold return scan at Jones's printed hub.
+  preserves the administrative receipt-serialization failure of the CPU pilot.
+- [`experiments/EXP-329-jones-homoclinic-unstable-angle-pilot-replay.md`](experiments/EXP-329-jones-homoclinic-unstable-angle-pilot-replay.md):
+  freezes the otherwise unchanged JSON-safe CPU reference replay.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
