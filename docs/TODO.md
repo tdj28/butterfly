@@ -826,7 +826,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   section/coordinate calibration, then add partitions, kneading data, entropy,
   and coordinate/section sensitivity.
 - [ ] **P2-002 — Global bifurcations.** Homoclinic/heteroclinic boundary-value
-  problems and bounded focal-point uniqueness claim.
+  problems and bounded focal-point uniqueness claim. EXP-328 freezes the first
+  printed-hub CPU reference scan of 96 unstable-manifold departure angles,
+  with event-driven exit, dense return-minimum refinement, and stable-direction
+  alignment. Use its measured return and runtime scales to freeze a GPU parity
+  tile before any dense angular/parameter refinement.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -1,0 +1,33 @@
+{
+  "schema": "butterfly.jones-homoclinic-unstable-angle-scan-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-unstable-angle-scan-receipt.v1",
+  "experiment_id": "EXP-328",
+  "parameters": {"a": 0.1798, "b": 0.2, "c": 10.3084},
+  "angle_count": 96,
+  "angle_offset_fraction": 0.5,
+  "workers": 8,
+  "seed_radius": 1e-7,
+  "exit_radius": 0.01,
+  "maximum_exit_time": 250.0,
+  "return_horizon": 400.0,
+  "minimum_return_time_after_exit": 10.0,
+  "return_sample_step": 0.05,
+  "minimum_time_refinement_tolerance": 1e-10,
+  "divergence_radius": 1000.0,
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "candidate": {
+    "maximum_return_distance": 0.01,
+    "maximum_stable_transverse_ratio": 0.1
+  },
+  "acceptance": {
+    "maximum_equilibrium_residual": 1e-12,
+    "minimum_exit_fraction": 0.95,
+    "minimum_completed_fraction": 0.95
+  },
+  "claim_scope": "prospective CPU reference pilot at Jones's printed hub coordinate; seed 96 midpoint angles uniformly on a 1e-7 circle in the analytic two-dimensional unstable eigenspace of the small saddle focus, integrate each to a 1e-2 exit sphere and for 400 additional time units with DOP853 1e-10/1e-12 and max step 0.05, refine each post-departure minimum distance by dense output, and record alignment with the analytic one-dimensional stable eigendirection; pass/fail concerns execution coverage and finite observables only, while a sampled return within 1e-2 and stable transverse ratio below 0.1 is merely nominated; neither its presence nor absence proves or rejects a homoclinic orbit, uniqueness, a homoclinic curve, hub-envelope organization, or full-plane topology"
+}
