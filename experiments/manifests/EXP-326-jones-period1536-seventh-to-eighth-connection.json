@@ -1,0 +1,33 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-event-connection-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-decimal-event-connection-receipt.v1",
+  "experiment_id": "EXP-326",
+  "source_schema": "butterfly.jones-period1536-decimal-continuation-receipt.v1",
+  "source_receipt_sha256": "09dc671c78489d38d90d08c1c89458a247fbe51a04582bf3775e2ed6a7e6989a",
+  "target_schema": "butterfly.jones-period1536-decimal-augmented-independent-receipt.v1",
+  "target_receipt_sha256": "28972c4727ea48191311f8684be79a183782578d6463989cf3b3cca06f21f843",
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "steps_per_segment": 4096,
+  "workers": 8,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "continuation_step_length": 0.00003125,
+  "continuation_steps": 4,
+  "cyclic_shifts": [0, 512, 1024, 1536],
+  "maximum_newton_updates": 10,
+  "damping": {
+    "armijo_coefficient": 0.01,
+    "factors": [1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625]
+  },
+  "acceptance": {
+    "maximum_matching_residual": 1e-20,
+    "maximum_residual": 1e-20,
+    "minimum_primitive_half_node_rms": 5e-6,
+    "maximum_target_node_rms": 1e-8,
+    "maximum_target_period_difference": 1e-6,
+    "maximum_cyclic_spread": 1e-18,
+    "maximum_neutral_residual": 1e-10
+  },
+  "claim_scope": "prospective same-map branch-identity test linking EXP-321's passed 4096-step immediate period-1536 daughter to EXP-306's independently qualified 4096-step period-1536 real-minus-one event; four fixed-step 50-digit pseudo-arclength rows must pass unchanged 1e-20 correction gates and uniquely bracket the target event coordinate, after which an interpolated fixed-a seed must correct below 1e-20, remain primitive above 5e-6 half-node RMS, and agree phase-invariantly with the bound event orbit within 1e-8 node RMS and 1e-6 period; a pass qualifies one bounded numerical sheet connection from the seventh daughter to the next event in this discrete representation, not global sheet uniqueness, a limiting scaling law, paired shrimp boundaries, TBA membership, double-criticality, a homoclinic connection, or full-plane topology"
+}

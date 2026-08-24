@@ -560,6 +560,12 @@ what must be narrowed, and what is false or unresolved.
 - [`findings/FND-106-exp299-child-collapses-to-parent.md`](findings/FND-106-exp299-child-collapses-to-parent.md):
   qualifies removal of the apparent higher-`a` child as a Float64 artifact
   across two exact-map resolutions.
+- [`reviews/2026-08-23-exp299-downstream-dependency-audit.md`](reviews/2026-08-23-exp299-downstream-dependency-audit.md):
+  separates the retracted EXP-299--302 branch interpretation from later exact
+  event roots and identifies the remaining sheet-identity gap.
+- [`experiments/EXP-326-jones-period1536-seventh-to-eighth-connection.md`](experiments/EXP-326-jones-period1536-seventh-to-eighth-connection.md):
+  freezes a same-map continuation and direct identity test linking the
+  immediate seventh daughter to the independently qualified eighth event.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

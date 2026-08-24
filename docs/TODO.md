@@ -1267,4 +1267,9 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   passes from the unchanged seed with `7.22e-30` matching and `6.03e-25`
   half-node RMS, independently collapsing to the doubled parent. FND-106 is
   now qualified; audit EXP-300--302 and any later conclusions that inherited
-  EXP-299's primitive-child identity before reusing them.
+  EXP-299's primitive-child identity before reusing them. The dependency audit
+  retracts EXP-300--302's branch/micro-bracket interpretation while preserving
+  the independently converged EXP-306/307 event root and EXP-308--317 local
+  calculations. Run frozen EXP-326 to require direct same-map identity between
+  the immediate seventh daughter and the eighth-event parent before restoring
+  an eight-rung connected-cascade claim.
