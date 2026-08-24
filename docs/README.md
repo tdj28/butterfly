@@ -594,6 +594,8 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-336-jones-homoclinic-fixed-c-a-band.md`](experiments/EXP-336-jones-homoclinic-fixed-c-a-band.md):
   orthogonal fixed-`c` scan of the other rounded coordinate with identical
   nonlinear manifold and degree gates.
+- [`experiments/EXP-337-jones-homoclinic-fixed-c-radius03-a-band.md`](experiments/EXP-337-jones-homoclinic-fixed-c-radius03-a-band.md):
+  failure-bound coverage recovery on the observed fixed-`c` returning band.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

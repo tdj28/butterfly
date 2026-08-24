@@ -91,6 +91,17 @@ endpoint table, so EXP-336 prospectively fixes the printed `c=10.3084` and
 scans `a` across `[0.1758,0.1838]` under identical radius, resolution, degree,
 and continuity rules.
 
+## EXP-336 coverage failure and sharper orthogonal near miss
+
+EXP-336 completes all 3,264 launches but preserves its sole failed gate: only
+309 inward returns give `9.47%` coverage against the frozen 20% requirement.
+The broad lower-`a` half supplies no returns. Among completed rows, the
+orthogonal slice reduces the best chord to `0.00034435` at `a=0.1828`, 3.76
+times below EXP-335's fixed-`a` minimum and only 1.38% of the radius. No degree
+cell exists. EXP-337 binds the failed receipt and narrows to the observed
+returning band while increasing the matching radius to `0.03`; EXP-336 remains
+failed and unreclassified.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`

@@ -67,8 +67,15 @@ def validate_source_receipts(manifest: dict) -> list[dict]:
             raise SystemExit(f"source receipt schema mismatch: {path}")
         if receipt.get("experiment_id") != binding["experiment_id"]:
             raise SystemExit(f"source receipt experiment mismatch: {path}")
-        if receipt.get("passed") is not True:
+        expected_passed = binding.get("expected_passed", True)
+        if receipt.get("passed") is not expected_passed:
             raise SystemExit(f"source receipt status mismatch: {path}")
+        if "expected_failed_checks" in binding:
+            failed_checks = sorted(
+                name for name, passed in receipt.get("checks", {}).items() if not passed
+            )
+            if failed_checks != sorted(binding["expected_failed_checks"]):
+                raise SystemExit(f"source receipt failure pattern mismatch: {path}")
         for binding_field, receipt_field in (
             ("expected_candidate_count", "candidate_count"),
             ("expected_nominated_cell_count", "nominated_cell_count"),
@@ -83,8 +90,8 @@ def validate_source_receipts(manifest: dict) -> list[dict]:
         if "expected_closest_match" in binding:
             expected = binding["expected_closest_match"]
             observed = receipt.get("closest_match", {})
-            for field in ("c", "angle_index", "chord_mismatch"):
-                if observed.get(field) != expected[field]:
+            for field, value in expected.items():
+                if observed.get(field) != value:
                     raise SystemExit(f"source closest-match binding mismatch: {path}: {field}")
         validated.append(receipt)
     return validated
@@ -455,7 +462,10 @@ def main() -> int:
     ]
     acceptance = manifest["acceptance"]
     checks = {
-        "source_receipts_passed": all(receipt["passed"] for receipt in source_receipts),
+        "source_receipts_bound": all(
+            receipt["passed"] is binding.get("expected_passed", True)
+            for receipt, binding in zip(source_receipts, manifest["source_receipts"])
+        ),
         "stable_targets_complete": all(
             target["status"] == "completed"
             and target["radius_residual"] <= float(acceptance["maximum_sphere_residual"])

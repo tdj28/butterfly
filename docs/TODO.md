@@ -859,7 +859,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   again zero degree cells; its `0.00129410` minimum agrees with the smaller
   sphere. Run frozen EXP-336's orthogonal fixed-`c=10.3084` scan over
   `a in [0.1758,0.1838]`. This tests the second rounding direction before
-  widening to a full two-parameter curve search.
+  widening to a full two-parameter curve search. EXP-336 preserves a sole
+  return-coverage failure (`9.47%` versus 20%) but finds a much smaller
+  `0.00034435` chord at `a=0.1828`; no degree cell exists. Run frozen EXP-337,
+  which binds the failure, narrows to `a in [0.1803,0.1838]`, halves spacing,
+  and uses radius `0.03` to recover continuous-cell coverage without
+  reclassifying EXP-336.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
