@@ -10,10 +10,12 @@ from scripts.scan_jones_homoclinic_manifold_match import (
     tangent_basis,
 )
 from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces
+from scripts.solve_jones_homoclinic_single_shooting import SCHEMA as SHOOTING_SCHEMA
 
 
 def test_manifold_match_schema_is_versioned():
     assert SCHEMA == "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1"
+    assert SHOOTING_SCHEMA == "butterfly.jones-homoclinic-single-shooting-manifest.v1"
 
 
 def test_generic_a_axis_preserves_fixed_b_and_c():

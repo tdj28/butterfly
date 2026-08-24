@@ -864,7 +864,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `0.00034435` chord at `a=0.1828`; no degree cell exists. Run frozen EXP-337,
   which binds the failure, narrows to `a in [0.1803,0.1838]`, halves spacing,
   and uses radius `0.03` to recover continuous-cell coverage without
-  reclassifying EXP-336.
+  reclassifying EXP-336. EXP-337 passes at `18.89%` coverage and sharpens the
+  chord to `0.000162262` at `a=0.18255`, but retains zero degree cells. Run
+  frozen EXP-338's smooth three-variable single shooting in angle, `a`, and
+  total flight time. If it reaches an interior residual below `1e-8`, freeze a
+  segmented multiple-shooting qualification rather than promoting directly.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

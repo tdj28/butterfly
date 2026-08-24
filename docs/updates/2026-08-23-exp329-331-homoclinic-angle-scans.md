@@ -102,6 +102,16 @@ cell exists. EXP-337 binds the failed receipt and narrows to the observed
 returning band while increasing the matching radius to `0.03`; EXP-336 remains
 failed and unreclassified.
 
+## EXP-337 coverage recovery and smooth shooting target
+
+EXP-337 passes with 544 inward returns (`18.89%`) and 32 direct candidates.
+Its best chord is `0.000162262` at `a=0.18255`, only `0.54%` of the matching
+radius; one tangential component is already `-1.38e-6`. The two coarse hulls
+still have winding zero, and the closest row is isolated under first-return
+selection. EXP-338 therefore freezes the smooth three-equation endpoint match
+in departure angle, `a`, and total flight time. A root remains a multiple-
+shooting nomination, not a homoclinic qualification.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
