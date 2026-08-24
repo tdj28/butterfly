@@ -1,0 +1,55 @@
+{
+  "schema": "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+  "experiment_id": "EXP-332",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-329/receipt.json",
+      "sha256": "ee7d0f82fba78a8334097ae1e5c14cd8fa533b5f38b08fc3594e4c340d7ddfea",
+      "schema": "butterfly.jones-homoclinic-unstable-angle-scan-receipt.v1",
+      "experiment_id": "EXP-329"
+    },
+    {
+      "path": "artifacts/EXP-331/receipt.json",
+      "sha256": "8f2b2d23b1bf18b1f974a1148cd7dfda61c7f6e81b7004d6222d7b2ade436f95",
+      "schema": "butterfly.jones-homoclinic-unstable-angle-refinement-receipt.v1",
+      "experiment_id": "EXP-331"
+    }
+  ],
+  "fixed_parameters": {"a": 0.1798, "b": 0.2},
+  "c_grid": {
+    "minimum": 10.3044,
+    "maximum": 10.3124,
+    "count": 9,
+    "reference": 10.3084
+  },
+  "angle_count": 96,
+  "angle_offset_fraction": 0.5,
+  "workers": 8,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "maximum_exit_time": 250.0,
+  "minimum_return_time_after_exit": 10.0,
+  "return_horizon": 400.0,
+  "divergence_radius": 1000.0,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "candidate": {
+    "maximum_chord_mismatch": 0.002
+  },
+  "acceptance": {
+    "maximum_sphere_residual": 1e-9,
+    "minimum_exit_fraction": 0.95,
+    "minimum_return_crossing_fraction": 0.1
+  },
+  "claim_scope": "prospective parameter-aware nonlinear manifold-match pilot bound to the passed null EXP-329/331 receipts; at fixed (a,b)=(0.1798,0.2), use nine c values spanning plus/minus 0.004 around the approximately printed hub, gauge-align a common 96-angle unstable basis, construct both nonlinear stable-manifold targets by backward integration to radius 0.02, and compare the first post-gate inward unstable return on the same sphere through two signed tangential residuals; a chord mismatch at most 0.002 or a same-branch grid cell whose two residual hulls contain zero is only a root-solve nomination; pass/fail concerns source binding, local geometry, execution coverage, sphere residuals, and finite observables only, and neither a nomination nor its absence proves or rejects a homoclinic orbit, a connection at the printed coordinate, uniqueness, a homoclinic curve, hub-envelope organization, or full-plane topology"
+}
