@@ -1,6 +1,6 @@
 # EXP-330 — Printed-hub unstable-angle refinement
 
-Status: frozen; not yet run
+Status: preserved administrative failure; no numerical rows executed
 
 EXP-329 completed all 96 departures but nominated no return. Its closest
 sample, angle `4.352414822160859`, came within `0.01047463129580855` of the
@@ -22,3 +22,9 @@ finite interval would not reject a homoclinic orbit elsewhere.
 
 Manifest:
 [`../../experiments/manifests/EXP-330-jones-homoclinic-unstable-angle-refinement.json`](../../experiments/manifests/EXP-330-jones-homoclinic-unstable-angle-refinement.json).
+
+The clean committed run stopped at module import before reading the manifest or
+launching a worker: direct file execution could not resolve the package-style
+`scripts.scan_jones_homoclinic_unstable_angles` import. No receipt was written
+and no scientific inference follows. EXP-331 preserves every scientific value
+and adds only a direct-execution import fallback.

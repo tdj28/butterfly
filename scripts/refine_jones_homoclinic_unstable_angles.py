@@ -17,7 +17,10 @@ import scipy
 
 from butterfly import RosslerParameters, rossler_rhs
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
-from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces, scan_angle
+try:
+    from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces, scan_angle
+except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
+    from scan_jones_homoclinic_unstable_angles import eigenspaces, scan_angle
 
 
 SCHEMA = "butterfly.jones-homoclinic-unstable-angle-refinement-manifest.v1"
