@@ -82,6 +82,40 @@ four-corner residual hull at degree zero, including return-time-continuous
 cells.  The repeatable near miss motivates an orthogonal parameter slice, but
 does not yet supply a stable/unstable manifold intersection.
 
+The orthogonal fixed-$c=10.3084$ scan reduces the common-sphere mismatch to
+$1.62262\times10^{-4}$ near $a=0.18255$.  Corrected long single shooting
+improves that value but exposes a poorly conditioned 234-time-unit flow map.
+Replacing it by 16 matched DOP853 arcs produces a candidate with maximum arc
+defect $2.66\times10^{-9}$.  An independently integrated 32-arc Radau solve
+reproduces the root at
+\[
+  a=0.1826436081740286
+\]
+with maximum defect $1.09\times10^{-9}$.  The parameter then remains within
+$4.35\times10^{-13}$ as the nonlinear stable-manifold matching radius is
+reduced from $0.03$ through $0.025$ to $0.02$; all three maximum arc defects
+remain below $10^{-8}$ (Figure~\ref{fig:homoclinic-root}).  Direct one-shot
+replay diverges, as expected from the ill-conditioned unstable orbit, whereas
+the boundary-value arcs remain matched.  This strongly qualifies a
+homoclinic connection at the revised fixed-$c$ coordinate.  It does not
+validate the printed $a=0.1798$, which is lower by approximately $0.00284361$,
+and it does not establish uniqueness along a parameter segment.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig29-exp342-346-homoclinic-root.png}
+  \caption{Qualified numerical homoclinic candidate at fixed
+  $(b,c)=(0.2,10.3084)$.  A--B: the radius-$0.02$, 32-arc Radau boundary-value
+  orbit in two projections, colored by flight time; the star is the saddle
+  focus and the open circle is the nonlinear stable-manifold target.
+  C: DOP853/Radau and 16/32-arc correction followed by shrinking-sphere Radau
+  solves preserve $a\simeq0.182643608174$ while every maximum arc defect stays
+  below the prospective $10^{-8}$ gate.  The dashed line marks Jones's printed
+  $a=0.1798$.  The result is strong numerical qualification of a nearby
+  connection, not a computer-assisted proof or uniqueness result.}
+  \label{fig:homoclinic-root}
+\end{figure}
+
 \subsection{Analytic small-equilibrium Hopf locus}
 
 Writing an equilibrium as $(az,-z,z)$ and defining $r=b/z=c-az$, the

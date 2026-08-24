@@ -1,12 +1,15 @@
 \section{Conclusion}
 
-The reported hub coordinate has the claimed local saddle-focus eigenstructure.
-This closes the equilibrium classification but not the much stronger claim
-that the coordinate lies on a unique homoclinic connection. Coarse and
-receipt-selected refined unstable-angle scans find nearby recurrent flybys,
-but none approaches along the stable direction. This is a finite null search
-at an approximately printed coordinate, not a rejection; a parameter-aware
-stable/unstable manifold boundary-value solve remains required.
+The reported hub coordinate has the claimed local saddle-focus eigenstructure,
+but direct angle scans at that coordinate do not find a stable-aligned return.
+Parameter-aware common-sphere matching, analytic-variational multiple
+shooting, independent DOP853/Radau integration, doubled segmentation, and
+three shrinking matching radii instead qualify a nearby homoclinic candidate
+at fixed $c=10.3084$ and $a\simeq0.182643608174$.  This strongly supports the
+proposed organizing mechanism while correcting the coordinate: the reproduced
+root lies about $0.00284361$ above printed $a=0.1798$.  Curve continuation and
+a declared uniqueness audit remain open, and the numerical qualification is
+not a computer-assisted existence proof.
 The regular small-equilibrium Hopf locus is now exact and independently
 qualified; at the hub abscissa it begins at $c=0.5192306257$.  This supplies
 the local start of the proposed fixed-$a$ Hopf-to-homoclinic construction,
@@ -28,8 +31,8 @@ $c=4.716$ extend it again.  The corresponding symbolic and kneading ordering
 remains open, and the two available spacing ratios are not a universality
 proof.
 Its finite hub period and large equilibrium separation show that this orbit is
-not itself the proposed homoclinic connection.  The global equilibrium-manifold
-endpoint remains open.
+not itself the proposed homoclinic connection; the separately qualified
+equilibrium-manifold root is a distinct orbit at the revised coordinate.
 
 In plain terms, the modern code can now follow individual periodic motions
 through eight successive doublings and can tell when a seeming change belongs
