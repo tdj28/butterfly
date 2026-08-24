@@ -618,6 +618,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-344-jones-homoclinic-radius025-gauge-validation.md`](experiments/EXP-344-jones-homoclinic-radius025-gauge-validation.md):
   failure-bound validation of EXP-343's exact sub-`1e-8` nodes under a wider
   nuisance-angle gauge with unchanged parameter and residual gates.
+- [`experiments/EXP-345-jones-homoclinic-radius020-radau.md`](experiments/EXP-345-jones-homoclinic-radius020-radau.md):
+  second shrinking-radius correction testing whether the independently
+  reproduced parameter persists at radius `0.02`.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
