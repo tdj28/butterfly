@@ -564,8 +564,10 @@ what must be narrowed, and what is false or unresolved.
   separates the retracted EXP-299--302 branch interpretation from later exact
   event roots and identifies the remaining sheet-identity gap.
 - [`experiments/EXP-326-jones-period1536-seventh-to-eighth-connection.md`](experiments/EXP-326-jones-period1536-seventh-to-eighth-connection.md):
-  freezes a same-map continuation and direct identity test linking the
-  immediate seventh daughter to the independently qualified eighth event.
+  crosses and exactly closes at the eighth-event coordinate but preserves one
+  integer-node phase-identity failure.
+- [`experiments/EXP-327-jones-period1536-shared-phase-registration.md`](experiments/EXP-327-jones-period1536-shared-phase-registration.md):
+  freezes exact shared-phase registration of the connected and event meshes.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

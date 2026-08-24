@@ -1272,4 +1272,8 @@ slice; first tiny atlas; GPU qualification; and each frozen experiment result.
   the independently converged EXP-306/307 event root and EXP-308--317 local
   calculations. Run frozen EXP-326 to require direct same-map identity between
   the immediate seventh daughter and the eighth-event parent before restoring
-  an eight-rung connected-cascade claim.
+  an eight-rung connected-cascade claim. EXP-326 passes continuation, target
+  correction, period, primitivity, multiplier, cyclic, and neutral gates but
+  preserves one integer-node identity failure caused by a `3.16e-6` phase-
+  hyperplane offset. Run frozen EXP-327's exact shared-phase registration;
+  do not relax or overwrite EXP-326.

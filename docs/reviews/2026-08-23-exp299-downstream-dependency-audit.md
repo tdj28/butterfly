@@ -23,10 +23,13 @@ directly.
 
 ## Immediate action
 
-EXP-326 is frozen before execution. It continues EXP-321's exact immediate
-daughter through the 4,096-step coordinate of EXP-306's exact event and then
-requires direct phase-invariant orbit identity at that coordinate. Until it
-passes, the secure language is: seven events are linked on the returning-arm
-cascade; a further exact primitive period-1536 event and local subcritical
-period-3072 birth exist, but their connection to that same daughter sheet is
-under audit.
+EXP-326 continues EXP-321's exact immediate daughter through the 4,096-step
+coordinate of EXP-306's event and closes there below `9e-23`. Period agreement
+is `3.13e-22`, primitive amplitude is reproduced, and the real-`-1` multiplier
+is independently recovered. Its only failure is integer-node identity; the
+two meshes use different continuous phases. EXP-327 is frozen to put the
+bound event orbit on the connected orbit's exact phase hyperplane before
+direct node comparison. Until that passes, the secure language remains: seven
+events are linked on the returning-arm cascade; a further exact primitive
+period-1536 event and local subcritical period-3072 birth exist, but their
+connection to that same daughter sheet is under audit.
