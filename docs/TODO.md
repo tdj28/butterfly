@@ -845,7 +845,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   reaches `0.00656684` at the upper boundary with both tangent residuals still
   positive. Run frozen EXP-333's unchanged-method extension through
   `c=10.3224`; if it nominates a root cell, freeze a coupled solve before any
-  claim update.
+  claim update. EXP-333 passes and nominates 25 direct near matches plus three
+  componentwise sign-hull cells over `c=10.3184--10.3204`. Do not yet solve or
+  promote: run EXP-334's frozen residual-winding and first-return-continuity
+  audit, then refine only nonzero-degree continuous cells. If all three hull
+  cells fail degree, retain the direct candidates and freeze a finer
+  parameter-angle mesh around their bounded band.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

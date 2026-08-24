@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.jones-homoclinic-manifold-match-scan-summary.v1",
+  "experiment_id": "EXP-333",
+  "passed": true,
+  "source_commit": "b64cb57f4965463ddd1c555745c1c592b7042ac2",
+  "manifest_sha256": "366ad86ce1fd1d424f423ba60d4b78475850df4612eb0e2d2ab7a386267cb315",
+  "raw_artifact": "artifacts/EXP-333/receipt.json",
+  "raw_artifact_bytes": 571895,
+  "raw_artifact_sha256": "aa9c0daa7f56a4b130448294045c24b90f7cea48a44c07958a30540d7b9a4cdf",
+  "elapsed_seconds": 88.9843782922253,
+  "c_range": [10.3124, 10.3224],
+  "c_count": 11,
+  "angle_count_per_c": 96,
+  "row_count": 1056,
+  "completed_return_count": 369,
+  "candidate_count": 25,
+  "nominated_cell_count": 3,
+  "closest_match": {
+    "c": 10.3194,
+    "c_index": 7,
+    "angle": 1.8653206380689396,
+    "angle_index": 28,
+    "stable_branch_sign": 1,
+    "chord_mismatch": 0.0013378700961282038,
+    "normalized_chord_mismatch": 0.0668935048064102,
+    "tangent_residual": [0.0007694033003450433, -0.0010935779006743863],
+    "return_radius_residual": 3.4243441415782172e-15
+  },
+  "candidate_c_values": [10.3184, 10.3194, 10.3204],
+  "classification": "direct_match_nominated",
+  "interpretation": "The unchanged upper-c extension passes and moves from no candidates to 25 direct near matches over c=10.3184--10.3204, with three componentwise sign-hull cells. This is the first parameter-aware nomination supporting a nearby manifold connection, but the hull rule is insufficient to establish a residual-vector zero and chaotic first-return continuity must be audited before any root solve or Jones claim update."
+}

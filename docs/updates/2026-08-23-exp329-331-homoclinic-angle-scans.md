@@ -58,6 +58,17 @@ positive. This is the first coherent parameter-direction signal, but not a
 root. Hash-bound EXP-333 prospectively extends the unchanged scan through
 `c=10.3224`.
 
+## EXP-333 first manifold nominations
+
+The unchanged extension passes with 369 inward sphere intersections. It finds
+25 direct chord candidates over `c=10.3184--10.3204`; the best mismatch is
+`0.00133787` at `c=10.3194`, about 6.69% of the matching radius. Three coarse
+cells contain zero separately in both residual-component ranges. This is the
+first encouraging parameter-aware evidence for a nearby connection, but the
+componentwise cell rule is not a degree test and two cells have large corner
+return-time spreads. EXP-334 therefore freezes an immutable residual-polygon
+winding audit before any coupled solve or claim promotion.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
