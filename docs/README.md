@@ -642,6 +642,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-351-jones-homoclinic-fixed-a-intersection.md`](experiments/EXP-351-jones-homoclinic-fixed-a-intersection.md):
   direct 128-arc solve holding Jones's historical `a=0.1798` fixed and solving
   for the local homoclinic-curve intersection in `c`.
+- [`experiments/EXP-352-jones-homoclinic-fixed-a-warm-restart.md`](experiments/EXP-352-jones-homoclinic-fixed-a-warm-restart.md):
+  failure-bound exact-node warm restart of the direct historical-path solve
+  with unchanged physical and residual gates.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

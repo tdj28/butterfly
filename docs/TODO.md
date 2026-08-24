@@ -911,8 +911,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `c=10.3171353942`. Freeze and run a direct hash-bound boundary-value solve at
   that prospective coordinate; interpolation alone cannot qualify the
   intersection. EXP-351 is frozen as that direct fixed-`a` solve, using the
-  analytic `c` variational sensitivity and EXP-350's exact 128-arc nodes; run
-  it locally.
+  analytic `c` variational sensitivity and EXP-350's exact 128-arc nodes.
+  EXP-351 lowers the initial defect by more than two orders of magnitude but
+  is preserved as failed at `2.09830e-4`; 121/128 blocks already pass and the
+  remaining defect localizes near the stable endpoint. EXP-352 freezes a
+  hash-bound exact-node warm restart with the same 128 arcs, budget, and
+  `1e-8` gate; run it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

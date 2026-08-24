@@ -258,6 +258,19 @@ close to the preceding `-0.3255142594`. It predicts `a=0.1798` at
 crossing itself remains open until a boundary-value solution at the historical
 fixed-`a` path passes the unchanged root gate.
 
+## EXP-351 direct fixed-a correction remains unresolved
+
+The first direct solve holds `a=0.1798` exactly and solves `c`. It exhausts 40
+evaluations at maximum defect `2.09830e-4`, so it is preserved as failed. The
+run nevertheless reduces its initial defect by more than two orders of
+magnitude and remains at `c=10.3171274773`, only `7.92e-6` from the qualified
+secant prediction.
+
+The failure is sharply localized: 121/128 block defects already pass `1e-8`,
+while five of the seven failures occupy the final five arcs beside the stable
+target. EXP-352 binds all exact failed nodes for a same-geometry warm restart;
+no scientific threshold is relaxed.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
