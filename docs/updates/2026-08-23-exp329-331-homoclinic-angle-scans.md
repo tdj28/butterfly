@@ -155,9 +155,27 @@ segmented solver is the required cross-check. EXP-341 therefore strengthens
 Jones's homoclinic claim from an unresolved near miss to a precise candidate,
 but does not yet qualify it or its uniqueness.
 
+## EXP-342 independent Radau reproduction
+
+The doubled 32-arc Radau solve passes all gates at maximum block defect
+`1.08861e-9`. Its corrected `a=0.1826436081740286` differs from the DOP853
+candidate by only `3.13e-11`; its angle and time also clear prospective
+agreement bounds by wide margins. The initial Radau split seed itself already
+retains a sub-`1e-8` defect, so the result is not manufactured by a long drift
+to another solution.
+
+This materially strengthens Jones's proposed homoclinic mechanism. It also
+sharpens the coordinate issue: the independently reproduced connection
+candidate is about `0.00284361` above the paper's printed `a=0.1798`, far more
+than four-decimal rounding. Shrinking-radius persistence is now the next gate
+for distinguishing a true invariant-manifold connection from a finite-radius
+boundary-value coincidence.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
 [`../experiments/receipts/EXP-340.json`](../experiments/receipts/EXP-340.json).
+The independent root reproduction is tracked in
+[`../experiments/receipts/EXP-342.json`](../experiments/receipts/EXP-342.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
