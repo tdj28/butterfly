@@ -899,8 +899,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   toward fixed `a=0.1798` before any bounded uniqueness statement. EXP-347
   passes the first step at `c=10.3104`, giving `da/dc=-0.325514` and predicting
   the historical-path crossing near `c=10.31714`. EXP-348 freezes a second
-  bounded step at `c=10.3144`; run it before solving the fixed-`a` intersection
-  directly.
+  bounded step at `c=10.3144`; it remains interior and follows the secant but
+  stalls at `2.51470e-8`, so it is preserved as failed. Freeze a same-`c`
+  recovery from its exact nodes before solving the fixed-`a` intersection.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

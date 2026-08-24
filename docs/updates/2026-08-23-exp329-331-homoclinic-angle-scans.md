@@ -231,6 +231,14 @@ At `c=10.3104`, the 32-arc Radau correction passes at maximum defect
 near-miss band to motivate a bounded second curve step, but it is not yet the
 intersection solve.
 
+## EXP-348 second-step residual stall
+
+The `c=10.3144` correction remains interior and reaches
+`a=0.18069045562011257`, nearly exactly on the first secant, but exhausts 40
+evaluations at maximum defect `2.51470e-8`. It is therefore preserved as
+failed; the apparent unchanged slope is diagnostic only. A same-`c`
+failure-bound corrector is required before intersection targeting.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
