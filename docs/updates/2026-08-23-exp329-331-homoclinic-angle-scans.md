@@ -323,6 +323,16 @@ The third correction stalls at `3.76458e-6` with optimizer optimality
 `a=0.1798174900` nodes are only `1.749e-5` from the historical path. EXP-358
 reimposes exact `a=0.1798` from that corrected source and solves `c` directly.
 
+## EXP-358 repeats the fixed-a residual floor
+
+Despite its 51-times-closer corrected source, the renewed exact fixed-`a`
+solve returns to `c=10.3171272090` with maximum defect `2.10831e-4`,
+essentially reproducing EXP-351's stable-end floor. The historical-path
+intersection is therefore not qualified. This does not negate the passed
+revised-coordinate roots; it creates a bounded ambiguity between local branch
+fold/termination and singular fixed-`a` conditioning. The next method must use
+pseudo-arclength or collocation continuation with an explicit gauge.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

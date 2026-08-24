@@ -933,7 +933,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   same-`c` correction without changing any gate. EXP-357 reaches a
   `3.76458e-6` conditioning floor at `a=0.1798174900`, but its nodes are now
   only `1.749e-5` from exact historical `a`. EXP-358 reimposes fixed
-  `a=0.1798` from that corrected source and solves `c`; run it locally.
+  `a=0.1798` from that corrected source and solves `c`, but returns to the same
+  `~2.11e-4` stable-end floor near `c=10.3171272` as EXP-351. Preserve the
+  failure. Implement pseudo-arclength or collocation continuation with an
+  explicit gauge to distinguish a local fold/termination from singular
+  fixed-`a` conditioning; do not claim the secant intersection.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

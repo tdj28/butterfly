@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+  "experiment_id": "EXP-358",
+  "passed": false,
+  "source_commit": "420d0b89405606cc9a4e7843a9237c411e9e305c",
+  "manifest_sha256": "eb22fcae31608fe561d738c63b6937c0977b847c70d4a1ecb69ce2ef23687602",
+  "source_receipt_sha256": "622add457335304fed9b3269b747a3034c8cb2e1806433ad4c9a07a7eba4d685",
+  "raw_artifact": "artifacts/EXP-358/receipt.json",
+  "raw_artifact_bytes": 31784,
+  "raw_artifact_sha256": "73d555bcc205f4df2d602de6bacd4fe5498167be95cbe76c84b6cdeb568b303e",
+  "elapsed_seconds": 376.4424800002016,
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "solve_parameter": "c",
+  "segment_count": 128,
+  "initial_residual_norm": 0.001141981060189745,
+  "initial_maximum_block_residual": 0.00048214494496814404,
+  "final_residual_norm": 0.0002460460801764141,
+  "final_maximum_block_residual": 0.00021083119262526361,
+  "final_variables": {
+    "angle": 2.381370397685598,
+    "c": 10.317127208993021,
+    "total_flight_time": 234.36070626282236
+  },
+  "node_boundary_margin": 0.9980450902016536,
+  "optimizer_optimality": 4.233233742262802e-9,
+  "root_nominated": false,
+  "classification": "multiple_shooting_unresolved",
+  "failed_checks": ["optimizer_terminated_or_root_gate"],
+  "interpretation": "A substantially closer corrected source returns to the same fixed-a stable-end residual floor and c value as the first direct solve. The historical-path intersection is not qualified; pseudo-arclength or collocation continuation must distinguish a branch fold/termination from singular endpoint conditioning."
+}

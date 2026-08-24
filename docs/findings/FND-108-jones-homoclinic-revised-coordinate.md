@@ -32,13 +32,24 @@ at `(a,c)=(0.1819925796550,10.3104)`, and EXP-350 passes at
 intersection near `c=10.3171354`. This agreement supports a smooth local root
 curve but does not replace the required direct intersection solve.
 
+Direct fixed-`a` attempts do not currently qualify that intersection.
+EXP-351 and EXP-358, the latter seeded from curve-corrected nodes only
+`1.749e-5` away in `a`, both return near `c=10.317127` with a stable-end
+maximum defect about `2.10e-4`. Fixed-`c` predictor corrections EXP-354--357
+approach `a=0.17981749` but reach a `3.76e-6` conditioning floor above the
+gate. This repeated behavior leaves two live explanations: a local
+fold/termination before exact `a=0.1798`, or a singular endpoint formulation.
+It is not evidence against the already qualified revised-coordinate roots,
+but it prevents promoting the secant crossing to a Jones-path result.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
 unique root on any declared parameter segment. Direct long initial-value
 replay diverges because the orbit is extremely unstable; the qualified object
-is the matched boundary-value solution. Continuation, an explicit phase/gauge
-condition, and eventually validated numerics remain required.
+is the matched boundary-value solution. Pseudo-arclength or collocation
+continuation, an explicit phase/gauge condition, and eventually validated
+numerics remain required.
 
-Evidence: EXP-341 through EXP-347 and EXP-350 with their hash-bound compact
-receipts.
+Evidence: EXP-341 through EXP-358, including preserved negative results and
+their hash-bound compact receipts.
