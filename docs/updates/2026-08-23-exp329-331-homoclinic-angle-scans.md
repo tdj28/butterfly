@@ -222,6 +222,15 @@ about `0.00284361` above printed `a=0.1798`. The next computation continues the
 homoclinic curve toward the historical fixed-`a` path and tests whether it
 crosses near the fixed-`a` scan minimum around `c=10.319`.
 
+## EXP-347 first homoclinic-curve secant
+
+At `c=10.3104`, the 32-arc Radau correction passes at maximum defect
+`5.11943e-9` and gives `a=0.18199257965495652`. The first local secant has
+`da/dc=-0.3255142594`; extrapolation reaches `a=0.1798` at
+`c=10.3171357407`. This agrees closely enough with the earlier fixed-`a`
+near-miss band to motivate a bounded second curve step, but it is not yet the
+intersection solve.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
