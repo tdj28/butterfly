@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-homoclinic-single-shooting-summary.v1",
+  "experiment_id": "EXP-340",
+  "passed": false,
+  "source_commit": "d4d3619e4fc30e9f332c29aaa8beea091f6e599b",
+  "manifest_sha256": "a88d48ef6f5fb8cf5b4d48951e620263daf430c52d736ff5b6715feb810b57eb",
+  "source_receipt_sha256": "dda7b03c5801054bb53b8df035f44a8c3c89c25ff97a6c8bb4585dfed27eb1ce",
+  "diagnostic_receipt_sha256": "2a8f9433d0595bc12a5cec913adf6dbe8b5655fcbb0273412868b3953993c1cf",
+  "raw_artifact": "artifacts/EXP-340/receipt.json",
+  "raw_artifact_bytes": 213422,
+  "raw_artifact_sha256": "02a4bf966256684352a1f63fece4f097b8ab9612ad2eeb21642e38048a5c0ea9",
+  "elapsed_seconds": 65.68178300000727,
+  "initial_residual_norm": 0.00016226246880832792,
+  "final_residual_norm": 0.00013512019468473797,
+  "residual_reduction_fraction": 0.16727388855183561,
+  "final_variables": {
+    "angle": 2.486408840993402,
+    "a": 0.18256396184829296,
+    "total_flight_time": 234.24519197119244
+  },
+  "final_normalized_boundary_margins": [
+    0.5209425424338499,
+    0.9441526068281266,
+    0.9965781572117436
+  ],
+  "scaled_jacobian_singular_values": [
+    6.8366910865638655,
+    1.5462587065485314,
+    0.000046540317254029354
+  ],
+  "scaled_jacobian_condition_ratio": 146898.24844225703,
+  "optimizer_status": 0,
+  "optimizer_nfev": 60,
+  "root_nominated": false,
+  "classification": "single_shooting_unresolved",
+  "failed_checks": ["optimizer_terminated"],
+  "interpretation": "The explicit absolute-central Jacobian improves the long-orbit endpoint mismatch by 16.73% and remains well inside every frozen variable bound, but the solve exhausts all 60 function evaluations at residual 1.35120e-4. The scaled Jacobian condition ratio is about 1.47e5. This preserved failure diagnoses ill-conditioned 234-time-unit single shooting; it neither establishes nor rejects a homoclinic connection. The failure-bound successor must change representation to segmented multiple shooting rather than extend this optimizer budget."
+}

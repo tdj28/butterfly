@@ -871,7 +871,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   segmented multiple-shooting qualification rather than promoting directly.
   EXP-338 loses only final receipt serialization; unchanged EXP-339 passes but
   stalls at `0.000158819` because zero-start relative differences collapse to
-  `1.49e-8`. Run frozen EXP-340's bound absolute-central-Jacobian correction.
+  `1.49e-8`. EXP-340's absolute-central correction reduces the mismatch by
+  `16.73%` but exhausts 60 evaluations at `0.000135120`; its scaled Jacobian
+  condition ratio is about `1.47e5`. Preserve the sole termination-gate
+  failure and run a receipt-bound segmented multiple-shooting successor seeded
+  from its interior final trajectory. A root remains only a nomination pending
+  shrinking-radius and independent-integrator qualification.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

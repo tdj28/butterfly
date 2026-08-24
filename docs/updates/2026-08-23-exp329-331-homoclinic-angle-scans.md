@@ -122,7 +122,25 @@ Jacobian. EXP-340 binds the unresolved result and freezes explicit absolute
 central steps of `0.001`; all science variables, bounds, and gates are
 unchanged.
 
+## EXP-340 single-shooting stall and representation switch
+
+EXP-340 preserves a sole `optimizer_terminated` failure after all 60 frozen
+function evaluations. The corrected Jacobian reduces the mismatch by `16.73%`,
+from `0.000162262469` to `0.000135120195`, and the result remains interior to
+all three bounds. Its scaled singular values are `6.83669`, `1.54626`, and
+`4.65403e-5`, giving a condition ratio near `1.47e5`. The corrected derivative
+therefore helps, but does not cure the sensitivity of a single 234-time-unit
+flow map.
+
+The result neither proves nor rejects Jones's equilibrium homoclinic claim.
+The frozen successor changes the numerical representation rather than the
+physical endpoint problem: it seeds segmented multiple shooting from
+EXP-340's final angle, `a`, and flight time, and matches a chain of short arcs
+between the same unstable departure and nonlinear stable-manifold target.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
+Later compact receipts in this chain include
+[`../experiments/receipts/EXP-340.json`](../experiments/receipts/EXP-340.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

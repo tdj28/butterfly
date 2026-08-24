@@ -604,7 +604,8 @@ what must be narrowed, and what is false or unresolved.
   failure.
 - [`experiments/EXP-340-jones-homoclinic-absolute-jacobian-shooting.md`](experiments/EXP-340-jones-homoclinic-absolute-jacobian-shooting.md):
   receipt-bound replacement of ineffective zero-start relative differences by
-  explicit absolute central differences.
+  explicit absolute central differences; the preserved evaluation-budget stall
+  diagnoses ill-conditioned long single shooting and triggers segmentation.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
