@@ -606,6 +606,9 @@ what must be narrowed, and what is false or unresolved.
   receipt-bound replacement of ineffective zero-start relative differences by
   explicit absolute central differences; the preserved evaluation-budget stall
   diagnoses ill-conditioned long single shooting and triggers segmentation.
+- [`experiments/EXP-341-jones-homoclinic-multiple-shooting.md`](experiments/EXP-341-jones-homoclinic-multiple-shooting.md):
+  failure-bound 16-arc boundary-value solve with analytic segment variational
+  derivatives and the unchanged nonlinear homoclinic endpoint problem.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

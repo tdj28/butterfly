@@ -14,11 +14,38 @@ from scripts.solve_jones_homoclinic_single_shooting import (
     SCHEMA as SHOOTING_SCHEMA,
     absolute_central_jacobian,
 )
+from scripts.solve_jones_homoclinic_multiple_shooting import (
+    SCHEMA as MULTIPLE_SHOOTING_SCHEMA,
+    block_norms,
+    variable_layout,
+)
 
 
 def test_manifold_match_schema_is_versioned():
     assert SCHEMA == "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1"
     assert SHOOTING_SCHEMA == "butterfly.jones-homoclinic-single-shooting-manifest.v1"
+    assert (
+        MULTIPLE_SHOOTING_SCHEMA
+        == "butterfly.jones-homoclinic-multiple-shooting-manifest.v1"
+    )
+
+
+def test_homoclinic_multiple_shooting_layout_is_square():
+    layout = variable_layout(16)
+    assert layout == {
+        "node_count": 15,
+        "node_size": 45,
+        "time_index": 45,
+        "a_index": 46,
+        "angle_index": 47,
+        "variable_count": 48,
+    }
+    assert 3 * 16 == layout["variable_count"]
+
+
+def test_homoclinic_matching_block_norms_preserve_segment_order():
+    residual = np.array([3.0, 4.0, 0.0, 0.0, 0.0, 12.0])
+    assert np.array_equal(block_norms(residual), np.array([5.0, 12.0]))
 
 
 def test_generic_a_axis_preserves_fixed_b_and_c():
