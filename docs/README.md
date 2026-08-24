@@ -573,7 +573,10 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-328-jones-homoclinic-unstable-angle-pilot.md`](experiments/EXP-328-jones-homoclinic-unstable-angle-pilot.md):
   preserves the administrative receipt-serialization failure of the CPU pilot.
 - [`experiments/EXP-329-jones-homoclinic-unstable-angle-pilot-replay.md`](experiments/EXP-329-jones-homoclinic-unstable-angle-pilot-replay.md):
-  freezes the otherwise unchanged JSON-safe CPU reference replay.
+  unchanged-method replay passes all 96 execution rows, nominates no joint
+  close/stable return, and selects a receipt-bound local refinement.
+- [`experiments/EXP-330-jones-homoclinic-unstable-angle-refinement.md`](experiments/EXP-330-jones-homoclinic-unstable-angle-refinement.md):
+  257-angle prospective refinement around EXP-329's closest sampled return.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
