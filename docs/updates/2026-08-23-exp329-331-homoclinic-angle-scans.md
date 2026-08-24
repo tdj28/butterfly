@@ -282,6 +282,18 @@ EXP-353 prospectively adds a `+/-0.5` source-centered component box to every
 internal node and requires a `0.01` normalized node-boundary margin. All
 physical, residual, segmentation, tolerance, and budget gates remain fixed.
 
+## EXP-353 fixed-a warm restart stalls safely
+
+The node-bounded run completes and leaves `0.9982` normalized node margin, but
+the maximum defect changes only from `2.098300e-4` to `2.098247e-4`. The
+guardrail is not active and the same-point warm restart is preserved as
+failed.
+
+EXP-354 returns to qualified EXP-350 and performs a fixed-`c` correction at
+the prospectively predicted crossing. A pass will provide corrected local
+nodes and quantify the remaining `a-0.1798` error before exact fixed `a` is
+reimposed; it cannot itself qualify the intersection.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

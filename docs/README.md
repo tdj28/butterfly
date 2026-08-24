@@ -648,6 +648,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-353-jones-homoclinic-fixed-a-node-bounded-restart.md`](experiments/EXP-353-jones-homoclinic-fixed-a-node-bounded-restart.md):
   source-centered internal-node guardrail after EXP-352's invalid Radau trial,
   with an explicit node-boundary acceptance margin.
+- [`experiments/EXP-354-jones-homoclinic-crossing-predictor-corrector.md`](experiments/EXP-354-jones-homoclinic-crossing-predictor-corrector.md):
+  qualified fixed-`c` curve correction at the prospective historical-path
+  crossing before exact `a=0.1798` is reimposed.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

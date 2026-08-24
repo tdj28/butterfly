@@ -919,8 +919,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `1e-8` gate. EXP-352 aborts before receipt generation when an unbounded
   trust-region node trial makes Radau's step size collapse; do not classify it
   as a scientific failure. EXP-353 adds only a prospective `+/-0.5`
-  source-centered component guardrail with an explicit node-margin gate; run
-  it locally.
+  source-centered component guardrail with an explicit node-margin gate.
+  EXP-353 completes safely and remains highly interior but stalls at
+  `2.09825e-4`, showing that a same-point warm restart is insufficient. Freeze
+  EXP-354 from the last qualified fixed-`c` root: correct its 128 nodes at the
+  prospectively declared crossing `c=10.3171353942`, measure the residual
+  `a-0.1798`, and only then reimpose exact fixed `a`; run EXP-354 locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
