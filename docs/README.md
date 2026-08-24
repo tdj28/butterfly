@@ -639,6 +639,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-350-jones-homoclinic-c-step2-128segment-recovery.md`](experiments/EXP-350-jones-homoclinic-c-step2-128segment-recovery.md):
   second failure-bound segmentation doubling with all physical and residual
   gates unchanged.
+- [`experiments/EXP-351-jones-homoclinic-fixed-a-intersection.md`](experiments/EXP-351-jones-homoclinic-fixed-a-intersection.md):
+  direct 128-arc solve holding Jones's historical `a=0.1798` fixed and solving
+  for the local homoclinic-curve intersection in `c`.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

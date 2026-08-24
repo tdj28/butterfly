@@ -18,6 +18,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
     SCHEMA as MULTIPLE_SHOOTING_SCHEMA,
     block_norms,
     interleave_split_nodes,
+    solution_parameters,
     variable_layout,
 )
 
@@ -42,6 +43,13 @@ def test_homoclinic_multiple_shooting_layout_is_square():
         "variable_count": 48,
     }
     assert 3 * 16 == layout["variable_count"]
+
+
+def test_homoclinic_solution_parameters_support_fixed_a_intersection():
+    fixed_c = solution_parameters("a", 0.1826, {"b": 0.2, "c": 10.3084})
+    fixed_a = solution_parameters("c", 10.3171, {"a": 0.1798, "b": 0.2})
+    assert (fixed_c.a, fixed_c.b, fixed_c.c) == (0.1826, 0.2, 10.3084)
+    assert (fixed_a.a, fixed_a.b, fixed_a.c) == (0.1798, 0.2, 10.3171)
 
 
 def test_homoclinic_matching_block_norms_preserve_segment_order():

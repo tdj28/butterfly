@@ -910,7 +910,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-347 and predicts the historical fixed-`a` crossing at
   `c=10.3171353942`. Freeze and run a direct hash-bound boundary-value solve at
   that prospective coordinate; interpolation alone cannot qualify the
-  intersection.
+  intersection. EXP-351 is frozen as that direct fixed-`a` solve, using the
+  analytic `c` variational sensitivity and EXP-350's exact 128-arc nodes; run
+  it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

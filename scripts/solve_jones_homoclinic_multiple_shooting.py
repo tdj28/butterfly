@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Solve Jones's fixed-c homoclinic endpoint match by segmented shooting."""
+"""Solve Jones's fixed-parameter homoclinic match by segmented shooting."""
 
 from __future__ import annotations
 
@@ -67,6 +67,21 @@ def block_norms(residual: np.ndarray) -> np.ndarray:
     return np.linalg.norm(residual.reshape(-1, 3), axis=1)
 
 
+def solution_parameters(
+    solve_parameter: str, parameter_value: float, fixed: dict
+) -> RosslerParameters:
+    """Build a Rössler parameter tuple with either ``a`` or ``c`` free."""
+    if solve_parameter == "a":
+        return RosslerParameters(
+            a=parameter_value, b=float(fixed["b"]), c=float(fixed["c"])
+        )
+    if solve_parameter == "c":
+        return RosslerParameters(
+            a=float(fixed["a"]), b=float(fixed["b"]), c=parameter_value
+        )
+    raise ValueError("solve_parameter must be 'a' or 'c'")
+
+
 def interleave_split_nodes(
     source_nodes: np.ndarray, midpoint_nodes: np.ndarray
 ) -> np.ndarray:
@@ -123,9 +138,19 @@ def main() -> int:
             raise SystemExit(f"source value binding mismatch: {field}")
 
     fixed = manifest["fixed_parameters"]
-    reference = RosslerParameters(
-        a=float(manifest["reference_a"]), b=float(fixed["b"]), c=float(fixed["c"])
-    )
+    solve_parameter = manifest.get("solve_parameter", "a")
+    if solve_parameter not in {"a", "c"}:
+        raise SystemExit("solve_parameter must be 'a' or 'c'")
+    if "reference_parameters" in manifest:
+        reference = RosslerParameters(**manifest["reference_parameters"])
+    elif solve_parameter == "a":
+        reference = RosslerParameters(
+            a=float(manifest["reference_a"]),
+            b=float(fixed["b"]),
+            c=float(fixed["c"]),
+        )
+    else:
+        raise SystemExit("fixed-a solves require reference_parameters")
     _reference_equilibrium, _reference_values, reference_stable, reference_plane = (
         eigenspaces(reference)
     )
@@ -135,11 +160,15 @@ def main() -> int:
     layout = variable_layout(segment_count)
     seed = source_receipt["final_variables"]
     seed_angle = float(seed["angle"])
-    seed_a = float(seed["a"])
+    seed_parameter = float(
+        seed.get(solve_parameter, manifest["search_center"][solve_parameter])
+    )
     seed_time = float(seed["total_flight_time"])
 
-    def geometry(a_value: float, angle: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        parameters = RosslerParameters(a=a_value, b=float(fixed["b"]), c=float(fixed["c"]))
+    def geometry(
+        parameter_value: float, angle: float
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        parameters = solution_parameters(solve_parameter, parameter_value, fixed)
         equilibrium, _values, stable, plane = align_local_geometry(
             parameters, reference_stable, reference_plane
         )
@@ -161,10 +190,10 @@ def main() -> int:
         target = np.asarray(target_rows[0]["state"], dtype=np.float64)
         return initial, target, angle_derivative
 
-    seed_initial, _seed_target, _seed_angle_derivative = geometry(seed_a, seed_angle)
-    seed_parameters = RosslerParameters(
-        a=seed_a, b=float(fixed["b"]), c=float(fixed["c"])
+    seed_initial, _seed_target, _seed_angle_derivative = geometry(
+        seed_parameter, seed_angle
     )
+    seed_parameters = solution_parameters(solve_parameter, seed_parameter, fixed)
     seed_mode = manifest.get("seed_mode", "sequential_source_trajectory")
     if seed_mode == "sequential_source_trajectory":
         seed_segment_time = seed_time / segment_count
@@ -176,7 +205,7 @@ def main() -> int:
                 seed_segment_time,
                 seed_parameters,
                 solver,
-                continuation_parameter="a",
+                continuation_parameter=solve_parameter,
             )
             seed_nodes.append(current)
         seed_nodes = np.asarray(seed_nodes, dtype=np.float64)
@@ -196,7 +225,7 @@ def main() -> int:
                 half_segment_time,
                 seed_parameters,
                 solver,
-                continuation_parameter="a",
+                continuation_parameter=solve_parameter,
             )
             midpoint_nodes.append(midpoint)
         seed_nodes = interleave_split_nodes(source_nodes, midpoint_nodes)
@@ -210,20 +239,23 @@ def main() -> int:
     else:
         raise SystemExit("unsupported multiple-shooting seed mode")
     initial_variables = np.r_[
-        np.asarray(seed_nodes, dtype=np.float64).ravel(), seed_time, seed_a, seed_angle
+        np.asarray(seed_nodes, dtype=np.float64).ravel(),
+        seed_time,
+        seed_parameter,
+        seed_angle,
     ]
 
     global_center = np.asarray(
         [
             float(manifest["search_center"]["total_flight_time"]),
-            float(manifest["search_center"]["a"]),
+            float(manifest["search_center"][solve_parameter]),
             float(manifest["search_center"]["angle"]),
         ]
     )
     global_scales = np.asarray(
         [
             float(manifest["search_scales"]["total_flight_time"]),
-            float(manifest["search_scales"]["a"]),
+            float(manifest["search_scales"][solve_parameter]),
             float(manifest["search_scales"]["angle"]),
         ]
     )
@@ -239,7 +271,11 @@ def main() -> int:
     if not np.all((initial_variables > lower) & (initial_variables < upper)):
         raise SystemExit("source seed lies outside frozen bounds")
 
-    a_step = float(manifest["derivatives"]["a_absolute_step"])
+    parameter_step = float(
+        manifest["derivatives"].get(
+            "parameter_absolute_step", manifest["derivatives"].get("a_absolute_step")
+        )
+    )
     history: list[dict] = []
     cached_point = None
     cached_residual = None
@@ -253,16 +289,22 @@ def main() -> int:
             return cached_residual, cached_jacobian, cached_details
         nodes = variables[: layout["node_size"]].reshape(layout["node_count"], 3)
         total_time = float(variables[layout["time_index"]])
-        a_value = float(variables[layout["a_index"]])
+        parameter_value = float(variables[layout["a_index"]])
         angle = float(variables[layout["angle_index"]])
-        parameters = RosslerParameters(
-            a=a_value, b=float(fixed["b"]), c=float(fixed["c"])
+        parameters = solution_parameters(solve_parameter, parameter_value, fixed)
+        initial, target, initial_angle_derivative = geometry(parameter_value, angle)
+        initial_plus, target_plus, _ = geometry(
+            parameter_value + parameter_step, angle
         )
-        initial, target, initial_angle_derivative = geometry(a_value, angle)
-        initial_plus, target_plus, _ = geometry(a_value + a_step, angle)
-        initial_minus, target_minus, _ = geometry(a_value - a_step, angle)
-        initial_a_derivative = (initial_plus - initial_minus) / (2.0 * a_step)
-        target_a_derivative = (target_plus - target_minus) / (2.0 * a_step)
+        initial_minus, target_minus, _ = geometry(
+            parameter_value - parameter_step, angle
+        )
+        initial_parameter_derivative = (initial_plus - initial_minus) / (
+            2.0 * parameter_step
+        )
+        target_parameter_derivative = (target_plus - target_minus) / (
+            2.0 * parameter_step
+        )
         segment_time = total_time / segment_count
         residual = np.empty(3 * segment_count)
         jacobian = np.zeros((3 * segment_count, layout["variable_count"]))
@@ -274,7 +316,7 @@ def main() -> int:
                 segment_time,
                 parameters,
                 solver,
-                continuation_parameter="a",
+                continuation_parameter=solve_parameter,
             )
             destination = target if index + 1 == segment_count else nodes[index]
             row = slice(3 * index, 3 * index + 3)
@@ -290,12 +332,14 @@ def main() -> int:
             )
             jacobian[row, layout["a_index"]] = sensitivity
             if index == 0:
-                jacobian[row, layout["a_index"]] += transition @ initial_a_derivative
+                jacobian[row, layout["a_index"]] += (
+                    transition @ initial_parameter_derivative
+                )
                 jacobian[row, layout["angle_index"]] = (
                     transition @ initial_angle_derivative
                 )
             if index + 1 == segment_count:
-                jacobian[row, layout["a_index"]] -= target_a_derivative
+                jacobian[row, layout["a_index"]] -= target_parameter_derivative
             endpoints.append(endpoint)
         norms = block_norms(residual)
         details = {
@@ -309,7 +353,7 @@ def main() -> int:
             {
                 "evaluation": len(history),
                 "total_flight_time": total_time,
-                "a": a_value,
+                solve_parameter: parameter_value,
                 "angle": angle,
                 "residual_norm": details["residual_norm"],
                 "maximum_block_norm": details["maximum_block_norm"],
@@ -358,19 +402,17 @@ def main() -> int:
     final_residual, final_jacobian, final_details = compute(result.x)
     final_nodes = result.x[: layout["node_size"]].reshape(layout["node_count"], 3)
     final_time = float(result.x[layout["time_index"]])
-    final_a = float(result.x[layout["a_index"]])
+    final_parameter = float(result.x[layout["a_index"]])
     final_angle = float(result.x[layout["angle_index"]])
     normalized_globals = (
-        np.asarray([final_time, final_a, final_angle]) - global_center
+        np.asarray([final_time, final_parameter, final_angle]) - global_center
     ) / global_scales
     boundary_margins = np.minimum(
         normalized_globals - normalized_lower, normalized_upper - normalized_globals
     )
 
-    replay_initial, replay_target, _ = geometry(final_a, final_angle)
-    replay_parameters = RosslerParameters(
-        a=final_a, b=float(fixed["b"]), c=float(fixed["c"])
-    )
+    replay_initial, replay_target, _ = geometry(final_parameter, final_angle)
+    replay_parameters = solution_parameters(solve_parameter, final_parameter, fixed)
     replay_times = np.linspace(final_time / segment_count, final_time, segment_count)
     replay = solve_ivp(
         lambda time_value, state: rossler_rhs(time_value, state, replay_parameters),
@@ -397,7 +439,7 @@ def main() -> int:
         >= float(acceptance["minimum_normalized_boundary_margin"])
     )
     source_root_differences = {
-        "a": abs(final_a - seed_a),
+        solve_parameter: abs(final_parameter - seed_parameter),
         "angle": abs(final_angle - seed_angle),
         "total_flight_time": abs(final_time - seed_time),
     }
@@ -430,7 +472,8 @@ def main() -> int:
     source_agreement = acceptance.get("source_root_agreement")
     if source_agreement is not None:
         checks["source_root_agreement"] = bool(
-            source_root_differences["a"] <= float(source_agreement["maximum_a_difference"])
+            source_root_differences[solve_parameter]
+            <= float(source_agreement[f"maximum_{solve_parameter}_difference"])
             and source_root_differences["angle"]
             <= float(source_agreement["maximum_angle_difference"])
             and source_root_differences["total_flight_time"]
@@ -454,20 +497,21 @@ def main() -> int:
             "scipy": scipy.__version__,
         },
         "fixed_parameters": fixed,
+        "solve_parameter": solve_parameter,
         "stable_branch_sign": stable_branch_sign,
         "matching_radius": manifest["matching_radius"],
         "segment_count": segment_count,
         "seed_mode": seed_mode,
         "seed_variables": {
             "angle": seed_angle,
-            "a": seed_a,
+            solve_parameter: seed_parameter,
             "total_flight_time": seed_time,
         },
         "initial_residual_norm": float(np.linalg.norm(initial_residual)),
         "initial_maximum_block_residual": initial_details["maximum_block_norm"],
         "final_variables": {
             "angle": final_angle,
-            "a": final_a,
+            solve_parameter: final_parameter,
             "total_flight_time": final_time,
         },
         "final_normalized_variables": normalized_globals.tolist(),
@@ -494,7 +538,10 @@ def main() -> int:
             "nfev": int(result.nfev),
             "njev": None if result.njev is None else int(result.njev),
         },
-        "jacobian_policy": "analytic_segment_transitions_with_central_endpoint_a_derivative",
+        "jacobian_policy": (
+            "analytic_segment_transitions_with_central_endpoint_"
+            f"{solve_parameter}_derivative"
+        ),
         "independent_integrator": manifest.get("independent_integrator"),
         "jacobian_singular_values": singular_values.tolist(),
         "history": history,
