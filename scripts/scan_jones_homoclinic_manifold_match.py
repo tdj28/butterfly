@@ -30,6 +30,24 @@ except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
 SCHEMA = "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1"
 
 
+def scan_axis(manifest: dict) -> str:
+    axis = manifest.get("scan_axis", "c")
+    if axis not in {"a", "c"}:
+        raise ValueError("scan_axis must be 'a' or 'c'")
+    return axis
+
+
+def parameter_grid(manifest: dict) -> dict:
+    return manifest.get("parameter_grid", manifest.get("c_grid"))
+
+
+def parameters_at(manifest: dict, value: float) -> RosslerParameters:
+    axis = scan_axis(manifest)
+    values = dict(manifest["fixed_parameters"])
+    values[axis] = float(value)
+    return RosslerParameters(a=float(values["a"]), b=float(values["b"]), c=float(values["c"]))
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -158,12 +176,9 @@ def tangent_basis(target: np.ndarray, equilibrium: np.ndarray) -> np.ndarray:
 
 
 def scan_task(task: tuple[int, int, float, float, dict, list[dict], list, list]) -> dict:
-    c_index, angle_index, c_value, angle, manifest, targets, equilibrium_list, plane_list = task
-    parameters = RosslerParameters(
-        a=float(manifest["fixed_parameters"]["a"]),
-        b=float(manifest["fixed_parameters"]["b"]),
-        c=c_value,
-    )
+    parameter_index, angle_index, parameter_value, angle, manifest, targets, equilibrium_list, plane_list = task
+    axis = scan_axis(manifest)
+    parameters = parameters_at(manifest, parameter_value)
     equilibrium = np.asarray(equilibrium_list, dtype=np.float64)
     plane = np.asarray(plane_list, dtype=np.float64)
     direction = np.cos(angle) * plane[:, 0] + np.sin(angle) * plane[:, 1]
@@ -190,9 +205,11 @@ def scan_task(task: tuple[int, int, float, float, dict, list[dict], list, list])
         events=exit_event,
     )
     base = {
-        "c_index": c_index,
+        "parameter_index": parameter_index,
+        "parameter_value": parameter_value,
+        f"{axis}_index": parameter_index,
+        axis: parameter_value,
         "angle_index": angle_index,
-        "c": c_value,
         "angle": angle,
         "departure_success": bool(departure.success),
         "departure_nfev": int(departure.nfev),
@@ -298,16 +315,19 @@ def scan_task(task: tuple[int, int, float, float, dict, list[dict], list, list])
     }
 
 
-def nominate_cells(rows: list[dict], c_count: int, angle_count: int) -> list[dict]:
-    lookup = {(row["c_index"], row["angle_index"]): row for row in rows}
+def nominate_cells(rows: list[dict], parameter_count: int, angle_count: int) -> list[dict]:
+    lookup = {
+        (row.get("parameter_index", row.get("c_index")), row["angle_index"]): row
+        for row in rows
+    }
     cells = []
-    for c_index in range(c_count - 1):
+    for parameter_index in range(parameter_count - 1):
         for angle_index in range(angle_count):
             corners = [
-                lookup[(c_index, angle_index)],
-                lookup[(c_index, (angle_index + 1) % angle_count)],
-                lookup[(c_index + 1, (angle_index + 1) % angle_count)],
-                lookup[(c_index + 1, angle_index)],
+                lookup[(parameter_index, angle_index)],
+                lookup[(parameter_index, (angle_index + 1) % angle_count)],
+                lookup[(parameter_index + 1, (angle_index + 1) % angle_count)],
+                lookup[(parameter_index + 1, angle_index)],
             ]
             if not all(row["status"] in {"completed", "candidate"} for row in corners):
                 continue
@@ -324,10 +344,14 @@ def nominate_cells(rows: list[dict], c_count: int, angle_count: int) -> list[dic
                 crossing_times = [row["inward_crossing_time_after_exit"] for row in corners]
                 cells.append(
                     {
-                        "lower_c_index": c_index,
+                        "lower_parameter_index": parameter_index,
                         "lower_angle_index": angle_index,
                         "corner_indices": [
-                            [row["c_index"], row["angle_index"]] for row in corners
+                            [
+                                row.get("parameter_index", row.get("c_index")),
+                                row["angle_index"],
+                            ]
+                            for row in corners
                         ],
                         "stable_branch_sign": next(iter(branch_signs)),
                         "hull_contains_zero": hull_contains_zero,
@@ -362,16 +386,15 @@ def main() -> int:
     source_receipts = validate_source_receipts(manifest)
 
     fixed = manifest["fixed_parameters"]
-    c_grid = manifest["c_grid"]
-    c_values = np.linspace(
-        float(c_grid["minimum"]),
-        float(c_grid["maximum"]),
-        int(c_grid["count"]),
+    axis = scan_axis(manifest)
+    grid = parameter_grid(manifest)
+    parameter_values = np.linspace(
+        float(grid["minimum"]),
+        float(grid["maximum"]),
+        int(grid["count"]),
         dtype=np.float64,
     )
-    reference_parameters = RosslerParameters(
-        a=float(fixed["a"]), b=float(fixed["b"]), c=float(c_grid["reference"])
-    )
+    reference_parameters = parameters_at(manifest, float(grid["reference"]))
     _reference_equilibrium, _reference_values, reference_stable, reference_plane = eigenspaces(
         reference_parameters
     )
@@ -380,17 +403,19 @@ def main() -> int:
     angle_count = int(manifest["angle_count"])
     offset = float(manifest["angle_offset_fraction"])
     angles = 2.0 * np.pi * (np.arange(angle_count, dtype=np.float64) + offset) / angle_count
-    for c_index, c_value_raw in enumerate(c_values):
-        c_value = float(c_value_raw)
-        parameters = RosslerParameters(a=float(fixed["a"]), b=float(fixed["b"]), c=c_value)
+    for parameter_index, parameter_value_raw in enumerate(parameter_values):
+        parameter_value = float(parameter_value_raw)
+        parameters = parameters_at(manifest, parameter_value)
         equilibrium, eigenvalues, stable, plane = align_local_geometry(
             parameters, reference_stable, reference_plane
         )
         targets = stable_manifold_targets(parameters, equilibrium, stable, manifest)
         parameter_rows.append(
             {
-                "c_index": c_index,
-                "c": c_value,
+                "parameter_index": parameter_index,
+                "parameter_value": parameter_value,
+                f"{axis}_index": parameter_index,
+                axis: parameter_value,
                 "equilibrium": equilibrium.tolist(),
                 "eigenvalues": [
                     {"real": float(value.real), "imag": float(value.imag)} for value in eigenvalues
@@ -403,9 +428,9 @@ def main() -> int:
         for angle_index, angle in enumerate(angles):
             tasks.append(
                 (
-                    c_index,
+                    parameter_index,
                     angle_index,
-                    c_value,
+                    parameter_value,
                     float(angle),
                     manifest,
                     targets,
@@ -422,7 +447,7 @@ def main() -> int:
     completed = [row for row in rows if row["status"] in {"completed", "candidate"}]
     candidates = [row for row in completed if row["candidate"]]
     closest = min(completed, key=lambda row: row["chord_mismatch"]) if completed else None
-    nominated_cells = nominate_cells(rows, len(c_values), angle_count)
+    nominated_cells = nominate_cells(rows, len(parameter_values), angle_count)
     degree_cells = [cell for cell in nominated_cells if cell["winding_number"] != 0]
     continuity_limit = float(manifest.get("continuity", {}).get("maximum_corner_crossing_time_spread", np.inf))
     continuous_degree_cells = [
@@ -444,7 +469,7 @@ def main() -> int:
             == 1
             for row in parameter_rows
         ),
-        "row_count": len(rows) == len(c_values) * angle_count,
+        "row_count": len(rows) == len(parameter_values) * angle_count,
         "exit_fraction": sum(row.get("departure_success", False) for row in rows) / len(rows)
         >= float(acceptance["minimum_exit_fraction"]),
         "return_crossing_fraction": len(completed) / len(rows)
@@ -479,7 +504,8 @@ def main() -> int:
             "workers": workers,
         },
         "fixed_parameters": fixed,
-        "c_values": c_values.tolist(),
+        "scan_axis": axis,
+        "parameter_values": parameter_values.tolist(),
         "angles": angles.tolist(),
         "matching_radius": manifest["matching_radius"],
         "parameter_geometry": parameter_rows,
@@ -487,7 +513,8 @@ def main() -> int:
         "completed_return_count": len(completed),
         "candidate_count": len(candidates),
         "candidate_indices": [
-            [row["c_index"], row["angle_index"]] for row in candidates
+            [row.get("parameter_index", row.get("c_index")), row["angle_index"]]
+            for row in candidates
         ],
         "closest_match": closest,
         "nominated_cell_count": len(nominated_cells),
@@ -512,6 +539,7 @@ def main() -> int:
         "passed": all(checks.values()),
         "claim_scope": manifest["claim_scope"],
     }
+    output[f"{axis}_values"] = parameter_values.tolist()
     atomic_write(args.output, canonical_json(output))
     print(json.dumps(output, sort_keys=True), flush=True)
     return 0 if output["passed"] else 1

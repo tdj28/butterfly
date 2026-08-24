@@ -80,6 +80,17 @@ enlarges the sphere to `0.025`, doubles angular resolution, halves `c` spacing,
 and builds winding plus a one-time-unit continuity gate directly into the
 scan.
 
+## EXP-335 larger-sphere result and orthogonal slice
+
+EXP-335 passes 2,496 rows with 977 inward returns, clearing its coverage gate
+at `0.3914`. It finds 141 direct near matches and a best chord mismatch of
+`0.00129410` at `c=10.3189`, consistent with the radius-`0.02` minimum, but
+all four componentwise hull cells have winding zero. No fixed-`a` root cell is
+nominated. The source labels both coordinates approximate and supplies no
+endpoint table, so EXP-336 prospectively fixes the printed `c=10.3084` and
+scans `a` across `[0.1758,0.1838]` under identical radius, resolution, degree,
+and continuity rules.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`

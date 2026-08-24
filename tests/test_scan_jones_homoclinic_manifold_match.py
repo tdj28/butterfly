@@ -4,6 +4,8 @@ from butterfly import RosslerParameters
 from scripts.scan_jones_homoclinic_manifold_match import (
     SCHEMA,
     align_local_geometry,
+    parameters_at,
+    scan_axis,
     stable_manifold_targets,
     tangent_basis,
 )
@@ -12,6 +14,16 @@ from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces
 
 def test_manifold_match_schema_is_versioned():
     assert SCHEMA == "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1"
+
+
+def test_generic_a_axis_preserves_fixed_b_and_c():
+    manifest = {
+        "scan_axis": "a",
+        "fixed_parameters": {"b": 0.2, "c": 10.3084},
+    }
+    assert scan_axis(manifest) == "a"
+    parameters = parameters_at(manifest, 0.181)
+    assert (parameters.a, parameters.b, parameters.c) == (0.181, 0.2, 10.3084)
 
 
 def test_local_geometry_alignment_preserves_orientations():

@@ -591,6 +591,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-335-jones-homoclinic-radius025-fine-band.md`](experiments/EXP-335-jones-homoclinic-radius025-fine-band.md):
   larger-sphere, finer parameter-angle scan with degree and return-continuity
   nomination built into the prospective result.
+- [`experiments/EXP-336-jones-homoclinic-fixed-c-a-band.md`](experiments/EXP-336-jones-homoclinic-fixed-c-a-band.md):
+  orthogonal fixed-`c` scan of the other rounded coordinate with identical
+  nonlinear manifold and degree gates.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

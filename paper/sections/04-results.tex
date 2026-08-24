@@ -71,6 +71,17 @@ uniqueness.
   \label{fig:homoclinic-angle-scan}
 \end{figure}
 
+Parameter-aware scans then replace stable-eigenvector alignment with direct
+matching to both nonlinear local stable-manifold branches on common spheres.
+At fixed $a=0.1798$, a radius-$0.02$ scan produces 25 direct near matches;
+a radius-$0.025$ successor doubles angular resolution, halves the parameter
+spacing, and records 977 inward returns over 2,496 launches.  Its best chord
+mismatch is $0.00129410$ near $c=10.3189$, close to the smaller-sphere
+minimum.  However, a prospective winding-number audit rejects every
+four-corner residual hull at degree zero, including return-time-continuous
+cells.  The repeatable near miss motivates an orthogonal parameter slice, but
+does not yet supply a stable/unstable manifold intersection.
+
 \subsection{Analytic small-equilibrium Hopf locus}
 
 Writing an equilibrium as $(az,-z,z)$ and defining $r=b/z=c-az$, the

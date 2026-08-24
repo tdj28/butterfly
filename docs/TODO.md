@@ -855,6 +855,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   radius-`0.02` returns. Run frozen EXP-335's radius-`0.025`, 13-by-192 fine
   band with in-scan degree and return-time gates. A continuous nonzero-degree
   cell may seed a coupled solve; direct distance candidates alone may not.
+  EXP-335 passes with `39.14%` return coverage and 141 direct near matches but
+  again zero degree cells; its `0.00129410` minimum agrees with the smaller
+  sphere. Run frozen EXP-336's orthogonal fixed-`c=10.3084` scan over
+  `a in [0.1758,0.1838]`. This tests the second rounding direction before
+  widening to a full two-parameter curve search.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

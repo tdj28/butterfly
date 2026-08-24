@@ -1,6 +1,6 @@
 # EXP-335 — Radius-0.025 fine homoclinic band
 
-Status: frozen; not yet run
+Status: passed; no nonzero-degree cell on the fixed-a band
 
 EXP-333 finds 25 direct near matches on the radius-`0.02` sphere, but EXP-334
 shows that all three coarse componentwise hull cells have residual winding
@@ -21,3 +21,17 @@ shrinking-radius reproduction, and independent integration.
 
 Manifest:
 [`../../experiments/manifests/EXP-335-jones-homoclinic-radius025-fine-band.json`](../../experiments/manifests/EXP-335-jones-homoclinic-radius025-fine-band.json).
+
+The 2,496-row scan completes in `221.941` seconds. It records 977 inward
+returns, a `0.3914` coverage fraction, and 141 direct chord candidates. The
+closest row lies at `c=10.3189` with mismatch `0.0012941009645505146`, closely
+agreeing in absolute scale with EXP-333's radius-`0.02` minimum.
+
+Four cells meet the componentwise hull rule, but every residual polygon again
+has winding number zero. No coupled solve is nominated on this fixed
+`a=0.1798` band. Because Jones reports both coordinates only approximately,
+EXP-336 rotates the test: it fixes `c=10.3084` and scans the orthogonal `a`
+direction with the same radius, angle count, winding, and continuity rules.
+
+Tracked summary: [`receipts/EXP-335.json`](receipts/EXP-335.json). Raw receipt
+SHA-256: `1db45473002963fa34142451fc29ca69519cdaf61afe406ca53feacfd1f6dfa6`.
