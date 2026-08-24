@@ -246,11 +246,25 @@ The 64-arc Radau recovery lowers the maximum defect from `2.51470e-8` to
 missing the unchanged gate by `18.45%`. The monotone conditioning improvement
 supports one final 128-arc recovery; no threshold is relaxed.
 
+## EXP-350 second continuation point qualifies
+
+The hash-bound 128-arc Radau successor passes at maximum block defect
+`6.12599e-9` and gives `a=0.18069045562126884` at `c=10.3144`. It preserves
+the 64-arc source parameter within `1.12e-12`; all prospective checks pass.
+
+The qualified EXP-347-to-EXP-350 secant is `da/dc=-0.3255310084`, extremely
+close to the preceding `-0.3255142594`. It predicts `a=0.1798` at
+`c=10.3171353942`. This is now a well-controlled direct-solve target, but the
+crossing itself remains open until a boundary-value solution at the historical
+fixed-`a` path passes the unchanged root gate.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
 [`../experiments/receipts/EXP-340.json`](../experiments/receipts/EXP-340.json).
 The independent root reproduction is tracked in
 [`../experiments/receipts/EXP-342.json`](../experiments/receipts/EXP-342.json).
+The second qualified continuation point is tracked in
+[`../experiments/receipts/EXP-350.json`](../experiments/receipts/EXP-350.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+  "experiment_id": "EXP-350",
+  "passed": true,
+  "source_commit": "c8f22b776d70efa3e199a07630834f83b5f5d30e",
+  "manifest_sha256": "807f91af10acc069270e48b6de0f0a9e6edd6d7a174d809dad469533b33f332d",
+  "source_receipt_sha256": "439d3739995a4d9e6d0ecf71cadf87a010877706117bd34569c963a754948329",
+  "raw_artifact": "artifacts/EXP-350/receipt.json",
+  "raw_artifact_bytes": 31733,
+  "raw_artifact_sha256": "f9e93a9e593f8c722c97c7fc2fd16a48f8bcc882ae3f18911bf0850e49909b04",
+  "elapsed_seconds": 380.9575137910433,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "fixed_c": 10.3144,
+  "segment_count": 128,
+  "initial_residual_norm": 1.7558020450151098e-8,
+  "initial_maximum_block_residual": 1.1844777856244658e-8,
+  "final_residual_norm": 1.1197741849640643e-8,
+  "final_maximum_block_residual": 6.125992914961101e-9,
+  "final_variables": {
+    "angle": 2.279624002250611,
+    "a": 0.18069045562126884,
+    "total_flight_time": 234.485832252774
+  },
+  "final_normalized_boundary_margins": [
+    0.9999465907011768,
+    0.9999999988750388,
+    0.9852916697472045
+  ],
+  "source_root_differences": {
+    "a": 1.1249612352770555e-12,
+    "angle": 0.007354165126397749,
+    "total_flight_time": 0.0002670464941161299
+  },
+  "root_nominated": true,
+  "classification": "multiple_shooting_root_nominated",
+  "failed_checks": [],
+  "secant_from_exp347": {
+    "da_dc": -0.3255310084219557,
+    "predicted_c_at_a_0_1798": 10.317135394165936
+  },
+  "interpretation": "The hash-bound 128-arc recovery passes the unchanged 1e-8 maximum-block gate and qualifies the second local continuation point. Its secant agrees closely with EXP-347 and prospectively targets the historical fixed-a intersection near c=10.3171354; that intersection still requires a direct solve."
+}

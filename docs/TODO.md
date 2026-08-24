@@ -904,8 +904,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   recovery from its exact nodes before solving the fixed-`a` intersection.
   EXP-349's 64 arcs lower the defect to `1.18448e-8` and preserve `a` within
   `3.13e-14`, but still miss the gate. Preserve the failure and freeze a
-  hash-bound 128-arc successor without relaxing thresholds. EXP-350 is frozen
-  against the exact raw receipt; run it locally.
+  hash-bound 128-arc successor without relaxing thresholds. EXP-350 passes at
+  `6.12599e-9`, qualifying the second continuation point at
+  `(a,c)=(0.1806904556213,10.3144)`. Its secant slope `-0.325531` agrees with
+  EXP-347 and predicts the historical fixed-`a` crossing at
+  `c=10.3171353942`. Freeze and run a direct hash-bound boundary-value solve at
+  that prospective coordinate; interpolation alone cannot qualify the
+  intersection.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

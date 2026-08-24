@@ -25,6 +25,13 @@ beyond four-decimal rounding. The natural next test is to continue the
 homoclinic curve in `(a,c)` and determine whether it crosses the historical
 fixed-`a=0.1798` path near the earlier scan minimum around `c=10.319`.
 
+Two qualified local continuation steps now sharpen that test. EXP-347 passes
+at `(a,c)=(0.1819925796550,10.3104)`, and EXP-350 passes at
+`(0.1806904556213,10.3144)`. Their successive secant slopes are
+`-0.3255142594` and `-0.3255310084`, predicting the historical-path
+intersection near `c=10.3171354`. This agreement supports a smooth local root
+curve but does not replace the required direct intersection solve.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -33,4 +40,5 @@ replay diverges because the orbit is extremely unstable; the qualified object
 is the matched boundary-value solution. Continuation, an explicit phase/gauge
 condition, and eventually validated numerics remain required.
 
-Evidence: EXP-341 through EXP-346 and their hash-bound compact receipts.
+Evidence: EXP-341 through EXP-347 and EXP-350 with their hash-bound compact
+receipts.
