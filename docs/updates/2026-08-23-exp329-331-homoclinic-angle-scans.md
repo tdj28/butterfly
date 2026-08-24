@@ -138,6 +138,23 @@ physical endpoint problem: it seeds segmented multiple shooting from
 EXP-340's final angle, `a`, and flight time, and matches a chain of short arcs
 between the same unstable departure and nonlinear stable-manifold target.
 
+## EXP-341 first segmented root nomination
+
+The 16-arc solve reduces the maximum block defect to `2.66211e-9`, below the
+prospective `1e-8` gate, at `a=0.18264360814275696`. This is the first numerical
+root nomination in the Jones homoclinic chain. It remains formally failed only
+because the optimizer continues beyond the first gated root and exhausts all
+60 evaluations rather than reporting termination.
+
+The same solution diverges under a single 234-time-unit initial-value replay,
+reaching endpoint mismatch `2.05988`. That is expected for an unstable orbit:
+the multiple-shooting Jacobian itself has condition ratio near `1.51e10`, and
+the recorded replay discrepancy grows monotonically across the nodes. The
+matched-arc residual is the relevant boundary-value diagnostic; an independent
+segmented solver is the required cross-check. EXP-341 therefore strengthens
+Jones's homoclinic claim from an unresolved near miss to a precise candidate,
+but does not yet qualify it or its uniqueness.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
