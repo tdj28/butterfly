@@ -1,0 +1,88 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+  "experiment_id": "EXP-344",
+  "source_receipt": {
+    "path": "docs/experiments/receipts/EXP-343.json",
+    "sha256": "bf0ea51ed8dde8a4c0a3e301bf722710c43b42c5dcf20119d31fb5b4690e3db7",
+    "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+    "experiment_id": "EXP-343",
+    "passed": false,
+    "classification": "multiple_shooting_unresolved",
+    "failed_checks": ["source_root_agreement"],
+    "segment_count": 32,
+    "expected": {
+      "root_nominated": false,
+      "matching_radius": 0.025,
+      "final_maximum_block_residual": 5.497082990676526e-9
+    }
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "reference_a": 0.1798,
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.025,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 32,
+  "seed_mode": "bound_nodes",
+  "search_center": {
+    "angle": 2.4707317223544725,
+    "a": 0.18255,
+    "total_flight_time": 234.2623011851337
+  },
+  "search_scales": {
+    "angle": 0.15,
+    "a": 0.00025,
+    "total_flight_time": 5.0
+  },
+  "normalized_bounds": {
+    "lower": [-1.0, -1.0, -1.0],
+    "upper": [1.0, 1.0, 1.0]
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "independent_integrator": {
+    "source_method": "Radau",
+    "qualification_method": "Radau",
+    "segment_count_multiplier": 1,
+    "changed_geometry": "prospectively_widened_nuisance_angle_gauge"
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "segment_a_sensitivity": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_a_sensitivity": "absolute_central",
+    "a_absolute_step": 1e-7
+  },
+  "optimization": {
+    "method": "bound_initial_root_validation",
+    "jacobian": "dense_analytic_segmented",
+    "x_scale": "jac",
+    "accept_initial_root": true,
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 1
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 1e-8,
+    "maximum_root_block_residual": 1e-8,
+    "minimum_normalized_boundary_margin": 0.001,
+    "allow_root_gate_as_termination": true,
+    "source_root_agreement": {
+      "maximum_a_difference": 0.000002,
+      "maximum_angle_difference": 0.2,
+      "maximum_total_flight_time_difference": 1.0
+    }
+  },
+  "claim_scope": "failure-bound nuisance-gauge validation of EXP-343's exact radius-0.025 matched nodes: retain fixed b and c, stable branch, unstable seed, radius, 32 Radau nodes, a box, integrator settings, 1e-8 residual gate, and 2e-6 a-persistence gate; widen only the nearly null departure-angle nuisance box from half-width 0.0327249 to 0.15 and prospectively validate the bound seed without further optimization; passing qualifies one radius-persistence step but does not validate Jones's printed a coordinate, establish a radius-to-zero limit or uniqueness, or explain global hub topology"
+}

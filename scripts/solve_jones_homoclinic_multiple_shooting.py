@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 import scipy
 from scipy.integrate import solve_ivp
-from scipy.optimize import least_squares
+from scipy.optimize import OptimizeResult, least_squares
 
 from butterfly import RosslerParameters, SolverConfig, rossler_rhs
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
@@ -319,19 +319,36 @@ def main() -> int:
     initial_residual, _initial_jacobian, initial_details = compute(initial_variables)
     optimization = manifest["optimization"]
     started = time.perf_counter()
-    result = least_squares(
-        lambda value: compute(value)[0],
-        initial_variables,
-        jac=lambda value: compute(value)[1],
-        bounds=(lower, upper),
-        method="trf",
-        x_scale="jac",
-        ftol=float(optimization["ftol"]),
-        xtol=float(optimization["xtol"]),
-        gtol=float(optimization["gtol"]),
-        max_nfev=int(optimization["maximum_function_evaluations"]),
-        verbose=0,
-    )
+    if optimization.get("accept_initial_root", False):
+        if (
+            initial_details["maximum_block_norm"]
+            > float(manifest["acceptance"]["maximum_root_block_residual"])
+        ):
+            raise SystemExit("bound initial seed does not satisfy the frozen root gate")
+        result = OptimizeResult(
+            x=initial_variables,
+            success=True,
+            status=4,
+            message="Bound initial seed satisfies the frozen root gate.",
+            cost=0.5 * float(np.dot(initial_residual, initial_residual)),
+            optimality=float(np.linalg.norm(_initial_jacobian.T @ initial_residual, ord=np.inf)),
+            nfev=1,
+            njev=1,
+        )
+    else:
+        result = least_squares(
+            lambda value: compute(value)[0],
+            initial_variables,
+            jac=lambda value: compute(value)[1],
+            bounds=(lower, upper),
+            method="trf",
+            x_scale="jac",
+            ftol=float(optimization["ftol"]),
+            xtol=float(optimization["xtol"]),
+            gtol=float(optimization["gtol"]),
+            max_nfev=int(optimization["maximum_function_evaluations"]),
+            verbose=0,
+        )
     elapsed = time.perf_counter() - started
     final_residual, final_jacobian, final_details = compute(result.x)
     final_nodes = result.x[: layout["node_size"]].reshape(layout["node_count"], 3)
