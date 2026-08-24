@@ -78,7 +78,18 @@ def main() -> int:
             )
         )
     receipts = [row[1] for row in bound]
-    if [row["matching_radius"] for row in receipts] != [0.03, 0.025, 0.02]:
+    expected_ids = ["EXP-342", "EXP-344", "EXP-346"]
+    expected_radii = [0.03, 0.025, 0.02]
+    if [row["experiment_id"] for row in receipts] != expected_ids:
+        raise SystemExit("unexpected experiment sequence")
+    radii = np.asarray(
+        [
+            row.get("matching_radius", expected_radius)
+            for row, expected_radius in zip(receipts, expected_radii, strict=True)
+        ],
+        dtype=np.float64,
+    )
+    if not np.array_equal(radii, np.asarray(expected_radii)):
         raise SystemExit("unexpected radius sequence")
 
     root = receipts[-1]
@@ -165,7 +176,6 @@ def main() -> int:
     colorbar = figure.colorbar(xy_collection, ax=[axis_xy, axis_xz], shrink=0.82)
     colorbar.set_label("flight time")
 
-    radii = np.asarray([row["matching_radius"] for row in receipts])
     a_values = np.asarray([row["final_variables"]["a"] for row in receipts])
     residuals = np.asarray([row["final_maximum_block_residual"] for row in receipts])
     axis_parameter.plot(radii, a_values, "o-", color="#2166ac", linewidth=1.5)
