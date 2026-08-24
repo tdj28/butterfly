@@ -209,6 +209,19 @@ and manifold equations persist, while only the gauge coordinate drifts. The
 exact nodes will be validated prospectively under a still wider angle box with
 no further optimization.
 
+## EXP-346 three-radius sequence qualifies
+
+The exact radius-`0.02` nodes pass at maximum defect `5.60724e-9` and are
+interior under the corrected gauge. Across radii `0.03`, `0.025`, and `0.02`,
+the inferred `a` remains near `0.182643608174` to about `1e-12`; independent
+DOP853/Radau and 16/32-arc representations agree.
+
+This now strongly qualifies Jones's proposed homoclinic mechanism near the hub
+height. It does not validate the printed point: at `c=10.3084`, the root lies
+about `0.00284361` above printed `a=0.1798`. The next computation continues the
+homoclinic curve toward the historical fixed-`a` path and tests whether it
+crosses near the fixed-`a` scan minimum around `c=10.319`.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

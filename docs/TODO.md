@@ -894,8 +894,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-345 reaches `5.60724e-9` and preserves `a` within `4.34e-13`, but again
   hits the nuisance-angle boundary and is preserved as failed. Freeze a wider
   exact-node gauge validation. EXP-346 is frozen with no further optimization;
-  run it, then freeze local continuation of the resulting root before any
-  bounded uniqueness statement.
+  it passes at `5.60724e-9`, completing a three-radius root sequence with `a`
+  stable to about `1e-12`. Freeze local continuation of the homoclinic curve
+  toward fixed `a=0.1798` before any bounded uniqueness statement.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

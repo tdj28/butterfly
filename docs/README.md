@@ -624,6 +624,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-346-jones-homoclinic-radius020-gauge-validation.md`](experiments/EXP-346-jones-homoclinic-radius020-gauge-validation.md):
   exact-node one-evaluation validation of the radius-`0.02` match under a
   corrected nuisance-angle gauge.
+- [`findings/FND-108-jones-homoclinic-revised-coordinate.md`](findings/FND-108-jones-homoclinic-revised-coordinate.md):
+  qualifies the proposed homoclinic mechanism numerically across two solvers,
+  two segmentations, and three radii at a revised fixed-`c` coordinate.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

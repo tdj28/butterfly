@@ -1,6 +1,6 @@
 # EXP-346 — Radius-0.02 nuisance-gauge validation
 
-Status: frozen; not yet run
+Status: passed; three-radius numerical homoclinic sequence qualified
 
 EXP-345 solves the radius-`0.02` matching equations below `1e-8` and preserves
 `a` to `4.34e-13`, but its nearly null departure-angle coordinate reaches the
@@ -18,3 +18,19 @@ Jones's printed coordinate, or uniqueness.
 
 Manifest:
 [`../../experiments/manifests/EXP-346-jones-homoclinic-radius020-gauge-validation.json`](../../experiments/manifests/EXP-346-jones-homoclinic-radius020-gauge-validation.json).
+
+## Result
+
+The exact nodes reproduce at maximum block defect `5.60724e-9` and have
+minimum normalized boundary margin `0.62557`. All gates pass without further
+optimization. The parameter `a=0.18264360817372402` differs from the
+radius-`0.025` source by `4.34e-13`.
+
+Together with EXP-342 and EXP-344, this establishes a three-radius numerical
+root sequence under independent DOP853/Radau and 16/32-arc representations.
+It strongly qualifies a homoclinic connection at the revised coordinate, not
+the paper's printed `a=0.1798`, and leaves curve continuation and uniqueness
+open.
+
+Tracked summary: [`receipts/EXP-346.json`](receipts/EXP-346.json). Raw receipt
+SHA-256: `102f62fb9206b22e409977bf1ab8f5856344caa128a789c9e4de8499bb0f8265`.
