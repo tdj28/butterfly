@@ -878,9 +878,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   seeded from its interior final trajectory with analytic segment variational
   derivatives and the unchanged global box. It nominates the first root at
   maximum block defect `2.66211e-9`, but is preserved with a sole termination
-  failure after continuing to all 60 evaluations. Freeze an independent
-  32-arc Radau correction by splitting the matched EXP-341 arcs, not by direct
-  long replay. Then require shrinking-radius persistence and continuation
+  failure after continuing to all 60 evaluations. EXP-342 freezes an
+  independent 32-arc Radau correction by splitting the matched EXP-341 arcs,
+  not by direct long replay, and adds prospective source-root agreement gates.
+  Run it locally. Then require shrinking-radius persistence and continuation
   before qualification.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.

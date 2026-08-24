@@ -67,6 +67,24 @@ def block_norms(residual: np.ndarray) -> np.ndarray:
     return np.linalg.norm(residual.reshape(-1, 3), axis=1)
 
 
+def interleave_split_nodes(
+    source_nodes: np.ndarray, midpoint_nodes: np.ndarray
+) -> np.ndarray:
+    """Return internal nodes after splitting every bound source arc in half."""
+    source_nodes = np.asarray(source_nodes, dtype=np.float64)
+    midpoint_nodes = np.asarray(midpoint_nodes, dtype=np.float64)
+    if source_nodes.ndim != 2 or source_nodes.shape[1:] != (3,):
+        raise ValueError("source nodes must have shape (segment_count - 1, 3)")
+    if midpoint_nodes.shape != (len(source_nodes) + 1, 3):
+        raise ValueError("one midpoint is required for every source segment")
+    rows = []
+    for index, midpoint in enumerate(midpoint_nodes):
+        rows.append(midpoint)
+        if index < len(source_nodes):
+            rows.append(source_nodes[index])
+    return np.asarray(rows, dtype=np.float64)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -138,22 +156,47 @@ def main() -> int:
         target = np.asarray(target_rows[0]["state"], dtype=np.float64)
         return initial, target, angle_derivative
 
-    seed_initial, seed_target, _seed_angle_derivative = geometry(seed_a, seed_angle)
+    seed_initial, _seed_target, _seed_angle_derivative = geometry(seed_a, seed_angle)
     seed_parameters = RosslerParameters(
         a=seed_a, b=float(fixed["b"]), c=float(fixed["c"])
     )
-    seed_segment_time = seed_time / segment_count
-    seed_nodes = []
-    current = seed_initial
-    for _index in range(segment_count - 1):
-        current, _transition, _sensitivity = integrate_segment(
-            current,
-            seed_segment_time,
-            seed_parameters,
-            solver,
-            continuation_parameter="a",
-        )
-        seed_nodes.append(current)
+    seed_mode = manifest.get("seed_mode", "sequential_source_trajectory")
+    if seed_mode == "sequential_source_trajectory":
+        seed_segment_time = seed_time / segment_count
+        seed_nodes = []
+        current = seed_initial
+        for _index in range(segment_count - 1):
+            current, _transition, _sensitivity = integrate_segment(
+                current,
+                seed_segment_time,
+                seed_parameters,
+                solver,
+                continuation_parameter="a",
+            )
+            seed_nodes.append(current)
+        seed_nodes = np.asarray(seed_nodes, dtype=np.float64)
+    elif seed_mode == "split_bound_segments":
+        source_segment_count = int(binding["segment_count"])
+        if segment_count != 2 * source_segment_count:
+            raise SystemExit("split seed requires exactly twice the source segments")
+        source_nodes = np.asarray(source_receipt["final_nodes"], dtype=np.float64)
+        if source_nodes.shape != (source_segment_count - 1, 3):
+            raise SystemExit("bound source-node shape mismatch")
+        source_starts = np.vstack((seed_initial, source_nodes))
+        half_segment_time = seed_time / segment_count
+        midpoint_nodes = []
+        for start in source_starts:
+            midpoint, _transition, _sensitivity = integrate_segment(
+                start,
+                half_segment_time,
+                seed_parameters,
+                solver,
+                continuation_parameter="a",
+            )
+            midpoint_nodes.append(midpoint)
+        seed_nodes = interleave_split_nodes(source_nodes, midpoint_nodes)
+    else:
+        raise SystemExit("unsupported multiple-shooting seed mode")
     initial_variables = np.r_[
         np.asarray(seed_nodes, dtype=np.float64).ravel(), seed_time, seed_a, seed_angle
     ]
@@ -324,6 +367,11 @@ def main() -> int:
         and np.min(boundary_margins)
         >= float(acceptance["minimum_normalized_boundary_margin"])
     )
+    source_root_differences = {
+        "a": abs(final_a - seed_a),
+        "angle": abs(final_angle - seed_angle),
+        "total_flight_time": abs(final_time - seed_time),
+    }
     checks = {
         "failed_source_preserved": bool(
             source_receipt["passed"] is False
@@ -333,7 +381,13 @@ def main() -> int:
             initial_details["maximum_block_norm"]
             <= float(acceptance["maximum_initial_block_residual"])
         ),
-        "optimizer_terminated": int(result.status) != 0,
+        "optimizer_terminated_or_root_gate": bool(
+            int(result.status) != 0
+            or (
+                manifest["acceptance"].get("allow_root_gate_as_termination", False)
+                and root_nominated
+            )
+        ),
         "evaluation_budget": int(result.nfev)
         <= int(optimization["maximum_function_evaluations"]),
         "finite_result": bool(
@@ -344,6 +398,15 @@ def main() -> int:
         "positive_flight_time": final_time > 0.0,
         "segment_count": len(final_details["block_norms"]) == segment_count,
     }
+    source_agreement = acceptance.get("source_root_agreement")
+    if source_agreement is not None:
+        checks["source_root_agreement"] = bool(
+            source_root_differences["a"] <= float(source_agreement["maximum_a_difference"])
+            and source_root_differences["angle"]
+            <= float(source_agreement["maximum_angle_difference"])
+            and source_root_differences["total_flight_time"]
+            <= float(source_agreement["maximum_total_flight_time_difference"])
+        )
     output = {
         "schema": manifest["output_schema"],
         "experiment_id": manifest["experiment_id"],
@@ -365,6 +428,7 @@ def main() -> int:
         "stable_branch_sign": stable_branch_sign,
         "matching_radius": manifest["matching_radius"],
         "segment_count": segment_count,
+        "seed_mode": seed_mode,
         "seed_variables": {
             "angle": seed_angle,
             "a": seed_a,
@@ -379,6 +443,7 @@ def main() -> int:
         },
         "final_normalized_variables": normalized_globals.tolist(),
         "final_normalized_boundary_margins": boundary_margins.tolist(),
+        "source_root_differences": source_root_differences,
         "final_nodes": final_nodes.tolist(),
         "final_residual_norm": final_details["residual_norm"],
         "final_maximum_block_residual": final_details["maximum_block_norm"],
@@ -401,6 +466,7 @@ def main() -> int:
             "njev": None if result.njev is None else int(result.njev),
         },
         "jacobian_policy": "analytic_segment_transitions_with_central_endpoint_a_derivative",
+        "independent_integrator": manifest.get("independent_integrator"),
         "jacobian_singular_values": singular_values.tolist(),
         "history": history,
         "root_nominated": root_nominated,

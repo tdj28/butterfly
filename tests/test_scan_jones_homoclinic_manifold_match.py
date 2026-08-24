@@ -17,6 +17,7 @@ from scripts.solve_jones_homoclinic_single_shooting import (
 from scripts.solve_jones_homoclinic_multiple_shooting import (
     SCHEMA as MULTIPLE_SHOOTING_SCHEMA,
     block_norms,
+    interleave_split_nodes,
     variable_layout,
 )
 
@@ -46,6 +47,26 @@ def test_homoclinic_multiple_shooting_layout_is_square():
 def test_homoclinic_matching_block_norms_preserve_segment_order():
     residual = np.array([3.0, 4.0, 0.0, 0.0, 0.0, 12.0])
     assert np.array_equal(block_norms(residual), np.array([5.0, 12.0]))
+
+
+def test_homoclinic_split_seed_interleaves_midpoints_and_bound_nodes():
+    source = np.array([[10.0, 11.0, 12.0], [20.0, 21.0, 22.0]])
+    midpoints = np.array(
+        [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]]
+    )
+    observed = interleave_split_nodes(source, midpoints)
+    assert np.array_equal(
+        observed,
+        np.array(
+            [
+                [1.0, 2.0, 3.0],
+                [10.0, 11.0, 12.0],
+                [4.0, 5.0, 6.0],
+                [20.0, 21.0, 22.0],
+                [7.0, 8.0, 9.0],
+            ]
+        ),
+    )
 
 
 def test_generic_a_axis_preserves_fixed_b_and_c():
