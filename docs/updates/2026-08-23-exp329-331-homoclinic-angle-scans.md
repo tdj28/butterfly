@@ -184,6 +184,18 @@ The result is favorable to the invariant-manifold interpretation but exposes a
 bad gauge choice. The next successor widens only the nuisance angle/time box,
 keeps the exact matched nodes, and retains the parameter and residual gates.
 
+## EXP-344 first shrinking-radius step passes
+
+The exact EXP-343 nodes pass a one-evaluation validation at maximum defect
+`5.49708e-9` under the prospectively widened nuisance gauge. No further
+optimization is allowed in this audit. The root is interior and preserves
+`a=0.18264360817415815`, only `1.30e-13` from the radius-`0.03` value.
+
+This qualifies persistence across radii `0.03` and `0.025`. It strengthens the
+case that the root is an invariant-manifold connection rather than a
+finite-radius endpoint coincidence; radius `0.02` remains the next frozen
+test.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

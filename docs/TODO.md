@@ -888,8 +888,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   ill-conditioned angle/time gauge hits the angle boundary and exceeds its
   nuisance agreement limits. EXP-344 preserves the failure, widens only the
   angle gauge, and freezes a one-evaluation validation of the exact matched
-  seed with unchanged `a` and residual gates. Run it before proceeding to
-  radius `0.02`.
+  seed with unchanged `a` and residual gates. It passes at `5.49708e-9`,
+  qualifying persistence from radius `0.03` to `0.025`. Freeze the radius
+  `0.02` correction with the same wider gauge and parameter-invariance gate.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
