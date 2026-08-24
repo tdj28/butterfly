@@ -310,6 +310,12 @@ Nine blocks remain above the gate and optimizer optimality is still
 `9.76e-7`; EXP-356 preserves every exact node for a second same-`c`
 correction.
 
+## EXP-356 halves the crossing defect again
+
+The second exact-node correction reaches maximum defect `4.10058e-6` and
+diagnostic `a=0.1798190580`, retaining `0.93883` node margin. It remains failed
+under the unchanged gate; EXP-357 binds its exact nodes for the next correction.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include

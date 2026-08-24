@@ -928,8 +928,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   failed after reducing the defect to `3.83423e-5`; it remains interior and
   its optimizer optimality `2.85e-6` shows active descent. EXP-355 lowers the
   defect again to `8.30202e-6` and moves to `a=0.1798386481`, with active
-  descent and nine failing blocks. EXP-356 freezes the next exact-node same-`c`
-  correction without changing any gate; run it locally.
+  descent and nine failing blocks. EXP-356 halves the defect again to
+  `4.10058e-6` and moves to `a=0.1798190580`. EXP-357 freezes the next exact-node
+  same-`c` correction without changing any gate; run it locally.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

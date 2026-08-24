@@ -1,0 +1,29 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+  "experiment_id": "EXP-356",
+  "passed": false,
+  "source_commit": "aa649e78a8b2efeb57b882ac1f044153280960cc",
+  "manifest_sha256": "3c7d4ad778e717fa1bf5a0f4146c08d5a8c465f35f11c70681ea503db10a4008",
+  "source_receipt_sha256": "78911336ad90fdac0df83828c1fa0712361702ed6788f54c84cd8c811c552964",
+  "raw_artifact": "artifacts/EXP-356/receipt.json",
+  "raw_artifact_bytes": 31855,
+  "raw_artifact_sha256": "9c7be8271d4f672604c033af37aa1c56138873fb6958e41d98925b0b54a39130",
+  "elapsed_seconds": 380.6819865410216,
+  "fixed_b": 0.2,
+  "fixed_c": 10.317135394165936,
+  "segment_count": 128,
+  "initial_maximum_block_residual": 8.302024398557372e-6,
+  "final_residual_norm": 4.1512673374916035e-6,
+  "final_maximum_block_residual": 4.100579818790836e-6,
+  "final_variables": {
+    "a": 0.17981905799260353,
+    "angle": 2.376579709198159,
+    "total_flight_time": 234.36533948879548
+  },
+  "node_boundary_margin": 0.9388271252949494,
+  "optimizer_optimality": 4.443305338130157e-7,
+  "root_nominated": false,
+  "classification": "multiple_shooting_unresolved",
+  "failed_checks": ["optimizer_terminated_or_root_gate"],
+  "interpretation": "The second exact-node correction halves the defect again and moves a within 1.91e-5 of 0.1798, but remains above the root gate. The active descent and large node margin support another unchanged correction."
+}
