@@ -239,6 +239,13 @@ evaluations at maximum defect `2.51470e-8`. It is therefore preserved as
 failed; the apparent unchanged slope is diagnostic only. A same-`c`
 failure-bound corrector is required before intersection targeting.
 
+## EXP-349 segmentation recovery remains just above gate
+
+The 64-arc Radau recovery lowers the maximum defect from `2.51470e-8` to
+`1.18448e-8` and preserves `a` within `3.13e-14`. It remains formally failed,
+missing the unchanged gate by `18.45%`. The monotone conditioning improvement
+supports one final 128-arc recovery; no threshold is relaxed.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
