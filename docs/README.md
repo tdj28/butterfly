@@ -599,6 +599,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-338-jones-homoclinic-single-shooting.md`](experiments/EXP-338-jones-homoclinic-single-shooting.md):
   smooth angle--`a`--flight-time endpoint match seeded by EXP-337's closest
   nonlinear stable-manifold return.
+- [`experiments/EXP-339-jones-homoclinic-single-shooting-replay.md`](experiments/EXP-339-jones-homoclinic-single-shooting-replay.md):
+  scientifically unchanged replay after EXP-338's final NumPy-boolean receipt
+  failure.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

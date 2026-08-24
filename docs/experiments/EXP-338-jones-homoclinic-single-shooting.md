@@ -1,6 +1,6 @@
 # EXP-338 — Fixed-c homoclinic single shooting
 
-Status: frozen; not yet run
+Status: preserved administrative receipt failure; EXP-339 frozen
 
 EXP-337 passes its coverage recovery and sharpens the direct nonlinear
 manifold mismatch to `0.000162262` at `a=0.18255`, but the best row is isolated
@@ -22,3 +22,9 @@ too ill-conditioned for a final claim under one forward solve.
 
 Manifest:
 [`../../experiments/manifests/EXP-338-jones-homoclinic-single-shooting.json`](../../experiments/manifests/EXP-338-jones-homoclinic-single-shooting.json).
+
+The numerical solve completed, but final receipt serialization stopped because
+the initial-residual check remained a NumPy boolean. No receipt was written and
+no optimizer result is recoverable from the traceback. EXP-339 converts only
+that check to a JSON-native boolean; every scientific and optimization value
+is unchanged.

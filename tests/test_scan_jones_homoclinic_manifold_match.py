@@ -28,6 +28,12 @@ def test_generic_a_axis_preserves_fixed_b_and_c():
     assert (parameters.a, parameters.b, parameters.c) == (0.181, 0.2, 10.3084)
 
 
+def test_shooting_norm_gate_converts_to_json_native_boolean():
+    gate = np.linalg.norm(np.array([1e-5, 0.0, 0.0])) <= 2e-5
+    assert type(gate) is np.bool_
+    assert type(bool(gate)) is bool
+
+
 def test_local_geometry_alignment_preserves_orientations():
     reference = RosslerParameters(0.1798, 0.2, 10.3084)
     _equilibrium, _values, stable, plane = eigenspaces(reference)

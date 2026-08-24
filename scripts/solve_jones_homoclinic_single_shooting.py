@@ -186,8 +186,10 @@ def main() -> int:
     )
     checks = {
         "source_passed": receipt["passed"] is True,
-        "initial_residual": np.linalg.norm(initial_residual)
-        <= float(acceptance["maximum_initial_residual"]),
+        "initial_residual": bool(
+            np.linalg.norm(initial_residual)
+            <= float(acceptance["maximum_initial_residual"])
+        ),
         "optimizer_terminated": int(result.status) != 0,
         "evaluation_budget": int(result.nfev)
         <= int(optimization["maximum_function_evaluations"]),
