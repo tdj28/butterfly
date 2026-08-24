@@ -112,6 +112,16 @@ selection. EXP-338 therefore freezes the smooth three-equation endpoint match
 in departure angle, `a`, and total flight time. A root remains a multiple-
 shooting nomination, not a homoclinic qualification.
 
+## EXP-338/339 shooting administration and Jacobian diagnosis
+
+EXP-338's completed solve loses its receipt to a final NumPy boolean; unchanged
+EXP-339 passes execution but remains unresolved at residual `0.000158819`. Its
+receipt shows that the requested relative finite-difference scale collapses to
+about `1.49e-8` at the zero normalized start, contaminating the long-trajectory
+Jacobian. EXP-340 binds the unresolved result and freezes explicit absolute
+central steps of `0.001`; all science variables, bounds, and gates are
+unchanged.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`

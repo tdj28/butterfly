@@ -869,6 +869,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   frozen EXP-338's smooth three-variable single shooting in angle, `a`, and
   total flight time. If it reaches an interior residual below `1e-8`, freeze a
   segmented multiple-shooting qualification rather than promoting directly.
+  EXP-338 loses only final receipt serialization; unchanged EXP-339 passes but
+  stalls at `0.000158819` because zero-start relative differences collapse to
+  `1.49e-8`. Run frozen EXP-340's bound absolute-central-Jacobian correction.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

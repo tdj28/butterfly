@@ -34,6 +34,17 @@ except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
 SCHEMA = "butterfly.jones-homoclinic-single-shooting-manifest.v1"
 
 
+def absolute_central_jacobian(function, point: np.ndarray, steps: np.ndarray) -> np.ndarray:
+    point = np.asarray(point, dtype=np.float64)
+    steps = np.asarray(steps, dtype=np.float64)
+    columns = []
+    for index, step in enumerate(steps):
+        offset = np.zeros_like(point)
+        offset[index] = step
+        columns.append((function(point + offset) - function(point - offset)) / (2.0 * step))
+    return np.column_stack(columns)
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -74,6 +85,22 @@ def main() -> int:
     for field, value in binding["closest_match"].items():
         if source_closest.get(field) != value:
             raise SystemExit(f"source closest-match binding mismatch: {field}")
+
+    diagnostic_binding = manifest.get("diagnostic_receipt")
+    diagnostic_receipt = None
+    if diagnostic_binding is not None:
+        diagnostic_path = Path(diagnostic_binding["path"])
+        if sha256_file(diagnostic_path) != diagnostic_binding["sha256"]:
+            raise SystemExit("diagnostic receipt hash mismatch")
+        diagnostic_receipt = json.loads(diagnostic_path.read_bytes())
+        for field in ("schema", "experiment_id", "classification", "root_nominated"):
+            if diagnostic_receipt.get(field) != diagnostic_binding[field]:
+                raise SystemExit(f"diagnostic receipt binding mismatch: {field}")
+        if diagnostic_receipt.get("passed") is not True:
+            raise SystemExit("passed diagnostic receipt required")
+        for field, value in diagnostic_binding["expected"].items():
+            if diagnostic_receipt.get(field) != value:
+                raise SystemExit(f"diagnostic receipt value mismatch: {field}")
 
     fixed = manifest["fixed_parameters"]
     reference = RosslerParameters(
@@ -162,18 +189,28 @@ def main() -> int:
     initial_residual = evaluate(np.zeros(3, dtype=np.float64))
     started = time.perf_counter()
     optimization = manifest["optimization"]
-    result = least_squares(
-        evaluate,
-        np.zeros(3, dtype=np.float64),
-        bounds=(lower, upper),
-        method="trf",
-        ftol=float(optimization["ftol"]),
-        xtol=float(optimization["xtol"]),
-        gtol=float(optimization["gtol"]),
-        diff_step=np.asarray(optimization["normalized_diff_step"], dtype=np.float64),
-        max_nfev=int(optimization["maximum_function_evaluations"]),
-        verbose=0,
-    )
+    least_squares_kwargs = {
+        "bounds": (lower, upper),
+        "method": "trf",
+        "ftol": float(optimization["ftol"]),
+        "xtol": float(optimization["xtol"]),
+        "gtol": float(optimization["gtol"]),
+        "max_nfev": int(optimization["maximum_function_evaluations"]),
+        "verbose": 0,
+    }
+    jacobian_policy = optimization.get("jacobian", "scipy_relative")
+    if jacobian_policy == "absolute_central":
+        absolute_steps = np.asarray(optimization["normalized_absolute_step"], dtype=np.float64)
+        least_squares_kwargs["jac"] = lambda point: absolute_central_jacobian(
+            evaluate, point, absolute_steps
+        )
+    elif jacobian_policy == "scipy_relative":
+        least_squares_kwargs["diff_step"] = np.asarray(
+            optimization["normalized_diff_step"], dtype=np.float64
+        )
+    else:
+        raise SystemExit("unsupported optimization Jacobian policy")
+    result = least_squares(evaluate, np.zeros(3, dtype=np.float64), **least_squares_kwargs)
     elapsed = time.perf_counter() - started
     final_variables = physical(result.x)
     final_residual = evaluate(result.x)
@@ -209,6 +246,12 @@ def main() -> int:
             "experiment_id": receipt["experiment_id"],
             "sha256": binding["sha256"],
         },
+        "diagnostic_receipt": None
+        if diagnostic_binding is None
+        else {
+            "experiment_id": diagnostic_receipt["experiment_id"],
+            "sha256": diagnostic_binding["sha256"],
+        },
         "environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),
@@ -243,6 +286,7 @@ def main() -> int:
             "nfev": int(result.nfev),
             "njev": None if result.njev is None else int(result.njev),
         },
+        "jacobian_policy": jacobian_policy,
         "scaled_jacobian_singular_values": jacobian_singular_values.tolist(),
         "history": history,
         "root_nominated": root_nominated,

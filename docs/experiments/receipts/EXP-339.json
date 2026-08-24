@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.jones-homoclinic-single-shooting-summary.v1",
+  "experiment_id": "EXP-339",
+  "passed": true,
+  "source_commit": "2f43922f1e43f53b250cdc59317972741627362f",
+  "manifest_sha256": "5842840666308d6f3faa3c275e95f869704840d847131109792b70758cb575e2",
+  "source_receipt_sha256": "dda7b03c5801054bb53b8df035f44a8c3c89c25ff97a6c8bb4585dfed27eb1ce",
+  "raw_artifact": "artifacts/EXP-339/receipt.json",
+  "raw_artifact_bytes": 31858,
+  "raw_artifact_sha256": "2a8f9433d0595bc12a5cec913adf6dbe8b5655fcbb0273412868b3953993c1cf",
+  "elapsed_seconds": 8.811161375138909,
+  "initial_residual_norm": 0.00016226246880832792,
+  "final_residual_norm": 0.00015881925951646416,
+  "final_variables": {
+    "angle": 2.4707315613830683,
+    "a": 0.18255000116443645,
+    "total_flight_time": 234.26230138560442
+  },
+  "optimizer_status": 3,
+  "optimizer_nfev": 29,
+  "root_nominated": false,
+  "classification": "single_shooting_unresolved",
+  "interpretation": "The scientifically unchanged replay passes execution but barely reduces the endpoint mismatch. The recorded perturbations reveal that SciPy's relative finite-difference policy used approximately 1.49e-8 steps at the zero normalized starting vector instead of the requested 1e-3 scale, producing a noisy near-singular long-trajectory Jacobian. This is an unresolved numerical differentiation result, not evidence against a root."
+}

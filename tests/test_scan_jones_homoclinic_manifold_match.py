@@ -10,7 +10,10 @@ from scripts.scan_jones_homoclinic_manifold_match import (
     tangent_basis,
 )
 from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces
-from scripts.solve_jones_homoclinic_single_shooting import SCHEMA as SHOOTING_SCHEMA
+from scripts.solve_jones_homoclinic_single_shooting import (
+    SCHEMA as SHOOTING_SCHEMA,
+    absolute_central_jacobian,
+)
 
 
 def test_manifold_match_schema_is_versioned():
@@ -32,6 +35,16 @@ def test_shooting_norm_gate_converts_to_json_native_boolean():
     gate = np.linalg.norm(np.array([1e-5, 0.0, 0.0])) <= 2e-5
     assert type(gate) is np.bool_
     assert type(bool(gate)) is bool
+
+
+def test_absolute_central_jacobian_uses_declared_normalized_steps():
+    matrix = np.array([[2.0, -1.0, 0.5], [0.0, 3.0, -2.0], [1.0, 1.0, 1.0]])
+    observed = absolute_central_jacobian(
+        lambda point: matrix @ point,
+        np.zeros(3),
+        np.array([1e-3, 2e-3, 3e-3]),
+    )
+    assert np.allclose(observed, matrix)
 
 
 def test_local_geometry_alignment_preserves_orientations():
