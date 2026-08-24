@@ -902,6 +902,7 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   bounded step at `c=10.3144`; it remains interior and follows the secant but
   stalls at `2.51470e-8`, so it is preserved as failed. Freeze a same-`c`
   recovery from its exact nodes before solving the fixed-`a` intersection.
+  EXP-349 is frozen with 64 Radau arcs and unchanged physical gates; run it.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
