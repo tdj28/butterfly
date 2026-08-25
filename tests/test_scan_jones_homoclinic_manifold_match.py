@@ -25,6 +25,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
 )
 from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
+    bounded_sparse_newton,
     directional_c_bounds,
     native_boolean_checks,
     optimizer_jacobian,
@@ -168,6 +169,36 @@ def test_homoclinic_pseudoarclength_recovers_exact_warm_start_vector():
     }
     observed = receipt_state_vector(receipt, layout)
     assert np.array_equal(observed, np.arange(1.0, 8.0))
+
+
+def test_homoclinic_pseudoarclength_sparse_newton_solves_square_system():
+    def compute(point):
+        residual = np.array([point[0] - 2.0, 2.0 * (point[1] + 1.0)])
+        jacobian = np.array([[1.0, 0.0], [0.0, 2.0]])
+        details = {
+            "maximum_block_norm": abs(residual[0]),
+            "arclength_residual": residual[1],
+        }
+        return residual, jacobian, details
+
+    result = bounded_sparse_newton(
+        compute,
+        np.array([0.0, 0.0]),
+        np.ones(2),
+        np.array([-10.0, -10.0]),
+        np.array([10.0, 10.0]),
+        maximum_function_evaluations=4,
+        maximum_block_residual=1e-12,
+        maximum_arclength_residual=1e-12,
+        armijo=1e-4,
+        backtracking_factor=0.5,
+        minimum_step_fraction=1e-6,
+        boundary_fraction=0.99,
+    )
+    assert result.success
+    assert result.status == 1
+    assert np.allclose(result.x, [2.0, -1.0])
+    assert result.newton_history[0]["accepted"]
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

@@ -9,11 +9,13 @@ import json
 import platform
 import time
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import scipy
 from scipy.optimize import least_squares
-from scipy.sparse import csr_matrix
+from scipy.sparse import csc_matrix, csr_matrix
+from scipy.sparse.linalg import splu
 
 from butterfly import RosslerParameters, SolverConfig, rossler_rhs
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
@@ -249,6 +251,147 @@ def receipt_state_vector(receipt: dict, layout: dict[str, int]) -> np.ndarray:
         float(variables["c"]),
         float(variables["angle"]),
     ]
+
+
+def bounded_sparse_newton(
+    compute,
+    initial_guess: np.ndarray,
+    scales: np.ndarray,
+    lower: np.ndarray,
+    upper: np.ndarray,
+    *,
+    maximum_function_evaluations: int,
+    maximum_block_residual: float,
+    maximum_arclength_residual: float,
+    armijo: float,
+    backtracking_factor: float,
+    minimum_step_fraction: float,
+    boundary_fraction: float,
+):
+    """Solve the square shooting equations by guarded column-scaled Newton."""
+    point = np.asarray(initial_guess, dtype=np.float64).copy()
+    residual, jacobian, details = compute(point)
+    nfev = 1
+    history = []
+    success = False
+    status = 0
+    message = "The maximum number of function evaluations is exceeded."
+
+    while nfev < maximum_function_evaluations:
+        if (
+            details["maximum_block_norm"] <= maximum_block_residual
+            and abs(details["arclength_residual"]) <= maximum_arclength_residual
+        ):
+            success = True
+            status = 1
+            message = "The frozen residual gates are satisfied."
+            break
+        try:
+            scaled_jacobian = csc_matrix(jacobian * scales[np.newaxis, :])
+            scaled_step = splu(scaled_jacobian).solve(-residual)
+        except RuntimeError:
+            status = -1
+            message = "The sparse Newton Jacobian factorization is singular."
+            break
+        step = scaled_step * scales
+        if not np.all(np.isfinite(step)):
+            status = -1
+            message = "The sparse Newton step is non-finite."
+            break
+        positive = step > 0.0
+        negative = step < 0.0
+        feasible = np.inf
+        if np.any(positive):
+            feasible = min(
+                feasible,
+                float(
+                    np.min((upper[positive] - point[positive]) / step[positive])
+                ),
+            )
+        if np.any(negative):
+            feasible = min(
+                feasible,
+                float(
+                    np.min((lower[negative] - point[negative]) / step[negative])
+                ),
+            )
+        step_fraction = min(1.0, boundary_fraction * feasible)
+        old_cost = 0.5 * float(np.dot(residual, residual))
+        accepted = False
+        trial_cost = np.inf
+        trial_linear_residual = float(
+            np.linalg.norm(jacobian @ step + residual)
+        )
+        trial_point = point
+        trial_residual = residual
+        trial_jacobian = jacobian
+        trial_details = details
+        attempted_fractions = []
+        while (
+            step_fraction >= minimum_step_fraction
+            and nfev < maximum_function_evaluations
+        ):
+            attempted_fractions.append(float(step_fraction))
+            candidate = point + step_fraction * step
+            candidate_residual, candidate_jacobian, candidate_details = compute(
+                candidate
+            )
+            nfev += 1
+            candidate_cost = 0.5 * float(
+                np.dot(candidate_residual, candidate_residual)
+            )
+            if candidate_cost <= old_cost * (1.0 - armijo * step_fraction):
+                accepted = True
+                trial_point = candidate
+                trial_residual = candidate_residual
+                trial_jacobian = candidate_jacobian
+                trial_details = candidate_details
+                trial_cost = candidate_cost
+                break
+            step_fraction *= backtracking_factor
+        history.append(
+            {
+                "iteration": len(history),
+                "old_cost": old_cost,
+                "trial_cost": trial_cost,
+                "scaled_step_norm": float(np.linalg.norm(scaled_step)),
+                "maximum_scaled_step_component": float(
+                    np.max(np.abs(scaled_step))
+                ),
+                "linear_residual_norm": trial_linear_residual,
+                "attempted_step_fractions": attempted_fractions,
+                "accepted": accepted,
+            }
+        )
+        if not accepted:
+            status = -2
+            message = "No residual-decreasing bounded Newton step was found."
+            break
+        point = trial_point
+        residual = trial_residual
+        jacobian = trial_jacobian
+        details = trial_details
+
+    if (
+        details["maximum_block_norm"] <= maximum_block_residual
+        and abs(details["arclength_residual"]) <= maximum_arclength_residual
+    ):
+        success = True
+        status = 1
+        message = "The frozen residual gates are satisfied."
+    gradient = jacobian.T @ residual
+    optimality = float(np.max(np.abs(gradient * scales)))
+    return SimpleNamespace(
+        x=point,
+        success=success,
+        status=status,
+        message=message,
+        cost=0.5 * float(np.dot(residual, residual)),
+        optimality=optimality,
+        nfev=nfev,
+        njev=nfev,
+        newton_history=history,
+    )
 
 
 def main() -> int:
@@ -529,36 +672,66 @@ def main() -> int:
 
     initial_residual, _initial_jacobian, initial_details = compute(initial_guess)
     optimization = manifest["optimization"]
+    optimizer_method = optimization["method"]
     jacobian_storage = optimization.get("jacobian_storage", "dense")
     trust_region_solver = optimization.get("trust_region_solver")
     trust_region_options = optimization.get("trust_region_options", {})
-    if jacobian_storage not in {"dense", "csr"}:
-        raise SystemExit("optimization.jacobian_storage must be dense or csr")
-    if trust_region_solver not in {None, "exact", "lsmr"}:
-        raise SystemExit("optimization.trust_region_solver must be exact or lsmr")
-    if jacobian_storage == "csr" and trust_region_solver != "lsmr":
-        raise SystemExit("CSR Jacobians require the LSMR trust-region solver")
-    optimizer_options = {}
-    if trust_region_solver is not None:
-        optimizer_options["tr_solver"] = trust_region_solver
-    if trust_region_options:
-        optimizer_options["tr_options"] = trust_region_options
     started = time.perf_counter()
-    result = least_squares(
-        lambda value: compute(value)[0],
-        initial_guess,
-        jac=lambda value: optimizer_jacobian(
-            compute(value)[1], jacobian_storage
-        ),
-        bounds=(lower, upper),
-        method="trf",
-        x_scale="jac",
-        ftol=float(optimization["ftol"]),
-        xtol=float(optimization["xtol"]),
-        gtol=float(optimization["gtol"]),
-        max_nfev=int(optimization["maximum_function_evaluations"]),
-        **optimizer_options,
-    )
+    if optimizer_method == "trf":
+        if jacobian_storage not in {"dense", "csr"}:
+            raise SystemExit("optimization.jacobian_storage must be dense or csr")
+        if trust_region_solver not in {None, "exact", "lsmr"}:
+            raise SystemExit("optimization.trust_region_solver must be exact or lsmr")
+        if jacobian_storage == "csr" and trust_region_solver != "lsmr":
+            raise SystemExit("CSR Jacobians require the LSMR trust-region solver")
+        optimizer_options = {}
+        if trust_region_solver is not None:
+            optimizer_options["tr_solver"] = trust_region_solver
+        if trust_region_options:
+            optimizer_options["tr_options"] = trust_region_options
+        result = least_squares(
+            lambda value: compute(value)[0],
+            initial_guess,
+            jac=lambda value: optimizer_jacobian(
+                compute(value)[1], jacobian_storage
+            ),
+            bounds=(lower, upper),
+            method="trf",
+            x_scale="jac",
+            ftol=float(optimization["ftol"]),
+            xtol=float(optimization["xtol"]),
+            gtol=float(optimization["gtol"]),
+            max_nfev=int(optimization["maximum_function_evaluations"]),
+            **optimizer_options,
+        )
+    elif optimizer_method == "bounded_sparse_newton":
+        if (
+            jacobian_storage != "csc"
+            or optimization.get("linear_solver") != "superlu"
+        ):
+            raise SystemExit("bounded sparse Newton requires CSC/SuperLU")
+        result = bounded_sparse_newton(
+            compute,
+            initial_guess,
+            scales,
+            lower,
+            upper,
+            maximum_function_evaluations=int(
+                optimization["maximum_function_evaluations"]
+            ),
+            maximum_block_residual=float(
+                manifest["acceptance"]["maximum_root_block_residual"]
+            ),
+            maximum_arclength_residual=float(
+                manifest["acceptance"]["maximum_arclength_residual"]
+            ),
+            armijo=float(optimization["armijo"]),
+            backtracking_factor=float(optimization["backtracking_factor"]),
+            minimum_step_fraction=float(optimization["minimum_step_fraction"]),
+            boundary_fraction=float(optimization["boundary_fraction"]),
+        )
+    else:
+        raise SystemExit("unsupported optimization method")
     elapsed = time.perf_counter() - started
     final_residual, final_jacobian, final_details = compute(result.x)
     final_nodes = result.x[: layout["node_size"]].reshape(layout["node_count"], 3)
@@ -673,8 +846,10 @@ def main() -> int:
         "arclength_components": list(arclength_components),
         "directional_bounds": directional,
         "linear_algebra": {
+            "optimizer_method": optimizer_method,
             "jacobian_storage": jacobian_storage,
             "trust_region_solver": trust_region_solver,
+            "linear_solver": optimization.get("linear_solver"),
             "trust_region_options": trust_region_options,
             "arclength_residual_weight": arc_weight,
         },
@@ -702,6 +877,7 @@ def main() -> int:
             "optimality": float(result.optimality),
             "nfev": int(result.nfev),
             "njev": None if result.njev is None else int(result.njev),
+            "newton_history": getattr(result, "newton_history", None),
         },
         "history": history,
         "root_nominated": root_nominated,

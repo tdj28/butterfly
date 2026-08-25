@@ -1022,7 +1022,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   a passing `1.78479e-9` plane residual. Bind its exact nodes as a warm start
   for the identical reduced-step plane and gates; do not promote its above-
   section parameter values as a branch point. EXP-375 freezes that exact-node
-  correction.
+  correction. EXP-375 terminates normally on `gtol` with optimality
+  `4.66598e-12` but reduces the maximum defect only `1.13%`, to `5.20888e-6`.
+  This is a trust-region stationary non-root; do not increase its budget or
+  chain another identical restart. Implement a column-scaled sparse direct
+  Newton solve with source-centered bounds and receipt-bound backtracking from
+  EXP-375, retaining the identical plane and every scientific gate. EXP-376
+  freezes a column-scaled CSC/SuperLU correction with prospective Armijo,
+  boundary-fraction, minimum-step, and 24-evaluation controls.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -482,6 +482,16 @@ and normalized node displacement falls to `0.12472`. The final unqualified
 point remains above the section at `a=0.1798177058402`; it is retained only as
 an exact-node warm-correction seed, not as a root or bracket endpoint.
 
+## EXP-375 proves the trust-region restart is stationary
+
+The exact-node restart terminates normally on `gtol` after 34 evaluations,
+with optimality `4.66598e-12`, but maximum defect changes only from
+`5.26837e-6` to `5.20888e-6`. Its plane residual remains passing and every
+bound is interior. This is a stationary non-root of the sparse trust-region
+least-squares formulation. More evaluations or identical warm restarts are
+therefore rejected; the next solver must attack the nearly singular square
+linear system directly.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -520,5 +530,7 @@ The sparse projected-plane recovery is tracked in
 [`../experiments/receipts/EXP-373.json`](../experiments/receipts/EXP-373.json).
 The reduced-step failure is tracked in
 [`../experiments/receipts/EXP-374.json`](../experiments/receipts/EXP-374.json).
+The stationary exact-node failure is tracked in
+[`../experiments/receipts/EXP-375.json`](../experiments/receipts/EXP-375.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
