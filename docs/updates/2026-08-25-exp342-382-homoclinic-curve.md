@@ -151,4 +151,11 @@ backward in `c`; direction is its sole failed gate. Fixed-normalized stepping
 therefore fixes EXP-400's inflation but reveals that this previously passed
 scale still crosses a very small local positive-`c` turning radius. EXP-402
 freezes the licensed fourfold normalized-step reduction with all scientific
-settings and acceptance gates unchanged.
+settings and acceptance gates unchanged. EXP-402 also closes in two
+evaluations with all root-quality, interiority, tangent, and conditioning gates
+passing. It moves `4.97815e-9` backward in `c` but `3.46464e-10` downward in
+`a`, toward Jones's fixed-`a` section. Positive `c` is therefore not a valid
+monotone continuation coordinate at this local fold. The runner now supports
+explicit tangent orientation plus independent `a` and `c` direction gates;
+EXP-403 freezes a decreasing-`a`, unconstrained-`c` replay at the same
+normalized step and unchanged scientific thresholds.

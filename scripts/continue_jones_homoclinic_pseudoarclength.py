@@ -226,9 +226,12 @@ def boundary_clearances(
 
 
 def resolve_continuation_step(
-    pseudoarclength: dict, c_direction: float
+    pseudoarclength: dict,
+    c_direction: float,
+    *,
+    preserve_tangent_orientation: bool = False,
 ) -> tuple[float, float, float]:
-    """Resolve a forward-oriented physical c increment and normalized step."""
+    """Resolve a physical c increment, normalized step, and tangent sign."""
     c_direction = float(c_direction)
     if not np.isfinite(c_direction) or c_direction == 0.0:
         raise ValueError("pseudo-arclength tangent has no finite c direction")
@@ -242,7 +245,11 @@ def resolve_continuation_step(
         normalized_step = float(pseudoarclength["normalized_arclength_step"])
         if not np.isfinite(normalized_step) or normalized_step <= 0.0:
             raise ValueError("normalized arclength step must be finite and positive")
-        orientation = 1.0 if c_direction > 0.0 else -1.0
+        orientation = (
+            1.0
+            if preserve_tangent_orientation or c_direction > 0.0
+            else -1.0
+        )
         oriented_c_direction = orientation * c_direction
         return (
             normalized_step * oriented_c_direction,
@@ -262,6 +269,45 @@ def resolve_continuation_step(
         else desired_c_increment / oriented_c_direction
     )
     return desired_c_increment, normalized_step, orientation
+
+
+def tangent_orientation(
+    pseudoarclength: dict, layout: dict[str, int]
+) -> tuple[str, int, float, bool]:
+    """Resolve the declared local-curve orientation with legacy c default."""
+    declared = "tangent_orientation" in pseudoarclength
+    name = pseudoarclength.get("tangent_orientation", "increasing_c")
+    options = {
+        "increasing_c": ("c", layout["c_index"], 1.0),
+        "decreasing_c": ("c", layout["c_index"], -1.0),
+        "increasing_a": ("a", layout["a_index"], 1.0),
+        "decreasing_a": ("a", layout["a_index"], -1.0),
+    }
+    if name not in options:
+        raise ValueError("unsupported pseudo-arclength tangent orientation")
+    component, index, sign = options[name]
+    return component, index, sign, declared
+
+
+def directional_progress_accepted(
+    current: float,
+    final: float,
+    requirement: str,
+    *,
+    stationary_tolerance: float | None = None,
+) -> bool:
+    """Apply a prospective one-coordinate continuation direction gate."""
+    if requirement in ("unconstrained", "none"):
+        return True
+    if requirement in ("forward", "increasing"):
+        return bool(final > current)
+    if requirement == "decreasing":
+        return bool(final < current)
+    if requirement == "stationary":
+        if stationary_tolerance is None:
+            raise ValueError("stationary direction gate requires a tolerance")
+        return bool(abs(final - current) <= float(stationary_tolerance))
+    raise ValueError("unsupported directional progress requirement")
 
 
 def projected_arclength_tangent(
@@ -727,6 +773,9 @@ def main() -> int:
     tangent_source = manifest["pseudoarclength"].get("tangent_source", "secant")
     local_tangent_residual = None
     local_tangent_group_norms = None
+    orientation_component, orientation_index, orientation_sign, orientation_declared = (
+        tangent_orientation(manifest["pseudoarclength"], layout)
+    )
     if tangent_source == "secant":
         tangent_delta = current - previous
     elif tangent_source == "local_matching_jacobian":
@@ -737,9 +786,11 @@ def main() -> int:
             local_tangent_from_matching_jacobian(
                 current_matching_jacobian,
                 scales,
-                layout["c_index"],
+                orientation_index,
             )
         )
+        if local_tangent[orientation_index] * orientation_sign < 0.0:
+            local_tangent *= -1.0
         tangent_delta = local_tangent * scales
         local_tangent_group_norms = arclength_group_norms(local_tangent, layout)
     else:
@@ -781,11 +832,19 @@ def main() -> int:
         layout,
         arclength_component_weights,
     )
+    if predictor_tangent[orientation_index] * orientation_sign < 0.0:
+        predictor_tangent *= -1.0
+        arclength_tangent *= -1.0
     c_direction = (
         predictor_tangent[layout["c_index"]] * scales[layout["c_index"]]
     )
     desired_c_increment, arclength_step, orientation = resolve_continuation_step(
-        manifest["pseudoarclength"], c_direction
+        manifest["pseudoarclength"],
+        c_direction,
+        preserve_tangent_orientation=(
+            orientation_declared
+            and "normalized_arclength_step" in manifest["pseudoarclength"]
+        ),
     )
     if orientation < 0.0:
         predictor_tangent *= -1.0
@@ -972,17 +1031,24 @@ def main() -> int:
         and min(global_margins) >= float(acceptance["minimum_global_boundary_margin"])
         and node_margin >= float(acceptance["minimum_node_boundary_margin"])
     )
-    directional_requirement = acceptance.get("directional_c_requirement", "forward")
-    if directional_requirement == "forward":
-        directional_c_check = (
-            result.x[layout["c_index"]] > current[layout["c_index"]]
+    directional_c_requirement = acceptance.get(
+        "directional_c_requirement", "forward"
+    )
+    try:
+        directional_c_check = directional_progress_accepted(
+            float(current[layout["c_index"]]),
+            float(result.x[layout["c_index"]]),
+            directional_c_requirement,
+            stationary_tolerance=acceptance.get("maximum_stationary_c_drift"),
         )
-    elif directional_requirement == "stationary":
-        directional_c_check = abs(
-            result.x[layout["c_index"]] - current[layout["c_index"]]
-        ) <= float(acceptance["maximum_stationary_c_drift"])
-    else:
-        raise SystemExit("unsupported acceptance.directional_c_requirement")
+        directional_a_check = directional_progress_accepted(
+            float(current[layout["a_index"]]),
+            float(result.x[layout["a_index"]]),
+            acceptance.get("directional_a_requirement", "unconstrained"),
+            stationary_tolerance=acceptance.get("maximum_stationary_a_drift"),
+        )
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     maximum_final_a = acceptance.get("maximum_final_a")
     singular_values = np.linalg.svd(final_jacobian, compute_uv=False)
     maximum_local_tangent_residual = acceptance.get(
@@ -1009,6 +1075,7 @@ def main() -> int:
         "global_status_bound": min(global_margins)
         >= float(acceptance["minimum_global_boundary_margin"]),
         "directional_c_requirement": directional_c_check,
+        "directional_a_requirement": directional_a_check,
         "maximum_final_a": (
             True
             if maximum_final_a is None
@@ -1089,6 +1156,13 @@ def main() -> int:
             "total_flight_time": float(result.x[layout["time_index"]]),
         },
         "desired_c_increment": desired_c_increment,
+        "tangent_orientation": {
+            "name": manifest["pseudoarclength"].get(
+                "tangent_orientation", "increasing_c"
+            ),
+            "component": orientation_component,
+            "declared": orientation_declared,
+        },
         "tangent_source": tangent_source,
         "local_tangent_residual": local_tangent_residual,
         "local_tangent_group_norms": local_tangent_group_norms,

@@ -1163,8 +1163,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   replay converges in two evaluations with every gate except direction passing;
   the reversal shrinks to only `1.10e-9` in `c`, isolating a small local
   positive-`c` turning radius rather than step inflation or loss of the root.
-  Execute frozen EXP-402 at the fourfold-smaller normalized step
-  `0.00114967`, then refresh the manuscript figure and qualified-point counts.
+  EXP-402's fourfold-smaller normalized replay again converges in two
+  evaluations with direction as its sole failure: `c` falls by `4.98e-9`
+  while `a` falls by `3.46e-10` toward Jones's section. This establishes that
+  `c` is not a useful monotone coordinate at the local fold. The runner now
+  supports explicit decreasing-`a` tangent orientation, an unconstrained-`c`
+  gate, and an independent decreasing-`a` gate. Execute frozen EXP-403's
+  prospective replay, then refresh the manuscript figure and counts.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

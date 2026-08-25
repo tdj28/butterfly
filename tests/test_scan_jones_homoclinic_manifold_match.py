@@ -29,6 +29,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     boundary_clearances,
     bounded_sparse_newton,
     directional_c_bounds,
+    directional_progress_accepted,
     jacobian_conditioning_accepted,
     local_tangent_from_matching_jacobian,
     native_boolean_checks,
@@ -38,6 +39,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     resolve_continuation_step,
     source_angle_gauge,
     source_curve_values,
+    tangent_orientation,
     unwrap_angle,
     variable_layout as pseudoarclength_layout,
     weighted_arclength_tangent,
@@ -171,6 +173,39 @@ def test_homoclinic_pseudoarclength_resolves_normalized_forward_step():
     assert desired_c == 0.5
     assert normalized == 0.25
     assert orientation == -1.0
+
+
+def test_homoclinic_pseudoarclength_preserves_declared_normalized_orientation():
+    desired_c, normalized, orientation = resolve_continuation_step(
+        {"normalized_arclength_step": 0.25},
+        -2.0,
+        preserve_tangent_orientation=True,
+    )
+
+    assert desired_c == -0.5
+    assert normalized == 0.25
+    assert orientation == 1.0
+
+
+def test_homoclinic_pseudoarclength_orients_tangent_toward_decreasing_a():
+    layout = pseudoarclength_layout(2)
+    component, index, sign, declared = tangent_orientation(
+        {"tangent_orientation": "decreasing_a"}, layout
+    )
+
+    assert component == "a"
+    assert index == layout["a_index"]
+    assert sign == -1.0
+    assert declared
+
+
+def test_homoclinic_pseudoarclength_gates_progress_independently_by_coordinate():
+    assert directional_progress_accepted(0.18, 0.1799, "decreasing")
+    assert not directional_progress_accepted(0.18, 0.1801, "decreasing")
+    assert directional_progress_accepted(10.0, 9.9, "unconstrained")
+    assert directional_progress_accepted(
+        10.0, 10.0 + 5e-9, "stationary", stationary_tolerance=1e-8
+    )
 
 
 def test_homoclinic_pseudoarclength_preserves_legacy_parameter_step():
