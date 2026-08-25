@@ -82,6 +82,10 @@ EXP-366 passes the next 256-arc step at
 `-0.32555346` projects `c=10.317135241`, leaving `1.47358e-4` in `a` before
 the historical section.
 
+EXP-367 passes at `(a,c)=(0.1798847855470,10.3168748037260)`, maximum defect
+`6.88548e-9`. Its slope `-0.32555640` projects `c=10.3171352365`; only
+`8.47855e-5` remains before exact `a=0.1798`.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -91,5 +95,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-366, including preserved negative results and
+Evidence: EXP-341 through EXP-367, including preserved negative results and
 their hash-bound compact receipts.

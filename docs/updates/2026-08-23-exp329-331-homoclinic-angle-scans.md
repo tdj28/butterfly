@@ -409,6 +409,14 @@ The next 256-arc half step passes normally in four evaluations at
 `c=10.3171352406`. The branch is now only `1.47358e-4` above exact
 `a=0.1798`.
 
+## EXP-367 seventh point approaches the section
+
+EXP-367 passes at `(a,c)=(0.17988478554697546,10.316874803725971)` with
+maximum defect `6.88548e-9`. Its slope `-0.3255563984` projects exact
+`a=0.1798` at `c=10.3171352365`; the qualified branch is only `8.47855e-5`
+above the section. The next frozen 256-arc step returns to `Delta c=0.0005`
+to obtain a qualified bracket.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -431,5 +439,7 @@ The 256-arc recovery is tracked in
 [`../experiments/receipts/EXP-365.json`](../experiments/receipts/EXP-365.json).
 The sixth point is tracked in
 [`../experiments/receipts/EXP-366.json`](../experiments/receipts/EXP-366.json).
+The seventh point is tracked in
+[`../experiments/receipts/EXP-367.json`](../experiments/receipts/EXP-367.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

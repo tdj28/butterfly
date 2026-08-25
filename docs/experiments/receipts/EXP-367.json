@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-367",
+  "passed": true,
+  "source_commit": "f526f272e9cdc421e8e18d6b7ff07e853df88edf",
+  "manifest_sha256": "806ae4598d3441145ea3a2fc0c96b9f2a77f55d5957802b0983553b20dec6b8b",
+  "raw_artifact": "artifacts/EXP-367/receipt.json",
+  "raw_artifact_bytes": 48563,
+  "raw_artifact_sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65",
+  "elapsed_seconds": 696.88791391626,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 256,
+  "source_receipts": [
+    {"experiment_id": "EXP-365", "sha256": "315fcd9c4f99101aa10b567e8ff675dbd174ff10bbda499b0a8d2f7b0bef0192"},
+    {"experiment_id": "EXP-366", "sha256": "dee39d00b301ee7b551b808c4a90c7d45479cf3f13fc84d7b7c833baafbfedfb"}
+  ],
+  "desired_c_increment": 0.00025,
+  "initial_maximum_block_residual": 0.0011709346744437365,
+  "final_residual_norm": 1.8538531101315673e-8,
+  "final_matching_residual_norm": 1.853853110124774e-8,
+  "final_maximum_block_residual": 6.88547679234898e-9,
+  "final_arclength_residual": -5.018623103897335e-12,
+  "final_variables": {
+    "a": 0.17988478554697546,
+    "c": 10.316874803725971,
+    "angle": 2.5954045696519947,
+    "total_flight_time": 234.43961828762417
+  },
+  "secant_from_exp366": {
+    "da_dc": -0.32555639842377976,
+    "predicted_c_at_a_0_1798": 10.317135236472451
+  },
+  "node_boundary_margin": 0.8545973854948592,
+  "jacobian_condition_number": 31106410778.904114,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 33,
+    "optimality": 4.755435311860077e-10
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The seventh chained point passes with substantial matching margin and lies only 8.48e-5 above exact a=0.1798. One qualified crossing step can now form a section bracket."
+}

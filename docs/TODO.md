@@ -981,6 +981,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `(a,c)=(0.1799473576083,10.3166826033527)` with defect `5.88416e-9` and
   remains `1.47358e-4` above the section. Freeze the next unchanged 256-arc
   half step. EXP-367 freezes that successor.
+  EXP-367 passes at `(a,c)=(0.1798847855470,10.3168748037260)`, only
+  `8.47855e-5` above exact `a`. With 31% matching-gate headroom restored,
+  freeze a 256-arc `Delta c=0.0005` step to cross and bracket the section.
+  EXP-368 freezes that prospective bracket step from exact EXP-366/367 roots.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
