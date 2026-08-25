@@ -206,6 +206,13 @@ root lies `1.16506e-7` backward in `c`.  Because its tangent was still computed
 at inherited EXP-368, the next prospective test chains from the passed
 corrected EXP-396 root before reducing the step.
 
+EXP-398 performs that corrected-source replay.  The freshly recomputed tangent
+remains machine-accurate, and the optimizer converges in four evaluations at
+`3.70048e-9` maximum block defect and `1.53020e-9` minimum singular value.
+Direction is again the sole failure: the root is `5.46911e-8` backward in `c`.
+This rules out inherited-source representation as the primary cause at
+normalized step `0.0183947` and licenses a fourfold step reduction.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -215,5 +222,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-397, including preserved negative results and
+Evidence: EXP-341 through EXP-398, including preserved negative results and
 their hash-bound compact receipts.

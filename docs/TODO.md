@@ -1147,6 +1147,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   failed check. Preserve it. Before reducing the step, execute frozen EXP-398,
   which binds the passed corrected 512-arc EXP-396 root as current and
   recomputes the standard-plane local tangent there with all gates unchanged.
+  EXP-398 converges in four evaluations to an interior, conditioned root but
+  remains `5.46911e-8` backward in `c`; direction is again the sole failed
+  gate. Preserve it. Execute frozen EXP-399 with the same corrected current,
+  canonical plane, and gates but a fourfold smaller `Delta c=3.125e-8`
+  (`0.00459868` normalized step).
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

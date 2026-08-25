@@ -125,3 +125,9 @@ maximum block defect and `1.04563e-9` minimum singular value, but it lies
 was still evaluated at inherited EXP-368. EXP-398 therefore freezes one
 chained replay from the passed corrected 512-arc EXP-396 root, recomputing the
 standard-plane tangent there before any further step reduction.
+EXP-398 converges in four evaluations with `3.70048e-9` maximum block defect,
+`1.53020e-9` minimum singular value, and every gate except direction passing;
+the root is `5.46911e-8` backward in `c`. Corrected-source representation is
+therefore not the primary cause at normalized step `0.0183947`. EXP-399 freezes
+the licensed fourfold reduction to `Delta c=3.125e-8` and normalized step
+`0.00459868`, with every other setting and acceptance gate unchanged.
