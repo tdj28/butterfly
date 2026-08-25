@@ -1078,7 +1078,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   aborts administratively before solving because the exact warm start lies
   below its `c>=current+1e-6` optimizer wall. Preserve the abort. EXP-385
   removes only that lower wall while retaining final forward-`c`, section,
-  root, arclength, and margin checks.
+  root, arclength, and margin checks. EXP-385 converges below both residual
+  gates but fails direction and section at
+  `(a,c)=(0.1798213190,10.3170697519)`. Preserve the wrong-side root. EXP-386
+  restores the forward optimizer bound, removes the incompatible exact warm
+  start, and begins at the frozen full-state predictor with otherwise
+  unchanged weights and gates.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -59,4 +59,9 @@ must be scaled only enough to regularize the near-null direction; the physical
 `0.01` relative to unit `a/c` weights and passes the zero-step 512-arc control.
 It halves the maximum defect to `5.10888e-9`, holds `c` within `1.69e-9`, and
 lifts the smallest Jacobian singular value by `6.63x`.  EXP-384 is the frozen
-`7.5e-5` forward crossing step using the unchanged weights and gates.
+`7.5e-5` forward crossing step using the unchanged weights and gates.  It
+aborts before solving because the exact warm start is outside its forward
+optimizer wall.  Unwalled EXP-385 reaches a sub-gate root, but it is backward
+in `c` and above the historical section.  EXP-386 retains the forward wall and
+starts at the full-state predictor; neither failed attempt changes the eleven
+qualified branch points.

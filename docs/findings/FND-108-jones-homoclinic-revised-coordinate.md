@@ -120,6 +120,14 @@ Jacobian singular value rises from `2.70368e-10` for the pure physical plane to
 `a` and `c`.  This is a positive method result and licenses a forward crossing
 step; it does not add a twelfth curve point or close the historical section.
 
+The first licensed forward attempt separates residual convergence from branch
+direction.  EXP-384 aborts before solving because its exact warm start lies
+below a prospective forward optimizer wall.  The unwalled EXP-385 successor
+then converges below both residual gates, but to the backward, above-section
+point `(a,c)=(0.1798213190,10.3170697519)`.  This is another plane intersection,
+not a qualified curve point.  EXP-386 keeps the forward wall and instead
+starts from the forward predictor.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -129,5 +137,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-383, including preserved negative results and
+Evidence: EXP-341 through EXP-385, including preserved negative results and
 their hash-bound compact receipts.
