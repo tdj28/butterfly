@@ -138,3 +138,10 @@ motion, `4.00839e-9` maximum block defect, `4.09723e-14` plane residual, and
 point and resolves EXP-397/398's backward roots as finite-step curvature at the
 local resolution. EXP-400 freezes the same-size chained successor from this
 new passed root; the manuscript figure/count update follows that checkpoint.
+EXP-400 preserves an interior, conditioned backward root and exposes the
+reason: the scaled local `c` tangent falls by `4.27x`, inflating the unchanged
+physical request to normalized step `0.0196159`. Fixed `Delta c` is therefore
+not a stable continuation controller here. The runner now supports exactly one
+of physical-`c` or normalized-arclength stepping and passes all 396 tests.
+EXP-401 freezes the adaptive replay at the previously passed normalized step
+`0.00459868`, deriving its physical request from the new tangent.

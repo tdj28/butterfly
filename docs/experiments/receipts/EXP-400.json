@@ -1,0 +1,67 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-400",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "a48ac52b9d285cb798470428e95099df470df6eb",
+    "dirty": false
+  },
+  "manifest_sha256": "feefe202759ad58427d26598d92f0494a5c04172a1ea488583176653f132de53",
+  "raw_receipt": {
+    "path": "artifacts/EXP-400/receipt.json",
+    "bytes": 79122,
+    "sha256": "80db4786bd0af8f7601a9532653118034bfc4bf31d761ec233143385087e9221"
+  },
+  "elapsed_seconds": 67.22872816678137,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 3.125e-8,
+  "normalized_arclength_step": 0.019615883454366104,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.3561876129080548e-16,
+  "current_variables": {
+    "a": 0.1798174938833197,
+    "c": 10.317081507537782
+  },
+  "predictor_variables": {
+    "a": 0.17981748370965886,
+    "c": 10.317081538787782,
+    "angle": 2.6720577601656674,
+    "total_flight_time": 234.42040816367094
+  },
+  "final_variables": {
+    "a": 0.17981754860165525,
+    "c": 10.317081332869073,
+    "angle": 2.61629302700535,
+    "total_flight_time": 234.42046307400267
+  },
+  "final_c_increment": -1.7466870971816206e-7,
+  "initial_maximum_block_residual": 0.000003842025347072239,
+  "final_maximum_block_residual": 3.593220973814375e-9,
+  "final_matching_residual_norm": 1.324922278274692e-8,
+  "final_arclength_residual": 4.199133987574377e-14,
+  "jacobian_minimum_singular_value": 1.4711057734233137e-9,
+  "maximum_normalized_node_displacement": 0.03975333350875587,
+  "node_boundary_margin": 0.9602466664912441,
+  "global_boundary_margins": [
+    0.2499450896682731,
+    0.00019993510800361824,
+    0.00019979408128989462,
+    0.9442352668396827
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 4,
+    "njev": 4,
+    "optimality": 6.523351981390398e-12
+  },
+  "failed_checks": [
+    "directional_c_requirement"
+  ],
+  "interpretation": "The same physical c request inflates the normalized step by 4.27x because the local tangent's c component shrinks. Preserve the interior backward root and replay at the previously passed normalized arclength, deriving the physical c request adaptively."
+}

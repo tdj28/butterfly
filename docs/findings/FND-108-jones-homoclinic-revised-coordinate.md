@@ -220,6 +220,13 @@ and `1.68796e-9` minimum singular value add the twelfth qualified curve point.
 The larger-step reversals are therefore finite-step curvature effects at this
 local resolution, not loss of the branch.
 
+EXP-400 then shows why a fixed physical parameter step is not a stable control:
+the local tangent's scaled `c` component falls by `4.27x`, so the same
+`Delta c=3.125e-8` inflates normalized arclength to `0.0196159` and again
+selects an interior backward root.  The runner now supports a prospectively
+fixed normalized step and derives its physical `c` request from each new local
+tangent; all 396 repository tests pass.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -229,5 +236,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-399, including preserved negative results and
+Evidence: EXP-341 through EXP-400, including preserved negative results and
 their hash-bound compact receipts.

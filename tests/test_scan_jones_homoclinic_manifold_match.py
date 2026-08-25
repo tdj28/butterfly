@@ -35,6 +35,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     optimizer_jacobian,
     projected_arclength_tangent,
     receipt_state_vector,
+    resolve_continuation_step,
     source_angle_gauge,
     source_curve_values,
     unwrap_angle,
@@ -160,6 +161,36 @@ def test_homoclinic_pseudoarclength_measures_predictor_bound_clearance():
 
     assert np.allclose(observed, [0.25, 0.5, 1e-7])
     assert np.min(observed) < 1e-6
+
+
+def test_homoclinic_pseudoarclength_resolves_normalized_forward_step():
+    desired_c, normalized, orientation = resolve_continuation_step(
+        {"normalized_arclength_step": 0.25}, -2.0
+    )
+
+    assert desired_c == 0.5
+    assert normalized == 0.25
+    assert orientation == -1.0
+
+
+def test_homoclinic_pseudoarclength_preserves_legacy_parameter_step():
+    desired_c, normalized, orientation = resolve_continuation_step(
+        {"desired_c_increment": 0.5}, -2.0
+    )
+
+    assert desired_c == 0.5
+    assert normalized == 0.25
+    assert orientation == -1.0
+
+
+def test_homoclinic_pseudoarclength_requires_one_step_coordinate():
+    with np.testing.assert_raises(ValueError):
+        resolve_continuation_step({}, 1.0)
+    with np.testing.assert_raises(ValueError):
+        resolve_continuation_step(
+            {"desired_c_increment": 0.1, "normalized_arclength_step": 0.2},
+            1.0,
+        )
 
 
 def test_homoclinic_pseudoarclength_projects_closing_tangent_to_parameters():

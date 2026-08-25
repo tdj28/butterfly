@@ -1155,7 +1155,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   at `(a,c)=(0.1798174938833,10.3170815075378)`, adding the twelfth qualified
   curve point. Execute frozen EXP-400's same-size chained successor, then
   refresh the manuscript homoclinic figure and eleven-point text from the
-  resulting coherent continuation checkpoint.
+  resulting coherent continuation checkpoint. EXP-400 preserves an interior,
+  conditioned backward root because the local scaled `c` tangent falls by
+  `4.27x`, inflating the fixed-`Delta c` normalized step to `0.0196159`.
+  Preserve it. The runner now accepts exactly one of a physical `c` increment
+  or normalized arclength and passes all 396 tests. Execute frozen EXP-401 at
+  the previously passed normalized step `0.00459868`, deriving its physical
+  `c` request adaptively, before the manuscript refresh.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

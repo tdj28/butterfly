@@ -225,6 +225,45 @@ def boundary_clearances(
     )
 
 
+def resolve_continuation_step(
+    pseudoarclength: dict, c_direction: float
+) -> tuple[float, float, float]:
+    """Resolve a forward-oriented physical c increment and normalized step."""
+    c_direction = float(c_direction)
+    if not np.isfinite(c_direction) or c_direction == 0.0:
+        raise ValueError("pseudo-arclength tangent has no finite c direction")
+    has_desired_c = "desired_c_increment" in pseudoarclength
+    has_normalized = "normalized_arclength_step" in pseudoarclength
+    if has_desired_c == has_normalized:
+        raise ValueError(
+            "declare exactly one of desired_c_increment or normalized_arclength_step"
+        )
+    if has_normalized:
+        normalized_step = float(pseudoarclength["normalized_arclength_step"])
+        if not np.isfinite(normalized_step) or normalized_step <= 0.0:
+            raise ValueError("normalized arclength step must be finite and positive")
+        orientation = 1.0 if c_direction > 0.0 else -1.0
+        oriented_c_direction = orientation * c_direction
+        return (
+            normalized_step * oriented_c_direction,
+            normalized_step,
+            orientation,
+        )
+    desired_c_increment = float(pseudoarclength["desired_c_increment"])
+    if not np.isfinite(desired_c_increment):
+        raise ValueError("desired c increment must be finite")
+    orientation = 1.0
+    if desired_c_increment != 0.0 and c_direction * desired_c_increment <= 0.0:
+        orientation = -1.0
+    oriented_c_direction = orientation * c_direction
+    normalized_step = (
+        0.0
+        if desired_c_increment == 0.0
+        else desired_c_increment / oriented_c_direction
+    )
+    return desired_c_increment, normalized_step, orientation
+
+
 def projected_arclength_tangent(
     delta: np.ndarray,
     scales: np.ndarray,
@@ -742,15 +781,16 @@ def main() -> int:
         layout,
         arclength_component_weights,
     )
-    desired_c_increment = float(manifest["pseudoarclength"]["desired_c_increment"])
     c_direction = (
         predictor_tangent[layout["c_index"]] * scales[layout["c_index"]]
     )
-    if desired_c_increment != 0.0 and c_direction * desired_c_increment <= 0.0:
+    desired_c_increment, arclength_step, orientation = resolve_continuation_step(
+        manifest["pseudoarclength"], c_direction
+    )
+    if orientation < 0.0:
         predictor_tangent *= -1.0
         arclength_tangent *= -1.0
         c_direction *= -1.0
-    arclength_step = desired_c_increment / c_direction
     predictor = current + arclength_step * predictor_tangent * scales
     initial_guess = predictor
     if warm_start_receipt is not None:
