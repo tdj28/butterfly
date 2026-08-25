@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-363",
+  "passed": true,
+  "source_commit": "90bf6c2aa71d0db42370ef8505bf4bdb097c8b86",
+  "manifest_sha256": "5ef9a4c6786780fe2876da71b6be32ce524ef1b5f626a156adbd3f6a44acfeeb",
+  "raw_artifact": "artifacts/EXP-363/receipt.json",
+  "raw_artifact_bytes": 30220,
+  "raw_artifact_sha256": "78b85011bd678454ca9de5e386f50ce864fb8b59588ef85e99439c877cc626e8",
+  "elapsed_seconds": 458.01596416626126,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 128,
+  "source_receipts": [
+    {"experiment_id": "EXP-361", "sha256": "85104fe7396008b728f54e2982a1baabde21873a7412dc0b205658a6dfe2283f"},
+    {"experiment_id": "EXP-362", "sha256": "b217c3d72915f926c394039ccd512b672178828114b1f82a51289f62737ffcc1"}
+  ],
+  "desired_c_increment": 0.0005,
+  "initial_maximum_block_residual": 0.0010811264303011194,
+  "final_residual_norm": 1.826722405348268e-8,
+  "final_matching_residual_norm": 1.826722405338073e-8,
+  "final_maximum_block_residual": 9.933499263901978e-9,
+  "final_arclength_residual": -6.1030104581139e-12,
+  "final_variables": {
+    "a": 0.1800825699757035,
+    "c": 10.316267272411649,
+    "angle": 2.419148566427847,
+    "total_flight_time": 234.4588009134363
+  },
+  "secant_from_exp362": {
+    "da_dc": -0.3255513694279455,
+    "predicted_c_at_a_0_1798": 10.317135245955118
+  },
+  "node_boundary_margin": 0.9253675428322872,
+  "jacobian_condition_number": 41742796724.03234,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 33,
+    "optimality": 1.3190524880600844e-10
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The fourth chained point passes just inside the unchanged matching gate and preserves the projected crossing. Its narrow residual margin prospectively motivates halving the next predictor while retaining every scientific acceptance threshold."
+}

@@ -64,6 +64,12 @@ evaluations with maximum defect `8.48e-9`; its slope `-0.32554896` projects
 the crossing at `c=10.317135256`. The agreement now persists across three
 independently corrected pseudo-arclength secants.
 
+EXP-363 passes a fourth chained point at
+`(a,c)=(0.1800825699757,10.3162672724116)`. Its slope `-0.32555137` projects
+the crossing at `c=10.317135246`. The maximum defect `9.93350e-9` is close to
+the unchanged gate, so later steps reduce predictor size rather than weaken
+the acceptance criterion.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -73,5 +79,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-362, including preserved negative results and
+Evidence: EXP-341 through EXP-363, including preserved negative results and
 their hash-bound compact receipts.

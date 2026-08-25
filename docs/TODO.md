@@ -963,7 +963,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `(a,c)=(0.1802255499680,10.3158280790748)`, maximum defect `8.48494e-9`,
   and slope `-0.32554896`. Freeze the fourth unchanged step from EXP-361 and
   EXP-362; continue until qualified points bracket exact `a=0.1798`.
-  EXP-363 freezes that fourth step without changing any gate.
+  EXP-363 passes at `(a,c)=(0.1800825699757,10.3162672724116)` with slope
+  `-0.32555137`, but its `9.93350e-9` maximum defect uses `99.33%` of the root
+  gate. Prospectively halve the next predictor to `Delta c=0.00025` without
+  changing any acceptance threshold.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
