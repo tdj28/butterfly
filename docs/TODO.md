@@ -1070,7 +1070,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   and all root/margin thresholds. EXP-383 freezes the prerequisite zero-step
   control with unit `a/c` weights, `0.01` node/time/angle weights, deterministic
   512-arc subdivision, CSR/LSMR correction, a `1e-8` stationary-`c` gate, and
-  unchanged `1e-8` matching threshold. Only a pass licenses a forward step.
+  unchanged `1e-8` matching threshold. EXP-383 passes in three evaluations,
+  halves the maximum defect to `5.10888e-9`, holds `c` within `1.69e-9`, and
+  lifts the smallest singular value by `6.63x`. Freeze EXP-384 with the same
+  weighted plane, exact EXP-383 warm start, `Delta c=7.5e-5`, an explicit
+  below-`a=0.1798` gate, and every unchanged root/margin threshold.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -833,6 +833,7 @@ def main() -> int:
         ) <= float(acceptance["maximum_stationary_c_drift"])
     else:
         raise SystemExit("unsupported acceptance.directional_c_requirement")
+    maximum_final_a = acceptance.get("maximum_final_a")
     checks = {
         "source_roots_bound": all(receipt["passed"] for receipt in receipts),
         "initial_residual": initial_details["maximum_block_norm"]
@@ -854,6 +855,11 @@ def main() -> int:
         "global_status_bound": min(global_margins)
         >= float(acceptance["minimum_global_boundary_margin"]),
         "directional_c_requirement": directional_c_check,
+        "maximum_final_a": (
+            True
+            if maximum_final_a is None
+            else result.x[layout["a_index"]] <= float(maximum_final_a)
+        ),
         "root_nominated": root_nominated,
     }
     checks = native_boolean_checks(checks)

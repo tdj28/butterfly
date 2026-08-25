@@ -111,6 +111,15 @@ not negative branch results. They narrow the viable successor to bounded
 multiple shooting with a weak regularizing gauge or an equivalent constrained
 block formulation.
 
+EXP-383 supplies the required bounded-multiple-shooting positive control.  A
+prospectively fixed hybrid plane with unit `(a,c)` weights and `0.01`
+node/time/angle weights reproduces EXP-368 at 512 arcs, halves the maximum
+defect to `5.10888e-9`, and holds `c` within `1.69e-9`.  The smallest measured
+Jacobian singular value rises from `2.70368e-10` for the pure physical plane to
+`1.79318e-9`, while the normalized closing direction remains dominated by
+`a` and `c`.  This is a positive method result and licenses a forward crossing
+step; it does not add a twelfth curve point or close the historical section.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -120,5 +129,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-382, including preserved negative results and
+Evidence: EXP-341 through EXP-383, including preserved negative results and
 their hash-bound compact receipts.

@@ -49,11 +49,14 @@ count and explicitly withhold the exact intersection claim.  The 54-page PDF
 passes the bibliography gate, compiles without layout warnings, and was
 visually checked at the abstract, homoclinic figures, and conclusion.
 
-## Next execution item
+## Weighted-plane control
 
 Keep the EXP-367/368 512-arc warm start and bounded analytic-variational
 multiple shooting, but replace the rank-deficient pure `(a,c)` arclength plane
 with a weak full-state plane.  The node, angle, and flight-time contributions
 must be scaled only enough to regularize the near-null direction; the physical
-`(a,c)` secant must remain dominant.  Freeze the weights and a zero-step
-positive control before attempting another forward crossing step.
+`(a,c)` secant must remain dominant.  EXP-383 freezes nuisance weights at
+`0.01` relative to unit `a/c` weights and passes the zero-step 512-arc control.
+It halves the maximum defect to `5.10888e-9`, holds `c` within `1.69e-9`, and
+lifts the smallest Jacobian singular value by `6.63x`.  EXP-384 is the frozen
+`7.5e-5` forward crossing step using the unchanged weights and gates.
