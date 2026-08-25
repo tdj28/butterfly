@@ -29,6 +29,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     bounded_sparse_newton,
     directional_c_bounds,
     jacobian_conditioning_accepted,
+    local_tangent_from_matching_jacobian,
     native_boolean_checks,
     optimizer_jacobian,
     projected_arclength_tangent,
@@ -180,6 +181,20 @@ def test_homoclinic_pseudoarclength_physical_predictor_holds_nuisance_groups():
         predictor[layout["c_index"]] - current[layout["c_index"]],
         desired_c_increment,
     )
+
+
+def test_homoclinic_pseudoarclength_recovers_local_bordered_tangent():
+    jacobian = np.array([[1.0, 2.0, 0.0], [0.0, 1.0, -3.0]])
+    scales = np.array([2.0, 0.5, 4.0])
+    tangent, residual = local_tangent_from_matching_jacobian(
+        jacobian, scales, direction_index=2
+    )
+    physical_tangent = scales * tangent
+
+    assert np.isclose(np.linalg.norm(tangent), 1.0)
+    assert tangent[2] > 0.0
+    assert np.linalg.norm(jacobian @ physical_tangent) < 1e-12
+    assert residual < 1e-12
 
 
 def test_homoclinic_pseudoarclength_weights_closing_tangent_groups():

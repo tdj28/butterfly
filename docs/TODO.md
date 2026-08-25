@@ -1109,7 +1109,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   global interiority. Preserve it. Replace the long full-state secant by a
   local branch tangent computed from the EXP-368 matching Jacobian; first pass
   a zero-step control that records the tangent residual and physical direction,
-  then license a forward step without changing scientific thresholds.
+  then license a forward step without changing scientific thresholds. EXP-391
+  freezes that zero-step control with a bordered analytic-Jacobian solve and a
+  prospective `1e-8` local-tangent residual gate.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

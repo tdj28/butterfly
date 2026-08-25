@@ -270,6 +270,36 @@ def arclength_group_norms(
     }
 
 
+def local_tangent_from_matching_jacobian(
+    matching_jacobian: np.ndarray,
+    scales: np.ndarray,
+    direction_index: int,
+) -> tuple[np.ndarray, float]:
+    """Solve a bordered system for the scaled local branch tangent."""
+    jacobian = np.asarray(matching_jacobian, dtype=np.float64)
+    scales = np.asarray(scales, dtype=np.float64)
+    row_count, variable_count = jacobian.shape
+    if variable_count != row_count + 1 or scales.shape != (variable_count,):
+        raise ValueError("matching Jacobian must have one-dimensional nullity")
+    if not 0 <= direction_index < variable_count:
+        raise ValueError("local tangent direction index is out of range")
+    scaled_jacobian = jacobian * scales[np.newaxis, :]
+    direction_row = np.zeros((1, variable_count), dtype=np.float64)
+    direction_row[0, direction_index] = 1.0
+    bordered = np.vstack((scaled_jacobian, direction_row))
+    right_hand_side = np.zeros(variable_count, dtype=np.float64)
+    right_hand_side[-1] = 1.0
+    tangent = splu(csc_matrix(bordered)).solve(right_hand_side)
+    norm = float(np.linalg.norm(tangent))
+    if not np.isfinite(norm) or norm == 0.0:
+        raise ValueError("local matching-Jacobian tangent is degenerate")
+    tangent /= norm
+    if tangent[direction_index] < 0.0:
+        tangent *= -1.0
+    residual = float(np.linalg.norm(scaled_jacobian @ tangent))
+    return tangent, residual
+
+
 def optimizer_jacobian(jacobian: np.ndarray, storage: str):
     """Expose the analytic shooting Jacobian in the frozen optimizer format."""
     if storage == "dense":
@@ -558,14 +588,109 @@ def main() -> int:
     scales[layout["a_index"]] = float(scaling["a"])
     scales[layout["c_index"]] = float(scaling["c"])
     scales[layout["angle_index"]] = float(scaling["angle"])
+    parameter_steps = manifest["derivatives"]["absolute_steps"]
+    a_step = float(parameter_steps["a"])
+    c_step = float(parameter_steps["c"])
+
+    def evaluate_matching(variables: np.ndarray):
+        """Evaluate the underdetermined matching system and analytic Jacobian."""
+        variables = np.asarray(variables, dtype=np.float64)
+        nodes = variables[: layout["node_size"]].reshape(layout["node_count"], 3)
+        total_time = float(variables[layout["time_index"]])
+        a_value = float(variables[layout["a_index"]])
+        c_value = float(variables[layout["c_index"]])
+        angle = float(variables[layout["angle_index"]])
+        parameters = RosslerParameters(a=a_value, b=b_value, c=c_value)
+        initial, target, initial_angle_derivative = geometry(a_value, c_value, angle)
+        initial_ap, target_ap, _ = geometry(a_value + a_step, c_value, angle)
+        initial_am, target_am, _ = geometry(a_value - a_step, c_value, angle)
+        initial_cp, target_cp, _ = geometry(a_value, c_value + c_step, angle)
+        initial_cm, target_cm, _ = geometry(a_value, c_value - c_step, angle)
+        initial_derivatives = {
+            "a": (initial_ap - initial_am) / (2.0 * a_step),
+            "c": (initial_cp - initial_cm) / (2.0 * c_step),
+        }
+        target_derivatives = {
+            "a": (target_ap - target_am) / (2.0 * a_step),
+            "c": (target_cp - target_cm) / (2.0 * c_step),
+        }
+        segment_time = total_time / segment_count
+        matching = np.empty(3 * segment_count)
+        jacobian = np.zeros((3 * segment_count, layout["variable_count"]))
+        endpoints = []
+        for index in range(segment_count):
+            start = initial if index == 0 else nodes[index - 1]
+            endpoint, transition, sensitivities = integrate_segment_sensitivities(
+                start,
+                segment_time,
+                parameters,
+                solver,
+                continuation_parameters=("a", "c"),
+            )
+            destination = target if index + 1 == segment_count else nodes[index]
+            row = slice(3 * index, 3 * index + 3)
+            matching[row] = endpoint - destination
+            if index > 0:
+                jacobian[row, slice(3 * (index - 1), 3 * index)] = transition
+            if index + 1 < segment_count:
+                jacobian[row, slice(3 * index, 3 * index + 3)] -= np.eye(3)
+            jacobian[row, layout["time_index"]] = (
+                rossler_rhs(segment_time, endpoint, parameters) / segment_count
+            )
+            for name, parameter_index in (
+                ("a", layout["a_index"]),
+                ("c", layout["c_index"]),
+            ):
+                jacobian[row, parameter_index] = sensitivities[name]
+                if index == 0:
+                    jacobian[row, parameter_index] += (
+                        transition @ initial_derivatives[name]
+                    )
+                if index + 1 == segment_count:
+                    jacobian[row, parameter_index] -= target_derivatives[name]
+            if index == 0:
+                jacobian[row, layout["angle_index"]] = (
+                    transition @ initial_angle_derivative
+                )
+            endpoints.append(endpoint)
+        norms = block_norms(matching)
+        details = {
+            "matching_residual_norm": float(np.linalg.norm(matching)),
+            "maximum_block_norm": float(np.max(norms)),
+            "block_norms": norms,
+            "endpoint": np.asarray(endpoints[-1]).tolist(),
+            "stable_target": target.tolist(),
+        }
+        return matching, jacobian, details
+
     all_components = ARCLENGTH_COMPONENTS
     predictor_components = tuple(
         manifest["pseudoarclength"].get("predictor_components", all_components)
     )
     if not predictor_components or not set(predictor_components) <= set(all_components):
         raise SystemExit("unsupported pseudoarclength predictor components")
+    tangent_source = manifest["pseudoarclength"].get("tangent_source", "secant")
+    local_tangent_residual = None
+    local_tangent_group_norms = None
+    if tangent_source == "secant":
+        tangent_delta = current - previous
+    elif tangent_source == "local_matching_jacobian":
+        _current_matching, current_matching_jacobian, _current_details = (
+            evaluate_matching(current)
+        )
+        local_tangent, local_tangent_residual = (
+            local_tangent_from_matching_jacobian(
+                current_matching_jacobian,
+                scales,
+                layout["c_index"],
+            )
+        )
+        tangent_delta = local_tangent * scales
+        local_tangent_group_norms = arclength_group_norms(local_tangent, layout)
+    else:
+        raise SystemExit("unsupported pseudoarclength tangent source")
     predictor_tangent = projected_arclength_tangent(
-        current - previous, scales, layout, predictor_components
+        tangent_delta, scales, layout, predictor_components
     )
     configured_weights = manifest["pseudoarclength"].get(
         "arclength_component_weights"
@@ -596,7 +721,7 @@ def main() -> int:
                 "weighted arclength components disagree with positive weights"
             )
     arclength_tangent = weighted_arclength_tangent(
-        current - previous,
+        tangent_delta,
         scales,
         layout,
         arclength_component_weights,
@@ -653,9 +778,6 @@ def main() -> int:
     if not np.all((initial_guess > lower) & (initial_guess < upper)):
         raise SystemExit("pseudo-arclength initial guess lies outside frozen bounds")
 
-    parameter_steps = manifest["derivatives"]["absolute_steps"]
-    a_step = float(parameter_steps["a"])
-    c_step = float(parameter_steps["c"])
     arc_weight = float(manifest["pseudoarclength"]["residual_weight"])
     history = []
     cached_point = cached_residual = cached_jacobian = cached_details = None
@@ -665,78 +787,19 @@ def main() -> int:
         variables = np.asarray(variables, dtype=np.float64)
         if cached_point is not None and np.array_equal(variables, cached_point):
             return cached_residual, cached_jacobian, cached_details
-        nodes = variables[: layout["node_size"]].reshape(layout["node_count"], 3)
         total_time = float(variables[layout["time_index"]])
         a_value = float(variables[layout["a_index"]])
         c_value = float(variables[layout["c_index"]])
         angle = float(variables[layout["angle_index"]])
-        parameters = RosslerParameters(a=a_value, b=b_value, c=c_value)
-        initial, target, initial_angle_derivative = geometry(a_value, c_value, angle)
-        initial_ap, target_ap, _ = geometry(a_value + a_step, c_value, angle)
-        initial_am, target_am, _ = geometry(a_value - a_step, c_value, angle)
-        initial_cp, target_cp, _ = geometry(a_value, c_value + c_step, angle)
-        initial_cm, target_cm, _ = geometry(a_value, c_value - c_step, angle)
-        initial_derivatives = {
-            "a": (initial_ap - initial_am) / (2.0 * a_step),
-            "c": (initial_cp - initial_cm) / (2.0 * c_step),
-        }
-        target_derivatives = {
-            "a": (target_ap - target_am) / (2.0 * a_step),
-            "c": (target_cp - target_cm) / (2.0 * c_step),
-        }
-        segment_time = total_time / segment_count
-        matching = np.empty(3 * segment_count)
+        matching, matching_jacobian, details = evaluate_matching(variables)
         jacobian = np.zeros((3 * segment_count + 1, layout["variable_count"]))
-        endpoints = []
-        for index in range(segment_count):
-            start = initial if index == 0 else nodes[index - 1]
-            endpoint, transition, sensitivities = integrate_segment_sensitivities(
-                start,
-                segment_time,
-                parameters,
-                solver,
-                continuation_parameters=("a", "c"),
-            )
-            destination = target if index + 1 == segment_count else nodes[index]
-            row = slice(3 * index, 3 * index + 3)
-            matching[row] = endpoint - destination
-            if index > 0:
-                jacobian[row, slice(3 * (index - 1), 3 * index)] = transition
-            if index + 1 < segment_count:
-                jacobian[row, slice(3 * index, 3 * index + 3)] -= np.eye(3)
-            jacobian[row, layout["time_index"]] = (
-                rossler_rhs(segment_time, endpoint, parameters) / segment_count
-            )
-            for name, parameter_index in (
-                ("a", layout["a_index"]),
-                ("c", layout["c_index"]),
-            ):
-                jacobian[row, parameter_index] = sensitivities[name]
-                if index == 0:
-                    jacobian[row, parameter_index] += (
-                        transition @ initial_derivatives[name]
-                    )
-                if index + 1 == segment_count:
-                    jacobian[row, parameter_index] -= target_derivatives[name]
-            if index == 0:
-                jacobian[row, layout["angle_index"]] = (
-                    transition @ initial_angle_derivative
-                )
-            endpoints.append(endpoint)
+        jacobian[:-1] = matching_jacobian
         arc_residual = float(
             np.dot(arclength_tangent, (variables - predictor) / scales)
         )
         residual = np.r_[matching, arc_weight * arc_residual]
         jacobian[-1] = arc_weight * arclength_tangent / scales
-        norms = block_norms(matching)
-        details = {
-            "matching_residual_norm": float(np.linalg.norm(matching)),
-            "maximum_block_norm": float(np.max(norms)),
-            "block_norms": norms,
-            "arclength_residual": arc_residual,
-            "endpoint": np.asarray(endpoints[-1]).tolist(),
-            "stable_target": target.tolist(),
-        }
+        details["arclength_residual"] = arc_residual
         history.append(
             {
                 "evaluation": len(history),
@@ -851,6 +914,9 @@ def main() -> int:
         raise SystemExit("unsupported acceptance.directional_c_requirement")
     maximum_final_a = acceptance.get("maximum_final_a")
     singular_values = np.linalg.svd(final_jacobian, compute_uv=False)
+    maximum_local_tangent_residual = acceptance.get(
+        "maximum_local_tangent_residual"
+    )
     checks = {
         "source_roots_bound": all(receipt["passed"] for receipt in receipts),
         "initial_residual": initial_details["maximum_block_norm"]
@@ -879,6 +945,12 @@ def main() -> int:
         ),
         "jacobian_conditioning": jacobian_conditioning_accepted(
             singular_values, acceptance
+        ),
+        "local_tangent_residual": (
+            True
+            if local_tangent_residual is None
+            or maximum_local_tangent_residual is None
+            else local_tangent_residual <= float(maximum_local_tangent_residual)
         ),
         "root_nominated": root_nominated,
     }
@@ -946,6 +1018,9 @@ def main() -> int:
             "total_flight_time": float(result.x[layout["time_index"]]),
         },
         "desired_c_increment": desired_c_increment,
+        "tangent_source": tangent_source,
+        "local_tangent_residual": local_tangent_residual,
+        "local_tangent_group_norms": local_tangent_group_norms,
         "predictor_components": list(predictor_components),
         "arclength_components": list(arclength_components),
         "arclength_component_weights": arclength_component_weights,

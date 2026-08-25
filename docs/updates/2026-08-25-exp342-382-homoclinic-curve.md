@@ -86,4 +86,6 @@ extrapolates only `(a,c)`. EXP-390 freezes exactly that predictor-only change
 with every EXP-389 scientific and conditioning gate retained. It closes the
 matching blocks to `6.27539e-9` with tiny node motion but still lands on the
 forward wall. The remaining secant plane is being replaced by a local tangent
-from the EXP-368 matching Jacobian, beginning with a zero-step control.
+from the EXP-368 matching Jacobian. EXP-391 freezes the zero-step control with
+a bordered analytic-Jacobian solve and a prospective `1e-8` tangent-residual
+gate before any new forward attempt.
