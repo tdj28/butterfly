@@ -1,0 +1,73 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-390",
+  "classification": "pseudoarclength_unresolved",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "421748e60e568288c963128123f100f30297d237",
+    "dirty": false
+  },
+  "manifest_sha256": "a93491c542e5124215c089c31f5b635d527b01928eda6d835053d20051de8761",
+  "raw_receipt": {
+    "path": "artifacts/EXP-390/receipt.json",
+    "bytes": 80684,
+    "sha256": "a038cf8a1a6089b38e4f747a1e8ce8fb0b4f131aa5ef1f8ee48fcd396120231f"
+  },
+  "elapsed_seconds": 267.463509792462,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 0.00002,
+  "predictor_components": [
+    "a",
+    "c"
+  ],
+  "predictor_tangent_group_norms": {
+    "a": 0.545643932034643,
+    "c": 0.8380171235922174,
+    "nodes": 0.0,
+    "total_flight_time": 0.0,
+    "angle": 0.0
+  },
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981098675460366,
+    "c": 10.317101488741883,
+    "angle": 2.810286200938858,
+    "total_flight_time": 234.420478735897
+  },
+  "final_variables": {
+    "a": 0.1798174950959779,
+    "c": 10.317081588741887,
+    "angle": 2.9519630880141974,
+    "total_flight_time": 234.42035782138444
+  },
+  "initial_maximum_block_residual": 0.00024906051900292533,
+  "final_maximum_block_residual": 6.275387542223247e-9,
+  "final_matching_residual_norm": 2.3460137841912997e-8,
+  "final_arclength_residual": 9.54011175613445e-15,
+  "jacobian_minimum_singular_value": 2.1583023505600602e-9,
+  "node_boundary_margin": 0.9984769336630652,
+  "global_boundary_margins": [
+    0.9998790854874358,
+    0.0004934916586257776,
+    3.552713678800501e-15,
+    0.8583231129246607
+  ],
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 13,
+    "njev": 13,
+    "optimality": 2.9588712556001475e-12
+  },
+  "failed_checks": [
+    "global_status_bound",
+    "root_nominated"
+  ],
+  "interpretation": "A physical-only predictor drives every residual below its numerical gate but still reaches the forward-c wall. The remaining failure is the secant-defined closing geometry: nuisance-angle motion can satisfy it without the intended physical step."
+}

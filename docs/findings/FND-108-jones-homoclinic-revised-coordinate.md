@@ -152,6 +152,14 @@ insufficient nuisance down-weighting as the main cause of wall capture.  The
 next successor changes predictor initialization while preserving the passed
 plane and all scientific gates.
 
+EXP-390's physical-only predictor then reduces node motion by roughly `46x`
+and closes every numerical residual gate, including a `6.27539e-9` maximum
+block defect, but still lands exactly on the forward `c` wall.  Its departure
+angle changes by `0.141677` radians while `c` advances only `1e-7`, showing
+that the secant-defined plane still admits nuisance-gauge compensation.  The
+next method upgrade is a local tangent computed from the EXP-368 matching
+Jacobian, with the same scientific gates.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -161,5 +169,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-389, including preserved negative results and
+Evidence: EXP-341 through EXP-390, including preserved negative results and
 their hash-bound compact receipts.

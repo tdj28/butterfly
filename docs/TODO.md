@@ -1104,7 +1104,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   failure. Freeze a physical-only predictor that holds nodes, time, and angle
   at the qualified current root, extrapolates only `(a,c)`, and retains the
   passed `0.003` closing plane and every EXP-389 acceptance gate. EXP-390 now
-  freezes that predictor-only change; execute it from the clean pushed commit.
+  closes every residual gate at `6.27539e-9` maximum defect with only `0.00152`
+  normalized node motion, but remains exactly on the forward wall and fails
+  global interiority. Preserve it. Replace the long full-state secant by a
+  local branch tangent computed from the EXP-368 matching Jacobian; first pass
+  a zero-step control that records the tangent residual and physical direction,
+  then license a forward step without changing scientific thresholds.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

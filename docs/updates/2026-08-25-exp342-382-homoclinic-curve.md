@@ -83,4 +83,7 @@ step but still lands on the forward wall at `5.81828e-8`, while its
 full-state predictor basin, not inadequate conditioning or plane weighting;
 the next test holds nuisance variables at the qualified current root and
 extrapolates only `(a,c)`. EXP-390 freezes exactly that predictor-only change
-with every EXP-389 scientific and conditioning gate retained.
+with every EXP-389 scientific and conditioning gate retained. It closes the
+matching blocks to `6.27539e-9` with tiny node motion but still lands on the
+forward wall. The remaining secant plane is being replaced by a local tangent
+from the EXP-368 matching Jacobian, beginning with a zero-step control.
