@@ -37,6 +37,14 @@ except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
 SCHEMA = "butterfly.jones-homoclinic-collocation-manifest.v1"
 
 
+def validate_solver_blocks(manifest: dict) -> None:
+    """Require one identical Radau policy for boundaries and replay."""
+    if "solver" not in manifest:
+        raise ValueError("root solver block required by manifold construction")
+    if manifest["solver"] != manifest["replay"]["solver"]:
+        raise ValueError("manifold and replay solver blocks must be identical")
+
+
 def physical_secant_plane(
     previous: np.ndarray,
     current: np.ndarray,
@@ -120,6 +128,10 @@ def main() -> int:
     manifest = json.loads(manifest_bytes)
     if manifest.get("schema") != SCHEMA:
         raise SystemExit("unsupported homoclinic collocation manifest")
+    try:
+        validate_solver_blocks(manifest)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     source = {
         "commit": git_value("rev-parse", "HEAD"),
         "branch": git_value("branch", "--show-current"),

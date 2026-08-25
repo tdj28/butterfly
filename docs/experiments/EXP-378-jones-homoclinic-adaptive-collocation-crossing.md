@@ -1,6 +1,6 @@
 # EXP-378 — Adaptive-collocation homoclinic crossing
 
-Status: frozen; not yet run
+Status: administrative pre-solve abort; no scientific result or receipt
 
 EXP-377 shows that the 512-arc multiple-shooting square system has a directly
 measured near-null mode that neither trust-region regularization nor deeply
@@ -24,3 +24,12 @@ not the exact historical section, uniqueness, or computer-assisted existence.
 
 Manifest:
 [`../../experiments/manifests/EXP-378-jones-homoclinic-adaptive-collocation-crossing.json`](../../experiments/manifests/EXP-378-jones-homoclinic-adaptive-collocation-crossing.json).
+
+## Administrative outcome
+
+Execution stops before constructing the initial mesh because the shared stable-
+manifold routine requires a root-level `solver` block. EXP-378 specified the
+identical Radau policy only under `replay.solver`. No collocation iteration ran,
+no artifact was written, and this is not a scientific failure. EXP-379 adds
+the missing schema block, requires it to equal the replay block in a regression
+test, and otherwise leaves the frozen mathematics and gates unchanged.

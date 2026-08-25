@@ -1043,7 +1043,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   boundary Jacobians, and independent uniform-512 Radau replay gates. EXP-378
   freezes this representation change with `1e-7` collocation tolerance,
   4,096-node ceiling, unchanged `1e-8` boundary/replay gates, and a required
-  below-section endpoint.
+  below-section endpoint. EXP-378 aborts administratively before solving
+  because its manifest omits the root-level copy of the Radau block required
+  by the shared manifold constructor. Preserve the abort; EXP-379 freezes the
+  schema-complete rerun with an equality regression test and no mathematical
+  or acceptance-gate change.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
