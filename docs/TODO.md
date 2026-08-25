@@ -938,6 +938,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   failure. Implement pseudo-arclength or collocation continuation with an
   explicit gauge to distinguish a local fold/termination from singular
   fixed-`a` conditioning; do not claim the secant intersection.
+  EXP-359 freezes the first such two-parameter pseudo-arclength step, including
+  simultaneous analytic `a/c` sensitivities, common-gauge angle alignment,
+  deterministic 32-to-128-arc subdivision, and a conservative
+  `Delta c=0.0005` predictor. Run it locally before approaching the suspected
+  fold.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

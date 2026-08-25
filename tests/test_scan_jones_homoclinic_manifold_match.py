@@ -22,6 +22,11 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
     solution_parameters,
     variable_layout,
 )
+from scripts.continue_jones_homoclinic_pseudoarclength import (
+    SCHEMA as PSEUDOARCLENGTH_SCHEMA,
+    unwrap_angle,
+    variable_layout as pseudoarclength_layout,
+)
 
 
 def test_manifold_match_schema_is_versioned():
@@ -30,6 +35,10 @@ def test_manifold_match_schema_is_versioned():
     assert (
         MULTIPLE_SHOOTING_SCHEMA
         == "butterfly.jones-homoclinic-multiple-shooting-manifest.v1"
+    )
+    assert (
+        PSEUDOARCLENGTH_SCHEMA
+        == "butterfly.jones-homoclinic-pseudoarclength-manifest.v1"
     )
 
 
@@ -44,6 +53,22 @@ def test_homoclinic_multiple_shooting_layout_is_square():
         "variable_count": 48,
     }
     assert 3 * 16 == layout["variable_count"]
+
+
+def test_homoclinic_pseudoarclength_layout_is_square():
+    layout = pseudoarclength_layout(16)
+    assert layout["node_size"] == 45
+    assert layout["time_index"] == 45
+    assert layout["a_index"] == 46
+    assert layout["c_index"] == 47
+    assert layout["angle_index"] == 48
+    assert layout["variable_count"] == 49
+    assert 3 * 16 + 1 == layout["variable_count"]
+
+
+def test_homoclinic_pseudoarclength_angle_unwraps_to_nearest_branch():
+    assert np.isclose(unwrap_angle(2.0 * np.pi - 0.1, 0.1), -0.1)
+    assert np.isclose(unwrap_angle(-2.0 * np.pi + 0.2, -0.1), 0.2)
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

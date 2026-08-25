@@ -48,6 +48,67 @@ def integrate_segment(
     return final[:3], final[3:12].reshape(3, 3), final[12:15]
 
 
+def integrate_segment_sensitivities(
+    state,
+    duration,
+    parameters,
+    solver,
+    continuation_parameters=("a", "c"),
+):
+    """Integrate one arc with simultaneous parameter sensitivities."""
+    names = tuple(continuation_parameters)
+    if not names or len(set(names)) != len(names):
+        raise ValueError("continuation parameters must be unique and nonempty")
+    if any(name not in {"a", "b", "c"} for name in names):
+        raise ValueError("continuation parameters must be drawn from 'a', 'b', 'c'")
+    initial = np.r_[
+        state,
+        np.eye(3).ravel(),
+        np.zeros(3 * len(names)),
+    ]
+
+    def forcing(name, point):
+        if name == "a":
+            return np.asarray((0.0, point[1], 0.0))
+        if name == "b":
+            return np.asarray((0.0, 0.0, 1.0))
+        return np.asarray((0.0, 0.0, -point[2]))
+
+    def augmented(time, value):
+        point = value[:3]
+        jacobian = rossler_jacobian(point, parameters)
+        transition = value[3:12].reshape(3, 3)
+        sensitivities = value[12:].reshape(len(names), 3)
+        sensitivity_derivatives = [
+            jacobian @ sensitivity + forcing(name, point)
+            for name, sensitivity in zip(names, sensitivities, strict=True)
+        ]
+        return np.r_[
+            rossler_rhs(time, point, parameters),
+            (jacobian @ transition).ravel(),
+            np.asarray(sensitivity_derivatives).ravel(),
+        ]
+
+    result = solve_ivp(
+        augmented,
+        (0.0, duration),
+        initial,
+        method=solver.method,
+        rtol=solver.rtol,
+        atol=solver.atol,
+        max_step=solver.max_step,
+    )
+    if not result.success:
+        raise RuntimeError(result.message)
+    final = result.y[:, -1]
+    sensitivities = final[12:].reshape(len(names), 3)
+    return (
+        final[:3],
+        final[3:12].reshape(3, 3),
+        {name: sensitivities[index] for index, name in enumerate(names)},
+    )
+
+
 def seed_variables(state, total_duration, b, *, segment_count, a, c, solver):
     parameters = RosslerParameters(a=a, b=b, c=c)
     duration = total_duration / segment_count

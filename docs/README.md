@@ -661,6 +661,9 @@ what must be narrowed, and what is false or unresolved.
   third exact-node crossing correction after another monotone defect reduction.
 - [`experiments/EXP-358-jones-homoclinic-fixed-a-corrected-source.md`](experiments/EXP-358-jones-homoclinic-fixed-a-corrected-source.md):
   renewed direct historical fixed-`a` solve from locally corrected curve nodes.
+- [`experiments/EXP-359-jones-homoclinic-pseudoarclength-step1.md`](experiments/EXP-359-jones-homoclinic-pseudoarclength-step1.md):
+  first gauge-aligned two-parameter pseudo-arclength step from the two
+  qualified homoclinic curve points.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable
