@@ -444,6 +444,14 @@ EXP-369/370 diagnose the full-state arclength hyperplane as gauge-contaminated
 near the section. The next protocol defines the closing plane only in the
 physical `(a,c)` projection.
 
+## EXP-371 projected closure reaches the nuisance-angle wall
+
+The projected `(a,c)` arclength solve remains forward but stops at its angle
+lower bound `2.4662348291`. Maximum defect is `1.09138e-5` and projected
+arclength residual is `3.69497e-5`; root, global-margin, and termination checks
+fail. The successor widens only the already diagnosed nuisance-angle gauge,
+retaining the physical plane and every scientific threshold.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -474,5 +482,7 @@ The wrong-direction 512-arc root is tracked in
 [`../experiments/receipts/EXP-369.json`](../experiments/receipts/EXP-369.json).
 The boundary-active constrained failure is tracked in
 [`../experiments/receipts/EXP-370.json`](../experiments/receipts/EXP-370.json).
+The projected-angle-bound failure is tracked in
+[`../experiments/receipts/EXP-371.json`](../experiments/receipts/EXP-371.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

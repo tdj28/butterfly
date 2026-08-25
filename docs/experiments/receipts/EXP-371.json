@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-371",
+  "passed": false,
+  "source_commit": "893dc4086a768176293a8c3cccd544702e069766",
+  "manifest_sha256": "17df2f408d46e2f8f8df30bf4d86f119e399d51832b5c73bcaec2047840ca41c",
+  "raw_artifact": "artifacts/EXP-371/receipt.json",
+  "raw_artifact_bytes": 85445,
+  "raw_artifact_sha256": "7586b03673ded87e7bef91f8b5d5422392c0013e854a04a9e4336f7e01844aec",
+  "elapsed_seconds": 889.9193772496656,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "arclength_components": ["a", "c"],
+  "desired_c_increment": 0.00015,
+  "initial_maximum_block_residual": 0.002995498843115011,
+  "final_residual_norm": 0.000013169341710041224,
+  "final_matching_residual_norm": 0.000013164157127623383,
+  "final_maximum_block_residual": 0.000010913841108642891,
+  "final_arclength_residual": -0.00003694972193048207,
+  "final_variables": {
+    "a": 0.17981971540812622,
+    "c": 10.317297792331855,
+    "angle": 2.466234829099821,
+    "total_flight_time": 234.42681890129134
+  },
+  "node_boundary_margin": 0.7732859091974404,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 38,
+    "optimality": 4.652426330145124e-9
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "global_status_bound",
+    "optimizer_terminated_or_root_gate",
+    "root_nominated"
+  ],
+  "interpretation": "The projected physical arclength condition avoids the wrong-side root but stalls on the nuisance departure-angle bound. The successor widens only that gauge while retaining every scientific gate and the same budget."
+}

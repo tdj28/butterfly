@@ -998,7 +998,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `2.28171e-6`. Replace the full-state arclength equation with a physical
   `(a,c)`-only secant plane while retaining full-state prediction, 512 arcs,
   and every scientific gate; remove the directional optimizer wall. EXP-371
-  freezes that projected-arclength protocol.
+  freezes that projected-arclength protocol. EXP-371 is preserved as failed
+  on the departure-angle lower bound, with defect `1.09138e-5` and projected
+  arclength residual `3.69497e-5`. Widen only the nuisance angle half-width
+  from `0.5` to `2.0`; keep 512 arcs, 40 evaluations, and all scientific gates.
+  EXP-372 freezes that nuisance-gauge-only recovery.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
