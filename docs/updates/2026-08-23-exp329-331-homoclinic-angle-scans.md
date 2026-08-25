@@ -501,6 +501,15 @@ maximum defect from `5.20888e-6` to `7.17314e-3` and `1.78406e-3`. The frozen
 `2^-12` minimum fraction then rejects the step. The linear solve works; severe
 nonlinear curvature along the near-null direction is now directly measured.
 
+## EXP-377 retires direct-Newton restarts
+
+Ten frozen fractions down to `1.05678e-6` all increase the objective. The
+closest cost, `1.9738089299e-11`, remains above the starting
+`1.9736827552e-11`, even though the linear equation is solved to
+`2.57761e-13`. Descent is below the reliable nonlinear scale along the huge
+near-null step. Further Newton damping and restarts are rejected; adaptive
+collocation is next because it removes the free shooting-node coordinates.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -543,5 +552,7 @@ The stationary exact-node failure is tracked in
 [`../experiments/receipts/EXP-375.json`](../experiments/receipts/EXP-375.json).
 The direct-Newton line-search failure is tracked in
 [`../experiments/receipts/EXP-376.json`](../experiments/receipts/EXP-376.json).
+The terminal Newton audit is tracked in
+[`../experiments/receipts/EXP-377.json`](../experiments/receipts/EXP-377.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

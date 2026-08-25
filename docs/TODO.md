@@ -1035,7 +1035,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   maximum defect by orders of magnitude. Freeze one deeper line-search audit
   to `2^-20`, recording every candidate cost. If it cannot find meaningful
   descent, stop Newton restarts and change segmentation/boundary formulation.
-  EXP-377 freezes that terminal line-search audit.
+  EXP-377 freezes that terminal line-search audit. All ten fractions through
+  `1.05678e-6` increase the objective; the closest remains `6.39e-5`
+  relatively above the start. Retire direct-Newton restarts. Implement an
+  adaptive collocation BVP with unknown `(T,a,c,angle)`, six manifold endpoint
+  conditions, the same physical pseudo-arclength equation, analytic ODE and
+  boundary Jacobians, and independent uniform-512 Radau replay gates.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
