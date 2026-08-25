@@ -426,6 +426,15 @@ slope `-0.3255565529` projects the crossing at `c=10.3171352363`. The next
 crossing attempt doubles segmentation to 512 arcs and reduces `Delta c` to
 `0.00015`; no acceptance threshold changes.
 
+## EXP-369 resolves the defect but selects the wrong side
+
+The 512-arc solve terminates normally with maximum defect `6.47409e-9` and
+arclength residual `-5.01403e-12`, but moves backward to
+`(a,c)=(0.17984410461079062,10.316999762096582)`. Only the frozen
+`forward_c_direction` check fails. This diagnoses a wrong-side root admitted
+by the high-dimensional tangent/gauge, not a branch endpoint. The successor
+enforces the same direction criterion as an optimizer bound.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -452,5 +461,7 @@ The seventh point is tracked in
 [`../experiments/receipts/EXP-367.json`](../experiments/receipts/EXP-367.json).
 The qualified near-section point is tracked in
 [`../experiments/receipts/EXP-368.json`](../experiments/receipts/EXP-368.json).
+The wrong-direction 512-arc root is tracked in
+[`../experiments/receipts/EXP-369.json`](../experiments/receipts/EXP-369.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

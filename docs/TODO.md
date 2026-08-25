@@ -989,6 +989,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `1.74979e-5` above the section; it uses `99.993%` of the 256-arc root gate.
   Freeze a 512-arc `Delta c=0.00015` crossing step from EXP-367/368 without
   relaxing any threshold. EXP-369 freezes that finer crossing protocol.
+  EXP-369 finds a `6.47409e-9` root but is preserved as failed because it moves
+  backward to `c=10.3169997621`. Make the already-required forward direction
+  an explicit prospective optimizer bound and repeat the same 512-arc plane;
+  do not treat the wrong-side root as a bracket. EXP-370 freezes the repeated
+  plane with `c >= c_current + 1e-6` and unchanged scientific gates.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

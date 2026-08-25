@@ -24,6 +24,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
 )
 from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
+    directional_c_bounds,
     native_boolean_checks,
     source_angle_gauge,
     source_curve_values,
@@ -118,6 +119,16 @@ def test_homoclinic_pseudoarclength_binds_chained_angle_gauge():
     assert recovered == RosslerParameters(
         a=0.18069045562126884, b=0.2, c=10.3144
     )
+
+
+def test_homoclinic_pseudoarclength_directional_c_bound_enforces_forward_side():
+    lower, upper = directional_c_bounds(10.0, 10.00015, 0.001, 1e-6)
+    assert np.isclose(lower, 10.000001)
+    assert np.isclose(upper, 10.00115)
+    assert lower < 10.00015 < upper
+
+    unconstrained = directional_c_bounds(10.0, 10.00015, 0.001, None)
+    assert np.allclose(unconstrained, (9.99915, 10.00115))
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

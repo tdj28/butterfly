@@ -156,6 +156,24 @@ def source_angle_gauge(
     return gauge
 
 
+def directional_c_bounds(
+    current_c: float,
+    predictor_c: float,
+    half_width: float,
+    minimum_increment: float | None,
+) -> tuple[float, float]:
+    """Return predictor-centered c bounds with an optional forward floor."""
+    lower = predictor_c - half_width
+    upper = predictor_c + half_width
+    if minimum_increment is not None:
+        if minimum_increment <= 0.0:
+            raise ValueError("minimum c increment must be positive")
+        lower = max(lower, current_c + minimum_increment)
+    if lower >= predictor_c or predictor_c >= upper:
+        raise ValueError("directional c bounds exclude the predictor")
+    return lower, upper
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -306,6 +324,14 @@ def main() -> int:
         half_width = float(global_half_widths[name])
         lower[index] = predictor[index] - half_width
         upper[index] = predictor[index] + half_width
+    directional = manifest.get("directional_bounds", {})
+    minimum_c_increment = directional.get("minimum_c_increment")
+    lower[layout["c_index"]], upper[layout["c_index"]] = directional_c_bounds(
+        float(current[layout["c_index"]]),
+        float(predictor[layout["c_index"]]),
+        float(global_half_widths["c"]),
+        None if minimum_c_increment is None else float(minimum_c_increment),
+    )
     if not np.all((predictor > lower) & (predictor < upper)):
         raise SystemExit("pseudo-arclength predictor lies outside frozen bounds")
 
@@ -519,6 +545,7 @@ def main() -> int:
             "total_flight_time": float(result.x[layout["time_index"]]),
         },
         "desired_c_increment": desired_c_increment,
+        "directional_bounds": directional,
         "normalized_arclength_step": float(arclength_step),
         "initial_maximum_block_residual": initial_details["maximum_block_norm"],
         "initial_arclength_residual": initial_details["arclength_residual"],
