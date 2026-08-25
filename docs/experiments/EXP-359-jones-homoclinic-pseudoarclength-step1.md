@@ -1,6 +1,6 @@
 # EXP-359 — First homoclinic pseudo-arclength step
 
-Status: frozen; not yet run
+Status: execution completed; receipt serialization failed
 
 Repeated fixed-`c` and fixed-`a` corrections cannot distinguish a local
 homoclinic-curve fold from singular endpoint conditioning. EXP-359 replaces
@@ -22,3 +22,14 @@ pseudo-arclength point; it cannot yet establish a fold or an intersection with
 
 Manifest:
 [`../../experiments/manifests/EXP-359-jones-homoclinic-pseudoarclength-step1.json`](../../experiments/manifests/EXP-359-jones-homoclinic-pseudoarclength-step1.json).
+
+The clean solve reaches terminal output construction, but canonical JSON
+serialization rejects NumPy boolean values in the final check map. No atomic
+receipt is written, so EXP-359 cannot be classified scientifically even
+though the optimizer completed. This is an administrative failure at the
+receipt boundary.
+
+The successor converts every check to a native JSON boolean, adds a regression
+test for that boundary, and repeats the identical mathematical protocol under
+a new experiment identifier. No source, predictor, solver, budget, or
+acceptance gate changes.

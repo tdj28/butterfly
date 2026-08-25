@@ -24,6 +24,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
 )
 from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
+    native_boolean_checks,
     unwrap_angle,
     variable_layout as pseudoarclength_layout,
 )
@@ -69,6 +70,14 @@ def test_homoclinic_pseudoarclength_layout_is_square():
 def test_homoclinic_pseudoarclength_angle_unwraps_to_nearest_branch():
     assert np.isclose(unwrap_angle(2.0 * np.pi - 0.1, 0.1), -0.1)
     assert np.isclose(unwrap_angle(-2.0 * np.pi + 0.2, -0.1), 0.2)
+
+
+def test_homoclinic_pseudoarclength_checks_are_json_native():
+    observed = native_boolean_checks(
+        {"numpy_true": np.bool_(True), "numpy_false": np.bool_(False)}
+    )
+    assert observed == {"numpy_true": True, "numpy_false": False}
+    assert all(type(value) is bool for value in observed.values())
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

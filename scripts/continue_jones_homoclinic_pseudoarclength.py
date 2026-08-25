@@ -114,6 +114,11 @@ def unwrap_angle(previous: float, current: float) -> float:
     return current + ((previous - current + np.pi) % (2.0 * np.pi) - np.pi)
 
 
+def native_boolean_checks(checks: dict) -> dict:
+    """Convert NumPy comparison results at the JSON receipt boundary."""
+    return {name: bool(value) for name, value in checks.items()}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -428,6 +433,7 @@ def main() -> int:
         > current[layout["c_index"]],
         "root_nominated": root_nominated,
     }
+    checks = native_boolean_checks(checks)
     singular_values = np.linalg.svd(final_jacobian, compute_uv=False)
     output = {
         "schema": manifest["output_schema"],

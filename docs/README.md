@@ -664,6 +664,9 @@ what must be narrowed, and what is false or unresolved.
 - [`experiments/EXP-359-jones-homoclinic-pseudoarclength-step1.md`](experiments/EXP-359-jones-homoclinic-pseudoarclength-step1.md):
   first gauge-aligned two-parameter pseudo-arclength step from the two
   qualified homoclinic curve points.
+- [`experiments/EXP-360-jones-homoclinic-pseudoarclength-step1-receipt-recovery.md`](experiments/EXP-360-jones-homoclinic-pseudoarclength-step1-receipt-recovery.md):
+  identical-mathematics receipt recovery after EXP-359's terminal JSON boolean
+  serialization failure.
 - [`source-audits/2026-08-07-jones-path-and-symbol-transcription.md`](source-audits/2026-08-07-jones-path-and-symbol-transcription.md):
   resolves what Figures 2 and 6 actually specify, records the historical path
   ambiguity, and binds the finite symbol/transition target to machine-readable

@@ -942,7 +942,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   simultaneous analytic `a/c` sensitivities, common-gauge angle alignment,
   deterministic 32-to-128-arc subdivision, and a conservative
   `Delta c=0.0005` predictor. Run it locally before approaching the suspected
-  fold.
+  fold. EXP-359 completes numerically but loses its atomic receipt because two
+  terminal check values are NumPy booleans. Preserve this as an administrative
+  serialization failure; rerun the identical mathematics as EXP-360 after a
+  JSON-native boolean regression test.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
