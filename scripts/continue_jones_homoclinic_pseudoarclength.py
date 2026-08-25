@@ -119,6 +119,43 @@ def native_boolean_checks(checks: dict) -> dict:
     return {name: bool(value) for name, value in checks.items()}
 
 
+def source_curve_values(receipt: dict) -> tuple[float, float, float, float]:
+    """Read ``(a, c, angle, T)`` from fixed-c or pseudo-arclength receipts."""
+    variables = receipt["final_variables"]
+    if "c" in variables:
+        c_value = variables["c"]
+    elif "fixed_parameters" in receipt and "c" in receipt["fixed_parameters"]:
+        c_value = receipt["fixed_parameters"]["c"]
+    else:
+        raise ValueError("source receipt does not bind a curve c coordinate")
+    return (
+        float(variables["a"]),
+        float(c_value),
+        float(variables["angle"]),
+        float(variables["total_flight_time"]),
+    )
+
+
+def source_angle_gauge(
+    receipt: dict, binding: dict, *, fixed_b: float
+) -> RosslerParameters:
+    """Recover the eigenspace reference used to encode a source angle."""
+    if "reference_parameters" in receipt:
+        values = receipt["reference_parameters"]
+    elif "angle_gauge_reference_parameters" in binding:
+        values = binding["angle_gauge_reference_parameters"]
+    elif "fixed_parameters" in receipt and "c" in receipt["fixed_parameters"]:
+        # Legacy fixed-c multiple-shooting receipts used this reference by
+        # construction but did not serialize it explicitly.
+        values = {"a": 0.1798, "b": fixed_b, "c": receipt["fixed_parameters"]["c"]}
+    else:
+        raise ValueError("pseudo-arclength source angle gauge is not bound")
+    gauge = RosslerParameters(**values)
+    if gauge.b != fixed_b:
+        raise ValueError("source angle gauge has inconsistent fixed b")
+    return gauge
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -188,12 +225,11 @@ def main() -> int:
         initial = equilibrium + radius * direction
         return initial, np.asarray(targets[0]["state"], dtype=np.float64), angle_derivative
 
-    def source_vector(receipt: dict) -> np.ndarray:
-        variables = receipt["final_variables"]
-        a_value = float(variables["a"])
-        c_value = float(receipt["fixed_parameters"]["c"])
-        source_angle = float(variables["angle"])
-        source_reference = RosslerParameters(a=0.1798, b=b_value, c=c_value)
+    def source_vector(receipt: dict, binding: dict) -> np.ndarray:
+        a_value, c_value, source_angle, total_flight_time = source_curve_values(
+            receipt
+        )
+        source_reference = source_angle_gauge(receipt, binding, fixed_b=b_value)
         _eq, _ev, old_stable, old_plane = eigenspaces(source_reference)
         parameters = RosslerParameters(a=a_value, b=b_value, c=c_value)
         old_equilibrium, _ev2, _stable2, aligned_old_plane = align_local_geometry(
@@ -218,21 +254,21 @@ def main() -> int:
         nodes = subdivide_bound_nodes(
             np.asarray(receipt["final_nodes"], dtype=np.float64),
             initial,
-            float(variables["total_flight_time"]),
+            total_flight_time,
             parameters,
             solver,
             segment_count,
         )
         return np.r_[
             nodes.ravel(),
-            float(variables["total_flight_time"]),
+            total_flight_time,
             a_value,
             c_value,
             common_angle,
         ]
 
-    previous = source_vector(previous_receipt)
-    current = source_vector(current_receipt)
+    previous = source_vector(previous_receipt, manifest["source_receipts"][0])
+    current = source_vector(current_receipt, manifest["source_receipts"][1])
     previous[layout["angle_index"]] = unwrap_angle(
         previous[layout["angle_index"]], current[layout["angle_index"]]
     )
@@ -455,6 +491,7 @@ def main() -> int:
             "scipy": scipy.__version__,
         },
         "fixed_b": b_value,
+        "reference_parameters": manifest["reference_parameters"],
         "matching_radius": manifest["matching_radius"],
         "segment_count": segment_count,
         "previous_variables": {

@@ -1,0 +1,110 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+  "experiment_id": "EXP-361",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-350/receipt.json",
+      "sha256": "f9e93a9e593f8c722c97c7fc2fd16a48f8bcc882ae3f18911bf0850e49909b04",
+      "schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+      "experiment_id": "EXP-350",
+      "passed": true,
+      "classification": "multiple_shooting_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 128,
+        "root_nominated": true,
+        "final_maximum_block_residual": 6.125992914961101e-9,
+        "final_residual_norm": 1.1197741849640643e-8
+      }
+    },
+    {
+      "path": "artifacts/EXP-360/receipt.json",
+      "sha256": "d7f7231c2634fe07d334c77c2f9b66df09fca11443fa34d8bfdeb307686b5224",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-360",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "angle_gauge_reference_parameters": {
+        "a": 0.18069045562126884,
+        "b": 0.2,
+        "c": 10.3144
+      },
+      "expected": {
+        "segment_count": 128,
+        "root_nominated": true,
+        "final_maximum_block_residual": 6.7747229841834155e-9,
+        "final_residual_norm": 1.2390073164154253e-8
+      }
+    }
+  ],
+  "fixed_b": 0.2,
+  "reference_parameters": {
+    "a": 0.18069045562126884,
+    "b": 0.2,
+    "c": 10.3144
+  },
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 128,
+  "node_bound_radius": 0.5,
+  "global_half_widths": {
+    "total_flight_time": 2.0,
+    "a": 0.001,
+    "c": 0.001,
+    "angle": 0.5
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "pseudoarclength": {
+    "desired_c_increment": 0.0005,
+    "residual_weight": 0.01,
+    "scales": {
+      "node_component": 1.0,
+      "total_flight_time": 5.0,
+      "a": 0.002,
+      "c": 0.004,
+      "angle": 0.5
+    }
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "simultaneous_a_c_sensitivities": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_sensitivity": "absolute_central",
+    "absolute_steps": {
+      "a": 1e-7,
+      "c": 1e-6
+    }
+  },
+  "optimization": {
+    "method": "trf",
+    "jacobian": "dense_analytic_pseudoarclength",
+    "x_scale": "jac",
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 40
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.01,
+    "maximum_root_block_residual": 1e-8,
+    "maximum_arclength_residual": 1e-8,
+    "minimum_global_boundary_margin": 1e-6,
+    "minimum_node_boundary_margin": 0.01,
+    "allow_root_gate_as_termination": true
+  },
+  "claim_scope": "second local gauge-aligned two-parameter pseudo-arclength step from qualified 128-arc EXP-350 and EXP-360 roots, with both a and c free, desired c increment 0.0005, explicit source angle-gauge binding, simultaneous analytic sensitivities, unchanged manifold settings, Radau tolerances, node and global bounds, 40-evaluation budget, arclength gate, and 1e-8 matching gate; passing qualifies one additional local curve point but does not establish a historical-path intersection, fold, uniqueness, computer-assisted proof, or global topology"
+}

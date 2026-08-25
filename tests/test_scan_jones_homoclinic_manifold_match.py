@@ -25,6 +25,8 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
 from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
     native_boolean_checks,
+    source_angle_gauge,
+    source_curve_values,
     unwrap_angle,
     variable_layout as pseudoarclength_layout,
 )
@@ -78,6 +80,44 @@ def test_homoclinic_pseudoarclength_checks_are_json_native():
     )
     assert observed == {"numpy_true": True, "numpy_false": False}
     assert all(type(value) is bool for value in observed.values())
+
+
+def test_homoclinic_pseudoarclength_reads_fixed_c_and_chained_sources():
+    legacy = {
+        "fixed_parameters": {"b": 0.2, "c": 10.3144},
+        "final_variables": {"a": 0.1807, "angle": 2.28, "total_flight_time": 234.5},
+    }
+    chained = {
+        "final_variables": {
+            "a": 0.1805,
+            "c": 10.3149,
+            "angle": 2.281,
+            "total_flight_time": 234.48,
+        }
+    }
+    assert source_curve_values(legacy) == (0.1807, 10.3144, 2.28, 234.5)
+    assert source_curve_values(chained) == (0.1805, 10.3149, 2.281, 234.48)
+
+
+def test_homoclinic_pseudoarclength_binds_chained_angle_gauge():
+    receipt = {"reference_parameters": {"a": 0.18, "b": 0.2, "c": 10.3}}
+    gauge = source_angle_gauge(receipt, {}, fixed_b=0.2)
+    assert (gauge.a, gauge.b, gauge.c) == (0.18, 0.2, 10.3)
+
+    recovered = source_angle_gauge(
+        {},
+        {
+            "angle_gauge_reference_parameters": {
+                "a": 0.18069045562126884,
+                "b": 0.2,
+                "c": 10.3144,
+            }
+        },
+        fixed_b=0.2,
+    )
+    assert recovered == RosslerParameters(
+        a=0.18069045562126884, b=0.2, c=10.3144
+    )
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():
