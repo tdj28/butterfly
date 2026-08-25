@@ -383,6 +383,15 @@ margin `0.92537`. Its slope `-0.3255513694` projects exact `a=0.1798` at
 `c=10.3171352460`. Because the defect uses `99.33%` of the fixed root gate,
 the next predictor is prospectively halved; no acceptance gate changes.
 
+## EXP-364 half step remains narrowly unresolved
+
+The half-size predictor reaches
+`(a,c)=(0.1800116479651023,10.316485123164421)` but remains failed at maximum
+defect `1.09327e-8`, `9.33%` above the unchanged root gate. Its arclength
+residual is `-6.70334e-12`, node margin is `0.95569`, and every non-root check
+passes. The first block remains controlling. The next frozen recovery doubles
+segmentation rather than relaxing any scientific threshold.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -399,5 +408,7 @@ The third qualified pseudo-arclength point is tracked in
 [`../experiments/receipts/EXP-362.json`](../experiments/receipts/EXP-362.json).
 The fourth qualified pseudo-arclength point is tracked in
 [`../experiments/receipts/EXP-363.json`](../experiments/receipts/EXP-363.json).
+The narrow reduced-step failure is tracked in
+[`../experiments/receipts/EXP-364.json`](../experiments/receipts/EXP-364.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

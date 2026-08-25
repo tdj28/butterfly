@@ -968,6 +968,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   gate. Prospectively halve the next predictor to `Delta c=0.00025` without
   changing any acceptance threshold. EXP-364 freezes that half step from
   exact EXP-362 and EXP-363 nodes.
+  EXP-364 is preserved as failed at `1.09327e-8`, only `9.33%` above the gate;
+  the first block still dominates while arclength and all bounds pass. Freeze
+  a 256-arc repeat from the same two qualified roots with the same half-step,
+  budget, tolerances, and gates.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
