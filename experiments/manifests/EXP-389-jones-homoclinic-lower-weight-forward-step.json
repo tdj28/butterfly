@@ -1,0 +1,133 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+  "experiment_id": "EXP-389",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-367/receipt.json",
+      "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-367",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 256,
+        "root_nominated": true,
+        "final_maximum_block_residual": 6.88547679234898e-9,
+        "final_residual_norm": 1.8538531101315673e-8
+      }
+    },
+    {
+      "path": "artifacts/EXP-368/receipt.json",
+      "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-368",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 256,
+        "root_nominated": true,
+        "final_maximum_block_residual": 9.999341431358164e-9,
+        "final_residual_norm": 2.6914245606593567e-8
+      }
+    }
+  ],
+  "fixed_b": 0.2,
+  "reference_parameters": {
+    "a": 0.18069045562126884,
+    "b": 0.2,
+    "c": 10.3144
+  },
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 512,
+  "node_bound_radius": 0.25,
+  "global_half_widths": {
+    "total_flight_time": 1.0,
+    "a": 0.0005,
+    "c": 0.0005,
+    "angle": 1.0
+  },
+  "directional_bounds": {
+    "minimum_c_increment": 1e-7
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "pseudoarclength": {
+    "desired_c_increment": 0.00002,
+    "residual_weight": 1.0,
+    "arclength_components": [
+      "nodes",
+      "total_flight_time",
+      "a",
+      "c",
+      "angle"
+    ],
+    "arclength_component_weights": {
+      "nodes": 0.003,
+      "total_flight_time": 0.003,
+      "a": 1.0,
+      "c": 1.0,
+      "angle": 0.003
+    },
+    "scales": {
+      "node_component": 1.0,
+      "total_flight_time": 5.0,
+      "a": 0.002,
+      "c": 0.004,
+      "angle": 0.5
+    }
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "simultaneous_a_c_sensitivities": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_sensitivity": "absolute_central",
+    "absolute_steps": {
+      "a": 1e-7,
+      "c": 1e-6
+    }
+  },
+  "optimization": {
+    "method": "trf",
+    "jacobian": "sparse_analytic_weighted_pseudoarclength",
+    "jacobian_storage": "csr",
+    "trust_region_solver": "lsmr",
+    "trust_region_options": {
+      "regularize": true,
+      "atol": 1e-10,
+      "btol": 1e-10,
+      "conlim": 1e12,
+      "maxiter": 2000
+    },
+    "x_scale": "jac",
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 40
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.01,
+    "maximum_root_block_residual": 1e-8,
+    "maximum_arclength_residual": 1e-8,
+    "minimum_global_boundary_margin": 1e-6,
+    "minimum_node_boundary_margin": 0.01,
+    "minimum_jacobian_singular_value": 5e-10,
+    "allow_root_gate_as_termination": true,
+    "directional_c_requirement": "forward"
+  },
+  "claim_scope": "licensed lower-nuisance-weight forward recovery after the passed EXP-388 zero-step control: exact EXP-367/EXP-368 source bindings, full-state 512-arc predictor initialization, bounded analytic-variational multiple shooting, desired c increment 2e-5, unit physical a/c weights, 0.003 node/time/angle weights, CSR/LSMR correction, c>=current+1e-7 optimizer bound, final c>current gate, source-centered node/global bounds, prospective 5e-10 minimum-Jacobian-singular-value gate, 40-evaluation budget, 1e-8 matching/arclength gates, and unchanged manifold/Radau settings; a pass adds one above-section curve point and licenses a shorter-secanted bracket attempt but does not qualify the historical intersection, uniqueness, computer-assisted proof, or global topology"
+}

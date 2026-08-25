@@ -138,6 +138,13 @@ paired failures show useful step-size convergence without a qualified root;
 they now motivate changing the closing-plane orientation instead of merely
 shrinking the step.  Neither is evidence of branch termination.
 
+EXP-388 passes the resulting lower-nuisance-weight zero-step control.  With
+node/time/angle weights reduced from `0.01` to `0.003`, it reproduces EXP-368
+at `5.10870e-9` maximum defect and retains a `1.76697e-9` minimum Jacobian
+singular value, comfortably above the prospectively frozen `5e-10` floor.
+This licenses a forward step under a more physically aligned plane; it is a
+method control, not a twelfth curve point or a historical-section result.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -147,5 +154,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-387, including preserved negative results and
+Evidence: EXP-341 through EXP-388, including preserved negative results and
 their hash-bound compact receipts.

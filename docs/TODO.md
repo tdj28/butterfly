@@ -1095,7 +1095,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   stationary-`c` gates, then license a new forward attempt only if the control
   remains numerically regularized relative to the pure `(a,c)` plane. EXP-388
   freezes that control at nuisance weight `0.003` and adds a prospective
-  `5e-10` minimum-Jacobian-singular-value gate.
+  `5e-10` minimum-Jacobian-singular-value gate. It passes in three evaluations
+  at `5.10870e-9` maximum defect and `1.76697e-9` minimum singular value.
+  Freeze the licensed `Delta c=2e-5` forward step with the `0.003` plane, the
+  `c>=current+1e-7` optimizer bound, and every unchanged root, margin, and
+  conditioning gate. EXP-389 now freezes that step; execute it only from the
+  clean pushed preregistration commit.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -74,4 +74,7 @@ physical plane, first on a zero-step positive control, while retaining enough
 regularization to avoid the earlier node-dominated near-null mode. EXP-388
 freezes nuisance weight `0.003` and requires a minimum Jacobian singular value
 of `5e-10`, nearly twice the pure-plane measurement, before a new forward step
-is licensed.
+is licensed. It passes in three evaluations with `5.10870e-9` maximum defect
+and a `1.76697e-9` minimum singular value. The lower-weight plane is therefore
+licensed for one prospectively frozen forward step; the qualified branch-point
+count remains eleven until that step passes.
