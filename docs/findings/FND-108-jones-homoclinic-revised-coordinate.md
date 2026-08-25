@@ -102,6 +102,15 @@ failures do not falsify the qualified curve; they diagnose a poorly scaled,
 ill-conditioned dense formulation near the desired section. The exact
 historical-path intersection remains open and must still pass unchanged gates.
 
+Subsequent sparse trust-region and direct-Newton audits enforce the projected
+plane but isolate a node-dominated near-null mode; ten Newton fractions through
+`1.06e-6` fail to decrease the objective. Standard adaptive collocation then
+fails even on a zero-step positive control at EXP-368, escaping catastrophically
+before encountering a singular Jacobian. These are negative method results,
+not negative branch results. They narrow the viable successor to bounded
+multiple shooting with a weak regularizing gauge or an equivalent constrained
+block formulation.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -111,5 +120,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-372, including preserved negative results and
+Evidence: EXP-341 through EXP-382, including preserved negative results and
 their hash-bound compact receipts.

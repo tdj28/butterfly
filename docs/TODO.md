@@ -1060,7 +1060,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   freezes that collocation representation positive control. It reaches the
   receipt boundary but loses its result to two NumPy booleans; preserve the
   administrative failure. EXP-382 freezes the JSON-native rerun with no
-  mathematical, numerical, or gate change.
+  mathematical, numerical, or gate change. EXP-382 fails the zero-step control:
+  `solve_bvp` overflows and reaches a singular Jacobian after two iterations,
+  with parameters escaping by 11--49 orders of magnitude. Reject standard
+  unconstrained collocation for this long orbit. Return to source-bounded
+  multiple shooting and add a prospectively weighted hybrid closing plane:
+  physical `(a,c)` components dominate, while a small full-state secant term
+  regularizes the measured node near-null direction. Retain the forward gate
+  and all root/margin thresholds.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

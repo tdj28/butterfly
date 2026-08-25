@@ -1,0 +1,63 @@
+{
+  "schema": "butterfly.jones-homoclinic-collocation-summary.v1",
+  "experiment_id": "EXP-382",
+  "passed": false,
+  "source_commit": "342c00a23a87a9d419e595e8cd4c05f1e92ab80c",
+  "manifest_sha256": "4e4cc9cb25447518141e5db4ad0178d7824ed69cfbb963bf1a0765dbc4ef7a51",
+  "raw_artifact": "artifacts/EXP-382/receipt.json",
+  "raw_artifact_bytes": 173593,
+  "raw_artifact_sha256": "68c73bde963335f83f312e4836f1b62013e8fe11c762d94f3df2f416db0e45e3",
+  "elapsed_seconds": 3.04266466666013,
+  "passed_checks": [
+    "finite_result",
+    "forward_c_requirement",
+    "historical_section_requirement",
+    "positive_flight_time",
+    "source_roots_bound",
+    "warm_start_bound"
+  ],
+  "failed_checks": [
+    "boundary_residual",
+    "collocation_converged",
+    "collocation_residual",
+    "global_status_bound",
+    "independent_replay",
+    "node_status_bound"
+  ],
+  "initial_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884,
+    "angle": 2.8102862009388585,
+    "total_flight_time": 234.420478735897
+  },
+  "final_variables": {
+    "a": -149584915700.1263,
+    "c": -194793398067.07666,
+    "angle": -2.748081046911657e49,
+    "total_flight_time": 1279.9560280863523
+  },
+  "collocation": {
+    "success": false,
+    "status": 2,
+    "message": "A singular Jacobian encountered when solving the collocation system.",
+    "iterations": 2,
+    "initial_nodes": 513,
+    "final_nodes": 1537,
+    "maximum_rms_residual": 1.7976931348623157e308,
+    "maximum_boundary_residual": 1.8819148939604288e42
+  },
+  "replay_failure": {
+    "failed_segment": 1,
+    "message": "Required step size is less than spacing between numbers.",
+    "completed_segments": 1
+  },
+  "node_boundary_margin": -6.94273845325928e61,
+  "global_boundary_margins": [
+    -1043.5355493504553,
+    -149584915700.3051,
+    -194793398077.39273,
+    -2.748081046911657e49
+  ],
+  "classification": "collocation_unresolved",
+  "interpretation": "Standard unconstrained solve_bvp fails even as a zero-step positive control at qualified EXP-368. It is rejected for this long homoclinic orbit. This does not alter the qualified multiple-shooting root; the continuation successor must retain bounded multiple shooting and regularize its physical plane without reintroducing node-dominated direction selection."
+}

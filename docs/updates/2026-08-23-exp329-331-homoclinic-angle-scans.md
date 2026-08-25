@@ -520,6 +520,16 @@ replay at segment 339. This is a globalization failure, not branch evidence.
 Collocation must now pass a zero-step EXP-368 positive control before any
 further crossing attempt.
 
+## EXP-382 rejects standard collocation on a positive control
+
+Even a zero-step plane through qualified EXP-368 diverges in two iterations.
+`solve_bvp` overflows, encounters a singular Jacobian, and returns parameters
+of order `1e11--1e49`, with boundary residual `1.88e42` and replay collapse at
+segment 1. This rejects unconstrained collocation for the long orbit, not the
+qualified multiple-shooting root. The continuation effort returns to bounded
+multiple shooting with a weak hybrid gauge designed around the measured
+node-dominated near-null mode.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -566,5 +576,7 @@ The terminal Newton audit is tracked in
 [`../experiments/receipts/EXP-377.json`](../experiments/receipts/EXP-377.json).
 The failure-safe collocation escape is tracked in
 [`../experiments/receipts/EXP-380.json`](../experiments/receipts/EXP-380.json).
+The zero-step collocation failure is tracked in
+[`../experiments/receipts/EXP-382.json`](../experiments/receipts/EXP-382.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
