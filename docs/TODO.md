@@ -977,7 +977,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `(a,c)=(0.1800152045459,10.3164741984457)`, cutting the controlling defect
   to `5.16572e-9`. Continue at 256 arcs and `Delta c=0.00025` from EXP-363 and
   EXP-365 until exact `a=0.1798` is bracketed. EXP-366 freezes the next such
-  step.
+  step. EXP-366 passes normally at
+  `(a,c)=(0.1799473576083,10.3166826033527)` with defect `5.88416e-9` and
+  remains `1.47358e-4` above the section. Freeze the next unchanged 256-arc
+  half step. EXP-367 freezes that successor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-366",
+  "passed": true,
+  "source_commit": "69d129ec11f5b99bc9651e1c843d5c01b255a683",
+  "manifest_sha256": "378cd00206158569dce0e35d9bfb55784ba709740f45f693d39f02c586b63d4b",
+  "raw_artifact": "artifacts/EXP-366/receipt.json",
+  "raw_artifact_bytes": 40734,
+  "raw_artifact_sha256": "dee39d00b301ee7b551b808c4a90c7d45479cf3f13fc84d7b7c833baafbfedfb",
+  "elapsed_seconds": 55.43706016615033,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 256,
+  "source_receipts": [
+    {"experiment_id": "EXP-363", "sha256": "78b85011bd678454ca9de5e386f50ce864fb8b59588ef85e99439c877cc626e8"},
+    {"experiment_id": "EXP-365", "sha256": "315fcd9c4f99101aa10b567e8ff675dbd174ff10bbda499b0a8d2f7b0bef0192"}
+  ],
+  "desired_c_increment": 0.00025,
+  "initial_maximum_block_residual": 0.0008132996706659137,
+  "final_residual_norm": 1.5818894446383938e-8,
+  "final_matching_residual_norm": 1.581889444633071e-8,
+  "final_maximum_block_residual": 5.88416329959764e-9,
+  "final_arclength_residual": -4.103722570092394e-12,
+  "final_variables": {
+    "a": 0.17994735760827762,
+    "c": 10.316682603352687,
+    "angle": 2.520785193983604,
+    "total_flight_time": 234.4472020506367
+  },
+  "secant_from_exp365": {
+    "da_dc": -0.3255534558422691,
+    "predicted_c_at_a_0_1798": 10.317135240563667
+  },
+  "node_boundary_margin": 0.8784229595414459,
+  "jacobian_condition_number": 34982311164.10608,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 4,
+    "njev": 4,
+    "optimality": 6.778658737904937e-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The sixth chained point passes normally at 256 arcs and preserves the projected historical crossing. It remains above exact a=0.1798, so continuation rather than interpolation is still required."
+}

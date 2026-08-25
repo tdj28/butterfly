@@ -401,6 +401,14 @@ is `-3.79519e-12`. The slope `-0.3255531864` projects the historical section
 at `c=10.3171352411`. This identifies the preceding floor as numerical
 representation rather than physical branch termination.
 
+## EXP-366 sixth chained point passes
+
+The next 256-arc half step passes normally in four evaluations at
+`(a,c)=(0.17994735760827762,10.316682603352687)`. Its maximum defect is
+`5.88416e-9`; slope `-0.3255534558` projects the section at
+`c=10.3171352406`. The branch is now only `1.47358e-4` above exact
+`a=0.1798`.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -421,5 +429,7 @@ The narrow reduced-step failure is tracked in
 [`../experiments/receipts/EXP-364.json`](../experiments/receipts/EXP-364.json).
 The 256-arc recovery is tracked in
 [`../experiments/receipts/EXP-365.json`](../experiments/receipts/EXP-365.json).
+The sixth point is tracked in
+[`../experiments/receipts/EXP-366.json`](../experiments/receipts/EXP-366.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

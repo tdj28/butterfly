@@ -77,6 +77,11 @@ slope `-0.32555319` projects the crossing at `c=10.317135241`. This confirms
 the narrow floor was representation-limited and leaves the branch only
 `2.15205e-4` above exact `a=0.1798`.
 
+EXP-366 passes the next 256-arc step at
+`(a,c)=(0.1799473576083,10.3166826033527)` with defect `5.88416e-9`. Its slope
+`-0.32555346` projects `c=10.317135241`, leaving `1.47358e-4` in `a` before
+the historical section.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -86,5 +91,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-365, including preserved negative results and
+Evidence: EXP-341 through EXP-366, including preserved negative results and
 their hash-bound compact receipts.
