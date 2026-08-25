@@ -144,4 +144,11 @@ physical request to normalized step `0.0196159`. Fixed `Delta c` is therefore
 not a stable continuation controller here. The runner now supports exactly one
 of physical-`c` or normalized-arclength stepping and passes all 396 tests.
 EXP-401 freezes the adaptive replay at the previously passed normalized step
-`0.00459868`, deriving its physical request from the new tangent.
+`0.00459868`, deriving its physical request from the new tangent. It converges
+in two evaluations with `4.00829e-9` maximum block defect, `5.05e-14` plane
+residual, and `1.68098e-9` minimum singular value, but moves `1.10392e-9`
+backward in `c`; direction is its sole failed gate. Fixed-normalized stepping
+therefore fixes EXP-400's inflation but reveals that this previously passed
+scale still crosses a very small local positive-`c` turning radius. EXP-402
+freezes the licensed fourfold normalized-step reduction with all scientific
+settings and acceptance gates unchanged.

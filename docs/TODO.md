@@ -1159,9 +1159,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   conditioned backward root because the local scaled `c` tangent falls by
   `4.27x`, inflating the fixed-`Delta c` normalized step to `0.0196159`.
   Preserve it. The runner now accepts exactly one of a physical `c` increment
-  or normalized arclength and passes all 396 tests. Execute frozen EXP-401 at
-  the previously passed normalized step `0.00459868`, deriving its physical
-  `c` request adaptively, before the manuscript refresh.
+  or normalized arclength and passes all 396 tests. EXP-401's fixed-normalized
+  replay converges in two evaluations with every gate except direction passing;
+  the reversal shrinks to only `1.10e-9` in `c`, isolating a small local
+  positive-`c` turning radius rather than step inflation or loss of the root.
+  Execute frozen EXP-402 at the fourfold-smaller normalized step
+  `0.00114967`, then refresh the manuscript figure and qualified-point counts.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
