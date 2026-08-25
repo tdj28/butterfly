@@ -945,7 +945,15 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fold. EXP-359 completes numerically but loses its atomic receipt because two
   terminal check values are NumPy booleans. Preserve this as an administrative
   serialization failure; rerun the identical mathematics as EXP-360 after a
-  JSON-native boolean regression test.
+  JSON-native boolean regression test. EXP-360 passes all ten gates at
+  `(a,c)=(0.1805321204707,10.3148863716751)` with maximum matching defect
+  `6.77472e-9` and arclength residual `3.43e-12`. Its local slope
+  `-0.325544` preserves the projected historical crossing near
+  `c=10.31713529` and shows that the earlier fixed-coordinate floor was not an
+  immediate branch termination. Chain the next same-gauge 128-arc
+  pseudo-arclength step from EXP-350 and EXP-360, then continue through or
+  around any turn until the exact `a=0.1798` section is either qualified or
+  excluded on a declared branch segment.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

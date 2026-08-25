@@ -42,6 +42,15 @@ fold/termination before exact `a=0.1798`, or a singular endpoint formulation.
 It is not evidence against the already qualified revised-coordinate roots,
 but it prevents promoting the secant crossing to a Jones-path result.
 
+The first gauge-aligned two-parameter pseudo-arclength step now passes at
+`(a,c)=(0.1805321204707,10.3148863716751)`, with maximum matching defect
+`6.77e-9` and arclength residual `3.43e-12`. Its local slope is `-0.325544`,
+again projecting the historical crossing near `c=10.31713529`. This
+demonstrates that the prior fixed-coordinate floor is not an immediate branch
+termination and favors a coordinate-conditioning explanation locally. It
+does not exclude a later fold before `a=0.1798`, so the exact Jones-path
+intersection remains unqualified.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -51,5 +60,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-358, including preserved negative results and
+Evidence: EXP-341 through EXP-360, including preserved negative results and
 their hash-bound compact receipts.

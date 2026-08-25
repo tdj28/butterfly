@@ -333,6 +333,25 @@ revised-coordinate roots; it creates a bounded ambiguity between local branch
 fold/termination and singular fixed-`a` conditioning. The next method must use
 pseudo-arclength or collocation continuation with an explicit gauge.
 
+## EXP-359 administrative loss and EXP-360 pseudo-arclength pass
+
+EXP-359 completes the first two-parameter numerical solve but writes no
+receipt because NumPy booleans reach the canonical-JSON boundary. This is
+preserved as an administrative failure. EXP-360 repeats the identical
+mathematics after a tested native-boolean conversion and passes all ten gates.
+
+The 128-arc Radau point is
+`(a,c)=(0.18053212047071568,10.314886371675088)`. Its maximum matching defect
+is `6.77472e-9`, its arclength residual is `-3.42671e-12`, and the optimizer
+terminates normally after 35 function evaluations. Its node margin is
+`0.94488`, so the source-centered guardrail does not create the result.
+
+The EXP-350-to-EXP-360 slope is `-0.3255435270`, preserving the smooth trend
+and projecting `a=0.1798` near `c=10.3171352890`. The fixed-coordinate stall
+therefore did not signal an immediate termination of the qualified branch.
+This narrows, but does not close, the ambiguity: pseudo-arclength must still
+reach the historical section or resolve a later fold before that section.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -341,5 +360,7 @@ The independent root reproduction is tracked in
 [`../experiments/receipts/EXP-342.json`](../experiments/receipts/EXP-342.json).
 The second qualified continuation point is tracked in
 [`../experiments/receipts/EXP-350.json`](../experiments/receipts/EXP-350.json).
+The first qualified pseudo-arclength point is tracked in
+[`../experiments/receipts/EXP-360.json`](../experiments/receipts/EXP-360.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
