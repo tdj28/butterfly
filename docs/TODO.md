@@ -1051,7 +1051,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   replay raises on Radau step-size collapse before receipt generation. Preserve
   the audit abort. EXP-380 freezes identical mathematics with failure-safe
   replay serialization; a collapsed replay must fail its unchanged gate while
-  retaining the collocation status, parameters, mesh, and residuals.
+  retaining the collocation status, parameters, mesh, and residuals. EXP-380
+  shows a two-iteration escape to `(a,c)=(0.28049,10.44828)`, angle `-130.14`,
+  RMS residual `68.66`, and negative source margins. Do not increase its mesh
+  ceiling. First reproduce qualified EXP-368 on a zero-step physical plane
+  from a deterministic 256-to-512 subdivision, with the section-crossing gate
+  explicitly inapplicable but every root/replay/margin gate retained. EXP-381
+  freezes that collocation representation positive control.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

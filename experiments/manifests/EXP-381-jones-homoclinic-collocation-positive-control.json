@@ -1,0 +1,125 @@
+{
+  "schema": "butterfly.jones-homoclinic-collocation-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-collocation-receipt.v1",
+  "experiment_id": "EXP-381",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-367/receipt.json",
+      "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-367",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 256,
+        "root_nominated": true,
+        "final_maximum_block_residual": 6.88547679234898e-9,
+        "final_residual_norm": 1.8538531101315673e-8
+      }
+    },
+    {
+      "path": "artifacts/EXP-368/receipt.json",
+      "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-368",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 256,
+        "root_nominated": true,
+        "final_maximum_block_residual": 9.999341431358164e-9,
+        "final_residual_norm": 2.6914245606593567e-8
+      }
+    }
+  ],
+  "warm_start_receipt": {
+    "path": "artifacts/EXP-368/receipt.json",
+    "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481",
+    "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+    "experiment_id": "EXP-368",
+    "passed": true,
+    "classification": "pseudoarclength_root_nominated",
+    "failed_checks": [],
+    "expected": {
+      "segment_count": 256,
+      "root_nominated": true,
+      "final_maximum_block_residual": 9.999341431358164e-9,
+      "final_residual_norm": 2.6914245606593567e-8,
+      "final_arclength_residual": -7.702153151378788e-12
+    }
+  },
+  "fixed_b": 0.2,
+  "reference_parameters": {
+    "a": 0.18069045562126884,
+    "b": 0.2,
+    "c": 10.3144
+  },
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "initial_mesh_segment_count": 512,
+  "node_bound_radius": 0.5,
+  "global_half_widths": {
+    "total_flight_time": 2.0,
+    "a": 0.001,
+    "c": 0.001,
+    "angle": 2.0
+  },
+  "pseudoarclength": {
+    "desired_c_increment": 0.0,
+    "scales": {
+      "a": 0.002,
+      "c": 0.004
+    }
+  },
+  "derivatives": {
+    "ode_state": "analytic",
+    "ode_parameters": "analytic",
+    "boundary_state": "analytic",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_sensitivity": "absolute_central",
+    "absolute_steps": {
+      "a": 1e-7,
+      "c": 1e-6
+    }
+  },
+  "collocation": {
+    "method": "scipy_solve_bvp_fourth_order_collocation",
+    "tolerance": 1e-7,
+    "boundary_tolerance": 1e-10,
+    "maximum_nodes": 4096
+  },
+  "replay": {
+    "segment_count": 512,
+    "solver": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.05
+    }
+  },
+  "acceptance": {
+    "historical_section_a": 0.1798,
+    "require_historical_section_crossed": false,
+    "require_forward_c_direction": false,
+    "maximum_boundary_residual": 1e-8,
+    "maximum_collocation_rms_residual": 1e-7,
+    "maximum_replay_block_defect": 1e-8,
+    "minimum_global_boundary_margin": 1e-6,
+    "minimum_node_boundary_margin": 0.01
+  },
+  "claim_scope": "zero-step adaptive-collocation positive control after EXP-380's unconstrained crossing solve escapes: retain qualified EXP-367/EXP-368 secant definition and use EXP-368 itself as the SHA-bound physical-plane target and warm orbit, deterministically subdivide its 256 shooting arcs to a 512-segment collocation mesh, retain the common eigenspace reference, unstable-sphere and nonlinear stable-manifold endpoints, unknown (T,a,c,angle), analytic normalized-time ODE and boundary Jacobians, identical manifold/replay Radau policy, source-centered status gates, 1e-7 collocation tolerance, 4096-node ceiling, and 1e-8 boundary/replay gates; forward and below-section requirements are explicitly inapplicable to this representation control, which must reproduce the qualified root before any small-step collocation continuation"
+}

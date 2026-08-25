@@ -510,6 +510,16 @@ closest cost, `1.9738089299e-11`, remains above the starting
 near-null step. Further Newton damping and restarts are rejected; adaptive
 collocation is next because it removes the free shooting-node coordinates.
 
+## EXP-380 diagnoses unconstrained collocation escape
+
+After EXP-378/379 administrative audit aborts, failure-safe EXP-380 preserves
+the collocation result. The solver escapes in two iterations to
+`(a,c)=(0.28049,10.44828)`, angle `-130.14`, reaches 1,537 nodes with maximum
+RMS residual `68.66`, violates every source margin, and later loses Radau
+replay at segment 339. This is a globalization failure, not branch evidence.
+Collocation must now pass a zero-step EXP-368 positive control before any
+further crossing attempt.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -554,5 +564,7 @@ The direct-Newton line-search failure is tracked in
 [`../experiments/receipts/EXP-376.json`](../experiments/receipts/EXP-376.json).
 The terminal Newton audit is tracked in
 [`../experiments/receipts/EXP-377.json`](../experiments/receipts/EXP-377.json).
+The failure-safe collocation escape is tracked in
+[`../experiments/receipts/EXP-380.json`](../experiments/receipts/EXP-380.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

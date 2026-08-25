@@ -19,6 +19,7 @@ from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 try:
     from scripts.continue_jones_homoclinic_pseudoarclength import (
         load_bound_receipt,
+        subdivide_bound_nodes,
     )
     from scripts.scan_jones_homoclinic_manifold_match import (
         align_local_geometry,
@@ -26,7 +27,10 @@ try:
     )
     from scripts.scan_jones_homoclinic_unstable_angles import eigenspaces
 except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
-    from continue_jones_homoclinic_pseudoarclength import load_bound_receipt
+    from continue_jones_homoclinic_pseudoarclength import (
+        load_bound_receipt,
+        subdivide_bound_nodes,
+    )
     from scan_jones_homoclinic_manifold_match import (
         align_local_geometry,
         stable_manifold_targets,
@@ -226,6 +230,23 @@ def main() -> int:
     segment_count = int(warm["segment_count"])
     if warm_nodes.shape != (segment_count - 1, 3):
         raise SystemExit("warm-start node shape mismatch")
+    initial_mesh_segment_count = int(
+        manifest.get("initial_mesh_segment_count", segment_count)
+    )
+    if initial_mesh_segment_count != segment_count:
+        warm_nodes = subdivide_bound_nodes(
+            warm_nodes,
+            initial_guess,
+            float(parameters_guess[0]),
+            RosslerParameters(
+                a=float(parameters_guess[1]),
+                b=b_value,
+                c=float(parameters_guess[2]),
+            ),
+            SolverConfig(**manifest["solver"]),
+            initial_mesh_segment_count,
+        )
+        segment_count = initial_mesh_segment_count
     mesh = np.linspace(0.0, 1.0, segment_count + 1)
     state_guess = np.vstack((initial_guess, warm_nodes, target_guess)).T
 
@@ -335,6 +356,10 @@ def main() -> int:
     maximum_collocation_residual = float(np.max(result.rms_residuals))
     maximum_boundary_residual = float(np.max(np.abs(final_boundary_residual)))
     maximum_replay_defect = None if replay_failure else float(np.max(defects))
+    historical_section_crossed = a_value < float(
+        acceptance["historical_section_a"]
+    )
+    forward_c_direction = c_value > current[1]
     checks = {
         "source_roots_bound": all(row["passed"] for row in receipts),
         "warm_start_bound": warm["experiment_id"] == warm_binding["experiment_id"],
@@ -345,8 +370,10 @@ def main() -> int:
             and np.all(np.isfinite(defects))
         ),
         "positive_flight_time": total_time > 0.0,
-        "forward_c_direction": c_value > current[1],
-        "historical_section_crossed": a_value < float(acceptance["historical_section_a"]),
+        "forward_c_requirement": forward_c_direction
+        or not bool(acceptance.get("require_forward_c_direction", True)),
+        "historical_section_requirement": historical_section_crossed
+        or not bool(acceptance.get("require_historical_section_crossed", True)),
         "boundary_residual": maximum_boundary_residual
         <= float(acceptance["maximum_boundary_residual"]),
         "collocation_residual": maximum_collocation_residual
@@ -396,6 +423,8 @@ def main() -> int:
             "c": c_value,
             "angle": angle,
         },
+        "forward_c_direction": forward_c_direction,
+        "historical_section_crossed": historical_section_crossed,
         "collocation": {
             "success": bool(result.success),
             "status": int(result.status),
@@ -420,8 +449,12 @@ def main() -> int:
         "checks": checks,
         "classification": (
             "collocation_bracket_root_nominated"
-            if all(checks.values())
-            else "collocation_unresolved"
+            if all(checks.values()) and historical_section_crossed
+            else (
+                "collocation_root_nominated"
+                if all(checks.values())
+                else "collocation_unresolved"
+            )
         ),
         "elapsed_seconds": elapsed,
         "passed": all(checks.values()),

@@ -1,0 +1,61 @@
+{
+  "schema": "butterfly.jones-homoclinic-collocation-summary.v1",
+  "experiment_id": "EXP-380",
+  "passed": false,
+  "source_commit": "8c8e3ef0fc52b814b6e7741843e33a5b098021f0",
+  "manifest_sha256": "759ea892a76b17dc09b58e41f0ea3092af9fc3fea7e000e55db96903d6b73a76",
+  "raw_artifact": "artifacts/EXP-380/receipt.json",
+  "raw_artifact_bytes": 162119,
+  "raw_artifact_sha256": "4b59f6b9364f5996eb116e7c6fa17079c51c169b4658757af97473d7564ee842",
+  "elapsed_seconds": 4.826308083720505,
+  "passed_checks": [
+    "finite_result",
+    "forward_c_direction",
+    "positive_flight_time",
+    "source_roots_bound",
+    "warm_start_bound"
+  ],
+  "failed_checks": [
+    "boundary_residual",
+    "collocation_converged",
+    "collocation_residual",
+    "global_status_bound",
+    "historical_section_crossed",
+    "independent_replay",
+    "node_status_bound"
+  ],
+  "predictor_parameters": {
+    "a": 0.17979308114419484,
+    "c": 10.317156488741885
+  },
+  "final_variables": {
+    "a": 0.2804869295572574,
+    "c": 10.448282657482498,
+    "angle": -130.143476012574,
+    "total_flight_time": 194.23639311015899
+  },
+  "collocation": {
+    "success": false,
+    "status": 1,
+    "message": "The maximum number of mesh nodes is exceeded.",
+    "iterations": 2,
+    "initial_nodes": 513,
+    "final_nodes": 1537,
+    "maximum_rms_residual": 68.65843717703567,
+    "maximum_boundary_residual": 0.000039796235771466515
+  },
+  "replay_failure": {
+    "failed_segment": 339,
+    "message": "Required step size is less than spacing between numbers.",
+    "completed_segments": 339
+  },
+  "node_boundary_margin": -15621028.843941636,
+  "global_boundary_margins": [
+    -38.19178623695947,
+    -0.09969384841306256,
+    -0.13012616874061267,
+    -130.46098190032959
+  ],
+  "classification": "collocation_unresolved",
+  "interpretation": "Unconstrained collocation escapes the source neighborhood in two iterations and reaches the mesh ceiling. This is a solver-globalization failure, not evidence against the qualified branch. Collocation must first reproduce EXP-368 as a zero-step positive control, then proceed through small receipt-bound planes."
+}
