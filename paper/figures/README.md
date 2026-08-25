@@ -276,6 +276,16 @@ Regenerate the EXP-321/326/327 sheet-connection figure and receipt:
       --exp327-sha256 c9ec92bd735fb8460ed0e7986ef07102943ff2032261c0c72edabcfa6b54d9c9 \
       --output paper/figures/fig27-exp321-327-sheet-connection.png --dpi 260
 
+Regenerate the EXP-342--382 homoclinic-continuation figure and receipt from
+the compact, repository-bound experiment summaries:
+
+    MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \
+      scripts/plot_exp342_382_homoclinic_continuation.py \
+      --receipt-dir docs/experiments/receipts \
+      --output paper/figures/fig30-exp342-382-homoclinic-continuation.png \
+      --receipt paper/figures/fig30-exp342-382-homoclinic-continuation.png.receipt.json \
+      --dpi 260
+
 ## Promoted experiment figures
 
 The remaining images are metadata-stripped publication copies of existing

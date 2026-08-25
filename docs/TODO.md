@@ -1436,8 +1436,9 @@ exposition requirements.
 - [ ] **RVR-008 — Manuscript exposition.** Equations and definitions first;
   complete citations; plain-language mechanism; claim/evidence/limitations
   conclusion; independent readability review. The visual rebuild now
-  integrates nineteen figures, a global-to-period-6 shrimp zoom, an eleven-slice
-  multi-b atlas, Supplemental Movie S1, and a concise abstract. The remaining
+  integrates 30 figures, a global-to-period-6 shrimp zoom, an eleven-slice
+  multi-b atlas, Supplemental Movie S1, a concise abstract, and the complete
+  eleven-point homoclinic-continuation diagnostic. The remaining
   closure items are the complete unfolded-spiral mechanism figure and an
   independent readability review.
 

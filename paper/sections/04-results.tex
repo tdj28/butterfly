@@ -109,18 +109,22 @@ $a=0.17981749$ but stall at maximum defect $3.76\times10^{-6}$; two
 independently seeded fixed-$a$ corrections return near $c=10.317127$ with the
 same stable-end defect of approximately $2.10\times10^{-4}$.  These preserved
 failures motivate a gauge-aligned two-parameter pseudo-arclength system rather
-than another forced-coordinate solve.  Five chained Radau steps through 256
-arcs pass,
-reaching
+than another forced-coordinate solve.  Eight chained Radau steps through 256
+arcs pass, producing eleven qualified curve points in total and reaching
 \[
-  (a,c)=(0.1800152045459,10.3164741984457),
+  (a,c)=(0.1798174978857,10.3170814887419),
 \]
 with maximum matching defects below $10^{-8}$ and arclength
-residuals below $4.40\times10^{-11}$.  The latest local slope,
-$-0.32555319$, projects $a=0.1798$ near $c=10.31713524$.  Thus the
-earlier floor is not an immediate branch termination and locally reflects
-coordinate conditioning.  A later fold remains possible, so the exact
-historical-path intersection is still not claimed.
+residuals below $4.40\times10^{-11}$.  The last point is only
+$1.74979\times10^{-5}$ above the historical $a$ section.  Its local slope,
+$-0.32555655$, projects $a=0.1798$ near $c=10.31713524$.  Thus the earlier
+floor is not an immediate branch termination and locally reflects coordinate
+conditioning.  The prospective successor experiments remain honest failures:
+one sub-gate root moves backward in $c$, while forward physical-plane,
+sparse-Newton, and unconstrained collocation formulations do not pass the
+matching gate.  These failures do not alter the eleven qualified roots, but a
+later fold remains possible and the exact historical-path intersection is
+still not claimed.
 
 \begin{figure}[t]
   \centering
@@ -135,6 +139,22 @@ historical-path intersection is still not claimed.
   $a=0.1798$.  The result is strong numerical qualification of a nearby
   connection, not a computer-assisted proof or uniqueness result.}
   \label{fig:homoclinic-root}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig30-exp342-382-homoclinic-continuation.png}
+  \caption{Continuation of the qualified homoclinic candidate toward Jones's
+  printed $a=0.1798$ section.  A: eleven qualified roots from EXP-342 through
+  EXP-368 and the last-secant projected crossing.  B: the near-section zoom
+  separates qualified roots from a wrong-direction root and forward solver
+  iterates that do not pass the frozen gate.  C: every accepted point remains
+  below the prospective $10^{-8}$ maximum-block-defect gate; the preserved
+  failures expose conditioning and method limits rather than silently
+  extending the curve.  The zero-step collocation control also escapes and is
+  excluded from the defect scale.  The open star is an extrapolation, not a
+  qualified intersection.}
+  \label{fig:homoclinic-continuation}
 \end{figure}
 
 \subsection{Analytic small-equilibrium Hopf locus}

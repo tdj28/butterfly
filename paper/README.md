@@ -39,7 +39,7 @@ only after the scientific closure gates are satisfied.
 ## Visual build
 
 The figure-generation commands and source hashes are recorded in
-[figures/README.md](figures/README.md). The manuscript currently contains 23
+[figures/README.md](figures/README.md). The manuscript currently contains 30
 figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the Hopf
 locus and connected family, cascade and return-map controls, the dense
 period-6 corrected-orbit fields, scale-aware two-critical audits, the lower-c
@@ -60,6 +60,9 @@ EXP-229 correction of the former interpolation-based second-boundary claim.
 The new cascade figure resolves three exact returning-arm flip events and
 their independently qualified stable children through primitive period 96,
 while displaying the finite-spacing and universality claim boundary.
+The latest homoclinic figure follows all eleven qualified curve points to
+within $1.75\times10^{-5}$ in $a$ of the historical section and displays the
+prospective gate failures separately from the accepted branch.
 
 ## Writing rules
 
