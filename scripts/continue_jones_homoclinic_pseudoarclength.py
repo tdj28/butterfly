@@ -559,8 +559,13 @@ def main() -> int:
     scales[layout["c_index"]] = float(scaling["c"])
     scales[layout["angle_index"]] = float(scaling["angle"])
     all_components = ARCLENGTH_COMPONENTS
+    predictor_components = tuple(
+        manifest["pseudoarclength"].get("predictor_components", all_components)
+    )
+    if not predictor_components or not set(predictor_components) <= set(all_components):
+        raise SystemExit("unsupported pseudoarclength predictor components")
     predictor_tangent = projected_arclength_tangent(
-        current - previous, scales, layout, all_components
+        current - previous, scales, layout, predictor_components
     )
     configured_weights = manifest["pseudoarclength"].get(
         "arclength_component_weights"
@@ -941,6 +946,7 @@ def main() -> int:
             "total_flight_time": float(result.x[layout["time_index"]]),
         },
         "desired_c_increment": desired_c_increment,
+        "predictor_components": list(predictor_components),
         "arclength_components": list(arclength_components),
         "arclength_component_weights": arclength_component_weights,
         "predictor_tangent_group_norms": arclength_group_norms(

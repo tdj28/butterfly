@@ -1,0 +1,67 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-389",
+  "classification": "pseudoarclength_unresolved",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "3c2f87dd9ce0d2681ba9c00b2cc43b9008cffb93",
+    "dirty": false
+  },
+  "manifest_sha256": "495c1238ae8275e3b018eb95254af2f63ef72bb0b95fbbccf98c9514ffb0ac6b",
+  "raw_receipt": {
+    "path": "artifacts/EXP-389/receipt.json",
+    "bytes": 81895,
+    "sha256": "541047bf46259f523d5aa08ba4d5586200310cbfdc76feae9f226b069074ce8c"
+  },
+  "elapsed_seconds": 401.3966361247003,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 0.00002,
+  "arclength_component_weights": {
+    "a": 1.0,
+    "c": 1.0,
+    "nodes": 0.003,
+    "total_flight_time": 0.003,
+    "angle": 0.003
+  },
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981098675460366,
+    "c": 10.317101488741883
+  },
+  "final_variables": {
+    "a": 0.17981785257997598,
+    "c": 10.317081588741923,
+    "angle": 2.9777069246037366,
+    "total_flight_time": 234.4192310902972
+  },
+  "initial_maximum_block_residual": 0.00025285181993108316,
+  "final_maximum_block_residual": 5.8182759803643756e-8,
+  "final_matching_residual_norm": 7.493862550702536e-8,
+  "final_arclength_residual": 1.4498028645670846e-11,
+  "jacobian_minimum_singular_value": 1.2457345669926514e-9,
+  "node_boundary_margin": 0.9305454280237981,
+  "global_boundary_margins": [
+    0.9993955953539171,
+    0.0004931341746276796,
+    3.907985046680551e-14,
+    0.8533724267565832
+  ],
+  "optimizer": {
+    "success": true,
+    "status": 3,
+    "message": "`xtol` termination condition is satisfied.",
+    "nfev": 19,
+    "njev": 15,
+    "optimality": 1.2934974622977008e-8
+  },
+  "failed_checks": [
+    "global_status_bound",
+    "root_nominated"
+  ],
+  "interpretation": "The passed lower-weight plane remains conditioned but does not avoid forward-wall capture. Change predictor components before changing the closing plane or scientific gates again."
+}

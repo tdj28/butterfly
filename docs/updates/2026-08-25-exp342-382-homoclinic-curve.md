@@ -77,4 +77,10 @@ of `5e-10`, nearly twice the pure-plane measurement, before a new forward step
 is licensed. It passes in three evaluations with `5.10870e-9` maximum defect
 and a `1.76697e-9` minimum singular value. The lower-weight plane is therefore
 licensed for one prospectively frozen forward step; the qualified branch-point
-count remains eleven until that step passes.
+count remains eleven until that step passes. EXP-389 executes the licensed
+step but still lands on the forward wall at `5.81828e-8`, while its
+`1.24573e-9` minimum singular value passes. The evidence now points to the
+full-state predictor basin, not inadequate conditioning or plane weighting;
+the next test holds nuisance variables at the qualified current root and
+extrapolates only `(a,c)`. EXP-390 freezes exactly that predictor-only change
+with every EXP-389 scientific and conditioning gate retained.

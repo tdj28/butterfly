@@ -145,6 +145,13 @@ singular value, comfortably above the prospectively frozen `5e-10` floor.
 This licenses a forward step under a more physically aligned plane; it is a
 method control, not a twelfth curve point or a historical-section result.
 
+The licensed EXP-389 forward step still lands on
+`c=current+1e-7`, at `5.81828e-8` maximum defect, despite passing the new
+conditioning gate at `1.24573e-9`.  Together with EXP-387, this rejects
+insufficient nuisance down-weighting as the main cause of wall capture.  The
+next successor changes predictor initialization while preserving the passed
+plane and all scientific gates.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -154,5 +161,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-388, including preserved negative results and
+Evidence: EXP-341 through EXP-389, including preserved negative results and
 their hash-bound compact receipts.

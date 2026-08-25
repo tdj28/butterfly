@@ -1099,8 +1099,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   at `5.10870e-9` maximum defect and `1.76697e-9` minimum singular value.
   Freeze the licensed `Delta c=2e-5` forward step with the `0.003` plane, the
   `c>=current+1e-7` optimizer bound, and every unchanged root, margin, and
-  conditioning gate. EXP-389 now freezes that step; execute it only from the
-  clean pushed preregistration commit.
+  conditioning gate. EXP-389 terminates normally with passing conditioning
+  but again lands exactly on the forward wall at `5.81828e-8`; preserve the
+  failure. Freeze a physical-only predictor that holds nodes, time, and angle
+  at the qualified current root, extrapolates only `(a,c)`, and retains the
+  passed `0.003` closing plane and every EXP-389 acceptance gate. EXP-390 now
+  freezes that predictor-only change; execute it from the clean pushed commit.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -161,6 +161,27 @@ def test_homoclinic_pseudoarclength_projects_closing_tangent_to_parameters():
     assert tangent[layout["angle_index"]] == 0.0
 
 
+def test_homoclinic_pseudoarclength_physical_predictor_holds_nuisance_groups():
+    layout = pseudoarclength_layout(2)
+    delta = np.arange(1.0, layout["variable_count"] + 1.0)
+    scales = np.ones_like(delta)
+    tangent = projected_arclength_tangent(delta, scales, layout, ("a", "c"))
+    current = np.arange(layout["variable_count"], dtype=np.float64)
+    desired_c_increment = 0.25
+    step = desired_c_increment / tangent[layout["c_index"]]
+    predictor = current + step * tangent * scales
+
+    assert np.allclose(
+        predictor[: layout["node_size"]], current[: layout["node_size"]]
+    )
+    assert predictor[layout["time_index"]] == current[layout["time_index"]]
+    assert predictor[layout["angle_index"]] == current[layout["angle_index"]]
+    assert np.isclose(
+        predictor[layout["c_index"]] - current[layout["c_index"]],
+        desired_c_increment,
+    )
+
+
 def test_homoclinic_pseudoarclength_weights_closing_tangent_groups():
     layout = pseudoarclength_layout(2)
     delta = np.ones(layout["variable_count"])
