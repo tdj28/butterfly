@@ -417,6 +417,15 @@ maximum defect `6.88548e-9`. Its slope `-0.3255563984` projects exact
 above the section. The next frozen 256-arc step returns to `Delta c=0.0005`
 to obtain a qualified bracket.
 
+## EXP-368 qualifies the old stall band but not the bracket
+
+EXP-368 passes normally at
+`(a,c)=(0.1798174978856614,10.317081488741884)`, only `1.74979e-5` above exact
+`a=0.1798`. Its maximum defect `9.99934e-9` is just inside the fixed gate; the
+slope `-0.3255565529` projects the crossing at `c=10.3171352363`. The next
+crossing attempt doubles segmentation to 512 arcs and reduces `Delta c` to
+`0.00015`; no acceptance threshold changes.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -441,5 +450,7 @@ The sixth point is tracked in
 [`../experiments/receipts/EXP-366.json`](../experiments/receipts/EXP-366.json).
 The seventh point is tracked in
 [`../experiments/receipts/EXP-367.json`](../experiments/receipts/EXP-367.json).
+The qualified near-section point is tracked in
+[`../experiments/receipts/EXP-368.json`](../experiments/receipts/EXP-368.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

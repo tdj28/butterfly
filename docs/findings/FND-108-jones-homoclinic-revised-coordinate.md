@@ -86,6 +86,12 @@ EXP-367 passes at `(a,c)=(0.1798847855470,10.3168748037260)`, maximum defect
 `6.88548e-9`. Its slope `-0.32555640` projects `c=10.3171352365`; only
 `8.47855e-5` remains before exact `a=0.1798`.
 
+EXP-368 passes inside the former fixed-coordinate stall band at
+`(a,c)=(0.1798174978857,10.3170814887419)`, maximum defect `9.99934e-9`. Its
+slope `-0.32555655` projects exact `a=0.1798` at `c=10.3171352363`, only
+`5.37476e-5` farther in `c`. The point remains above the section, so no bracket
+or exact historical-path result is yet claimed.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -95,5 +101,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-367, including preserved negative results and
+Evidence: EXP-341 through EXP-368, including preserved negative results and
 their hash-bound compact receipts.

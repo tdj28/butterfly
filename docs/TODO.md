@@ -985,6 +985,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `8.47855e-5` above exact `a`. With 31% matching-gate headroom restored,
   freeze a 256-arc `Delta c=0.0005` step to cross and bracket the section.
   EXP-368 freezes that prospective bracket step from exact EXP-366/367 roots.
+  EXP-368 passes at `(a,c)=(0.1798174978857,10.3170814887419)` but remains
+  `1.74979e-5` above the section; it uses `99.993%` of the 256-arc root gate.
+  Freeze a 512-arc `Delta c=0.00015` crossing step from EXP-367/368 without
+  relaxing any threshold. EXP-369 freezes that finer crossing protocol.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
