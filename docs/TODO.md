@@ -971,7 +971,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-364 is preserved as failed at `1.09327e-8`, only `9.33%` above the gate;
   the first block still dominates while arclength and all bounds pass. Freeze
   a 256-arc repeat from the same two qualified roots with the same half-step,
-  budget, tolerances, and gates.
+  budget, tolerances, and gates. EXP-365 freezes that segmentation-only
+  recovery.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
