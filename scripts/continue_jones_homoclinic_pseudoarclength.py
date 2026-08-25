@@ -174,6 +174,36 @@ def directional_c_bounds(
     return lower, upper
 
 
+def projected_arclength_tangent(
+    delta: np.ndarray,
+    scales: np.ndarray,
+    layout: dict[str, int],
+    components: tuple[str, ...],
+) -> np.ndarray:
+    """Normalize a secant after projecting onto declared variable groups."""
+    supported = {"nodes", "total_flight_time", "a", "c", "angle"}
+    unknown = set(components) - supported
+    if unknown:
+        raise ValueError(f"unsupported arclength components: {sorted(unknown)}")
+    tangent = np.asarray(delta, dtype=np.float64) / np.asarray(scales, dtype=np.float64)
+    mask = np.zeros_like(tangent, dtype=bool)
+    if "nodes" in components:
+        mask[: layout["node_size"]] = True
+    for name, index_name in (
+        ("total_flight_time", "time_index"),
+        ("a", "a_index"),
+        ("c", "c_index"),
+        ("angle", "angle_index"),
+    ):
+        if name in components:
+            mask[layout[index_name]] = True
+    tangent[~mask] = 0.0
+    norm = np.linalg.norm(tangent)
+    if not np.isfinite(norm) or norm == 0.0:
+        raise ValueError("projected arclength tangent is degenerate")
+    return tangent / norm
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -297,15 +327,26 @@ def main() -> int:
     scales[layout["a_index"]] = float(scaling["a"])
     scales[layout["c_index"]] = float(scaling["c"])
     scales[layout["angle_index"]] = float(scaling["angle"])
-    tangent = (current - previous) / scales
-    tangent /= np.linalg.norm(tangent)
+    all_components = ("nodes", "total_flight_time", "a", "c", "angle")
+    predictor_tangent = projected_arclength_tangent(
+        current - previous, scales, layout, all_components
+    )
+    arclength_components = tuple(
+        manifest["pseudoarclength"].get("arclength_components", all_components)
+    )
+    arclength_tangent = projected_arclength_tangent(
+        current - previous, scales, layout, arclength_components
+    )
     desired_c_increment = float(manifest["pseudoarclength"]["desired_c_increment"])
-    c_direction = tangent[layout["c_index"]] * scales[layout["c_index"]]
+    c_direction = (
+        predictor_tangent[layout["c_index"]] * scales[layout["c_index"]]
+    )
     if c_direction * desired_c_increment <= 0.0:
-        tangent *= -1.0
+        predictor_tangent *= -1.0
+        arclength_tangent *= -1.0
         c_direction *= -1.0
     arclength_step = desired_c_increment / c_direction
-    predictor = current + arclength_step * tangent * scales
+    predictor = current + arclength_step * predictor_tangent * scales
 
     node_radius = float(manifest["node_bound_radius"])
     lower = np.full(layout["variable_count"], -np.inf)
@@ -405,9 +446,11 @@ def main() -> int:
                     transition @ initial_angle_derivative
                 )
             endpoints.append(endpoint)
-        arc_residual = float(np.dot(tangent, (variables - predictor) / scales))
+        arc_residual = float(
+            np.dot(arclength_tangent, (variables - predictor) / scales)
+        )
         residual = np.r_[matching, arc_weight * arc_residual]
-        jacobian[-1] = arc_weight * tangent / scales
+        jacobian[-1] = arc_weight * arclength_tangent / scales
         norms = block_norms(matching)
         details = {
             "matching_residual_norm": float(np.linalg.norm(matching)),
@@ -545,6 +588,7 @@ def main() -> int:
             "total_flight_time": float(result.x[layout["time_index"]]),
         },
         "desired_c_increment": desired_c_increment,
+        "arclength_components": list(arclength_components),
         "directional_bounds": directional,
         "normalized_arclength_step": float(arclength_step),
         "initial_maximum_block_residual": initial_details["maximum_block_norm"],

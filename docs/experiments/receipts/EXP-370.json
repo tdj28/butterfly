@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-370",
+  "passed": false,
+  "source_commit": "5344022be56afa70dc779aa06356de329eb5c236",
+  "manifest_sha256": "0d03a5daecf67611b2f4b7f3678ecc2857963d4ebc2bb969eae30333b82b1532",
+  "raw_artifact": "artifacts/EXP-370/receipt.json",
+  "raw_artifact_bytes": 85316,
+  "raw_artifact_sha256": "ff9e29e15516d7481380e1b23348e7a6531f6b6d097a7459862a1445dd77fb7a",
+  "elapsed_seconds": 892.8058339590207,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "desired_c_increment": 0.00015,
+  "directional_bounds": {"minimum_c_increment": 0.000001},
+  "initial_maximum_block_residual": 0.002995498843115011,
+  "final_residual_norm": 0.0000027766098583131987,
+  "final_matching_residual_norm": 0.0000027766098583121234,
+  "final_maximum_block_residual": 0.0000022817096038416275,
+  "final_arclength_residual": 2.443558584641625e-10,
+  "final_variables": {
+    "a": 0.1798323559761185,
+    "c": 10.317082488758269,
+    "angle": 3.0062264764899598,
+    "total_flight_time": 234.41593253919913
+  },
+  "node_boundary_margin": 0.7583485497063336,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 34,
+    "optimality": 0.0000013780840361448842
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "global_status_bound",
+    "optimizer_terminated_or_root_gate",
+    "root_nominated"
+  ],
+  "interpretation": "The forward-constrained recovery sticks to the c lower bound with a 2.28e-6 matching defect. Combined with EXP-369's backward root, this diagnoses contamination of the full-state arclength hyperplane by nuisance gauge motion. The next protocol uses an (a,c)-only arclength condition."
+}

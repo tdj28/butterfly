@@ -26,6 +26,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
     directional_c_bounds,
     native_boolean_checks,
+    projected_arclength_tangent,
     source_angle_gauge,
     source_curve_values,
     unwrap_angle,
@@ -129,6 +130,17 @@ def test_homoclinic_pseudoarclength_directional_c_bound_enforces_forward_side():
 
     unconstrained = directional_c_bounds(10.0, 10.00015, 0.001, None)
     assert np.allclose(unconstrained, (9.99915, 10.00115))
+
+
+def test_homoclinic_pseudoarclength_projects_closing_tangent_to_parameters():
+    layout = pseudoarclength_layout(2)
+    delta = np.arange(1.0, layout["variable_count"] + 1.0)
+    scales = np.ones_like(delta)
+    tangent = projected_arclength_tangent(delta, scales, layout, ("a", "c"))
+    nonzero = np.flatnonzero(tangent)
+    assert np.array_equal(nonzero, [layout["a_index"], layout["c_index"]])
+    assert np.isclose(np.linalg.norm(tangent), 1.0)
+    assert tangent[layout["angle_index"]] == 0.0
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

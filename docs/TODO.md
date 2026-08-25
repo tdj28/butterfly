@@ -994,6 +994,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   an explicit prospective optimizer bound and repeat the same 512-arc plane;
   do not treat the wrong-side root as a bracket. EXP-370 freezes the repeated
   plane with `c >= c_current + 1e-6` and unchanged scientific gates.
+  EXP-370 is preserved as failed on that lower bound at maximum defect
+  `2.28171e-6`. Replace the full-state arclength equation with a physical
+  `(a,c)`-only secant plane while retaining full-state prediction, 512 arcs,
+  and every scientific gate; remove the directional optimizer wall. EXP-371
+  freezes that projected-arclength protocol.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

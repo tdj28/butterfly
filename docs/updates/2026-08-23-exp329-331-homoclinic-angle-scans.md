@@ -435,6 +435,15 @@ arclength residual `-5.01403e-12`, but moves backward to
 by the high-dimensional tangent/gauge, not a branch endpoint. The successor
 enforces the same direction criterion as an optimizer bound.
 
+## EXP-370 forward wall does not repair the hyperplane
+
+The constrained repeat reaches the 40-evaluation cap essentially on the new
+lower bound: `c=10.317082488758269`, only `1.64e-11` inside it. Maximum defect
+is `2.28171e-6`; root, global-margin, and termination checks fail. Together,
+EXP-369/370 diagnose the full-state arclength hyperplane as gauge-contaminated
+near the section. The next protocol defines the closing plane only in the
+physical `(a,c)` projection.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -463,5 +472,7 @@ The qualified near-section point is tracked in
 [`../experiments/receipts/EXP-368.json`](../experiments/receipts/EXP-368.json).
 The wrong-direction 512-arc root is tracked in
 [`../experiments/receipts/EXP-369.json`](../experiments/receipts/EXP-369.json).
+The boundary-active constrained failure is tracked in
+[`../experiments/receipts/EXP-370.json`](../experiments/receipts/EXP-370.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
