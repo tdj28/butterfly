@@ -1120,8 +1120,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   preserve it. Widen only the independently active angle half-width from
   `0.25` to `1.0` with the same local step and gates. Reduce the normalized
   step only if the wide-angle successor remains unresolved away from that wall.
-  EXP-393 now freezes the angle-only repeat; execute it from the clean pushed
-  commit.
+  EXP-393 exhausts 40 evaluations on the forward-`c` wall at `8.85139e-8`
+  maximum defect and `4.51824e-10` minimum singular value, but moves the angle
+  well interior. Preserve the failure. EXP-394 now freezes the licensed
+  quarter step: `Delta c=1.25e-7`, normalized step `0.02254`, and proportionate
+  `2.5e-9` forward floor, with the wide angle interval and every scientific
+  gate unchanged. Execute it from the clean pushed commit. If it fails, audit
+  the phase/gauge coordinate before further threshold or budget changes.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

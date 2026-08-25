@@ -172,6 +172,12 @@ at `1.17380e-7` maximum defect.  It does not qualify a curve point.  The angle
 bound is independently active, so one wide-angle repeat precedes any further
 step reduction.
 
+That repeat, EXP-393, moves the departure angle well interior but exhausts its
+40 evaluations on the forward-`c` wall at `8.85139e-8` maximum defect.  Its
+`4.51824e-10` minimum singular value narrowly misses the prospective `5e-10`
+gate.  This licenses a quarter local-tangent step with unchanged scientific
+thresholds; it still does not add a twelfth curve point.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -181,5 +187,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-392, including preserved negative results and
+Evidence: EXP-341 through EXP-393, including preserved negative results and
 their hash-bound compact receipts.

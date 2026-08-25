@@ -95,3 +95,8 @@ step of `0.09015`, without changing any scientific gate. EXP-392 keeps the
 tangent and conditioning gates but reaches both its forward-`c` and angle
 walls at `1.17380e-7` maximum defect. One prospectively wide-angle repeat now
 separates an active nuisance bound from a genuinely excessive local step.
+EXP-393 removes the angle wall but exhausts all 40 evaluations on the
+forward-`c` wall at `8.85139e-8` maximum defect; its minimum singular value is
+`4.51824e-10`, just below the prospective `5e-10` floor. This cleanly licenses
+EXP-394's frozen quarter step (`Delta c=1.25e-7`, normalized `0.02254`) while
+retaining the wide angle interval and every scientific acceptance threshold.
