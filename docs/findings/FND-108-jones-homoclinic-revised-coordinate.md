@@ -166,6 +166,12 @@ defect and `1.93538e-9` minimum singular value.  Its scaled local tangent is
 `99.9992%` node motion in norm, quantifying why a conservative normalized step
 is required.  This is a positive method result, not a twelfth curve point.
 
+The first nonzero local-tangent step, EXP-392, keeps the tangent and
+conditioning gates but reaches both its forward-`c` and departure-angle walls
+at `1.17380e-7` maximum defect.  It does not qualify a curve point.  The angle
+bound is independently active, so one wide-angle repeat precedes any further
+step reduction.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -175,5 +181,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-391, including preserved negative results and
+Evidence: EXP-341 through EXP-392, including preserved negative results and
 their hash-bound compact receipts.

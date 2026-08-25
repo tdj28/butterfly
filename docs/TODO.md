@@ -1116,7 +1116,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   node-dominated local tangent. Freeze the first forward step at
   `Delta c=5e-7`, which is normalized step `0.09015` under the measured
   tangent, with a `1e-8` forward floor and every unchanged gate. EXP-392 now
-  freezes that first step; execute it from the clean pushed commit.
+  hits both the `c` floor and angle lower wall at `1.17380e-7` maximum defect;
+  preserve it. Widen only the independently active angle half-width from
+  `0.25` to `1.0` with the same local step and gates. Reduce the normalized
+  step only if the wide-angle successor remains unresolved away from that wall.
+  EXP-393 now freezes the angle-only repeat; execute it from the clean pushed
+  commit.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

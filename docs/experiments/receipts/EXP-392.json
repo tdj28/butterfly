@@ -1,0 +1,66 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-392",
+  "classification": "pseudoarclength_unresolved",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "8a26a3fe417331dc17a15c1257194d1a8c1382a2",
+    "dirty": false
+  },
+  "manifest_sha256": "8d554893a4bae7312608765752e7fa8a0b2257345985ed254d653b470d925ba6",
+  "raw_receipt": {
+    "path": "artifacts/EXP-392/receipt.json",
+    "bytes": 85175,
+    "sha256": "b0589f9900683aa21144235ad559e2731deec9992d7327a967b6e10a5e63f6f6"
+  },
+  "elapsed_seconds": 694.5218666251749,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 5e-7,
+  "normalized_arclength_step": 0.09015487039325486,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981733510709205,
+    "c": 10.317081988741885,
+    "angle": 2.8101197218922067,
+    "total_flight_time": 234.4201370707727
+  },
+  "final_variables": {
+    "a": 0.1798182756914287,
+    "c": 10.317081498741986,
+    "angle": 2.5601197219436713,
+    "total_flight_time": 234.42192020118972
+  },
+  "initial_maximum_block_residual": 0.00008106428362388407,
+  "final_maximum_block_residual": 1.1738036769570498e-7,
+  "final_matching_residual_norm": 1.4199068876710914e-7,
+  "final_arclength_residual": 2.8969626827621275e-11,
+  "jacobian_minimum_singular_value": 1.20582812184394e-9,
+  "maximum_normalized_node_displacement": 0.19647716964141182,
+  "node_boundary_margin": 0.8035228303585882,
+  "global_boundary_margins": [
+    0.24821686958298983,
+    0.00019905941566336627,
+    1.0125233984581428e-13,
+    5.1464610351104056e-11
+  ],
+  "optimizer": {
+    "success": true,
+    "status": 3,
+    "message": "`xtol` termination condition is satisfied.",
+    "nfev": 32,
+    "njev": 27,
+    "optimality": 1.1875929982546168e-9
+  },
+  "failed_checks": [
+    "global_status_bound",
+    "root_nominated"
+  ],
+  "interpretation": "The first nonzero local-tangent step retains a machine-precision tangent and passing conditioning but reaches both the forward-c and departure-angle walls. Widen only the independently active angle bound before reducing the normalized step."
+}

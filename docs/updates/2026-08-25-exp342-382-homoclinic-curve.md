@@ -91,4 +91,7 @@ a bordered analytic-Jacobian solve and a prospective `1e-8` tangent-residual
 gate. It passes at `1.40565e-16` tangent residual and `4.58480e-9` maximum
 orbit defect. The measured tangent is overwhelmingly node-dominated, so the
 first licensed forward increment is reduced to `5e-7`, a normalized tangent
-step of `0.09015`, without changing any scientific gate.
+step of `0.09015`, without changing any scientific gate. EXP-392 keeps the
+tangent and conditioning gates but reaches both its forward-`c` and angle
+walls at `1.17380e-7` maximum defect. One prospectively wide-angle repeat now
+separates an active nuisance bound from a genuinely excessive local step.
