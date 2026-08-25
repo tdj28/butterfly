@@ -128,6 +128,13 @@ point `(a,c)=(0.1798213190,10.3170697519)`.  This is another plane intersection,
 not a qualified curve point.  EXP-386 keeps the forward wall and instead
 starts from the forward predictor.
 
+EXP-386 executes that forward-predictor test and reaches the full 40-evaluation
+budget.  The plane residual closes to `1.10e-13`, but the point lands on the
+prospective `c=current+1e-6` wall with maximum matching defect `6.19e-7` and
+remains above the historical section.  This is a step-size/forward-wall
+failure, not evidence of branch termination.  EXP-387 prospectively reduces
+the forward increment to `2e-5` before another crossing attempt.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -137,5 +144,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-385, including preserved negative results and
+Evidence: EXP-341 through EXP-386, including preserved negative results and
 their hash-bound compact receipts.

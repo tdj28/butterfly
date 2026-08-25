@@ -1083,7 +1083,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `(a,c)=(0.1798213190,10.3170697519)`. Preserve the wrong-side root. EXP-386
   restores the forward optimizer bound, removes the incompatible exact warm
   start, and begins at the frozen full-state predictor with otherwise
-  unchanged weights and gates.
+  unchanged weights and gates. EXP-386 uses all 40 evaluations, closes the
+  plane, but reaches the `c=current+1e-6` wall with `6.18779e-7` maximum
+  defect and remains above the section. Do not increase the budget at that
+  wall. EXP-387 reduces `Delta c` to `2e-5` and the forward floor to `1e-7`,
+  retains every root/margin threshold, and seeks an above-section recovery
+  point before another bracket attempt.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

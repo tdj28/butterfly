@@ -64,4 +64,6 @@ aborts before solving because the exact warm start is outside its forward
 optimizer wall.  Unwalled EXP-385 reaches a sub-gate root, but it is backward
 in `c` and above the historical section.  EXP-386 retains the forward wall and
 starts at the full-state predictor; neither failed attempt changes the eleven
-qualified branch points.
+qualified branch points.  EXP-386 holds the forward wall but finishes at a
+`6.19e-7` matching floor exactly on that wall.  EXP-387 reduces the forward
+increment to `2e-5` to seek one more above-section point before crossing.
