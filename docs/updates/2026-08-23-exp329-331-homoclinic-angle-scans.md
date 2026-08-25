@@ -463,6 +463,16 @@ smallest final Jacobian singular value is `2.70368e-10`. This isolates dense
 ill-conditioning and weak closing-equation scaling as the next numerical
 target; it is not evidence against the qualified branch through EXP-368.
 
+## EXP-373 repairs the projected plane, leaving matching open
+
+CSR/LSMR with unit closing-equation weight reaches
+`(a,c)=(0.1798218288661,10.3173007208813)`. The unweighted projected
+arclength residual falls from EXP-372's `3.69497e-5` to `3.85232e-9`, inside
+the fixed gate. Maximum matching defect remains `1.13744e-5`, so the root is
+not nominated. The successor halves the desired `c` step while retaining the
+sparse formulation and every scientific threshold; the qualified local slope
+still predicts that reduced step will cross `a=0.1798`.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -497,5 +507,7 @@ The projected-angle-bound failure is tracked in
 [`../experiments/receipts/EXP-371.json`](../experiments/receipts/EXP-371.json).
 The wide-angle conditioning failure is tracked in
 [`../experiments/receipts/EXP-372.json`](../experiments/receipts/EXP-372.json).
+The sparse projected-plane recovery is tracked in
+[`../experiments/receipts/EXP-373.json`](../experiments/receipts/EXP-373.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

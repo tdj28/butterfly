@@ -1010,7 +1010,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   projected arclength equation to unit residual weight; retain the same root,
   arclength, direction, and boundary gates. Do not spend another dense solve
   on nuisance-gauge changes. EXP-373 freezes this CSR/LSMR and unit-closing-
-  weight recovery.
+  weight recovery. EXP-373 is preserved as failed at maximum matching defect
+  `1.13744e-5`, but its projected arclength residual improves by four orders of
+  magnitude to a passing `3.85232e-9`. The continuation plane is no longer the
+  limiting equation. Halve the desired `c` increment to `7.5e-5`—still enough
+  to cross exact `a=0.1798` under every qualified local secant—and repeat the
+  same sparse protocol and unchanged gates. EXP-374 freezes that reduced-step
+  crossing attempt.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
