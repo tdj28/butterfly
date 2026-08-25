@@ -973,6 +973,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   a 256-arc repeat from the same two qualified roots with the same half-step,
   budget, tolerances, and gates. EXP-365 freezes that segmentation-only
   recovery.
+  EXP-365 passes normally at
+  `(a,c)=(0.1800152045459,10.3164741984457)`, cutting the controlling defect
+  to `5.16572e-9`. Continue at 256 arcs and `Delta c=0.00025` from EXP-363 and
+  EXP-365 until exact `a=0.1798` is bracketed. EXP-366 freezes the next such
+  step.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

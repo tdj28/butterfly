@@ -392,6 +392,15 @@ residual is `-6.70334e-12`, node margin is `0.95569`, and every non-root check
 passes. The first block remains controlling. The next frozen recovery doubles
 segmentation rather than relaxing any scientific threshold.
 
+## EXP-365 256-arc recovery passes
+
+The segmentation-only repeat passes normally in 11 evaluations at
+`(a,c)=(0.18001520454594663,10.316474198445746)`. Its maximum defect is
+`5.16572e-9`, a `52.75%` reduction from EXP-364, while its arclength residual
+is `-3.79519e-12`. The slope `-0.3255531864` projects the historical section
+at `c=10.3171352411`. This identifies the preceding floor as numerical
+representation rather than physical branch termination.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -410,5 +419,7 @@ The fourth qualified pseudo-arclength point is tracked in
 [`../experiments/receipts/EXP-363.json`](../experiments/receipts/EXP-363.json).
 The narrow reduced-step failure is tracked in
 [`../experiments/receipts/EXP-364.json`](../experiments/receipts/EXP-364.json).
+The 256-arc recovery is tracked in
+[`../experiments/receipts/EXP-365.json`](../experiments/receipts/EXP-365.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

@@ -70,6 +70,13 @@ the crossing at `c=10.317135246`. The maximum defect `9.93350e-9` is close to
 the unchanged gate, so later steps reduce predictor size rather than weaken
 the acceptance criterion.
 
+The reduced 128-arc EXP-364 step narrowly fails at `1.09327e-8`, but the
+segmentation-only 256-arc EXP-365 repeat passes normally at
+`(a,c)=(0.1800152045459,10.3164741984457)` with defect `5.16572e-9`. Its
+slope `-0.32555319` projects the crossing at `c=10.317135241`. This confirms
+the narrow floor was representation-limited and leaves the branch only
+`2.15205e-4` above exact `a=0.1798`.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -79,5 +86,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-363, including preserved negative results and
+Evidence: EXP-341 through EXP-365, including preserved negative results and
 their hash-bound compact receipts.
