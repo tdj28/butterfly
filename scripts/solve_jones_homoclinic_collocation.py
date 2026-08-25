@@ -356,10 +356,10 @@ def main() -> int:
     maximum_collocation_residual = float(np.max(result.rms_residuals))
     maximum_boundary_residual = float(np.max(np.abs(final_boundary_residual)))
     maximum_replay_defect = None if replay_failure else float(np.max(defects))
-    historical_section_crossed = a_value < float(
-        acceptance["historical_section_a"]
+    historical_section_crossed = bool(
+        a_value < float(acceptance["historical_section_a"])
     )
-    forward_c_direction = c_value > current[1]
+    forward_c_direction = bool(c_value > current[1])
     checks = {
         "source_roots_bound": all(row["passed"] for row in receipts),
         "warm_start_bound": warm["experiment_id"] == warm_binding["experiment_id"],

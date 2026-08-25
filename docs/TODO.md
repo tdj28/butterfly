@@ -1057,7 +1057,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   ceiling. First reproduce qualified EXP-368 on a zero-step physical plane
   from a deterministic 256-to-512 subdivision, with the section-crossing gate
   explicitly inapplicable but every root/replay/margin gate retained. EXP-381
-  freezes that collocation representation positive control.
+  freezes that collocation representation positive control. It reaches the
+  receipt boundary but loses its result to two NumPy booleans; preserve the
+  administrative failure. EXP-382 freezes the JSON-native rerun with no
+  mathematical, numerical, or gate change.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

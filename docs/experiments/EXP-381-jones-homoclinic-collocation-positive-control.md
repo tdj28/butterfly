@@ -1,6 +1,6 @@
 # EXP-381 — Collocation positive control at EXP-368
 
-Status: frozen; not yet run
+Status: post-solve serialization abort; no receipt or scientific result
 
 EXP-380 shows that a finite crossing plane can make unconstrained collocation
 escape before adapting its mesh. EXP-381 first requires the new representation
@@ -18,3 +18,11 @@ Only a pass licenses small collocation continuation steps away from EXP-368.
 
 Manifest:
 [`../../experiments/manifests/EXP-381-jones-homoclinic-collocation-positive-control.json`](../../experiments/manifests/EXP-381-jones-homoclinic-collocation-positive-control.json).
+
+## Administrative outcome
+
+Collocation and replay return, but receipt serialization rejects two NumPy
+comparison booleans. An overflow warning suggests the solver may have escaped,
+but no result survives and no scientific classification is made. EXP-382
+converts those two values at the JSON boundary and otherwise repeats the exact
+positive-control mathematics and gates.
