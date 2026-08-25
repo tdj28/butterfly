@@ -109,13 +109,14 @@ $a=0.17981749$ but stall at maximum defect $3.76\times10^{-6}$; two
 independently seeded fixed-$a$ corrections return near $c=10.317127$ with the
 same stable-end defect of approximately $2.10\times10^{-4}$.  These preserved
 failures motivate a gauge-aligned two-parameter pseudo-arclength system rather
-than another forced-coordinate solve.  Its first 128-arc Radau step passes at
+than another forced-coordinate solve.  Two chained 128-arc Radau steps pass,
+reaching
 \[
-  (a,c)=(0.1805321204707,10.3148863716751),
+  (a,c)=(0.1803726464063,10.3153762378641),
 \]
-with maximum matching defect $6.77\times10^{-9}$ and arclength residual
-$3.43\times10^{-12}$.  The local
-slope, $-0.325544$, again projects $a=0.1798$ near $c=10.31713529$.  Thus the
+with maximum matching defects below $7.52\times10^{-9}$ and arclength
+residuals below $4.40\times10^{-11}$.  The latest local slope,
+$-0.32554618$, projects $a=0.1798$ near $c=10.31713527$.  Thus the
 earlier floor is not an immediate branch termination and locally reflects
 coordinate conditioning.  A later fold remains possible, so the exact
 historical-path intersection is still not claimed.

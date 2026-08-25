@@ -51,6 +51,13 @@ termination and favors a coordinate-conditioning explanation locally. It
 does not exclude a later fold before `a=0.1798`, so the exact Jones-path
 intersection remains unqualified.
 
+A second chained step, EXP-361, passes at
+`(a,c)=(0.1803726464063,10.3153762378641)` with maximum defect `7.51e-9`.
+Its slope `-0.32554618` projects the historical crossing at `c=10.31713527`,
+only `1.83e-8` from the EXP-360 projection. Two consecutive
+pseudo-arclength roots now support a smooth local branch beyond the
+fixed-coordinate stall.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -60,5 +67,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-360, including preserved negative results and
+Evidence: EXP-341 through EXP-361, including preserved negative results and
 their hash-bound compact receipts.

@@ -352,6 +352,20 @@ therefore did not signal an immediate termination of the qualified branch.
 This narrows, but does not close, the ambiguity: pseudo-arclength must still
 reach the historical section or resolve a later fold before that section.
 
+## EXP-361 second chained pseudo-arclength point passes
+
+EXP-361 consumes EXP-360's exact 127 internal nodes and explicitly bound angle
+gauge, demonstrating that the new method is chainable. It passes all frozen
+checks at `(a,c)=(0.18037264640633813,10.315376237864077)`. The maximum
+matching defect is `7.51353e-9`, the arclength residual is `-4.38926e-11`, and
+the node margin is `0.93840`. The root gate is met at the preregistered
+40-evaluation cap.
+
+The latest slope is `-0.3255461756`, projecting the fixed-`a` crossing at
+`c=10.3171352707`. Its agreement with the previous projection to `1.83e-8`
+in `c` supplies strong local evidence of a smooth branch but still does not
+replace an exact section solve.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -362,5 +376,7 @@ The second qualified continuation point is tracked in
 [`../experiments/receipts/EXP-350.json`](../experiments/receipts/EXP-350.json).
 The first qualified pseudo-arclength point is tracked in
 [`../experiments/receipts/EXP-360.json`](../experiments/receipts/EXP-360.json).
+The second qualified pseudo-arclength point is tracked in
+[`../experiments/receipts/EXP-361.json`](../experiments/receipts/EXP-361.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

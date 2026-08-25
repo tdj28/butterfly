@@ -953,8 +953,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   immediate branch termination. Chain the next same-gauge 128-arc
   pseudo-arclength step from EXP-350 and EXP-360, then continue through or
   around any turn until the exact `a=0.1798` section is either qualified or
-  excluded on a declared branch segment. EXP-361 freezes that next same-gauge
-  step with the unchanged `Delta c=0.0005` predictor and root gates.
+  excluded on a declared branch segment. EXP-361 passes the next same-gauge
+  step at `(a,c)=(0.1803726464063,10.3153762378641)`, maximum defect
+  `7.51353e-9`, and slope `-0.32554618`; its projected crossing remains
+  `c=10.31713527`. Freeze the third step from EXP-360 and EXP-361 without
+  changing the predictor or gates.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
