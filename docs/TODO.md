@@ -1111,7 +1111,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   a zero-step control that records the tangent residual and physical direction,
   then license a forward step without changing scientific thresholds. EXP-391
   freezes that zero-step control with a bordered analytic-Jacobian solve and a
-  prospective `1e-8` local-tangent residual gate.
+  prospective `1e-8` local-tangent residual gate. It passes with
+  `1.40565e-16` tangent residual, `4.58480e-9` maximum block defect, and a
+  node-dominated local tangent. Freeze the first forward step at
+  `Delta c=5e-7`, which is normalized step `0.09015` under the measured
+  tangent, with a `1e-8` forward floor and every unchanged gate. EXP-392 now
+  freezes that first step; execute it from the clean pushed commit.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -88,4 +88,7 @@ matching blocks to `6.27539e-9` with tiny node motion but still lands on the
 forward wall. The remaining secant plane is being replaced by a local tangent
 from the EXP-368 matching Jacobian. EXP-391 freezes the zero-step control with
 a bordered analytic-Jacobian solve and a prospective `1e-8` tangent-residual
-gate before any new forward attempt.
+gate. It passes at `1.40565e-16` tangent residual and `4.58480e-9` maximum
+orbit defect. The measured tangent is overwhelmingly node-dominated, so the
+first licensed forward increment is reduced to `5e-7`, a normalized tangent
+step of `0.09015`, without changing any scientific gate.

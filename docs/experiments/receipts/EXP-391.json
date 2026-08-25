@@ -1,0 +1,63 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-391",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "658703885e67bb818d482026ade5d9e6e27ea563",
+    "dirty": false
+  },
+  "manifest_sha256": "aff69680c21eb7491c6a43cb5b77fefe1594ef7ac9f9ae7664225200be2ee106",
+  "raw_receipt": {
+    "path": "artifacts/EXP-391/receipt.json",
+    "bytes": 79064,
+    "sha256": "659166ea43ed108540ed9650a043ab1b75145c0c64aa9554cde2cdbe2b3b93d4"
+  },
+  "elapsed_seconds": 66.69397558365017,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 0.0,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "local_tangent_group_norms": {
+    "a": 0.0009027719115372213,
+    "c": 0.0013865030192462251,
+    "nodes": 0.9999915242385716,
+    "total_flight_time": 0.00075795156226207,
+    "angle": 0.0036931792131708633
+  },
+  "arclength_tangent_group_norms": {
+    "a": 0.26350737097278054,
+    "c": 0.4047021853230663,
+    "nodes": 0.8756535316826988,
+    "total_flight_time": 0.0006637085877748485,
+    "angle": 0.0032339728315323828
+  },
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "final_variables": {
+    "a": 0.17981749875214606,
+    "c": 10.317081483966593,
+    "angle": 2.7454483076881657,
+    "total_flight_time": 234.42047861399703
+  },
+  "initial_maximum_block_residual": 9.999341446422604e-9,
+  "final_maximum_block_residual": 4.5847994637209154e-9,
+  "final_matching_residual_norm": 1.6767094813103233e-8,
+  "final_arclength_residual": 1.3124809399023274e-13,
+  "jacobian_minimum_singular_value": 1.9353811897810293e-9,
+  "node_boundary_margin": 0.9990046387390663,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 4,
+    "njev": 3,
+    "optimality": 6.579373916051182e-12
+  },
+  "failed_checks": [],
+  "interpretation": "The analytic matching-Jacobian bordered solve produces a machine-precision local tangent and a passing zero-step root. Its node-dominated scale licenses a conservative normalized forward step rather than another parameter-sized secant jump."
+}

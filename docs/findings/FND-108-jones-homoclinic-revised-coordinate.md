@@ -160,6 +160,12 @@ that the secant-defined plane still admits nuisance-gauge compensation.  The
 next method upgrade is a local tangent computed from the EXP-368 matching
 Jacobian, with the same scientific gates.
 
+EXP-391 passes that local-tangent zero-step control.  The bordered solve has
+`1.40565e-16` tangent residual; the corrected orbit has `4.58480e-9` maximum
+defect and `1.93538e-9` minimum singular value.  Its scaled local tangent is
+`99.9992%` node motion in norm, quantifying why a conservative normalized step
+is required.  This is a positive method result, not a twelfth curve point.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -169,5 +175,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-390, including preserved negative results and
+Evidence: EXP-341 through EXP-391, including preserved negative results and
 their hash-bound compact receipts.
