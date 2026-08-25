@@ -492,6 +492,15 @@ least-squares formulation. More evaluations or identical warm restarts are
 therefore rejected; the next solver must attack the nearly singular square
 linear system directly.
 
+## EXP-376 measures the near-null Newton obstruction
+
+Column-scaled CSC/SuperLU solves `J Delta=-F` to `2.57761e-13`, but the scaled
+step norm is `1522.68` with maximum component `799.347`. The nearest bound
+limits the first fraction to `5.41071e-4`; the first two trials increase the
+maximum defect from `5.20888e-6` to `7.17314e-3` and `1.78406e-3`. The frozen
+`2^-12` minimum fraction then rejects the step. The linear solve works; severe
+nonlinear curvature along the near-null direction is now directly measured.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -532,5 +541,7 @@ The reduced-step failure is tracked in
 [`../experiments/receipts/EXP-374.json`](../experiments/receipts/EXP-374.json).
 The stationary exact-node failure is tracked in
 [`../experiments/receipts/EXP-375.json`](../experiments/receipts/EXP-375.json).
+The direct-Newton line-search failure is tracked in
+[`../experiments/receipts/EXP-376.json`](../experiments/receipts/EXP-376.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

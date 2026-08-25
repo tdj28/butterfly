@@ -327,6 +327,7 @@ def bounded_sparse_newton(
         trial_jacobian = jacobian
         trial_details = details
         attempted_fractions = []
+        attempted_costs = []
         while (
             step_fraction >= minimum_step_fraction
             and nfev < maximum_function_evaluations
@@ -340,6 +341,8 @@ def bounded_sparse_newton(
             candidate_cost = 0.5 * float(
                 np.dot(candidate_residual, candidate_residual)
             )
+            attempted_costs.append(candidate_cost)
+            trial_cost = candidate_cost
             if candidate_cost <= old_cost * (1.0 - armijo * step_fraction):
                 accepted = True
                 trial_point = candidate
@@ -360,6 +363,7 @@ def bounded_sparse_newton(
                 ),
                 "linear_residual_norm": trial_linear_residual,
                 "attempted_step_fractions": attempted_fractions,
+                "attempted_costs": attempted_costs,
                 "accepted": accepted,
             }
         )

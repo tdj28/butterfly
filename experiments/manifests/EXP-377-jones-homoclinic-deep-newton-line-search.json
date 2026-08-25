@@ -1,0 +1,134 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+  "experiment_id": "EXP-377",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-367/receipt.json",
+      "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-367",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 256,
+        "root_nominated": true,
+        "final_maximum_block_residual": 6.88547679234898e-9,
+        "final_residual_norm": 1.8538531101315673e-8
+      }
+    },
+    {
+      "path": "artifacts/EXP-368/receipt.json",
+      "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-368",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 256,
+        "root_nominated": true,
+        "final_maximum_block_residual": 9.999341431358164e-9,
+        "final_residual_norm": 2.6914245606593567e-8
+      }
+    }
+  ],
+  "warm_start_receipt": {
+    "path": "artifacts/EXP-376/receipt.json",
+    "sha256": "5cf1726acf35b04ad32f7cda305d5170be3685a20df54e1fa900e6e099cf57c9",
+    "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+    "experiment_id": "EXP-376",
+    "passed": false,
+    "classification": "pseudoarclength_unresolved",
+    "failed_checks": [
+      "root_nominated"
+    ],
+    "expected": {
+      "manifest_sha256": "d5b338476ccb823e77a3ed515e04b1a8345d4764f20ae4e00847f42b6fd232e5",
+      "segment_count": 512,
+      "desired_c_increment": 0.000075,
+      "arclength_components": [
+        "a",
+        "c"
+      ],
+      "final_maximum_block_residual": 0.0000052088761002681735,
+      "final_arclength_residual": -1.7643617634607867e-9
+    }
+  },
+  "fixed_b": 0.2,
+  "reference_parameters": {
+    "a": 0.18069045562126884,
+    "b": 0.2,
+    "c": 10.3144
+  },
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 512,
+  "node_bound_radius": 0.5,
+  "global_half_widths": {
+    "total_flight_time": 2.0,
+    "a": 0.001,
+    "c": 0.001,
+    "angle": 2.0
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "pseudoarclength": {
+    "desired_c_increment": 0.000075,
+    "residual_weight": 1.0,
+    "arclength_components": [
+      "a",
+      "c"
+    ],
+    "scales": {
+      "node_component": 1.0,
+      "total_flight_time": 5.0,
+      "a": 0.002,
+      "c": 0.004,
+      "angle": 0.5
+    }
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "simultaneous_a_c_sensitivities": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_sensitivity": "absolute_central",
+    "absolute_steps": {
+      "a": 1e-7,
+      "c": 1e-6
+    }
+  },
+  "optimization": {
+    "method": "bounded_sparse_newton",
+    "jacobian": "column_scaled_sparse_analytic_projected_pseudoarclength",
+    "jacobian_storage": "csc",
+    "linear_solver": "superlu",
+    "variable_scaling": "pseudoarclength_manifest_scales",
+    "armijo": 0.0001,
+    "backtracking_factor": 0.5,
+    "minimum_step_fraction": 9.5367431640625e-7,
+    "boundary_fraction": 0.99,
+    "maximum_function_evaluations": 24
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.01,
+    "maximum_root_block_residual": 1e-8,
+    "maximum_arclength_residual": 1e-8,
+    "minimum_global_boundary_margin": 1e-6,
+    "minimum_node_boundary_margin": 0.01,
+    "allow_root_gate_as_termination": true
+  },
+  "claim_scope": "deep line-search audit of EXP-376's accurately solved but prospectively damping-limited sparse Newton direction: retain the qualified EXP-367/EXP-368 sources, reduced-step physical plane, common eigenspace reference, exact EXP-376 nodes as a SHA-bound initial iterate, 512 arcs, simultaneous analytic sensitivities, manifold settings, Radau tolerances, source-centered bounds, column-scaled CSC/SuperLU solve, Armijo and boundary controls, 24-evaluation budget, 1e-8 matching and arclength gates, and all status gates, while lowering only the minimum Newton step fraction from 2^-12 to 2^-20 and recording every attempted cost; failure to find meaningful descent retires Newton restarts in favor of a better-conditioned boundary formulation or segmentation"
+}

@@ -1029,7 +1029,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   Newton solve with source-centered bounds and receipt-bound backtracking from
   EXP-375, retaining the identical plane and every scientific gate. EXP-376
   freezes a column-scaled CSC/SuperLU correction with prospective Armijo,
-  boundary-fraction, minimum-step, and 24-evaluation controls.
+  boundary-fraction, minimum-step, and 24-evaluation controls. EXP-376 solves
+  the Newton system to `2.58e-13` linear residual but exposes scaled step norm
+  `1522.68`; both trials allowed above the frozen `2^-12` floor increase the
+  maximum defect by orders of magnitude. Freeze one deeper line-search audit
+  to `2^-20`, recording every candidate cost. If it cannot find meaningful
+  descent, stop Newton restarts and change segmentation/boundary formulation.
+  EXP-377 freezes that terminal line-search audit.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
