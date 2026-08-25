@@ -1168,8 +1168,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   while `a` falls by `3.46e-10` toward Jones's section. This establishes that
   `c` is not a useful monotone coordinate at the local fold. The runner now
   supports explicit decreasing-`a` tangent orientation, an unconstrained-`c`
-  gate, and an independent decreasing-`a` gate. Execute frozen EXP-403's
-  prospective replay, then refresh the manuscript figure and counts.
+  gate, and an independent decreasing-`a` gate. EXP-403 passes every gate in
+  two evaluations at `(a,c)=(0.1798174935369,10.3170815025596)`, adding the
+  thirteenth qualified curve point and demonstrating continuation through the
+  local `c` fold. Refresh the manuscript figure and counts, then chain the
+  next decreasing-`a` step from EXP-403.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

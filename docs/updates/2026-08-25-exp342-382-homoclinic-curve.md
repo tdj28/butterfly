@@ -158,4 +158,10 @@ passing. It moves `4.97815e-9` backward in `c` but `3.46464e-10` downward in
 monotone continuation coordinate at this local fold. The runner now supports
 explicit tangent orientation plus independent `a` and `c` direction gates;
 EXP-403 freezes a decreasing-`a`, unconstrained-`c` replay at the same
-normalized step and unchanged scientific thresholds.
+normalized step and unchanged scientific thresholds. It passes every gate in
+two evaluations at `(a,c)=(0.1798174935369,10.3170815025596)`, with
+`4.00637e-9` maximum block defect, `5.07e-14` plane residual, `1.68536e-9`
+minimum singular value, and `1.09e-16` local-tangent residual. This is the
+thirteenth qualified curve point and the first qualified step through the
+local `c` fold. The historical fixed-`a` gap is now `1.74935e-5`; exact
+intersection and uniqueness remain open.

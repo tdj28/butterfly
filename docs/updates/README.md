@@ -23,10 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-08-25-exp342-382-homoclinic-curve.md`](2026-08-25-exp342-382-homoclinic-curve.md)
-  — eleven qualified multiple-shooting roots approach within `1.75e-5` in
-  `a` of Jones's historical section; the exact intersection stays open, and
-  preserved sparse-Newton/collocation failures determine the next bounded
-  continuation design.
+  — thirteen qualified multiple-shooting roots approach within `1.75e-5` in
+  `a` of Jones's historical section and pass through a local `c` fold; the
+  exact intersection and uniqueness stay open.
 
 - [`2026-08-23-exp329-331-homoclinic-angle-scans.md`](2026-08-23-exp329-331-homoclinic-angle-scans.md)
   — 96-angle full-circle and 257-angle local scans find no sampled
