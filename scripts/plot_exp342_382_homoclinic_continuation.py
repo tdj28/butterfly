@@ -126,6 +126,7 @@ def main() -> int:
     )
     axis_zoom.set_xlim(10.31425, 10.31738)
     axis_zoom.set_ylim(0.17977, 0.18074)
+    axis_zoom.ticklabel_format(axis="x", style="plain", useOffset=False)
     axis_zoom.set_title("B  Historical-section approach")
     axis_zoom.set_xlabel("c")
     axis_zoom.grid(alpha=0.2)
