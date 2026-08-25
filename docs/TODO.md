@@ -1067,7 +1067,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   multiple shooting and add a prospectively weighted hybrid closing plane:
   physical `(a,c)` components dominate, while a small full-state secant term
   regularizes the measured node near-null direction. Retain the forward gate
-  and all root/margin thresholds.
+  and all root/margin thresholds. EXP-383 freezes the prerequisite zero-step
+  control with unit `a/c` weights, `0.01` node/time/angle weights, deterministic
+  512-arc subdivision, CSR/LSMR correction, a `1e-8` stationary-`c` gate, and
+  unchanged `1e-8` matching threshold. Only a pass licenses a forward step.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

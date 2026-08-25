@@ -45,6 +45,7 @@ except ModuleNotFoundError:  # Direct ``python scripts/...`` execution.
 
 
 SCHEMA = "butterfly.jones-homoclinic-pseudoarclength-manifest.v1"
+ARCLENGTH_COMPONENTS = ("nodes", "total_flight_time", "a", "c", "angle")
 
 
 def sha256_file(path: Path) -> str:
@@ -204,27 +205,58 @@ def projected_arclength_tangent(
     components: tuple[str, ...],
 ) -> np.ndarray:
     """Normalize a secant after projecting onto declared variable groups."""
-    supported = {"nodes", "total_flight_time", "a", "c", "angle"}
-    unknown = set(components) - supported
+    return weighted_arclength_tangent(
+        delta,
+        scales,
+        layout,
+        {name: 1.0 for name in components},
+    )
+
+
+def weighted_arclength_tangent(
+    delta: np.ndarray,
+    scales: np.ndarray,
+    layout: dict[str, int],
+    component_weights: dict[str, float],
+) -> np.ndarray:
+    """Normalize a secant after weighting declared variable groups."""
+    unknown = set(component_weights) - set(ARCLENGTH_COMPONENTS)
     if unknown:
         raise ValueError(f"unsupported arclength components: {sorted(unknown)}")
     tangent = np.asarray(delta, dtype=np.float64) / np.asarray(scales, dtype=np.float64)
-    mask = np.zeros_like(tangent, dtype=bool)
-    if "nodes" in components:
-        mask[: layout["node_size"]] = True
+    weights = np.zeros_like(tangent)
+    for name, value in component_weights.items():
+        value = float(value)
+        if not np.isfinite(value) or value < 0.0:
+            raise ValueError("arclength component weights must be finite and nonnegative")
+        if name == "nodes":
+            weights[: layout["node_size"]] = value
     for name, index_name in (
         ("total_flight_time", "time_index"),
         ("a", "a_index"),
         ("c", "c_index"),
         ("angle", "angle_index"),
     ):
-        if name in components:
-            mask[layout[index_name]] = True
-    tangent[~mask] = 0.0
+        if name in component_weights:
+            weights[layout[index_name]] = float(component_weights[name])
+    tangent *= weights
     norm = np.linalg.norm(tangent)
     if not np.isfinite(norm) or norm == 0.0:
-        raise ValueError("projected arclength tangent is degenerate")
+        raise ValueError("weighted arclength tangent is degenerate")
     return tangent / norm
+
+
+def arclength_group_norms(
+    tangent: np.ndarray, layout: dict[str, int]
+) -> dict[str, float]:
+    """Summarize each variable group's contribution to a normalized tangent."""
+    return {
+        "nodes": float(np.linalg.norm(tangent[: layout["node_size"]])),
+        "total_flight_time": float(abs(tangent[layout["time_index"]])),
+        "a": float(abs(tangent[layout["a_index"]])),
+        "c": float(abs(tangent[layout["c_index"]])),
+        "angle": float(abs(tangent[layout["angle_index"]])),
+    }
 
 
 def optimizer_jacobian(jacobian: np.ndarray, storage: str):
@@ -515,21 +547,49 @@ def main() -> int:
     scales[layout["a_index"]] = float(scaling["a"])
     scales[layout["c_index"]] = float(scaling["c"])
     scales[layout["angle_index"]] = float(scaling["angle"])
-    all_components = ("nodes", "total_flight_time", "a", "c", "angle")
+    all_components = ARCLENGTH_COMPONENTS
     predictor_tangent = projected_arclength_tangent(
         current - previous, scales, layout, all_components
     )
-    arclength_components = tuple(
-        manifest["pseudoarclength"].get("arclength_components", all_components)
+    configured_weights = manifest["pseudoarclength"].get(
+        "arclength_component_weights"
     )
-    arclength_tangent = projected_arclength_tangent(
-        current - previous, scales, layout, arclength_components
+    if configured_weights is None:
+        arclength_components = tuple(
+            manifest["pseudoarclength"].get("arclength_components", all_components)
+        )
+        arclength_component_weights = {
+            name: 1.0 for name in arclength_components
+        }
+    else:
+        arclength_component_weights = {
+            name: float(value) for name, value in configured_weights.items()
+        }
+        arclength_components = tuple(
+            name
+            for name in all_components
+            if arclength_component_weights.get(name, 0.0) > 0.0
+        )
+        declared_components = manifest["pseudoarclength"].get(
+            "arclength_components"
+        )
+        if declared_components is not None and set(declared_components) != set(
+            arclength_components
+        ):
+            raise SystemExit(
+                "weighted arclength components disagree with positive weights"
+            )
+    arclength_tangent = weighted_arclength_tangent(
+        current - previous,
+        scales,
+        layout,
+        arclength_component_weights,
     )
     desired_c_increment = float(manifest["pseudoarclength"]["desired_c_increment"])
     c_direction = (
         predictor_tangent[layout["c_index"]] * scales[layout["c_index"]]
     )
-    if c_direction * desired_c_increment <= 0.0:
+    if desired_c_increment != 0.0 and c_direction * desired_c_increment <= 0.0:
         predictor_tangent *= -1.0
         arclength_tangent *= -1.0
         c_direction *= -1.0
@@ -541,6 +601,10 @@ def main() -> int:
             raise SystemExit("warm-start receipt uses a different angle gauge")
         if warm_start_receipt.get("arclength_components") != list(arclength_components):
             raise SystemExit("warm-start receipt uses a different closing plane")
+        if configured_weights is not None and warm_start_receipt.get(
+            "arclength_component_weights"
+        ) != arclength_component_weights:
+            raise SystemExit("warm-start receipt uses different closing-plane weights")
         initial_guess = receipt_state_vector(warm_start_receipt, layout)
 
     node_radius = float(manifest["node_bound_radius"])
@@ -758,6 +822,17 @@ def main() -> int:
         and min(global_margins) >= float(acceptance["minimum_global_boundary_margin"])
         and node_margin >= float(acceptance["minimum_node_boundary_margin"])
     )
+    directional_requirement = acceptance.get("directional_c_requirement", "forward")
+    if directional_requirement == "forward":
+        directional_c_check = (
+            result.x[layout["c_index"]] > current[layout["c_index"]]
+        )
+    elif directional_requirement == "stationary":
+        directional_c_check = abs(
+            result.x[layout["c_index"]] - current[layout["c_index"]]
+        ) <= float(acceptance["maximum_stationary_c_drift"])
+    else:
+        raise SystemExit("unsupported acceptance.directional_c_requirement")
     checks = {
         "source_roots_bound": all(receipt["passed"] for receipt in receipts),
         "initial_residual": initial_details["maximum_block_norm"]
@@ -778,8 +853,7 @@ def main() -> int:
         >= float(acceptance["minimum_node_boundary_margin"]),
         "global_status_bound": min(global_margins)
         >= float(acceptance["minimum_global_boundary_margin"]),
-        "forward_c_direction": result.x[layout["c_index"]]
-        > current[layout["c_index"]],
+        "directional_c_requirement": directional_c_check,
         "root_nominated": root_nominated,
     }
     checks = native_boolean_checks(checks)
@@ -848,6 +922,13 @@ def main() -> int:
         },
         "desired_c_increment": desired_c_increment,
         "arclength_components": list(arclength_components),
+        "arclength_component_weights": arclength_component_weights,
+        "predictor_tangent_group_norms": arclength_group_norms(
+            predictor_tangent, layout
+        ),
+        "arclength_tangent_group_norms": arclength_group_norms(
+            arclength_tangent, layout
+        ),
         "directional_bounds": directional,
         "linear_algebra": {
             "optimizer_method": optimizer_method,

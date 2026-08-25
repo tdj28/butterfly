@@ -25,6 +25,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
 )
 from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
+    arclength_group_norms,
     bounded_sparse_newton,
     directional_c_bounds,
     native_boolean_checks,
@@ -35,6 +36,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     source_curve_values,
     unwrap_angle,
     variable_layout as pseudoarclength_layout,
+    weighted_arclength_tangent,
 )
 
 
@@ -145,6 +147,40 @@ def test_homoclinic_pseudoarclength_projects_closing_tangent_to_parameters():
     assert np.array_equal(nonzero, [layout["a_index"], layout["c_index"]])
     assert np.isclose(np.linalg.norm(tangent), 1.0)
     assert tangent[layout["angle_index"]] == 0.0
+
+
+def test_homoclinic_pseudoarclength_weights_closing_tangent_groups():
+    layout = pseudoarclength_layout(2)
+    delta = np.ones(layout["variable_count"])
+    scales = np.ones_like(delta)
+    tangent = weighted_arclength_tangent(
+        delta,
+        scales,
+        layout,
+        {
+            "nodes": 0.01,
+            "total_flight_time": 0.01,
+            "a": 1.0,
+            "c": 1.0,
+            "angle": 0.01,
+        },
+    )
+    groups = arclength_group_norms(tangent, layout)
+    assert np.isclose(np.linalg.norm(tangent), 1.0)
+    assert np.isclose(groups["a"], groups["c"])
+    assert groups["a"] > 50.0 * groups["angle"]
+    assert groups["nodes"] < 0.02
+
+
+def test_homoclinic_pseudoarclength_rejects_negative_tangent_weight():
+    layout = pseudoarclength_layout(2)
+    with np.testing.assert_raises(ValueError):
+        weighted_arclength_tangent(
+            np.ones(layout["variable_count"]),
+            np.ones(layout["variable_count"]),
+            layout,
+            {"a": -1.0},
+        )
 
 
 def test_homoclinic_pseudoarclength_exposes_sparse_optimizer_jacobian():
