@@ -1142,6 +1142,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `1.69490e-9` minimum singular value, `5.34e-14` plane residual, and `0.002005`
   normalized node motion. Execute frozen EXP-397's licensed wall-free quarter
   step using the standard tangent normal and unchanged scientific gates.
+  EXP-397 converges to an interior, well-conditioned root at `2.80316e-9`
+  maximum defect but lies `1.16506e-7` backward in `c`; direction is its sole
+  failed check. Preserve it. Before reducing the step, execute frozen EXP-398,
+  which binds the passed corrected 512-arc EXP-396 root as current and
+  recomputes the standard-plane local tangent there with all gates unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

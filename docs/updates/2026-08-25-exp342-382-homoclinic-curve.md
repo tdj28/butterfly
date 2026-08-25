@@ -119,3 +119,9 @@ defect, `5.33666e-14` plane residual, `1.69490e-9` minimum singular value, and
 `0.002005` normalized node motion. EXP-397 now freezes the licensed wall-free
 quarter step with that standard tangent normal and every scientific threshold
 unchanged.
+EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
+maximum block defect and `1.04563e-9` minimum singular value, but it lies
+`1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
+was still evaluated at inherited EXP-368. EXP-398 therefore freezes one
+chained replay from the passed corrected 512-arc EXP-396 root, recomputing the
+standard-plane tangent there before any further step reduction.

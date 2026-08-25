@@ -199,6 +199,13 @@ EXP-396 passes that zero-step standard-plane control in four evaluations.  Its
 pass prospectively.  It licenses a wall-free quarter step with the canonical
 local tangent as the closing normal; it does not itself add a curve point.
 
+That forward replay, EXP-397, converges in 17 evaluations to an interior,
+well-conditioned root at `2.80316e-9` maximum block defect and
+`1.04563e-9` minimum singular value.  Its sole failed check is direction: the
+root lies `1.16506e-7` backward in `c`.  Because its tangent was still computed
+at inherited EXP-368, the next prospective test chains from the passed
+corrected EXP-396 root before reducing the step.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -208,5 +215,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-396, including preserved negative results and
+Evidence: EXP-341 through EXP-397, including preserved negative results and
 their hash-bound compact receipts.
