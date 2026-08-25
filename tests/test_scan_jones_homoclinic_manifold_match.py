@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.sparse import csr_matrix
 
 from butterfly import RosslerParameters
 from scripts.scan_jones_homoclinic_manifold_match import (
@@ -26,6 +27,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
     directional_c_bounds,
     native_boolean_checks,
+    optimizer_jacobian,
     projected_arclength_tangent,
     source_angle_gauge,
     source_curve_values,
@@ -141,6 +143,14 @@ def test_homoclinic_pseudoarclength_projects_closing_tangent_to_parameters():
     assert np.array_equal(nonzero, [layout["a_index"], layout["c_index"]])
     assert np.isclose(np.linalg.norm(tangent), 1.0)
     assert tangent[layout["angle_index"]] == 0.0
+
+
+def test_homoclinic_pseudoarclength_exposes_sparse_optimizer_jacobian():
+    dense = np.array([[1.0, 0.0], [2.0, 3.0]])
+    observed = optimizer_jacobian(dense, "csr")
+    assert isinstance(observed, csr_matrix)
+    assert np.array_equal(observed.toarray(), dense)
+    assert optimizer_jacobian(dense, "dense") is dense
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

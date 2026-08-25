@@ -1009,7 +1009,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   the cause. Implement a sparse block-aware trust-region solve and restore the
   projected arclength equation to unit residual weight; retain the same root,
   arclength, direction, and boundary gates. Do not spend another dense solve
-  on nuisance-gauge changes.
+  on nuisance-gauge changes. EXP-373 freezes this CSR/LSMR and unit-closing-
+  weight recovery.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np
 import scipy
 from scipy.optimize import least_squares
+from scipy.sparse import csr_matrix
 
 from butterfly import RosslerParameters, SolverConfig, rossler_rhs
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
@@ -202,6 +203,15 @@ def projected_arclength_tangent(
     if not np.isfinite(norm) or norm == 0.0:
         raise ValueError("projected arclength tangent is degenerate")
     return tangent / norm
+
+
+def optimizer_jacobian(jacobian: np.ndarray, storage: str):
+    """Expose the analytic shooting Jacobian in the frozen optimizer format."""
+    if storage == "dense":
+        return jacobian
+    if storage == "csr":
+        return csr_matrix(jacobian)
+    raise ValueError(f"unsupported optimizer Jacobian storage: {storage}")
 
 
 def main() -> int:
@@ -479,11 +489,27 @@ def main() -> int:
 
     initial_residual, _initial_jacobian, initial_details = compute(predictor)
     optimization = manifest["optimization"]
+    jacobian_storage = optimization.get("jacobian_storage", "dense")
+    trust_region_solver = optimization.get("trust_region_solver")
+    trust_region_options = optimization.get("trust_region_options", {})
+    if jacobian_storage not in {"dense", "csr"}:
+        raise SystemExit("optimization.jacobian_storage must be dense or csr")
+    if trust_region_solver not in {None, "exact", "lsmr"}:
+        raise SystemExit("optimization.trust_region_solver must be exact or lsmr")
+    if jacobian_storage == "csr" and trust_region_solver != "lsmr":
+        raise SystemExit("CSR Jacobians require the LSMR trust-region solver")
+    optimizer_options = {}
+    if trust_region_solver is not None:
+        optimizer_options["tr_solver"] = trust_region_solver
+    if trust_region_options:
+        optimizer_options["tr_options"] = trust_region_options
     started = time.perf_counter()
     result = least_squares(
         lambda value: compute(value)[0],
         predictor,
-        jac=lambda value: compute(value)[1],
+        jac=lambda value: optimizer_jacobian(
+            compute(value)[1], jacobian_storage
+        ),
         bounds=(lower, upper),
         method="trf",
         x_scale="jac",
@@ -491,6 +517,7 @@ def main() -> int:
         xtol=float(optimization["xtol"]),
         gtol=float(optimization["gtol"]),
         max_nfev=int(optimization["maximum_function_evaluations"]),
+        **optimizer_options,
     )
     elapsed = time.perf_counter() - started
     final_residual, final_jacobian, final_details = compute(result.x)
@@ -590,6 +617,12 @@ def main() -> int:
         "desired_c_increment": desired_c_increment,
         "arclength_components": list(arclength_components),
         "directional_bounds": directional,
+        "linear_algebra": {
+            "jacobian_storage": jacobian_storage,
+            "trust_region_solver": trust_region_solver,
+            "trust_region_options": trust_region_options,
+            "arclength_residual_weight": arc_weight,
+        },
         "normalized_arclength_step": float(arclength_step),
         "initial_maximum_block_residual": initial_details["maximum_block_norm"],
         "initial_arclength_residual": initial_details["arclength_residual"],
