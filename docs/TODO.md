@@ -959,6 +959,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `c=10.31713527`. Freeze the third step from EXP-360 and EXP-361 without
   changing the predictor or gates. EXP-362 freezes that third step with the
   same 40-evaluation budget despite EXP-361's cap-terminated root pass.
+  EXP-362 passes normally in five evaluations at
+  `(a,c)=(0.1802255499680,10.3158280790748)`, maximum defect `8.48494e-9`,
+  and slope `-0.32554896`. Freeze the fourth unchanged step from EXP-361 and
+  EXP-362; continue until qualified points bracket exact `a=0.1798`.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

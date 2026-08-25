@@ -58,6 +58,12 @@ only `1.83e-8` from the EXP-360 projection. Two consecutive
 pseudo-arclength roots now support a smooth local branch beyond the
 fixed-coordinate stall.
 
+EXP-362 supplies a third chained root at
+`(a,c)=(0.1802255499680,10.3158280790748)`. It terminates normally after five
+evaluations with maximum defect `8.48e-9`; its slope `-0.32554896` projects
+the crossing at `c=10.317135256`. The agreement now persists across three
+independently corrected pseudo-arclength secants.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -67,5 +73,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-361, including preserved negative results and
+Evidence: EXP-341 through EXP-362, including preserved negative results and
 their hash-bound compact receipts.

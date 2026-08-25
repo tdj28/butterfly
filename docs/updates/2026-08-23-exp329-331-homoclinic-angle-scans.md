@@ -366,6 +366,15 @@ The latest slope is `-0.3255461756`, projecting the fixed-`a` crossing at
 in `c` supplies strong local evidence of a smooth branch but still does not
 replace an exact section solve.
 
+## EXP-362 third chained point converges rapidly
+
+EXP-362 passes normally after five evaluations at
+`(a,c)=(0.18022554996795825,10.3158280790748)`. Its maximum defect is
+`8.48494e-9`, arclength residual `-5.24113e-12`, and node margin `0.93532`.
+The local slope `-0.3255489647` projects exact `a=0.1798` at
+`c=10.3171352556`. The third corrected pseudo-arclength secant preserves the
+same crossing projection; continuation now aims to bracket the section.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -378,5 +387,7 @@ The first qualified pseudo-arclength point is tracked in
 [`../experiments/receipts/EXP-360.json`](../experiments/receipts/EXP-360.json).
 The second qualified pseudo-arclength point is tracked in
 [`../experiments/receipts/EXP-361.json`](../experiments/receipts/EXP-361.json).
+The third qualified pseudo-arclength point is tracked in
+[`../experiments/receipts/EXP-362.json`](../experiments/receipts/EXP-362.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
