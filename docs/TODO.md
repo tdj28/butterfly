@@ -966,7 +966,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-363 passes at `(a,c)=(0.1800825699757,10.3162672724116)` with slope
   `-0.32555137`, but its `9.93350e-9` maximum defect uses `99.33%` of the root
   gate. Prospectively halve the next predictor to `Delta c=0.00025` without
-  changing any acceptance threshold.
+  changing any acceptance threshold. EXP-364 freezes that half step from
+  exact EXP-362 and EXP-363 nodes.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
