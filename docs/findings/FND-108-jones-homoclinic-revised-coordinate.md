@@ -131,9 +131,12 @@ starts from the forward predictor.
 EXP-386 executes that forward-predictor test and reaches the full 40-evaluation
 budget.  The plane residual closes to `1.10e-13`, but the point lands on the
 prospective `c=current+1e-6` wall with maximum matching defect `6.19e-7` and
-remains above the historical section.  This is a step-size/forward-wall
-failure, not evidence of branch termination.  EXP-387 prospectively reduces
-the forward increment to `2e-5` before another crossing attempt.
+remains above the historical section.  EXP-387 reduces the forward increment
+to `2e-5` and improves that floor by about one order of magnitude to
+`6.13e-8`, but it too lands on its prospective `c=current+1e-7` wall.  The
+paired failures show useful step-size convergence without a qualified root;
+they now motivate changing the closing-plane orientation instead of merely
+shrinking the step.  Neither is evidence of branch termination.
 
 ## Limits
 
@@ -144,5 +147,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-386, including preserved negative results and
+Evidence: EXP-341 through EXP-387, including preserved negative results and
 their hash-bound compact receipts.

@@ -28,6 +28,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     arclength_group_norms,
     bounded_sparse_newton,
     directional_c_bounds,
+    jacobian_conditioning_accepted,
     native_boolean_checks,
     optimizer_jacobian,
     projected_arclength_tangent,
@@ -88,6 +89,17 @@ def test_homoclinic_pseudoarclength_checks_are_json_native():
     )
     assert observed == {"numpy_true": True, "numpy_false": False}
     assert all(type(value) is bool for value in observed.values())
+
+
+def test_homoclinic_pseudoarclength_optionally_gates_jacobian_conditioning():
+    singular_values = np.array([3.0, 2.0, 1e-9])
+    assert jacobian_conditioning_accepted(singular_values, {})
+    assert jacobian_conditioning_accepted(
+        singular_values, {"minimum_jacobian_singular_value": 5e-10}
+    )
+    assert not jacobian_conditioning_accepted(
+        singular_values, {"minimum_jacobian_singular_value": 2e-9}
+    )
 
 
 def test_homoclinic_pseudoarclength_reads_fixed_c_and_chained_sources():

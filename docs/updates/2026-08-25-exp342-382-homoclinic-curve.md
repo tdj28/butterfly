@@ -66,4 +66,12 @@ in `c` and above the historical section.  EXP-386 retains the forward wall and
 starts at the full-state predictor; neither failed attempt changes the eleven
 qualified branch points.  EXP-386 holds the forward wall but finishes at a
 `6.19e-7` matching floor exactly on that wall.  EXP-387 reduces the forward
-increment to `2e-5` to seek one more above-section point before crossing.
+increment to `2e-5`.  It improves the wall-limited matching floor by about one
+order of magnitude to `6.13e-8`, but again lands exactly on its prospective
+forward wall.  This makes the next controlled variable the plane orientation,
+not another blind step reduction: lower the nuisance weights toward the pure
+physical plane, first on a zero-step positive control, while retaining enough
+regularization to avoid the earlier node-dominated near-null mode. EXP-388
+freezes nuisance weight `0.003` and requires a minimum Jacobian singular value
+of `5e-10`, nearly twice the pure-plane measurement, before a new forward step
+is licensed.

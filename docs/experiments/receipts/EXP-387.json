@@ -1,0 +1,67 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-387",
+  "classification": "pseudoarclength_unresolved",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "b8c47992ca7bdc89795543f0472e9744872bdf06",
+    "dirty": false
+  },
+  "manifest_sha256": "35be840856a5395db07f090db387156e9929fc85908204b9c51a9d70bb98e89d",
+  "raw_receipt": {
+    "path": "artifacts/EXP-387/receipt.json",
+    "bytes": 81118,
+    "sha256": "0784966ec1933319d8ed7a678b0c98ce92ec26426fcc4f801b48763be7dce92d"
+  },
+  "elapsed_seconds": 337.02967649977654,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 0.00002,
+  "arclength_component_weights": {
+    "a": 1.0,
+    "c": 1.0,
+    "nodes": 0.01,
+    "total_flight_time": 0.01,
+    "angle": 0.01
+  },
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981098675460366,
+    "c": 10.317101488741883
+  },
+  "final_variables": {
+    "a": 0.179817873498533,
+    "c": 10.31708158874207,
+    "angle": 2.8763976480016704,
+    "total_flight_time": 234.41912484827918
+  },
+  "initial_maximum_block_residual": 0.00025285181993108316,
+  "final_maximum_block_residual": 6.133982101150316e-8,
+  "final_matching_residual_norm": 7.701744001286874e-8,
+  "final_arclength_residual": 7.547169486588068e-12,
+  "jacobian_minimum_singular_value": 2.1134219847933574e-9,
+  "node_boundary_margin": 0.9307551696676839,
+  "global_boundary_margins": [
+    0.9995018373719233,
+    0.0004931132560706541,
+    1.865174681370263e-13,
+    0.9546817033586494
+  ],
+  "optimizer": {
+    "success": true,
+    "status": 3,
+    "message": "`xtol` termination condition is satisfied.",
+    "nfev": 16,
+    "njev": 12,
+    "optimality": 1.2750875660216915e-8
+  },
+  "failed_checks": [
+    "global_status_bound",
+    "root_nominated"
+  ],
+  "interpretation": "The smaller step improves the matching floor by about one order of magnitude, but the corrector again lands on the prospective forward-c boundary. It is not a qualified curve point; change the weighted-plane orientation before shrinking the step again."
+}

@@ -1087,8 +1087,15 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   plane, but reaches the `c=current+1e-6` wall with `6.18779e-7` maximum
   defect and remains above the section. Do not increase the budget at that
   wall. EXP-387 reduces `Delta c` to `2e-5` and the forward floor to `1e-7`,
-  retains every root/margin threshold, and seeks an above-section recovery
-  point before another bracket attempt.
+  retains every root/margin threshold, and improves the matching floor by
+  about one order of magnitude to `6.13398e-8`. It nevertheless lands exactly
+  on the smaller forward wall and fails the root/interiority gates. Preserve
+  the failure. Do not shrink the step again under the same plane. Freeze a
+  lower-nuisance-weight zero-step control, require the unchanged root and
+  stationary-`c` gates, then license a new forward attempt only if the control
+  remains numerically regularized relative to the pure `(a,c)` plane. EXP-388
+  freezes that control at nuisance weight `0.003` and adds a prospective
+  `5e-10` minimum-Jacobian-singular-value gate.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

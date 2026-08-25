@@ -143,6 +143,17 @@ def native_boolean_checks(checks: dict) -> dict:
     return {name: bool(value) for name, value in checks.items()}
 
 
+def jacobian_conditioning_accepted(
+    singular_values: np.ndarray, acceptance: dict
+) -> bool:
+    """Apply an optional prospective lower gate to the final Jacobian spectrum."""
+    minimum = acceptance.get("minimum_jacobian_singular_value")
+    if minimum is None:
+        return True
+    values = np.asarray(singular_values, dtype=np.float64)
+    return bool(values.size and np.min(values) >= float(minimum))
+
+
 def source_curve_values(receipt: dict) -> tuple[float, float, float, float]:
     """Read ``(a, c, angle, T)`` from fixed-c or pseudo-arclength receipts."""
     variables = receipt["final_variables"]
@@ -834,6 +845,7 @@ def main() -> int:
     else:
         raise SystemExit("unsupported acceptance.directional_c_requirement")
     maximum_final_a = acceptance.get("maximum_final_a")
+    singular_values = np.linalg.svd(final_jacobian, compute_uv=False)
     checks = {
         "source_roots_bound": all(receipt["passed"] for receipt in receipts),
         "initial_residual": initial_details["maximum_block_norm"]
@@ -860,10 +872,12 @@ def main() -> int:
             if maximum_final_a is None
             else result.x[layout["a_index"]] <= float(maximum_final_a)
         ),
+        "jacobian_conditioning": jacobian_conditioning_accepted(
+            singular_values, acceptance
+        ),
         "root_nominated": root_nominated,
     }
     checks = native_boolean_checks(checks)
-    singular_values = np.linalg.svd(final_jacobian, compute_uv=False)
     output = {
         "schema": manifest["output_schema"],
         "experiment_id": manifest["experiment_id"],
