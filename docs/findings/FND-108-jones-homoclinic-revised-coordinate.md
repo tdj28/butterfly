@@ -186,6 +186,13 @@ administrative acceptance-geometry failure, and a new preflight prevents this
 incompatibility from recurring.  A wall-free replay retains the independent
 final forward-direction gate.
 
+That wall-free replay, EXP-395, converges to an interior root-nominated
+boundary-value solution with `2.33861e-9` maximum block defect and passing
+global/node margins.  It nevertheless lies `7.03286e-8` backward in `c` and
+its `4.95816e-10` minimum singular value narrowly misses the prospective
+conditioning floor.  Its `0.47244`-radian departure-angle shift nominates the
+weighted closing-plane metric for a standard local-tangent-normal control.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -195,5 +202,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-394, including preserved negative results and
+Evidence: EXP-341 through EXP-395, including preserved negative results and
 their hash-bound compact receipts.

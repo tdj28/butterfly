@@ -107,3 +107,10 @@ optimizer wall, inside the unchanged `1e-6` forbidden global margin. It cannot
 be counted. The runner now preflights that geometry, and EXP-395 freezes the
 same quarter-step replay without the optimizer wall while retaining the final
 `c>current` direction gate and all scientific thresholds.
+EXP-395 then converges to an interior root-nominated solution at `2.33861e-9`
+maximum block defect, but it lies `7.03286e-8` backward in `c` and its
+`4.95816e-10` minimum singular value misses the prospective floor by `0.84%`.
+Its `0.47244`-radian angle change nominates the rotated weighted closing normal,
+not the machine-accurate local tangent, for the next control. EXP-396 freezes a
+zero-step plane whose normal is the normalized local tangent itself, with all
+scientific gates retained.

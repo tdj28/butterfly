@@ -1132,7 +1132,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   administrative failure. Add a runner preflight for that incompatibility and
   execute frozen EXP-395 with the optimizer wall removed, the independent
   final forward-direction gate retained, and every scientific threshold
-  unchanged.
+  unchanged. EXP-395 converges to an interior root at `2.33861e-9` maximum
+  defect, but it lies `7.03286e-8` backward in `c` and narrowly misses the
+  conditioning floor at `4.95816e-10`; preserve it without adding a curve
+  point. Its `0.47244`-radian angle shift nominates rotation of the weighted
+  closing plane. EXP-396 now freezes a zero-step standard-plane control with
+  unit weights on the scaled local tangent and every scientific gate retained.
+  Execute it before any further forward step.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
