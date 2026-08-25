@@ -957,7 +957,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   step at `(a,c)=(0.1803726464063,10.3153762378641)`, maximum defect
   `7.51353e-9`, and slope `-0.32554618`; its projected crossing remains
   `c=10.31713527`. Freeze the third step from EXP-360 and EXP-361 without
-  changing the predictor or gates.
+  changing the predictor or gates. EXP-362 freezes that third step with the
+  same 40-evaluation budget despite EXP-361's cap-terminated root pass.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
