@@ -1074,7 +1074,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   halves the maximum defect to `5.10888e-9`, holds `c` within `1.69e-9`, and
   lifts the smallest singular value by `6.63x`. Freeze EXP-384 with the same
   weighted plane, exact EXP-383 warm start, `Delta c=7.5e-5`, an explicit
-  below-`a=0.1798` gate, and every unchanged root/margin threshold.
+  below-`a=0.1798` gate, and every unchanged root/margin threshold. EXP-384
+  aborts administratively before solving because the exact warm start lies
+  below its `c>=current+1e-6` optimizer wall. Preserve the abort. EXP-385
+  removes only that lower wall while retaining final forward-`c`, section,
+  root, arclength, and margin checks.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
