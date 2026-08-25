@@ -1138,7 +1138,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   point. Its `0.47244`-radian angle shift nominates rotation of the weighted
   closing plane. EXP-396 now freezes a zero-step standard-plane control with
   unit weights on the scaled local tangent and every scientific gate retained.
-  Execute it before any further forward step.
+  EXP-396 passes in four evaluations with `4.00845e-9` maximum defect,
+  `1.69490e-9` minimum singular value, `5.34e-14` plane residual, and `0.002005`
+  normalized node motion. Execute frozen EXP-397's licensed wall-free quarter
+  step using the standard tangent normal and unchanged scientific gates.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

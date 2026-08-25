@@ -193,6 +193,12 @@ its `4.95816e-10` minimum singular value narrowly misses the prospective
 conditioning floor.  Its `0.47244`-radian departure-angle shift nominates the
 weighted closing-plane metric for a standard local-tangent-normal control.
 
+EXP-396 passes that zero-step standard-plane control in four evaluations.  Its
+`4.00845e-9` maximum block defect, `5.33666e-14` plane residual,
+`1.69490e-9` minimum singular value, and `0.002005` normalized node motion all
+pass prospectively.  It licenses a wall-free quarter step with the canonical
+local tangent as the closing normal; it does not itself add a curve point.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -202,5 +208,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-395, including preserved negative results and
+Evidence: EXP-341 through EXP-396, including preserved negative results and
 their hash-bound compact receipts.

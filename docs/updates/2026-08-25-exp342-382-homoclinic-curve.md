@@ -114,3 +114,8 @@ Its `0.47244`-radian angle change nominates the rotated weighted closing normal,
 not the machine-accurate local tangent, for the next control. EXP-396 freezes a
 zero-step plane whose normal is the normalized local tangent itself, with all
 scientific gates retained.
+EXP-396 passes every gate in four evaluations: `4.00845e-9` maximum block
+defect, `5.33666e-14` plane residual, `1.69490e-9` minimum singular value, and
+`0.002005` normalized node motion. EXP-397 now freezes the licensed wall-free
+quarter step with that standard tangent normal and every scientific threshold
+unchanged.
