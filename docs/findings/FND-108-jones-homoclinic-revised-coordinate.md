@@ -213,6 +213,13 @@ Direction is again the sole failure: the root is `5.46911e-8` backward in `c`.
 This rules out inherited-source representation as the primary cause at
 normalized step `0.0183947` and licenses a fourfold step reduction.
 
+That reduction, EXP-399, passes every prospective gate in two evaluations at
+`(a,c)=(0.1798174938833,10.3170815075378)`.  Its `2.58018e-8` forward `c`
+increment, `4.00839e-9` maximum block defect, `4.09723e-14` plane residual,
+and `1.68796e-9` minimum singular value add the twelfth qualified curve point.
+The larger-step reversals are therefore finite-step curvature effects at this
+local resolution, not loss of the branch.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -222,5 +229,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-398, including preserved negative results and
+Evidence: EXP-341 through EXP-399, including preserved negative results and
 their hash-bound compact receipts.

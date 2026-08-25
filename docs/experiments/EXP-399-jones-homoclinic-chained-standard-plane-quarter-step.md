@@ -1,6 +1,6 @@
 # EXP-399 — Quarter-size chained standard-plane step
 
-Status: frozen; not yet executed
+Status: executed; passed prospectively
 
 EXP-398 recomputes the local tangent at the passed corrected EXP-396 root and
 finds a fully interior, conditioned root, but the `Delta c=1.25e-7` request
@@ -18,6 +18,32 @@ A pass adds a twelfth qualified above-section curve point.  A backward result
 would resolve a local `c` reversal or source-scale floor rather than weaken the
 eleven qualified points; neither outcome alone qualifies the historical
 intersection, uniqueness, proof, or global topology.
+
+## Result
+
+EXP-399 passes every prospective gate:
+
+```text
+(a, c) = (0.1798174938833197, 10.317081507537782)
+Delta c from current = 2.580178382061149e-8
+maximum block defect = 4.0083927248928835e-9
+arclength residual = 4.097231659738191e-14
+minimum singular value = 1.6879561552430525e-9
+```
+
+The optimizer converges by gradient tolerance in two evaluations.  The local
+tangent residual is `1.36960e-16`, normalized node motion is `0.009439`, all
+global and node bounds are comfortably interior, and every direction, root,
+arclength, conditioning, tangent, budget, and termination check passes.
+
+This adds the twelfth qualified homoclinic-curve point.  It shows that the
+backward roots in EXP-397/398 were finite-step curvature effects at this local
+resolution, not a failure of the homoclinic branch.  EXP-400 chains the same
+small requested increment from this new passed point.
+
+Raw receipt: `artifacts/EXP-399/receipt.json`, 78,752 bytes,
+SHA-256 `f86b0b714f4ecee4a50405b2e72313839efb0c16e93829a0adc40181249994ba`.
+Compact receipt: [`receipts/EXP-399.json`](receipts/EXP-399.json).
 
 Manifest:
 [`../../experiments/manifests/EXP-399-jones-homoclinic-chained-standard-plane-quarter-step.json`](../../experiments/manifests/EXP-399-jones-homoclinic-chained-standard-plane-quarter-step.json).

@@ -1151,7 +1151,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   remains `5.46911e-8` backward in `c`; direction is again the sole failed
   gate. Preserve it. Execute frozen EXP-399 with the same corrected current,
   canonical plane, and gates but a fourfold smaller `Delta c=3.125e-8`
-  (`0.00459868` normalized step).
+  (`0.00459868` normalized step). EXP-399 passes every gate in two evaluations
+  at `(a,c)=(0.1798174938833,10.3170815075378)`, adding the twelfth qualified
+  curve point. Execute frozen EXP-400's same-size chained successor, then
+  refresh the manuscript homoclinic figure and eleven-point text from the
+  resulting coherent continuation checkpoint.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

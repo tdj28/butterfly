@@ -1,0 +1,65 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-399",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "cdc6bac091b840a25234c97c473540c12c11bd2f",
+    "dirty": false
+  },
+  "manifest_sha256": "1dae0e6c2005bb3915bf12f3685b56d4677014adcba0a0238616c845779d5a44",
+  "raw_receipt": {
+    "path": "artifacts/EXP-399/receipt.json",
+    "bytes": 78752,
+    "sha256": "f86b0b714f4ecee4a50405b2e72313839efb0c16e93829a0adc40181249994ba"
+  },
+  "elapsed_seconds": 22.58092008344829,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 3.125e-8,
+  "normalized_arclength_step": 0.0045986807364392585,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.3696007472979376e-16,
+  "current_variables": {
+    "a": 0.17981750016073034,
+    "c": 10.317081481735999
+  },
+  "predictor_variables": {
+    "a": 0.17981748998706976,
+    "c": 10.317081512985999,
+    "angle": 2.6721032857619273,
+    "total_flight_time": 234.42047822045626
+  },
+  "final_variables": {
+    "a": 0.1798174938833197,
+    "c": 10.317081507537782,
+    "angle": 2.6720966758543985,
+    "total_flight_time": 234.42047822692456
+  },
+  "final_c_increment": 2.580178382061149e-8,
+  "initial_maximum_block_residual": 2.1185082894896616e-7,
+  "final_maximum_block_residual": 4.0083927248928835e-9,
+  "final_matching_residual_norm": 1.47255851445211e-8,
+  "final_arclength_residual": 4.097231659738191e-14,
+  "jacobian_minimum_singular_value": 1.6879561552430525e-9,
+  "maximum_normalized_node_displacement": 0.00943857550338123,
+  "node_boundary_margin": 0.9905614244966188,
+  "global_boundary_margins": [
+    0.2499999935317021,
+    0.00019999610375007193,
+    0.0001999945517834334,
+    0.9999933900924711
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 2,
+    "njev": 2,
+    "optimality": 1.4149987352090445e-12
+  },
+  "failed_checks": [],
+  "interpretation": "The fourfold-smaller chained standard-plane step passes every prospective gate and adds the twelfth qualified homoclinic-curve point. The prior backward roots reflect finite-step curvature at the local resolution, not loss of the branch."
+}

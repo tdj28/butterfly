@@ -131,3 +131,10 @@ the root is `5.46911e-8` backward in `c`. Corrected-source representation is
 therefore not the primary cause at normalized step `0.0183947`. EXP-399 freezes
 the licensed fourfold reduction to `Delta c=3.125e-8` and normalized step
 `0.00459868`, with every other setting and acceptance gate unchanged.
+EXP-399 passes every gate in two evaluations. It reaches
+`(a,c)=(0.1798174938833,10.3170815075378)` with `2.58018e-8` forward `c`
+motion, `4.00839e-9` maximum block defect, `4.09723e-14` plane residual, and
+`1.68796e-9` minimum singular value. This adds the twelfth qualified curve
+point and resolves EXP-397/398's backward roots as finite-step curvature at the
+local resolution. EXP-400 freezes the same-size chained successor from this
+new passed root; the manuscript figure/count update follows that checkpoint.
