@@ -452,6 +452,17 @@ arclength residual is `3.69497e-5`; root, global-margin, and termination checks
 fail. The successor widens only the already diagnosed nuisance-angle gauge,
 retaining the physical plane and every scientific threshold.
 
+## EXP-372 rules out the angle wall as the cause
+
+Widening the departure-angle half-width from `0.5` to `2.0` leaves the solve at
+essentially the same physical point and residual floor as EXP-371:
+`(a,c)=(0.1798197154185,10.3172977923453)`, maximum defect `1.09138e-5`, and
+projected arclength residual `-3.69497e-5`. The angle now has `1.34913` radians
+of boundary margin, and every non-root scientific/bound check passes. The
+smallest final Jacobian singular value is `2.70368e-10`. This isolates dense
+ill-conditioning and weak closing-equation scaling as the next numerical
+target; it is not evidence against the qualified branch through EXP-368.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -484,5 +495,7 @@ The boundary-active constrained failure is tracked in
 [`../experiments/receipts/EXP-370.json`](../experiments/receipts/EXP-370.json).
 The projected-angle-bound failure is tracked in
 [`../experiments/receipts/EXP-371.json`](../experiments/receipts/EXP-371.json).
+The wide-angle conditioning failure is tracked in
+[`../experiments/receipts/EXP-372.json`](../experiments/receipts/EXP-372.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.

@@ -1002,7 +1002,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   on the departure-angle lower bound, with defect `1.09138e-5` and projected
   arclength residual `3.69497e-5`. Widen only the nuisance angle half-width
   from `0.5` to `2.0`; keep 512 arcs, 40 evaluations, and all scientific gates.
-  EXP-372 freezes that nuisance-gauge-only recovery.
+  EXP-372 freezes that nuisance-gauge-only recovery. It is preserved as failed
+  at essentially the same physical point and residual floor even though its
+  angle has `1.34913` radians of boundary margin. The smallest final Jacobian
+  singular value is `2.70368e-10`: the EXP-371 angle wall was a symptom, not
+  the cause. Implement a sparse block-aware trust-region solve and restore the
+  projected arclength equation to unit residual weight; retain the same root,
+  arclength, direction, and boundary gates. Do not spend another dense solve
+  on nuisance-gauge changes.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

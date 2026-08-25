@@ -92,6 +92,16 @@ slope `-0.32555655` projects exact `a=0.1798` at `c=10.3171352363`, only
 `5.37476e-5` farther in `c`. The point remains above the section, so no bracket
 or exact historical-path result is yet claimed.
 
+Four prospectively preserved crossing attempts then separate branch evidence
+from solver behavior. EXP-369 finds another sub-`1e-8` root on the wrong side
+of the full-state hyperplane; EXP-370 sticks to a forward `c` wall. Projecting
+the closing plane onto `(a,c)` in EXP-371 avoids both outcomes but stalls at a
+nuisance angle bound. EXP-372 widens that bound by a factor of four and reaches
+the same physical point and residual floor with ample angle margin. Thus these
+failures do not falsify the qualified curve; they diagnose a poorly scaled,
+ill-conditioned dense formulation near the desired section. The exact
+historical-path intersection remains open and must still pass unchanged gates.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -101,5 +111,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-368, including preserved negative results and
+Evidence: EXP-341 through EXP-372, including preserved negative results and
 their hash-bound compact receipts.
