@@ -90,7 +90,7 @@ def replay_defects(
     total_time: float,
     parameters: RosslerParameters,
     solver: SolverConfig,
-) -> np.ndarray:
+) -> tuple[np.ndarray, dict | None]:
     """Independently replay every uniform collocation arc with Radau."""
     segment_count = states.shape[0] - 1
     duration = total_time / segment_count
@@ -113,9 +113,12 @@ def replay_defects(
             max_step=solver.max_step,
         )
         if not result.success:
-            raise RuntimeError(result.message)
+            return np.asarray(defects), {
+                "failed_segment": index,
+                "message": str(result.message),
+            }
         defects.append(float(np.linalg.norm(result.y[:, -1] - states[index + 1])))
-    return np.asarray(defects)
+    return np.asarray(defects), None
 
 
 def main() -> int:
@@ -304,7 +307,9 @@ def main() -> int:
     replay_mesh = np.linspace(0.0, 1.0, int(manifest["replay"]["segment_count"]) + 1)
     replay_states = result.sol(replay_mesh).T
     replay_solver = SolverConfig(**manifest["replay"]["solver"])
-    defects = replay_defects(replay_states, total_time, final_parameters, replay_solver)
+    defects, replay_failure = replay_defects(
+        replay_states, total_time, final_parameters, replay_solver
+    )
     warm_final = result.sol(mesh).T
     node_displacement = float(
         np.max(np.abs((warm_final - state_guess.T) / float(manifest["node_bound_radius"])))
@@ -329,7 +334,7 @@ def main() -> int:
     acceptance = manifest["acceptance"]
     maximum_collocation_residual = float(np.max(result.rms_residuals))
     maximum_boundary_residual = float(np.max(np.abs(final_boundary_residual)))
-    maximum_replay_defect = float(np.max(defects))
+    maximum_replay_defect = None if replay_failure else float(np.max(defects))
     checks = {
         "source_roots_bound": all(row["passed"] for row in receipts),
         "warm_start_bound": warm["experiment_id"] == warm_binding["experiment_id"],
@@ -346,7 +351,8 @@ def main() -> int:
         <= float(acceptance["maximum_boundary_residual"]),
         "collocation_residual": maximum_collocation_residual
         <= float(acceptance["maximum_collocation_rms_residual"]),
-        "independent_replay": maximum_replay_defect
+        "independent_replay": replay_failure is None
+        and maximum_replay_defect
         <= float(acceptance["maximum_replay_block_defect"]),
         "node_status_bound": 1.0 - node_displacement
         >= float(acceptance["minimum_node_boundary_margin"]),
@@ -404,6 +410,7 @@ def main() -> int:
             "segment_count": int(manifest["replay"]["segment_count"]),
             "maximum_block_defect": maximum_replay_defect,
             "block_defects": defects.tolist(),
+            "failure": replay_failure,
             "states": replay_states.tolist(),
         },
         "node_boundary_margin": 1.0 - node_displacement,

@@ -1,6 +1,6 @@
 # EXP-379 — Schema-complete adaptive-collocation crossing
 
-Status: frozen; not yet run
+Status: post-collocation replay-audit abort; no receipt
 
 EXP-378 aborts before numerical work because the stable-manifold constructor
 requires a root-level solver block. EXP-379 adds the same Radau policy already
@@ -15,3 +15,13 @@ section, uniqueness, or computer-assisted existence.
 
 Manifest:
 [`../../experiments/manifests/EXP-379-jones-homoclinic-adaptive-collocation-crossing.json`](../../experiments/manifests/EXP-379-jones-homoclinic-adaptive-collocation-crossing.json).
+
+## Administrative outcome
+
+The collocation call returns, but the independent uniform Radau replay hits
+step-size collapse and raises before receipt serialization. This may reflect a
+failed or nonphysical collocation result, but EXP-379 preserves no parameters
+or residuals and therefore supports no scientific classification. EXP-380
+retains the identical solve and changes only the audit boundary: a failed
+replay arc is serialized with its index and message and fails the replay gate
+instead of destroying the collocation diagnostics.

@@ -1047,7 +1047,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   because its manifest omits the root-level copy of the Radau block required
   by the shared manifold constructor. Preserve the abort; EXP-379 freezes the
   schema-complete rerun with an equality regression test and no mathematical
-  or acceptance-gate change.
+  or acceptance-gate change. EXP-379 completes collocation but its independent
+  replay raises on Radau step-size collapse before receipt generation. Preserve
+  the audit abort. EXP-380 freezes identical mathematics with failure-safe
+  replay serialization; a collapsed replay must fail its unchanged gate while
+  retaining the collocation status, parameters, mesh, and residuals.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
