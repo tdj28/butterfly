@@ -1,0 +1,66 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-394",
+  "classification": "pseudoarclength_unresolved",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "24356cba0d1a5e6f50d27c05760cdeb708eaf584",
+    "dirty": false
+  },
+  "manifest_sha256": "2d7f07c7c0a4a2875c08c19ba33321d2a445123657a804095faf3e2953f21d85",
+  "raw_receipt": {
+    "path": "artifacts/EXP-394/receipt.json",
+    "bytes": 79816,
+    "sha256": "6d1f6438b25a5015d63f962a3d077a6c94638076459cc7672664142ffc4ee71d"
+  },
+  "elapsed_seconds": 133.69899412523955,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 1.25e-7,
+  "normalized_arclength_step": 0.022538717598313714,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981745719101905,
+    "c": 10.317081613741884,
+    "angle": 2.8102445811771952,
+    "total_flight_time": 234.42039331961593
+  },
+  "final_variables": {
+    "a": 0.17981754274779513,
+    "c": 10.317081496973122,
+    "angle": 2.74040401888352,
+    "total_flight_time": 234.42048436968554
+  },
+  "initial_maximum_block_residual": 0.000005062384607508685,
+  "final_maximum_block_residual": 7.148310862159073e-9,
+  "final_matching_residual_norm": 1.926965214603551e-8,
+  "final_arclength_residual": 6.189249040036184e-11,
+  "jacobian_minimum_singular_value": 1.888056812441179e-9,
+  "maximum_normalized_node_displacement": 0.04590898340300953,
+  "node_boundary_margin": 0.9540910165969905,
+  "global_boundary_margins": [
+    0.24990894993038637,
+    0.00019991444322392526,
+    5.731237706640968e-9,
+    0.9301594377063247
+  ],
+  "optimizer": {
+    "success": true,
+    "status": 3,
+    "message": "`xtol` termination condition is satisfied.",
+    "nfev": 7,
+    "njev": 6,
+    "optimality": 6.699755732649719e-9
+  },
+  "failed_checks": [
+    "global_status_bound",
+    "root_nominated"
+  ],
+  "interpretation": "The quarter-step correction is numerically regular and below the maximum-block gate, but the predictor itself lies inside the generic 1e-6 forbidden margin around its forward c floor. Preserve this as an administrative acceptance-geometry failure and replay without the optimizer wall while retaining the independent final forward-direction gate."
+}

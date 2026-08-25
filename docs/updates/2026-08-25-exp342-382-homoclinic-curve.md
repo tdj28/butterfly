@@ -100,3 +100,10 @@ forward-`c` wall at `8.85139e-8` maximum defect; its minimum singular value is
 `4.51824e-10`, just below the prospective `5e-10` floor. This cleanly licenses
 EXP-394's frozen quarter step (`Delta c=1.25e-7`, normalized `0.02254`) while
 retaining the wide angle interval and every scientific acceptance threshold.
+EXP-394 then terminates normally in seven evaluations with `7.14831e-9`
+maximum block defect and `1.88806e-9` minimum singular value, but exposes a
+protocol incompatibility: its predictor is only `1.225e-7` from the forward
+optimizer wall, inside the unchanged `1e-6` forbidden global margin. It cannot
+be counted. The runner now preflights that geometry, and EXP-395 freezes the
+same quarter-step replay without the optimizer wall while retaining the final
+`c>current` direction gate and all scientific thresholds.

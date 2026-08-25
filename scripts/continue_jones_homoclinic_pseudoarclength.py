@@ -209,6 +209,22 @@ def directional_c_bounds(
     return lower, upper
 
 
+def boundary_clearances(
+    point: np.ndarray,
+    lower: np.ndarray,
+    upper: np.ndarray,
+    indices: tuple[int, ...],
+) -> np.ndarray:
+    """Return each selected coordinate's distance from its nearest bound."""
+    point = np.asarray(point, dtype=np.float64)
+    lower = np.asarray(lower, dtype=np.float64)
+    upper = np.asarray(upper, dtype=np.float64)
+    selected = np.asarray(indices, dtype=int)
+    return np.minimum(
+        point[selected] - lower[selected], upper[selected] - point[selected]
+    )
+
+
 def projected_arclength_tangent(
     delta: np.ndarray,
     scales: np.ndarray,
@@ -777,6 +793,26 @@ def main() -> int:
         raise SystemExit("pseudo-arclength predictor lies outside frozen bounds")
     if not np.all((initial_guess > lower) & (initial_guess < upper)):
         raise SystemExit("pseudo-arclength initial guess lies outside frozen bounds")
+    global_indices = (
+        layout["time_index"],
+        layout["a_index"],
+        layout["c_index"],
+        layout["angle_index"],
+    )
+    minimum_global_margin = float(
+        manifest["acceptance"]["minimum_global_boundary_margin"]
+    )
+    predictor_clearances = boundary_clearances(
+        predictor, lower, upper, global_indices
+    )
+    if np.min(predictor_clearances) < minimum_global_margin:
+        names = ("total_flight_time", "a", "c", "angle")
+        limiting = names[int(np.argmin(predictor_clearances))]
+        raise SystemExit(
+            "pseudo-arclength predictor violates the frozen global boundary "
+            f"margin in {limiting}: {np.min(predictor_clearances):.17g} "
+            f"< {minimum_global_margin:.17g}"
+        )
 
     arc_weight = float(manifest["pseudoarclength"]["residual_weight"])
     history = []
@@ -884,14 +920,9 @@ def main() -> int:
     final_nodes = result.x[: layout["node_size"]].reshape(layout["node_count"], 3)
     node_displacement = float(np.max(np.abs((final_nodes - current_nodes) / node_radius)))
     node_margin = 1.0 - node_displacement
-    global_margins = []
-    for index in (
-        layout["time_index"],
-        layout["a_index"],
-        layout["c_index"],
-        layout["angle_index"],
-    ):
-        global_margins.append(float(min(result.x[index] - lower[index], upper[index] - result.x[index])))
+    global_margins = boundary_clearances(
+        result.x, lower, upper, global_indices
+    ).tolist()
     acceptance = manifest["acceptance"]
     root_nominated = bool(
         final_details["maximum_block_norm"]

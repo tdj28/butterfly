@@ -1125,8 +1125,14 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   well interior. Preserve the failure. EXP-394 now freezes the licensed
   quarter step: `Delta c=1.25e-7`, normalized step `0.02254`, and proportionate
   `2.5e-9` forward floor, with the wide angle interval and every scientific
-  gate unchanged. Execute it from the clean pushed commit. If it fails, audit
-  the phase/gauge coordinate before further threshold or budget changes.
+  gate unchanged. EXP-394 terminates normally in seven evaluations with
+  `7.14831e-9` maximum defect and `1.88806e-9` minimum singular value, but its
+  predictor was only `1.225e-7` from the forward wall and therefore could not
+  satisfy the unchanged `1e-6` global-interiority gate. Preserve this
+  administrative failure. Add a runner preflight for that incompatibility and
+  execute frozen EXP-395 with the optimizer wall removed, the independent
+  final forward-direction gate retained, and every scientific threshold
+  unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

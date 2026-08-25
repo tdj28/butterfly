@@ -178,6 +178,14 @@ That repeat, EXP-393, moves the departure angle well interior but exhausts its
 gate.  This licenses a quarter local-tangent step with unchanged scientific
 thresholds; it still does not add a twelfth curve point.
 
+The quarter step, EXP-394, terminates normally in seven evaluations at
+`7.14831e-9` maximum block defect and `1.88806e-9` minimum singular value.
+However, its predictor starts only `1.225e-7` from the forward optimizer wall,
+inside the unchanged `1e-6` forbidden boundary margin.  It is preserved as an
+administrative acceptance-geometry failure, and a new preflight prevents this
+incompatibility from recurring.  A wall-free replay retains the independent
+final forward-direction gate.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -187,5 +195,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-393, including preserved negative results and
+Evidence: EXP-341 through EXP-394, including preserved negative results and
 their hash-bound compact receipts.

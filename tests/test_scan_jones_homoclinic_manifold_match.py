@@ -26,6 +26,7 @@ from scripts.solve_jones_homoclinic_multiple_shooting import (
 from scripts.continue_jones_homoclinic_pseudoarclength import (
     SCHEMA as PSEUDOARCLENGTH_SCHEMA,
     arclength_group_norms,
+    boundary_clearances,
     bounded_sparse_newton,
     directional_c_bounds,
     jacobian_conditioning_accepted,
@@ -149,6 +150,16 @@ def test_homoclinic_pseudoarclength_directional_c_bound_enforces_forward_side():
 
     unconstrained = directional_c_bounds(10.0, 10.00015, 0.001, None)
     assert np.allclose(unconstrained, (9.99915, 10.00115))
+
+
+def test_homoclinic_pseudoarclength_measures_predictor_bound_clearance():
+    point = np.array([1.0, 2.0, 3.0, 4.0])
+    lower = np.array([0.0, 1.5, 2.9999999, -10.0])
+    upper = np.array([1.25, 3.0, 5.0, 10.0])
+    observed = boundary_clearances(point, lower, upper, (0, 1, 2))
+
+    assert np.allclose(observed, [0.25, 0.5, 1e-7])
+    assert np.min(observed) < 1e-6
 
 
 def test_homoclinic_pseudoarclength_projects_closing_tangent_to_parameters():
