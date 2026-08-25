@@ -29,6 +29,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     native_boolean_checks,
     optimizer_jacobian,
     projected_arclength_tangent,
+    receipt_state_vector,
     source_angle_gauge,
     source_curve_values,
     unwrap_angle,
@@ -151,6 +152,22 @@ def test_homoclinic_pseudoarclength_exposes_sparse_optimizer_jacobian():
     assert isinstance(observed, csr_matrix)
     assert np.array_equal(observed.toarray(), dense)
     assert optimizer_jacobian(dense, "dense") is dense
+
+
+def test_homoclinic_pseudoarclength_recovers_exact_warm_start_vector():
+    layout = pseudoarclength_layout(2)
+    receipt = {
+        "segment_count": 2,
+        "final_nodes": [[1.0, 2.0, 3.0]],
+        "final_variables": {
+            "total_flight_time": 4.0,
+            "a": 5.0,
+            "c": 6.0,
+            "angle": 7.0,
+        },
+    }
+    observed = receipt_state_vector(receipt, layout)
+    assert np.array_equal(observed, np.arange(1.0, 8.0))
 
 
 def test_homoclinic_solution_parameters_support_fixed_a_intersection():

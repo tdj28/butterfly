@@ -1016,7 +1016,13 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   limiting equation. Halve the desired `c` increment to `7.5e-5`—still enough
   to cross exact `a=0.1798` under every qualified local secant—and repeat the
   same sparse protocol and unchanged gates. EXP-374 freezes that reduced-step
-  crossing attempt.
+  crossing attempt. EXP-374 is preserved as failed, but step reduction lowers
+  the initial defect by `2.54x`, final maximum matching defect by `2.16x` to
+  `5.26837e-6`, and normalized node displacement by about half while retaining
+  a passing `1.78479e-9` plane residual. Bind its exact nodes as a warm start
+  for the identical reduced-step plane and gates; do not promote its above-
+  section parameter values as a branch point. EXP-375 freezes that exact-node
+  correction.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

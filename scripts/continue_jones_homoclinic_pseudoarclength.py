@@ -53,6 +53,26 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def load_bound_receipt(binding: dict) -> dict:
+    """Load a receipt only after all frozen identity and value checks pass."""
+    path = Path(binding["path"])
+    if sha256_file(path) != binding["sha256"]:
+        raise ValueError(f"receipt hash mismatch: {path}")
+    receipt = json.loads(path.read_bytes())
+    for field in ("schema", "experiment_id", "passed", "classification"):
+        if receipt.get(field) != binding[field]:
+            raise ValueError(f"receipt binding mismatch: {field}")
+    failed_checks = sorted(
+        key for key, value in receipt.get("checks", {}).items() if value is False
+    )
+    if failed_checks != binding["failed_checks"]:
+        raise ValueError("receipt failed-check binding mismatch")
+    for field, expected in binding["expected"].items():
+        if receipt.get(field) != expected:
+            raise ValueError(f"receipt value binding mismatch: {field}")
+    return receipt
+
+
 def variable_layout(segment_count: int) -> dict[str, int]:
     if segment_count < 2:
         raise ValueError("pseudo-arclength shooting requires at least two arcs")
@@ -214,6 +234,23 @@ def optimizer_jacobian(jacobian: np.ndarray, storage: str):
     raise ValueError(f"unsupported optimizer Jacobian storage: {storage}")
 
 
+def receipt_state_vector(receipt: dict, layout: dict[str, int]) -> np.ndarray:
+    """Recover an exact pseudo-arclength iterate from a bound receipt."""
+    if int(receipt["segment_count"]) != layout["node_count"] + 1:
+        raise ValueError("warm-start receipt has incompatible segmentation")
+    nodes = np.asarray(receipt["final_nodes"], dtype=np.float64)
+    if nodes.shape != (layout["node_count"], 3):
+        raise ValueError("warm-start receipt has incompatible node shape")
+    variables = receipt["final_variables"]
+    return np.r_[
+        nodes.ravel(),
+        float(variables["total_flight_time"]),
+        float(variables["a"]),
+        float(variables["c"]),
+        float(variables["angle"]),
+    ]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -232,24 +269,18 @@ def main() -> int:
     if source["commit"] is None or source["dirty"]:
         raise SystemExit("clean source required")
 
-    receipts = []
-    for binding in manifest["source_receipts"]:
-        path = Path(binding["path"])
-        if sha256_file(path) != binding["sha256"]:
-            raise SystemExit(f"source receipt hash mismatch: {path}")
-        receipt = json.loads(path.read_bytes())
-        for field in ("schema", "experiment_id", "passed", "classification"):
-            if receipt.get(field) != binding[field]:
-                raise SystemExit(f"source receipt binding mismatch: {field}")
-        failed_checks = sorted(
-            key for key, value in receipt.get("checks", {}).items() if value is False
+    try:
+        receipts = [
+            load_bound_receipt(binding) for binding in manifest["source_receipts"]
+        ]
+        warm_start_binding = manifest.get("warm_start_receipt")
+        warm_start_receipt = (
+            None
+            if warm_start_binding is None
+            else load_bound_receipt(warm_start_binding)
         )
-        if failed_checks != binding["failed_checks"]:
-            raise SystemExit("source failed-check binding mismatch")
-        for field, expected in binding["expected"].items():
-            if receipt.get(field) != expected:
-                raise SystemExit(f"source value binding mismatch: {field}")
-        receipts.append(receipt)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     if len(receipts) != 2:
         raise SystemExit("exactly two ordered source receipts are required")
     previous_receipt, current_receipt = receipts
@@ -357,6 +388,13 @@ def main() -> int:
         c_direction *= -1.0
     arclength_step = desired_c_increment / c_direction
     predictor = current + arclength_step * predictor_tangent * scales
+    initial_guess = predictor
+    if warm_start_receipt is not None:
+        if warm_start_receipt.get("reference_parameters") != manifest["reference_parameters"]:
+            raise SystemExit("warm-start receipt uses a different angle gauge")
+        if warm_start_receipt.get("arclength_components") != list(arclength_components):
+            raise SystemExit("warm-start receipt uses a different closing plane")
+        initial_guess = receipt_state_vector(warm_start_receipt, layout)
 
     node_radius = float(manifest["node_bound_radius"])
     lower = np.full(layout["variable_count"], -np.inf)
@@ -385,6 +423,8 @@ def main() -> int:
     )
     if not np.all((predictor > lower) & (predictor < upper)):
         raise SystemExit("pseudo-arclength predictor lies outside frozen bounds")
+    if not np.all((initial_guess > lower) & (initial_guess < upper)):
+        raise SystemExit("pseudo-arclength initial guess lies outside frozen bounds")
 
     parameter_steps = manifest["derivatives"]["absolute_steps"]
     a_step = float(parameter_steps["a"])
@@ -487,7 +527,7 @@ def main() -> int:
         cached_details = details
         return residual, jacobian, details
 
-    initial_residual, _initial_jacobian, initial_details = compute(predictor)
+    initial_residual, _initial_jacobian, initial_details = compute(initial_guess)
     optimization = manifest["optimization"]
     jacobian_storage = optimization.get("jacobian_storage", "dense")
     trust_region_solver = optimization.get("trust_region_solver")
@@ -506,7 +546,7 @@ def main() -> int:
     started = time.perf_counter()
     result = least_squares(
         lambda value: compute(value)[0],
-        predictor,
+        initial_guess,
         jac=lambda value: optimizer_jacobian(
             compute(value)[1], jacobian_storage
         ),
@@ -580,6 +620,15 @@ def main() -> int:
             }
             for receipt, binding in zip(receipts, manifest["source_receipts"], strict=True)
         ],
+        "warm_start_receipt": (
+            None
+            if warm_start_receipt is None
+            else {
+                "experiment_id": warm_start_receipt["experiment_id"],
+                "sha256": warm_start_binding["sha256"],
+                "passed": warm_start_receipt["passed"],
+            }
+        ),
         "environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),
@@ -607,6 +656,12 @@ def main() -> int:
             "c": float(predictor[layout["c_index"]]),
             "angle": float(predictor[layout["angle_index"]]),
             "total_flight_time": float(predictor[layout["time_index"]]),
+        },
+        "initial_guess_variables": {
+            "a": float(initial_guess[layout["a_index"]]),
+            "c": float(initial_guess[layout["c_index"]]),
+            "angle": float(initial_guess[layout["angle_index"]]),
+            "total_flight_time": float(initial_guess[layout["time_index"]]),
         },
         "final_variables": {
             "a": float(result.x[layout["a_index"]]),

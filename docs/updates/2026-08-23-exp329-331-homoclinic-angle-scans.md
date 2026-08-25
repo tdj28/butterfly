@@ -473,6 +473,15 @@ not nominated. The successor halves the desired `c` step while retaining the
 sparse formulation and every scientific threshold; the qualified local slope
 still predicts that reduced step will cross `a=0.1798`.
 
+## EXP-374 halves the remaining matching floor
+
+Halving the desired step lowers the initial maximum defect from `2.99550e-3`
+to `1.18019e-3` and the final maximum defect from `1.13744e-5` to
+`5.26837e-6`. The projected-plane residual remains passing at `1.78479e-9`,
+and normalized node displacement falls to `0.12472`. The final unqualified
+point remains above the section at `a=0.1798177058402`; it is retained only as
+an exact-node warm-correction seed, not as a root or bracket endpoint.
+
 Tracked receipts: [`../experiments/receipts/EXP-329.json`](../experiments/receipts/EXP-329.json)
 and [`../experiments/receipts/EXP-331.json`](../experiments/receipts/EXP-331.json).
 Later compact receipts in this chain include
@@ -509,5 +518,7 @@ The wide-angle conditioning failure is tracked in
 [`../experiments/receipts/EXP-372.json`](../experiments/receipts/EXP-372.json).
 The sparse projected-plane recovery is tracked in
 [`../experiments/receipts/EXP-373.json`](../experiments/receipts/EXP-373.json).
+The reduced-step failure is tracked in
+[`../experiments/receipts/EXP-374.json`](../experiments/receipts/EXP-374.json).
 Frozen execution commits: `4376c567db9554e858f20a823544996700236abc`
 and `f223c95b4f6a2976115e7cff104a52be487f3a00`.
