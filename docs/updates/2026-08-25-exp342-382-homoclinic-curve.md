@@ -195,6 +195,12 @@ EXP-415 passes the defect-aware quarter-step in two evaluations at
 `4.76241e-9`, normalized node displacement halves to `0.00906`, and minimum
 singular value remains `1.18129e-9`. The twenty-third point is qualified;
 EXP-416 freezes the same smaller step from a newly computed tangent.
+
+EXP-416 passes the repeated quarter-step in two evaluations at
+`(a,c)=(0.1798187700609,10.3170776433886)`. Maximum defect reaches the
+persistent `3.20024e-9` floor, minimum singular value is `1.17364e-9`, and the
+twenty-fourth point is qualified. EXP-417 freezes one more same-size step for
+a 25-point visual and manuscript checkpoint.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
