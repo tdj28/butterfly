@@ -1195,8 +1195,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   the nineteenth point. EXP-412 passes the next identical-gate step and adds
   the twentieth point with minimum singular value `1.219e-9`. EXP-413 passes a
   fourth consecutive conditioned half-step and adds the twenty-first point
-  with minimum singular value `1.204e-9`. Refresh the receipt-bound figure and
-  manuscript, then freeze the next conditioned continuation step.
+  with minimum singular value `1.204e-9`. The refreshed figure and manuscript
+  show all 21 points. Execute frozen EXP-414 from the exact passed EXP-412/413
+  pair; reduce step size next if its root or conditioning margin fails.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
