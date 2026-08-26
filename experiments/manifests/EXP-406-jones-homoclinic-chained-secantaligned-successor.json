@@ -1,0 +1,135 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+  "experiment_id": "EXP-406",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-403/receipt.json",
+      "sha256": "f22747d1996f80c9af2d9765a32115f755e988752e4ccf8de2847f663fe40bcf",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-403",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 512,
+        "root_nominated": true,
+        "final_maximum_block_residual": 4.006366641443459e-9,
+        "final_residual_norm": 1.4713407779281101e-8
+      }
+    },
+    {
+      "path": "artifacts/EXP-405/receipt.json",
+      "sha256": "b7148d4747a861f262384d50f1f376091f149fe68b9b75bb3add58b1582a0d9a",
+      "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+      "experiment_id": "EXP-405",
+      "passed": true,
+      "classification": "pseudoarclength_root_nominated",
+      "failed_checks": [],
+      "expected": {
+        "segment_count": 512,
+        "root_nominated": true,
+        "final_maximum_block_residual": 4.004071829237827e-9,
+        "final_residual_norm": 1.4705245091791919e-8
+      }
+    }
+  ],
+  "fixed_b": 0.2,
+  "reference_parameters": {
+    "a": 0.18069045562126884,
+    "b": 0.2,
+    "c": 10.3144
+  },
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 512,
+  "node_bound_radius": 0.25,
+  "global_half_widths": {
+    "total_flight_time": 0.25,
+    "a": 0.0002,
+    "c": 0.0002,
+    "angle": 1.0
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "pseudoarclength": {
+    "normalized_arclength_step": 0.0011496701841098146,
+    "tangent_source": "local_matching_jacobian",
+    "tangent_orientation": "aligned_secant",
+    "residual_weight": 1.0,
+    "arclength_components": [
+      "nodes",
+      "total_flight_time",
+      "a",
+      "c",
+      "angle"
+    ],
+    "arclength_component_weights": {
+      "nodes": 1.0,
+      "total_flight_time": 1.0,
+      "a": 1.0,
+      "c": 1.0,
+      "angle": 1.0
+    },
+    "scales": {
+      "node_component": 1.0,
+      "total_flight_time": 5.0,
+      "a": 0.002,
+      "c": 0.004,
+      "angle": 0.5
+    }
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "simultaneous_a_c_sensitivities": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_sensitivity": "absolute_central",
+    "absolute_steps": {
+      "a": 1e-7,
+      "c": 1e-6
+    }
+  },
+  "optimization": {
+    "method": "trf",
+    "jacobian": "sparse_analytic_weighted_pseudoarclength",
+    "jacobian_storage": "csr",
+    "trust_region_solver": "lsmr",
+    "trust_region_options": {
+      "regularize": true,
+      "atol": 1e-10,
+      "btol": 1e-10,
+      "conlim": 1e12,
+      "maxiter": 2000
+    },
+    "x_scale": "jac",
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 40
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.01,
+    "maximum_root_block_residual": 1e-8,
+    "maximum_arclength_residual": 1e-8,
+    "minimum_global_boundary_margin": 1e-6,
+    "minimum_node_boundary_margin": 0.01,
+    "minimum_jacobian_singular_value": 5e-10,
+    "maximum_local_tangent_residual": 1e-8,
+    "allow_root_gate_as_termination": true,
+    "directional_c_requirement": "unconstrained",
+    "directional_a_requirement": "unconstrained",
+    "directional_arclength_requirement": "forward"
+  },
+  "claim_scope": "first chained coordinate-free full-state pseudo-arclength successor after EXP-405 qualifies the parameter-plane double turn: exact passed 512-arc EXP-403/EXP-405 source bindings, local tangent recomputed at EXP-405 and oriented by positive inner product with the previous full-state scaled secant, normalized step fixed prospectively at 0.0011496701841098146, a and c left unconstrained, independent positive signed-full-state-arclength gate, unit weights on all scaled tangent groups, no directional optimizer wall, wide departure-angle half-width 1.0, bounded analytic-variational 512-arc multiple shooting, CSR/LSMR correction, source-centered node/global bounds, prospective 5e-10 minimum-Jacobian-singular-value gate, unchanged 40-evaluation budget, 1e-8 matching/arclength gates, and unchanged manifold/Radau settings; a pass adds a fifteenth above-section curve point but does not qualify the historical intersection, uniqueness, computer-assisted proof, or global topology"
+}

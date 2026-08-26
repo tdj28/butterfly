@@ -1176,8 +1176,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   clean root, but both `a` and `c` reverse while its full-state signed
   arclength remains forward; decreasing `a` is its sole failed gate. The
   runner now supports previous-secant tangent orientation and a prospective
-  full-state signed-arclength direction gate. Execute frozen EXP-405's replay
-  with both displayed coordinates unconstrained.
+  full-state signed-arclength direction gate. EXP-405 passes every gate in two
+  evaluations and adds the fourteenth qualified point. Its `a` is slightly
+  above EXP-403, so the first local turn does not intersect the historical
+  section. Execute frozen EXP-406, the first chained secant-aligned step from
+  EXP-403/405, and determine whether the branch continues away or turns back
+  later.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

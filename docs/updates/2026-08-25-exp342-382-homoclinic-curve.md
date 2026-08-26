@@ -119,6 +119,19 @@ defect, `5.33666e-14` plane residual, `1.69490e-9` minimum singular value, and
 `0.002005` normalized node motion. EXP-397 now freezes the licensed wall-free
 quarter step with that standard tangent normal and every scientific threshold
 unchanged.
+
+EXP-405 passes every coordinate-free gate in two evaluations at
+`(a,c)=(0.1798174936753,10.3170815017034)`. Its signed full-state progress is
+`0.00114967018416`, maximum block defect `4.00407e-9`, plane residual
+`5.41e-14`, and minimum singular value `1.68263e-9`. This adds the fourteenth
+qualified point. Because `a` has turned upward from EXP-403, the first local
+turn does not reach exact `a=0.1798`; a later return remains possible and must
+be tested by chained full-state continuation.
+
+EXP-406 freezes that first chained test from the exact passed EXP-403/405
+pair. It recomputes the matching-Jacobian tangent at EXP-405, aligns it with
+the previous full-state secant, and retains the same normalized step and every
+numerical gate.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
