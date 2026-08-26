@@ -1171,8 +1171,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   gate, and an independent decreasing-`a` gate. EXP-403 passes every gate in
   two evaluations at `(a,c)=(0.1798174935369,10.3170815025596)`, adding the
   thirteenth qualified curve point and demonstrating continuation through the
-  local `c` fold. Refresh the manuscript figure and counts, then chain the
-  next decreasing-`a` step from EXP-403.
+  local `c` fold. The manuscript figure/counts now show thirteen points and a
+  nanoscopic fold inset. Execute frozen EXP-404, which recomputes the tangent
+  at EXP-403 and chains the same normalized decreasing-`a` step beyond the
+  fold.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

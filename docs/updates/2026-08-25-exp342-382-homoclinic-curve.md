@@ -165,3 +165,11 @@ minimum singular value, and `1.09e-16` local-tangent residual. This is the
 thirteenth qualified curve point and the first qualified step through the
 local `c` fold. The historical fixed-`a` gap is now `1.74935e-5`; exact
 intersection and uniqueness remain open.
+
+The manuscript now carries all thirteen points in its global curve panel and
+resolves EXP-368/399/403 plus the adjacent rejected controls in a nanoscopic
+fold inset. The figure and receipt are bound to the clean source commit, and
+the rebuilt 54-page PDF passes visual QA. EXP-404 freezes the first genuine
+chained successor from EXP-399/403: it recomputes the local tangent at EXP-403,
+retains decreasing-`a` orientation and the passed normalized step, and leaves
+all scientific gates unchanged.
