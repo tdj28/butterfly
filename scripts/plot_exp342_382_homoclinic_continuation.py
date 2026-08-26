@@ -225,7 +225,7 @@ def main() -> int:
     axis_outgoing.annotate(
         "EXP-417: 25th qualified point\ndefect-aware steps pass",
         xy=outgoing_curve[-1],
-        xytext=(-3300.0, 1320.0),
+        xytext=(-3000.0, 1225.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},
         fontsize=8,
     )
