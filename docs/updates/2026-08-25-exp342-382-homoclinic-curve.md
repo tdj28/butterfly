@@ -81,6 +81,8 @@ EXP-427 passes the repeated double-step in two evaluations at
 `1.05087e-9` minimum singular value, and `0.9829` node-boundary margin. The
 thirty-fifth qualified point triggers the next receipt-bound figure and
 manuscript checkpoint.
+After the 35-point checkpoint, EXP-428 freezes a third same-size step in the
+second doubled regime, with exact EXP-426/427 bindings and every gate unchanged.
 
 ## Weighted-plane control
 

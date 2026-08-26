@@ -1217,7 +1217,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-427 repeats the doubled step and adds the thirty-fifth point. Update the
   receipt-bound figure, manuscript, claim ledger, and finding record are now
   regenerated at the 35-point checkpoint. Continue with the same adaptive
-  gate policy and prepare a separate bounded later-turn audit.
+  gate policy and prepare a separate bounded later-turn audit. Execute frozen
+  EXP-428 at the qualified doubled step with every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
