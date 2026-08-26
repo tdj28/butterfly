@@ -88,6 +88,10 @@ EXP-428 passes in two evaluations at
 `1.03568e-9` minimum singular value, and `0.9831` node-boundary margin. The
 thirty-sixth point is qualified, but the defect uses 84.2% of its gate;
 EXP-429 prospectively returns to the proven quarter-step.
+EXP-429 passes in two evaluations at
+`(a,c)=(0.1798239253245,10.3170618526134)`, with `5.22370e-9` maximum defect,
+`1.02807e-9` minimum singular value, and `0.9916` node-boundary margin. The
+thirty-seventh point is qualified; EXP-430 freezes a repeated quarter-step.
 
 ## Weighted-plane control
 
