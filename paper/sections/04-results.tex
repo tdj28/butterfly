@@ -154,7 +154,15 @@ at EXP-410.  Its maximum block defect is $3.20\times10^{-9}$ and its smallest
 measured singular value is $1.25\times10^{-9}$.  A twice-larger step reaches a
 clean root but fails only the fixed conditioning floor; halving that step
 passes every unchanged gate in two corrections.  Thus eighteen roots are now
-qualified.  The first observed local turn moves away from the historical
+qualified.  Three further tangent-recomputed half-steps each pass in two
+corrections, reaching
+\[
+  (a,c)=(0.1798182269380,10.3170793858051)
+\]
+with $6.68\times10^{-9}$ maximum block defect and
+$1.20\times10^{-9}$ smallest measured singular value.  Thus twenty-one roots
+are qualified and the outgoing arm is reproduced under four newly computed
+tangents.  The first observed local turn moves away from the historical
 fixed-$a$ section, so it does not provide the printed intersection.  A later
 turn or another branch remains possible and global nonintersection is not
 claimed.
@@ -178,12 +186,12 @@ claimed.
   \centering
   \includegraphics[width=\textwidth]{figures/fig30-exp342-382-homoclinic-continuation.png}
   \caption{Continuation of the qualified homoclinic candidate toward Jones's
-  printed $a=0.1798$ section.  A: eighteen qualified roots through EXP-410 and
+  printed $a=0.1798$ section.  A: twenty-one qualified roots through EXP-413 and
   the pre-fold EXP-367/368 secant extrapolation.  B: a nanoscopic offset view
   resolves the first sampled local minimum in $a$ and separates qualified
   signed-arclength steps from coordinate-gate rejections.  C: the outgoing
-  branch and EXP-409 conditioning-only rejection show why adaptive step size
-  is required.  D: every accepted point remains
+  branch, four passed conditioned half-steps, and EXP-409 conditioning-only
+  rejection show why adaptive step size is required.  D: every accepted point remains
   below the prospective $10^{-8}$ maximum-block-defect gate; the preserved
   failures expose conditioning and method limits rather than silently
   extending the curve.  The zero-step collocation control also escapes and is
