@@ -96,6 +96,12 @@ EXP-430 passes in two evaluations at
 `(a,c)=(0.1798243356948,10.3170605556857)`, with `3.44244e-9` maximum defect,
 `1.02050e-9` minimum singular value, and `0.9917` node-boundary margin. The
 thirty-eighth point is qualified; EXP-431 freezes a third same-size step.
+EXP-431 passes in two evaluations at
+`(a,c)=(0.1798247619398,10.3170592261986)`, with `3.20005e-9` maximum defect,
+`1.01295e-9` minimum singular value, and `0.9917` node-boundary margin. The
+thirty-ninth point is qualified. Because conditioning continues to drift
+downward, EXP-432 prospectively holds the conservative quarter-step once more
+before the 40-point figure and manuscript checkpoint.
 
 ## Weighted-plane control
 

@@ -1214,14 +1214,16 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   and adds the thirty-first point. EXP-424 repeats it and adds the thirty-second
   point. EXP-425 passes a third same-size step and adds the thirty-third point.
   Adaptive EXP-426 passes at twice that step and adds the thirty-fourth point.
-  EXP-427 repeats the doubled step and adds the thirty-fifth point. Update the
-  The receipt-bound figure, manuscript, claim ledger, and finding record are
+  EXP-427 repeats the doubled step and adds the thirty-fifth point. The
+  receipt-bound figure, manuscript, claim ledger, and finding record are
   regenerated at the 35-point checkpoint. Continue with the same adaptive
   gate policy and prepare a separate bounded later-turn audit. EXP-428 passes
   a third doubled step but reaches 84.2% of the defect gate. Defect-aware
   EXP-429 passes at the proven quarter-step and adds the thirty-seventh point.
-  EXP-430 repeats it and adds the thirty-eighth. Execute frozen EXP-431 at the
-  same step with every gate unchanged.
+  EXP-430 repeats it and adds the thirty-eighth. EXP-431 passes at the same
+  step and adds the thirty-ninth. Execute frozen conservative EXP-432 with
+  every gate unchanged, then regenerate the receipt-bound figure, manuscript,
+  claim ledger, and finding record at the 40-point checkpoint.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
