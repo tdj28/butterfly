@@ -50,8 +50,10 @@ outgoing arm, and all 26 preserved failures.  Its receipt schema is
 `f8ccb3c4cbcea345d90ff87beb503213b1cc7619835a9989afab4fa5747bcb19`.
 The abstract, results, conclusion, claim ledger, and finding record use the
 same 40-root count and explicitly withhold the exact intersection claim. The
-figure passes visual inspection; the clean-source manuscript rebuild and PDF
-page QA follow this artifact checkpoint.
+rebuilt manuscript remains 55 pages (10,168,135 bytes), with SHA-256
+`51da15aa6cda367eee3b1ce3390a5846252778e9d949689e4393c5ad6e229056`.
+The LaTeX log contains no undefined references, citation warnings, or
+overfull/underfull boxes; rendered pages 1, 11, and 50 pass visual inspection.
 EXP-423 freezes the first post-figure successor at the proven quarter-step,
 with exact EXP-421/422 bindings and every scientific gate unchanged.
 It passes in two evaluations at
@@ -103,7 +105,9 @@ before the 40-point figure and manuscript checkpoint.
 EXP-432 passes in two evaluations at
 `(a,c)=(0.1798252043668,10.3170578560648)`, with `3.20004e-9` maximum defect,
 `1.00544e-9` minimum singular value, and `0.9918` node-boundary margin. The
-fortieth point is qualified and triggers the receipt-bound checkpoint.
+fortieth point is qualified and closes the receipt-bound checkpoint. Continue
+only after prospectively freezing the next step and retaining the current
+conditioning gate.
 
 ## Weighted-plane control
 
