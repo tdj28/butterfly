@@ -178,7 +178,7 @@ def main() -> int:
     axis_zoom.annotate(
         "EXP-403: sampled\nlocal a minimum",
         xy=fold_coordinates(403),
-        xytext=(-15.0, -3.0),
+        xytext=(-14.0, 1.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},
         fontsize=8,
     )
@@ -240,7 +240,7 @@ def main() -> int:
     axis_outgoing.grid(alpha=0.2)
     axis_outgoing.legend(fontsize=8, loc="lower left")
 
-    defect_ids = QUALIFIED_IDS + FAILED_IDS
+    defect_ids = tuple(sorted(QUALIFIED_IDS + FAILED_IDS))
     defects = np.asarray(
         [receipts[experiment_id].get("final_maximum_block_residual", np.nan) for experiment_id in defect_ids],
         dtype=np.float64,
@@ -259,8 +259,8 @@ def main() -> int:
     axis_defect.legend(fontsize=8, loc="upper left")
     axis_defect.text(
         0.98,
-        0.04,
-        "EXP-380/382: collocation escaped\n(not plotted on defect scale)\nEXP-409: conditioning-only rejection",
+        0.10,
+        "EXP-380/382: collocation escaped (off scale)\nEXP-409: conditioning-only rejection",
         transform=axis_defect.transAxes,
         ha="right",
         va="bottom",
@@ -289,6 +289,8 @@ def main() -> int:
         "historical_section_a": historical_a,
         "projected_crossing_c": float(projected_c),
         "last_qualified_a_gap": float(last_a - historical_a),
+        "minimum_qualified_a_gap": float(np.min(qualified[:, 1] - historical_a)),
+        "closest_qualified_experiment": f"EXP-{QUALIFIED_IDS[int(np.argmin(qualified[:, 1]))]}",
         "projection_experiments": [f"EXP-{value}" for value in PROJECTION_IDS],
         "projection_secant_da_dc": float(slope),
         "local_fold_experiments": [f"EXP-{value}" for value in FOLD_IDS],
