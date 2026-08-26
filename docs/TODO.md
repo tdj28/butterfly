@@ -1186,8 +1186,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   and adds the sixteenth point with `Delta a=+7.46e-9`. EXP-408 passes at
   normalized step `0.0183947` and adds the seventeenth point with
   `Delta a=+1.01e-7`. EXP-409 finds another clean outgoing root but its minimum
-  singular value `4.224e-10` fails the fixed `5e-10` floor. Preserve it and
-  execute frozen half-step EXP-410 with every gate unchanged.
+  singular value `4.224e-10` fails the fixed `5e-10` floor. EXP-410 halves the
+  step without changing a gate, passes in two evaluations with minimum
+  singular value `1.249e-9`, and adds the eighteenth qualified point. Refresh
+  the receipt-bound figure and manuscript, then continue the outgoing branch
+  with conditioning-aware step control.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

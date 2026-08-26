@@ -158,7 +158,12 @@ EXP-409 continues strongly outward to
 `(a,c)=(0.1798178629840,10.3170803672769)` with `2.33839e-9` maximum defect and
 positive signed arclength, but its minimum singular value `4.22399e-10` falls
 below the prospective `5e-10` floor. Conditioning is its sole failed gate.
-EXP-410 freezes the licensed half-step with all thresholds unchanged.
+EXP-410 halves the step with all thresholds unchanged and passes in two
+evaluations at `(a,c)=(0.1798177050799,10.3170808940738)`. Its `3.20048e-9`
+maximum defect, `1.24926e-9` minimum singular value, and `0.9813` node margin
+add the eighteenth qualified point. The conditioned outgoing branch remains
+above and moves farther from the historical fixed-`a` section; this resolves
+the first local minimum, not global nonintersection.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
