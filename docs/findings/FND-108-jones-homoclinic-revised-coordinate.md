@@ -225,7 +225,36 @@ the local tangent's scaled `c` component falls by `4.27x`, so the same
 `Delta c=3.125e-8` inflates normalized arclength to `0.0196159` and again
 selects an interior backward root.  The runner now supports a prospectively
 fixed normalized step and derives its physical `c` request from each new local
-tangent; all 396 repository tests pass.
+tangent; all 396 repository tests at that checkpoint pass.
+
+## Signed-arclength resolution through EXP-422
+
+EXP-401--404 show that neither displayed coordinate is a reliable local
+orientation gate at this scale.  EXP-403 passes at
+`(a,c)=(0.1798174935369,10.3170815025596)` and is the first sampled local
+minimum in `a`; EXP-404 finds a clean full-state-forward root while both `a`
+and `c` reverse.  Secant-aligned signed arclength resolves that ambiguity.
+EXP-405--408 pass successively larger steps and establish the outgoing arm.
+EXP-409 reaches a clean farther root but is honestly rejected only by the
+fixed `5e-10` singular-value floor.
+
+EXP-410--418 then pass nine tangent-recomputed, defect-aware steps with every
+root, conditioning, arclength, boundary, and optimizer gate unchanged.
+EXP-419--421 qualify three consecutive doubled steps in two evaluations each.
+When EXP-421's maximum defect rises to `7.38780e-9`, EXP-422 prospectively
+returns to the proven quarter-step and passes at
+`(a,c)=(0.1798206348114,10.3170719468639)`, with `4.58385e-9` maximum defect,
+`1.10459e-9` minimum singular value, and `0.9913` node-boundary margin.
+
+The qualified curve now contains 30 roots, including 27 pseudo-arclength
+points.  Its outgoing arm is reproduced under 13 newly computed tangents after
+EXP-408.  This strongly supports persistence of Jones's proposed homoclinic
+mechanism near the reported hub and rejects the interpretation that the first
+residual floor was immediate branch termination.  It does not rescue the
+printed coordinate: EXP-403 remains `1.74935e-5` above `a=0.1798`, and the
+first local turn subsequently moves away.  Later turns, other branches, an
+exact historical-section intersection, global nonintersection, uniqueness,
+and computer-assisted existence remain open.
 
 ## Limits
 
@@ -236,5 +265,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-400, including preserved negative results and
+Evidence: EXP-341 through EXP-422, including preserved negative results and
 their hash-bound compact receipts.

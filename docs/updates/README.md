@@ -23,9 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-08-25-exp342-382-homoclinic-curve.md`](2026-08-25-exp342-382-homoclinic-curve.md)
-  — twenty-five qualified multiple-shooting roots approach within `1.75e-5` in
+  — thirty qualified multiple-shooting roots approach within `1.75e-5` in
   `a` of Jones's historical section, resolve the first local `a` minimum, and
-  continue through eight newly tangent-computed, defect-aware steps on its
+  continue through thirteen newly tangent-computed, defect-aware steps on its
   outgoing branch; the exact intersection and uniqueness stay open.
 
 - [`2026-08-23-exp329-331-homoclinic-angle-scans.md`](2026-08-23-exp329-331-homoclinic-angle-scans.md)

@@ -60,10 +60,11 @@ EXP-229 correction of the former interpolation-based second-boundary claim.
 The new cascade figure resolves three exact returning-arm flip events and
 their independently qualified stable children through primitive period 96,
 while displaying the finite-spacing and universality claim boundary.
-The latest homoclinic figure follows all twenty-five qualified curve points to
+The latest homoclinic figure follows all thirty qualified curve points to
 within $1.75\times10^{-5}$ in $a$ of the historical section, resolves the
 first local $a$ minimum and defect-aware outgoing branch at nanoscopic scale,
-and displays prospective gate failures separately from the accepted branch.
+shows the qualified doubled-step regime and later defect-aware reduction, and
+displays prospective gate failures separately from the accepted branch.
 
 ## Writing rules
 

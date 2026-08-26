@@ -1207,8 +1207,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-420 repeats it and adds the twenty-eighth; EXP-421 passes a third double
   step and adds the twenty-ninth. Execute frozen defect-aware EXP-422 at the
   proven quarter-step with every gate unchanged. EXP-422 passes and adds the
-  thirtieth point; regenerate the receipt-bound 30-point figure and manuscript
-  checkpoint.
+  thirtieth point. The receipt-bound 30-point figure and manuscript checkpoint
+  are regenerated. Continue the outgoing branch with the same prospective
+  defect-aware policy while separately defining bounded later-turn and
+  uniqueness/nonintersection audits.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

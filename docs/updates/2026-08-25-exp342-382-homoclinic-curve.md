@@ -1,21 +1,22 @@
-# EXP-342--382: qualified homoclinic curve and honest section gap
+# EXP-342--422: qualified homoclinic curve and honest section gap
 
 ## What is now established
 
 The revised-coordinate homoclinic candidate is no longer an isolated numerical
-root.  EXP-342, EXP-347, and EXP-350 qualify three natural-continuation points;
-EXP-360--363 and EXP-365--368 add eight chained, gauge-aligned
-pseudo-arclength points.  All eleven roots pass the prospective
-`1e-8` maximum matching-block gate.  The last accepted point is
+root.  EXP-342, EXP-347, and EXP-350 qualify the initial point and two
+natural-continuation successors; 27 chained pseudo-arclength roots bring the
+qualified total to 30.  Every accepted root passes the prospective `1e-8`
+maximum matching-block gate.  The closest sampled point is EXP-403:
 
 ```text
-(a, c) = (0.1798174978856614, 10.317081488741884)
-maximum block defect = 9.999341431358164e-9
+(a, c) = (0.17981749353685614, 10.317081502559637)
+historical a gap = 1.7493536856150183e-5
 ```
 
-It lies `1.74978856614e-5` above Jones's printed `a=0.1798` section.
-The last qualified secant has `da/dc=-0.3255565528874298` and projects a
-local crossing at `c=10.317135236348886`.
+The last accepted point, EXP-422, is
+`(a,c)=(0.1798206348113553,10.317071946863937)`.  The pre-fold EXP-367/368
+secant projects a local crossing at `c=10.317135236348886`, but the resolved
+local turn invalidates treating that projection as a monotone-`c` prediction.
 
 This is good evidence for Jones's proposed homoclinic organizing mechanism:
 the nearby connection persists as a smooth parameter curve and approaches the
@@ -42,12 +43,17 @@ multiple shooting.
 
 ## Manuscript checkpoint
 
-Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now displays the full
-qualified curve, the remaining historical-section gap, and the failed-gate
-diagnostics.  The abstract, results, and conclusion all use the same eleven-root
-count and explicitly withhold the exact intersection claim.  The 54-page PDF
-passes the bibliography gate, compiles without layout warnings, and was
-visually checked at the abstract, homoclinic figures, and conclusion.
+Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now displays all 30
+qualified roots through EXP-422, the sampled local minimum, the adaptive
+outgoing arm, and all 26 preserved failures.  Its receipt schema is
+`butterfly.exp342-422-homoclinic-continuation-figure.v1`; the image SHA-256 is
+`86e9414b5d3acb332997a64b064c7e6ee187b3e00a842932a2553b691435c772`.
+The abstract, results, conclusion, claim ledger, and finding record use the
+same 30-root count and explicitly withhold the exact intersection claim.
+The rebuilt manuscript remains 55 pages (10,154,870 bytes), with SHA-256
+`c0d7e536d8ece2692125c76bfb945d21f4a59ec5155864577a60d9c34561f50e`.
+The LaTeX log contains no undefined references or overfull/underfull boxes;
+rendered pages 1, 11, 49, and 50 pass visual inspection.
 
 ## Weighted-plane control
 
