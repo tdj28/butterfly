@@ -183,6 +183,12 @@ EXP-413 passes that fourth consecutive half-step in two evaluations at
 `1.20406e-9` minimum singular value, and `0.9816` node margin add the
 twenty-first qualified point. The local outgoing arm is now reproducible under
 four newly computed tangents; its global fate remains open.
+
+EXP-414 passes a fifth consecutive tangent-recomputed half-step at
+`(a,c)=(0.1798184775390,10.3170786400251)`, adding the twenty-second point.
+Its `7.84907e-9` maximum defect uses `78.5%` of the frozen root gate while the
+minimum singular value remains `1.18889e-9`. EXP-415 therefore halves step
+size prospectively without changing a threshold.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
