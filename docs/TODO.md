@@ -1213,8 +1213,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   uniqueness/nonintersection audits. EXP-423 passes at the proven quarter-step
   and adds the thirty-first point. EXP-424 repeats it and adds the thirty-second
   point. EXP-425 passes a third same-size step and adds the thirty-third point.
-  Execute frozen adaptive EXP-426 at twice that step with every gate unchanged;
-  return to quarter-step if it fails.
+  Adaptive EXP-426 passes at twice that step and adds the thirty-fourth point.
+  Execute frozen EXP-427 by repeating the doubled step with every gate
+  unchanged; update the figure at 35 points if it passes.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

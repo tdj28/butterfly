@@ -71,6 +71,11 @@ EXP-425 passes in two evaluations at
 `1.08146e-9` minimum singular value, and `0.9914` node-boundary margin. After
 three post-checkpoint points at the defect floor, EXP-426 prospectively doubles
 step size with every acceptance gate unchanged.
+EXP-426 passes that doubled step in two evaluations at
+`(a,c)=(0.1798221057662,10.3170674216576)`, with `4.24350e-9` maximum defect,
+`1.06613e-9` minimum singular value, and `0.9828` node-boundary margin. The
+thirty-fourth point is qualified; EXP-427 freezes a repeated double-step before
+the next figure checkpoint.
 
 ## Weighted-plane control
 
