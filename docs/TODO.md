@@ -1201,8 +1201,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   passes, lowers the defect to `4.762e-9`, and adds the twenty-third point.
   EXP-416 repeats that step, passes at the `3.200e-9` defect floor, and adds the
   twenty-fourth point. EXP-417 passes again and adds the twenty-fifth point.
-  Refresh the receipt-bound figure, manuscript, and claim ledger, then
-  continue with the defect-aware quarter-step policy.
+  The receipt-bound figure, manuscript, and claim ledger now show all 25
+  points. Execute frozen EXP-418 with the defect-aware quarter-step policy and
+  every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
