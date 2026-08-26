@@ -56,6 +56,11 @@ The LaTeX log contains no undefined references or overfull/underfull boxes;
 rendered pages 1, 11, 49, and 50 pass visual inspection.
 EXP-423 freezes the first post-figure successor at the proven quarter-step,
 with exact EXP-421/422 bindings and every scientific gate unchanged.
+It passes in two evaluations at
+`(a,c)=(0.1798209029275,10.3170710913633)`, with `3.20014e-9` maximum defect,
+`1.09687e-9` minimum singular value, and `0.9913` node-boundary margin. This
+thirty-first point remains on the outgoing arm. EXP-424 freezes a same-size
+successor with a newly computed tangent.
 
 ## Weighted-plane control
 

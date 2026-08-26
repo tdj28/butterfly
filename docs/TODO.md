@@ -1210,8 +1210,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   thirtieth point. The receipt-bound 30-point figure and manuscript checkpoint
   are regenerated. Continue the outgoing branch with the same prospective
   defect-aware policy while separately defining bounded later-turn and
-  uniqueness/nonintersection audits. Execute frozen post-checkpoint EXP-423 at
-  the proven quarter-step with every gate unchanged.
+  uniqueness/nonintersection audits. EXP-423 passes at the proven quarter-step
+  and adds the thirty-first point. Execute frozen EXP-424 at the same step with
+  every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
