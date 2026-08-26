@@ -76,6 +76,11 @@ EXP-426 passes that doubled step in two evaluations at
 `1.06613e-9` minimum singular value, and `0.9828` node-boundary margin. The
 thirty-fourth point is qualified; EXP-427 freezes a repeated double-step before
 the next figure checkpoint.
+EXP-427 passes the repeated double-step in two evaluations at
+`(a,c)=(0.1798227890297,10.3170653684859)`, with `6.47336e-9` maximum defect,
+`1.05087e-9` minimum singular value, and `0.9829` node-boundary margin. The
+thirty-fifth qualified point triggers the next receipt-bound figure and
+manuscript checkpoint.
 
 ## Weighted-plane control
 
