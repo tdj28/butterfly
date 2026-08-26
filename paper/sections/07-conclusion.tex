@@ -11,16 +11,17 @@ root lies about $0.00284361$ above printed $a=0.1798$.  A declared uniqueness
 audit remains open, and the numerical qualification is not a computer-assisted
 existence proof.  Two qualified natural-continuation points produce a plausible
 secant crossing near $c=10.31714$, but fixed-$c$ and fixed-$a$ correctors
-reproducibly stall above the root gate.  Eight chained gauge-aligned
-two-parameter pseudo-arclength steps through 256 arcs pass, yielding eleven
-qualified curve points and reaching $a=0.1798174978857$.  The last point is
-only $1.74979\times10^{-5}$ above the historical section and preserves the
-projected crossing near $c=10.31713524$, showing that the first stall is not
-immediate branch termination.  Forward 512-arc successors, sparse direct
-Newton correction, and unconstrained collocation remain unqualified.  We
-therefore still do not claim an intersection with exact $a=0.1798$; bounded
-multiple-shooting continuation must reach that section or resolve a later
-turn.
+reproducibly stall above the root gate.  Ten chained gauge-aligned
+two-parameter pseudo-arclength steps through as many as 512 arcs pass, yielding
+thirteen qualified curve points.  The newest point reaches
+$a=0.1798174935369$, only $1.74935\times10^{-5}$ above the historical section.
+It passes a local fold where $c$ reverses while $a$ continues downward,
+showing both that the first stall was not immediate branch termination and
+that the pre-fold projection near $c=10.31713524$ cannot be promoted to a
+monotone-$c$ prediction.  Sparse direct Newton correction and unconstrained
+collocation remain unqualified.  We therefore still do not claim an
+intersection with exact $a=0.1798$; fold-aware bounded multiple-shooting
+continuation must reach that section or resolve another turn.
 The regular small-equilibrium Hopf locus is now exact and independently
 qualified; at the hub abscissa it begins at $c=0.5192306257$.  This supplies
 the local start of the proposed fixed-$a$ Hopf-to-homoclinic construction,

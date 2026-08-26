@@ -110,21 +110,37 @@ independently seeded fixed-$a$ corrections return near $c=10.317127$ with the
 same stable-end defect of approximately $2.10\times10^{-4}$.  These preserved
 failures motivate a gauge-aligned two-parameter pseudo-arclength system rather
 than another forced-coordinate solve.  Eight chained Radau steps through 256
-arcs pass, producing eleven qualified curve points in total and reaching
+arcs pass, initially producing eleven qualified curve points and reaching
 \[
   (a,c)=(0.1798174978857,10.3170814887419),
 \]
 with maximum matching defects below $10^{-8}$ and arclength
 residuals below $4.40\times10^{-11}$.  The last point is only
-$1.74979\times10^{-5}$ above the historical $a$ section.  Its local slope,
-$-0.32555655$, projects $a=0.1798$ near $c=10.31713524$.  Thus the earlier
-floor is not an immediate branch termination and locally reflects coordinate
-conditioning.  The prospective successor experiments remain honest failures:
-one sub-gate root moves backward in $c$, while forward physical-plane,
-sparse-Newton, and unconstrained collocation formulations do not pass the
-matching gate.  These failures do not alter the eleven qualified roots, but a
-later fold remains possible and the exact historical-path intersection is
-still not claimed.
+$1.74979\times10^{-5}$ above the historical $a$ section.  The pre-fold slope,
+$-0.32555655$, projects $a=0.1798$ near $c=10.31713524$.
+
+The 512-arc successor program preserves every failed formulation rather than
+silently extending the curve.  Unconstrained collocation escapes even on a
+zero-step control; long-secant weighted planes hit walls or select backward
+roots; and oversized local-tangent steps reverse in $c$.  A bounded
+standard-tangent control passes, and a fourfold-smaller step then adds a
+twelfth point at
+$(a,c)=(0.1798174938833,10.3170815075378)$.  Fixing normalized arclength removes
+step inflation but further reductions still reverse $c$ while moving toward
+smaller $a$.  This diagnoses a local $c$ fold, not disappearance of the
+homoclinic root.  Reorienting the prospectively frozen tangent and direction
+gate toward decreasing $a$, with $c$ unconstrained, passes in two corrections
+at
+\[
+  (a,c)=(0.1798174935369,10.3170815025596).
+\]
+Its maximum block defect is $4.01\times10^{-9}$, plane residual
+$5.07\times10^{-14}$, and smallest measured Jacobian singular value
+$1.69\times10^{-9}$.  This thirteenth qualified point demonstrates numerical
+continuation through the local $c$ fold.  The remaining fixed-$a$ gap is
+$1.74935\times10^{-5}$; consequently the pre-fold projected crossing is no
+longer treated as a monotone-$c$ prediction, and the exact historical-path
+intersection is still not claimed.
 
 \begin{figure}[t]
   \centering
@@ -145,15 +161,16 @@ still not claimed.
   \centering
   \includegraphics[width=\textwidth]{figures/fig30-exp342-382-homoclinic-continuation.png}
   \caption{Continuation of the qualified homoclinic candidate toward Jones's
-  printed $a=0.1798$ section.  A: eleven qualified roots from EXP-342 through
-  EXP-368 and the last-secant projected crossing.  B: the near-section zoom
-  separates qualified roots from a wrong-direction root and forward solver
-  iterates that do not pass the frozen gate.  C: every accepted point remains
+  printed $a=0.1798$ section.  A: thirteen qualified roots through EXP-403 and
+  the pre-fold EXP-367/368 secant extrapolation.  B: a nanoscopic offset view
+  resolves the EXP-368--399--403 local $c$ fold and separates the qualified
+  decreasing-$a$ step from roots rejected by their prospectively frozen
+  positive-$c$ gates.  C: every accepted point remains
   below the prospective $10^{-8}$ maximum-block-defect gate; the preserved
   failures expose conditioning and method limits rather than silently
   extending the curve.  The zero-step collocation control also escapes and is
-  excluded from the defect scale.  The open star is an extrapolation, not a
-  qualified intersection.}
+  excluded from the defect scale.  The open star is a pre-fold extrapolation,
+  not a qualified intersection.}
   \label{fig:homoclinic-continuation}
 \end{figure}
 

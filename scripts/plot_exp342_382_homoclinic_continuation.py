@@ -17,9 +17,37 @@ import numpy as np
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 
 
-SCHEMA = "butterfly.exp342-382-homoclinic-continuation-figure.v1"
-QUALIFIED_IDS = (342, 347, 350, 360, 361, 362, 363, 365, 366, 367, 368)
-FAILED_IDS = (364, 369, 370, 371, 372, 373, 374, 375, 376, 377)
+SCHEMA = "butterfly.exp342-403-homoclinic-continuation-figure.v1"
+QUALIFIED_IDS = (342, 347, 350, 360, 361, 362, 363, 365, 366, 367, 368, 399, 403)
+FAILED_IDS = (
+    364,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    385,
+    386,
+    387,
+    389,
+    390,
+    392,
+    393,
+    394,
+    395,
+    397,
+    398,
+    400,
+    401,
+    402,
+)
+PROJECTION_IDS = (367, 368)
+FOLD_IDS = (368, 399, 403)
+LOCAL_FAILED_IDS = (397, 398, 400, 401, 402)
 FIXED_C = {342: 10.3084, 347: 10.3104, 350: 10.3144}
 
 
@@ -84,10 +112,14 @@ def main() -> int:
         if receipts[experiment_id].get("final_variables") is not None
     }
     last_c, last_a = qualified[-1]
-    prior_c, prior_a = qualified[-2]
-    slope = (last_a - prior_a) / (last_c - prior_c)
+    projection_points = np.asarray(
+        [curve_point(experiment_id, receipts[experiment_id]) for experiment_id in PROJECTION_IDS]
+    )
+    prior_c, prior_a = projection_points[0]
+    projection_c, projection_a = projection_points[1]
+    slope = (projection_a - prior_a) / (projection_c - prior_c)
     historical_a = 0.1798
-    projected_c = last_c + (historical_a - last_a) / slope
+    projected_c = projection_c + (historical_a - projection_a) / slope
 
     figure, axes = plt.subplots(1, 3, figsize=(15.6, 5.2), constrained_layout=True)
     axis_curve, axis_zoom, axis_defect = axes
@@ -98,7 +130,7 @@ def main() -> int:
     axis_curve.plot(qualified[:, 0], qualified[:, 1], color=curve_color, lw=1.8)
     axis_curve.scatter(qualified[:, 0], qualified[:, 1], color=pass_color, s=30, zorder=3)
     axis_curve.scatter([10.3084], [historical_a], marker="X", s=90, color="#c51b7d", label="Jones printed point")
-    axis_curve.scatter([projected_c], [historical_a], marker="*", s=125, facecolors="none", edgecolors="#111111", label="local projected crossing")
+    axis_curve.scatter([projected_c], [historical_a], marker="*", s=125, facecolors="none", edgecolors="#111111", label="pre-fold secant projection")
     axis_curve.axhline(historical_a, color="#555555", ls="--", lw=1.0)
     axis_curve.set_title("A  Qualified homoclinic curve")
     axis_curve.set_xlabel("c")
@@ -106,31 +138,35 @@ def main() -> int:
     axis_curve.grid(alpha=0.2)
     axis_curve.legend(fontsize=8, loc="best")
 
-    zoom_mask = qualified[:, 0] >= 10.3143
-    axis_zoom.plot(qualified[zoom_mask, 0], qualified[zoom_mask, 1], color=curve_color, lw=1.8)
-    axis_zoom.scatter(qualified[zoom_mask, 0], qualified[zoom_mask, 1], color=pass_color, s=35, label="qualified root")
-    for experiment_id, (c_value, a_value) in failed_points.items():
-        marker = "D" if experiment_id == 369 else "x"
-        color = "#e6ab02" if experiment_id == 369 else fail_color
-        axis_zoom.scatter(c_value, a_value, marker=marker, color=color, s=35, alpha=0.78)
-    axis_zoom.scatter([], [], marker="D", color="#e6ab02", label="wrong-direction root")
-    axis_zoom.scatter([], [], marker="x", color=fail_color, label="unqualified iterate")
-    axis_zoom.scatter([projected_c], [historical_a], marker="*", s=125, facecolors="none", edgecolors="#111111")
-    axis_zoom.axhline(historical_a, color="#555555", ls="--", lw=1.0)
+    fold_reference_c, fold_reference_a = curve_point(399, receipts[399])
+
+    def fold_coordinates(experiment_id: int) -> tuple[float, float]:
+        c_value, a_value = curve_point(experiment_id, receipts[experiment_id])
+        return (1e9 * (c_value - fold_reference_c), 1e9 * (a_value - fold_reference_a))
+
+    fold_curve = np.asarray([fold_coordinates(experiment_id) for experiment_id in FOLD_IDS])
+    axis_zoom.plot(fold_curve[:, 0], fold_curve[:, 1], color=curve_color, lw=1.8)
+    axis_zoom.scatter(
+        fold_curve[:, 0], fold_curve[:, 1], color=pass_color, s=42, label="qualified root"
+    )
+    for experiment_id in LOCAL_FAILED_IDS:
+        c_offset, a_offset = fold_coordinates(experiment_id)
+        axis_zoom.scatter(c_offset, a_offset, marker="x", color=fail_color, s=42, alpha=0.82)
+    axis_zoom.scatter([], [], marker="x", color=fail_color, label="positive-c gate rejected")
     axis_zoom.annotate(
-        "EXP-368\n1.75e-5 above section",
-        xy=(last_c, last_a),
-        xytext=(10.31655, 0.179845),
+        "EXP-403 passes\nwith decreasing a",
+        xy=fold_curve[-1],
+        xytext=(-75.0, 13.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},
         fontsize=8,
     )
-    axis_zoom.set_xlim(10.31425, 10.31738)
-    axis_zoom.set_ylim(0.17977, 0.18074)
-    axis_zoom.ticklabel_format(axis="x", style="plain", useOffset=False)
-    axis_zoom.set_title("B  Historical-section approach")
-    axis_zoom.set_xlabel("c")
+    axis_zoom.axvline(0.0, color="#777777", ls=":", lw=0.8)
+    axis_zoom.axhline(0.0, color="#777777", ls=":", lw=0.8)
+    axis_zoom.set_title("B  Local c fold at nanoscopic scale")
+    axis_zoom.set_xlabel(r"$(c-c_{399})\times10^9$")
+    axis_zoom.set_ylabel(r"$(a-a_{399})\times10^9$")
     axis_zoom.grid(alpha=0.2)
-    axis_zoom.legend(fontsize=8, loc="upper right")
+    axis_zoom.legend(fontsize=8, loc="best")
 
     defect_ids = QUALIFIED_IDS + FAILED_IDS
     defects = np.asarray(
@@ -143,7 +179,7 @@ def main() -> int:
     axis_defect.scatter(positions[~passed], defects[~passed], color=fail_color, marker="x", s=38, label="preserved failure")
     axis_defect.axhline(1e-8, color="#111111", ls="--", lw=1.0, label="root gate")
     axis_defect.set_yscale("log")
-    axis_defect.set_xticks(positions[::2], [str(value) for value in defect_ids[::2]], rotation=55)
+    axis_defect.set_xticks(positions[::3], [str(value) for value in defect_ids[::3]], rotation=55)
     axis_defect.set_xlabel("experiment number")
     axis_defect.set_ylabel("maximum matching-block defect")
     axis_defect.set_title("C  Gates expose method failures")
@@ -152,7 +188,7 @@ def main() -> int:
     axis_defect.text(
         0.98,
         0.04,
-        "EXP-380/382: collocation escaped\n(not plotted on defect scale)",
+        "EXP-380/382: collocation escaped\n(not plotted on defect scale)\nEXP-403 passes through c fold",
         transform=axis_defect.transAxes,
         ha="right",
         va="bottom",
@@ -181,7 +217,9 @@ def main() -> int:
         "historical_section_a": historical_a,
         "projected_crossing_c": float(projected_c),
         "last_qualified_a_gap": float(last_a - historical_a),
-        "last_secant_da_dc": float(slope),
+        "projection_experiments": [f"EXP-{value}" for value in PROJECTION_IDS],
+        "projection_secant_da_dc": float(slope),
+        "local_fold_experiments": [f"EXP-{value}" for value in FOLD_IDS],
         "output": str(args.output),
         "output_sha256": sha256_file(args.output),
         "dpi": args.dpi,

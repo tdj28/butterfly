@@ -1154,7 +1154,7 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   (`0.00459868` normalized step). EXP-399 passes every gate in two evaluations
   at `(a,c)=(0.1798174938833,10.3170815075378)`, adding the twelfth qualified
   curve point. Execute frozen EXP-400's same-size chained successor, then
-  refresh the manuscript homoclinic figure and eleven-point text from the
+  refresh the manuscript homoclinic figure and qualified-point text from the
   resulting coherent continuation checkpoint. EXP-400 preserves an interior,
   conditioned backward root because the local scaled `c` tangent falls by
   `4.27x`, inflating the fixed-`Delta c` normalized step to `0.0196159`.
@@ -1543,7 +1543,7 @@ exposition requirements.
   conclusion; independent readability review. The visual rebuild now
   integrates 30 figures, a global-to-period-6 shrimp zoom, an eleven-slice
   multi-b atlas, Supplemental Movie S1, a concise abstract, and the complete
-  eleven-point homoclinic-continuation diagnostic. The remaining
+  thirteen-point homoclinic-continuation diagnostic. The remaining
   closure items are the complete unfolded-spiral mechanism figure and an
   independent readability review.
 
