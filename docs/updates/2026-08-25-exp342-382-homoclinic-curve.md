@@ -51,9 +51,11 @@ outgoing arm, and all 26 preserved failures.  Its receipt schema is
 The abstract, results, conclusion, claim ledger, and finding record use the
 same 30-root count and explicitly withhold the exact intersection claim.
 The rebuilt manuscript remains 55 pages (10,154,870 bytes), with SHA-256
-`c0d7e536d8ece2692125c76bfb945d21f4a59ec5155864577a60d9c34561f50e`.
+`63eb01afb8b93e20138dbfbe1a2fa7c769b35fa5fd7a19c26161d3f88714e4a7`.
 The LaTeX log contains no undefined references or overfull/underfull boxes;
 rendered pages 1, 11, 49, and 50 pass visual inspection.
+EXP-423 freezes the first post-figure successor at the proven quarter-step,
+with exact EXP-421/422 bindings and every scientific gate unchanged.
 
 ## Weighted-plane control
 
