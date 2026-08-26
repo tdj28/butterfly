@@ -140,6 +140,13 @@ evaluations at `(a,c)=(0.1798174943028,10.3170814997428)`. Signed progress is
 larger `a`, strengthening the local-minimum interpretation while leaving later
 turns open. EXP-407 freezes a fourfold-larger normalized step under the same
 coordinate-free gates.
+
+EXP-407 passes the fourfold step at
+`(a,c)=(0.1798175017665,10.3170814834324)`, adding the sixteenth point. Its
+`Delta a=+7.46365e-9`, `Delta c=-1.63104e-8`, `4.00127e-9` maximum defect, and
+`1.67271e-9` minimum singular value resolve the local minimum on both sides.
+EXP-408 freezes one more fourfold arclength increase to trace the outgoing
+branch efficiently.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
