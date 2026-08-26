@@ -221,16 +221,16 @@ def main() -> int:
     axis_outgoing.annotate(
         "EXP-413: four conditioned\nhalf-steps pass",
         xy=outgoing_curve[-1],
-        xytext=(-1725.0, 650.0),
+        xytext=(-1725.0, 620.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},
         fontsize=8,
     )
     axis_outgoing.text(
-        0.03,
+        0.97,
         0.95,
         "historical a section is 17,493.5 offset units below (off scale)",
         transform=axis_outgoing.transAxes,
-        ha="left",
+        ha="right",
         va="top",
         fontsize=8,
         color="#555555",
