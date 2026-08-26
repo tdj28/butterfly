@@ -47,7 +47,7 @@ FAILED_IDS = (
 )
 PROJECTION_IDS = (367, 368)
 FOLD_IDS = (368, 399, 403)
-LOCAL_FAILED_IDS = (397, 398, 400, 401, 402)
+LOCAL_FAILED_IDS = (401, 402)
 FIXED_C = {342: 10.3084, 347: 10.3104, 350: 10.3144}
 
 
@@ -156,7 +156,7 @@ def main() -> int:
     axis_zoom.annotate(
         "EXP-403 passes\nwith decreasing a",
         xy=fold_curve[-1],
-        xytext=(-75.0, 13.0),
+        xytext=(-16.0, 3.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},
         fontsize=8,
     )
