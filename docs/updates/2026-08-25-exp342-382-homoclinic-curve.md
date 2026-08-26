@@ -108,6 +108,11 @@ EXP-432 passes in two evaluations at
 fortieth point is qualified and closes the receipt-bound checkpoint. Continue
 only after prospectively freezing the next step and retaining the current
 conditioning gate.
+EXP-433 then passes the first post-checkpoint step in two evaluations at
+`(a,c)=(0.1798256632877,10.3170564403294)`, with `3.20003e-9` maximum defect,
+`9.97969e-10` minimum singular value, and `0.9918` node-boundary margin. The
+forty-first point is qualified. Because conditioning is now just below twice
+its gate, EXP-434 prospectively holds the conservative quarter-step.
 
 ## Weighted-plane control
 
