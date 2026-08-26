@@ -50,8 +50,10 @@ outgoing arm, and all 26 preserved failures.  Its receipt schema is
 `fde56119382c041a09639bc89934c3e0fc87cce2f42a7929a42ad20644badd73`.
 The abstract, results, conclusion, claim ledger, and finding record use the
 same 45-root count and explicitly withhold the exact intersection claim. The
-figure passes visual inspection; the clean-source manuscript rebuild and PDF
-page QA follow this artifact checkpoint.
+rebuilt manuscript remains 55 pages (10,176,822 bytes), with SHA-256
+`5b824303fe647147bf98e684868bcfd4fa1bc5d74b71a8fa8fdad9c56a140f72`.
+The LaTeX log contains no undefined references, citation warnings, or
+overfull/underfull boxes; rendered pages 1, 11, and 50 pass visual inspection.
 EXP-423 freezes the first post-figure successor at the proven quarter-step,
 with exact EXP-421/422 bindings and every scientific gate unchanged.
 It passes in two evaluations at
