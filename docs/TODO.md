@@ -1188,9 +1188,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   `Delta a=+1.01e-7`. EXP-409 finds another clean outgoing root but its minimum
   singular value `4.224e-10` fails the fixed `5e-10` floor. EXP-410 halves the
   step without changing a gate, passes in two evaluations with minimum
-  singular value `1.249e-9`, and adds the eighteenth qualified point. Refresh
-  the receipt-bound figure and manuscript, then continue the outgoing branch
-  with conditioning-aware step control.
+  singular value `1.249e-9`, and adds the eighteenth qualified point. The
+  receipt-bound four-panel figure and manuscript now show the first local
+  minimum and conditioned outgoing branch. Execute frozen EXP-411 from the
+  exact passed EXP-408/410 pair with every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
