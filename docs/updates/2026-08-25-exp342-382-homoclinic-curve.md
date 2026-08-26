@@ -118,6 +118,10 @@ EXP-434 passes in two evaluations at
 `9.90540e-10` minimum singular value, and `0.9919` node-boundary margin. The
 forty-second point is qualified; EXP-435 freezes a third same-size
 post-checkpoint step.
+EXP-435 passes in two evaluations at
+`(a,c)=(0.1798266318742,10.3170534602180)`, with `3.20002e-9` maximum defect,
+`9.83158e-10` minimum singular value, and `0.9919` node-boundary margin. The
+forty-third point is qualified; EXP-436 freezes a fourth same-size step.
 
 ## Weighted-plane control
 
