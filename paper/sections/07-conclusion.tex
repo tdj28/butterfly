@@ -11,16 +11,18 @@ root lies about $0.00284361$ above printed $a=0.1798$.  A declared uniqueness
 audit remains open, and the numerical qualification is not a computer-assisted
 existence proof.  Two qualified natural-continuation points produce a plausible
 secant crossing near $c=10.31714$, but fixed-$c$ and fixed-$a$ correctors
-reproducibly stall above the root gate.  Eighteen gauge-aligned two-parameter
-pseudo-arclength points through as many as 512 arcs pass, yielding twenty-one
+reproducibly stall above the root gate.  Twenty-two gauge-aligned two-parameter
+pseudo-arclength points through as many as 512 arcs pass, yielding twenty-five
 qualified curve points.  The closest sampled point reaches
 $a=0.1798174935369$, only $1.74935\times10^{-5}$ above the historical section.
 Coordinate-free signed arclength then resolves this point as a first local
 minimum and follows the outgoing branch to larger $a$ and smaller $c$.
 EXP-410 passes every unchanged gate after a twice-larger step fails only the
-fixed conditioning floor.  Three more newly tangent-computed half-steps pass
-and reach $(a,c)=(0.1798182269380,10.3170793858051)$, establishing a
-reproducible outgoing arm.  Thus the first stall was not branch termination,
+fixed conditioning floor.  Seven more newly tangent-computed steps pass;
+defect-aware step reduction keeps the last three below the root gate and
+reaches $(a,c)=(0.1798189322263,10.3170771259104)$.  The outgoing arm is
+therefore reproduced under eight newly computed tangents after EXP-408.  Thus
+the first stall was not branch termination,
 but the first local turn does not intersect $a=0.1798$ and the pre-fold
 projection near $c=10.31713524$ cannot be promoted to a monotone-$c$
 prediction.  Sparse direct Newton correction and unconstrained collocation

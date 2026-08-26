@@ -1200,7 +1200,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   maximum defect uses `78.5%` of the frozen root gate. EXP-415 halves the step,
   passes, lowers the defect to `4.762e-9`, and adds the twenty-third point.
   EXP-416 repeats that step, passes at the `3.200e-9` defect floor, and adds the
-  twenty-fourth point. Execute frozen EXP-417 for a 25-point checkpoint.
+  twenty-fourth point. EXP-417 passes again and adds the twenty-fifth point.
+  Refresh the receipt-bound figure, manuscript, and claim ledger, then
+  continue with the defect-aware quarter-step policy.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

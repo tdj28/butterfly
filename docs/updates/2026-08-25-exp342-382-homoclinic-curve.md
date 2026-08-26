@@ -201,6 +201,13 @@ EXP-416 passes the repeated quarter-step in two evaluations at
 persistent `3.20024e-9` floor, minimum singular value is `1.17364e-9`, and the
 twenty-fourth point is qualified. EXP-417 freezes one more same-size step for
 a 25-point visual and manuscript checkpoint.
+
+EXP-417 passes the next quarter-step in two evaluations at
+`(a,c)=(0.1798189322263,10.3170771259104)`. Maximum defect remains at the
+`3.20023e-9` floor, minimum singular value is `1.16598e-9`, and node margin is
+`0.9910`. This twenty-fifth qualified point extends the outgoing arm under an
+eighth newly computed tangent after EXP-408. Later turns, other branches,
+global nonintersection, uniqueness, and proof remain open.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
