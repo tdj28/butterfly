@@ -142,6 +142,23 @@ $1.74935\times10^{-5}$; consequently the pre-fold projected crossing is no
 longer treated as a monotone-$c$ prediction, and the exact historical-path
 intersection is still not claimed.
 
+At that scale neither displayed parameter supplies a reliable orientation:
+the next clean full-state-forward correction reverses both $a$ and $c$.
+Replacing coordinate gates by secant-aligned signed arclength adds five more
+qualified points and resolves EXP-403 as the sampled first local minimum in
+$a$.  The outgoing branch reaches
+\[
+  (a,c)=(0.1798177050799,10.3170808940738)
+\]
+at EXP-410.  Its maximum block defect is $3.20\times10^{-9}$ and its smallest
+measured singular value is $1.25\times10^{-9}$.  A twice-larger step reaches a
+clean root but fails only the fixed conditioning floor; halving that step
+passes every unchanged gate in two corrections.  Thus eighteen roots are now
+qualified.  The first observed local turn moves away from the historical
+fixed-$a$ section, so it does not provide the printed intersection.  A later
+turn or another branch remains possible and global nonintersection is not
+claimed.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/fig29-exp342-346-homoclinic-root.png}
@@ -161,11 +178,12 @@ intersection is still not claimed.
   \centering
   \includegraphics[width=\textwidth]{figures/fig30-exp342-382-homoclinic-continuation.png}
   \caption{Continuation of the qualified homoclinic candidate toward Jones's
-  printed $a=0.1798$ section.  A: thirteen qualified roots through EXP-403 and
+  printed $a=0.1798$ section.  A: eighteen qualified roots through EXP-410 and
   the pre-fold EXP-367/368 secant extrapolation.  B: a nanoscopic offset view
-  resolves the EXP-368--399--403 local $c$ fold and separates the qualified
-  decreasing-$a$ step from roots rejected by their prospectively frozen
-  positive-$c$ gates.  C: every accepted point remains
+  resolves the first sampled local minimum in $a$ and separates qualified
+  signed-arclength steps from coordinate-gate rejections.  C: the outgoing
+  branch and EXP-409 conditioning-only rejection show why adaptive step size
+  is required.  D: every accepted point remains
   below the prospective $10^{-8}$ maximum-block-defect gate; the preserved
   failures expose conditioning and method limits rather than silently
   extending the curve.  The zero-step collocation control also escapes and is

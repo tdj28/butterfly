@@ -11,17 +11,20 @@ root lies about $0.00284361$ above printed $a=0.1798$.  A declared uniqueness
 audit remains open, and the numerical qualification is not a computer-assisted
 existence proof.  Two qualified natural-continuation points produce a plausible
 secant crossing near $c=10.31714$, but fixed-$c$ and fixed-$a$ correctors
-reproducibly stall above the root gate.  Ten chained gauge-aligned
-two-parameter pseudo-arclength steps through as many as 512 arcs pass, yielding
-thirteen qualified curve points.  The newest point reaches
+reproducibly stall above the root gate.  Fifteen gauge-aligned two-parameter
+pseudo-arclength points through as many as 512 arcs pass, yielding eighteen
+qualified curve points.  The closest sampled point reaches
 $a=0.1798174935369$, only $1.74935\times10^{-5}$ above the historical section.
-It passes a local fold where $c$ reverses while $a$ continues downward,
-showing both that the first stall was not immediate branch termination and
-that the pre-fold projection near $c=10.31713524$ cannot be promoted to a
-monotone-$c$ prediction.  Sparse direct Newton correction and unconstrained
-collocation remain unqualified.  We therefore still do not claim an
-intersection with exact $a=0.1798$; fold-aware bounded multiple-shooting
-continuation must reach that section or resolve another turn.
+Coordinate-free signed arclength then resolves this point as a first local
+minimum and follows the outgoing branch to larger $a$ and smaller $c$.
+EXP-410 passes every unchanged gate after a twice-larger step fails only the
+fixed conditioning floor.  Thus the first stall was not branch termination,
+but the first local turn does not intersect $a=0.1798$ and the pre-fold
+projection near $c=10.31713524$ cannot be promoted to a monotone-$c$
+prediction.  Sparse direct Newton correction and unconstrained collocation
+remain unqualified.  A later turn or another branch remains possible; we do
+not claim global nonintersection, the exact printed intersection, or
+uniqueness.
 The regular small-equilibrium Hopf locus is now exact and independently
 qualified; at the hub abscissa it begins at $c=0.5192306257$.  This supplies
 the local start of the proposed fixed-$a$ Hopf-to-homoclinic construction,
