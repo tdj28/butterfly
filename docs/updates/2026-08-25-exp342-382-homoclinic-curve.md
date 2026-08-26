@@ -92,6 +92,10 @@ EXP-429 passes in two evaluations at
 `(a,c)=(0.1798239253245,10.3170618526134)`, with `5.22370e-9` maximum defect,
 `1.02807e-9` minimum singular value, and `0.9916` node-boundary margin. The
 thirty-seventh point is qualified; EXP-430 freezes a repeated quarter-step.
+EXP-430 passes in two evaluations at
+`(a,c)=(0.1798243356948,10.3170605556857)`, with `3.44244e-9` maximum defect,
+`1.02050e-9` minimum singular value, and `0.9917` node-boundary margin. The
+thirty-eighth point is qualified; EXP-431 freezes a third same-size step.
 
 ## Weighted-plane control
 
