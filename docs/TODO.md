@@ -1183,8 +1183,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-403/405. EXP-406 passes every gate and adds the fifteenth point; its
   recomputed tangent and corrected root both move toward larger `a`, supporting
   a local minimum above the historical section. EXP-407's fourfold step passes
-  and adds the sixteenth point with `Delta a=+7.46e-9`. Execute frozen EXP-408
-  at normalized step `0.0183947` to trace the outgoing branch faster.
+  and adds the sixteenth point with `Delta a=+7.46e-9`. EXP-408 passes at
+  normalized step `0.0183947` and adds the seventeenth point with
+  `Delta a=+1.01e-7`. Execute frozen same-scale EXP-409 to test persistence of
+  the outgoing trend.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -147,6 +147,12 @@ EXP-407 passes the fourfold step at
 `1.67271e-9` minimum singular value resolve the local minimum on both sides.
 EXP-408 freezes one more fourfold arclength increase to trace the outgoing
 branch efficiently.
+
+EXP-408 passes at normalized step `0.0183947` in four evaluations, reaching
+`(a,c)=(0.1798176031556,10.3170811650024)`. It adds the seventeenth point with
+`Delta a=+1.01389e-7`, `3.20148e-9` maximum defect, `1.26420e-9` minimum
+singular value, and `0.9630` node margin. EXP-409 freezes another same-scale
+chain to test whether the outgoing trend persists.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
