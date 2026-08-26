@@ -1222,8 +1222,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-429 passes at the proven quarter-step and adds the thirty-seventh point.
   EXP-430 repeats it and adds the thirty-eighth. EXP-431 passes at the same
   step and adds the thirty-ninth. Conservative EXP-432 passes with every gate
-  unchanged and adds the fortieth. Regenerate the receipt-bound figure and
-  manuscript at the 40-point checkpoint before resuming continuation.
+  unchanged and adds the fortieth. The receipt-bound 40-point figure is
+  regenerated and visually inspected. Rebuild and inspect the manuscript PDF
+  from this clean artifact checkpoint before resuming continuation.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
