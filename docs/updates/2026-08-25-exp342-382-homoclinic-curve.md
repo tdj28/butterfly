@@ -171,6 +171,12 @@ EXP-411 recomputes the tangent at EXP-410 and repeats the conditioned
 `1.23425e-9` minimum singular value, and `0.9814` node margin. This nineteenth
 qualified point reproduces the outgoing trend rather than merely replaying a
 single recovery tangent. EXP-412 freezes the next identical-gate step.
+
+EXP-412 passes the next step in two evaluations at
+`(a,c)=(0.1798180156211,10.3170800076436)`. Its `5.34249e-9` maximum defect,
+`1.21918e-9` minimum singular value, and `0.9815` node margin add the twentieth
+qualified point. The outgoing trend persists; EXP-413 freezes a fourth
+identical-gate half-step.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
