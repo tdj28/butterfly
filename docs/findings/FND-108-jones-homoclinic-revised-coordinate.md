@@ -227,7 +227,7 @@ selects an interior backward root.  The runner now supports a prospectively
 fixed normalized step and derives its physical `c` request from each new local
 tangent; all 396 repository tests at that checkpoint pass.
 
-## Signed-arclength resolution through EXP-422
+## Signed-arclength resolution through EXP-427
 
 EXP-401--404 show that neither displayed coordinate is a reliable local
 orientation gate at this scale.  EXP-403 passes at
@@ -246,8 +246,8 @@ returns to the proven quarter-step and passes at
 `(a,c)=(0.1798206348114,10.3170719468639)`, with `4.58385e-9` maximum defect,
 `1.10459e-9` minimum singular value, and `0.9913` node-boundary margin.
 
-The qualified curve now contains 30 roots, including 27 pseudo-arclength
-points.  Its outgoing arm is reproduced under 13 newly computed tangents after
+The qualified curve now contains 35 roots, including 32 pseudo-arclength
+points.  Its outgoing arm is reproduced under 18 newly computed tangents after
 EXP-408.  This strongly supports persistence of Jones's proposed homoclinic
 mechanism near the reported hub and rejects the interpretation that the first
 residual floor was immediate branch termination.  It does not rescue the
@@ -255,6 +255,13 @@ printed coordinate: EXP-403 remains `1.74935e-5` above `a=0.1798`, and the
 first local turn subsequently moves away.  Later turns, other branches, an
 exact historical-section intersection, global nonintersection, uniqueness,
 and computer-assisted existence remain open.
+
+EXP-423--425 extend the outgoing arm with three further quarter-steps at the
+`3.20e-9` defect floor.  EXP-426/427 then qualify a second doubled-step regime,
+reaching `(a,c)=(0.1798227890297,10.3170653684859)` with `6.47336e-9` maximum
+defect, `1.05087e-9` minimum singular value, and `0.9829` node-boundary margin.
+These five additional roots reinforce the same conclusion: the local turn is
+smooth and reproducible, but it moves farther from the historical section.
 
 ## Limits
 
@@ -265,5 +272,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-422, including preserved negative results and
+Evidence: EXP-341 through EXP-427, including preserved negative results and
 their hash-bound compact receipts.

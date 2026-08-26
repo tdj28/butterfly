@@ -1,11 +1,11 @@
-# EXP-342--422: qualified homoclinic curve and honest section gap
+# EXP-342--427: qualified homoclinic curve and honest section gap
 
 ## What is now established
 
 The revised-coordinate homoclinic candidate is no longer an isolated numerical
 root.  EXP-342, EXP-347, and EXP-350 qualify the initial point and two
-natural-continuation successors; 27 chained pseudo-arclength roots bring the
-qualified total to 30.  Every accepted root passes the prospective `1e-8`
+natural-continuation successors; 32 chained pseudo-arclength roots bring the
+qualified total to 35.  Every accepted root passes the prospective `1e-8`
 maximum matching-block gate.  The closest sampled point is EXP-403:
 
 ```text
@@ -13,8 +13,8 @@ maximum matching-block gate.  The closest sampled point is EXP-403:
 historical a gap = 1.7493536856150183e-5
 ```
 
-The last accepted point, EXP-422, is
-`(a,c)=(0.1798206348113553,10.317071946863937)`.  The pre-fold EXP-367/368
+The last accepted point, EXP-427, is
+`(a,c)=(0.17982278902974164,10.317065368485878)`.  The pre-fold EXP-367/368
 secant projects a local crossing at `c=10.317135236348886`, but the resolved
 local turn invalidates treating that projection as a monotone-`c` prediction.
 
@@ -37,23 +37,23 @@ any declared segment remain unqualified.
   unstable orbit: it escapes catastrophically even on the zero-step EXP-368
   positive control.
 
-None of these failures falsifies the eleven receipt-bound roots.  They reject
+None of these failures falsifies the receipt-bound roots.  They reject
 specific successor formulations and require the next attempt to retain bounded
 multiple shooting.
 
 ## Manuscript checkpoint
 
-Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now displays all 30
-qualified roots through EXP-422, the sampled local minimum, the adaptive
+Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now displays all 35
+qualified roots through EXP-427, the sampled local minimum, the adaptive
 outgoing arm, and all 26 preserved failures.  Its receipt schema is
-`butterfly.exp342-422-homoclinic-continuation-figure.v1`; the image SHA-256 is
-`86e9414b5d3acb332997a64b064c7e6ee187b3e00a842932a2553b691435c772`.
+`butterfly.exp342-427-homoclinic-continuation-figure.v1`; the image SHA-256 is
+`7914e055bf56f8cc6be22c12c1f581b1477767328925ff34fb31baeb90851caf`.
 The abstract, results, conclusion, claim ledger, and finding record use the
-same 30-root count and explicitly withhold the exact intersection claim.
-The rebuilt manuscript remains 55 pages (10,154,870 bytes), with SHA-256
-`63eb01afb8b93e20138dbfbe1a2fa7c769b35fa5fd7a19c26161d3f88714e4a7`.
+same 35-root count and explicitly withhold the exact intersection claim.
+The rebuilt manuscript remains 55 pages (10,163,529 bytes), with SHA-256
+`4c857f60e55c9b00289cb1d803edcabc435bf5da4bdb34e91f4598de4dd38f25`.
 The LaTeX log contains no undefined references or overfull/underfull boxes;
-rendered pages 1, 11, 49, and 50 pass visual inspection.
+rendered pages 1, 11, and 50 pass visual inspection at this checkpoint.
 EXP-423 freezes the first post-figure successor at the proven quarter-step,
 with exact EXP-421/422 bindings and every scientific gate unchanged.
 It passes in two evaluations at

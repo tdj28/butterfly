@@ -1215,8 +1215,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   point. EXP-425 passes a third same-size step and adds the thirty-third point.
   Adaptive EXP-426 passes at twice that step and adds the thirty-fourth point.
   EXP-427 repeats the doubled step and adds the thirty-fifth point. Update the
-  receipt-bound figure, manuscript, claim ledger, and finding record at the
-  35-point checkpoint.
+  receipt-bound figure, manuscript, claim ledger, and finding record are now
+  regenerated at the 35-point checkpoint. Continue with the same adaptive
+  gate policy and prepare a separate bounded later-turn audit.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
