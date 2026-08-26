@@ -228,6 +228,12 @@ EXP-421 passes the third double-step in two evaluations at
 `7.38780e-9` (73.9% of its gate), minimum singular value remains
 `1.11227e-9`, and the twenty-ninth point is qualified. EXP-422 prospectively
 returns to the proven quarter-step before the 30-point figure checkpoint.
+EXP-422 passes that reduced step in two evaluations at
+`(a,c)=(0.1798206348114,10.3170719468639)`. Maximum defect returns to
+`4.58385e-9`, minimum singular value is `1.10459e-9`, and node-boundary margin
+is `0.9913`. The thirtieth qualified point closes the planned figure and
+manuscript checkpoint. It lies `2.06348e-5` above the historical section;
+EXP-403 remains the closest sampled point and first sampled local minimum.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
