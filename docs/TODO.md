@@ -1211,8 +1211,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   are regenerated. Continue the outgoing branch with the same prospective
   defect-aware policy while separately defining bounded later-turn and
   uniqueness/nonintersection audits. EXP-423 passes at the proven quarter-step
-  and adds the thirty-first point. Execute frozen EXP-424 at the same step with
-  every gate unchanged.
+  and adds the thirty-first point. EXP-424 repeats it and adds the thirty-second
+  point. Execute frozen EXP-425 at the same step with every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

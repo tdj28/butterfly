@@ -61,6 +61,11 @@ It passes in two evaluations at
 `1.09687e-9` minimum singular value, and `0.9913` node-boundary margin. This
 thirty-first point remains on the outgoing arm. EXP-424 freezes a same-size
 successor with a newly computed tangent.
+EXP-424 passes that successor in two evaluations at
+`(a,c)=(0.1798211840605,10.3170702100900)`, with `3.20013e-9` maximum defect,
+`1.08917e-9` minimum singular value, and `0.9913` node-boundary margin. The
+thirty-second point remains qualified; EXP-425 freezes a third same-size
+post-checkpoint step.
 
 ## Weighted-plane control
 
