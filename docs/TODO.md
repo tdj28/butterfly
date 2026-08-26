@@ -1197,8 +1197,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fourth consecutive conditioned half-step and adds the twenty-first point
   with minimum singular value `1.204e-9`. The refreshed figure and manuscript
   show all 21 points. EXP-414 passes and adds the twenty-second point, but its
-  maximum defect uses `78.5%` of the frozen root gate. Execute defect-aware
-  EXP-415 at half that step with every threshold unchanged.
+  maximum defect uses `78.5%` of the frozen root gate. EXP-415 halves the step,
+  passes, lowers the defect to `4.762e-9`, and adds the twenty-third point.
+  Execute frozen EXP-416 at the same quarter-step with every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
