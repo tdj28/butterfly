@@ -113,6 +113,11 @@ EXP-433 then passes the first post-checkpoint step in two evaluations at
 `9.97969e-10` minimum singular value, and `0.9918` node-boundary margin. The
 forty-first point is qualified. Because conditioning is now just below twice
 its gate, EXP-434 prospectively holds the conservative quarter-step.
+EXP-434 passes in two evaluations at
+`(a,c)=(0.1798261390175,10.3170549757896)`, with `3.20002e-9` maximum defect,
+`9.90540e-10` minimum singular value, and `0.9919` node-boundary margin. The
+forty-second point is qualified; EXP-435 freezes a third same-size
+post-checkpoint step.
 
 ## Weighted-plane control
 
