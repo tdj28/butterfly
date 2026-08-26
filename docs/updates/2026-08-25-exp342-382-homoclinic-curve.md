@@ -4,8 +4,8 @@
 
 The revised-coordinate homoclinic candidate is no longer an isolated numerical
 root.  EXP-342, EXP-347, and EXP-350 qualify the initial point and two
-natural-continuation successors; 32 chained pseudo-arclength roots bring the
-qualified total to 35.  Every accepted root passes the prospective `1e-8`
+natural-continuation successors; 37 chained pseudo-arclength roots bring the
+qualified total to 40.  Every accepted root passes the prospective `1e-8`
 maximum matching-block gate.  The closest sampled point is EXP-403:
 
 ```text
@@ -13,8 +13,8 @@ maximum matching-block gate.  The closest sampled point is EXP-403:
 historical a gap = 1.7493536856150183e-5
 ```
 
-The last accepted point, EXP-427, is
-`(a,c)=(0.17982278902974164,10.317065368485878)`.  The pre-fold EXP-367/368
+The last accepted point, EXP-432, is
+`(a,c)=(0.17982520436676064,10.317057856064773)`.  The pre-fold EXP-367/368
 secant projects a local crossing at `c=10.317135236348886`, but the resolved
 local turn invalidates treating that projection as a monotone-`c` prediction.
 
@@ -102,6 +102,10 @@ EXP-431 passes in two evaluations at
 thirty-ninth point is qualified. Because conditioning continues to drift
 downward, EXP-432 prospectively holds the conservative quarter-step once more
 before the 40-point figure and manuscript checkpoint.
+EXP-432 passes in two evaluations at
+`(a,c)=(0.1798252043668,10.3170578560648)`, with `3.20004e-9` maximum defect,
+`1.00544e-9` minimum singular value, and `0.9918` node-boundary margin. The
+fortieth point is qualified and triggers the receipt-bound checkpoint.
 
 ## Weighted-plane control
 

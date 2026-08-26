@@ -1221,9 +1221,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   a third doubled step but reaches 84.2% of the defect gate. Defect-aware
   EXP-429 passes at the proven quarter-step and adds the thirty-seventh point.
   EXP-430 repeats it and adds the thirty-eighth. EXP-431 passes at the same
-  step and adds the thirty-ninth. Execute frozen conservative EXP-432 with
-  every gate unchanged, then regenerate the receipt-bound figure, manuscript,
-  claim ledger, and finding record at the 40-point checkpoint.
+  step and adds the thirty-ninth. Conservative EXP-432 passes with every gate
+  unchanged and adds the fortieth. Regenerate the receipt-bound figure and
+  manuscript at the 40-point checkpoint before resuming continuation.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

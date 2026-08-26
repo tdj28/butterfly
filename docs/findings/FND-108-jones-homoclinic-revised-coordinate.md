@@ -227,7 +227,7 @@ selects an interior backward root.  The runner now supports a prospectively
 fixed normalized step and derives its physical `c` request from each new local
 tangent; all 396 repository tests at that checkpoint pass.
 
-## Signed-arclength resolution through EXP-427
+## Signed-arclength resolution through EXP-432
 
 EXP-401--404 show that neither displayed coordinate is a reliable local
 orientation gate at this scale.  EXP-403 passes at
@@ -246,8 +246,8 @@ returns to the proven quarter-step and passes at
 `(a,c)=(0.1798206348114,10.3170719468639)`, with `4.58385e-9` maximum defect,
 `1.10459e-9` minimum singular value, and `0.9913` node-boundary margin.
 
-The qualified curve now contains 35 roots, including 32 pseudo-arclength
-points.  Its outgoing arm is reproduced under 18 newly computed tangents after
+The qualified curve now contains 40 roots, including 37 pseudo-arclength
+points.  Its outgoing arm is reproduced under 23 newly computed tangents after
 EXP-408.  This strongly supports persistence of Jones's proposed homoclinic
 mechanism near the reported hub and rejects the interpretation that the first
 residual floor was immediate branch termination.  It does not rescue the
@@ -260,8 +260,13 @@ EXP-423--425 extend the outgoing arm with three further quarter-steps at the
 `3.20e-9` defect floor.  EXP-426/427 then qualify a second doubled-step regime,
 reaching `(a,c)=(0.1798227890297,10.3170653684859)` with `6.47336e-9` maximum
 defect, `1.05087e-9` minimum singular value, and `0.9829` node-boundary margin.
-These five additional roots reinforce the same conclusion: the local turn is
-smooth and reproducible, but it moves farther from the historical section.
+EXP-428 qualifies a third doubled step, after which its `8.41971e-9` defect
+licenses a prospective reduction. EXP-429--432 pass four consecutive
+quarter-steps, reaching `(a,c)=(0.1798252043668,10.3170578560648)` with
+`3.20004e-9` maximum defect, `1.00544e-9` minimum singular value, and `0.9918`
+node-boundary margin. These ten additional roots reinforce the same conclusion:
+the local turn is smooth and reproducible, but it moves farther from the
+historical section.
 
 ## Limits
 
@@ -272,5 +277,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-427, including preserved negative results and
+Evidence: EXP-341 through EXP-432, including preserved negative results and
 their hash-bound compact receipts.

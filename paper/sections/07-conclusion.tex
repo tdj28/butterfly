@@ -11,19 +11,21 @@ root lies about $0.00284361$ above printed $a=0.1798$.  A declared uniqueness
 audit remains open, and the numerical qualification is not a computer-assisted
 existence proof.  Two qualified natural-continuation points produce a plausible
 secant crossing near $c=10.31714$, but fixed-$c$ and fixed-$a$ correctors
-reproducibly stall above the root gate.  Thirty-two gauge-aligned two-parameter
-pseudo-arclength points through as many as 512 arcs pass, yielding thirty-five
+reproducibly stall above the root gate.  Thirty-seven gauge-aligned two-parameter
+pseudo-arclength points through as many as 512 arcs pass, yielding forty
 qualified curve points.  The closest sampled point reaches
 $a=0.1798174935369$, only $1.74935\times10^{-5}$ above the historical section.
 Coordinate-free signed arclength then resolves this point as a first local
 minimum and follows the outgoing branch to larger $a$ and smaller $c$.
 EXP-410 passes every unchanged gate after a twice-larger step fails only the
-fixed conditioning floor.  Seventeen more newly tangent-computed steps pass.
+fixed conditioning floor.  Twenty-two more newly tangent-computed steps pass.
 Three consecutive doubled steps are followed by a defect-aware reduction,
-three smaller floor-level steps, and two further qualified doubled steps.
-EXP-427 reaches $(a,c)=(0.1798227890297,10.3170653684859)$ with
-$6.47\times10^{-9}$ maximum block defect.  The outgoing arm is therefore
-reproduced under eighteen newly computed tangents after EXP-408.  Thus
+three smaller floor-level steps, and three further qualified doubled steps.
+The third doubled step uses $84.2\%$ of the defect gate, so four prospectively
+smaller steps follow. EXP-432 reaches
+$(a,c)=(0.1798252043668,10.3170578560648)$ with
+$3.20\times10^{-9}$ maximum block defect.  The outgoing arm is therefore
+reproduced under twenty-three newly computed tangents after EXP-408.  Thus
 the first stall was not branch termination,
 but the first local turn does not intersect $a=0.1798$ and the pre-fold
 projection near $c=10.31713524$ cannot be promoted to a monotone-$c$
