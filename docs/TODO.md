@@ -1172,9 +1172,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   two evaluations at `(a,c)=(0.1798174935369,10.3170815025596)`, adding the
   thirteenth qualified curve point and demonstrating continuation through the
   local `c` fold. The manuscript figure/counts now show thirteen points and a
-  nanoscopic fold inset. Execute frozen EXP-404, which recomputes the tangent
-  at EXP-403 and chains the same normalized decreasing-`a` step beyond the
-  fold.
+  nanoscopic fold inset. EXP-404 recomputes the tangent at EXP-403 and finds a
+  clean root, but both `a` and `c` reverse while its full-state signed
+  arclength remains forward; decreasing `a` is its sole failed gate. The
+  runner now supports previous-secant tangent orientation and a prospective
+  full-state signed-arclength direction gate. Execute frozen EXP-405's replay
+  with both displayed coordinates unconstrained.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

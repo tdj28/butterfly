@@ -282,6 +282,7 @@ def tangent_orientation(
         "decreasing_c": ("c", layout["c_index"], -1.0),
         "increasing_a": ("a", layout["a_index"], 1.0),
         "decreasing_a": ("a", layout["a_index"], -1.0),
+        "aligned_secant": ("secant", -1, 0.0),
     }
     if name not in options:
         raise ValueError("unsupported pseudo-arclength tangent orientation")
@@ -308,6 +309,22 @@ def directional_progress_accepted(
             raise ValueError("stationary direction gate requires a tolerance")
         return bool(abs(final - current) <= float(stationary_tolerance))
     raise ValueError("unsupported directional progress requirement")
+
+
+def signed_arclength_progress(
+    current: np.ndarray,
+    final: np.ndarray,
+    tangent: np.ndarray,
+    scales: np.ndarray,
+) -> float:
+    """Measure final displacement along the oriented scaled tangent."""
+    return float(
+        np.dot(
+            np.asarray(tangent, dtype=np.float64),
+            (np.asarray(final, dtype=np.float64) - np.asarray(current, dtype=np.float64))
+            / np.asarray(scales, dtype=np.float64),
+        )
+    )
 
 
 def projected_arclength_tangent(
@@ -776,6 +793,11 @@ def main() -> int:
     orientation_component, orientation_index, orientation_sign, orientation_declared = (
         tangent_orientation(manifest["pseudoarclength"], layout)
     )
+    scaled_secant = (current - previous) / scales
+    if orientation_component == "secant":
+        if not np.all(np.isfinite(scaled_secant)) or not np.any(scaled_secant):
+            raise SystemExit("pseudo-arclength source secant is degenerate")
+        orientation_index = int(np.argmax(np.abs(scaled_secant)))
     if tangent_source == "secant":
         tangent_delta = current - previous
     elif tangent_source == "local_matching_jacobian":
@@ -789,7 +811,10 @@ def main() -> int:
                 orientation_index,
             )
         )
-        if local_tangent[orientation_index] * orientation_sign < 0.0:
+        if orientation_component == "secant":
+            if np.dot(local_tangent, scaled_secant) < 0.0:
+                local_tangent *= -1.0
+        elif local_tangent[orientation_index] * orientation_sign < 0.0:
             local_tangent *= -1.0
         tangent_delta = local_tangent * scales
         local_tangent_group_norms = arclength_group_norms(local_tangent, layout)
@@ -832,7 +857,13 @@ def main() -> int:
         layout,
         arclength_component_weights,
     )
-    if predictor_tangent[orientation_index] * orientation_sign < 0.0:
+    if orientation_component == "secant":
+        reverse_tangent = np.dot(predictor_tangent, scaled_secant) < 0.0
+    else:
+        reverse_tangent = (
+            predictor_tangent[orientation_index] * orientation_sign < 0.0
+        )
+    if reverse_tangent:
         predictor_tangent *= -1.0
         arclength_tangent *= -1.0
     c_direction = (
@@ -1047,6 +1078,16 @@ def main() -> int:
             acceptance.get("directional_a_requirement", "unconstrained"),
             stationary_tolerance=acceptance.get("maximum_stationary_a_drift"),
         )
+        final_signed_arclength_progress = signed_arclength_progress(
+            current, result.x, arclength_tangent, scales
+        )
+        directional_arclength_check = directional_progress_accepted(
+            0.0,
+            final_signed_arclength_progress,
+            acceptance.get(
+                "directional_arclength_requirement", "unconstrained"
+            ),
+        )
     except ValueError as error:
         raise SystemExit(str(error)) from error
     maximum_final_a = acceptance.get("maximum_final_a")
@@ -1076,6 +1117,7 @@ def main() -> int:
         >= float(acceptance["minimum_global_boundary_margin"]),
         "directional_c_requirement": directional_c_check,
         "directional_a_requirement": directional_a_check,
+        "directional_arclength_requirement": directional_arclength_check,
         "maximum_final_a": (
             True
             if maximum_final_a is None
@@ -1162,7 +1204,9 @@ def main() -> int:
             ),
             "component": orientation_component,
             "declared": orientation_declared,
+            "border_index": orientation_index,
         },
+        "signed_arclength_progress": final_signed_arclength_progress,
         "tangent_source": tangent_source,
         "local_tangent_residual": local_tangent_residual,
         "local_tangent_group_norms": local_tangent_group_norms,

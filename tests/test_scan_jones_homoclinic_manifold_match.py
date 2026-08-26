@@ -37,6 +37,7 @@ from scripts.continue_jones_homoclinic_pseudoarclength import (
     projected_arclength_tangent,
     receipt_state_vector,
     resolve_continuation_step,
+    signed_arclength_progress,
     source_angle_gauge,
     source_curve_values,
     tangent_orientation,
@@ -197,6 +198,29 @@ def test_homoclinic_pseudoarclength_orients_tangent_toward_decreasing_a():
     assert index == layout["a_index"]
     assert sign == -1.0
     assert declared
+
+
+def test_homoclinic_pseudoarclength_can_align_tangent_with_full_secant():
+    layout = pseudoarclength_layout(2)
+    component, index, sign, declared = tangent_orientation(
+        {"tangent_orientation": "aligned_secant"}, layout
+    )
+
+    assert component == "secant"
+    assert index == -1
+    assert sign == 0.0
+    assert declared
+
+
+def test_homoclinic_pseudoarclength_measures_signed_full_state_progress():
+    current = np.array([1.0, 2.0, 3.0])
+    final = np.array([1.5, 1.0, 5.0])
+    scales = np.array([0.5, 2.0, 4.0])
+    tangent = np.array([1.0, 2.0, -1.0])
+
+    observed = signed_arclength_progress(current, final, tangent, scales)
+
+    assert np.isclose(observed, -0.5)
 
 
 def test_homoclinic_pseudoarclength_gates_progress_independently_by_coordinate():

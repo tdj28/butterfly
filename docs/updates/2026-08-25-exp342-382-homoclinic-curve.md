@@ -173,3 +173,13 @@ the rebuilt 54-page PDF passes visual QA. EXP-404 freezes the first genuine
 chained successor from EXP-399/403: it recomputes the local tangent at EXP-403,
 retains decreasing-`a` orientation and the passed normalized step, and leaves
 all scientific gates unchanged.
+
+EXP-404 converges in two evaluations with `4.00407e-9` maximum block defect,
+`5.44e-14` plane residual, and `1.68263e-9` minimum singular value, but `a`
+rises by `1.38407e-10` while `c` falls by `8.56270e-10`; decreasing `a` is its
+sole failed gate. The full-state signed arclength is nevertheless forward by
+`0.00114967018416`. Neither displayed parameter is therefore a valid local
+orientation coordinate. The runner now supports tangent alignment with the
+previous full-state secant and an independent signed-arclength direction gate;
+EXP-405 freezes the coordinate-free replay with every numerical threshold
+unchanged.
