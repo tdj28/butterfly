@@ -17,7 +17,7 @@ import numpy as np
 from butterfly.scan import atomic_write, canonical_json, git_value, sha256_bytes
 
 
-SCHEMA = "butterfly.exp342-432-homoclinic-continuation-figure.v1"
+SCHEMA = "butterfly.exp342-437-homoclinic-continuation-figure.v1"
 QUALIFIED_IDS = (
     342,
     347,
@@ -59,6 +59,11 @@ QUALIFIED_IDS = (
     430,
     431,
     432,
+    433,
+    434,
+    435,
+    436,
+    437,
 )
 FAILED_IDS = (
     364,
@@ -120,6 +125,11 @@ OUTGOING_IDS = (
     430,
     431,
     432,
+    433,
+    434,
+    435,
+    436,
+    437,
 )
 FIXED_C = {342: 10.3084, 347: 10.3104, 350: 10.3144}
 
@@ -267,7 +277,7 @@ def main() -> int:
         label="EXP-409 conditioning rejection",
     )
     axis_outgoing.annotate(
-        "EXP-432: 40th qualified point\ndefect-aware steps pass",
+        "EXP-437: 45th qualified point\nconservative steps pass",
         xy=outgoing_curve[-1],
         xytext=(-10500.0, 3600.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},

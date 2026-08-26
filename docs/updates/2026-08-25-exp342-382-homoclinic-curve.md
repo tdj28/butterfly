@@ -1,11 +1,11 @@
-# EXP-342--427: qualified homoclinic curve and honest section gap
+# EXP-342--437: qualified homoclinic curve and honest section gap
 
 ## What is now established
 
 The revised-coordinate homoclinic candidate is no longer an isolated numerical
 root.  EXP-342, EXP-347, and EXP-350 qualify the initial point and two
-natural-continuation successors; 37 chained pseudo-arclength roots bring the
-qualified total to 40.  Every accepted root passes the prospective `1e-8`
+natural-continuation successors; 42 chained pseudo-arclength roots bring the
+qualified total to 45.  Every accepted root passes the prospective `1e-8`
 maximum matching-block gate.  The closest sampled point is EXP-403:
 
 ```text
@@ -13,8 +13,8 @@ maximum matching-block gate.  The closest sampled point is EXP-403:
 historical a gap = 1.7493536856150183e-5
 ```
 
-The last accepted point, EXP-432, is
-`(a,c)=(0.17982520436676064,10.317057856064773)`.  The pre-fold EXP-367/368
+The last accepted point, EXP-437, is
+`(a,c)=(0.17982767025047072,10.317050269552196)`.  The pre-fold EXP-367/368
 secant projects a local crossing at `c=10.317135236348886`, but the resolved
 local turn invalidates treating that projection as a monotone-`c` prediction.
 
@@ -127,6 +127,10 @@ EXP-436 passes in two evaluations at
 `9.75827e-10` minimum singular value, and `0.9920` node-boundary margin. The
 forty-fourth point is qualified; EXP-437 freezes the same conservative step for
 the 45-point checkpoint.
+EXP-437 passes in two evaluations at
+`(a,c)=(0.1798276702505,10.3170502695522)`, with `3.20001e-9` maximum defect,
+`9.68551e-10` minimum singular value, and `0.9920` node-boundary margin. The
+forty-fifth point is qualified and triggers the receipt-bound checkpoint.
 
 ## Weighted-plane control
 

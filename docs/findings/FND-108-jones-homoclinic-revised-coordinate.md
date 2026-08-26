@@ -227,7 +227,7 @@ selects an interior backward root.  The runner now supports a prospectively
 fixed normalized step and derives its physical `c` request from each new local
 tangent; all 396 repository tests at that checkpoint pass.
 
-## Signed-arclength resolution through EXP-432
+## Signed-arclength resolution through EXP-437
 
 EXP-401--404 show that neither displayed coordinate is a reliable local
 orientation gate at this scale.  EXP-403 passes at
@@ -246,8 +246,8 @@ returns to the proven quarter-step and passes at
 `(a,c)=(0.1798206348114,10.3170719468639)`, with `4.58385e-9` maximum defect,
 `1.10459e-9` minimum singular value, and `0.9913` node-boundary margin.
 
-The qualified curve now contains 40 roots, including 37 pseudo-arclength
-points.  Its outgoing arm is reproduced under 23 newly computed tangents after
+The qualified curve now contains 45 roots, including 42 pseudo-arclength
+points.  Its outgoing arm is reproduced under 28 newly computed tangents after
 EXP-408.  This strongly supports persistence of Jones's proposed homoclinic
 mechanism near the reported hub and rejects the interpretation that the first
 residual floor was immediate branch termination.  It does not rescue the
@@ -268,6 +268,13 @@ node-boundary margin. These ten additional roots reinforce the same conclusion:
 the local turn is smooth and reproducible, but it moves farther from the
 historical section.
 
+EXP-433--437 add five more conservative quarter-steps, each passing in two
+evaluations with the defect at the `3.20e-9` floor. EXP-437 reaches
+`(a,c)=(0.1798276702505,10.3170502695522)` with `9.68551e-10` minimum singular
+value and `0.9920` node-boundary margin. The unchanged-gate chain remains
+smooth, while its gradual conditioning decline rules out premature step
+enlargement.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -277,5 +284,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-432, including preserved negative results and
+Evidence: EXP-341 through EXP-437, including preserved negative results and
 their hash-bound compact receipts.

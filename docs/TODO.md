@@ -1224,11 +1224,12 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   step and adds the thirty-ninth. Conservative EXP-432 passes with every gate
   unchanged and adds the fortieth. The receipt-bound 40-point figure and
   55-page manuscript PDF are regenerated and visually inspected. Execute
-  prospectively frozen EXP-433 passes at the conservative quarter-step and
-  adds the forty-first point. EXP-434 passes at the same step and adds the
+  EXP-433 passes at the conservative quarter-step and adds the forty-first
+  point. EXP-434 passes at the same step and adds the
   forty-second. EXP-435 passes unchanged and adds the forty-third. Execute
-  frozen EXP-436 passes and adds the forty-fourth. Execute same-size EXP-437;
-  a pass triggers the receipt-bound 45-point figure/manuscript checkpoint.
+  EXP-436 passes and adds the forty-fourth. Same-size EXP-437 passes and adds
+  the forty-fifth. Regenerate the receipt-bound figure and manuscript at the
+  45-point checkpoint before resuming continuation.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
