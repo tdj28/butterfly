@@ -1231,7 +1231,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   the forty-fifth. The receipt-bound 45-point figure is regenerated and
   visually inspected. The 55-page manuscript PDF is rebuilt and visually
   inspected. EXP-438 passes at the same conservative step and adds the
-  forty-sixth point. Execute frozen EXP-439 with every gate unchanged.
+  forty-sixth point. EXP-439 passes unchanged and adds the forty-seventh.
+  Prospectively freeze the next same-size step; do not enlarge while the
+  conditioning margin remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

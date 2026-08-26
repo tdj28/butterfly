@@ -135,6 +135,11 @@ EXP-438 passes the first post-checkpoint step in two evaluations at
 `(a,c)=(0.1798282164132,10.3170485918718)`, with `3.20000e-9` maximum defect,
 `9.61337e-10` minimum singular value, and `0.9921` node-boundary margin. The
 forty-sixth point is qualified; EXP-439 freezes the same conservative step.
+EXP-439 passes in two evaluations at
+`(a,c)=(0.1798287809881,10.3170468577798)`, with `3.20000e-9` maximum defect,
+`9.54188e-10` minimum singular value, and `0.9922` node-boundary margin. The
+forty-seventh point is qualified. The next step must remain prospective and
+conservative while the conditioning trend persists.
 
 ## Weighted-plane control
 
