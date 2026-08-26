@@ -1227,8 +1227,8 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   prospectively frozen EXP-433 passes at the conservative quarter-step and
   adds the forty-first point. EXP-434 passes at the same step and adds the
   forty-second. EXP-435 passes unchanged and adds the forty-third. Execute
-  frozen EXP-436 without enlarging the step while conditioning remains below
-  twice its floor.
+  frozen EXP-436 passes and adds the forty-fourth. Execute same-size EXP-437;
+  a pass triggers the receipt-bound 45-point figure/manuscript checkpoint.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
