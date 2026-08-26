@@ -132,6 +132,14 @@ EXP-406 freezes that first chained test from the exact passed EXP-403/405
 pair. It recomputes the matching-Jacobian tangent at EXP-405, aligns it with
 the previous full-state secant, and retains the same normalized step and every
 numerical gate.
+
+EXP-406 passes the first genuine chained secant-aligned step in two
+evaluations at `(a,c)=(0.1798174943028,10.3170814997428)`. Signed progress is
+`0.00114967018417`, maximum defect `4.00143e-9`, and minimum singular value
+`1.67974e-9`. Both its recomputed predictor and corrected root move toward
+larger `a`, strengthening the local-minimum interpretation while leaving later
+turns open. EXP-407 freezes a fourfold-larger normalized step under the same
+coordinate-free gates.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent

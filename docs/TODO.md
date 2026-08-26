@@ -1180,8 +1180,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   evaluations and adds the fourteenth qualified point. Its `a` is slightly
   above EXP-403, so the first local turn does not intersect the historical
   section. Execute frozen EXP-406, the first chained secant-aligned step from
-  EXP-403/405, and determine whether the branch continues away or turns back
-  later.
+  EXP-403/405. EXP-406 passes every gate and adds the fifteenth point; its
+  recomputed tangent and corrected root both move toward larger `a`, supporting
+  a local minimum above the historical section. Execute frozen EXP-407's
+  fourfold-larger coordinate-free step to measure that post-turn trend.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
