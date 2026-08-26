@@ -83,6 +83,11 @@ thirty-fifth qualified point triggers the next receipt-bound figure and
 manuscript checkpoint.
 After the 35-point checkpoint, EXP-428 freezes a third same-size step in the
 second doubled regime, with exact EXP-426/427 bindings and every gate unchanged.
+EXP-428 passes in two evaluations at
+`(a,c)=(0.1798235305138,10.3170631306860)`, with `8.41971e-9` maximum defect,
+`1.03568e-9` minimum singular value, and `0.9831` node-boundary margin. The
+thirty-sixth point is qualified, but the defect uses 84.2% of its gate;
+EXP-429 prospectively returns to the proven quarter-step.
 
 ## Weighted-plane control
 
