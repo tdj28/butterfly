@@ -1204,9 +1204,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   The receipt-bound figure, manuscript, and claim ledger now show all 25
   points. EXP-418 passes another quarter-step and adds the twenty-sixth point.
   Adaptive EXP-419 passes at twice that step and adds the twenty-seventh point;
-  EXP-420 repeats it and adds the twenty-eighth. Execute frozen EXP-421 at the
-  same doubled step with every gate unchanged; return to quarter-step if it
-  fails.
+  EXP-420 repeats it and adds the twenty-eighth; EXP-421 passes a third double
+  step and adds the twenty-ninth. Execute frozen defect-aware EXP-422 at the
+  proven quarter-step with every gate unchanged, then update the 30-point
+  figure and manuscript checkpoint if it passes.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

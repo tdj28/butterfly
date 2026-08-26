@@ -223,6 +223,11 @@ EXP-420 passes that repeated double-step in two evaluations at
 `(a,c)=(0.1798199076118,10.3170742036646)`. Maximum defect is
 `5.71266e-9`, minimum singular value is `1.12763e-9`, and the twenty-eighth
 point is qualified. EXP-421 prospectively repeats the same step once more.
+EXP-421 passes the third double-step in two evaluations at
+`(a,c)=(0.1798203794415,10.3170727886060)`. Maximum defect rises to
+`7.38780e-9` (73.9% of its gate), minimum singular value remains
+`1.11227e-9`, and the twenty-ninth point is qualified. EXP-422 prospectively
+returns to the proven quarter-step before the 30-point figure checkpoint.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
