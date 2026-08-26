@@ -1190,8 +1190,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   step without changing a gate, passes in two evaluations with minimum
   singular value `1.249e-9`, and adds the eighteenth qualified point. The
   receipt-bound four-panel figure and manuscript now show the first local
-  minimum and conditioned outgoing branch. Execute frozen EXP-411 from the
-  exact passed EXP-408/410 pair with every gate unchanged.
+  minimum and conditioned outgoing branch. EXP-411 repeats the conditioned
+  step from a newly recomputed tangent, passes in two evaluations, and adds
+  the nineteenth point. Execute frozen EXP-412 from the exact passed
+  EXP-410/411 pair with every gate unchanged.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

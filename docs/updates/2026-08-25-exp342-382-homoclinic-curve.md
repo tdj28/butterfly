@@ -164,6 +164,13 @@ maximum defect, `1.24926e-9` minimum singular value, and `0.9813` node margin
 add the eighteenth qualified point. The conditioned outgoing branch remains
 above and moves farther from the historical fixed-`a` section; this resolves
 the first local minimum, not global nonintersection.
+
+EXP-411 recomputes the tangent at EXP-410 and repeats the conditioned
+`0.00919736` step. It passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798178421312,10.3170805092773)`, with `3.81275e-9` maximum defect,
+`1.23425e-9` minimum singular value, and `0.9814` node margin. This nineteenth
+qualified point reproduces the outgoing trend rather than merely replaying a
+single recovery tangent. EXP-412 freezes the next identical-gate step.
 EXP-397 converges to an interior, well-conditioned root with `2.80316e-9`
 maximum block defect and `1.04563e-9` minimum singular value, but it lies
 `1.16506e-7` backward in `c`; direction is its only failed check. Its tangent
