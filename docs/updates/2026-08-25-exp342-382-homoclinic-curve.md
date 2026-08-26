@@ -131,6 +131,10 @@ EXP-437 passes in two evaluations at
 `(a,c)=(0.1798276702505,10.3170502695522)`, with `3.20001e-9` maximum defect,
 `9.68551e-10` minimum singular value, and `0.9920` node-boundary margin. The
 forty-fifth point is qualified and triggers the receipt-bound checkpoint.
+EXP-438 passes the first post-checkpoint step in two evaluations at
+`(a,c)=(0.1798282164132,10.3170485918718)`, with `3.20000e-9` maximum defect,
+`9.61337e-10` minimum singular value, and `0.9921` node-boundary margin. The
+forty-sixth point is qualified; EXP-439 freezes the same conservative step.
 
 ## Weighted-plane control
 
