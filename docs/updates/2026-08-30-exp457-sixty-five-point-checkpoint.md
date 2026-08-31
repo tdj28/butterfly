@@ -60,3 +60,9 @@ EXP-460 passes every unchanged gate in two evaluations at
 `8.31275e-10` minimum singular value, and `0.9940` node-boundary margin. The
 sixty-eighth point is qualified. EXP-461 is frozen prospectively at the same
 step with exact EXP-459/460 receipt bindings.
+
+EXP-461 passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798464324074,10.3169926390736)`, with `3.19985e-9` maximum defect,
+`8.27381e-10` minimum singular value, and `0.9940` node-boundary margin. The
+sixty-ninth point is qualified. EXP-462 is frozen prospectively as the 70-point
+figure/manuscript checkpoint with exact EXP-460/461 receipt bindings.
