@@ -153,7 +153,10 @@ EXP-442 passes in two evaluations at
 `9.33195e-10` minimum singular value, and `0.9924` node-boundary margin. The
 fiftieth point is qualified. After the receipt-bound visual/manuscript
 checkpoint, EXP-443 freezes the same conservative step with exact EXP-441/442
-receipt bindings.
+receipt bindings. It passes in two evaluations at
+`(a,c)=(0.1798312297880,10.3170393366940)`, with `3.19997e-9` maximum defect,
+`9.26368e-10` minimum singular value, and `0.9924` node-boundary margin. The
+fifty-first point is qualified; EXP-444 freezes the same conservative step.
 
 ## Weighted-plane control
 
