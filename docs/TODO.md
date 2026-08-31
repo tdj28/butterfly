@@ -1249,8 +1249,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   EXP-452 is prospectively frozen at the same step with exact EXP-450/451
   bindings. EXP-452 passes and adds the sixtieth point, triggering the
   receipt-bound 60-point figure and manuscript checkpoint. Both artifacts are
-  regenerated, hash-bound, and visually inspected. Freeze the next unchanged-
-  gate conservative successor while conditioning remains below twice its floor.
+  regenerated, hash-bound, and visually inspected. EXP-453 is prospectively
+  frozen at the same conservative step with exact EXP-451/452 bindings.
+  Execute it without enlarging while conditioning remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
