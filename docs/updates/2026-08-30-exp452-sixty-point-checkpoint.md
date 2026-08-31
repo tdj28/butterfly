@@ -50,3 +50,9 @@ EXP-454 likewise passes every unchanged gate in two evaluations at
 `8.59253e-10` minimum singular value, and `0.9935` node-boundary margin. The
 sixty-second point is qualified. EXP-455 is frozen prospectively at the same
 step with exact EXP-453/454 receipt bindings.
+
+EXP-455 passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798405632648,10.3170106684295)`, with `3.19990e-9` maximum defect,
+`8.54082e-10` minimum singular value, and `0.9936` node-boundary margin. The
+sixty-third point is qualified. EXP-456 is frozen prospectively at the same
+step with exact EXP-454/455 receipt bindings.
