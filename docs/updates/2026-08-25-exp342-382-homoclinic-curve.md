@@ -1,11 +1,11 @@
-# EXP-342--447: qualified homoclinic curve and honest section gap
+# EXP-342--452: qualified homoclinic curve and honest section gap
 
 ## What is now established
 
 The revised-coordinate homoclinic candidate is no longer an isolated numerical
 root.  EXP-342, EXP-347, and EXP-350 qualify the initial point and two
-natural-continuation successors; 52 chained pseudo-arclength roots bring the
-qualified total to 55.  Every accepted root passes the prospective `1e-8`
+natural-continuation successors; 57 chained pseudo-arclength roots bring the
+qualified total to 60.  Every accepted root passes the prospective `1e-8`
 maximum matching-block gate.  The closest sampled point is EXP-403:
 
 ```text
@@ -13,8 +13,8 @@ maximum matching-block gate.  The closest sampled point is EXP-403:
 historical a gap = 1.7493536856150183e-5
 ```
 
-The last accepted point, EXP-447, is
-`(a,c)=(0.1798339982049874,10.317030833792156)`.  The pre-fold EXP-367/368
+The last accepted point, EXP-452, is
+`(a,c)=(0.17983793557436534,10.317018739937058)`.  The pre-fold EXP-367/368
 secant projects a local crossing at `c=10.317135236348886`, but the resolved
 local turn invalidates treating that projection as a monotone-`c` prediction.
 
@@ -43,17 +43,17 @@ multiple shooting.
 
 ## Manuscript checkpoint
 
-Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now shows all 55
-qualified roots through EXP-447, the sampled local minimum, the adaptive
+Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now shows all 60
+qualified roots through EXP-452, the sampled local minimum, the adaptive
 outgoing arm, and all 26 preserved failures. Its receipt schema is
-`butterfly.exp342-447-homoclinic-continuation-figure.v1`; the image SHA-256 is
-`26c5c9ec4ad9af6c51b2f2c796ceacda4b1985378e7db87d31743563c9560cd9`
+`butterfly.exp342-452-homoclinic-continuation-figure.v1`; the image SHA-256 is
+`3c2b55b4eda70a0780743ae71d374d9b51aa8b68e6d8b2c890a113c1b1de019d`
 and the receipt SHA-256 is
-`964327fc2bbf07083be95405ebab729c9b150d94ebd60e757bef71b6b4dbb71a`.
+`b6696138174ae222affe9344a20c29b55bbdd5cf5e5ec7a60edfafb31b4155ee`.
 The abstract, results, conclusion, claim ledger, and finding record use the
-same 55-root count and explicitly withhold the exact intersection claim.
-The rebuilt manuscript remains 55 pages (10,183,234 bytes), with SHA-256
-`094e58df881a005b10064378d85e022c20c2c0ede18e51291928ff4ebac6009b`.
+same 60-root count and explicitly withhold the exact intersection claim.
+The rebuilt manuscript remains 55 pages (10,194,114 bytes), with SHA-256
+`de21b457dcccde098b3fa64c75e9e58518e2484bcb8c42b33f6b289c27404df1`.
 The LaTeX log contains no undefined references, citation warnings, or
 overfull/underfull boxes; rendered pages 1, 11, 49, and 50 pass visual
 inspection.
