@@ -44,3 +44,10 @@ EXP-463 is frozen prospectively as the first post-checkpoint successor. It
 binds exact passed EXP-461/462 receipts, recomputes the tangent at EXP-462, and
 retains every numerical setting and acceptance gate. A pass adds the
 seventy-first point; a failure is preserved.
+
+EXP-463 subsequently passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798485713104803,10.316986068288356)`, with `3.19983e-9` maximum
+block defect, `8.20324e-10` minimum singular value, and `0.9940` node-boundary
+margin. The chain therefore contains 71 qualified roots. EXP-464 is frozen
+prospectively from the exact EXP-462/463 receipts at the same conservative
+step; no threshold is relaxed.
