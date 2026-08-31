@@ -1261,8 +1261,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   sixty-ninth point. EXP-462 passes and adds the seventieth point. The
   receipt-bound 70-point figure and 55-page manuscript are regenerated,
   hash-bound, and visually inspected. EXP-463 passes and adds the seventy-first
-  point. EXP-464 is prospectively frozen from the exact EXP-462/463 receipts at
-  the same conservative step; execute it without enlarging while conditioning
+  point. EXP-464 passes and adds the seventy-second point. EXP-465 is
+  prospectively frozen from the exact EXP-463/464 receipts at the same
+  conservative step; execute it without enlarging while conditioning
   remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.

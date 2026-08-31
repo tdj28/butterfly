@@ -51,3 +51,10 @@ block defect, `8.20324e-10` minimum singular value, and `0.9940` node-boundary
 margin. The chain therefore contains 71 qualified roots. EXP-464 is frozen
 prospectively from the exact EXP-462/463 receipts at the same conservative
 step; no threshold is relaxed.
+
+EXP-464 also passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798496746422159,10.316982678759548)`, with `3.19982e-9` maximum
+block defect, `8.17176e-10` minimum singular value, and `0.9940` node-boundary
+margin. The chain therefore contains 72 qualified roots. EXP-465 is frozen
+prospectively from the exact EXP-463/464 receipts at the same conservative
+step; no threshold is relaxed.
