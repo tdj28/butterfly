@@ -1267,11 +1267,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   prospectively frozen from the exact EXP-464/465 receipts at the same
   conservative step. It passes and adds the seventy-fourth point. EXP-467 is
   prospectively frozen as the 75-point checkpoint from the exact EXP-465/466
-  receipts. It passes and adds the seventy-fifth point, triggering the
-  receipt-bound figure/manuscript refresh. EXP-468 is prospectively frozen
-  from the exact EXP-466/467 receipts; execute it without enlarging after the
-  checkpoint artifacts are verified while conditioning remains below twice
-  its floor.
+  receipts. It passes and adds the seventy-fifth point. The receipt-bound
+  75-point figure and 55-page manuscript are regenerated, hash-bound, and
+  visually inspected. EXP-468 is prospectively frozen from the exact
+  EXP-466/467 receipts; execute it without enlarging while conditioning
+  remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

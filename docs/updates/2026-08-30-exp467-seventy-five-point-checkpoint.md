@@ -30,8 +30,17 @@ figure SHA-256  93089fb98fb170ec027f48a02f76ab297b6d7804f7c5b1b31e08d3709abcc3bd
 receipt SHA-256 9ca3c7203ddf7f2ab21b71afe6181146981348f7ffba80d7f175ad637cbe6451
 ```
 
-The manuscript refresh is the next checkpoint action. EXP-468 is frozen
-prospectively as the first post-checkpoint
+The 55-page manuscript was then rebuilt from clean source commit
+`96122564c84a375697bc9b1fda6cf90977acbf88`. The resulting 10,195,213-byte
+PDF has SHA-256
+`71c9f8e57c692d3a075be035c6a12d2125649ef5fc33b3740e356e9cce45f6fb`.
+The build log contains no undefined references or citations and no overfull or
+underfull boxes. Full-page renders of pages 1, 11, 49, 50, and 55 were visually
+inspected for the abstract, continuation figure and caption, conclusion, and
+bibliography. The checkpoint also passes all 401 tests and the reference audit
+with 10 BibTeX entries, 10 cited keys, and all 10 required citations present.
+
+EXP-468 is frozen prospectively as the first post-checkpoint
 successor. It binds exact passed EXP-466/467 receipts, recomputes the tangent
 at EXP-467, and retains every numerical setting and acceptance gate. A pass
 adds the seventy-sixth point; a failure is preserved.
