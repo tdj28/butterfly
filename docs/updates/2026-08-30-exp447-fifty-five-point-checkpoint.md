@@ -37,3 +37,9 @@ EXP-448 is frozen prospectively as the first post-checkpoint successor. It
 binds the exact passed EXP-446/447 receipts, recomputes the tangent at EXP-447,
 and retains every numerical setting and acceptance gate. A pass adds the
 fifty-sixth point; a failure is preserved.
+
+EXP-448 passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798347424376,10.3170285478971)`, with `3.19994e-9` maximum defect,
+`8.93820e-10` minimum singular value, and `0.9929` node-boundary margin. The
+fifty-sixth point is qualified. EXP-449 is frozen prospectively at the same
+step with exact EXP-447/448 receipt bindings.
