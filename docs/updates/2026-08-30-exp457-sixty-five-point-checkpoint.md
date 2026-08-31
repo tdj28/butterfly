@@ -30,6 +30,14 @@ figure SHA-256  47edc8790b8ff641b5785230a83672fa06b94d304be36690aa40e0ec3bd6f319
 receipt SHA-256 b86ebf8dc25a8291b7593afa213522a10cff5b73ecb519f065475cb32daa1205
 ```
 
+The manuscript was rebuilt from clean source commit
+`b1115a65984d978cd7f526b86297487c22587ccc`. The final PDF has 55 pages,
+is 10,185,973 bytes, and has SHA-256
+`778dda77be23ad2dbcdd4524e7f8a939381ba97406c8f639d41a6a274c89fe6d`.
+Its log contains no undefined reference, citation, overfull-box, or
+underfull-box warning. Rendered pages 1, 11, 49, 50, and 55 passed visual
+inspection. All 401 tests and the 10/10/10 bibliography checks also pass.
+
 EXP-458 is frozen prospectively as the first post-checkpoint successor. It
 binds exact passed EXP-456/457 receipts, recomputes the tangent at EXP-457, and
 retains every numerical setting and acceptance gate. A pass adds the
