@@ -22,6 +22,15 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-30-exp457-sixty-five-point-checkpoint.md`](2026-08-30-exp457-sixty-five-point-checkpoint.md)
+  — sixty-five receipt-bound roots qualify the nearby Jones homoclinic curve;
+  the first sampled turn moves away from the printed section, and global
+  nonintersection, uniqueness, and proof remain open.
+
+- [`2026-08-30-exp452-sixty-point-checkpoint.md`](2026-08-30-exp452-sixty-point-checkpoint.md)
+  — the 60-point visual/manuscript checkpoint and five prospectively frozen
+  same-gate successors through EXP-457.
+
 - [`2026-08-25-exp342-382-homoclinic-curve.md`](2026-08-25-exp342-382-homoclinic-curve.md)
   — forty-five qualified multiple-shooting roots approach within `1.75e-5` in
   `a` of Jones's historical section, resolve the first local `a` minimum, and
