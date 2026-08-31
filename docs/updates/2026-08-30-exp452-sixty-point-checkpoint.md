@@ -38,3 +38,9 @@ EXP-453 is frozen prospectively as the first post-checkpoint successor. It
 binds exact passed EXP-451/452 receipts, recomputes the tangent at EXP-452, and
 retains every numerical setting and acceptance gate. A pass adds the sixty-first
 point; a failure is preserved.
+
+EXP-453 passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798387889992,10.3170161184964)`, with `3.19991e-9` maximum defect,
+`8.64606e-10` minimum singular value, and `0.9933` node-boundary margin. The
+sixty-first point is qualified. EXP-454 is frozen prospectively at the same
+step with exact EXP-452/453 receipt bindings.
