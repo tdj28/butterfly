@@ -160,7 +160,10 @@ fifty-first point is qualified. EXP-444 passes the same conservative step in
 two evaluations at `(a,c)=(0.1798318911777,10.3170373053362)`, with
 `3.19997e-9` maximum defect, `9.19638e-10` minimum singular value, and `0.9925`
 node-boundary margin. The fifty-second point is qualified; EXP-445 freezes the
-same conservative step.
+same conservative step. EXP-445 passes in two evaluations at
+`(a,c)=(0.1798325728513,10.3170352116605)`, with `3.19996e-9` maximum defect,
+`9.13011e-10` minimum singular value, and `0.9926` node-boundary margin. The
+fifty-third point is qualified; EXP-446 freezes the same conservative step.
 
 ## Weighted-plane control
 
