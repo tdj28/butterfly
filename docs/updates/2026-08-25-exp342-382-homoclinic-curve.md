@@ -156,7 +156,11 @@ checkpoint, EXP-443 freezes the same conservative step with exact EXP-441/442
 receipt bindings. It passes in two evaluations at
 `(a,c)=(0.1798312297880,10.3170393366940)`, with `3.19997e-9` maximum defect,
 `9.26368e-10` minimum singular value, and `0.9924` node-boundary margin. The
-fifty-first point is qualified; EXP-444 freezes the same conservative step.
+fifty-first point is qualified. EXP-444 passes the same conservative step in
+two evaluations at `(a,c)=(0.1798318911777,10.3170373053362)`, with
+`3.19997e-9` maximum defect, `9.19638e-10` minimum singular value, and `0.9925`
+node-boundary margin. The fifty-second point is qualified; EXP-445 freezes the
+same conservative step.
 
 ## Weighted-plane control
 
