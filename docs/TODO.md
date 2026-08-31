@@ -1252,9 +1252,11 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   regenerated, hash-bound, and visually inspected. EXP-453 is prospectively
   frozen at the same conservative step with exact EXP-451/452 bindings.
   EXP-453 passes and adds the sixty-first point. EXP-454 passes and adds the
-  sixty-second point. EXP-455 passes and adds the sixty-third point. EXP-456 is
-  prospectively frozen with exact EXP-454/455 bindings; execute it without
-  enlarging while conditioning remains below twice its floor.
+  sixty-second point. EXP-455 passes and adds the sixty-third point. EXP-456
+  passes and adds the sixty-fourth point. EXP-457 is prospectively frozen with
+  exact EXP-455/456 bindings as the 65-point figure/manuscript checkpoint;
+  execute it without enlarging while conditioning remains below twice its
+  floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
