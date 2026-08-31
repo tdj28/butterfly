@@ -1245,8 +1245,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fifty-sixth point. EXP-449 is prospectively frozen at the same conservative
   step with exact EXP-447/448 bindings. EXP-449 passes and adds the fifty-seventh
   point. EXP-450 passes and adds the fifty-eighth. EXP-451 is prospectively frozen
-  with exact EXP-449/450 bindings; execute it without enlarging as the penultimate
-  step toward a 60-point visual checkpoint.
+  with exact EXP-449/450 bindings. EXP-451 passes and adds the fifty-ninth point.
+  EXP-452 is prospectively frozen at the same step with exact EXP-450/451
+  bindings; a pass triggers the 60-point figure and manuscript checkpoint.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
