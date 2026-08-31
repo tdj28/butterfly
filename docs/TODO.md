@@ -1232,9 +1232,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   visually inspected. The 55-page manuscript PDF is rebuilt and visually
   inspected. EXP-438 passes at the same conservative step and adds the
   forty-sixth point. EXP-439 passes unchanged and adds the forty-seventh.
-  EXP-440 is prospectively frozen at the same conservative step with exact
-  EXP-438/439 bindings. Execute it without enlarging while the conditioning
-  margin remains below twice its floor.
+  EXP-440 passes unchanged and adds the forty-eighth point. EXP-441 is
+  prospectively frozen at the same conservative step with exact EXP-439/440
+  bindings. Execute it without enlarging while the conditioning margin remains
+  below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
