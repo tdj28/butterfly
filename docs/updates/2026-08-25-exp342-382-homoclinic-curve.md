@@ -141,9 +141,12 @@ EXP-439 passes in two evaluations at
 forty-seventh point is qualified. EXP-440 passes the same conservative step in
 two evaluations at `(a,c)=(0.1798293642961,10.3170450662207)`, with
 `3.19999e-9` maximum defect, `9.47111e-10` minimum singular value, and `0.9922`
-node-boundary margin. The forty-eighth point is qualified. EXP-441 is
-prospectively frozen at the same step with exact EXP-439/440 receipt bindings
-because the measured conditioning margin remains below twice its fixed floor.
+node-boundary margin. The forty-eighth point is qualified. EXP-441 passes in
+two evaluations at `(a,c)=(0.1798299666557,10.3170432161778)`, with
+`3.19999e-9` maximum defect, `9.40111e-10` minimum singular value, and `0.9923`
+node-boundary margin. The forty-ninth point is qualified. EXP-442 is
+prospectively frozen at the same step with exact EXP-440/441 receipt bindings;
+a pass triggers the receipt-bound 50-point figure and manuscript checkpoint.
 
 ## Weighted-plane control
 
