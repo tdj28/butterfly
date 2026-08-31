@@ -164,6 +164,12 @@ same conservative step. EXP-445 passes in two evaluations at
 `(a,c)=(0.1798325728513,10.3170352116605)`, with `3.19996e-9` maximum defect,
 `9.13011e-10` minimum singular value, and `0.9926` node-boundary margin. The
 fifty-third point is qualified; EXP-446 freezes the same conservative step.
+EXP-446 passes in two evaluations at
+`(a,c)=(0.1798332750998,10.3170330547686)`, with `3.19996e-9` maximum defect,
+`9.06494e-10` minimum singular value, and `0.9927` node-boundary margin. The
+fifty-fourth point is qualified. EXP-447 is prospectively frozen at the same
+step with exact EXP-445/446 receipt bindings; a pass triggers the receipt-bound
+55-point figure and manuscript checkpoint.
 
 ## Weighted-plane control
 
