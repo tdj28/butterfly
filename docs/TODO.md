@@ -1258,10 +1258,10 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   are regenerated, hash-bound, and visually inspected. EXP-458 passes and adds
   the sixty-sixth point. EXP-459 passes and adds the sixty-seventh point.
   EXP-460 passes and adds the sixty-eighth point. EXP-461 passes and adds the
-  sixty-ninth point. EXP-462 is prospectively frozen with
-  exact EXP-460/461 bindings as the 70-point figure/manuscript checkpoint;
-  execute it without enlarging while conditioning remains below twice its
-  floor.
+  sixty-ninth point. EXP-462 passes and adds the seventieth point, triggering
+  the 70-point figure/manuscript refresh. EXP-463 is prospectively frozen with
+  exact EXP-461/462 bindings; execute it without enlarging after the checkpoint
+  artifacts are verified while conditioning remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

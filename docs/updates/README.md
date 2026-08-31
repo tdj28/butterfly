@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-08-30-exp462-seventy-point-checkpoint.md`](2026-08-30-exp462-seventy-point-checkpoint.md)
+  — seventy receipt-bound roots qualify the nearby Jones homoclinic curve;
+  the first sampled turn continues away from the printed section, and global
+  nonintersection, uniqueness, and proof remain open.
+
 - [`2026-08-30-exp457-sixty-five-point-checkpoint.md`](2026-08-30-exp457-sixty-five-point-checkpoint.md)
   — sixty-five receipt-bound roots qualify the nearby Jones homoclinic curve;
   the first sampled turn moves away from the printed section, and global
