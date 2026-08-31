@@ -1,11 +1,11 @@
-# EXP-342--437: qualified homoclinic curve and honest section gap
+# EXP-342--442: qualified homoclinic curve and honest section gap
 
 ## What is now established
 
 The revised-coordinate homoclinic candidate is no longer an isolated numerical
 root.  EXP-342, EXP-347, and EXP-350 qualify the initial point and two
-natural-continuation successors; 42 chained pseudo-arclength roots bring the
-qualified total to 45.  Every accepted root passes the prospective `1e-8`
+natural-continuation successors; 47 chained pseudo-arclength roots bring the
+qualified total to 50.  Every accepted root passes the prospective `1e-8`
 maximum matching-block gate.  The closest sampled point is EXP-403:
 
 ```text
@@ -13,8 +13,8 @@ maximum matching-block gate.  The closest sampled point is EXP-403:
 historical a gap = 1.7493536856150183e-5
 ```
 
-The last accepted point, EXP-437, is
-`(a,c)=(0.17982767025047072,10.317050269552196)`.  The pre-fold EXP-367/368
+The last accepted point, EXP-442, is
+`(a,c)=(0.17983058838257687,10.317041306658568)`.  The pre-fold EXP-367/368
 secant projects a local crossing at `c=10.317135236348886`, but the resolved
 local turn invalidates treating that projection as a monotone-`c` prediction.
 
@@ -43,17 +43,13 @@ multiple shooting.
 
 ## Manuscript checkpoint
 
-Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now displays all 45
-qualified roots through EXP-437, the sampled local minimum, the adaptive
-outgoing arm, and all 26 preserved failures.  Its receipt schema is
-`butterfly.exp342-437-homoclinic-continuation-figure.v1`; the image SHA-256 is
-`fde56119382c041a09639bc89934c3e0fc87cce2f42a7929a42ad20644badd73`.
+Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) is queued for a
+receipt-bound refresh showing all 50 qualified roots through EXP-442, the
+sampled local minimum, the adaptive outgoing arm, and all 26 preserved
+failures. Its receipt schema advances to
+`butterfly.exp342-442-homoclinic-continuation-figure.v1`.
 The abstract, results, conclusion, claim ledger, and finding record use the
-same 45-root count and explicitly withhold the exact intersection claim. The
-rebuilt manuscript remains 55 pages (10,176,822 bytes), with SHA-256
-`5b824303fe647147bf98e684868bcfd4fa1bc5d74b71a8fa8fdad9c56a140f72`.
-The LaTeX log contains no undefined references, citation warnings, or
-overfull/underfull boxes; rendered pages 1, 11, and 50 pass visual inspection.
+same 50-root count and explicitly withhold the exact intersection claim.
 EXP-423 freezes the first post-figure successor at the proven quarter-step,
 with exact EXP-421/422 bindings and every scientific gate unchanged.
 It passes in two evaluations at
@@ -147,6 +143,10 @@ two evaluations at `(a,c)=(0.1798299666557,10.3170432161778)`, with
 node-boundary margin. The forty-ninth point is qualified. EXP-442 is
 prospectively frozen at the same step with exact EXP-440/441 receipt bindings;
 a pass triggers the receipt-bound 50-point figure and manuscript checkpoint.
+EXP-442 passes in two evaluations at
+`(a,c)=(0.1798305883826,10.3170413066586)`, with `3.19998e-9` maximum defect,
+`9.33195e-10` minimum singular value, and `0.9924` node-boundary margin. The
+fiftieth point is qualified.
 
 ## Weighted-plane control
 

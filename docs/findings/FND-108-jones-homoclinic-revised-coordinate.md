@@ -227,7 +227,7 @@ selects an interior backward root.  The runner now supports a prospectively
 fixed normalized step and derives its physical `c` request from each new local
 tangent; all 396 repository tests at that checkpoint pass.
 
-## Signed-arclength resolution through EXP-437
+## Signed-arclength resolution through EXP-442
 
 EXP-401--404 show that neither displayed coordinate is a reliable local
 orientation gate at this scale.  EXP-403 passes at
@@ -246,8 +246,8 @@ returns to the proven quarter-step and passes at
 `(a,c)=(0.1798206348114,10.3170719468639)`, with `4.58385e-9` maximum defect,
 `1.10459e-9` minimum singular value, and `0.9913` node-boundary margin.
 
-The qualified curve now contains 45 roots, including 42 pseudo-arclength
-points.  Its outgoing arm is reproduced under 28 newly computed tangents after
+The qualified curve now contains 50 roots, including 47 pseudo-arclength
+points.  Its outgoing arm is reproduced under 33 newly computed tangents after
 EXP-408.  This strongly supports persistence of Jones's proposed homoclinic
 mechanism near the reported hub and rejects the interpretation that the first
 residual floor was immediate branch termination.  It does not rescue the
@@ -275,6 +275,13 @@ value and `0.9920` node-boundary margin. The unchanged-gate chain remains
 smooth, while its gradual conditioning decline rules out premature step
 enlargement.
 
+EXP-438--442 add five further conservative steps under exactly the same gates.
+EXP-442 reaches `(a,c)=(0.1798305883826,10.3170413066586)` with
+`3.19998e-9` maximum defect, `9.33195e-10` minimum singular value, and `0.9924`
+node-boundary margin. This brings the unchanged-gate chain to 50 qualified
+roots while preserving the same conclusion: the first local turn moves away
+from the historical section, and no global nonintersection is claimed.
+
 ## Limits
 
 This is not a computer-assisted existence proof and does not establish a
@@ -284,5 +291,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-437, including preserved negative results and
+Evidence: EXP-341 through EXP-442, including preserved negative results and
 their hash-bound compact receipts.
