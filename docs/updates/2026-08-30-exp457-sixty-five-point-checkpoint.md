@@ -20,6 +20,16 @@ therefore strengthens the nearby homoclinic-mechanism claim but does not
 recover the printed coordinate or establish a later return, global
 nonintersection, uniqueness, or computer-assisted existence.
 
+The receipt-bound four-panel figure contains all 65 qualified roots and all 26
+preserved failures. It was generated from clean source commit
+`a9a0f43c5d06a8af02f4aee2db293a281c8f0c09` and passed full-resolution visual
+inspection:
+
+```text
+figure SHA-256  47edc8790b8ff641b5785230a83672fa06b94d304be36690aa40e0ec3bd6f319
+receipt SHA-256 b86ebf8dc25a8291b7593afa213522a10cff5b73ecb519f065475cb32daa1205
+```
+
 EXP-458 is frozen prospectively as the first post-checkpoint successor. It
 binds exact passed EXP-456/457 receipts, recomputes the tangent at EXP-457, and
 retains every numerical setting and acceptance gate. A pass adds the
