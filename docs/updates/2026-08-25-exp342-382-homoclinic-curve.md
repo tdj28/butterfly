@@ -170,6 +170,11 @@ EXP-446 passes in two evaluations at
 fifty-fourth point is qualified. EXP-447 is prospectively frozen at the same
 step with exact EXP-445/446 receipt bindings; a pass triggers the receipt-bound
 55-point figure and manuscript checkpoint.
+EXP-447 passes in two evaluations at
+`(a,c)=(0.1798339982050,10.3170308337922)`, with `3.19995e-9` maximum defect,
+`9.00095e-10` minimum singular value, and `0.9928` node-boundary margin. The
+fifty-fifth point is qualified and the predeclared visual/manuscript checkpoint
+is now due.
 
 ## Weighted-plane control
 
