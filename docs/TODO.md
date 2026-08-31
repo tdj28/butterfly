@@ -1234,8 +1234,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   forty-sixth point. EXP-439 passes unchanged and adds the forty-seventh.
   EXP-440 passes unchanged and adds the forty-eighth point. EXP-441 passes and
   adds the forty-ninth. EXP-442 passes unchanged and adds the fiftieth point.
-  Regenerate and inspect the receipt-bound 50-point figure and manuscript
-  checkpoint before freezing any successor.
+  The receipt-bound 50-point figure and 55-page manuscript are regenerated and
+  visually inspected. Prospectively freeze the next same-size step; do not
+  enlarge while the conditioning margin remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

@@ -43,13 +43,18 @@ multiple shooting.
 
 ## Manuscript checkpoint
 
-Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) is queued for a
-receipt-bound refresh showing all 50 qualified roots through EXP-442, the
-sampled local minimum, the adaptive outgoing arm, and all 26 preserved
-failures. Its receipt schema advances to
-`butterfly.exp342-442-homoclinic-continuation-figure.v1`.
+Figure 5 (`fig30-exp342-382-homoclinic-continuation.png`) now shows all 50
+qualified roots through EXP-442, the sampled local minimum, the adaptive
+outgoing arm, and all 26 preserved failures. Its receipt schema is
+`butterfly.exp342-442-homoclinic-continuation-figure.v1`; the image SHA-256 is
+`b5ff5ea6c8f6e3a45a858944cd076217da106abac49c0622c51418618f527ac4`.
 The abstract, results, conclusion, claim ledger, and finding record use the
 same 50-root count and explicitly withhold the exact intersection claim.
+The rebuilt manuscript remains 55 pages (10,185,678 bytes), with SHA-256
+`1c36bb1d4cba68e04ce5a34784202fa6f5a544519703c7ff1a8fbfa5ab07274e`.
+The LaTeX log contains no undefined references, citation warnings, or
+overfull/underfull boxes; rendered pages 1, 11, 49, and 50 pass visual
+inspection.
 EXP-423 freezes the first post-figure successor at the proven quarter-step,
 with exact EXP-421/422 bindings and every scientific gate unchanged.
 It passes in two evaluations at
