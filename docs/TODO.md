@@ -1243,8 +1243,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   receipt-bound 55-point figure and manuscript checkpoint. Both artifacts are
   regenerated, hash-bound, and visually inspected. EXP-448 passes and adds the
   fifty-sixth point. EXP-449 is prospectively frozen at the same conservative
-  step with exact EXP-447/448 bindings. Execute it without enlarging while
-  conditioning remains below twice its floor.
+  step with exact EXP-447/448 bindings. EXP-449 passes and adds the fifty-seventh
+  point. EXP-450 is prospectively frozen with exact EXP-448/449 bindings; execute
+  it without enlarging while conditioning remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
