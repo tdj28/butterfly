@@ -42,3 +42,9 @@ EXP-458 is frozen prospectively as the first post-checkpoint successor. It
 binds exact passed EXP-456/457 receipts, recomputes the tangent at EXP-457, and
 retains every numerical setting and acceptance gate. A pass adds the
 sixty-sixth point; a failure is preserved.
+
+EXP-458 passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798433949843,10.3170019698684)`, with `3.19987e-9` maximum defect,
+`8.39755e-10` minimum singular value, and `0.9939` node-boundary margin. The
+sixty-sixth point is qualified. EXP-459 is frozen prospectively at the same
+step with exact EXP-457/458 receipt bindings.
