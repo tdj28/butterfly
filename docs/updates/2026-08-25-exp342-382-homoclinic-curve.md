@@ -138,8 +138,9 @@ forty-sixth point is qualified; EXP-439 freezes the same conservative step.
 EXP-439 passes in two evaluations at
 `(a,c)=(0.1798287809881,10.3170468577798)`, with `3.20000e-9` maximum defect,
 `9.54188e-10` minimum singular value, and `0.9922` node-boundary margin. The
-forty-seventh point is qualified. The next step must remain prospective and
-conservative while the conditioning trend persists.
+forty-seventh point is qualified. EXP-440 is prospectively frozen at the same
+conservative step with exact EXP-438/439 receipt bindings because the measured
+conditioning margin remains below twice its fixed floor.
 
 ## Weighted-plane control
 
