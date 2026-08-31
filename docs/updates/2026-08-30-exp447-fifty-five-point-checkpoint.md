@@ -61,3 +61,9 @@ EXP-451 passes every unchanged gate in two evaluations at
 `8.75828e-10` minimum singular value, and `0.9931` node-boundary margin. The
 fifty-ninth point is qualified. EXP-452 is frozen prospectively as the same-size
 60-point visual and manuscript checkpoint.
+
+EXP-452 passes every unchanged gate in two evaluations at
+`(a,c)=(0.1798379355744,10.3170187399371)`, with `3.19992e-9` maximum defect,
+`8.70134e-10` minimum singular value, and `0.9932` node-boundary margin. The
+sixtieth point is qualified and the predeclared visual/manuscript checkpoint is
+now due.

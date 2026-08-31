@@ -1247,7 +1247,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   point. EXP-450 passes and adds the fifty-eighth. EXP-451 is prospectively frozen
   with exact EXP-449/450 bindings. EXP-451 passes and adds the fifty-ninth point.
   EXP-452 is prospectively frozen at the same step with exact EXP-450/451
-  bindings; a pass triggers the 60-point figure and manuscript checkpoint.
+  bindings. EXP-452 passes and adds the sixtieth point, triggering the
+  receipt-bound 60-point figure and manuscript checkpoint. Regenerate and
+  visually inspect both artifacts before continuing the branch.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
