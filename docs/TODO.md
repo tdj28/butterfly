@@ -1240,8 +1240,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   fifty-third. EXP-446 passes and adds the fifty-fourth. EXP-447 is
   prospectively frozen at the same conservative step with exact EXP-445/446
   bindings. EXP-447 passes and adds the fifty-fifth point, triggering the
-  receipt-bound 55-point figure and manuscript checkpoint. Regenerate and
-  visually inspect both artifacts before continuing the branch.
+  receipt-bound 55-point figure and manuscript checkpoint. Both artifacts are
+  regenerated, hash-bound, and visually inspected. Freeze the next unchanged-
+  gate conservative successor while conditioning remains below twice its floor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

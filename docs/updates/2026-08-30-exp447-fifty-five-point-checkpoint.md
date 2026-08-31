@@ -1,0 +1,34 @@
+# EXP-447: fifty-five-point homoclinic checkpoint
+
+EXP-447 passed every prospectively frozen gate in two evaluations, adding the
+fifty-fifth qualified point to the Jones homoclinic continuation:
+
+```text
+(a, c) = (0.1798339982049874, 10.317030833792156)
+maximum block defect = 3.1999507416356106e-9
+minimum singular value = 9.000945034453671e-10
+node-boundary margin = 0.9927636535572404
+```
+
+The chain now contains 52 gauge-aligned pseudo-arclength roots and 55 qualified
+roots overall. Thirty-eight tangent-recomputed outgoing steps after EXP-408
+remain smooth and interior. EXP-403 is still the sampled local minimum and the
+closest root to the historical `a=0.1798` section. The continued arm therefore
+strengthens the nearby homoclinic-mechanism claim but does not recover the
+printed coordinate or establish a later return, global nonintersection,
+uniqueness, or computer-assisted existence.
+
+The receipt-bound four-panel figure now includes all 55 roots and all 26
+preserved failures. It is bound to clean source commit `b5de457046416e58df190fc702bc93dda7de407e`:
+
+```text
+figure SHA-256  26c5c9ec4ad9af6c51b2f2c796ceacda4b1985378e7db87d31743563c9560cd9
+receipt SHA-256 964327fc2bbf07083be95405ebab729c9b150d94ebd60e757bef71b6b4dbb71a
+```
+
+The rebuilt 55-page manuscript is 10,183,234 bytes with SHA-256
+`094e58df881a005b10064378d85e022c20c2c0ede18e51291928ff4ebac6009b`.
+Its log has no undefined reference, citation, overfull-box, or underfull-box
+warning. Rendered pages 1, 11, 49, and 50 and the full-resolution source figure
+passed visual inspection. All 401 tests and the 10/10/10 bibliography checks
+also pass.
