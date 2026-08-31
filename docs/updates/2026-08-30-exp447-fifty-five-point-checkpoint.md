@@ -32,3 +32,8 @@ Its log has no undefined reference, citation, overfull-box, or underfull-box
 warning. Rendered pages 1, 11, 49, and 50 and the full-resolution source figure
 passed visual inspection. All 401 tests and the 10/10/10 bibliography checks
 also pass.
+
+EXP-448 is frozen prospectively as the first post-checkpoint successor. It
+binds the exact passed EXP-446/447 receipts, recomputes the tangent at EXP-447,
+and retains every numerical setting and acceptance gate. A pass adds the
+fifty-sixth point; a failure is preserved.
