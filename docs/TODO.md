@@ -1278,8 +1278,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   in two evaluations, adding the seventy-eighth point. EXP-471 is frozen from
   the exact EXP-469/470 receipts and passes every unchanged gate in two
   evaluations, adding the seventy-ninth point. EXP-472 is prospectively frozen
-  as the 80-point checkpoint from the exact EXP-470/471 receipts; execute it
-  next and, on pass, regenerate the receipt-bound figure and manuscript.
+  as the 80-point checkpoint from the exact EXP-470/471 receipts and passes
+  every unchanged gate in two evaluations. Regenerate the receipt-bound figure
+  and manuscript, then execute the prospectively frozen EXP-473 successor.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

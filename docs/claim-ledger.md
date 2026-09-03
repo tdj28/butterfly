@@ -1,18 +1,18 @@
 # Scientific claim ledger
 
-Last updated: 2026-08-30
+Last updated: 2026-09-02
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
 are independently verified.
 
-Latest CLM-003 checkpoint: fifty additional receipt-bound points,
-EXP-418--467, raise the qualified curve total from 25 to 75 and the
-pseudo-arclength total from 22 to 72.  Two adaptive doubled-step regimes and
-their defect-aware reductions pass; thirty-five subsequent conservative steps
-reach `(a,c)=(0.1798531179556,10.3169721004068)` with `3.19980e-9` maximum
-defect and `8.09329e-10` minimum singular value.  The outgoing arm is now
-reproduced under 58 newly computed tangents after EXP-408.  EXP-403 remains the
+Latest CLM-003 checkpoint: fifty-five additional receipt-bound points,
+EXP-418--472, raise the qualified curve total from 25 to 80 and the
+pseudo-arclength total from 22 to 77.  Two adaptive doubled-step regimes and
+their defect-aware reductions pass; forty subsequent conservative steps reach
+`(a,c)=(0.1798592842285,10.3169531561905)` with `3.19975e-9` maximum defect and
+`8.01873e-10` minimum singular value.  The outgoing arm is now reproduced
+under 63 newly computed tangents after EXP-408.  EXP-403 remains the
 first sampled local `a` minimum and the closest point to `a=0.1798`; therefore
 the printed intersection, any later return, global nonintersection, proof, and
 uniqueness remain open.  This paragraph supersedes the earlier EXP-417 count retained in

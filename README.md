@@ -25,7 +25,7 @@ other strange attractors.
 - A separate equilibrium-manifold calculation strongly qualifies a nearby
   homoclinic curve. At fixed `c = 10.3084`, the reproduced root is near
   `a = 0.182643608174`, rather than the printed `a = 0.1798`.
-- Seventy-nine receipt-bound homoclinic roots—including 76 gauge-aligned
+- Eighty receipt-bound homoclinic roots—including 77 gauge-aligned
   pseudo-arclength roots—continue that curve through a first sampled local
   minimum. The closest sampled root remains `1.74935e-5` above the historical
   fixed-`a` section; the observed outgoing arm then moves away from it.

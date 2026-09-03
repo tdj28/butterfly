@@ -227,7 +227,7 @@ selects an interior backward root.  The runner now supports a prospectively
 fixed normalized step and derives its physical `c` request from each new local
 tangent; all 396 repository tests at that checkpoint pass.
 
-## Signed-arclength resolution through EXP-467
+## Signed-arclength resolution through EXP-472
 
 EXP-401--404 show that neither displayed coordinate is a reliable local
 orientation gate at this scale.  EXP-403 passes at
@@ -246,8 +246,8 @@ returns to the proven quarter-step and passes at
 `(a,c)=(0.1798206348114,10.3170719468639)`, with `4.58385e-9` maximum defect,
 `1.10459e-9` minimum singular value, and `0.9913` node-boundary margin.
 
-The qualified curve now contains 75 roots, including 72 pseudo-arclength
-points.  Its outgoing arm is reproduced under 58 newly computed tangents after
+The qualified curve now contains 80 roots, including 77 pseudo-arclength
+points.  Its outgoing arm is reproduced under 63 newly computed tangents after
 EXP-408.  This strongly supports persistence of Jones's proposed homoclinic
 mechanism near the reported hub and rejects the interpretation that the first
 residual floor was immediate branch termination.  It does not rescue the
@@ -291,11 +291,11 @@ closest sampled point to the historical section; the later outgoing points
 strengthen local persistence but do not establish a later return or global
 nonintersection.
 
-EXP-448--467 add twenty further conservative steps without changing any
-numerical or acceptance setting. EXP-467 reaches
-`(a,c)=(0.1798531179556,10.3169721004068)` with `3.19980e-9` maximum defect,
-`8.09329e-10` minimum singular value, and `0.9939` node-boundary margin. The
-unchanged-gate chain now contains 75 qualified roots. EXP-403 remains the
+EXP-448--472 add twenty-five further conservative steps without changing any
+numerical or acceptance setting. EXP-472 reaches
+`(a,c)=(0.1798592842285,10.3169531561905)` with `3.19975e-9` maximum defect,
+`8.01873e-10` minimum singular value, and `0.9939` node-boundary margin. The
+unchanged-gate chain now contains 80 qualified roots. EXP-403 remains the
 closest sampled point to the historical section; the additional outgoing
 points strengthen local persistence but do not establish a later return or
 global nonintersection.
@@ -309,5 +309,5 @@ is the matched boundary-value solution. Pseudo-arclength or collocation
 continuation, an explicit phase/gauge condition, and eventually validated
 numerics remain required.
 
-Evidence: EXP-341 through EXP-467, including preserved negative results and
+Evidence: EXP-341 through EXP-472, including preserved negative results and
 their hash-bound compact receipts.

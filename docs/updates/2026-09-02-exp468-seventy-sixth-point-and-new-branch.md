@@ -96,3 +96,24 @@ smooth and interior. The historical-section gap increases to
 `5.800987684020931e-5`. EXP-472 is prospectively frozen as the 80-point
 checkpoint at the same conservative step from the exact EXP-470/471 receipts.
 A pass triggers a receipt-bound figure and manuscript refresh.
+
+## EXP-472 eighty-point checkpoint
+
+EXP-472 passed every unchanged gate in two evaluations and added the eightieth
+qualified point:
+
+```text
+(a, c) = (0.17985928422847947, 10.316953156190541)
+maximum block defect = 3.19975131291399e-9
+minimum singular value = 8.01872542256545e-10
+node-boundary margin = 0.9938611038487002
+```
+
+Its 78,637-byte raw receipt has SHA-256
+`a94d266fe99dca283811fa20d6406cbc9d26c739310f1745088a1849baa33fce`.
+The chain contains 77 gauge-aligned pseudo-arclength roots and 80 qualified
+roots overall; 63 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap is now
+`5.928422847947812e-5`. The receipt-bound figure and manuscript refresh are
+next. EXP-473 is frozen prospectively at the same conservative step from the
+exact EXP-471/472 receipts.
