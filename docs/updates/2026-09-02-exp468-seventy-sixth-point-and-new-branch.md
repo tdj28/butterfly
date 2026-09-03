@@ -131,4 +131,16 @@ image SHA-256   247664c311b957db2154ac24ab11286aee1089265d48826b379df23da7886f9b
 receipt SHA-256 cb5bf1005d8bc5bc661a1b1115bf1b445316588fc111c38b696354e1e3d91b2c
 ```
 
-The manuscript rebuild and rendered-page audit are next.
+## Manuscript verification
+
+The manuscript was rebuilt from clean figure commit
+`8afbbc5fa703e2cedc9681f0b187a92bf29724d4`. The resulting 55-page,
+10,185,564-byte PDF has SHA-256
+`dd9c0154ed8af98871fdcdb1870064e84a18fc9dcd6d15789fbd68cdf7c52171`.
+The build log contains no undefined citations or references and no overfull or
+underfull boxes. Full-page renders of pages 1, 11, 49, 50, and 55 were visually
+inspected for the abstract, updated homoclinic figure and caption, conclusion,
+and bibliography. The checkpoint also passes all 401 tests and the reference
+audit with 10 BibTeX entries, 10 cited keys, and all 10 required citations.
+
+EXP-473 is the next frozen numerical step.

@@ -36,5 +36,12 @@ visual inspection. Its image SHA-256 is
 the figure-receipt SHA-256 is
 `cb5bf1005d8bc5bc661a1b1115bf1b445316588fc111c38b696354e1e3d91b2c`.
 
+The manuscript was rebuilt from clean figure commit
+`8afbbc5fa703e2cedc9681f0b187a92bf29724d4`. The resulting 55-page,
+10,185,564-byte PDF has SHA-256
+`dd9c0154ed8af98871fdcdb1870064e84a18fc9dcd6d15789fbd68cdf7c52171`.
+The build log has no undefined citations or references and no overfull or
+underfull boxes. Rendered pages 1, 11, 49, 50, and 55 passed visual inspection.
+
 Manifest:
 [`../../experiments/manifests/EXP-472-jones-homoclinic-eighty-point-checkpoint.json`](../../experiments/manifests/EXP-472-jones-homoclinic-eighty-point-checkpoint.json).

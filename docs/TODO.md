@@ -1281,8 +1281,9 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   as the 80-point checkpoint from the exact EXP-470/471 receipts and passes
   every unchanged gate in two evaluations. The receipt-bound 80-point figure
   is regenerated from a clean source commit, hash-bound, and visually
-  inspected. Rebuild and inspect the manuscript, then execute the
-  prospectively frozen EXP-473 successor.
+  inspected. The 55-page manuscript is rebuilt, log-audited, hash-bound, and
+  visually inspected on five representative pages. Execute the prospectively
+  frozen EXP-473 successor next.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different
