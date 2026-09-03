@@ -55,3 +55,23 @@ roots overall; 60 tangent-recomputed outgoing steps after EXP-408 remain
 smooth and interior. The historical-section gap increases to
 `5.55220312857263e-5`. EXP-470 is prospectively frozen at the same conservative
 step from the exact EXP-468/469 receipts.
+
+## EXP-470 successor
+
+EXP-470 passed every unchanged gate in two evaluations and added the
+seventy-eighth qualified point:
+
+```text
+(a, c) = (0.17985675567226783, 10.316960924561714)
+maximum block defect = 3.1997698267870753e-9
+minimum singular value = 8.03989657761402e-10
+node-boundary margin = 0.9938718199704422
+```
+
+Its 78,658-byte raw receipt has SHA-256
+`4e9823116d3eaa41e1783f75664912f134222dcdcbc9c0bdf69b36c98c242b66`.
+The chain contains 75 gauge-aligned pseudo-arclength roots and 78 qualified
+roots overall; 61 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap increases to
+`5.675567226784417e-5`. EXP-471 is prospectively frozen at the same
+conservative step from the exact EXP-469/470 receipts.
