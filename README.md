@@ -102,6 +102,16 @@ uv sync --extra dev
 .venv/bin/python -m pytest -q
 ```
 
+Optional service and GPU workflows read credentials from `.env`. Start from
+the documented, secret-free template and fill in only the services you use:
+
+```sh
+cp .env-example .env
+```
+
+See [`.env-example`](.env-example) for the supported variables. The populated
+`.env` file is ignored by Git and must never be committed.
+
 The command-line interface also exposes frozen CPU scans, resumable tiled
 scans, and Lyapunov-spectrum receipts:
 
