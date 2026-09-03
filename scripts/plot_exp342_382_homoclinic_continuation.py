@@ -349,9 +349,15 @@ def main() -> int:
     axis_outgoing.annotate(
         "EXP-472: 80th qualified point\nconservative steps pass",
         xy=outgoing_curve[-1],
-        xytext=(-14000.0, 5000.0),
+        xytext=(-102000.0, 36500.0),
         arrowprops={"arrowstyle": "->", "lw": 0.8},
         fontsize=8,
+        bbox={
+            "boxstyle": "round,pad=0.25",
+            "facecolor": "white",
+            "alpha": 0.85,
+            "edgecolor": "none",
+        },
     )
     axis_outgoing.text(
         0.97,
@@ -390,11 +396,11 @@ def main() -> int:
     axis_defect.legend(fontsize=8, loc="upper left")
     axis_defect.text(
         0.98,
-        0.10,
+        0.95,
         "EXP-380/382: collocation escaped (off scale)\nEXP-409: conditioning-only rejection",
         transform=axis_defect.transAxes,
         ha="right",
-        va="bottom",
+        va="top",
         fontsize=8,
         color="#555555",
     )
