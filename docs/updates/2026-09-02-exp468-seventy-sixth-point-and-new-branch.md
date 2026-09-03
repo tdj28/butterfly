@@ -114,6 +114,21 @@ Its 78,637-byte raw receipt has SHA-256
 The chain contains 77 gauge-aligned pseudo-arclength roots and 80 qualified
 roots overall; 63 tangent-recomputed outgoing steps after EXP-408 remain
 smooth and interior. The historical-section gap is now
-`5.928422847947812e-5`. The receipt-bound figure and manuscript refresh are
-next. EXP-473 is frozen prospectively at the same conservative step from the
-exact EXP-471/472 receipts.
+`5.928422847947812e-5`. EXP-473 is frozen prospectively at the same
+conservative step from the exact EXP-471/472 receipts.
+
+## Eighty-point figure refresh
+
+The four-panel homoclinic-continuation figure was regenerated from clean
+commit `449b727271d8d008b7bac11dd4fcebc6508610d6`. Its receipt binds all 80
+qualified roots and all 26 preserved failures, keeps EXP-403 as the closest
+sampled point to the historical section, and records the endpoint gap above.
+After a full-resolution inspection, the endpoint annotation and failure note
+were repositioned so neither obscures the data. The final artifacts are:
+
+```text
+image SHA-256   247664c311b957db2154ac24ab11286aee1089265d48826b379df23da7886f9b
+receipt SHA-256 cb5bf1005d8bc5bc661a1b1115bf1b445316588fc111c38b696354e1e3d91b2c
+```
+
+The manuscript rebuild and rendered-page audit are next.

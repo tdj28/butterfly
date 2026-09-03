@@ -29,5 +29,12 @@ Raw receipt: `artifacts/EXP-472/receipt.json`, 78,637 bytes,
 SHA-256 `a94d266fe99dca283811fa20d6406cbc9d26c739310f1745088a1849baa33fce`.
 Compact receipt: [`receipts/EXP-472.json`](receipts/EXP-472.json).
 
+The receipt-bound 80-point continuation figure was regenerated from clean
+commit `449b727271d8d008b7bac11dd4fcebc6508610d6` and passed full-resolution
+visual inspection. Its image SHA-256 is
+`247664c311b957db2154ac24ab11286aee1089265d48826b379df23da7886f9b`;
+the figure-receipt SHA-256 is
+`cb5bf1005d8bc5bc661a1b1115bf1b445316588fc111c38b696354e1e3d91b2c`.
+
 Manifest:
 [`../../experiments/manifests/EXP-472-jones-homoclinic-eighty-point-checkpoint.json`](../../experiments/manifests/EXP-472-jones-homoclinic-eighty-point-checkpoint.json).
