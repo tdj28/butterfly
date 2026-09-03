@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-02-exp468-seventy-sixth-point-and-new-branch.md`](2026-09-02-exp468-seventy-sixth-point-and-new-branch.md)
+  — the project resumes on a new research branch with a figure-rich README;
+  EXP-468 adds the seventy-sixth qualified Jones homoclinic point and EXP-469
+  is frozen without enlarging the step.
+
 - [`2026-08-30-exp467-seventy-five-point-checkpoint.md`](2026-08-30-exp467-seventy-five-point-checkpoint.md)
   — seventy-five receipt-bound roots qualify the nearby Jones homoclinic
   curve; the first sampled turn continues away from the printed section, and
