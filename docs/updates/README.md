@@ -24,8 +24,8 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 - [`2026-09-02-exp468-seventy-sixth-point-and-new-branch.md`](2026-09-02-exp468-seventy-sixth-point-and-new-branch.md)
   — the project resumes on a new research branch with a figure-rich README;
-  EXP-468--472 add qualified Jones homoclinic points 76--80; the checkpoint
-  figure/manuscript refresh is next and EXP-473 is frozen prospectively.
+  EXP-468--473 add qualified Jones homoclinic points 76--81; the 80-point
+  figure/manuscript checkpoint passes QA and EXP-474 is frozen prospectively.
 
 - [`2026-08-30-exp467-seventy-five-point-checkpoint.md`](2026-08-30-exp467-seventy-five-point-checkpoint.md)
   — seventy-five receipt-bound roots qualify the nearby Jones homoclinic

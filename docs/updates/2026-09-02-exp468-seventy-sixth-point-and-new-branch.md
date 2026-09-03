@@ -143,4 +143,22 @@ inspected for the abstract, updated homoclinic figure and caption, conclusion,
 and bibliography. The checkpoint also passes all 401 tests and the reference
 audit with 10 BibTeX entries, 10 cited keys, and all 10 required citations.
 
-EXP-473 is the next frozen numerical step.
+## EXP-473 post-checkpoint successor
+
+EXP-473 passed every unchanged gate in two evaluations and added the
+eighty-first qualified point:
+
+```text
+(a, c) = (0.179860578278265, 10.316949180519163)
+maximum block defect = 3.1997419033005116e-9
+minimum singular value = 8.012533846968259e-10
+node-boundary margin = 0.9938590494991724
+```
+
+Its 78,640-byte raw receipt has SHA-256
+`b93d2b38587dec27838d659ee6107ea702c2ec01c89f75bbfa2f6f8b61c0323b`.
+The chain contains 78 gauge-aligned pseudo-arclength roots and 81 qualified
+roots overall; 64 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap increases to
+`6.057827826499995e-5`. EXP-474 is prospectively frozen at the same
+conservative step from the exact EXP-472/473 receipts.
