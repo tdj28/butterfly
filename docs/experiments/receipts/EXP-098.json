@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.precision-audited-flip-refinement-summary.v1",
+  "experiment_id": "EXP-098",
+  "passed": false,
+  "source_commit": "46b759ce889b4c76d910b242a24200b3bab7ad81",
+  "manifest_sha256": "f74aa41ce359c0638bd0e6b5d0e8b9daacf44ee9dd51e7d02d269b51b18649d8",
+  "full_receipt_sha256": "661920325aaaad061e52d1739f19fead4090a53ad5bc520cf6a6f293f4bc10b9",
+  "b_estimate": 0.17971219643225106,
+  "prediction_error": -1.4749063081964664e-11,
+  "matching_residual": 1.269415995070995e-12,
+  "multiplier_residual": 1.3760557893149894e-7,
+  "estimated_b_uncertainty": 1.8964055042315478e-14,
+  "block_product_difference": 3.708144902248023e-14,
+  "cyclic_product_spread": 3.552713678800501e-15,
+  "retained_bracket": {
+    "lower_b": 0.1797121963331574,
+    "upper_b": 0.17971219643225106,
+    "width": 9.909365550120341e-11,
+    "lower_residual": -0.0007188984360111395,
+    "upper_residual": 1.3760557893149894e-7
+  },
+  "failed_gate": "absolute multiplier residual exceeds 1e-8",
+  "interpretation": "tight-solver correction and both multiplier representations are consistent; the frozen endpoint safeguard forced bisection after an endpoint-near positive trial"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.jones-period6-flip-returning-arm-summary.v1",
+  "experiment_id": "EXP-217",
+  "passed": true,
+  "source_commit": "9e63c7f98b3549ef507b219a8327112e1caff23a",
+  "manifest_sha256": "29d7e78f57dc41d9d76f8c462c526a2fc3d354fbb103a864ee463ce6f87d5efb",
+  "source_receipt_sha256": "c0dfcfc02153da3066e4e1198dd1a8ce9ada902c78afa4d584ab1c469b75f2e5",
+  "raw_artifact": "artifacts/EXP-217/receipt.json",
+  "raw_artifact_bytes": 387231,
+  "raw_artifact_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "accepted_point_count": 135,
+  "accepted_c_range": [7.001417155117241, 8.252733049018335],
+  "accepted_a_range": [0.22052016866754948, 0.2712670322773009],
+  "c_projection_reversals": 0,
+  "accepted_step_range": [0.002331409153828429, 0.017960035566111365],
+  "discarded_trial_count": 9,
+  "maximum_adjacent_a_jump": 0.0007858820957662438,
+  "maximum_adjacent_c_jump": 0.014889808136000937,
+  "maximum_orbit_residual": 1.2522933027818238e-11,
+  "maximum_event_eigenvector_residual": 2.9171477342870215e-12,
+  "maximum_arclength_residual": 8.483373844305224e-12,
+  "maximum_extremum_section_residual": 4.548618426358786e-13,
+  "maximum_neutral_multiplier_error": 1.5027709920900634e-7,
+  "maximum_flip_multiplier_error": 1.6768812272083267e-7,
+  "accepted_counts": {"historical_raw": 7, "historical_extremum": 7, "barrio": 8},
+  "shared_c_arm_separation": {
+    "7.16": 0.008905260487540423,
+    "7.30": 0.013278130419880935,
+    "8.00": 0.04329062895873398,
+    "8.25": 0.057782470021467136
+  },
+  "independent_radau": {
+    "passed": true,
+    "a_difference": 6.900036098045348e-13,
+    "period_relative_difference": 4.628775077351674e-13,
+    "state_difference": 1.9097634250085772e-11,
+    "multiplier_modulus_difference": 1.4687651705980187e-7,
+    "historical_extremum_count": 7,
+    "barrio_count": 8
+  },
+  "elapsed_seconds": 607.5295487078838,
+  "interpretation": "The exact period-6 real-minus-one event locus forms a broad returning sampled arm from c approximately 7.0 to 8.25273 after its qualified lower-c turn. The result does not yet assign either arm to a stable-window boundary or TBA/double-critical geometry."
+}

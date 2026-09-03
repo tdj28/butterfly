@@ -1,0 +1,86 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+  "experiment_id": "EXP-342",
+  "source_receipt": {
+    "path": "docs/experiments/receipts/EXP-341.json",
+    "sha256": "b41ba14446292b529b2bb1c4eff4d8b5d10fadfd7ffc6d9e350eb4315dc6c254",
+    "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+    "experiment_id": "EXP-341",
+    "passed": false,
+    "classification": "multiple_shooting_root_nominated",
+    "failed_checks": ["optimizer_terminated"],
+    "segment_count": 16,
+    "expected": {
+      "root_nominated": true,
+      "final_maximum_block_residual": 2.662109285806227e-9,
+      "direct_replay_endpoint_residual_norm": 2.0598801789458596
+    }
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "reference_a": 0.1798,
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.03,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 32,
+  "seed_mode": "split_bound_segments",
+  "search_center": {
+    "angle": 2.4707317223544725,
+    "a": 0.18255,
+    "total_flight_time": 234.2623011851337
+  },
+  "search_scales": {
+    "angle": 0.032724923474893676,
+    "a": 0.00025,
+    "total_flight_time": 5.0
+  },
+  "normalized_bounds": {
+    "lower": [-1.0, -1.0, -1.0],
+    "upper": [1.0, 1.0, 1.0]
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "independent_integrator": {
+    "source_method": "DOP853",
+    "qualification_method": "Radau",
+    "segment_count_multiplier": 2
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "segment_a_sensitivity": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_a_sensitivity": "absolute_central",
+    "a_absolute_step": 1e-7
+  },
+  "optimization": {
+    "method": "trf",
+    "jacobian": "dense_analytic_segmented",
+    "x_scale": "jac",
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 40
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.0001,
+    "maximum_root_block_residual": 1e-8,
+    "minimum_normalized_boundary_margin": 0.001,
+    "allow_root_gate_as_termination": true,
+    "source_root_agreement": {
+      "maximum_a_difference": 0.000005,
+      "maximum_angle_difference": 0.01,
+      "maximum_total_flight_time_difference": 0.1
+    }
+  },
+  "claim_scope": "independent-integrator and doubled-segmentation successor bound to EXP-341's exact preserved DOP853 root nomination: retain fixed b and c, nonlinear positive stable target, unstable seed, radius, global angle-a-time box, tolerances, and 1e-8 root gate; split each of the 16 matched source arcs at a Radau-computed midpoint to seed 32 Radau arcs without unstable direct replay; require the corrected root to remain within 5e-6 in a, 0.01 in angle, and 0.1 in flight time of EXP-341; meeting the residual and agreement gates reproduces the radius-0.03 candidate independently but still does not prove a homoclinic orbit, validate the printed a coordinate, establish shrinking-radius persistence or uniqueness, or explain global hub topology"
+}

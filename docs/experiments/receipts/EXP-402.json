@@ -1,0 +1,68 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-402",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "fbcb4ac9d0d2a25c274ab5fec47b538fe622f42e",
+    "dirty": false
+  },
+  "manifest_sha256": "1f3367bf422028052986bce62f6d73abb105cb37f73d52429e1588a1340ca473",
+  "raw_receipt": {
+    "path": "artifacts/EXP-402/receipt.json",
+    "bytes": 78797,
+    "sha256": "d6c424a0f6420604a48e84d7cbb2bbcd623c674c276f6bbde6bee67315f11233"
+  },
+  "elapsed_seconds": 22.290564209222794,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 1.8315358233551815e-9,
+  "normalized_arclength_step": 0.0011496701841098146,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.3561876129080548e-16,
+  "current_variables": {
+    "a": 0.1798174938833197,
+    "c": 10.317081507537782
+  },
+  "predictor_variables": {
+    "a": 0.1798174932870501,
+    "c": 10.317081509369318,
+    "angle": 2.6720943950391023,
+    "total_flight_time": 234.42047412057707
+  },
+  "final_variables": {
+    "a": 0.1798174935368561,
+    "c": 10.317081502559637,
+    "angle": 2.67182956099373,
+    "total_flight_time": 234.4204743581216
+  },
+  "final_c_increment": -4.978145895506714e-9,
+  "final_a_increment": -3.464635800476401e-10,
+  "initial_maximum_block_residual": 1.3194770854185078e-8,
+  "final_maximum_block_residual": 4.0063666650173605e-9,
+  "final_matching_residual_norm": 1.4713407707882652e-8,
+  "final_arclength_residual": 5.016656931633136e-14,
+  "jacobian_minimum_singular_value": 1.6853573828828708e-9,
+  "maximum_normalized_node_displacement": 0.0023535864476684765,
+  "node_boundary_margin": 0.9976464135523315,
+  "global_boundary_margins": [
+    0.24999976245547373,
+    0.00019999975019399652,
+    0.00019999319031782647,
+    0.9997351659546276
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 2,
+    "njev": 2,
+    "optimality": 5.622728311946039e-13
+  },
+  "failed_checks": [
+    "directional_c_requirement"
+  ],
+  "interpretation": "Quartering normalized arclength preserves a clean interior conditioned root but does not restore positive-c motion. The root moves slightly toward Jones's fixed-a section, so c is not a valid monotone continuation coordinate at this local fold and the next prospective protocol orients and gates progress by decreasing a."
+}

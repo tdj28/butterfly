@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.jones-period768-canonical-floquet-audit-manifest.v1",
+  "output_schema": "butterfly.jones-period768-canonical-floquet-audit-receipt.v1",
+  "experiment_id": "EXP-278",
+  "sign_audit_receipt_sha256": "88a9beffd13f9688ac7c193e8127548d933ec4b411e6b8218c23629812e6847c",
+  "qualification_receipt_sha256": "98a47619175a39aa776f3a4c82234d94019ca3d9e766ff525613378035544e61",
+  "isolated_failed_check": "modulus_agreement",
+  "canonical_source_solver": "dop853",
+  "canonical_source_sign": -1,
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "segment_count": 1024,
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 3e-12, "atol": 3e-14, "max_step": 0.01},
+    "radau": {"method": "Radau", "rtol": 3e-11, "atol": 3e-13, "max_step": 0.01}
+  },
+  "corrector": {"maximum_evaluations": 240, "tolerance": 1e-10},
+  "cyclic_shifts": {"1024": [0, 256, 512, 768]},
+  "identity": {"historical_phase_count": 896, "barrio_phase_count": 1024},
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_solver_node_rms": 2e-5,
+    "maximum_period_spread": 4e-6,
+    "maximum_modulus_spread": 0.002,
+    "maximum_stable_modulus": 0.9999,
+    "minimum_half_period_closure": 4e-6
+  },
+  "claim_scope": "prospective canonical-phase resolution of the isolated EXP-277 four-representation multiplier-spread failure, binding EXP-277's passed DOP853/Radau whole-orbit sign identities and EXP-275's independently preselected negative-sign stability qualification; the identical negative-sign DOP853 node set is corrected under tight-step DOP853 and Radau with one common phase reference, exact 896/1024 section identity, primitivity, solver-node identity, and the unchanged 0.002 absolute multiplier-spread gate; a pass resolves representation conditioning and permits continuation of one unified stable primitive period-768 orbit, but does not establish a next flip, limiting scaling law, universality, attracting-basin measure, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

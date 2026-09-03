@@ -1,0 +1,62 @@
+{
+  "schema": "butterfly.upo-lobe-pim-overlap-manifest.v1",
+  "experiment_id": "EXP-145",
+  "source_atlas_receipt": {
+    "path": "artifacts/EXP-143/receipt.json",
+    "sha256": "f0dda22c2739859633883b53d80de5558a8f4f3bc4d1ec669a5f685ee9b82c1d"
+  },
+  "left_lobe": {
+    "coordinate_axis": 1,
+    "upper_bound": -31.135026064071056,
+    "derivation": "maximum upper endpoint of the first y critical-point interval across the two passed EXP-128 three-branch profiles"
+  },
+  "distance": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [30.0, 0.0006]
+  },
+  "atlas_seed_grid": {
+    "fine_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "coarse_indices": [0, 2, 4, 6, 8]
+  },
+  "pim_burn_in_returns": 100,
+  "pim_horizons": [128, 256],
+  "pim_access_line_count": 3,
+  "cases": [
+    {
+      "id": "two-branch-endpoint",
+      "atlas_case_id": "two-branch-endpoint",
+      "pim_case_id": "blind-a148-period4-saddle",
+      "expected_left_lobe_support": false,
+      "pim_receipt": {
+        "path": "artifacts/EXP-125/receipt.json",
+        "sha256": "d76f6b84943ba527a83850d396144525c3c9c9726e92065c441870085cffc623"
+      },
+      "pim_states": {
+        "path": "artifacts/EXP-125/blind-a148-censored-pim-straddles.npz",
+        "sha256": "74300f95d4af34a810dbd58972e45df9add4cbfa96d1810f88c9f150bd16b045"
+      }
+    },
+    {
+      "id": "three-branch-endpoint",
+      "atlas_case_id": "three-branch-endpoint",
+      "pim_case_id": "blind-a14825-period4-saddle",
+      "expected_left_lobe_support": true,
+      "pim_receipt": {
+        "path": "artifacts/EXP-128/receipt.json",
+        "sha256": "a4aae2dc04b3d0171e9b74bd88cd3a9d79e73cd123715a8f81642d9a0664423e"
+      },
+      "pim_states": {
+        "path": "artifacts/EXP-128/blind-a14825-censored-pim-straddles.npz",
+        "sha256": "24b38f64600a8ea19acde0fda7f8fc5d5ed6fd15bd81985067265ed54918b3c2"
+      }
+    }
+  ],
+  "acceptance": {
+    "minimum_fine_lobe_points": 500,
+    "minimum_coarse_lobe_points": 250,
+    "maximum_excluded_left_lobe_points_per_line": 0,
+    "minimum_left_lobe_points_per_line": 10,
+    "maximum_fine_directed_distance": 0.00005,
+    "maximum_coarse_directed_distance": 0.0001
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "butterfly.period-doubled-offspring-audit-manifest.v1",
+  "experiment_id": "EXP-042",
+  "source_receipt_sha256": {
+    "source_event": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+    "source_surface": "a7b28b07943ef746d8907b0e7f9259b56bee676b5571580e4b1b302f6ff7a3be",
+    "source_curve": "ad7d09afa45068dbb41252ebaa7de93259302d3aff8d1824a908e7e62c9ad555",
+    "source_branch": "eb03f92d7577a866413d756e491f1a114b7e180643aba0bbd525700214298aee",
+    "separated_branch": "f47e364131dd5b977b6bfdfa3e5218ce490d135fa42f0fc493cff9ef45746560",
+    "fold_branch": "d2a143549fe085c16ce318c8178ff659541469fc87c83bea2ed67aac8b20cd28"
+  },
+  "events": [
+    {"id": "source-c5.1", "source": "source_event", "branch_source": "source_branch", "branch_direction": -1},
+    {"id": "separated-c4.9", "source": "source_surface", "a": 0.245, "c": 4.9, "branch_source": "separated_branch", "branch_direction": -1},
+    {"id": "minimum-b-fold", "source": "source_curve", "selector": "minimum_b", "branch_source": "fold_branch", "branch_direction": -1}
+  ],
+  "mu_offset": 0.0004,
+  "solver": {"method": "DOP853", "rtol": 1e-12, "atol": 1e-14, "max_step": 0.02},
+  "corrector": {"tolerance": 1e-11, "max_evaluations": 100},
+  "acceptance": {
+    "max_full_closure": 1e-8,
+    "max_parent_half_closure": 1e-8,
+    "minimum_child_half_closure": 0.01,
+    "minimum_unstable_parent_modulus": 1.0001,
+    "maximum_stable_child_modulus": 0.9999,
+    "maximum_period_ratio_distance_to_two": 0.02
+  }
+}

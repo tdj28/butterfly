@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period24-segmented-qualification-summary.v1",
+  "experiment_id": "EXP-240",
+  "passed": true,
+  "source_commit": "6280892dc28e18af5ebfb82b61de454dd48d71fe",
+  "manifest_sha256": "bb870c1ea972ce8f9ad838ff86a35cfb978faa89da179ec63e96a61aa8d5bc14",
+  "continuation_receipt_sha256": "e28fa5f0dc211c09803f2412737d384bc6823606d3b036731bfaf19696ac8a29",
+  "event_receipt_sha256": "088258b0c0cca6f5cb847ced26ff44dff00a6c67bdd50858d4f504e45f4e2cba",
+  "raw_artifact": "artifacts/EXP-240/receipt.json",
+  "raw_artifact_bytes": 17381,
+  "raw_artifact_sha256": "bc8f89f829cbf708027764ae581fd9e554904df579054730977a5bfdc2894c6f",
+  "target_a": 0.24069304262762206,
+  "dop853_child_multiplier": -703.4363543934573,
+  "radau_child_multiplier": -703.436354422723,
+  "child_multiplier_relative_spread": 4.160086449860542e-11,
+  "dop853_parent_multiplier": -29.38409523992374,
+  "radau_parent_multiplier": -29.38409481480515,
+  "parent_classification": "unstable",
+  "child_classification": "unstable",
+  "local_criticality_classification": "other-or-unresolved",
+  "interpretation": "The separated period-24 endpoint is reproducibly primitive and strongly unstable. Criticality at its period-12 birth remains a near-event question addressed by frozen EXP-241."
+}

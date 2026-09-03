@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+  "experiment_id": "EXP-351",
+  "passed": false,
+  "source_commit": "6d74c9bb656b9155b76f6da66aceb15500149627",
+  "manifest_sha256": "19900b1630fbb1d52f43ac920c12953180b527e31875dccb28d6b46fce99c806",
+  "source_receipt_sha256": "f9e93a9e593f8c722c97c7fc2fd16a48f8bcc882ae3f18911bf0850e49909b04",
+  "raw_artifact": "artifacts/EXP-351/receipt.json",
+  "raw_artifact_bytes": 31787,
+  "raw_artifact_sha256": "68f3a15703b6f129ff00239774b1d9d41d216e576ba31057deddd9d2e70fa387",
+  "elapsed_seconds": 376.1087440829724,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "solve_parameter": "c",
+  "segment_count": 128,
+  "initial_residual_norm": 0.05797247690544471,
+  "initial_maximum_block_residual": 0.02452069057374017,
+  "final_residual_norm": 0.00024425555118877255,
+  "final_maximum_block_residual": 0.00020983004694087023,
+  "final_variables": {
+    "angle": 2.2630142576008643,
+    "c": 10.317127477271764,
+    "total_flight_time": 234.48030318290395
+  },
+  "final_normalized_boundary_margins": [
+    0.9988941860259899,
+    0.9992083105828655,
+    0.9667805107005067
+  ],
+  "source_root_differences": {
+    "angle": 0.016609744649746627,
+    "c": 7.91689417134478e-6,
+    "total_flight_time": 0.005529069870050307
+  },
+  "residual_localization": {
+    "blocks_above_1e_8": 7,
+    "blocks_above_1e_6": 5,
+    "blocks_above_1e_4": 1,
+    "largest_block_index_zero_based": 123,
+    "largest_block_defect": 0.00020983004694087023
+  },
+  "root_nominated": false,
+  "classification": "multiple_shooting_unresolved",
+  "failed_checks": ["optimizer_terminated_or_root_gate"],
+  "interpretation": "The first direct fixed-a solve remains unresolved, but lowers the defect by more than two orders of magnitude and stays within 7.92e-6 of the prospective c target. The remaining defect is localized near the stable endpoint, motivating an exact-node warm restart with unchanged physical and scientific gates."
+}

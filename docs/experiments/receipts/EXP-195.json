@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.eight-phase-barrio-cycle-requalification-summary.v1",
+  "experiment_id": "EXP-195",
+  "passed": true,
+  "source_commit": "5e3cd27e41046b6b315d289c9dcb8957dadb378e",
+  "manifest_sha256": "b2a70878aa93649e231def31ad7627895c4fd1a353068b142f4780c03569ae3f",
+  "input_sha256": "90a1c5f5e0f3f8ce4514d153845b6deef595cb6fd8797ab8d0e42420308fcdf7",
+  "raw_artifact": "artifacts/EXP-195/candidates.json",
+  "raw_artifact_sha256": "0bbf83dda61ea29b87a469c5ece5459467bea1847684d6683f3f8e5aeecbed20",
+  "original_candidate_count": 65,
+  "passed_candidate_count": 58,
+  "section": {"kind": "barrio_positive_x", "expected_crossing_count": 8},
+  "orbit_data_changed": false,
+  "changed_check": "barrio_crossing_count",
+  "interpretation": "All 58 corrected stable historical-period-6 flow orbits pass with their complete eight-phase Barrio-section representation. Seven original recurrence failures remain excluded."
+}

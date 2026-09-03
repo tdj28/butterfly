@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.gpu-ac-atlas-manifest.v1",
+  "experiment_id": "EXP-021",
+  "grid": {
+    "a": {"min": 0.05, "max": 0.4, "count": 141},
+    "b_values": [0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3],
+    "c": {"min": 1.0, "max": 20.0, "count": 191}
+  },
+  "integration": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 2400.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 128,
+    "dt": 0.005,
+    "chunk_steps": 4096,
+    "dtype": "float64"
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1E-7
+  },
+  "acceptance": {"maximum_numerical_failure_fraction": 0.001},
+  "scientific_scope": "Single-initial-condition recurrence atlas; unresolved is not synonymous with chaotic."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-target-correction-summary.v1",
+  "experiment_id": "EXP-322",
+  "passed": false,
+  "source_commit": "b0cfd7b4fae8fefacf2a1076a38b18e9d756d88a",
+  "manifest_sha256": "587d9b93a5292b4af048c800ffe7419f1ce4b9e589b80059f0725b86ded9aadc",
+  "target_receipt_sha256": "0cf411d935ff4bd8fcedc70a55d0ea574aa5c1bac9a877885612394c8c209988",
+  "event_receipt_sha256": "6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33",
+  "branch_receipt_sha256": "09dc671c78489d38d90d08c1c89458a247fbe51a04582bf3775e2ed6a7e6989a",
+  "raw_artifact": "artifacts/EXP-322/receipt.json",
+  "raw_artifact_bytes": 351020,
+  "raw_artifact_sha256": "5b5538d0ffa49e1fd0061b4824581e7049041d85c944e04e92f5660bf05f03eb",
+  "elapsed_seconds": 385.2666704170406,
+  "initial_matching_residual": 5.365994546969651e-10,
+  "best_matching_residual": 5.365994546969651e-10,
+  "final_matching_residual": 1.0288047123473563e-9,
+  "initial_half_node_rms": 6.306895705391798e-6,
+  "final_half_node_rms": 3.913535181111026e-6,
+  "correction_passed": false,
+  "neutral_spectrum_passed": false,
+  "interpretation": "The old EXP-299 stable child seed is unresolved under undamped 50-digit fixed-a Newton. No iterate improves its initial exact-map mismatch, so the apparent primitive amplitude and stable multiplier are inadmissible; neither a separate sheet nor parent collapse is established."
+}

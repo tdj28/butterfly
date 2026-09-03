@@ -1,0 +1,57 @@
+{
+  "schema": "butterfly.jones-period12-surface-manifest.v1",
+  "experiment_id": "EXP-210",
+  "event_receipt_sha256": "e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba",
+  "normal_form_receipt_sha256": "f57becaf08aa0ddb7a05bd7e258448cc95f3aca7611ebcd4cf00265303ebbfd0",
+  "fixed_b": 0.2,
+  "c_values": [7.18, 7.184, 7.188, 7.192, 7.196, 7.2, 7.204, 7.208, 7.212, 7.216, 7.22, 7.224, 7.228, 7.232, 7.236, 7.24, 7.244, 7.248, 7.252, 7.256, 7.26, 7.264, 7.268, 7.272, 7.276, 7.28, 7.284, 7.288, 7.292, 7.296, 7.3],
+  "offset_a_values": [0.000005, 0.000015, 0.00003, 0.000045],
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "comparison": {
+    "phase_samples": 1024,
+    "coarse_shifts": 128,
+    "shift_tolerance": 1e-10
+  },
+  "identity": {
+    "historical_parent_phase_count": 6,
+    "barrio_parent_phase_count": 8,
+    "historical_child_phase_count": 12,
+    "barrio_child_phase_count": 16
+  },
+  "independent_controls": {
+    "c_values": [7.18, 7.24, 7.3],
+    "offset_a_values": [0.000005, 0.000045]
+  },
+  "acceptance": {
+    "required_surface_points": 124,
+    "maximum_closure_error": 1e-8,
+    "minimum_parent_multiplier_modulus": 1.0001,
+    "maximum_child_multiplier_modulus": 0.9999,
+    "maximum_multiplier_imaginary_part": 0.000001,
+    "maximum_period_ratio_error": 0.001,
+    "minimum_proper_subperiod_closure": 0.001,
+    "minimum_multiplier_ratio": 3.0,
+    "maximum_multiplier_ratio": 5.0,
+    "minimum_opening_exponent": 0.4,
+    "maximum_opening_exponent": 0.6,
+    "minimum_opening_r_squared": 0.995,
+    "maximum_adjacent_child_identity_rms": 0.05,
+    "required_independent_controls": 6,
+    "maximum_solver_identity_rms": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5,
+    "maximum_solver_period_relative_difference": 1e-8
+  },
+  "claim_scope": "prospectively frozen dense fixed-offset period-12 surface patch over all 31 EXP-206 event slices and four physical post-flip offsets; a pass establishes a regular 124-point primitive stable child surface patch with sampled local normal-form scaling and six DOP853/Radau controls, not a formal continuous surface theorem, global continuation or endpoints, attraction-basin size, the TBA curve, or double superstability"
+}

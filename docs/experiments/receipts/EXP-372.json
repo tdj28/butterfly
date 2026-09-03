@@ -1,0 +1,55 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-372",
+  "passed": false,
+  "source_commit": "abe87a8e7ed4104d28cf5f19a709848e1cda51e4",
+  "manifest_sha256": "9aef2e8fc90797fc7c01ce17b56c555180229eecdbebd98dfacd19140df171ef",
+  "raw_artifact": "artifacts/EXP-372/receipt.json",
+  "raw_artifact_bytes": 85444,
+  "raw_artifact_sha256": "77c83645abcf89e2ba5d7c4af687dd84f7e4d8ef237acab3a1ebbd5c3d24a875",
+  "elapsed_seconds": 896.8141999160871,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "arclength_components": ["a", "c"],
+  "desired_c_increment": 0.00015,
+  "initial_maximum_block_residual": 0.002995498843115011,
+  "final_residual_norm": 0.000013169343388672215,
+  "final_matching_residual_norm": 0.000013164158804789263,
+  "final_maximum_block_residual": 0.000010913843303069732,
+  "final_arclength_residual": -0.00003694972950563265,
+  "final_variables": {
+    "a": 0.17981971541851563,
+    "c": 10.317297792345348,
+    "angle": 2.31535988756844,
+    "total_flight_time": 234.42681874382342
+  },
+  "node_boundary_margin": 0.773288126983374,
+  "global_boundary_margins": [
+    1.9797696152294009,
+    0.0009489489842126608,
+    0.0009336963965349554,
+    1.3491250584686196
+  ],
+  "jacobian_largest_singular_value": 35.35715636090056,
+  "jacobian_smallest_singular_value": 2.703676964951301e-10,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 38,
+    "optimality": 4.652443193506879e-9
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "optimizer_terminated_or_root_gate",
+    "root_nominated"
+  ],
+  "interpretation": "Widening the nuisance departure-angle gauge changes neither the stalled physical point nor the residual floor materially. The former angle boundary was a symptom, not the cause; the dense projected solve is ill-conditioned and budget-limited. This is a numerical-method failure, not negative evidence for the already qualified homoclinic branch."
+}

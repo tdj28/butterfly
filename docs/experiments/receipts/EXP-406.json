@@ -1,0 +1,81 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-406",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "6f55b5b244e34a18b7a0396fdc1a513318605e83",
+    "dirty": false
+  },
+  "manifest_sha256": "30590bd328aac6145ef7c6fada6425a3fb2b6b30bd3c7e78842ef4d29b45502c",
+  "raw_receipt": {
+    "path": "artifacts/EXP-406/receipt.json",
+    "bytes": 79052,
+    "sha256": "151bed4037530625f7a1be423ec871de460dcb4bd855be1ce032b5807c72ba6b"
+  },
+  "elapsed_seconds": 22.44546829164028,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": -1.1813118509044915e-9,
+  "normalized_arclength_step": 0.0011496701841098146,
+  "signed_arclength_progress": 0.0011496701841669748,
+  "tangent_source": "local_matching_jacobian",
+  "tangent_orientation": {
+    "name": "aligned_secant",
+    "component": "secant",
+    "declared": true,
+    "border_index": 1536
+  },
+  "local_tangent_group_norms": {
+    "a": 0.00016725862399695102,
+    "angle": 0.003457038241717829,
+    "c": 0.0002568805965467341,
+    "nodes": 0.9999936916695887,
+    "total_flight_time": 0.0007560056446808995
+  },
+  "local_tangent_residual": 1.5207059673504512e-16,
+  "current_variables": {
+    "a": 0.17981749367526337,
+    "c": 10.317081501703367
+  },
+  "predictor_variables": {
+    "a": 0.17981749405984787,
+    "c": 10.317081500522056,
+    "angle": 2.671525581781403,
+    "total_flight_time": 234.42046604230634
+  },
+  "final_variables": {
+    "a": 0.17981749430281954,
+    "c": 10.31708149974275,
+    "angle": 2.671179917145461,
+    "total_flight_time": 234.42046631716158
+  },
+  "final_c_increment": -1.960616557994399e-9,
+  "final_a_increment": 6.275561736934776e-10,
+  "historical_a_gap": 1.7494302819553997e-5,
+  "final_maximum_block_residual": 4.001427180559344e-9,
+  "final_matching_residual_norm": 1.4695867942269567e-8,
+  "final_residual_norm": 1.469586794237963e-8,
+  "final_arclength_residual": 5.68764150292683e-14,
+  "jacobian_minimum_singular_value": 1.6797417195867063e-9,
+  "maximum_normalized_node_displacement": 0.0023514398999822106,
+  "node_boundary_margin": 0.9976485601000178,
+  "global_boundary_margins": [
+    0.249999725144761,
+    0.00019999975702833517,
+    0.00019999922069402487,
+    0.9996543353640579
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 2,
+    "njev": 2,
+    "optimality": 9.912802624068672e-13
+  },
+  "failed_checks": [],
+  "interpretation": "The first genuine secant-aligned chain passes every gate and adds the fifteenth qualified point. Both the predictor and corrected point move toward larger a and smaller c, supporting a local a-minimum above the historical section without establishing global nonintersection."
+}

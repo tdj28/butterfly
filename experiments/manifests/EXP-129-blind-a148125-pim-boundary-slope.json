@@ -1,0 +1,183 @@
+{
+  "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+  "experiment_id": "EXP-129",
+  "source": {
+    "predecessors": ["EXP-115", "EXP-116", "EXP-125", "EXP-128"],
+    "method": "blind censor-aware PIM midpoint with a frozen signed lower-support return-map derivative",
+    "reference_doi": "10.1016/0167-2789(89)90253-4",
+    "preregistered_without_target_execution": true
+  },
+  "fixed_parameters": {"b": 0.2, "c": 20.0},
+  "cycle_initial_state": [0.0, 4.0, 0.0],
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "cycle_reference": {
+    "transient": 2000.0,
+    "observation_horizon": 200.0,
+    "max_crossings": 16,
+    "recurrence": {
+      "max_period": 16,
+      "required_repeats": 3,
+      "atol": 1e-09,
+      "rtol": 1e-09
+    }
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [30.0, 0.0006],
+    "radius": 0.002,
+    "required_crossings": 8
+  },
+  "censor_profiles": [
+    {"id": "horizon-128", "maximum_escape_returns": 128},
+    {"id": "horizon-256", "maximum_escape_returns": 256}
+  ],
+  "pim": {
+    "state_coordinate_scales": [1.0, 30.0, 0.0006],
+    "initial_segments": [
+      {"id": "z-00900", "y_range": [-38.0, -8.0], "z": 0.009},
+      {"id": "z-00960", "y_range": [-38.0, -8.0], "z": 0.0096},
+      {"id": "z-01020", "y_range": [-38.0, -8.0], "z": 0.0102}
+    ],
+    "refinement_sample_count": 33,
+    "width_tolerance": 1e-07,
+    "maximum_initial_refinements": 8,
+    "maximum_refinements_per_event": 8,
+    "maximum_flight_time": 50.0,
+    "lifetime_workers": 8,
+    "straddle_returns": 800,
+    "burn_in_returns": 100
+  },
+  "coordinates": [
+    {"name": "y", "axis": 1},
+    {"name": "z", "axis": 2}
+  ],
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.001,
+    "maximum_conditional_spread_ratio": 0.08,
+    "minimum_domain_coverage": 0.7,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 129
+  },
+  "oracle_variants": [
+    {"bin_count": 20, "smoothing": 3e-06},
+    {"bin_count": 20, "smoothing": 1e-05},
+    {"bin_count": 20, "smoothing": 3e-05},
+    {"bin_count": 30, "smoothing": 3e-06},
+    {"bin_count": 30, "smoothing": 1e-05},
+    {"bin_count": 30, "smoothing": 3e-05},
+    {"bin_count": 40, "smoothing": 3e-06},
+    {"bin_count": 40, "smoothing": 1e-05},
+    {"bin_count": 40, "smoothing": 3e-05},
+    {"bin_count": 60, "smoothing": 3e-06},
+    {"bin_count": 60, "smoothing": 1e-05},
+    {"bin_count": 60, "smoothing": 3e-05},
+    {"bin_count": 80, "smoothing": 3e-06},
+    {"bin_count": 80, "smoothing": 1e-05},
+    {"bin_count": 80, "smoothing": 3e-05}
+  ],
+  "boundary_slope": {
+    "definition": "derivative of the normalized cubic-spline return relation at each variant's first populated binned-source median",
+    "minimum_absolute_normalized_slope": 0.1,
+    "sign_to_branch_count": {"-1": 2, "1": 3},
+    "calibrations": [
+      {
+        "id": "published-two-h128",
+        "states_artifact": "artifacts/EXP-115/censor-aware-pim-straddles.npz",
+        "states_artifact_sha256": "73962228b0d037c4e2c6e9dd16fc4b1a681af750e09aaf108a780459fc55b551",
+        "case_id": "published-unimodal-saddle",
+        "horizon": 128,
+        "expected_slope_sign": -1,
+        "expected_branch_count": 2
+      },
+      {
+        "id": "published-two-h256",
+        "states_artifact": "artifacts/EXP-116/censor-aware-pim-256-straddles.npz",
+        "states_artifact_sha256": "8f69dc4965d86046d03bf57bd4dc1b3b8ef53d3a49657fab7ef00963dadb4052",
+        "case_id": "published-unimodal-saddle",
+        "horizon": 256,
+        "expected_slope_sign": -1,
+        "expected_branch_count": 2
+      },
+      {
+        "id": "published-three-h128",
+        "states_artifact": "artifacts/EXP-115/censor-aware-pim-straddles.npz",
+        "states_artifact_sha256": "73962228b0d037c4e2c6e9dd16fc4b1a681af750e09aaf108a780459fc55b551",
+        "case_id": "published-bimodal-saddle",
+        "horizon": 128,
+        "expected_slope_sign": 1,
+        "expected_branch_count": 3
+      },
+      {
+        "id": "published-three-h256",
+        "states_artifact": "artifacts/EXP-116/censor-aware-pim-256-straddles.npz",
+        "states_artifact_sha256": "8f69dc4965d86046d03bf57bd4dc1b3b8ef53d3a49657fab7ef00963dadb4052",
+        "case_id": "published-bimodal-saddle",
+        "horizon": 256,
+        "expected_slope_sign": 1,
+        "expected_branch_count": 3
+      },
+      {
+        "id": "local-two-h128",
+        "states_artifact": "artifacts/EXP-125/blind-a148-censored-pim-straddles.npz",
+        "states_artifact_sha256": "74300f95d4af34a810dbd58972e45df9add4cbfa96d1810f88c9f150bd16b045",
+        "case_id": "blind-a148-period4-saddle",
+        "horizon": 128,
+        "expected_slope_sign": -1,
+        "expected_branch_count": 2
+      },
+      {
+        "id": "local-two-h256",
+        "states_artifact": "artifacts/EXP-125/blind-a148-censored-pim-straddles.npz",
+        "states_artifact_sha256": "74300f95d4af34a810dbd58972e45df9add4cbfa96d1810f88c9f150bd16b045",
+        "case_id": "blind-a148-period4-saddle",
+        "horizon": 256,
+        "expected_slope_sign": -1,
+        "expected_branch_count": 2
+      },
+      {
+        "id": "local-three-h128",
+        "states_artifact": "artifacts/EXP-128/blind-a14825-censored-pim-straddles.npz",
+        "states_artifact_sha256": "24b38f64600a8ea19acde0fda7f8fc5d5ed6fd15bd81985067265ed54918b3c2",
+        "case_id": "blind-a14825-period4-saddle",
+        "horizon": 128,
+        "expected_slope_sign": 1,
+        "expected_branch_count": 3
+      },
+      {
+        "id": "local-three-h256",
+        "states_artifact": "artifacts/EXP-128/blind-a14825-censored-pim-straddles.npz",
+        "states_artifact_sha256": "24b38f64600a8ea19acde0fda7f8fc5d5ed6fd15bd81985067265ed54918b3c2",
+        "case_id": "blind-a14825-period4-saddle",
+        "horizon": 256,
+        "expected_slope_sign": 1,
+        "expected_branch_count": 3
+      }
+    ]
+  },
+  "acceptance": {
+    "allowed_branch_counts": [2, 3],
+    "minimum_successful_straddles": 2,
+    "minimum_return_pairs": 1000,
+    "minimum_oracle_variant_consensus": 1.0,
+    "maximum_within_pim_critical_span": 0.03,
+    "maximum_nested_horizon_critical_span": 0.04,
+    "maximum_cpu_pim_critical_span": 0.05,
+    "require_slope_branch_agreement": true
+  },
+  "cases": [
+    {
+      "id": "blind-a148125-period4-saddle",
+      "a": 0.148125,
+      "stable_period": 4,
+      "expected_saddle_branch_count": null
+    }
+  ]
+}

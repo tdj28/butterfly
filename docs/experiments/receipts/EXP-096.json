@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.segmented-block-flip-resume-summary.v1",
+  "experiment_id": "EXP-096",
+  "passed": false,
+  "source_commit": "88440bc1bc3961ca9c22bc9290f400461b72f0fc",
+  "manifest_sha256": "3424f26d4bef4fc023b4a3bbd8cd918c4b81eaf7268f0eb9467845a9a4da44d4",
+  "full_receipt_sha256": "e4765a1531057934a060c6f6c29adf45f00d99b667b12385a793b6f38d4aa50e",
+  "b_estimate": 0.1797121964332993,
+  "prediction_error": -1.3700818257689207e-11,
+  "matching_residual": 1.4010520170709988e-12,
+  "multiplier_residual": -3.604201692652964e-8,
+  "estimated_b_uncertainty": 8.885356928548812e-17,
+  "retained_bracket": {
+    "lower_b": 0.1797121964332993,
+    "upper_b": 0.17971219643330003,
+    "width": 7.216449660063518e-16,
+    "lower_residual": -3.604201692652964e-8,
+    "upper_residual": 2.566816214022438e-7
+  },
+  "failed_gate": "absolute multiplier residual exceeds 1e-8",
+  "interpretation": "the scalar double-precision refinement path is exhausted; event location is far inside the parameter-uncertainty gate but the pointwise Floquet equality requires a precision and representation audit"
+}

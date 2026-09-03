@@ -1,0 +1,64 @@
+{
+  "schema": "butterfly.jones-homoclinic-single-shooting-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-single-shooting-receipt.v1",
+  "experiment_id": "EXP-339",
+  "source_receipt": {
+    "path": "artifacts/EXP-337/receipt.json",
+    "sha256": "dda7b03c5801054bb53b8df035f44a8c3c89c25ff97a6c8bb4585dfed27eb1ce",
+    "schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+    "experiment_id": "EXP-337",
+    "classification": "direct_match_nominated",
+    "candidate_count": 32,
+    "closest_match": {
+      "a": 0.18255,
+      "angle_index": 75,
+      "angle": 2.4707317223544725,
+      "chord_mismatch": 0.00016226246805430567,
+      "inward_crossing_time_after_exit": 93.6902374069519,
+      "exit_time": 140.5720637781818
+    }
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "reference_a": 0.1798,
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.03,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "initial_guess": {
+    "angle": 2.4707317223544725,
+    "a": 0.18255,
+    "total_flight_time": 234.2623011851337
+  },
+  "search_scales": {
+    "angle": 0.032724923474893676,
+    "a": 0.00025,
+    "total_flight_time": 5.0
+  },
+  "normalized_bounds": {
+    "lower": [-1.0, -1.0, -1.0],
+    "upper": [1.0, 1.0, 1.0]
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "optimization": {
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "normalized_diff_step": [0.001, 0.001, 0.001],
+    "maximum_function_evaluations": 60
+  },
+  "acceptance": {
+    "maximum_initial_residual": 0.0002,
+    "maximum_root_residual": 1e-8,
+    "minimum_normalized_boundary_margin": 0.001
+  },
+  "claim_scope": "administrative replay of EXP-338 after converting only its final NumPy initial-residual check to a JSON-native boolean; the exact EXP-337 source binding, fixed parameters, gauge, stable branch, seeds, radius, initial angle/a/flight time, search box, DOP853 settings, finite-difference steps, optimizer tolerances and budget, root threshold, and nonclaim scope are unchanged; an interior residual at most 1e-8 only nominates a single-shooting root for multiple-shooting, shrinking-radius, and independent-integrator qualification and does not yet prove a homoclinic orbit, validate the printed a coordinate, establish uniqueness, or explain global hub topology"
+}

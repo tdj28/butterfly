@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.gpu-ac-atlas-manifest.v1",
+  "experiment_id": "EXP-192",
+  "evidence": [
+    {
+      "path": "experiments/source-transcriptions/jones2012-figures-2-and-6.json",
+      "sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da",
+      "role": "source-transcribed exact period-6 landmarks"
+    },
+    {
+      "path": "docs/experiments/receipts/EXP-191.json",
+      "sha256": "2bcd24404ad6501188fac795bcf49149799b7a73d3991d3d69873d59a39ea32f",
+      "role": "prospective discovery of a vertically truncated period-6 component around the second landmark"
+    }
+  ],
+  "grid": {
+    "a": {"min": 0.2135, "max": 0.2175, "count": 161},
+    "b_values": [0.2],
+    "c": {"min": 5.9, "max": 8.2, "count": 576},
+    "bounds_rationale": "vertically expands EXP-191 through both exact Jones period-6 landmarks while retaining 2.5e-5 a resolution and 0.004 c resolution"
+  },
+  "integration": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 2400.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 128,
+    "dt": 0.005,
+    "chunk_steps": 4096,
+    "dtype": "float64"
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1e-7
+  },
+  "selection": {
+    "target_period": 6,
+    "anchor": {"a": 0.215, "b": 0.2, "c": 7.6},
+    "probes": [
+      {"id": "jones-first-period6-landmark", "a": 0.21564, "b": 0.2, "c": 6.124}
+    ],
+    "rule": "retain the eight-connected period-6 component containing the second-landmark anchor and report whether the first landmark's nearest raster pixel belongs to it",
+    "word_blind": true
+  },
+  "acceptance": {"maximum_numerical_failure_fraction": 0.001},
+  "claim_scope": "single-initial-condition high-resolution discovery atlas through both exact Jones period-6 landmarks; raster component membership is not periodic-orbit continuation, double superstability, a Figure 6 word, TBA membership, or center geometry"
+}

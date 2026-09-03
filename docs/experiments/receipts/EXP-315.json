@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period1536-solver-event-refinement-summary.v1",
+  "experiment_id": "EXP-315",
+  "passed": true,
+  "source_commit": "8acb2f2776425aae33f1239b5607d94fbf89ca8c",
+  "manifest_sha256": "fbb3fe58e690d3cab1239374c82ef2e4c70c77627e3614081078ac70d841687d",
+  "bracket_receipt_sha256": "29b3155f3cfd650afe220f0e2babefaf74250353eae7e60ee20d78de17d6fb6b",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "raw_artifact": "artifacts/EXP-315/receipt.json",
+  "raw_artifact_bytes": 514764,
+  "raw_artifact_sha256": "0e95f1a653269c443a175f41f9c5d4ede6fbca23f74266da1362e50c0eedd526",
+  "elapsed_seconds": 3573.2737096250057,
+  "brackets": {
+    "dop853": {
+      "lower_a": 0.24070100822429846,
+      "upper_a": 0.24070100822444732,
+      "width": 1.4885315202661786e-13,
+      "lower_residual": -3.875360682759066e-5,
+      "upper_residual": 1.329239299674434e-5
+    },
+    "radau": {
+      "lower_a": 0.2407010082239993,
+      "upper_a": 0.2407010082241489,
+      "width": 1.4957479699262421e-13,
+      "lower_residual": -3.364998981880696e-5,
+      "upper_residual": 4.942562886633972e-5
+    }
+  },
+  "inter_bracket_gap": 1.4957479699262421e-13,
+  "interpretation": "Both solver-specific event-eight brackets pass at approximately 1.5e-13 width. Their disjoint placement bounds numerical event-coordinate uncertainty and requires a solver-relative period-3072 switch; it does not establish two physical events or the eighth-birth direction."
+}

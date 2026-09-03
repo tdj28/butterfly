@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.return-map-oracle-calibration-summary.v1",
+  "experiment_id": "EXP-106",
+  "passed": false,
+  "source_commit": "a6bcfa545e65901226013d677a8322a2561c402b",
+  "manifest_sha256": "ce28da5f12bb7368708f4c3da34b2a107d7a4248798ec4063b69009fff430457",
+  "full_receipt_sha256": "534629e20de81b9b90da2bd247b83076a635eecf4048e283bc00871650a2ad10",
+  "expected_branch_count": 2,
+  "observed_branch_counts": [3, 3, 3],
+  "crossings_per_section": 1200,
+  "domain_coverages": [1.0, 1.0, 1.0],
+  "conditional_spread_ratios": [
+    0.01832026849341561,
+    0.018320266737690917,
+    0.018320267740551545
+  ],
+  "bootstrap_consensus": [1.0, 1.0, 1.0],
+  "critical_points_nominal": [-25.433553800962954, -17.43791805866357],
+  "failed_gate": "all section offsets resolve as three branches rather than the prospectively expected two",
+  "interpretation": "retain the failed expectation and new local section-offset-robust three-branch evidence; require coordinate, orientation, threshold, and nearby-parameter sensitivity before transition continuation"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.periodic-pseudo-arclength-summary.v1",
+  "experiment_id": "EXP-025",
+  "passed": false,
+  "source_commit": "8cb6fb5",
+  "manifest_sha256": "ba57623775a8f469f7d082e7b45c4df9b9b82652b521675c10a6a36bf03bf3cd",
+  "source_continuation_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "full_receipt_sha256": "6fcf27036a371987e23a2b189e7ce3e782eb0f1033ab39e9bbab8d50257352e1",
+  "point_count": 11,
+  "required_point_count": 20,
+  "b_range": [0.26500000000000007, 0.35069345469930685],
+  "direction_reversals_in_b": 0,
+  "max_closure_error": 2.722573307745381E-11,
+  "seed_multiplier_at_b_0_270": 0.8093993557542573,
+  "first_predicted_multiplier": {"b": 0.2756731874986331, "real": 1.3024861575935112},
+  "interpretation": "Resolution gate failed, but the traced branch crosses +1 without a b turn; the prior scalar saddle-node interpretation is rejected for this branch."
+}

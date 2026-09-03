@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period768-canonical-floquet-audit-summary.v1",
+  "experiment_id": "EXP-278",
+  "passed": true,
+  "source_commit": "805311d3be4a669a6fd2b7cc790b367f56d6aae5",
+  "manifest_sha256": "0c68b1aaaad29a03a448c07c7bfecba3d0b7c17f8f8d434b58d14e9d4f9814c9",
+  "sign_audit_receipt_sha256": "88a9beffd13f9688ac7c193e8127548d933ec4b411e6b8218c23629812e6847c",
+  "qualification_receipt_sha256": "98a47619175a39aa776f3a4c82234d94019ca3d9e766ff525613378035544e61",
+  "raw_artifact": "artifacts/EXP-278/receipt.json",
+  "raw_artifact_bytes": 132805,
+  "raw_artifact_sha256": "6f7ca773bcc0d8346b9a7293fd6143a39468d58681b7f576efbba1a65a15c114",
+  "target_a": 0.24070100827079027,
+  "canonical_source_sign": -1,
+  "dop853_modulus": 0.08792899328903533,
+  "radau_modulus": 0.08792909112779512,
+  "modulus_spread": 9.783875978830459e-8,
+  "maximum_allowed_modulus_spread": 0.002,
+  "maximum_matching_residual": 2.4578739963819495e-11,
+  "minimum_half_period_closure": 6.131072776368262e-6,
+  "historical_phase_count": 896,
+  "barrio_phase_count": 1024,
+  "interpretation": "A canonical common-phase DOP853/Radau audit resolves the isolated four-representation product spread while retaining the unchanged gate and the independently established bilateral orbit identity."
+}

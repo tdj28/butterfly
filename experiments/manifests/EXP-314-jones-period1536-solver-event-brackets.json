@@ -1,0 +1,54 @@
+{
+  "schema": "butterfly.jones-period1536-solver-event-bracket-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-solver-event-bracket-receipt.v1",
+  "experiment_id": "EXP-314",
+  "near_schema": "butterfly.jones-period3072-near-event-qualification-receipt.v1",
+  "near_receipt_sha256": "503612aa82a1feb0f717063d0f021229cc7e5f6fef93c7a058b0823cd4b53fad",
+  "far_schema": "butterfly.jones-period3072-first-separated-criticality-receipt.v1",
+  "far_receipt_sha256": "31713599cd595f690cec64a3a5a32f72a1e326fa0cde52e78adebc24fa1ae39a",
+  "near_a": 0.24070100822429846,
+  "far_a": 0.24070100821872153,
+  "linear_root_estimates": {
+    "dop853": 0.24070100822439391,
+    "radau": 0.24070100822420018
+  },
+  "evaluation_a": {
+    "dop853": 0.2407010082248939,
+    "radau": 0.24070100822370018
+  },
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 2048,
+  "jacobian_storage": "sparse_csr",
+  "solvers": {
+    "dop853": {
+      "method": "DOP853",
+      "rtol": 1e-11,
+      "atol": 1e-13,
+      "max_step": 0.03
+    },
+    "radau": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.03
+    }
+  },
+  "corrector": {
+    "maximum_evaluations": 240,
+    "tolerance": 1e-10
+  },
+  "cyclic_shifts": {
+    "2048": [0, 512, 1024, 1536]
+  },
+  "acceptance": {
+    "maximum_linear_root_replay_error": 1e-16,
+    "maximum_bracket_width": 7e-13,
+    "minimum_endpoint_multiplier_residual": 0.0001,
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_direct_closure_error": 0.01,
+    "maximum_direct_neutral_error": 0.01
+  },
+  "claim_scope": "prospective parent-only solver-specific bracketing of the period-1536 real-minus-one event using the signed DOP853/Radau parent multipliers already fixed by EXP-310 and EXP-313; the two-point linear root estimates are replayed exactly, then one new outward fixed-a 2048-segment correction per solver must reverse the near-endpoint sign by at least 1e-4 while matching, phase, direct closure, neutral mode, block Floquet, and a maximum 7e-13 bracket width pass; a pass establishes only two solver-specific event brackets and their representation discrepancy, not a common exact event, period-3072 branch existence, eighth-birth direction, sign equivalence, attracting-basin measure, a ninth event, universality, TBA membership, double-criticality, or global parameter-plane topology"
+}

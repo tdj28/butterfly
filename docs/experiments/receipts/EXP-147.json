@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.upo-midpoint-lobe-summary.v1",
+  "experiment_id": "EXP-147",
+  "passed": true,
+  "source_commit": "abe7da63a1a1e6edfbdd8107ea3bb41006975735",
+  "manifest_sha256": "a2b8e1f763766cb75d6dd13ad86966da87b0e1b47dd002ff945e797676d61873",
+  "raw_receipt": "artifacts/EXP-147/receipt.json",
+  "raw_receipt_sha256": "2f6a80c968dc3f9afbba3b25bb82919fa5b4456f1e2ed4014287f93b2359c54e",
+  "raw_receipt_bytes": 859672,
+  "elapsed_seconds": 71.17888383334503,
+  "trajectory_count": 198,
+  "group_count": 22,
+  "return_integration_failures": 0,
+  "captured_trajectory_count": 73,
+  "retained_pre_capture_points": 11740,
+  "minimum_group_pre_capture_points": 451,
+  "minimum_inside_domain_fraction": 1.0,
+  "minimum_coarse_coverage_of_fine_occupancy": 0.9423076923076923,
+  "left_lobe": {
+    "upper_bound": -31.135026064071056,
+    "fine_point_count": 989,
+    "coarse_point_count": 558,
+    "fine_minimum_y": -31.749070679070183,
+    "coarse_minimum_y": -31.749070679070183
+  },
+  "interpretation": "The untouched midpoint has a qualified density-converged UPO unstable-lobe reference. No midpoint PIM saddle class or lobe-inclusion result was available at execution."
+}

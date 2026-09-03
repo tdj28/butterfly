@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.periodic-normal-form-scaling-summary.v1",
+  "experiment_id": "EXP-031",
+  "passed": true,
+  "source_commit": "2e97de92a21b6c567089bcae4b9c543ab13859ff",
+  "manifest_sha256": "3b5f3d92cb3b614d347dcd5acb7593d3fb7dd49e7c0630e3c43dfb53d821c730",
+  "event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "branch_receipt_sha256": "eb03f92d7577a866413d756e491f1a114b7e180643aba0bbd525700214298aee",
+  "primary_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "full_receipt_sha256": "dd7fd933f00d1487d02636541cc5adb0c0a5f68b59e9a4716019026684d9c873",
+  "b_star": 0.2722840597934716,
+  "mu_offsets": [0.00005, 0.0001, 0.0002, 0.0004, 0.0008, 0.0014],
+  "separation_exponent": 0.498957710838837,
+  "separation_r_squared": 0.9999991592135146,
+  "multiplier_ratio_median": 1.9805030750629862,
+  "multiplier_ratio_range": [1.9107891045907452, 1.996732802856271],
+  "max_closure_error": 1.2079840043146797e-13,
+  "stability_exchange_at_all_points": true,
+  "figure": {
+    "path": "artifacts/EXP-031/EXP-031-period5-normal-form.png",
+    "sha256": "d3c05ef050a7ee0c8c801164682521b76b1735ecc4db46234fbad06983425264"
+  },
+  "interpretation": "Prospective square-root separation and Floquet-deviation scaling establish the second-iterate local form; EXP-041 subsequently reclassifies it as a double-covered fundamental supercritical flip."
+}

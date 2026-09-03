@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.periodic-normal-form-scaling-manifest.v1",
+  "experiment_id": "EXP-031",
+  "event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "branch_receipt_sha256": "eb03f92d7577a866413d756e491f1a114b7e180643aba0bbd525700214298aee",
+  "primary_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "mu_offsets": [0.00005, 0.0001, 0.0002, 0.0004, 0.0008, 0.0014],
+  "secondary_direction": -1,
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"max_evaluations": 50, "tolerance": 1e-11},
+  "comparison": {"phase_samples": 256, "coarse_shifts": 256, "shift_tolerance": 1e-10},
+  "acceptance": {
+    "max_closure_error": 1e-8,
+    "separation_exponent_min": 0.4,
+    "separation_exponent_max": 0.6,
+    "minimum_separation_r_squared": 0.98,
+    "multiplier_ratio_median_min": 1.5,
+    "multiplier_ratio_median_max": 2.5,
+    "require_stability_exchange_at_all_points": true
+  }
+}

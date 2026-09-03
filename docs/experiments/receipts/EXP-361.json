@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-361",
+  "passed": true,
+  "source_commit": "9fa3b019b5699c537f32c45deead8b05096bc99f",
+  "manifest_sha256": "34ce86fe67efe3192baffed67047fd0f558531981376caa896ea2154cec72245",
+  "raw_artifact": "artifacts/EXP-361/receipt.json",
+  "raw_artifact_bytes": 30235,
+  "raw_artifact_sha256": "85104fe7396008b728f54e2982a1baabde21873a7412dc0b205658a6dfe2283f",
+  "elapsed_seconds": 452.17498329281807,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 128,
+  "source_receipts": [
+    {"experiment_id": "EXP-350", "sha256": "f9e93a9e593f8c722c97c7fc2fd16a48f8bcc882ae3f18911bf0850e49909b04"},
+    {"experiment_id": "EXP-360", "sha256": "d7f7231c2634fe07d334c77c2f9b66df09fca11443fa34d8bfdeb307686b5224"}
+  ],
+  "desired_c_increment": 0.0005,
+  "initial_maximum_block_residual": 0.000666901853025065,
+  "final_residual_norm": 1.372695885817948e-8,
+  "final_matching_residual_norm": 1.3726958851162062e-8,
+  "final_maximum_block_residual": 7.513531688686202e-9,
+  "final_arclength_residual": -4.389255484679028e-11,
+  "final_variables": {
+    "a": 0.18037264640633813,
+    "c": 10.315376237864077,
+    "angle": 2.308819623444259,
+    "total_flight_time": 234.47519113790332
+  },
+  "secant_from_exp360": {
+    "da_dc": -0.3255461755927634,
+    "predicted_c_at_a_0_1798": 10.317135270681144
+  },
+  "node_boundary_margin": 0.9383998632235411,
+  "jacobian_condition_number": 27115769746.976955,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 36,
+    "optimality": 3.141093242147582e-10
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "A second chained two-parameter pseudo-arclength point passes the unchanged matching and arclength gates. The highly stable local slope further supports smooth continuation toward the historical fixed-a section, but the exact intersection, a possible later fold, uniqueness, and computer-assisted existence remain open."
+}

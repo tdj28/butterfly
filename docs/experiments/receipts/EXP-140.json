@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.a-upo-continuation-summary.v1",
+  "experiment_id": "EXP-140",
+  "passed": false,
+  "failure_class": "hardcoded corrector closure floor recurred at a different parameter",
+  "source_commit": "3189692663b56baf9aaac5a03db3aaa4ff9ca697",
+  "manifest_sha256": "c8c663310c207eaf255f385f80eaea7de2601f88af2363f0f38291e392d6f4d4",
+  "raw_receipt": "artifacts/EXP-140/receipt.json",
+  "raw_receipt_sha256": "03eb4e24503cb31d6328845a5b90b102eef7868c01e99165dfae0d5e362d07b4",
+  "raw_receipt_bytes": 12690,
+  "elapsed_seconds": 38.918983791954815,
+  "qualified_points": 10,
+  "original_exp139_stop_passed": true,
+  "new_stop": {
+    "last_passed_a": 0.14811249999999998,
+    "failed_step_a": 0.14812499999999998,
+    "optimizer_message": "`xtol` termination condition is satisfied.",
+    "failed_step_correction_closure": 1.0249925173209085E-10,
+    "internal_success_floor": 1E-10,
+    "experiment_flow_closure_limit": 1E-8,
+    "classification": "systematic threshold mismatch, not a boundary-locked orbit event"
+  },
+  "phase_shifted_section_count": {
+    "evaluated_points": 10,
+    "observed_counts": [
+      13
+    ],
+    "passed": true
+  },
+  "interpretation": "Tighter integration carries family 01 beyond the EXP-139 stop, then the same hardcoded 1e-10 floor recurs near the midpoint. The stop moved with numerical settings and remains far inside the scientific closure bound. EXP-141 separates optimizer convergence from the declared orbit-acceptance gates."
+}

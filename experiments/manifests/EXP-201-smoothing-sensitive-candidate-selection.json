@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.smoothing-sensitive-candidate-selection-manifest.v1",
+  "experiment_id": "EXP-201",
+  "receipt": {
+    "path": "artifacts/EXP-200/receipt.json",
+    "sha256": "63199e4171c1f5a5c1fc1e309804b5f97b693567076c87ab6a94ac1b14fb4497"
+  },
+  "candidate_input": {
+    "path": "artifacts/EXP-200/candidates.json",
+    "sha256": "818c93c0d65b1cbbd2109995c0ad6fcfdb058b9dc180396df910c9c9889c85eb"
+  },
+  "selection": {
+    "baseline_variant_indices": [0, 1, 2, 4],
+    "smoothing_variant_index": 3,
+    "baseline_branch_count": 3,
+    "smoothing_branch_count": 2,
+    "required_at_every_profile": true
+  },
+  "expected_candidate_count": 104,
+  "claim_scope": "deterministic result-informed selection of the complete EXP-200 cross-step smoothing-disagreement set; no orbit or return-map data are changed, and selection alone makes no topology claim"
+}

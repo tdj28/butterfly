@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.fold-normal-form-summary.v1",
+  "experiment_id": "EXP-040",
+  "passed": true,
+  "source_commit": "f48476b6ec0b72786d19c69a8f57a8f137ced4c2",
+  "manifest_sha256": "8dc3547a28486fec7c29f9786e9543b741ac033fcc05ba48e79d8b985747f056",
+  "source_curve_receipt_sha256": "ad7d09afa45068dbb41252ebaa7de93259302d3aff8d1824a908e7e62c9ad555",
+  "full_receipt_sha256": "d2a143549fe085c16ce318c8178ff659541469fc87c83bea2ed67aac8b20cd28",
+  "event": {"a": 0.21851312809543263, "b": 0.2031697977265498, "c": 5.1},
+  "branch_point_counts": [24, 24],
+  "secondary_arm_identity_rms": 7.558915071869098e-8,
+  "separation_exponent": 0.49287780624457106,
+  "separation_r_squared": 0.9999690954036118,
+  "multiplier_ratio_median": 1.996911200445982,
+  "multiplier_ratio_range": [1.9881674032585335, 1.9992194098874494],
+  "max_closure_error": 1.0450412493911972e-12,
+  "stability_exchange_at_all_points": true,
+  "figure": {
+    "path": "artifacts/EXP-040/EXP-031-039-040-normal-form-comparison.png",
+    "sha256": "5838e807b172fcdb30254320852c68edf80451f467804409b232f86e1b9233c8"
+  },
+  "interpretation": "The square-root branch opening and stability exchange persist at the minimum-b fold. EXP-041 subsequently verifies the event is a double-covered fundamental flip; the fold changes slice multiplicity, not the local flip mechanism."
+}

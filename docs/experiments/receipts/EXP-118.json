@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.invariant-identity-summary.v1",
+  "experiment_id": "EXP-118",
+  "passed": false,
+  "source_commit": "3f351d9484231c1c39cb20c2798a796bb17c4989",
+  "manifest_sha256": "3e4cf8e4c44003d934e3623287e96b4d618cb629fe0636293d5d96025e8cc67c",
+  "raw_receipt": "artifacts/EXP-118/receipt.json",
+  "raw_receipt_sha256": "fec3f8d9c06b4cf670938f9d17ea97c18a2a4a0e23ec9af80fe43b597da2e9bc",
+  "raw_receipt_bytes": 93912,
+  "elapsed_seconds": 214.11256300006062,
+  "dataset_count": 8,
+  "all_integration_success": true,
+  "all_crossing_counts": 1200,
+  "all_recurrence_nonperiodic": true,
+  "observed_branch_count": null,
+  "oracle_votes": {"total": 240, "two_branch": 46, "three_branch": 189, "unresolved": 5},
+  "resolution_pattern": {"20_bin_variants": {"two_branch": 46, "three_branch": 0, "unresolved": 2}, "30_to_80_bin_variants": {"two_branch": 0, "three_branch": 189, "unresolved": 3}},
+  "lyapunov": [
+    {"id": "original", "classification": "chaotic", "exponents": [0.06761654243892884, -0.00010694234378179041, -19.707391813714963], "independent_largest": 0.05974494775394002, "largest_difference": 0.007871594684988818, "trace_identity_error": 0.0000027961727582237472, "passed": false},
+    {"id": "sobol-0", "classification": "chaotic", "exponents": [0.0620353010634766, 0.0003234144509112761, -19.69206452055081], "independent_largest": 0.07068327389384878, "largest_difference": 0.008647972830372178, "trace_identity_error": 0.000002736237789235929, "passed": false}
+  ],
+  "interpretation": "failed strict cross-resolution topology and 1e-6 trace gates; persistent positive-Lyapunov chaos is strongly supported, and every resolved 30-to-80-bin oracle cell is three-branch while the 20-bin cells under-resolve it as two"
+}

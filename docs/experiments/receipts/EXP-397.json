@@ -1,0 +1,67 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-397",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "b9f6c30b7144e93bcb75e1ae27c6fddf4aa6c142",
+    "dirty": false
+  },
+  "manifest_sha256": "18457eb85a91585c82b09bfd7e1ffe6da96557f71e4509a2827ce10988777f96",
+  "raw_receipt": {
+    "path": "artifacts/EXP-397/receipt.json",
+    "bytes": 81985,
+    "sha256": "ec7cc02cc8dd86ea3d93f518591586abaa7ad732ad9eee821cad7a0c1fa3536f"
+  },
+  "elapsed_seconds": 358.7186435414478,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 1.25e-7,
+  "normalized_arclength_step": 0.022538717598313714,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981745719101905,
+    "c": 10.317081613741884,
+    "angle": 2.8102445811771952,
+    "total_flight_time": 234.42039331961593
+  },
+  "final_variables": {
+    "a": 0.17981753580258716,
+    "c": 10.317081372235611,
+    "angle": 2.4928651311349013,
+    "total_flight_time": 234.4204324471763
+  },
+  "final_c_increment": -1.1650627307346895e-7,
+  "initial_maximum_block_residual": 0.000005062384607508685,
+  "final_maximum_block_residual": 2.803159052511406e-9,
+  "final_matching_residual_norm": 1.044865418871155e-8,
+  "final_arclength_residual": 1.8206139720811088e-14,
+  "jacobian_minimum_singular_value": 1.0456336653497923e-9,
+  "maximum_normalized_node_displacement": 0.041610943063332684,
+  "node_boundary_margin": 0.9583890569366673,
+  "global_boundary_margins": [
+    0.2499608724396296,
+    0.00019992138843188956,
+    0.000199758493726776,
+    0.682620549957706
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 17,
+    "njev": 15,
+    "optimality": 9.476601225407105e-12
+  },
+  "failed_checks": [
+    "directional_c_requirement"
+  ],
+  "interpretation": "The standard-plane quarter step finds a fully interior, well-conditioned root, but it lies 1.165e-7 backward in c. Preserve the direction failure and recompute the tangent from the passed corrected EXP-396 root before reducing the step."
+}

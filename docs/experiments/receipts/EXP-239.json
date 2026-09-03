@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period24-segmented-continuation-summary.v1",
+  "experiment_id": "EXP-239",
+  "passed": true,
+  "source_commit": "eef3a393e2b7c1ecee0500e6911951242cf32a09",
+  "manifest_sha256": "ce4495b4e3410554b790da4b6800b65d8f872d67b74af1a6ff13f4538f0a0b4c",
+  "switch_receipt_sha256": "2e47b554a2591f58fe29d2df65a9a0a8ea08e71300ecf06a01a88a5f09d3ec82",
+  "event_receipt_sha256": "088258b0c0cca6f5cb847ced26ff44dff00a6c67bdd50858d4f504e45f4e2cba",
+  "raw_artifact": "artifacts/EXP-239/receipt.json",
+  "raw_artifact_bytes": 55914,
+  "raw_artifact_sha256": "e28fa5f0dc211c09803f2412737d384bc6823606d3b036731bfaf19696ac8a29",
+  "point_count": 21,
+  "a_span_from_event": 8.138848205579974e-6,
+  "maximum_matching_residual": 4.1496132424282206e-13,
+  "terminal_a": 0.24069304262762206,
+  "terminal_period_time": 178.85254273707153,
+  "terminal_half_node_rms": 0.05720386440058364,
+  "terminal_half_period_closure": 0.11947916165261206,
+  "terminal_preliminary_multiplier": -703.4363421250472,
+  "terminal_historical_phase_count": 28,
+  "terminal_barrio_phase_count": 32,
+  "interpretation": "A primitive period-24 branch continues smoothly away from the period-12 flip. Its preliminary strong instability requires the frozen independent block-Floquet audit before criticality classification."
+}

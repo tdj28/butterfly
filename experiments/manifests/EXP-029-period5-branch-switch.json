@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.periodic-branch-switch-manifest.v1",
+  "experiment_id": "EXP-029",
+  "event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "primary_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 40, "tolerance": 1e-11},
+  "continuation": {
+    "step_length": 0.0059258,
+    "steps_per_direction": 12,
+    "b_guard_min": 0.268,
+    "b_guard_max": 0.276
+  },
+  "acceptance": {
+    "max_branch_tangent_dot": 0.25,
+    "max_closure_error": 1e-8,
+    "minimum_points_per_direction": 8,
+    "minimum_endpoint_distance_from_primary": 1e-5,
+    "max_second_smallest_singular_value": 1e-7
+  }
+}

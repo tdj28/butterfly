@@ -1,0 +1,37 @@
+{
+  "schema": "butterfly.a-upo-continuation-summary.v1",
+  "experiment_id": "EXP-141",
+  "passed": true,
+  "source_commit": "5a8f27126c8faf0bf7474a2a3a4fcd578124f3b2",
+  "manifest_sha256": "600d9a934828d81e99a3f990ca7ccf51a082bed90a1dc8501e85e8ced342c3a2",
+  "raw_receipt": "artifacts/EXP-141/receipt.json",
+  "raw_receipt_sha256": "c245dbb1e4aa6a51651f918662acf0cc9bf75116f4bd854c38e9090ad262753b",
+  "raw_receipt_bytes": 25527,
+  "elapsed_seconds": 81.01720166578889,
+  "branch": {
+    "id": "lower-family-01-lag13-acceptance-aligned",
+    "points": 21,
+    "period_interval": [
+      81.45443652693932,
+      81.46404847089289
+    ],
+    "maximum_correction_closure": 1.171906163895035E-10,
+    "maximum_independent_flow_closure": 2.2908621840123408E-9,
+    "maximum_neutral_multiplier_error": 2.1655421900135252E-10,
+    "minimum_proper_divisor_closure": 10.495021572913185,
+    "unstable_modulus_interval": [
+      1696.6866320902257,
+      1720.5588385006129
+    ],
+    "all_optimizers_succeeded": true,
+    "passed": true
+  },
+  "phase_shifted_section_count": {
+    "evaluated_points": 21,
+    "observed_counts": [
+      13
+    ],
+    "passed": true
+  },
+  "combined_census_interpretation": "Together with EXP-136, EXP-138, and the seven complete EXP-139 paths, all eleven identity-qualified primitive UPO families recovered from the two endpoint saddles persist across the finite local two/three-branch interval. The observed topology change is not creation, destruction, or section-crossing loss of any recovered family."
+}

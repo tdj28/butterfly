@@ -1,0 +1,55 @@
+{
+  "schema": "butterfly.jones-period1536-near-event-qualification-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-near-event-qualification-receipt.v1",
+  "experiment_id": "EXP-289",
+  "switch_receipt_sha256": "d06fe7cb53d69d7b4692d14c8947f7db6ebd9ed6952b610eb2817b95c6cf4de0",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "audit_schema": "butterfly.jones-period768-decimal-independent-richardson-receipt.v1",
+  "audit_receipt_sha256": "b0535b124411e3d7f4a18852843a9f47224ab4497bc9f27c10ecd9d8ccde939a",
+  "source_candidate": {
+    "step_length": 0.00025,
+    "direction": 1
+  },
+  "selection_reason": "largest frozen half-period separation and best direct closure/neutral residual of the largest-predictor bilateral pair; preliminary stability is not a selection gate",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "jacobian_storage": "sparse_csr",
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "expected_criticality": "resolved",
+  "solvers": {
+    "dop853": {
+      "method": "DOP853",
+      "rtol": 1e-11,
+      "atol": 1e-13,
+      "max_step": 0.03
+    },
+    "radau": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.03
+    }
+  },
+  "corrector": {
+    "maximum_evaluations": 240,
+    "tolerance": 1e-10
+  },
+  "cyclic_shifts": {
+    "1024": [0, 256, 512, 768],
+    "2048": [0, 512, 1024, 1536]
+  },
+  "identity": {
+    "historical_phase_count": 1792,
+    "barrio_phase_count": 2048
+  },
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_solver_node_rms": 0.00002,
+    "maximum_multiplier_relative_spread": 0.02,
+    "minimum_half_period_closure": 3e-6,
+    "classification_margin": 0.0001
+  },
+  "claim_scope": "prospective independent fixed-a sparse 1024/2048-segment DOP853/Radau correction of the EXP-288 positive-mode period-1536 candidate and its period-768 parent 7.08e-14 above the independently high-precision-qualified event, with solver node identity, block-Floquet stability classification, child half-period nonclosure, and exact 1792/2048 section identity; either consistently supercritical or consistently subcritical classifications pass the frozen resolution gate, while other-or-unresolved fails; a pass establishes the corresponding local parent/child stability exchange at the sampled near-event point, but does not establish attracting-basin measure, tangent-sign equivalence, a continued period-1536 branch or eighth event, a limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

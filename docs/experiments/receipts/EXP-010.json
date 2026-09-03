@@ -1,0 +1,64 @@
+{
+  "schema": "butterfly.candidate-confirmation-receipt.v1",
+  "experiment_id": "EXP-010",
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "672098655e3b9d7b4c686f8a8608a6265850d518",
+    "dirty": false
+  },
+  "manifest_sha256": "d4c7203b00c38b7137c86921c7d259986dbcc290c2d777f9f64df42d2b1e8864",
+  "source_result_sha256": "80296d185fddf2038fd3a93af180030ab8ec770aae45305ff30124051abd59b5",
+  "core_count": 17,
+  "selected_count": 139,
+  "tile_count": 32,
+  "row_count": 139,
+  "wall_seconds": 370.38,
+  "summed_tile_seconds": 1456.124371795915,
+  "tile_elapsed_range": [41.29017200041562, 51.857557124923915],
+  "label_counts": {
+    "chaotic": 135,
+    "multistable": 2,
+    "unresolved": 2
+  },
+  "initial_condition_label_counts": {
+    "chaotic": 273,
+    "periodic": 2,
+    "unresolved": 3
+  },
+  "multistable_candidates": [
+    {
+      "point_index": 319,
+      "a": 0.17675,
+      "b": 0.2,
+      "c": 10.42,
+      "chaotic_initial_state": [0.0, 4.0, 0.0],
+      "periodic_initial_state": [1.0, 1.0, 1.0],
+      "fundamental_period": 8,
+      "recurrence_error": 9.89534357452498e-7,
+      "recurrence_tolerance": 2.5840892878840866e-6,
+      "lyapunov_exponents": [0.0002924822049663437, -0.005752029945680051, -10.154865545285913]
+    },
+    {
+      "point_index": 1624,
+      "a": 0.18475,
+      "b": 0.2,
+      "c": 10.35,
+      "chaotic_initial_state": [0.0, 4.0, 0.0],
+      "periodic_initial_state": [1.0, 1.0, 1.0],
+      "fundamental_period": 6,
+      "recurrence_error": 4.0726680256985053e-8,
+      "recurrence_tolerance": 2.593682710532553e-6,
+      "lyapunov_exponents": [-0.0025917912489439266, -0.007539975535489658, -10.04388777812216]
+    }
+  ],
+  "unresolved_points": [
+    {"point_index": 465, "a": 0.17775, "b": 0.2, "c": 10.24},
+    {"point_index": 1588, "a": 0.1845, "b": 0.2, "c": 10.4}
+  ],
+  "all_crossing_counts": [128, 128],
+  "max_trace_identity_error": 1.7418546605085794e-9,
+  "aggregate_result_sha256": "aa1b9557c16f9a763c59040065bb6668430c072e8ca8443f486c7f76e1fd2804",
+  "aggregate_receipt_sha256": "8ed2212ab4a89719ab198417774ee409df0e1cf515b8fe1836890ba8dc9937d6",
+  "aggregate_completion_sha256": "a9919b90acf79a2c99ec854e08ad9b1ea5214d44c83cf8a2fce516b862e86bd7",
+  "interpretation_limit": "Finite-time basin evidence only; exact orbit recovery, Floquet multipliers, longer-horizon replication, and continuation remain required."
+}

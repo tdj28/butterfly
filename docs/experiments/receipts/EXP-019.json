@@ -1,0 +1,40 @@
+{
+  "schema": "butterfly.basin-uncertainty-summary.v1",
+  "experiment_id": "EXP-019",
+  "passed": true,
+  "source_commit": "dda142644ac1eef659726840545f829395dfd86e",
+  "source_archive_sha256": "9ed9d412d9fce2765b37098918dd260e37f7aae6daa0b230c25c28183ad0a1b1",
+  "full_receipt_sha256": "0ece074434092be87e40010852b9e69eb66b46e2ec2f503bc67699c2124bb0b9",
+  "remote_local_receipt_hash_match": true,
+  "parameters": {"a": 0.245, "b": 0.2, "c": 5.75},
+  "target_periods": [3, 12],
+  "epsilons": [2.0, 1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125],
+  "pairs_per_scale": 8192,
+  "resolved_counts": [8192, 8192, 8192, 8192, 8192, 8192, 8192],
+  "uncertain_counts": [3673, 3714, 3766, 3263, 2601, 1965, 1512],
+  "uncertain_fractions_jeffreys": [
+    0.4483705602343464,
+    0.4533748321738069,
+    0.45972171365800074,
+    0.39832784083974127,
+    0.31752715732942755,
+    0.2398999145612108,
+    0.18460881240082996
+  ],
+  "preregistered_all_scale_fit": {
+    "alpha": 0.22182444797775352,
+    "alpha_bootstrap_95_interval": [0.21255343775517102, 0.2314691636233312],
+    "r_squared": 0.8544822468224542,
+    "boundary_dimension_estimate": 1.7781755520222464
+  },
+  "disclosed_post_result_four_smallest_scale_fit": {
+    "alpha": 0.37329020342967373,
+    "alpha_bootstrap_95_interval": [0.34990185490821357, 0.39795027838764957],
+    "r_squared": 0.9982997441932941,
+    "boundary_dimension_estimate": 1.6267097965703263
+  },
+  "elapsed_seconds": 130.85432669799775,
+  "gpu": "NVIDIA L4",
+  "account_pod_list_verified_empty": true,
+  "interpretation": "Fractal basin-boundary candidate; all-scale saturation prevents treating the post-result small-scale slope as final."
+}

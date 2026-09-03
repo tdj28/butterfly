@@ -1,0 +1,55 @@
+{
+  "schema": "butterfly.jones-period6-flip-branch-switch-summary.v1",
+  "experiment_id": "EXP-207",
+  "passed": false,
+  "source_commit": "2e9bc5660c3fb5262168e1d44d4c0580b0ec07f0",
+  "manifest_sha256": "0012ecf94ee5514abad932fd94a7be0136c59213f606a73db4df93cffac853db",
+  "source_receipt_sha256": "e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba",
+  "raw_artifact": "artifacts/EXP-207/receipt.json",
+  "raw_artifact_bytes": 7383,
+  "raw_artifact_sha256": "5cef4ec98795ebc04a52f78ba182ccc0d6ecb92b9f355357becd2f332b59b34f",
+  "required_points_per_direction": 8,
+  "events": [
+    {
+      "c": 7.18,
+      "event_a": 0.21580545108393873,
+      "negative_point_count": 1,
+      "positive_point_count": 0,
+      "candidate_a": 0.215850746433466,
+      "candidate_period_time": 88.76008453295535,
+      "candidate_closure_error": 3.241852048577489e-11,
+      "candidate_dominant_multiplier_modulus": 0.1490896262501088,
+      "candidate_distance_from_doubled_primary": 0.004163867063714982,
+      "candidate_historical_phase_count": 12,
+      "candidate_barrio_phase_count": 16
+    },
+    {
+      "c": 7.24,
+      "event_a": 0.2157634576158163,
+      "negative_point_count": 1,
+      "positive_point_count": 0,
+      "candidate_a": 0.21581284081540023,
+      "candidate_period_time": 88.60438078051706,
+      "candidate_closure_error": 4.0063348664359827e-10,
+      "candidate_dominant_multiplier_modulus": 0.023543598289106998,
+      "candidate_distance_from_doubled_primary": 0.004227747826195746,
+      "candidate_historical_phase_count": 12,
+      "candidate_barrio_phase_count": 16
+    },
+    {
+      "c": 7.3,
+      "event_a": 0.2157060422334509,
+      "negative_point_count": 1,
+      "positive_point_count": 0,
+      "candidate_a": 0.2157593670341808,
+      "candidate_period_time": 88.45589744049273,
+      "candidate_closure_error": 4.1233681250278456e-10,
+      "candidate_dominant_multiplier_modulus": 0.20614758092484287,
+      "candidate_distance_from_doubled_primary": 0.004300299248501499,
+      "candidate_historical_phase_count": 12,
+      "candidate_barrio_phase_count": 16
+    }
+  ],
+  "elapsed_seconds": 96.7439,
+  "interpretation": "The frozen eight-point-per-direction period-12 branch-continuation gate fails at every event. One accurate stable 12/16-phase orbit is nevertheless nominated from each negative switch direction. These post-run nominations require a new prospective independent qualification before they support a period-12 child claim."
+}

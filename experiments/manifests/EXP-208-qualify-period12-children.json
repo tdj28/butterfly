@@ -1,0 +1,49 @@
+{
+  "schema": "butterfly.jones-period12-child-qualification-manifest.v1",
+  "experiment_id": "EXP-208",
+  "event_receipt_sha256": "e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba",
+  "candidate_receipt_sha256": "5cef4ec98795ebc04a52f78ba182ccc0d6ecb92b9f355357becd2f332b59b34f",
+  "fixed_b": 0.2,
+  "targets": [
+    {"c": 7.18, "candidate_a": 0.215850746433466, "source_direction": -1},
+    {"c": 7.24, "candidate_a": 0.21581284081540023, "source_direction": -1},
+    {"c": 7.3, "candidate_a": 0.2157593670341808, "source_direction": -1}
+  ],
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "comparison": {
+    "phase_samples": 2048,
+    "coarse_shifts": 256,
+    "shift_tolerance": 1e-10
+  },
+  "identity": {
+    "historical_parent_phase_count": 6,
+    "barrio_parent_phase_count": 8,
+    "historical_child_phase_count": 12,
+    "barrio_child_phase_count": 16
+  },
+  "acceptance": {
+    "required_targets": 3,
+    "maximum_closure_error": 2e-8,
+    "maximum_solver_identity_rms": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "minimum_parent_multiplier_modulus": 1.0001,
+    "maximum_child_multiplier_modulus": 0.999,
+    "maximum_period_ratio_error": 0.0005,
+    "minimum_proper_subperiod_closure": 0.0001,
+    "minimum_subperiod_to_full_closure_ratio": 10000
+  },
+  "claim_scope": "pilot-informed but prospectively frozen independent qualification of three EXP-207 period-12 nominations: a pass establishes primitive stable period-12 children paired with unstable period-6 parents at three sampled post-flip points, not successful branch-arm continuation, a continuous child surface, supercritical normal form, attraction-basin size, the TBA curve, or a doubly-superstable center"
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.pim-upo-primitivity-audit-manifest.v1",
+  "experiment_id": "EXP-151",
+  "source_experiment": "EXP-150",
+  "source_receipt_sha256": "4155d0193817c53ca1c85d500fe64d6d4eb67f2b15ef0e94db93b5c2d78db364",
+  "identity": {
+    "coordinate_scales": [1.0, 30.0, 0.0006],
+    "phase_samples": 512,
+    "phase_shift_tolerance": 1e-12,
+    "test_every_proper_integer_repeat_factor": true
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "acceptance": {
+    "maximum_divisor_flow_closure": 1e-7,
+    "maximum_relative_period_difference": 1e-8,
+    "maximum_phase_invariant_rms": 1e-6,
+    "minimum_unique_primitive_families_per_case": 1
+  }
+}

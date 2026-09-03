@@ -1,0 +1,66 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-376",
+  "passed": false,
+  "source_commit": "ff05de29cf464b1a1428d9c2ad32b3333b33665c",
+  "manifest_sha256": "d5b338476ccb823e77a3ed515e04b1a8345d4764f20ae4e00847f42b6fd232e5",
+  "raw_artifact": "artifacts/EXP-376/receipt.json",
+  "raw_artifact_bytes": 78605,
+  "raw_artifact_sha256": "5cf1726acf35b04ad32f7cda305d5170be3685a20df54e1fa900e6e099cf57c9",
+  "elapsed_seconds": 44.765848875045776,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "warm_start_receipt": {
+    "experiment_id": "EXP-375",
+    "sha256": "bd4c1e85c9533e616bf8377cc34c78fece4c43ff7b045e8aa91807e6da38a451",
+    "passed": false
+  },
+  "arclength_components": ["a", "c"],
+  "desired_c_increment": 0.000075,
+  "initial_maximum_block_residual": 0.0000052088761002681735,
+  "final_residual_norm": 0.000006282806308004301,
+  "final_matching_residual_norm": 0.000006282806060266878,
+  "final_maximum_block_residual": 0.0000052088761002681735,
+  "final_arclength_residual": -1.7643617634607867e-9,
+  "final_variables": {
+    "a": 0.17981742643035933,
+    "c": 10.317188191803234,
+    "angle": 2.317505887755577,
+    "total_flight_time": 234.42817934711846
+  },
+  "node_boundary_margin": 0.8737437181388472,
+  "global_boundary_margins": [
+    1.9853542003564542,
+    0.0009756547138355109,
+    0.0009682969386499707,
+    1.4292453727362378
+  ],
+  "jacobian_largest_singular_value": 345.2784806170508,
+  "jacobian_smallest_singular_value": 3.2170960333649684e-10,
+  "optimizer": {
+    "success": false,
+    "status": -2,
+    "message": "No residual-decreasing bounded Newton step was found.",
+    "nfev": 3,
+    "njev": 3,
+    "optimality": 9.287547256140542e-12,
+    "scaled_step_norm": 1522.6804667959032,
+    "maximum_scaled_step_component": 799.3468220797673,
+    "linear_residual_norm": 2.5776055398529527e-13,
+    "attempted_step_fractions": [
+      0.0005410706948873934,
+      0.0002705353474436967
+    ]
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "root_nominated"
+  ],
+  "interpretation": "Direct sparse LU solves the Newton system accurately but exposes a huge near-null step. The prospective 2^-12 damping floor permits only two bound-limited trials, whose maximum defects increase to 7.17e-3 and 1.78e-3. A single prospectively deeper line search is justified; if it cannot find descent, change the boundary formulation or segmentation rather than chaining Newton restarts."
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.segmented-floquet-precision-audit-summary.v1",
+  "experiment_id": "EXP-097",
+  "passed": true,
+  "source_commit": "9df1176523fd0a304a1e540393567df22323c058",
+  "manifest_sha256": "56a98e7f2f18e638b0f06efed92745e4bc4ca4d2c93f4af543c5ffbf16763f38",
+  "full_receipt_sha256": "b479121f727a78d657b726a7b74c10689edbca7d1bc5d697bee3f6398462efdc",
+  "maximum_matching_residual": 1.4634106587032976e-12,
+  "baseline_multipliers": [
+    -1.0467621112408927,
+    -1.000000036042017,
+    -0.9741424958621526
+  ],
+  "tight_multipliers": [
+    -1.0467544129957802,
+    -0.9999922862192857,
+    -0.9741348646111465
+  ],
+  "center_tight_minus_baseline": 7.749822731217826e-6,
+  "maximum_block_product_difference": 5.828670879282072e-14,
+  "maximum_cyclic_product_spread": 5.995204332975845e-15,
+  "interpretation": "both solvers preserve the wide signed bracket and the two multiplier representations agree; integration accuracy, not block-root extraction or direct-product conditioning, controls the remaining event shift"
+}

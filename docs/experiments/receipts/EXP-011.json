@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.focused-multistability-receipt.v1",
+  "experiment_id": "EXP-011",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "c6dbb7d7f5cff115fac584b4e607ae383f2c425e",
+    "dirty": false
+  },
+  "period8_chaos": {
+    "passed": false,
+    "chaotic_initial_label": "chaotic",
+    "nominal_periodic_initial_label": "chaotic",
+    "periodic_orbit_recovered": false,
+    "chaotic_largest_exponent": 0.10413371688493944,
+    "independent_largest_exponent": 0.09593827337081677
+  },
+  "period6_chaos": {
+    "passed": false,
+    "chaotic_initial_label": "unresolved",
+    "nominal_periodic_initial_label": "periodic",
+    "fundamental_period": 6,
+    "recurrence_error": 5.7151127321308206e-12,
+    "period_time": 40.0583676237211,
+    "flow_closure_error": 1.2650160518033538e-11,
+    "floquet_multipliers": [1.0000000000074136, -0.6733389274802699, -1.8845049444715393e-20],
+    "chaotic_variational_largest_exponent": 0.03237137512225665,
+    "chaotic_largest_block_standard_error": 0.017480433175647892,
+    "independent_largest_exponent": 0.04990913836176923
+  },
+  "interpretation": "The period-6 stable orbit is strongly supported, but persistent periodic/chaotic multistability was not established. A transient-capture explanation must be tested."
+}

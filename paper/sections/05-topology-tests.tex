@@ -1,0 +1,223 @@
+\section{Topology and symbolic tests still required}
+
+The original Jones mechanism proposes that, while a stable orbit is followed
+around a nested parameter-space spiral, the dynamically relevant return
+relation alternates between two and three branches and the third branch changes
+its reinjection geometry \citep{jones2012topological}.  The Barrio analysis
+provides a more explicit TBA and double-superstability construction
+\citep{barrio2012topological}.  The modern experiments have now qualified one
+local three-branch control, but have not yet established that global curve or
+the reinjection mechanism.
+
+The first test now supplies a gated branch-count oracle on a frozen section and
+invariant domain.  It locates prominent critical points, rejects non-graph-like
+or poorly covered projections, and requires bootstrap agreement.  Its first
+R{"o}ssler sensitivity matrix passes for the historical negative-oriented map
+in both $x$ and $z$, while correctly refusing most positive-half scalar
+classifications.  The remaining task is to continue the prospective
+two/three-branch boundary.  A second frozen control on the section declared by
+Barrio, Blesa, and Serrano now reproduces their published unimodal and bimodal
+attracting endpoints in both scalar coordinates.  Boundary continuation must
+retain the full two-dimensional map and use a qualified chaotic-saddle method
+inside regular windows.  An attractor-only scan now supplies an ordered
+$[0.155,0.160]$ uncertainty band, but deliberately leaves the five sampled
+period-4 windows unresolved.  A first sprinkler ensemble exposes the shallow
+additional extremum at the published $a=0.149$ saddle control, but fails its
+frozen global-prominence and pointwise-capture-agreement gates.  The next
+prospective gate uses local critical-point uncertainty and ensemble-level
+time-step, horizon, and grid convergence.  That gate now passes after
+scrambled-Sobol sampling and cubic-Hermite event interpolation, directly
+qualifying the published two/three saddle controls.  The remaining boundary
+task now has fixed-128-return independent PIM corroboration, but the failed
+64-return coverage control required a longer-horizon stability test.  That
+test now passes at 256 returns; the remaining task is prospective saddle-
+defined continuation between and beyond the controls.  Its first blind step
+qualifies a two-branch saddle at $a=0.140$ but leaves $a=0.145$ support-
+unresolved.  An audit of the adjacent $a=0.150$ candidate finds persistent
+positive-Lyapunov chaos and a resolution split: coarse bins see two branches,
+whereas every resolved 30--80-bin cell sees three.  New-data resolution
+convergence now passes, qualifying the adequate-resolution three-branch label.
+The enlarged $a=0.145$ ensemble removes the support deficit and returns two
+branches in every resolved cell.  Its only failures are the 80-bin
+$z$-coordinate variants, whose equal-width domains include invariant-support
+gaps.  The next frozen test must qualify a coverage-censor rule prospectively
+on both published controls and independent $a=0.145$ data before the saddle
+bracket is narrowed or any boundary is fit.  That test requires
+at least 12 of 15 variants to resolve normally, and every remainder must fail
+only coverage while retaining at least 0.65 coverage, graph-likeness, the
+expected nominal critical geometry, and the unchanged drift bounds.  It now
+passes on all three new-data cases, qualifying $a=0.145$ as two-branch and
+narrowing the sampled bracket to $[0.145,0.149]$.  The remaining task is
+adaptive saddle continuation within and beyond that interval.  Its first
+midpoint at $a=0.147$ is now frozen without an expected label: candidate counts
+two and three must be uniquely selected by all seven new ensembles and both
+coordinates.  That midpoint now passes unanimously as two-branch and halves
+the sampled bracket to $[0.147,0.149]$; the next blind midpoint is frozen at
+$a=0.148$ on independently sampled data.  It fails because 300-unit survivor
+subsets expose three branches whereas the 360-unit subset exposes two.  Nested
+conditioning through 480 time units then yields two in all 228 resolved oracle
+cells and no three-branch result, but fails strict consensus because 12 80-bin
+cells are bootstrap-unstable after rare-survivor attrition.  Independent
+censor-aware PIM then targets the midpoint saddle directly and passes at both
+128- and 256-return ceilings, selecting two in all 60 oracle cells and narrowing
+the finite sampled bracket to $[0.148,0.149]$.  The identical blind method then
+qualifies $a=0.1485$ as three at both censor ceilings, localizing the finite
+classifier transition to $[0.148,0.1485]$.  The next identical-method midpoint
+at $a=0.14825$ also qualifies three, narrowing the finite bracket to
+$[0.148,0.14825]$.  A branch-conditioned landmark test
+then rejects faster capture for the transient extra domain at $a=0.148$ and
+qualifies a delayed-but-bounded lifetime pattern.  This removes that transient
+domain as evidence for invariant reinjection while leaving the PIM bracket
+unchanged.  The next frozen midpoint at $a=0.148125$ adds a signed lower-support
+derivative.  Existing published and local two-branch controls are negative in
+both coordinates at both censor horizons, whereas the corresponding three-
+branch controls are positive.  The untouched midpoint must clear the frozen
+magnitude gate and predict the same class as the blind critical-point oracle.
+It passes: all 60 signed fits are negative and predict the same two-branch
+class returned by all 60 critical-point cells, narrowing the bracket to
+$[0.148125,0.14825]$.  A later blind two-branch midpoint at $a=0.1481875$
+narrows the finite bracket to $[0.1481875,0.14825]$.  This qualifies a local
+continuation coordinate, but it
+does not by itself establish continuity or a global TBA level set.  A single
+orbit's change in
+historical crossing count remains insufficient,
+particularly in light of the section grazing found above.
+
+A direct source audit now sharpens the second test.  Figure 2 draws $L_1$
+horizontally near $c=10$ and $L_2$ vertically near $a=0.18$, but prints no path
+equations or exact endpoint table.  The qualified fixed-$a=0.1798$ computation
+is therefore an explicit, endpoint-matched $L_2$-like reconstruction rather
+than recovered historical code.  At the reported hub height, the exact regular
+small-equilibrium Hopf point lies at $a=0.0018649211$, outside the figure's
+displayed $a\geq0.1$ range.  The visible $L_1$ segment must consequently be
+tested separately from a full endpoint-matched path.
+
+Figure 6 has also been transcribed into a hash-bound target: 23 words through
+period seven, ten state-space/symbol-matched $p\mathbin{\to}p+1$ arrows, one
+visual-only arrow, three lower-period relationships, and ten approximate
+parameter landmarks.  Every printed $p\mathbin{\to}p+1$ arrow inserts a zero
+immediately after $CD$ \citep{metropolis1973finite}.  The source does not,
+however, print a reproducible
+section, invariant domain, or complete partition boundary.  The second test
+must reconstruct that partition independently before generating orbit
+permutations, kneading data, critical itineraries, and Floquet stability.  It
+will then search prospectively for the first high-period mismatch, as required
+by the two-dimensional limitation emphasized by Holmes
+\citep{holmes1984bifurcation}.  Agreement over a finite range will be reported
+as finite correspondence, not conjugacy; the prior experimental finite-order
+result of Lefranc et al. remains part of the novelty boundary
+\citep{lefranc1994combining}.  Template invariants and the finite scalar
+partition will remain separate objects throughout \citep{gilmore1998topological}.
+
+The non-circular assignment layer is now implemented with neutral increasing-
+coordinate branch labels $B_0,B_1,B_2$ and critical-interval labels $K_0,K_1$.
+It rejects out-of-domain points, requires an independently supplied local
+zero-slope residual before assigning a critical symbol, canonicalizes cyclic
+rotation only, and reports reversal separately.  A first 550-pair
+calibration/validation control qualified the $x$ partition but retained one
+bootstrap-unstable 50-bin $z$ variant.  An unchanged-threshold successor used
+a fresh trajectory with 1000 calibration pairs, a 200-pair guard, and 1000
+held-out validation pairs.  All seven variants then resolved three branches
+in both $x$ and $z$.  The joint normalized critical-location spans are
+$0.0176585$ and $0.0161930$, respectively, below the frozen $0.04$ gate.  This
+qualifies the dense three-branch operational control.  The identical frozen
+method at the published unimodal parameter point then resolves two branches in
+every split-cloud $x$ and $z$ variant; its maximum joint critical spans are
+$0.0120319$ and $0.0202542$.  Thus neutral two- and three-branch controls are
+qualified on the same historical representation.  They still neither identify
+which three-branch critical interval continues the unimodal one nor initially
+map $K_0,K_1$ onto $C,D$ or $B_0,B_1,B_2$ onto Jones's numerals.  Two frozen
+global-count paths repeatedly selected the higher-coordinate critical but
+failed strict bracket gates.  A separate local bootstrap then resolved the
+same feature at 20 of 21 DOP853 rows and four of five Radau controls; all four
+endpoint decisions selected trimodal index 1.  The sole $a=0.156$ row failed
+only invariant-domain coverage.  A prospectively predicted survivor cloud at
+that point supplies 64,571 and 65,731 pairs under RK4 steps 0.01 and 0.005.
+Both coordinates resolve in every local variant, their physical critical
+locations differ across steps by only $0.000586$ and $2.24\times10^{-7}$, all
+128 attractor controls capture at each step, and five-return DOP853 audits pass.
+Thus the local operational identity is qualified: the unimodal critical
+continues to the higher-coordinate trimodal critical.  Mapping that neutral
+identity to $C,D$ and Jones's numerals was then frozen from the author's prose
+before any target word was evaluated.  The resulting prediction is
+$K_1\mapsto C$, $K_0\mapsto D$, and
+$(B_0,B_1,B_2)\mapsto(2,1,0)$.  After one preserved pre-integration
+receipt-field failure, the scientifically unchanged successor passes in two
+solvers, two disjoint segments, and both coordinates.  All eight rows place
+$B_2$ uniquely closest to the small equilibrium with normalized median gaps
+at least $0.335762$; each contains 96--112 $B_0\to B_2$ depositions and no
+sampled $B_0\to B_0$ return.  All four jointly resolved $x/z$ comparisons
+agree exactly.  This qualifies the operational historical mapping on the
+recovered section; a generating partition and the withheld target-cycle words
+remain separate tests.
+
+The first blind computation against that target evaluates all ten printed
+parameter landmarks exactly as displayed, without expected periods or local
+parameter adjustment.  At the longer transient, DOP853 and Radau agree for
+both initial conditions in every case.  Eight points resolve periodically, in
+transcription order, at periods
+$5,6,8,14,6,5,14,14$; two points remain unresolved under both solvers.  The
+strict experiment nevertheless fails, and that failure is retained: one
+initial condition at $(a,b,c)=(0.19368,0.2,8.456)$ is unresolved after 800
+transient time units but reaches the same period-14 attractor as the other
+initial condition after 1600 units.  Thus the approximate landmarks provide
+eight qualified orbit seeds while also reproducing the project's central
+finite-time warning.  Period labels alone do not assign Figure 6 words or
+validate an arrow.
+
+The first preregistered word test makes that distinction operational.  At the
+exact second landmark, DOP853 and Radau independently correct the same period-6
+orbit with closure errors below $2.14\times10^{-13}$ and whole-orbit scaled
+disagreement $1.23\times10^{-9}$.  Factor-two RK4 survivor calculations have
+no integration failures, differ in survivor fraction by only $0.001465$, and
+resolve x as the same two-branch map with normalized critical-midpoint
+difference $8.41\times10^{-5}$.  Yet z is monotone at both steps.  The x cycle
+is solver-stable within each profile but changes from \texttt{010011} to
+\texttt{C10011} when the empirical critical interval moves across one orbit
+point; neither word or reversal matches a frozen period-6 target.  The strict
+coordinate and word gates therefore fail.  This rejects use of the exact
+raster landmark as a reproducible doubly-superstable word center.  It does not
+reject all Figure 6 words, because the source landmarks are approximate and
+not identified as exact centers.  The next test must locate a center using a
+target-word-blind stability/criticality objective before applying the frozen
+alphabet.
+
+A first such locator uses the signed dominant transverse period-6 Floquet
+multiplier.  The coarse continuation is too large for its frozen local orbit-
+identity gate and is retained as failed.  A tenfold finer successor resolves
+289 orbit cells with closure below $5.19\times10^{-12}$, but it also fails:
+coverage is $0.655329$ against a frozen $0.75$ gate, the neighborhood contains
+65 sign-changing edges, and its sole preliminary stationary-saddle fit
+disappears on a complete $5\times5$ refinement.  This rejects the Floquet-only
+selector, not double superstability.  The full period multiplier conflates
+zero factors from multiple orbit phases and either critical point.  The
+successor must therefore reconstruct both criticals independently and solve
+their two distances to the corrected orbit; multiplier zeros may only bound
+that search.
+
+That direct successor retains all 65 zero-edge candidates and reconstructs
+their middle-time survivor maps at two fixed steps on a GPU.  Every one of the
+130 candidate/profile maps resolves as two-branch under all five frozen oracle
+variants.  Final survivor counts range from 605 to 977, return-pair counts from
+5682 to 9256, no integration fails, and normalized critical-interval spans
+remain below 0.0134.  Thus the missing second critical is not a sampling-power
+failure: the complete local Floquet-zero set around the first approximate
+period-6 landmark is unimodal on the recovered historical x representation.
+No center is selected.  This further narrows the search without rejecting
+double superstability elsewhere, particularly because the source prints
+unordered approximate landmarks and no reproducible section equation.
+
+The third test now defines reinjection on the genuinely three-branch saddle
+continued from $a=0.1485$, rather than on the rejected $a=0.148$ transient
+domain.  It treats reinjection as an observable of the return map rather
+than as the position of an abstract branched manifold in phase space.  It will
+compare coordinates, branch order, critical values, winding/linking data, and
+candidate template invariants.  Its decisive test is prospective: does the
+observable predict held-out $p\mathbin{\to}p+1$ connections beyond predictions
+already supplied by TBA and homoclinic geometry?
+
+Finally, the original unfolded-spiral figure will be replaced by a generated,
+receipt-bound figure.  Parameter arclength and angle, branch count, critical
+values, periodic-orbit points, symbolic words, and both successful and
+ambiguous transitions must be visible together.  Until those tests pass, the
+topological mechanism remains a structured hypothesis.

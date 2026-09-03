@@ -1,0 +1,28 @@
+{
+  "schema": "butterfly.jones-homoclinic-residual-cell-audit-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-residual-cell-audit-receipt.v1",
+  "experiment_id": "EXP-334",
+  "source_receipt": {
+    "path": "artifacts/EXP-333/receipt.json",
+    "sha256": "aa9c0daa7f56a4b130448294045c24b90f7cea48a44c07958a30540d7b9a4cdf",
+    "schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+    "experiment_id": "EXP-333",
+    "classification": "direct_match_nominated",
+    "expected": {
+      "candidate_count": 25,
+      "nominated_cell_count": 3,
+      "closest_match": {
+        "c": 10.3194,
+        "angle_index": 28,
+        "chord_mismatch": 0.0013378700961282038
+      }
+    }
+  },
+  "continuity": {
+    "maximum_corner_crossing_time_spread": 1.0
+  },
+  "acceptance": {
+    "maximum_winding_closure_error": 1e-10
+  },
+  "claim_scope": "prospective immutable-data audit of every same-stable-branch four-corner cell in the hash-bound passed EXP-333 receipt; reproduce the three componentwise sign-hull nominations, then replace the insufficient independent-coordinate hull rule with the integer winding number of the oriented residual polygon and separately require at most one time unit of corner first-return spread; pass/fail concerns binding, complete deterministic cell enumeration, source-hull reproduction, finite observables, and winding closure only; a nonzero continuous degree cell would nominate a coupled root solve but would not prove a homoclinic orbit, while rejection of the three hull cells would not erase EXP-333's direct near matches or reject a root inside a finer or differently parameterized cell"
+}

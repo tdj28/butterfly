@@ -1,0 +1,35 @@
+{
+  "artifact": "artifacts/EXP-112/receipt.json",
+  "artifact_sha256": "cb3b79ec57521bf5fcd6ce9d00bafe40b633b9d4eb21df812d2d41e97b6c71f7",
+  "elapsed_seconds": 326.18407445866615,
+  "experiment_id": "EXP-112",
+  "manifest_sha256": "1f6d1394ba94b6e2e36534c1967f0459895922c5fe741ea35962385532bf1a73",
+  "passed": true,
+  "source_commit": "0db5dd73da45112d9ac6420e4f6c61de34e6ddb8",
+  "case_summaries": [
+    {
+      "expected_branch_count": 2,
+      "id": "published-unimodal-saddle",
+      "maximum_across_run_critical_span": 0.014848040039709427,
+      "maximum_short_horizon_scaled_state_error": 0.0000020656165005915986,
+      "maximum_short_horizon_time_error": 0.0000005530656146390811,
+      "maximum_survivor_fraction_difference": 0.0101318359375,
+      "minimum_final_survivors": 1485,
+      "minimum_return_pairs": 12375
+    },
+    {
+      "expected_branch_count": 3,
+      "id": "published-bimodal-saddle",
+      "maximum_across_run_critical_span": 0.012831907235057761,
+      "maximum_short_horizon_scaled_state_error": 0.0000024593267616398863,
+      "maximum_short_horizon_time_error": 0.0000031525427992562527,
+      "maximum_survivor_fraction_difference": 0.0113525390625,
+      "minimum_final_survivors": 884,
+      "minimum_return_pairs": 7438
+    }
+  ],
+  "topology_cells_passed": 420,
+  "topology_cells_total": 420,
+  "bootstrap_refits": 21000,
+  "status": "passed"
+}

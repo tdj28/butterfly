@@ -1,0 +1,34 @@
+{
+  "schema": "butterfly.jones-period6-flip-curve-summary.v1",
+  "experiment_id": "EXP-206",
+  "passed": true,
+  "source_commit": "e892b4b5638a6365f258d1b013b66b56a3000f1f",
+  "manifest_sha256": "4776825c1562703d0072eac8bab034789727235feac186f5d7acefdf372184f6",
+  "source_receipt_sha256": "42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0",
+  "raw_artifact": "artifacts/EXP-206/receipt.json",
+  "raw_artifact_bytes": 37724,
+  "raw_artifact_sha256": "e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba",
+  "curve": {
+    "point_count": 41,
+    "c_range": [7.16, 7.32],
+    "a_range": [0.21568353082582117, 0.2158160512164691],
+    "period_time_range": [44.204343024258826, 44.40701832926852],
+    "maximum_adjacent_a_jump": 4.634998862329542e-6,
+    "downward_completed": true,
+    "upward_completed": true
+  },
+  "quality": {
+    "maximum_orbit_residual": 1.0970110257098915e-11,
+    "maximum_phase_residual": 2.7134306779018724e-18,
+    "maximum_tangent_residual": 1.7023004461672326e-12,
+    "maximum_normalization_residual": 5.995204332975845e-15,
+    "maximum_independent_multiplier_residual": 2.040427493632535e-9,
+    "maximum_multiplier_imaginary_part": 0.0,
+    "maximum_neutral_multiplier_error": 1.810801286694641e-9,
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8,
+    "maximum_evaluations": 9
+  },
+  "elapsed_seconds": 132.80683470796794,
+  "interpretation": "All 41 prospectively frozen exact-Jacobian coupled solves pass in both directions and retain independent monodromy plus both section identities. This establishes a dense sampled real-minus-one period-6 Floquet curve segment at b=0.2 over c=7.16..7.32. It does not establish global connectivity, a period-12 child, supercriticality, the TBA curve, or a double-critical center."
+}

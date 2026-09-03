@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-368",
+  "passed": true,
+  "source_commit": "c01bc0ca85483ff3eda65e434289bbae2a2b309f",
+  "manifest_sha256": "0ed1e6e2e855738247a11b8fee3b692f834ce03df67da72493a21875611661d4",
+  "raw_artifact": "artifacts/EXP-368/receipt.json",
+  "raw_artifact_bytes": 41717,
+  "raw_artifact_sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481",
+  "elapsed_seconds": 125.66900383401662,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 256,
+  "source_receipts": [
+    {"experiment_id": "EXP-366", "sha256": "dee39d00b301ee7b551b808c4a90c7d45479cf3f13fc84d7b7c833baafbfedfb"},
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"}
+  ],
+  "desired_c_increment": 0.0005,
+  "initial_maximum_block_residual": 0.006077643907601848,
+  "final_residual_norm": 2.6914245606593567e-8,
+  "final_matching_residual_norm": 2.691424560648336e-8,
+  "final_maximum_block_residual": 9.999341431358164e-9,
+  "final_arclength_residual": -7.702153151378788e-12,
+  "final_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884,
+    "angle": 2.8102862009388585,
+    "total_flight_time": 234.420478735897
+  },
+  "secant_from_exp367": {
+    "da_dc": -0.3255565528874298,
+    "predicted_c_at_a_0_1798": 10.317135236348886
+  },
+  "node_boundary_margin": 0.6272536169422089,
+  "jacobian_condition_number": 23270671274.438435,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 8,
+    "njev": 8,
+    "optimality": 1.0160995087957463e-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The eighth chained point passes in the old fixed-coordinate stall band and lies only 1.75e-5 above exact a=0.1798. It does not yet form a bracket, and its near-gate defect prospectively motivates 512 arcs for the next crossing step."
+}

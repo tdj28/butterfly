@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.jones-period1536-segmented-flip-scan-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-segmented-flip-scan-receipt.v1",
+  "experiment_id": "EXP-302",
+  "continuation_receipt_sha256": "c91fadcd01f8ac6095b97538796cc7e4c25b51a1af94f15531bb47e14ab41bf8",
+  "allow_failed_continuation_prefix": true,
+  "maximum_source_step_index": 16,
+  "selection_reason": "complete exact EXP-300 accepted prefix from the source through the deterministic EXP-301 first-threshold row; the endpoints are independently stable and unstable under EXP-299 and EXP-301, and no intermediate preliminary multiplier is used",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "tracking_method": "dominant_modulus",
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "cyclic_shifts": [0, 512, 1024, 1536],
+  "acceptance": {
+    "required_points": 18,
+    "minimum_stability_brackets": 1,
+    "minimum_flip_brackets": 0,
+    "maximum_matching_residual": 1e-8,
+    "maximum_multiplier_imaginary": 1e-6,
+    "maximum_initial_multiplier_modulus": 0.9999,
+    "minimum_terminal_multiplier_modulus": 1.0001,
+    "maximum_cyclic_modulus_relative_spread": 0.02
+  },
+  "claim_scope": "prospective DOP853 block-Floquet scan of all 18 exact accepted EXP-300 period-1536 rows from the source through step 16, admitted from the failed continuation only as the complete frozen prefix whose endpoints are independently stable in EXP-299 and unstable in EXP-301; the dominant transverse modulus is recorded without assuming a real -1 flip, four cyclic products must agree within 0.02 relative modulus spread, all source matching residuals remain below 1e-8, and at least one modulus-one bracket is required; real -1 and real +1 brackets are reported separately only when endpoint imaginary parts are below 1e-6; a pass nominates a child stability boundary for separate exact refinement, but does not establish its bifurcation type, an eighth event, a period-3072 child, seventh-birth criticality, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

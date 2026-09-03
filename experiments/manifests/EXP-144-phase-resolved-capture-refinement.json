@@ -1,0 +1,134 @@
+{
+  "schema": "butterfly.upo-lobe-capture-refinement-manifest.v1",
+  "experiment_id": "EXP-144",
+  "source_seed_receipt": {
+    "path": "artifacts/EXP-142/receipt.json",
+    "sha256": "da8750a878817e750b6d0547f2e1cf9f90c1555b3004108a859253ac15759d75"
+  },
+  "source_atlas_receipt": {
+    "path": "artifacts/EXP-143/receipt.json",
+    "sha256": "f0dda22c2739859633883b53d80de5558a8f4f3bc4d1ec669a5f685ee9b82c1d"
+  },
+  "cases": [
+    {
+      "id": "two-branch-endpoint",
+      "parameters": {
+        "a": 0.148,
+        "b": 0.2,
+        "c": 20.0
+      }
+    },
+    {
+      "id": "three-branch-endpoint",
+      "parameters": {
+        "a": 0.14825,
+        "b": 0.2,
+        "c": 20.0
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "family_id": "lower-family-06-lag12",
+      "sign": -1
+    },
+    {
+      "family_id": "lower-family-03-lag7",
+      "sign": 1
+    },
+    {
+      "family_id": "lower-family-02-lag5",
+      "sign": 1
+    },
+    {
+      "family_id": "lower-family-07-lag13",
+      "sign": 1
+    }
+  ],
+  "phase_fractions": [
+    0.0,
+    0.3333333333333333,
+    0.6666666666666666
+  ],
+  "coordinate_scales": [
+    1.0,
+    30.0,
+    0.0006
+  ],
+  "seed_grid": {
+    "amplitudes": [
+      1E-9,
+      1.1547819846894583E-9,
+      1.333521432163324E-9,
+      1.539926526059492E-9,
+      1.7782794100389228E-9,
+      2.053525026457146E-9,
+      2.3713737056616553E-9,
+      2.7384196342643613E-9,
+      3.1622776601683795E-9,
+      3.651741272548377E-9,
+      4.216965034285823E-9,
+      4.869675251658631E-9,
+      5.623413251903491E-9,
+      6.493816315762113E-9,
+      7.498942093324558E-9,
+      8.659643233600654E-9,
+      1E-8
+    ],
+    "coarse_indices": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ]
+  },
+  "administrative_horizons": [
+    64,
+    96
+  ],
+  "maximum_flight_time": 50.0,
+  "workers": 4,
+  "stable_cycle": {
+    "initial_state": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "transient_time": 1000.0,
+    "observation_horizon": 100.0,
+    "crossing_count": 12,
+    "section_period": 4
+  },
+  "capture": {
+    "scaled_radius": 0.0001,
+    "required_consecutive_crossings": 4
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1E-10,
+    "atol": 1E-12,
+    "max_step": 0.05
+  },
+  "transport_solver": {
+    "method": "DOP853",
+    "rtol": 1E-11,
+    "atol": 1E-13,
+    "max_step": 0.025
+  },
+  "transport": {
+    "epsilon": 1E-9,
+    "validation_epsilon": 1E-8
+  },
+  "acceptance": {
+    "maximum_stable_cycle_recurrence": 1E-7,
+    "maximum_transport_multiplier_error": 0.01,
+    "maximum_transport_transverse_ratio": 0.01,
+    "maximum_coarse_fine_restricted_mean_difference": 2.0,
+    "minimum_absolute_endpoint_mean_difference": 5.0
+  }
+}

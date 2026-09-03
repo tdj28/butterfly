@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.a-upo-continuation-summary.v1",
+  "experiment_id": "EXP-139",
+  "passed": false,
+  "failure_class": "single precision-limited periodic-corrector stop",
+  "source_commit": "598e0660156506ae0b556b9b8e3e9448b56b6c62",
+  "manifest_sha256": "28e7e0de070eafebb143e13fbebea49c4d93b930337b76a4f102faff198e0802",
+  "raw_receipt": "artifacts/EXP-139/receipt.json",
+  "raw_receipt_sha256": "3a738bec30bc4ac34faa2bcd3c48d1824e6e9eed1c53986f6bb78144ae9a17c7",
+  "raw_receipt_bytes": 174842,
+  "elapsed_seconds": 201.30635762494057,
+  "complete_families": {
+    "count": 7,
+    "ids": [
+      "lower-family-02-lag5",
+      "lower-family-03-lag7",
+      "lower-family-04-lag8",
+      "lower-family-05-lag7",
+      "lower-family-07-lag13",
+      "lower-family-08-lag7",
+      "lower-family-09-lag3"
+    ],
+    "points": 147,
+    "all_flow_floquet_primitivity_gates_passed": true
+  },
+  "stopped_family": {
+    "id": "lower-family-01-lag13",
+    "last_passed_a": 0.148025,
+    "failed_step_a": 0.1480375,
+    "optimizer_message": "`xtol` termination condition is satisfied.",
+    "failed_step_correction_closure": 1.066006644102427E-10,
+    "internal_success_floor": 1E-10,
+    "experiment_flow_closure_limit": 1E-8,
+    "last_passed_unstable_modulus": 1718.232856815237,
+    "classification": "numerical stop requiring tighter reference integration; not evidence of a bifurcation"
+  },
+  "phase_shifted_section_count": {
+    "evaluated_points": 150,
+    "all_counts_equal_fundamental_lag": true,
+    "passed": true
+  },
+  "interpretation": "Seven additional primitive UPO families persist across the local two/three interval. The eighth stops at a correction closure only 6.6e-12 above an internal numerical floor while remaining far inside the scientific flow-closure bound. EXP-140 prospectively reruns that family with tighter DOP853 tolerances."
+}

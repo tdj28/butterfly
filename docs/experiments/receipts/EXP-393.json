@@ -1,0 +1,68 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-393",
+  "classification": "pseudoarclength_unresolved",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "75e3f105da337d1f1b9b6836b1e0aeaf7e8c620f",
+    "dirty": false
+  },
+  "manifest_sha256": "75c09325440760a65cd3dd52619a862fcea460d3bcc60cb9c2104017b426ca03",
+  "raw_receipt": {
+    "path": "artifacts/EXP-393/receipt.json",
+    "bytes": 86906,
+    "sha256": "b554cb5079314b62de05f0f40f0f4e7c8e940f3cd2d73c7bbc5bb6563b501ec7"
+  },
+  "elapsed_seconds": 877.1416127495468,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 5e-7,
+  "normalized_arclength_step": 0.09015487039325486,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981733510709205,
+    "c": 10.317081988741885,
+    "angle": 2.8101197218922067,
+    "total_flight_time": 234.4201370707727
+  },
+  "final_variables": {
+    "a": 0.17981808360672594,
+    "c": 10.31708149874189,
+    "angle": 2.344817237462376,
+    "total_flight_time": 234.42257545344765
+  },
+  "initial_maximum_block_residual": 0.00008106428362388407,
+  "final_maximum_block_residual": 8.851385164851165e-8,
+  "final_matching_residual_norm": 1.0704164752366382e-7,
+  "final_arclength_residual": 4.4212810496047084e-13,
+  "jacobian_minimum_singular_value": 4.518235583824604e-10,
+  "maximum_normalized_node_displacement": 0.1986497693186493,
+  "node_boundary_margin": 0.8013502306813507,
+  "global_boundary_margins": [
+    0.24756161732506143,
+    0.00019925150036612105,
+    5.329070518200751e-15,
+    0.5346975155701692
+  ],
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 35,
+    "optimality": 1.5108177793979533e-10
+  },
+  "failed_checks": [
+    "global_status_bound",
+    "jacobian_conditioning",
+    "optimizer_terminated_or_root_gate",
+    "root_nominated"
+  ],
+  "interpretation": "The widened angle interval removes EXP-392's active angle wall, but the unchanged normalized tangent step still terminates on the forward-c wall above the matching gate, just below the prospective conditioning floor, and at the evaluation budget. Reduce the normalized step without relaxing scientific gates."
+}

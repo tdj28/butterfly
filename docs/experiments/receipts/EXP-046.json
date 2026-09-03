@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.flip-fold-atlas-comparison-summary.v1",
+  "experiment_id": "EXP-046",
+  "passed": false,
+  "source_commit": "9c651f27e25eaa46fef6dc4206c1fb3e82badf3a",
+  "manifest_sha256": "7bf830e7b07d76e4fe122cd45e585d94d47caa1a06a3a2a382b1dada14e46eb5",
+  "full_receipt_sha256": "3f5340ffd1e223d0b8d6ae3c824d922d9ca35c185a3e24846db95d56a3955e2f",
+  "frame_count": 6,
+  "frames_with_both_periods_near": 0,
+  "frames_with_period5_10_adjacency_near": 0,
+  "nearest_period5_grid_distance_range": [6.644142762932995, 7.3197026304683535],
+  "nearest_period10_grid_distance_range": [7.219981865628819, 8.586742228454963],
+  "figure": {
+    "path": "artifacts/EXP-046/EXP-046-coarse-flip-fold-atlas-overlay.png",
+    "sha256": "f2ae5296354d4537d0af4e54602fa99b7984f95d27ad6ca16be7e7da0a23f23c"
+  },
+  "post_result_diagnostic": "Predictions instead lie in a period-3/6 band; this is prospectively tested by EXP-047.",
+  "interpretation": "The preregistered period-5/10 atlas alignment fails systematically. A direct recurrence-identity audit is required before finer raster work."
+}

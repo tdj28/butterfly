@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.period1-c-flip-manifest.v1",
+  "experiment_id": "EXP-156",
+  "source_receipt_sha256": "2b74e4c3303ffd0f69d7d8963856d87a8fe80cd270f882450bc72fd81a3e67b8",
+  "source": {
+    "predecessors": ["EXP-153", "EXP-155", "CLM-006"],
+    "selection_informed_by_source": true,
+    "claim_scope": "coupled exact-Jacobian refinement of the first real -1 Floquet crossing on the fixed-(a,b) period-1 path"
+  },
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "c_bracket": [3.1556294736842108, 3.2536126315789478],
+  "segment_count": 4,
+  "cyclic_shifts": [0, 1, 2, 3],
+  "orbit_sample_count": 4097,
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.025
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.025
+  },
+  "corrector": {"maximum_evaluations": 40, "tolerance": 1e-11},
+  "acceptance": {
+    "maximum_orbit_residual": 1e-9,
+    "maximum_phase_residual": 1e-9,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-10,
+    "maximum_reference_flip_residual": 1e-8,
+    "maximum_multiplier_imaginary": 1e-8,
+    "maximum_block_product_difference": 1e-8,
+    "maximum_cyclic_product_spread": 1e-8,
+    "maximum_independent_closure": 1e-8,
+    "maximum_independent_neutral_error": 1e-6,
+    "maximum_independent_flip_residual": 1e-7,
+    "maximum_winding_error": 0.0001
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-365",
+  "passed": true,
+  "source_commit": "e81758dcdb3ac1d2017a1f0d34e2388df03ba820",
+  "manifest_sha256": "3e9949e53acd5f953138da1983e8ffd7f66fdcd1567474227b4078d904286209",
+  "raw_artifact": "artifacts/EXP-365/receipt.json",
+  "raw_artifact_bytes": 42291,
+  "raw_artifact_sha256": "315fcd9c4f99101aa10b567e8ff675dbd174ff10bbda499b0a8d2f7b0bef0192",
+  "elapsed_seconds": 182.9135489165783,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 256,
+  "source_receipts": [
+    {"experiment_id": "EXP-362", "sha256": "b217c3d72915f926c394039ccd512b672178828114b1f82a51289f62737ffcc1"},
+    {"experiment_id": "EXP-363", "sha256": "78b85011bd678454ca9de5e386f50ce864fb8b59588ef85e99439c877cc626e8"}
+  ],
+  "desired_c_increment": 0.00025,
+  "initial_maximum_block_residual": 0.0008394256757114307,
+  "final_residual_norm": 1.3844764152519644e-8,
+  "final_matching_residual_norm": 1.3844764152467626e-8,
+  "final_maximum_block_residual": 5.165717131432943e-9,
+  "final_arclength_residual": -3.795193326272539e-12,
+  "final_variables": {
+    "a": 0.18001520454594663,
+    "c": 10.316474198445746,
+    "angle": 2.462874207578858,
+    "total_flight_time": 234.4535258305022
+  },
+  "secant_from_exp363": {
+    "da_dc": -0.3255531864348374,
+    "predicted_c_at_a_0_1798": 10.317135241110705
+  },
+  "node_boundary_margin": 0.8987324281583717,
+  "jacobian_condition_number": 37998785143.14295,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 11,
+    "njev": 10,
+    "optimality": 8.003057301759792e-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The 256-arc segmentation-only recovery passes normally and halves the controlling defect without relaxing any gate. It confirms the EXP-364 floor was representation-limited and qualifies the fifth chained pseudo-arclength point."
+}

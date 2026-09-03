@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.periodic-pseudo-arclength-summary.v1",
+  "experiment_id": "EXP-026",
+  "passed": false,
+  "source_commit": "cbc1229b48a67fa15a55152639a15596b23b8b97",
+  "manifest_sha256": "518ae3abaf22c798d8b7b94804533e5de03be669c9289ddf7c707a903f0c06b1",
+  "source_continuation_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "full_receipt_sha256": "9e15e1cd8ec4dba0b170a093554609ab4be791dee6ce895c5df36b8b6eb3e416",
+  "point_count": 24,
+  "required_point_count": 30,
+  "b_range": [0.26500000000000007, 0.3106609565751465],
+  "direction_reversals_in_b": 0,
+  "max_closure_error": 6.34636061154424E-11,
+  "plus_one_bracket": [0.27135354901680375, 0.2727497078563881],
+  "descriptive_linear_crossing_estimate": 0.2722786858869855,
+  "interpretation": "Quarter-step trace reproduces a smooth +1 crossing without a b turn, but the frozen point-count gate failed."
+}

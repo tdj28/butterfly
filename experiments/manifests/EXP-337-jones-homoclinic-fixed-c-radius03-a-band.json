@@ -1,0 +1,64 @@
+{
+  "schema": "butterfly.jones-homoclinic-manifold-match-scan-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+  "experiment_id": "EXP-337",
+  "source_receipts": [
+    {
+      "path": "artifacts/EXP-336/receipt.json",
+      "sha256": "0551d7ee3b699433c0e31f2a4f116f44d93bdf93fdb69eb66123ac2b5222c6ad",
+      "schema": "butterfly.jones-homoclinic-manifold-match-scan-receipt.v1",
+      "experiment_id": "EXP-336",
+      "expected_passed": false,
+      "expected_failed_checks": ["return_crossing_fraction"],
+      "expected_classification": "direct_match_nominated",
+      "expected_candidate_count": 17,
+      "expected_nominated_cell_count": 2,
+      "expected_degree_cell_count": 0,
+      "expected_closest_match": {
+        "a": 0.1828,
+        "angle_index": 74,
+        "chord_mismatch": 0.0003443513727835964
+      }
+    }
+  ],
+  "scan_axis": "a",
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "parameter_grid": {
+    "minimum": 0.1803,
+    "maximum": 0.1838,
+    "count": 15,
+    "reference": 0.1798
+  },
+  "angle_count": 192,
+  "angle_offset_fraction": 0.5,
+  "workers": 8,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.03,
+  "maximum_exit_time": 250.0,
+  "minimum_return_time_after_exit": 10.0,
+  "return_horizon": 400.0,
+  "divergence_radius": 1000.0,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "candidate": {
+    "maximum_chord_mismatch": 0.003
+  },
+  "continuity": {
+    "maximum_corner_crossing_time_spread": 1.0
+  },
+  "acceptance": {
+    "maximum_sphere_residual": 1e-9,
+    "minimum_exit_fraction": 0.95,
+    "minimum_return_crossing_fraction": 0.15
+  },
+  "claim_scope": "prospective coverage-recovery successor bound to EXP-336's exact failed receipt and sole return-crossing-fraction failure; preserve that failure, then restrict only to its observed returning/candidate band a=0.1803--0.1838 at 0.00025 spacing and enlarge the matching sphere from 0.025 to 0.03; retain fixed (b,c)=(0.2,10.3084), reference gauge, 192 midpoint angles, nonlinear stable targets, event logic, DOP853 settings, horizon, radius-scaled ten-percent chord gate, oriented residual winding, and one-time-unit continuity gate; pass/fail concerns the new source binding and coverage, while a continuous nonzero-degree cell only nominates a coupled root and neither its presence nor absence proves or rejects the approximate two-parameter homoclinic point or uniqueness"
+}

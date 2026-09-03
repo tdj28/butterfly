@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-period768-decimal-criticality-summary.v1",
+  "experiment_id": "EXP-318",
+  "passed": false,
+  "source_commit": "fe2f8b4c26b4c6b8e346bd73cc1801169aee0f3b",
+  "manifest_sha256": "5175f05fc832f3fa559c284ff0b28c2e3d65d4bb5c918e9b4e2c98aa13241243",
+  "qualification_receipt_sha256": "0cf411d935ff4bd8fcedc70a55d0ea574aa5c1bac9a877885612394c8c209988",
+  "event_receipt_sha256": "8942a66a3bad641624ddb188630c4e0f882a0b806d6519dfe0b48ee622118c95",
+  "raw_artifact": "artifacts/EXP-318/receipt.json",
+  "raw_artifact_bytes": 16020,
+  "raw_artifact_sha256": "e109f5304a932823ace29b862ff7ff5088b735ca4d88797554546a4928bcd4dc",
+  "elapsed_seconds": 517.2916920832358,
+  "parent_classification": "stable",
+  "child_classification": "stable",
+  "local_criticality_classification": "other-or-unresolved",
+  "classical_rk4_flip_residual": 6.42268051117979e-6,
+  "rk4_three_eighths_flip_residual": 6.4226424391719515e-6,
+  "empirical_multiplier_uncertainty": 7.793210618829172e-9,
+  "signal_to_error_ratio": 824.1330503315551,
+  "interpretation": "Both 50-digit tableaux resolve the period-768 parent as stable at EXP-299's independently stable primitive period-1536 coordinate. The frozen criticality audit correctly fails on stable/stable rather than a stability exchange; seventh-birth direction remains open and the immediate-child branch topology must be resolved."
+}

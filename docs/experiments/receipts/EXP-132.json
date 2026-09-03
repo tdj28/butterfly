@@ -1,0 +1,81 @@
+{
+  "schema": "butterfly.coverage-censored-pim-transverse-summary.v1",
+  "experiment_id": "EXP-132",
+  "passed": false,
+  "failure_class": "one of four prospective endpoint decisions remained bootstrap-unstable",
+  "source_commit": "8a04c21d231bf3f754ec70611df74032b4c6059f",
+  "manifest_sha256": "d80768054b6e10289ce28b1f9e2a6a42dc5d1fa9e543a716b22e188b51c5caeb",
+  "raw_receipt": "artifacts/EXP-132/receipt.json",
+  "raw_receipt_sha256": "8a2cc0905a7ea506a541c88ac36a3dd1ebe145491d6111878aedeed66c853977",
+  "raw_receipt_bytes": 78290,
+  "states_artifact": "artifacts/EXP-132/transverse-pim-256-straddles.npz",
+  "states_artifact_sha256": "b00993bdd2a15f9cc31535cc1c5be735b3edcea3b18d9643c7bffc844a032c34",
+  "states_artifact_bytes": 176955,
+  "elapsed_seconds": 9437.978232582565,
+  "execution": {
+    "successful_access_lines": 12,
+    "failed_lifetime_integrations": 0,
+    "unique_lifetime_evaluations": 69351,
+    "censored_lifetime_evaluations": 8,
+    "certified_censor_block_selections": 8,
+    "return_pairs_per_coordinate_per_case": 2097,
+    "maximum_recorded_straddle_width": 9.99771188158017e-8
+  },
+  "cases": [
+    {
+      "id": "c19p8-lower-predicted-two-h256",
+      "parameters": {"a": 0.148, "b": 0.2, "c": 19.8},
+      "preregistered_prediction": 2,
+      "observed_branch_count": null,
+      "signed_slope_prediction": 2,
+      "fully_resolved_variants_per_coordinate": 12,
+      "unresolved_reason": "three 80-bin variants per coordinate are bootstrap-unstable and cannot be coverage-censored",
+      "slope_intervals": {
+        "y": [-1.4647457016991356, -0.8185259168834672],
+        "z": [-1.798059859157256, -1.0379692877365403]
+      },
+      "passed": false
+    },
+    {
+      "id": "c19p8-upper-predicted-three-h256",
+      "parameters": {"a": 0.15, "b": 0.2, "c": 19.8},
+      "preregistered_prediction": 3,
+      "observed_branch_count": 3,
+      "signed_slope_prediction": 3,
+      "fully_resolved_variants_per_coordinate": 15,
+      "slope_intervals": {
+        "y": [0.542019677091233, 0.8400015146845006],
+        "z": [0.669275617534866, 1.1806380223658892]
+      },
+      "passed": true
+    },
+    {
+      "id": "c19p9-lower-predicted-two-h256",
+      "parameters": {"a": 0.145, "b": 0.2, "c": 19.9},
+      "preregistered_prediction": 2,
+      "observed_branch_count": 2,
+      "signed_slope_prediction": 2,
+      "fully_resolved_variants_per_coordinate": 12,
+      "coverage_censored_variants_per_coordinate": 3,
+      "slope_intervals": {
+        "y": [-1.5170005223956748, -1.1878387629664588],
+        "z": [-1.8924464347761452, -1.2465716360570591]
+      },
+      "passed": true
+    },
+    {
+      "id": "c19p9-upper-predicted-three-h256",
+      "parameters": {"a": 0.15, "b": 0.2, "c": 19.9},
+      "preregistered_prediction": 3,
+      "observed_branch_count": 3,
+      "signed_slope_prediction": 3,
+      "fully_resolved_variants_per_coordinate": 15,
+      "slope_intervals": {
+        "y": [0.49793952888198373, 0.8774406856723287],
+        "z": [0.7760291379206928, 1.166414134742424]
+      },
+      "passed": true
+    }
+  ],
+  "interpretation": "Three of four prospective endpoints pass at 256 returns. The c=19.9 slice establishes a finite two/three bracket on [0.145,0.150]. At c=19.8, a=0.150 passes as three/positive, while a=0.148 remains unclassified because the three highest-bin variants are bootstrap-unstable despite 12/15 two-branch variants and uniformly negative slopes. The full experiment therefore fails and establishes neither the second bracket nor a continuous TBA curve."
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-period768-decimal-parent-side-manifest.v1",
+  "experiment_id": "EXP-291",
+  "qualification_schema": "butterfly.jones-period1536-near-event-qualification-receipt.v1",
+  "qualification_receipt_sha256": "546a199d1c3747d2eeaaa868f420c5bcc5ab3de9b8a3ab6a144e957d0a13f16c",
+  "qualification_solver": "dop853",
+  "independent_solver": "radau",
+  "family": "parent",
+  "decimal_digits": 50,
+  "step_counts": [4096, 8192, 16384],
+  "methods": ["classical_rk4", "rk4_three_eighths"],
+  "method_order": 4,
+  "workers": 8,
+  "cyclic_shifts": [0, 256, 512, 768],
+  "source_requirements": {
+    "child_classification": "unstable",
+    "parent_classification": "neutral",
+    "maximum_child_multiplier_relative_spread": 0.02,
+    "minimum_child_half_period_closure": 3e-6,
+    "historical_phase_count": 1792,
+    "barrio_phase_count": 2048
+  },
+  "acceptance": {
+    "minimum_raw_convergence_ratio": 12.0,
+    "maximum_raw_convergence_ratio": 20.0,
+    "maximum_successive_richardson_flip_difference": 1e-7,
+    "maximum_cross_tableau_flip_difference": 1e-7,
+    "minimum_stable_side_flip_residual": 1e-6,
+    "maximum_stable_side_flip_residual": 0.1,
+    "maximum_successive_richardson_neutral_difference": 1e-7,
+    "maximum_cross_tableau_neutral_difference": 1e-7,
+    "maximum_extrapolated_neutral_residual": 1e-6,
+    "maximum_fine_cyclic_spread": 1e-7,
+    "maximum_fine_characteristic_residual": 1e-30,
+    "maximum_fine_orbit_matching_residual": 1e-7
+  },
+  "claim_scope": "prospective 50-decimal-digit same-coordinate parent-side audit at the exact EXP-289 period-1536 child coordinate, using complete 4096/8192/16384-step profiles over all 1024 corrected period-768 parent segments under independent classical-RK4 and RK4 3/8 tableaux; each sequence must show fourth-order raw and Richardson convergence, cross-tableau flip agreement within 1e-7, and a positive real-minus-one residual at least 1e-6 (ten times the numerical agreement gate) while remaining below 0.1, with neutral, cyclic, characteristic, and orbit matching gates; a pass classifies the parent as stable at the same coordinate where EXP-289 independently classifies the child as unstable, thereby qualifying a local subcritical seventh period-doubling birth, but does not establish a child saddle-node, stable period-1536 attractor, tangent-sign equivalence, eighth event, limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

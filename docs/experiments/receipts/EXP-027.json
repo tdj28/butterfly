@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.periodic-pseudo-arclength-summary.v1",
+  "experiment_id": "EXP-027",
+  "passed": false,
+  "source_commit": "2dc19eb142fb14ab649cb23fb029a8c30d321666",
+  "manifest_sha256": "17713bdad9332d27d0936f37feba7995e87d4f31c320f0fadbad846049224d90",
+  "source_continuation_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "full_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "point_count": 37,
+  "required_point_count": 40,
+  "b_range": [0.26500000000000007, 0.30033667997009644],
+  "direction_reversals_in_b": 0,
+  "max_closure_error": 6.34636061154424e-11,
+  "plus_one_bracket": [0.27204621592418715, 0.27274966287991],
+  "descriptive_linear_crossing_estimate": 0.27228272120621383,
+  "resolution_sequence": {
+    "experiment_ids": ["EXP-025", "EXP-026", "EXP-027"],
+    "crossing_estimates": [0.2721929469378069, 0.2722786858869855, 0.27228272120621383],
+    "direction_reversals_in_b": [0, 0, 0]
+  },
+  "figure": {
+    "path": "artifacts/EXP-027/EXP-025-027-pseudo-arclength-resolution.png",
+    "sha256": "ff1fd6730ed426cccd40ac5d9303d8cb4fce4804d4bc189489b3f17cf0f8d1f9"
+  },
+  "interpretation": "The frozen point-count gate failed, but three step resolutions reproduce a smooth +1 crossing without a b turn. A saddle-node of the traced branch is rejected; the generic branch interaction remains unresolved."
+}

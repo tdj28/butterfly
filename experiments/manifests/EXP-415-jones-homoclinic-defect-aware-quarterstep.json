@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1",
+  "experiment_id": "EXP-415",
+  "source_receipts": [
+    {"path": "artifacts/EXP-413/receipt.json", "sha256": "68550310a97e5974f740431b57fe4d52d71b0a0e1e0d76d3f68edcc4673d4a34", "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1", "experiment_id": "EXP-413", "passed": true, "classification": "pseudoarclength_root_nominated", "failed_checks": [], "expected": {"segment_count": 512, "root_nominated": true, "final_maximum_block_residual": 6.675875009768019e-9, "final_residual_norm": 1.4334579124910612e-8}},
+    {"path": "artifacts/EXP-414/receipt.json", "sha256": "2745e7f42e74888d8d5136d8ee186656b2a606c80932e06479e0ee7601c608bb", "schema": "butterfly.jones-homoclinic-pseudoarclength-receipt.v1", "experiment_id": "EXP-414", "passed": true, "classification": "pseudoarclength_root_nominated", "failed_checks": [], "expected": {"segment_count": 512, "root_nominated": true, "final_maximum_block_residual": 7.84906626882835e-9, "final_residual_norm": 1.5173853386515957e-8}}
+  ],
+  "fixed_b": 0.2,
+  "reference_parameters": {"a": 0.18069045562126884, "b": 0.2, "c": 10.3144},
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.02,
+  "stable_manifold": {"seed_radius": 1e-8, "maximum_backward_time": 10.0, "maximum_step": 0.005},
+  "segment_count": 512,
+  "node_bound_radius": 0.25,
+  "global_half_widths": {"total_flight_time": 0.25, "a": 0.0002, "c": 0.0002, "angle": 1.0},
+  "solver": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "pseudoarclength": {"normalized_arclength_step": 0.0045986807364392585, "tangent_source": "local_matching_jacobian", "tangent_orientation": "aligned_secant", "residual_weight": 1.0, "arclength_components": ["nodes", "total_flight_time", "a", "c", "angle"], "arclength_component_weights": {"nodes": 1.0, "total_flight_time": 1.0, "a": 1.0, "c": 1.0, "angle": 1.0}, "scales": {"node_component": 1.0, "total_flight_time": 5.0, "a": 0.002, "c": 0.004, "angle": 0.5}},
+  "derivatives": {"segment_state_transition": "analytic_variational", "simultaneous_a_c_sensitivities": "analytic_variational", "segment_time_sensitivity": "terminal_vector_field", "angle_sensitivity": "analytic_local_plane", "endpoint_geometry_sensitivity": "absolute_central", "absolute_steps": {"a": 1e-7, "c": 1e-6}},
+  "optimization": {"method": "trf", "jacobian": "sparse_analytic_weighted_pseudoarclength", "jacobian_storage": "csr", "trust_region_solver": "lsmr", "trust_region_options": {"regularize": true, "atol": 1e-10, "btol": 1e-10, "conlim": 1e12, "maxiter": 2000}, "x_scale": "jac", "ftol": 1e-11, "xtol": 1e-11, "gtol": 1e-11, "maximum_function_evaluations": 40},
+  "acceptance": {"maximum_initial_block_residual": 0.01, "maximum_root_block_residual": 1e-8, "maximum_arclength_residual": 1e-8, "minimum_global_boundary_margin": 1e-6, "minimum_node_boundary_margin": 0.01, "minimum_jacobian_singular_value": 5e-10, "maximum_local_tangent_residual": 1e-8, "allow_root_gate_as_termination": true, "directional_c_requirement": "unconstrained", "directional_a_requirement": "unconstrained", "directional_arclength_requirement": "forward"},
+  "claim_scope": "defect-aware conditioned outgoing quarter-step after EXP-414: exact passed EXP-413/414 bindings, tangent recomputed at EXP-414 and full-state-secant aligned, normalized step halved to 0.0045986807364392585 because EXP-414 used 78.5% of the root gate, both parameters unconstrained, positive signed arclength, analytic 512-arc Radau shooting, and unchanged conditioning, root, margin, and optimizer gates; a pass adds a twenty-third qualified point without establishing global nonintersection, uniqueness, proof, or topology"
+}

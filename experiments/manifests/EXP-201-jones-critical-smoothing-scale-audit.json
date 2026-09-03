@@ -1,0 +1,84 @@
+{
+  "schema": "butterfly.jones-smoothing-scale-audit-manifest.v1",
+  "experiment_id": "EXP-201",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-200.json",
+      "sha256": "9e03014f0877de14a1377062683502873436aea14c94da72b21a5923b700208d",
+      "role": "quadrupled-support smoothing-disagreement diagnosis"
+    },
+    {
+      "path": "experiments/manifests/EXP-201-smoothing-sensitive-candidate-selection.json",
+      "sha256": "f6b26017d473f51b5bbd074ba9610676dd25f4b9089148063951767dd416d609",
+      "role": "complete deterministic cross-step disagreement-set selection"
+    }
+  ],
+  "candidate_input_sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0",
+  "expected_candidate_count": 104,
+  "section": {"kind": "barrio_positive_x"},
+  "cycle_state_count": 8,
+  "return_coordinate": {"name": "z", "axis": 2},
+  "profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01},
+    {"name": "rk4_dt_0005", "dt": 0.005}
+  ],
+  "ensemble": {
+    "x_range": [-14.0, -0.2],
+    "x_count": 128,
+    "z_range": [0.008, 0.55],
+    "z_count": 64,
+    "horizon": 200.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0],
+    "midpoint_window": [80.0, 140.0],
+    "escape_radius": 1000000.0
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [15.0, 0.01],
+    "radius": 0.0002,
+    "required_crossings": 5
+  },
+  "gpu": {"chunk_steps": 512, "max_recorded_crossings": 32, "dtype": "float64"},
+  "nested_support": [
+    {
+      "name": "nested_2048",
+      "x_stride": 2,
+      "z_stride": 2,
+      "initial_condition_count": 2048,
+      "minimum_return_pairs": 4000
+    },
+    {
+      "name": "full_8192",
+      "x_stride": 1,
+      "z_stride": 1,
+      "initial_condition_count": 8192,
+      "minimum_return_pairs": 16000
+    }
+  ],
+  "smoothing_values": [
+    0.000001,
+    0.000002154434690031884,
+    0.000004641588833612782,
+    0.00001,
+    0.000021544346900318822,
+    0.00004641588833612782,
+    0.0001
+  ],
+  "oracle_common": {
+    "bin_count": 25,
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.1,
+    "minimum_domain_coverage": 0.6,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 201
+  },
+  "acceptance": {
+    "minimum_qualified_candidates": 70,
+    "maximum_transition_index_span": 2,
+    "maximum_normalized_second_critical_span": 0.03
+  },
+  "claim_scope": "result-informed finite-data scale audit over the complete 104-point EXP-200 smoothing-disagreement set; a pass establishes only that a monotone three-to-two smoothing transition and the shallow second critical location are stable across nested 2,048/8,192 support and two RK4 steps, not that either branch count is the invariant topology, that the critical survives an infinite-data zero-smoothing limit, or that a double-superstable center exists"
+}

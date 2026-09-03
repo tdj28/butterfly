@@ -1,0 +1,61 @@
+{
+  "schema": "butterfly.two-jones-period6-landmark-band-summary.v1",
+  "experiment_id": "EXP-192",
+  "passed": true,
+  "source_commit": "3f42faac00f6870a4585c0c53b77fbcff4a3643b",
+  "source_archive_sha256": "d2ad602852682ccaf2053580725c01798ba10e4c0bf160460f4e4e693340b434",
+  "manifest_sha256": "cef336f6379ab270bbea2505ba46e35752ac27ed0eb1e02f41b0d064835d6943",
+  "raw_receipt_sha256": "9d429da41de1250bd40dc98bdfb7498883b5294024c932f3c958347dbbcb3ee1",
+  "frame_sha256": "cf1f25aa9e21dc2a94a8eb686b881e407dd69a120d99dcdb6ce859ac23098e86",
+  "frame_receipt_sha256": "aebfddd8597ffb3e85f168fc63acafa801da5e92a9172fd96c1e1852a33f50ac",
+  "component_sha256": "6da094446375f8f1f4990ee1cd7407199c6237180a415aaa0540d0a88bb75723",
+  "output_package_sha256": "8b5f3ee900a2fb4cd3941e4338c732c9af14343580172972fbf436caa68fbeec",
+  "environment": {
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_memory_bytes": 25283526656,
+    "compute_capability": [8, 6],
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0"
+  },
+  "grid": {
+    "shape": [161, 576],
+    "point_count": 92736,
+    "a_range": [0.2135, 0.2175],
+    "b": 0.2,
+    "c_range": [5.9, 8.2]
+  },
+  "elapsed_seconds": 45.31263276399113,
+  "kernel_state_steps_per_second": 2128112088.0236895,
+  "numerical_failure_count": 0,
+  "label_counts": {"periodic": 26490, "unresolved": 66246},
+  "period_counts": {"3": 7146, "4": 7395, "5": 58, "6": 4192, "7": 3078, "8": 3051, "9": 190, "10": 224, "11": 53, "12": 885, "13": 20, "14": 198},
+  "anchor_component": {
+    "anchor_period": 6,
+    "point_count": 2598,
+    "a_range": [0.2135, 0.215775],
+    "c_range": [7.124, 8.192],
+    "touches_boundary": {"a_min": true, "a_max": false, "c_min": false, "c_max": false}
+  },
+  "first_landmark_probe": {
+    "requested": {"a": 0.21564, "b": 0.2, "c": 6.124},
+    "nearest_grid": {"a": 0.21565, "b": 0.2, "c": 6.1240000000000006},
+    "period": 6,
+    "in_anchor_component": false
+  },
+  "figure": {
+    "path": "artifacts/EXP-192/EXP-192-two-landmark-band.png",
+    "sha256": "e2c25790af3ed9d48f8e4ddb73e0832e621b1d5107575a2888e71a96d232e56f",
+    "receipt_sha256": "9b3930b9f5e538226897b8170f4dfba1ce7f3eae85001b46af442807cfbb7851"
+  },
+  "provisioning": {
+    "worker": "SECURE NVIDIA RTX A5000 at 0.27 USD/hour",
+    "conservative_cost_bound_usd": 0.04,
+    "remote_local_hash_match": true,
+    "active_pods_after_teardown": 0
+  },
+  "interpretation": "Both exact Jones landmarks are period 6 on the expanded fine atlas, but they do not belong to the same resolved eight-connected stable period-6 component. Subpixel or unstable-orbit connections remain open."
+}

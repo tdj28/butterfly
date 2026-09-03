@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.jones-period48-augmented-flip-summary.v1",
+  "experiment_id": "EXP-249",
+  "passed": false,
+  "source_commit": "8791588f9af11a6c1539209487654c1df0929601",
+  "manifest_sha256": "d0b4c79e901530756780416aafeb85d3db54676e09cfdd21f002dee42eb8c971",
+  "source_receipt_sha256": "18003b5b2974fcda199ad9081af67d4b1c4e61879b18be2771697dbdae022ea1",
+  "bracket_receipt_sha256": "e4cf0f01ee2ad83b5db92b4e55b15f29572e25f83c59415bf929c42a5226fff9",
+  "raw_artifact": "artifacts/EXP-249/receipt.json",
+  "raw_artifact_bytes": 17642,
+  "raw_artifact_sha256": "88fdb648b3d924ade9b62ea8935f28f80fe64fd7e9aff40a1619cc810d7e8fb1",
+  "corrected_a": 0.24070102222694653,
+  "evaluations": 30,
+  "orbit_matching_residual": 3.2228280389805706e-8,
+  "tangent_transport_residual": 2.1376757141430605e-10,
+  "direct_flip_residual": 2.008665123121034e-8,
+  "radau_flip_multiplier": -0.7975369082286008,
+  "interpretation": "The endpoint-seeded augmented solve reaches the event neighborhood but fails frozen residual and independent-replay gates. EXP-250 uses a phase-aligned secant seed without changing scientific thresholds."
+}

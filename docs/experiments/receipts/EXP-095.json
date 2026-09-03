@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.segmented-block-flip-resume-summary.v1",
+  "experiment_id": "EXP-095",
+  "passed": false,
+  "source_commit": "2ab64ea18ff2e6139d78041191ce3b151ae173fe",
+  "manifest_sha256": "a185d8fef201c29c3d380749857efc7b7d0a9b95d08103e16073102dc01e81f5",
+  "full_receipt_sha256": "aea5b7734bbfa78a66ec0edce6ffb2e14fff79bd5d3c77395ea697fdae0dbf89",
+  "b_estimate": 0.1797121964332984,
+  "prediction_error": -1.3701734191684523e-11,
+  "matching_residual": 1.406918740164056e-12,
+  "multiplier_residual": -3.5709152523821786e-8,
+  "estimated_b_uncertainty": 4.6552563927548124e-15,
+  "retained_bracket": {
+    "lower_b": 0.1797121964332984,
+    "upper_b": 0.1797121964336749,
+    "width": 3.765043832260284e-13,
+    "lower_residual": -3.5709152523821786e-8,
+    "upper_residual": 2.8523492726639788e-6
+  },
+  "failed_gate": "absolute multiplier residual exceeds 1e-8",
+  "interpretation": "monotone residual reduction shows that the endpoint safeguard forced bisection away from an endpoint-near root; no Floquet noise floor is inferred"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-child-switch-summary.v1",
+  "experiment_id": "EXP-320",
+  "passed": true,
+  "source_commit": "2c22a6b974d29380cad189e1115ee7dd75480f67",
+  "manifest_sha256": "4d28132e7f6bb20129a9a2cd4649d44f6efba629aae7a568faab2ac106a8e8cf",
+  "event_receipt_sha256": "8942a66a3bad641624ddb188630c4e0f882a0b806d6519dfe0b48ee622118c95",
+  "criticality_audit_receipt_sha256": "e109f5304a932823ace29b862ff7ff5088b735ca4d88797554546a4928bcd4dc",
+  "nomination_receipt_sha256": "6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33",
+  "raw_artifact": "artifacts/EXP-320/receipt.json",
+  "raw_artifact_bytes": 1393684,
+  "raw_artifact_sha256": "5679b266a5e38c4c0fab6aa3d8e053f7685949060213000841d4f2faf86fd633",
+  "elapsed_seconds": 1559.3178947092965,
+  "branch_side": "lower_a",
+  "local_criticality_classification": "supercritical",
+  "parameter_amplitude_exponent": 2.0007281806308095,
+  "minimum_half_node_rms": 7.880638273072224e-7,
+  "maximum_matching_residual": 2.8355050863689927e-21,
+  "child_modulus_range": [0.9287717190052278, 0.9822819114542237],
+  "maximum_direction_a_relative_spread": 0.003045937782739365,
+  "interpretation": "The 8192-step same-map replication passes all unchanged bilateral, two-amplitude, quadratic-opening, and Floquet gates. Combined with EXP-318 and EXP-319, it qualifies the seventh local birth as supercritical and distinguishes EXP-299's higher-a stable candidate from the immediate daughter."
+}

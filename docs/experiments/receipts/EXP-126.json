@@ -1,0 +1,44 @@
+{
+  "schema": "butterfly.blind-censored-pim-midpoint-summary.v1",
+  "experiment_id": "EXP-126",
+  "passed": true,
+  "source_commit": "e78ec6a147ef1958832c86981e183ad1190ef5c0",
+  "manifest_sha256": "bc53d2c5e205f25e0b24086e987b6c6859b6199080018d73be8bac046ae62a61",
+  "raw_receipt": "artifacts/EXP-126/receipt.json",
+  "raw_receipt_sha256": "1b2b044e803aed5ba64124305796b6a4847f74c7ef617fcff99270912fd8851a",
+  "raw_receipt_bytes": 27908,
+  "states_artifact": "artifacts/EXP-126/blind-a1485-censored-pim-straddles.npz",
+  "states_artifact_sha256": "2d4a0feff7a47c584a9bede3f48a890c310785d81b1bfae35a8a4b2364609f45",
+  "states_artifact_bytes": 87968,
+  "elapsed_seconds": 3840.5012336252257,
+  "a": 0.1485,
+  "expected_branch_count": null,
+  "observed_branch_count": 3,
+  "sampled_transition_bracket": [0.148, 0.1485],
+  "profiles": {
+    "horizon-128": {
+      "passed": true,
+      "successful_straddles": 3,
+      "return_pairs_per_coordinate": 2097,
+      "resolved_three_branch_variants": 30,
+      "censored_lifetime_evaluations": 119,
+      "certified_censor_block_selections": 104,
+      "failed_lifetime_evaluations": 0
+    },
+    "horizon-256": {
+      "passed": true,
+      "successful_straddles": 3,
+      "return_pairs_per_coordinate": 2097,
+      "resolved_three_branch_variants": 30,
+      "censored_lifetime_evaluations": 0,
+      "certified_censor_block_selections": 0,
+      "failed_lifetime_evaluations": 0
+    }
+  },
+  "maximum_128_256_normalized_critical_span": {
+    "y": 0.014701552616656429,
+    "z": 0.008531065398116265
+  },
+  "stable_cycle_period": 4,
+  "interpretation": "blind censor-aware PIM unanimously qualifies the a=0.1485 saddle as three-branch at both 128- and 256-return censor horizons, locating the finite two/three classifier transition between 0.148 and 0.1485"
+}

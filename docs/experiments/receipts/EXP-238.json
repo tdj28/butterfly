@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period12-segmented-child-switch-summary.v1",
+  "experiment_id": "EXP-238",
+  "passed": true,
+  "source_commit": "63f238e0e20d5bfc605407997f94254bd674c405",
+  "manifest_sha256": "7de7160a504160ad4986f134fc0e4ebb4c63e696b3e830a6f9371005a5eb40d3",
+  "event_receipt_sha256": "088258b0c0cca6f5cb847ced26ff44dff00a6c67bdd50858d4f504e45f4e2cba",
+  "raw_artifact": "artifacts/EXP-238/receipt.json",
+  "raw_artifact_bytes": 24793,
+  "raw_artifact_sha256": "2e47b554a2591f58fe29d2df65a9a0a8ea08e71300ecf06a01a88a5f09d3ec82",
+  "event_matching_residual": 3.2259375318637235e-12,
+  "secondary_null_residual": 1.085016679235038e-12,
+  "attempt_count": 6,
+  "accepted_candidate_count": 2,
+  "accepted_step_length": 0.002,
+  "accepted_directions": [-1, 1],
+  "candidate_a_range": [0.24070118115309105, 0.2407011811534778],
+  "candidate_half_period_closure_range": [0.0005018347801639001, 0.0005021127877839702],
+  "candidate_half_node_rms_range": [0.0003611380028834157, 0.00036134432055336883],
+  "historical_phase_count": 28,
+  "barrio_phase_count": 32,
+  "interpretation": "Exact anti-periodic segmented switching nominates two primitive period-24 solutions. Continuation and independent qualification remain required before a supercritical stable-child claim."
+}

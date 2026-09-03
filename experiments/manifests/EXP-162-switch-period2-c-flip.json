@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.period2-c-flip-switch-manifest.v1",
+  "experiment_id": "EXP-162",
+  "event_receipt_sha256": "f8ec5706dab040b68aa039c1ca9afa891d592774ecdf7a52821e6d41d2b17f30",
+  "parent_receipt_sha256": "808d16e4285e2b8c4be98f55f2ee8c4b47804032e435759a2c9f62fb244ffaeb",
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.012
+  },
+  "corrector": {
+    "tolerance": 1e-11,
+    "maximum_evaluations": 160
+  },
+  "continuation": {
+    "step_length": 0.003,
+    "steps_per_direction": 32,
+    "c_guard": [4.25, 4.42]
+  },
+  "acceptance": {
+    "maximum_small_singular_value": 1e-7,
+    "maximum_tangent_dot": 0.25,
+    "minimum_points_per_direction": 16,
+    "minimum_endpoint_distance": 1e-5,
+    "minimum_endpoint_half_period_closure": 1e-3,
+    "minimum_qualified_directions": 1,
+    "maximum_closure_error": 1e-8
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "butterfly.jones-historical-alphabet-manifest.v1",
+  "experiment_id": "EXP-185",
+  "source_semantics": {
+    "path": "experiments/source-transcriptions/jones2012-alphabet-semantics.json",
+    "sha256": "6437ad3fabfe536d1fb30c79fa3ec3d5a3bd285d704d2ec1ad7ad7935ba81bd2"
+  },
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-176.json",
+      "sha256": "62f0c507a4ffab7ca58bcfa78ec4feb4f0520f4bfbdfd1ef91fe25302d63d82e",
+      "require_passed": true,
+      "pass_path": "passed",
+      "role": "frozen neutral three-branch partition"
+    },
+    {
+      "path": "docs/experiments/receipts/EXP-183.json",
+      "sha256": "0044b1cdb1e590b70a69641d31645982e681e633ba34fbddf7a750a331f79d6e",
+      "require_passed": true,
+      "pass_path": "gates.passed",
+      "role": "qualified unimodal-to-higher-critical identity"
+    }
+  ],
+  "claim_scope": "operational Jones alphabet on the recovered negative small-equilibrium half-plane; no Figure 6 target word, target landmark, unique generating partition, template, conjugacy, global TBA curve, or manifold claim",
+  "parameters": {"a": 0.2, "b": 0.2, "c": 20.0},
+  "section": {
+    "kind": "legacy-small-equilibrium-half-plane",
+    "direction": -1,
+    "gate": "x < x_eq"
+  },
+  "integration": {
+    "transient": 1200.0,
+    "observation_horizon": 16000.0,
+    "max_crossings": 3000,
+    "minimum_total_crossings": 2300
+  },
+  "solver_profiles": [
+    {
+      "name": "DOP853",
+      "initial_state": [1.0, -1.0, 1.0],
+      "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05}
+    },
+    {
+      "name": "Radau",
+      "initial_state": [-1.0, 1.0, 0.5],
+      "solver": {"method": "Radau", "rtol": 1e-9, "atol": 1e-11, "max_step": 0.05}
+    }
+  ],
+  "segments": [
+    {"name": "calibration", "pair_start": 0, "pair_count": 1000},
+    {"name": "validation", "pair_start": 1200, "pair_count": 1000}
+  ],
+  "coordinates": [
+    {
+      "name": "x",
+      "axis": 0,
+      "partition": {
+        "domain": [-30.82989352458653, -8.560972406333889],
+        "critical_intervals": [[-25.584672657526383, -25.430484616168282], [-17.424269477314443, -17.0310342440349]]
+      }
+    },
+    {
+      "name": "z",
+      "axis": 2,
+      "partition": {
+        "domain": [0.003935605154539127, 0.007005098946734019],
+        "critical_intervals": [[0.004387161533757244, 0.004396205586247542], [0.005327257332546781, 0.005376961539831247]]
+      }
+    }
+  ],
+  "historical_mapping": {
+    "critical": {"K0": "D", "K1": "C"},
+    "branch": {"B0": "2", "B1": "1", "B2": "0"}
+  },
+  "acceptance": {
+    "minimum_resolved_pairs": 900,
+    "minimum_target_branch_count": 100,
+    "minimum_inner_normalized_median_gap": 0.2,
+    "require_strict_inner_distance_separation": true,
+    "minimum_third_to_inner_transitions": 75,
+    "maximum_third_self_transition_fraction": 0.01,
+    "minimum_cross_coordinate_pair_agreement": 0.9,
+    "require_all_profiles_segments_and_coordinates": true
+  }
+}

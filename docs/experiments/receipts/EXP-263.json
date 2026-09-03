@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period192-segmented-continuation-summary.v1",
+  "experiment_id": "EXP-263",
+  "passed": true,
+  "source_commit": "e4a8b8f2d090141c1ff5a07cf0738a3bde6f1102",
+  "manifest_sha256": "7d55b4b4ce0522e43f800d4a4a3457b2a725f1ad7817888d075a801ad65f3a91",
+  "switch_receipt_sha256": "e91ec562d7977946c5737cdb73583d9e4c079806374724ebd54a16bdb97f1200",
+  "event_receipt_sha256": "189d4ba3b89b93611456a68c3c0a6ea793b151ebf7bc7bedaa8bc09a655cb3be",
+  "raw_artifact": "artifacts/EXP-263/receipt.json",
+  "raw_artifact_bytes": 148772,
+  "raw_artifact_sha256": "80d306c1fffc7f235800613095a9b19e6c13d4e2f36ed5365a1374a2d6990606",
+  "point_count": 9,
+  "a_span_from_event": 3.134636195056828e-8,
+  "terminal_a": 0.24070097873785565,
+  "maximum_matching_residual": 3.8317211566286884e-13,
+  "minimum_half_node_rms": 0.00014302252386692838,
+  "terminal_half_node_rms": 0.0012078311678973366,
+  "terminal_half_period_closure": 0.0010321515291130748,
+  "terminal_multiplier": -265.7388697517428,
+  "historical_phase_count": 224,
+  "barrio_phase_count": 256,
+  "interpretation": "Eight exact continuation steps carry the unified primitive period-192 branch to a strongly unstable terminal orbit suitable for a separately frozen next-flip scan."
+}

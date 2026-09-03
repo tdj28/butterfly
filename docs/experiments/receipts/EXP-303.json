@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.terminated-experiment-summary.v1",
+  "experiment_id": "EXP-303",
+  "passed": false,
+  "completed": false,
+  "source_commit": "f811328f6437d99d53a2efe46432b8f573bc5c1e",
+  "manifest_sha256": "6476f61945fa575d274ebc2b32df3448fef776e4a5a3ad17b767e6863a82f832",
+  "source_receipt_sha256": "c91fadcd01f8ac6095b97538796cc7e4c25b51a1af94f15531bb47e14ab41bf8",
+  "bracket_receipt_sha256": "d3b23f17076d21ed890c5a3ab41afdd3270042ec7beaa99a9a1712cbf5372c4b",
+  "raw_artifact": null,
+  "evaluation_count": 4,
+  "seed_a": 0.24070100823779308,
+  "seed_residual_norm": 0.2509918851346718,
+  "second_residual_norm": 0.25099188513472337,
+  "third_residual_norm": 2909509.3029084126,
+  "fourth_residual_norm": 183799.18472184057,
+  "termination": "operator_interrupt_after_repeated_catastrophic_dense_trial_divergence",
+  "scientific_verdict": "none",
+  "interpretation": "The 12290-variable dense trust-region formulation is operationally unsuitable at 2048 segments. The interrupted run neither passes nor fails the frozen event gates and does not modify EXP-302's bracket; the next formulation must retain the same scientific gates while replacing the dense solve with cyclic elimination."
+}

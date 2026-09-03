@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.jones-period48-segmented-flip-scan-summary.v1",
+  "experiment_id": "EXP-248",
+  "passed": true,
+  "source_commit": "fe11c1bb8779f5a9fb8240b6e7837eb145b4f930",
+  "manifest_sha256": "6cf2f80c22c3f846cec604efa1d398496f799c24b4cc4c74632f87eae49711a0",
+  "continuation_receipt_sha256": "18003b5b2974fcda199ad9081af67d4b1c4e61879b18be2771697dbdae022ea1",
+  "raw_artifact": "artifacts/EXP-248/receipt.json",
+  "raw_artifact_bytes": 21953,
+  "raw_artifact_sha256": "e4cf0f01ee2ad83b5db92b4e55b15f29572e25f83c59415bf929c42a5226fff9",
+  "point_count": 9,
+  "minimum_modulus_separation_ratio": 5.868095833254386e18,
+  "flip_bracket_count": 1,
+  "a_bracket": [0.2407009996983363, 0.2407010233056503],
+  "stable_endpoint_multiplier": -0.507036999454814,
+  "unstable_endpoint_multiplier": -2.256539979264952,
+  "interpretation": "The exact period-48 branch contains one magnitude-separated real-minus-one bracket, nominating a period-48-to-96 event solve."
+}

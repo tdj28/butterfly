@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period384-sign-equivalence-summary.v1",
+  "experiment_id": "EXP-270",
+  "passed": true,
+  "source_commit": "753fce0605001d4addef2bf017458bc3fba89ef9",
+  "manifest_sha256": "10337a9dfa996f870ed747274be1e40e01fa01771175b7c6d089bae9558bb353",
+  "switch_receipt_sha256": "f361d0d23327ef8b66e17312fbeea0b6b90781220889e459127ac8825379f064",
+  "raw_artifact": "artifacts/EXP-270/receipt.json",
+  "raw_artifact_bytes": 138617,
+  "raw_artifact_sha256": "f84677cc588f970a3a7a94bedc742a0a6b19850bf13f3353d61762a8b3512f8d",
+  "target_a": 0.24070100850360543,
+  "dop853_sign_phase_shift": 0.49999999836258774,
+  "radau_sign_phase_shift": 0.49999999836381437,
+  "dop853_sign_identity_rms": 2.1538683513203907e-10,
+  "radau_sign_identity_rms": 3.277534765822224e-9,
+  "maximum_solver_identity_rms": 4.323877641592269e-8,
+  "maximum_segment_endpoint_error": 2.788580587927661e-12,
+  "period_spread": 5.14046405442059e-9,
+  "modulus_range": [0.4118802243626353, 0.4128984993657775],
+  "half_period_closure_range": [0.00005538229079755598, 0.000055436520570205644],
+  "interpretation": "Both period-384 tangent-sign switches correct to one stable primitive orbit up to a half-period phase shift under DOP853 and Radau."
+}

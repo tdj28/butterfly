@@ -1,0 +1,39 @@
+{
+  "schema": "butterfly.jones-second-period6-flip-pseudoarclength-manifest.v1",
+  "experiment_id": "EXP-228",
+  "local_receipt_sha256": "eb6581841bb60424300fd7eaf4c5aa6c4a22d0d508eec6d33ebf622b950bf806",
+  "source_arm_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "fixed_b": 0.2,
+  "a_guard": [0.22, 0.27],
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "independent_solver": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 80, "tolerance": 1e-10},
+  "continuation": {
+    "steps_per_direction": 80,
+    "step_scale": 100.0,
+    "a_guard": [0.22, 0.27],
+    "c_guard": [7.3, 8.0]
+  },
+  "acceptance": {
+    "required_minimum_c": 7.46,
+    "required_maximum_c": 7.78,
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_arclength_residual": 1e-8,
+    "maximum_independent_multiplier_residual": 1e-5,
+    "maximum_multiplier_imaginary_part": 1e-7,
+    "maximum_neutral_multiplier_error": 1e-5,
+    "historical_phase_count": 7,
+    "barrio_phase_count": 8,
+    "minimum_source_arm_a_separation": 5e-8,
+    "maximum_adjacent_a_jump": 0.001,
+    "maximum_adjacent_c_jump": 0.005,
+    "maximum_solver_a_difference": 1e-8,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "maximum_solver_state_difference": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5
+  },
+  "claim_scope": "prospectively frozen 80-step-per-direction exact pseudo-arclength continuation of the distinct EXP-227 second period-6 real-minus-one curve toward c at most 7.46 and at least 7.78, required at every point to retain exact event residuals, 7/8 two-section identity, bounded jumps, and at least 5e-8 lower-a separation from the interpolated EXP-217 returning arm, with independent Radau recorrection at both terminals; a pass establishes a broad distinct second flip curve over the sampled range, not global closure, connection to either broad arm, a complete child-sheet boundary, paired shrimp boundaries, TBA membership, or double-criticality"
+}

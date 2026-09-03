@@ -1,0 +1,25 @@
+{
+  "schema": "butterfly.augmented-segmented-flip-summary.v1",
+  "experiment_id": "EXP-100",
+  "passed": false,
+  "source_commit": "e7a046a956060504497d64358e35097c7bc47dfe",
+  "manifest_sha256": "845284c8fc75473c4f858727b8cc3ea51738ed0e278902c181792ecf3396670b",
+  "full_receipt_sha256": "a95552c2699ad3df43c5861e17d15bc54e7a25553571babefa7b1194bbbf0eb8",
+  "corrected_b": 0.17971249890827756,
+  "reference_error": 4.914347817575049e-9,
+  "orbit_matching_residual": 1.7338531927717515e-7,
+  "tangent_transport_residual": 2.1373481210578426e-9,
+  "normalization_residual": 4.782785278933943e-11,
+  "phase_residual": 2.0375393270399496e-9,
+  "direct_flip_multiplier": -0.9999999855711442,
+  "direct_cyclic_spread": 1.9984014443252818e-15,
+  "evaluations": 30,
+  "elapsed_seconds": 2367.32269891724,
+  "failed_gates": [
+    "solver did not report success",
+    "reference error exceeds 5e-10",
+    "orbit matching residual exceeds 1e-8",
+    "generic block cluster labels swap the near +1 and -1 clusters"
+  ],
+  "interpretation": "the anti-periodic equations approach the correct flip eigendirection, but colored finite differences are too slow and do not converge the orbit within the frozen budget; implement and validate an exact second-variational Jacobian"
+}

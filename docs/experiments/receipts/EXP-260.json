@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period96-to192-segmented-child-switch-summary.v1",
+  "experiment_id": "EXP-260",
+  "passed": true,
+  "source_commit": "ededddfe7ac30d19f37988c3b2edd46a3098d668",
+  "manifest_sha256": "5de168fe9910c0d3d0c6247785398d75ffe1869de583adcb3d538f8e233fffe8",
+  "event_receipt_sha256": "189d4ba3b89b93611456a68c3c0a6ea793b151ebf7bc7bedaa8bc09a655cb3be",
+  "raw_artifact": "artifacts/EXP-260/receipt.json",
+  "raw_artifact_bytes": 201272,
+  "raw_artifact_sha256": "e91ec562d7977946c5737cdb73583d9e4c079806374724ebd54a16bdb97f1200",
+  "event_matching_residual": 6.436465869622835e-10,
+  "secondary_null_residual": 2.2133450341038856e-12,
+  "attempt_count": 6,
+  "accepted_candidate_count": 6,
+  "accepted_step_length": 0.002,
+  "accepted_directions": [-1, 1],
+  "candidate_a_range": [0.24070100957644772, 0.24070100961881533],
+  "candidate_half_period_closure_range": [0.00010077808422960489, 0.0001066981043862544],
+  "candidate_preliminary_modulus_range": [0.4611899232371817, 0.5206115548812924],
+  "historical_phase_count": 224,
+  "barrio_phase_count": 256,
+  "interpretation": "Exact bilateral switching nominates primitive stable-looking period-192 solutions; independent stability exchange remains frozen in EXP-261."
+}

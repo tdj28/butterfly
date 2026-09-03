@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.jones-period6-flip-extremum-count-manifest.v1",
+  "experiment_id": "EXP-214",
+  "grazing_receipt_sha256": "7abc822a5683646e8dba007c2f34801762eb1f6ecdba8442e5217f9f41099b9f",
+  "fixed_b": 0.2,
+  "signed_c_offsets": [-0.001, -0.0001, -0.00001, -0.000001, 0.000001, 0.00001, 0.0001, 0.001],
+  "independent_control_offsets": [-0.0001, -0.000001, 0.000001, 0.0001],
+  "a_guard": [0.20, 0.23],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.02},
+  "independent_solver": {"method": "Radau", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.02},
+  "corrector": {"maximum_evaluations": 50, "tolerance": 1e-11},
+  "acceptance": {
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_independent_multiplier_residual": 0.00001,
+    "maximum_multiplier_imaginary_part": 1e-7,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8,
+    "lower_c_extremum_count": 7,
+    "upper_c_extremum_count": 6,
+    "barrio_count": 8,
+    "maximum_section_residual": 1e-9,
+    "required_independent_controls": 4,
+    "maximum_solver_a_difference": 1e-8,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "maximum_solver_clearance_difference": 1e-7
+  },
+  "claim_scope": "pilot-informed but prospectively frozen extremum-partitioned qualification of the EXP-213 continuous grazing over four logarithmic offsets on each side, with exact real-minus-one orbit correction, seven-to-six historical count, persistent eight-phase Barrio identity, explicit standard-counter mismatches, and four Radau controls; a pass establishes a local historical-section representation boundary on the sampled flip curve, not a flow-orbit bifurcation, curve endpoint, TBA event, or global shrimp mechanism"
+}

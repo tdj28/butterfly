@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.jones-augmented-flip-residual-safe-audit-manifest.v1",
+  "experiment_id": "EXP-251",
+  "event_schema": "butterfly.jones-period48-augmented-flip-receipt.v1",
+  "event_receipt_sha256": "376a8f433a7ca73297bd4d9f00b73fbe638176c620aa2c0a5334c91aedddd5a8",
+  "allowed_source_stop": "maximum number of function evaluations",
+  "independent_solver": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.03},
+  "cyclic_shifts": [0, 16, 32, 48],
+  "identity": {"historical_phase_count": 56, "barrio_phase_count": 64},
+  "acceptance": {
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_reference_flip_residual": 1e-7,
+    "maximum_independent_orbit_residual": 1e-8,
+    "maximum_independent_phase_residual": 1e-8,
+    "maximum_independent_tangent_residual": 1e-7,
+    "maximum_independent_normalization_residual": 1e-8,
+    "maximum_independent_flip_residual": 1e-4,
+    "maximum_multiplier_imaginary": 1e-8,
+    "maximum_cyclic_product_spread": 1e-4,
+    "minimum_proper_subperiod_closure": 1e-3
+  },
+  "claim_scope": "result-informed representation audit of failed EXP-250, accepting its maximum-evaluation stop only if the already frozen DOP853 orbit, phase, tangent, normalization, and flip residuals pass unchanged thresholds, then independently evaluating the same 64-segment augmented equations and block-Floquet products under Radau rather than the ill-conditioned full-period single-shot replay; a pass qualifies the period-48 real-minus-one event and tangent mode for a separately frozen period-96 switch, but does not establish a period-96 child, criticality, attraction, sign equivalence, a continued branch or sheet, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

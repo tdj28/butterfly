@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{A Reproducible Computational Reassessment of Periodicity-Hub Dynamics in the R{\"o}ssler Flow}
+\author{Timothy D. Jones}
+\date{Working draft --- \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-mathematical-objects}
+\input{sections/03-methods}
+\input{sections/04-results}
+\input{sections/05-topology-tests}
+\input{sections/06-discussion}
+\input{sections/07-conclusion}
+
+\clearpage
+\appendix
+\input{sections/a-reviewer-closure}
+\clearpage
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

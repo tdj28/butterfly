@@ -1,0 +1,68 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-395",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "7a84aa13e98e602e96692e8dfb3b54554b6276b5",
+    "dirty": false
+  },
+  "manifest_sha256": "beadaf00ccb5ddfd372bef36e40ec253090dcdae8f8aa32d447adfe51e0a7b9b",
+  "raw_receipt": {
+    "path": "artifacts/EXP-395/receipt.json",
+    "bytes": 85364,
+    "sha256": "d6dbf80cd17f0e3c4df7d531433c904091a53b6b9023e32b4e947ae10d2924c9"
+  },
+  "elapsed_seconds": 698.9832992907614,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 1.25e-7,
+  "normalized_arclength_step": 0.022538717598313714,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "predictor_variables": {
+    "a": 0.17981745719101905,
+    "c": 10.317081613741884,
+    "angle": 2.8102445811771952,
+    "total_flight_time": 234.42039331961593
+  },
+  "final_variables": {
+    "a": 0.1798175207507825,
+    "c": 10.31708141841324,
+    "angle": 2.3378420473258377,
+    "total_flight_time": 234.4206114387153
+  },
+  "final_c_increment": -7.032864424161289e-8,
+  "initial_maximum_block_residual": 0.000005062384607508685,
+  "final_maximum_block_residual": 2.338614271646346e-9,
+  "final_matching_residual_norm": 8.688356564644943e-9,
+  "final_arclength_residual": 6.99334253700945e-14,
+  "jacobian_minimum_singular_value": 4.958157520047647e-10,
+  "maximum_normalized_node_displacement": 0.040812124849978204,
+  "node_boundary_margin": 0.9591878751500218,
+  "global_boundary_margins": [
+    0.24978188090062758,
+    0.00019993644023655333,
+    0.00019980467135560787,
+    0.5275974661486424
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 32,
+    "njev": 31,
+    "optimality": 6.027326671929859e-12
+  },
+  "failed_checks": [
+    "directional_c_requirement",
+    "jacobian_conditioning"
+  ],
+  "interpretation": "The wall-free quarter-step replay finds an interior root-nominated boundary-value solution, but it lies 7.03e-8 backward in c and narrowly misses the prospective conditioning floor. Preserve it without adding a forward curve point; test a standard local-tangent closing-plane normal at zero step before advancing again."
+}

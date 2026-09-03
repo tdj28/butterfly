@@ -1,0 +1,64 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-385",
+  "passed": false,
+  "source_commit": "71a49814ac1cbf7ec68a42acbd2fb9e9bf5ca4ad",
+  "manifest_sha256": "8c5fe5759c458eff2878f81c77981a337832d3b5d5443e48f3cd65f5cb682e99",
+  "raw_artifact": "artifacts/EXP-385/receipt.json",
+  "raw_artifact_bytes": 80166,
+  "raw_artifact_sha256": "a6ea4797363909cbb76b741120a2e6642403a8fefa0d1c915053640e8e6ce10e",
+  "elapsed_seconds": 224.12523433286697,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {
+      "experiment_id": "EXP-367",
+      "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"
+    },
+    {
+      "experiment_id": "EXP-368",
+      "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"
+    }
+  ],
+  "warm_start_receipt": {
+    "experiment_id": "EXP-383",
+    "sha256": "22dd98d870e099a8fb8f3d11f9a5e45b41641ec4163641a3d5f5062b5d773d8c"
+  },
+  "desired_c_increment": 0.000075,
+  "initial_maximum_block_residual": 5.10887569614795E-9,
+  "final_residual_norm": 2.7246075476448097E-8,
+  "final_matching_residual_norm": 2.724607547611986E-8,
+  "final_maximum_block_residual": 7.486335902632682E-9,
+  "final_arclength_residual": -1.3374024110390792E-13,
+  "final_variables": {
+    "a": 0.17982131899981937,
+    "c": 10.31706975194687,
+    "angle": 3.1061285524584235,
+    "total_flight_time": 234.41378038820142
+  },
+  "arclength_component_weights": {
+    "nodes": 0.01,
+    "total_flight_time": 0.01,
+    "a": 1.0,
+    "c": 1.0,
+    "angle": 0.01
+  },
+  "minimum_jacobian_singular_value": 1.3978940841801494E-9,
+  "node_boundary_margin": 0.8662938702011758,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 11,
+    "njev": 11,
+    "optimality": 1.357895108300257E-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [
+    "directional_c_requirement",
+    "maximum_final_a"
+  ],
+  "interpretation": "The weighted system converges below both residual gates but reaches a backward, above-section intersection of the closing plane. It is not a qualified curve point. The forward successor must initialize inside a forward optimizer bound rather than allowing return to this warm-start basin."
+}

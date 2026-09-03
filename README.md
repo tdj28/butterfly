@@ -9,3 +9,10 @@ a cluster to create rich maps of co-parameter 2 space which yielded new finds on
 such systems.
 
 This is an MPI-based program that has been tested on linux clusters.
+
+## Research documentation
+
+This repository is being modernized into a reproducible re-evaluation of the
+2012 Rössler periodicity-hub study. The living scientific record starts at
+[`docs/README.md`](docs/README.md). It includes a claim ledger, a validation
+roadmap, and experiment-record requirements.

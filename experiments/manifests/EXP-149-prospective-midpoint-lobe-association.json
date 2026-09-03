@@ -1,0 +1,41 @@
+{
+  "schema": "butterfly.midpoint-lobe-pim-association-manifest.v1",
+  "experiment_id": "EXP-149",
+  "source_lobe_receipt": {
+    "path": "artifacts/EXP-147/receipt.json",
+    "sha256": "2f6a80c968dc3f9afbba3b25bb82919fa5b4456f1e2ed4014287f93b2359c54e"
+  },
+  "source_pim_receipt": {
+    "path": "artifacts/EXP-148/receipt.json",
+    "sha256": "c8b30a50ab49f01da6ce1694ca6b269ee1060a90e2236e96482876ceb92b0a35"
+  },
+  "source_pim_states": {
+    "path": "artifacts/EXP-148/blind-a1481875-censored-pim-straddles.npz",
+    "sha256": "5ead804c1d1ee9a417102f04d6e5c59e676f3d49c309aed4d88013fa5a2b0840"
+  },
+  "pim_case_id": "blind-a1481875-period4-saddle",
+  "allowed_branch_counts": [2, 3],
+  "pim_horizons": [128, 256],
+  "pim_access_line_count": 3,
+  "pim_burn_in_returns": 100,
+  "lobe_seed_grid": {
+    "fine_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "coarse_indices": [0, 2, 4, 6, 8]
+  },
+  "left_lobe": {
+    "coordinate_axis": 1,
+    "upper_bound": -31.135026064071056
+  },
+  "distance": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [30.0, 0.0006]
+  },
+  "acceptance": {
+    "minimum_fine_lobe_points": 500,
+    "minimum_coarse_lobe_points": 250,
+    "maximum_two_branch_left_lobe_points_per_line": 0,
+    "minimum_three_branch_left_lobe_points_per_line": 10,
+    "maximum_fine_directed_distance": 0.00005,
+    "maximum_coarse_directed_distance": 0.0001
+  }
+}

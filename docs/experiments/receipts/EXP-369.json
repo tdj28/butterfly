@@ -1,0 +1,46 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-369",
+  "passed": false,
+  "source_commit": "f3c7be137f5c5e810973d3743a29749de1ea114c",
+  "manifest_sha256": "d65c287ceb19caf972bb69089dc6d027f33914b8c1f8ef64ca6302d9d9fdb9b2",
+  "raw_artifact": "artifacts/EXP-369/receipt.json",
+  "raw_artifact_bytes": 78804,
+  "raw_artifact_sha256": "c41f34f5586f871f6d18b44394c1a777e73264bee8a947ef9182faba678eff69",
+  "elapsed_seconds": 209.59448866732419,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "desired_c_increment": 0.00015,
+  "initial_maximum_block_residual": 0.002995498843115011,
+  "final_residual_norm": 2.356183206519636e-8,
+  "final_matching_residual_norm": 2.356183206514301e-8,
+  "final_maximum_block_residual": 6.47408941890661e-9,
+  "final_arclength_residual": -5.014034326622507e-12,
+  "final_variables": {
+    "a": 0.17984410461079062,
+    "c": 10.316999762096582,
+    "angle": 2.986770100497014,
+    "total_flight_time": 234.4090980579946
+  },
+  "node_boundary_margin": 0.748844476222704,
+  "jacobian_condition_number": 17189307097.515825,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 10,
+    "njev": 10,
+    "optimality": 2.1306276916383835e-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [
+    "forward_c_direction"
+  ],
+  "interpretation": "The 512-arc solve finds a low-defect root but moves backward in c and is correctly preserved as failed. The result diagnoses a wrong-side root admitted by the high-dimensional tangent/gauge, not branch termination; the successor enforces the existing direction criterion during correction."
+}

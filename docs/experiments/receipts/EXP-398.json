@@ -1,0 +1,67 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-398",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "15a1f904bdc765d275353a26e4668730bedf11c8",
+    "dirty": false
+  },
+  "manifest_sha256": "8eba87ca5ddb9b1626bf434da5dcf7cc1daa5e8131561ad42a7bf60935a6fbd2",
+  "raw_receipt": {
+    "path": "artifacts/EXP-398/receipt.json",
+    "bytes": 79151,
+    "sha256": "a50453bfe9d77abfafc6b11a38b919d25132bb4e2b43424f24c77fcc065e4c38"
+  },
+  "elapsed_seconds": 67.5825088750571,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 1.25e-7,
+  "normalized_arclength_step": 0.018394722945757034,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.3696007472979376e-16,
+  "current_variables": {
+    "a": 0.17981750016073034,
+    "c": 10.317081481735999
+  },
+  "predictor_variables": {
+    "a": 0.17981745946608801,
+    "c": 10.317081606735998,
+    "angle": 2.672068866273214,
+    "total_flight_time": 234.4204347040132
+  },
+  "final_variables": {
+    "a": 0.1798175179368785,
+    "c": 10.317081427044887,
+    "angle": 2.6310423964318903,
+    "total_flight_time": 234.42048048315317
+  },
+  "final_c_increment": -5.4691112083560256e-8,
+  "initial_maximum_block_residual": 0.0000033901824002273566,
+  "final_maximum_block_residual": 3.700476206118981e-9,
+  "final_matching_residual_norm": 1.3629340805769787e-8,
+  "final_arclength_residual": 3.4203027779802775e-14,
+  "jacobian_minimum_singular_value": 1.5301952439832897e-9,
+  "maximum_normalized_node_displacement": 0.037296953078481465,
+  "node_boundary_margin": 0.9627030469215185,
+  "global_boundary_margins": [
+    0.24995422086001895,
+    0.00019994152920951858,
+    0.00019982030888776592,
+    0.9589735301586764
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 4,
+    "njev": 4,
+    "optimality": 5.338290743491576e-12
+  },
+  "failed_checks": [
+    "directional_c_requirement"
+  ],
+  "interpretation": "Recomputing the standard tangent at the passed corrected EXP-396 current root still yields an interior, well-conditioned root backward in c. Preserve the direction failure and reduce the chained tangent step by four without changing any acceptance gate."
+}

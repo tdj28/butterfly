@@ -1,0 +1,54 @@
+{
+  "schema": "butterfly.jones-second-period6-window-atlas-summary.v1",
+  "experiment_id": "EXP-191",
+  "passed": true,
+  "source_commit": "28f365117570c67eb02e5c8d0d1499d97831dd23",
+  "source_archive_sha256": "00ef795a374ec9028c9082962bc1f6165e323b5a10fc41580cfbac9bbb6b704f",
+  "manifest_sha256": "77b915f1644f78b0c8ec8a2e972ac7bc11cd9ad47da9ce9e7ddd31622201a521",
+  "raw_receipt_sha256": "af31d23105f51ac2d41106a8e2ba80294f7db3bf10a4a15639cbfbc647d9e156",
+  "frame_sha256": "d262adf530acef429bf96b41da8becad807f95c654bd95787a67d938c2f93129",
+  "frame_receipt_sha256": "7a3353d2acf79a355681339d3e4d9674122646d3b912df9cf510cc8890ed4aff",
+  "output_package_sha256": "dd303ff5b4c1214fda5ff5f82e52d583b3691442c2a3533757858d2d7ff16ab4",
+  "environment": {
+    "gpu": "NVIDIA RTX A4500",
+    "gpu_memory_bytes": 21016543232,
+    "compute_capability": [8, 6],
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0"
+  },
+  "grid": {
+    "shape": [201, 201],
+    "point_count": 40401,
+    "a_range": [0.21, 0.22],
+    "b": 0.2,
+    "c_range": [7.4, 7.8]
+  },
+  "elapsed_seconds": 26.141217036172748,
+  "kernel_state_steps_per_second": 1782035432.051317,
+  "numerical_failure_count": 0,
+  "label_counts": {"periodic": 3551, "unresolved": 36850},
+  "period_counts": {"3": 2135, "5": 5, "6": 1058, "7": 15, "8": 1, "9": 74, "10": 6, "11": 2, "12": 248, "13": 1, "14": 6},
+  "anchor_component": {
+    "sha256": "a93a42dc1ba9eefa3029428dca25eca5c96523b4c9f27beabdd0bb09f760c68b",
+    "anchor_period": 6,
+    "point_count": 981,
+    "a_range": [0.2145, 0.21555],
+    "c_range": [7.4, 7.8],
+    "touches_boundary": {"a_min": false, "a_max": false, "c_min": true, "c_max": true}
+  },
+  "figure": {
+    "path": "artifacts/EXP-191/EXP-191-second-period6-window.png",
+    "sha256": "9ce3f25754178896ef6e9a984c4d2380d15492c006ecb6aac56807b4d4e5b8e1",
+    "receipt_sha256": "501201a27ead096e09dda0611827af2bc1d982171f4a2c873caa570a243d1591"
+  },
+  "provisioning": {
+    "worker": "SECURE NVIDIA RTX A4500 at 0.25 USD/hour",
+    "remote_local_hash_match": true,
+    "active_pods_after_teardown": 0
+  },
+  "interpretation": "The second Jones period-6 landmark lies inside a coherent narrow period-6 raster band. The band exits both sampled c boundaries, so its complete extent, orbit-family identity, critical memberships, and center geometry remain open."
+}

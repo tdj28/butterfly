@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.flip-fold-atlas-comparison-manifest.v1",
+  "experiment_id": "EXP-046",
+  "source_receipt_sha256": {
+    "fold": "e6bb943a43f2e81a512f124674df1bd1a98eee17672dd482c8662bec87265082",
+    "atlas": "c9718d5e1272ce7f12e0ef158b48614cbd9c49bff33721c35b926b8786b38017"
+  },
+  "b_values": [0.16, 0.18, 0.2, 0.22, 0.24, 0.26],
+  "plot_half_width": {"a": 0.025, "c": 0.8},
+  "figure_dpi": 300,
+  "acceptance": {
+    "required_frames": 6,
+    "maximum_grid_distance": 5.0,
+    "minimum_frames_with_both_periods_near": 4,
+    "minimum_frames_with_adjacency_near": 3
+  }
+}

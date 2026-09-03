@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+  "experiment_id": "EXP-349",
+  "passed": false,
+  "source_commit": "137f4ddef86f004d87b4c628c63791c7955e2fbb",
+  "manifest_sha256": "fcf691fcd6ead6c77565801a608162a2505589e041d08c93a0f33c82034e7b7f",
+  "source_receipt_sha256": "ce433776a3ed819b458daf8621bf5a631d61d0a48cad0584dc4a00139e56e94b",
+  "raw_artifact": "artifacts/EXP-349/receipt.json",
+  "raw_artifact_bytes": 21194,
+  "raw_artifact_sha256": "439d3739995a4d9e6d0ecf71cadf87a010877706117bd34569c963a754948329",
+  "elapsed_seconds": 259.5265038330108,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "fixed_c": 10.3144,
+  "segment_count": 64,
+  "initial_maximum_block_residual": 2.5146996461888954e-8,
+  "final_residual_norm": 1.7558020333971916e-8,
+  "final_maximum_block_residual": 1.1844777837606392e-8,
+  "final_variables": {
+    "angle": 2.272269837124213,
+    "a": 0.18069045562014388,
+    "total_flight_time": 234.4855652062799
+  },
+  "final_normalized_boundary_margins": [
+    0.9998049736377255,
+    0.9999999999686917,
+    0.9987615988307859
+  ],
+  "source_root_differences": {
+    "a": 3.1308289294429414e-14,
+    "angle": 0.0006192005846070714,
+    "total_flight_time": 0.0009751318113728757
+  },
+  "root_nominated": false,
+  "classification": "multiple_shooting_unresolved",
+  "failed_checks": ["optimizer_terminated_or_root_gate"],
+  "interpretation": "The failure-bound 64-arc recovery lowers the maximum defect from 2.51470e-8 to 1.18448e-8 while preserving a within 3.13e-14 and remaining interior. It misses the unchanged gate by 18.45% and is preserved as failed. The prospectively indicated successor doubles segmentation once more; the raw hash-bound receipt retains all 63 internal nodes needed for that run."
+}

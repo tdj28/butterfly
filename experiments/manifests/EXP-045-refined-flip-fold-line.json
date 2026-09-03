@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.flip-fold-line-manifest.v1",
+  "experiment_id": "EXP-045",
+  "source_receipt_sha256": {
+    "slices": "f0ed9a040a89a97bcc07a8d47673c39e775afa9ac3f3f78e31f36cb106c3de6d",
+    "extension": "5973d62aa29a701eef3f0b389d0061ba62bfbc7ff3daec1fcf166580d8463dcc"
+  },
+  "local_fit_points": 7,
+  "fit_c_center": 5.1,
+  "figure_dpi": 300,
+  "acceptance": {
+    "required_fold_points": 5,
+    "max_quadratic_a_residual": 0.0005,
+    "max_quadratic_b_residual": 0.0005,
+    "minimum_r_squared": 0.999
+  }
+}

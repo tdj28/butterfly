@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.jones-period768-decimal-segment-pilot-summary.v1",
+  "experiment_id": "EXP-284",
+  "passed": true,
+  "source_commit": "c852ae3f7c5529770af79cb99d0276068ffe4cb5",
+  "manifest_sha256": "9c1b9b67f9d623aab7a119b2a3f27c6c70af7cd5640d99a7aba28cd01cf1043a",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "resolution_receipt_sha256": "8c95e4f58cd77dd58b9272a1bbe7559e8287957c439a9e53462e8f60c3095a4d",
+  "raw_artifact": "artifacts/EXP-284/receipt.json",
+  "raw_artifact_bytes": 2903,
+  "raw_artifact_sha256": "df5bb5ddaa893fad4cfb9a9a1a209d0e5f6349f88c1f769bcd153a245a04bed2",
+  "decimal_digits": 50,
+  "step_counts": [1024, 2048, 4096],
+  "minimum_endpoint_convergence_ratio": 15.864227001838719,
+  "minimum_transition_convergence_ratio": 15.726219435002768,
+  "maximum_fine_orbit_matching_residual": 5.713697911988538e-10,
+  "maximum_fine_tangent_matching_residual": 3.6086147377675403e-10,
+  "interpretation": "Four phase-separated segments demonstrate clean fourth-order 50-digit state and variational convergence, permitting a separately frozen full high-precision multiplier audit."
+}

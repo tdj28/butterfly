@@ -1,0 +1,70 @@
+{
+  "schema": "butterfly.jones-period3072-solver-relative-criticality-manifest.v1",
+  "output_schema": "butterfly.jones-period3072-solver-relative-criticality-receipt.v1",
+  "experiment_id": "EXP-316",
+  "refinement_schema": "butterfly.jones-period1536-solver-event-refinement-receipt.v1",
+  "refinement_receipt_sha256": "0e95f1a653269c443a175f41f9c5d4ede6fbca23f74266da1362e50c0eedd526",
+  "switch_schema": "butterfly.jones-period1536-to3072-segmented-child-switch-receipt.v1",
+  "switch_receipt_sha256": "f4991cc53e1fe68eea5a0a60e3f52ec2f731b43371d943db49ae1e3a19c0510a",
+  "source_candidate": {
+    "step_length": 0.0005,
+    "direction": -1
+  },
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "jacobian_storage": "sparse_csr",
+  "solver_targets": {
+    "dop853": {
+      "parent_seed_iteration": 1,
+      "event_upper_a": 0.24070100822444732,
+      "offset_from_upper_bound": 5e-13,
+      "target_a": 0.2407010082249473
+    },
+    "radau": {
+      "parent_seed_iteration": 1,
+      "event_upper_a": 0.2407010082241489,
+      "offset_from_upper_bound": 5e-13,
+      "target_a": 0.24070100822464888
+    }
+  },
+  "solvers": {
+    "dop853": {
+      "method": "DOP853",
+      "rtol": 1e-11,
+      "atol": 1e-13,
+      "max_step": 0.03
+    },
+    "radau": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.03
+    }
+  },
+  "corrector": {
+    "maximum_evaluations": 240,
+    "tolerance": 1e-10
+  },
+  "cyclic_shifts": {
+    "2048": [0, 512, 1024, 1536],
+    "4096": [0, 1024, 2048, 3072]
+  },
+  "identity": {
+    "historical_phase_count": 3584,
+    "barrio_phase_count": 4096
+  },
+  "expected_criticality": "subcritical",
+  "acceptance": {
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_direct_closure_error": 0.01,
+    "maximum_direct_neutral_error": 0.01,
+    "maximum_parent_solver_node_rms": 0.00002,
+    "maximum_child_solver_node_rms": 0.00002,
+    "maximum_parent_multiplier_relative_spread": 0.02,
+    "maximum_child_multiplier_relative_spread": 0.02,
+    "minimum_half_period_closure": 2e-6,
+    "classification_margin": 0.0001
+  },
+  "claim_scope": "prospective solver-relative fixed-a DOP853/Radau correction and stability audit of the period-1536 parent and the multiplier-blind EXP-309 negative-sign primitive period-3072 child; each solver is evaluated exactly 5e-13 above its own passed EXP-315 upper real-minus-one event bound, while the EXP-310 residual, phase, node-identity, multiplier-spread, classification-margin, half-period-nonclosure, and exact 3584/4096 section gates remain unchanged or are strengthened by explicit direct closure and neutral-mode gates; a pass establishes a local subcritical eighth birth in solver-relative coordinates only, not sign equivalence, attracting-basin measure, a global stable period-3072 branch, a ninth event, universality, paired shrimp boundaries, TBA membership, double-criticality, a homoclinic connection, or global parameter-plane topology"
+}

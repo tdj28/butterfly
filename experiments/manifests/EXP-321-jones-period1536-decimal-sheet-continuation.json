@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-continuation-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-decimal-continuation-receipt.v1",
+  "experiment_id": "EXP-321",
+  "source_schema": "butterfly.jones-period1536-decimal-child-switch-receipt.v1",
+  "source_receipt_sha256": "6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33",
+  "target_schema": "butterfly.jones-period1536-near-event-qualification-receipt.v1",
+  "target_receipt_sha256": "0cf411d935ff4bd8fcedc70a55d0ea574aa5c1bac9a877885612394c8c209988",
+  "source_direction": -1,
+  "source_step_lengths": [0.00003125, 0.0000625],
+  "target_solver": "dop853",
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "steps_per_segment": 4096,
+  "workers": 8,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "continuation_step_length": 0.00003125,
+  "continuation_steps": 6,
+  "cyclic_shifts": [0, 512, 1024, 1536],
+  "maximum_newton_updates": 5,
+  "acceptance": {
+    "maximum_matching_residual": 1e-20,
+    "minimum_terminal_half_node_rms": 5e-6,
+    "maximum_period_ratio_error": 1e-7,
+    "maximum_cyclic_spread": 1e-18,
+    "maximum_neutral_residual": 1e-10,
+    "stability_margin": 1e-6
+  },
+  "claim_scope": "prospective six-step 50-digit pseudo-arclength continuation of the passed EXP-319 immediate period-1536 daughter from its two negative-sign source amplitudes, using the identical 4096-step RK4 3/8 map, a fixed 3.125e-5 normalized secant step, five-variable cyclic Newton elimination, and the preserved EXP-299 stable higher-a candidate as a target-blind identity comparison only; all six rows, 1e-20 correction, monotone amplitude growth to at least 5e-6 half-node RMS, period ratio, cyclic Floquet, and neutral gates are mandatory, but neither a fold, stability change, target match, nor disconnection is required to pass; a pass maps only a bounded exact branch segment and may nominate fold or stability brackets for separately frozen refinement, not prove global sheet connectivity, basin measure, a limiting constant, paired shrimp boundaries, TBA membership, double-criticality, a homoclinic connection, or global parameter-plane topology"
+}

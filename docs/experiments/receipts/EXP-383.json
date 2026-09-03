@@ -1,0 +1,64 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-383",
+  "passed": true,
+  "source_commit": "d8d4f8f42498beb048a7a80818354ae19138d403",
+  "manifest_sha256": "9bae32d5f799397d1cad0749af0a20acf6a97d4f1cca385e16f251a5ebfc32fd",
+  "raw_artifact": "artifacts/EXP-383/receipt.json",
+  "raw_artifact_bytes": 78223,
+  "raw_artifact_sha256": "22dd98d870e099a8fb8f3d11f9a5e45b41641ec4163641a3d5f5062b5d773d8c",
+  "elapsed_seconds": 44.63732908386737,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {
+      "experiment_id": "EXP-367",
+      "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"
+    },
+    {
+      "experiment_id": "EXP-368",
+      "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"
+    }
+  ],
+  "desired_c_increment": 0.0,
+  "initial_maximum_block_residual": 9.999341446422604E-9,
+  "final_residual_norm": 1.8638199664368428E-8,
+  "final_matching_residual_norm": 1.8638199663445423E-8,
+  "final_maximum_block_residual": 5.10887569614795E-9,
+  "final_arclength_residual": -1.854894894704807E-13,
+  "final_variables": {
+    "a": 0.17981749740801517,
+    "c": 10.317081490429116,
+    "angle": 2.8101924310111177,
+    "total_flight_time": 234.42046741138643
+  },
+  "arclength_component_weights": {
+    "nodes": 0.01,
+    "total_flight_time": 0.01,
+    "a": 1.0,
+    "c": 1.0,
+    "angle": 0.01
+  },
+  "arclength_tangent_group_norms": {
+    "nodes": 0.06995034340368508,
+    "total_flight_time": 0.0006178002458116784,
+    "a": 0.5429899076596207,
+    "c": 0.8339409894283014,
+    "angle": 0.069361041743221
+  },
+  "minimum_jacobian_singular_value": 1.7931763641707482E-9,
+  "node_boundary_margin": 0.9997276241212063,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 3,
+    "njev": 3,
+    "optimality": 1.4558605583316194E-13
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The prospectively weighted hybrid plane reproduces qualified EXP-368 at 512 arcs, halves the maximum matching defect, and lifts the smallest measured Jacobian singular value by 6.63x while keeping the physical a/c direction dominant. This licenses a forward weighted-plane step but does not qualify the exact historical intersection."
+}

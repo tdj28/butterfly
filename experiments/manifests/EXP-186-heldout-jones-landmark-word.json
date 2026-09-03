@@ -1,0 +1,95 @@
+{
+  "schema": "butterfly.jones-landmark-word-manifest.v1",
+  "experiment_id": "EXP-186",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-174.json",
+      "sha256": "a2b9e4ad2e82cada9b8d3b926353c6eb682be093b0359e03eba2037d579f6043",
+      "role": "blind recurrence classification and held-out period selection"
+    },
+    {
+      "path": "docs/experiments/receipts/EXP-185.json",
+      "sha256": "53ed2a470511fe526ecdbf431a6fdf5e9ecacede00e7aaaba43f7ab120385dd9",
+      "role": "qualified immutable historical alphabet"
+    }
+  ],
+  "target": {
+    "path": "experiments/source-transcriptions/jones2012-figures-2-and-6.json",
+    "sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da",
+    "landmark_index": 1,
+    "expected_period": 6,
+    "selection_rule": "second exact printed landmark; untouched by the landmark-0 partition diagnostic; period inherited from blind EXP-174, no expected word or landmark-to-word association supplied"
+  },
+  "parameters": {"a": 0.21564, "b": 0.2, "c": 6.124},
+  "attractor_reference": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 1600.0,
+    "observation_horizon": 900.0,
+    "max_crossings": 160,
+    "minimum_crossings": 96,
+    "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+    "recurrence": {"max_period": 16, "required_repeats": 6, "atol": 2e-7, "rtol": 1e-8, "escape_radius": 1000000.0}
+  },
+  "correction_solvers": {
+    "dop853": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+    "radau": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05}
+  },
+  "corrector": {"maximum_evaluations": 60, "tolerance": 1e-11},
+  "capture": {
+    "coordinate_axes": [0, 2],
+    "coordinate_scales": [12.0, 0.55],
+    "radius": 0.0002,
+    "required_crossings": 5
+  },
+  "ensemble": {
+    "x_range": [-14.0, -0.2],
+    "x_count": 64,
+    "z_range": [0.008, 0.55],
+    "z_count": 32,
+    "horizon": 200.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0],
+    "midpoint_window": [80.0, 140.0],
+    "escape_radius": 1000000.0
+  },
+  "sprinkler_profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01},
+    {"name": "rk4_dt_0005", "dt": 0.005}
+  ],
+  "coordinates": [
+    {"name": "x", "axis": 0},
+    {"name": "z", "axis": 2}
+  ],
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.1,
+    "minimum_domain_coverage": 0.6,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 186
+  },
+  "oracle_variants": [
+    {"name": "bins20", "options": {"bin_count": 20, "smoothing": 1e-5}},
+    {"name": "bins25", "options": {"bin_count": 25, "smoothing": 1e-5}},
+    {"name": "bins30", "options": {"bin_count": 30, "smoothing": 1e-5}},
+    {"name": "smooth1e-4", "options": {"bin_count": 25, "smoothing": 1e-4}},
+    {"name": "prominence005", "options": {"bin_count": 25, "smoothing": 1e-5, "minimum_prominence": 0.05}}
+  ],
+  "acceptance": {
+    "maximum_flow_closure": 1e-9,
+    "maximum_phase_residual": 1e-9,
+    "maximum_solver_orbit_scaled_error": 1e-6,
+    "minimum_final_survivors": 500,
+    "minimum_return_pairs": 4000,
+    "maximum_survivor_fraction_difference": 0.03,
+    "maximum_normalized_critical_span": 0.05,
+    "maximum_step_critical_location_difference": 0.03,
+    "maximum_abs_zero_slope_residual": 0.15,
+    "allowed_branch_counts": [2, 3],
+    "require_x_z_branch_count_agreement": true,
+    "require_all_solver_profile_coordinate_words": true,
+    "require_unique_same-period_target_membership": true
+  },
+  "claim_scope": "first prospective exact-coordinate Figure 6 word test under the immutable EXP-185 alphabet; no local parameter refinement, boundary movement, alphabet permutation, word-driven orbit selection, arrow validation, generating-partition, conjugacy, template, or global TBA claim"
+}

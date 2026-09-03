@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-floquet-center-search-summary.v1",
+  "experiment_id": "EXP-187",
+  "passed": false,
+  "source_commit": "c758c86ae775cc6b790f25f6667e49a0024a28df",
+  "source_dirty": false,
+  "manifest_sha256": "0e566e68c4ed0e7f37b14c01217dac5d4d0a0b4dfaa8e9e1f756d6f1e27d53db",
+  "raw_receipt_sha256": "917211b6b3dd0152d2049157844a72884bd6cd9b75709eeccfc46c1f7e51f58a",
+  "elapsed_seconds": 3.4345630421303213,
+  "coarse_valid_fraction": 0.0022675736961451248,
+  "evaluated_cell_count": 5,
+  "valid_cell_count": 1,
+  "seed_signed_multiplier": 0.2192709865343293,
+  "neighbor_rows": [
+    {"a": 0.21514, "c": 6.124, "signed_multiplier": -1.3729775239511008, "closure_error": 7.397075867457574e-14, "scaled_orbit_change": 0.2632289745723793},
+    {"a": 0.21614, "c": 6.124, "signed_multiplier": -0.5236905364200162, "closure_error": 5.325788963038459e-13, "scaled_orbit_change": 0.12924110906233469},
+    {"a": 0.21564, "c": 6.149, "signed_multiplier": -3.597098137987728, "closure_error": 1.8930879780646377e-13, "scaled_orbit_change": 0.364228536510451},
+    {"a": 0.21564, "c": 6.099, "signed_multiplier": 0.9883781848532783, "closure_error": 0.04756561172980069, "scaled_orbit_change": 0.21383540945183216, "correction_passed": false}
+  ],
+  "gates": {"coarse_passed": false, "refinement_passed": false, "validation_passed": false, "passed": false},
+  "interpretation": "The original grid is too coarse for the frozen neighbor-identity continuation. No saddle fit or symbolic target was evaluated. Opposite multiplier signs around the seed justify a preregistered tenfold finer search inside the failed coarse cell."
+}

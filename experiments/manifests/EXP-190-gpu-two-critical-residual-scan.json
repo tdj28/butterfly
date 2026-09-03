@@ -1,0 +1,62 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+  "experiment_id": "EXP-190",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-113.json",
+      "sha256": "7ed4f852ae30ce791f5cae4836130cd29532f2b89324a16a335b273a1e907459",
+      "role": "qualified Float64 Triton sprinkler topology and statistical-parity gate"
+    }
+  ],
+  "candidate_input_sha256": "33ccb7968190d2af7ac775fcbc0418fab76ea1935bd83027db0178f5f379070a",
+  "expected_candidate_count": 65,
+  "profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01},
+    {"name": "rk4_dt_0005", "dt": 0.005}
+  ],
+  "ensemble": {
+    "x_range": [-14.0, -0.2],
+    "x_count": 64,
+    "z_range": [0.008, 0.55],
+    "z_count": 32,
+    "horizon": 200.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0],
+    "midpoint_window": [80.0, 140.0],
+    "escape_radius": 1000000.0
+  },
+  "capture": {
+    "coordinate_scales": [12.0, 0.55],
+    "radius": 0.0002,
+    "required_crossings": 5
+  },
+  "gpu": {"chunk_steps": 512, "max_recorded_crossings": 32, "dtype": "float64"},
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.1,
+    "minimum_domain_coverage": 0.6,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 190
+  },
+  "oracle_variants": [
+    {"name": "bins20", "options": {"bin_count": 20, "smoothing": 1e-5}},
+    {"name": "bins25", "options": {"bin_count": 25, "smoothing": 1e-5}},
+    {"name": "bins30", "options": {"bin_count": 30, "smoothing": 1e-5}},
+    {"name": "smooth1e-4", "options": {"bin_count": 25, "smoothing": 1e-4}},
+    {"name": "prominence005", "options": {"bin_count": 25, "smoothing": 1e-5, "minimum_prominence": 0.05}}
+  ],
+  "acceptance": {
+    "minimum_final_survivors": 500,
+    "minimum_return_pairs": 4000,
+    "maximum_normalized_critical_span": 0.05,
+    "maximum_step_critical_midpoint_difference": 0.03,
+    "maximum_survivor_fraction_difference": 0.03,
+    "minimum_eligible_candidates": 3,
+    "maximum_selected_midpoint_distance": 0.05,
+    "maximum_selected_interval_distance": 0.02,
+    "maximum_selected_zero_slope_residual": 0.2
+  },
+  "claim_scope": "GPU discovery scan over all 65 frozen stable period-6 Floquet-zero candidates using two separate survivor-derived x-critical-to-orbit residuals, factor-two RK4 parity, and no symbolic targets; a pass nominates a center for independent CPU/DOP853/Radau and finer survivor confirmation but does not prove double superstability, a Figure 6 word, TBA curve, arrow, or conjugacy"
+}

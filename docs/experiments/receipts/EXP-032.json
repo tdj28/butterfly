@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.unit-event-curve-summary.v1",
+  "experiment_id": "EXP-032",
+  "passed": false,
+  "source_commit": "fab82c84c03ea5a9126624b228d77b37ba54e2d8",
+  "manifest_sha256": "43b17f34d2377a2d603b05437b7f8cef3c6522119c20232e95e6c0a160729579",
+  "source_event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "full_receipt_sha256": "78fd666ea9cd5714e93c4d319d596d54ce1c1f0361ae4c96240997c8b1d607d1",
+  "point_count": 9,
+  "a_range": [0.235, 0.255],
+  "b_range": [0.23841498417841053, 0.30926346335076604],
+  "frozen_b_guard": [0.24, 0.31],
+  "max_adjacent_b_jump": 0.009439716194201753,
+  "max_closure_error": 2.6319682223870717e-12,
+  "max_eigen_residual": 5.479028630432832e-13,
+  "max_flow_orthogonality_residual": 1.3736756822096616e-18,
+  "interpretation": "All nine coupled events solved smoothly, but the a=0.235 point left the frozen b guard by 0.001585; the formal gate remains failed."
+}

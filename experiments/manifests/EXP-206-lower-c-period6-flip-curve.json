@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period6-flip-curve-manifest.v1",
+  "experiment_id": "EXP-206",
+  "source_receipt_sha256": "42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0",
+  "source_event_id": "flip-c7244",
+  "fixed_b": 0.2,
+  "c_values": [
+    7.16, 7.164, 7.168, 7.172, 7.176, 7.18, 7.184, 7.188, 7.192,
+    7.196, 7.2, 7.204, 7.208, 7.212, 7.216, 7.22, 7.224, 7.228,
+    7.232, 7.236, 7.24, 7.244, 7.248, 7.252, 7.256, 7.26, 7.264,
+    7.268, 7.272, 7.276, 7.28, 7.284, 7.288, 7.292, 7.296, 7.3,
+    7.304, 7.308, 7.312, 7.316, 7.32
+  ],
+  "a_guard": [0.21555, 0.2159],
+  "solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "corrector": {"maximum_evaluations": 30, "tolerance": 1e-10},
+  "acceptance": {
+    "required_points": 41,
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_independent_multiplier_residual": 0.00001,
+    "maximum_multiplier_imaginary_part": 1e-7,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "maximum_adjacent_a_jump": 0.00001,
+    "historical_phase_count": 6,
+    "barrio_phase_count": 8
+  },
+  "claim_scope": "prospectively frozen exact-Jacobian continuation of the EXP-205 real-minus-one period-6 event at 41 fixed-c values; a pass establishes a dense identity-safe sampled flip-curve segment, not global connectivity, a period-12 child, supercriticality, the TBA curve, or a double-critical center"
+}

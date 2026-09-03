@@ -1,0 +1,73 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-manifest.v1",
+  "output_schema": "butterfly.jones-homoclinic-multiple-shooting-receipt.v1",
+  "experiment_id": "EXP-341",
+  "source_receipt": {
+    "path": "docs/experiments/receipts/EXP-340.json",
+    "sha256": "5610b97ddaa60b360822985cf84290088da73e4da5ed86522ecabe9603666283",
+    "schema": "butterfly.jones-homoclinic-single-shooting-summary.v1",
+    "experiment_id": "EXP-340",
+    "passed": false,
+    "classification": "single_shooting_unresolved",
+    "failed_checks": ["optimizer_terminated"],
+    "expected": {
+      "initial_residual_norm": 0.00016226246880832792,
+      "final_residual_norm": 0.00013512019468473797,
+      "scaled_jacobian_condition_ratio": 146898.24844225703
+    }
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "reference_a": 0.1798,
+  "stable_branch_sign": 1,
+  "unstable_seed_radius": 1e-7,
+  "matching_radius": 0.03,
+  "stable_manifold": {
+    "seed_radius": 1e-8,
+    "maximum_backward_time": 10.0,
+    "maximum_step": 0.005
+  },
+  "segment_count": 16,
+  "search_center": {
+    "angle": 2.4707317223544725,
+    "a": 0.18255,
+    "total_flight_time": 234.2623011851337
+  },
+  "search_scales": {
+    "angle": 0.032724923474893676,
+    "a": 0.00025,
+    "total_flight_time": 5.0
+  },
+  "normalized_bounds": {
+    "lower": [-1.0, -1.0, -1.0],
+    "upper": [1.0, 1.0, 1.0]
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "derivatives": {
+    "segment_state_transition": "analytic_variational",
+    "segment_a_sensitivity": "analytic_variational",
+    "segment_time_sensitivity": "terminal_vector_field",
+    "angle_sensitivity": "analytic_local_plane",
+    "endpoint_geometry_a_sensitivity": "absolute_central",
+    "a_absolute_step": 1e-7
+  },
+  "optimization": {
+    "method": "trf",
+    "jacobian": "dense_analytic_segmented",
+    "x_scale": "jac",
+    "ftol": 1e-11,
+    "xtol": 1e-11,
+    "gtol": 1e-11,
+    "maximum_function_evaluations": 60
+  },
+  "acceptance": {
+    "maximum_initial_block_residual": 0.005,
+    "maximum_root_block_residual": 1e-8,
+    "minimum_normalized_boundary_margin": 0.001
+  },
+  "claim_scope": "failure-bound representation successor to EXP-340: retain its fixed b and c, nonlinear positive stable target, unstable seed, radius, global angle-a-time box, DOP853 tolerances, optimizer tolerances and budget, and 1e-8 nomination threshold; initialize 15 internal nodes from EXP-340's final trajectory and replace only the ill-conditioned 234-time-unit endpoint map by 16 equal-time matched arcs with analytic segment variational derivatives; an interior segmented residual at most 1e-8 only nominates a root for shrinking-radius, independent-Radau, and continuation qualification and does not yet prove a homoclinic orbit, validate the printed a coordinate, establish uniqueness, or explain global hub topology"
+}

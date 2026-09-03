@@ -1,0 +1,47 @@
+{
+  "schema": "butterfly.wide-atlas-checkpoint-receipt.v1",
+  "experiment_id": "EXP-013",
+  "source": {
+    "commit": "426f7986ff399229306549e8d45d54f25d333cfc",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "plan_hash": "d45b44c5a59f0deeeab5f106dbc317c920d599a1e1e8ff0ea37e2eb6aa006214",
+  "aggregate_result_sha256": "58aa45114962c285edff6deab08915f89f953b5b7437996b82bb9a7ad6e50e3d",
+  "summary_sha256": "49c4227ccf51703c5884602a6a7b06814cfef3822d0fa8c91f4dc1cfc883d268",
+  "row_count": 1189,
+  "tile_count": 16,
+  "summed_tile_seconds": 2233.3281863331795,
+  "maximum_tile_seconds": 164.31545250024647,
+  "label_counts": {
+    "periodic": 82,
+    "unresolved": 1107
+  },
+  "component_count": 52,
+  "boundary_component_count": 8,
+  "component_counts_by_period": {
+    "1": 11,
+    "2": 19,
+    "3": 4,
+    "4": 8,
+    "5": 2,
+    "6": 5,
+    "8": 2,
+    "12": 1
+  },
+  "periodic_pixels_by_period": {
+    "1": 30,
+    "2": 23,
+    "3": 11,
+    "4": 8,
+    "5": 2,
+    "6": 5,
+    "8": 2,
+    "12": 1
+  },
+  "figure": {
+    "artifact": "artifacts/EXP-013/figures/EXP-013-ac-atlas.png",
+    "sha256": "69cdb613b11aa5bfaeb5d58df1d414a4ea5af322658d2bd3cb6245be8f5fc52d"
+  },
+  "interpretation_limit": "Coarse grid components and finite-time recurrence labels are discovery candidates, not continued shrimp families or asymptotic classifications."
+}

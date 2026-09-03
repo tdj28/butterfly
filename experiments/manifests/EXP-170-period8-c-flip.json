@@ -1,0 +1,44 @@
+{
+  "schema": "butterfly.period8-c-flip-manifest.v1",
+  "experiment_id": "EXP-170",
+  "source_receipt_sha256": "a420205fc0719d5b61bd29d8bd8eeef209ab5805c173a9bd9bea6ae75a4c7e09",
+  "source": {
+    "predecessors": ["EXP-166", "EXP-167", "EXP-169", "CLM-006"],
+    "selection_informed_by_source": true,
+    "claim_scope": "coupled exact-c-Jacobian refinement of the first real -1 Floquet crossing on the primitive period-8 Jones-path branch"
+  },
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "c_bracket": [4.708476891711592, 4.711572660267806],
+  "segment_count": 32,
+  "cyclic_shifts": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+  "orbit_sample_count": 16385,
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.006
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.005
+  },
+  "corrector": {"maximum_evaluations": 200, "tolerance": 2e-12},
+  "acceptance": {
+    "maximum_orbit_residual": 4e-9,
+    "maximum_phase_residual": 1e-9,
+    "maximum_tangent_residual": 4e-8,
+    "maximum_normalization_residual": 1e-10,
+    "maximum_reference_flip_residual": 2e-8,
+    "maximum_multiplier_imaginary": 1e-8,
+    "maximum_block_product_difference": 2e-8,
+    "maximum_cyclic_product_spread": 2e-8,
+    "maximum_independent_closure": 4e-9,
+    "maximum_independent_neutral_error": 2e-8,
+    "maximum_independent_flip_residual": 2e-7,
+    "minimum_half_period_closure": 0.2,
+    "maximum_winding_error": 0.01
+  }
+}

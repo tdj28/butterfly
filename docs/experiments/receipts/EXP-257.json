@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period96-segmented-continuation-summary.v1",
+  "experiment_id": "EXP-257",
+  "passed": true,
+  "source_commit": "095499686be63544b0f4b293539885cd33c3b4f2",
+  "manifest_sha256": "e91225e8cdfe3a796e0129ce1f1127459a23b97ee654110b3d522409eb67be7d",
+  "switch_receipt_sha256": "5cfed28b20ba1050486804ed39b4d09ebc2041baf9c81c710112e78d12f45a68",
+  "event_receipt_sha256": "376a8f433a7ca73297bd4d9f00b73fbe638176c620aa2c0a5334c91aedddd5a8",
+  "audit_receipt_sha256": "db095fb0f303aee1d39418024517958b8b514e949ba6b82233eed49241cac2f5",
+  "raw_artifact": "artifacts/EXP-257/receipt.json",
+  "raw_artifact_bytes": 78221,
+  "raw_artifact_sha256": "5356c719ff84a1ff91c00eb1ca000eaeca2635ea2965a70eeb01fcbed1a7eb6b",
+  "point_count": 9,
+  "a_span_from_event": 1.1741506786289158e-7,
+  "terminal_a": 0.2407008989937137,
+  "terminal_half_node_rms": 0.0034619997737106475,
+  "terminal_half_period_closure": 0.0016769856666957604,
+  "terminal_multiplier": -148.70824402648262,
+  "historical_phase_count": 112,
+  "barrio_phase_count": 128,
+  "interpretation": "Exact period-96 continuation reaches a strongly unstable endpoint while retaining primitive identity and supplies immutable rows for the frozen EXP-258 flip scan."
+}

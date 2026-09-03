@@ -1,0 +1,24 @@
+{
+  "schema": "butterfly.flip-fold-line-summary.v1",
+  "experiment_id": "EXP-045",
+  "passed": true,
+  "source_commit": "3ef01b55276540bddc6d1c8ae6322eb6c48a94ec",
+  "manifest_sha256": "de6b3eba7d7c1e050838e0e4bc87dd1fa68eb0638ee51e4c42d8e0cf64803515",
+  "source_slices_receipt_sha256": "f0ed9a040a89a97bcc07a8d47673c39e775afa9ac3f3f78e31f36cb106c3de6d",
+  "source_extension_receipt_sha256": "5973d62aa29a701eef3f0b389d0061ba62bfbc7ff3daec1fcf166580d8463dcc",
+  "full_receipt_sha256": "e6bb943a43f2e81a512f124674df1bd1a98eee17672dd482c8662bec87265082",
+  "fold_point_count": 5,
+  "c_range": [4.9, 5.3],
+  "a_fold_range": [0.20768781189481322, 0.23092841899755684],
+  "b_fold_range": [0.15277654108425756, 0.2646191802122672],
+  "a_quadratic_r_squared": 0.9999995647375106,
+  "b_quadratic_r_squared": 0.9999992881101398,
+  "a_max_absolute_residual": 7.926959508464115e-6,
+  "b_max_absolute_residual": 4.7851126542430844e-5,
+  "monotone_decreasing_with_c": true,
+  "figure": {
+    "path": "artifacts/EXP-045/EXP-045-flip-fold-line.png",
+    "sha256": "f24ac0cc3e5c94edc0b7277dec81f3d714407e8c531a169bea4396ed23f74e79"
+  },
+  "interpretation": "Five independently traced and locally refined minima form a smooth local fold line on the fundamental period-doubling surface over c=4.9..5.3."
+}

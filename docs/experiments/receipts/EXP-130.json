@@ -1,0 +1,69 @@
+{
+  "schema": "butterfly.gpu-sprinkler-boundary-pilot-summary.v1",
+  "experiment_id": "EXP-130",
+  "passed": false,
+  "failure_class": "prospective scientific resolution gate",
+  "source_commit": "2cbe7972cac21b3c6e1dca55f4ba8f91e7041863",
+  "source_archive_sha256": "5d4fd1fb101f64dbb15442c8c4ed3d78e12b54752eac17c7cc7642548d44eb4f",
+  "manifest_sha256": "7a5b6799eb9414fbcb682a887af20a7f096a004aead8c63d2432f76942d76c81",
+  "raw_receipt": "artifacts/EXP-130/receipt.json",
+  "raw_receipt_sha256": "e291d0656c7a66974cfd462405655e4904159275a9e65de7a9196933e58f27d2",
+  "raw_receipt_bytes": 465456,
+  "elapsed_seconds": 1075.3669896880165,
+  "runpod": {
+    "pod_id": "g78bsxfpsp5ors",
+    "gpu": "NVIDIA RTX A5000",
+    "returned_price_usd_per_hour": 0.27,
+    "final_uptime_seconds": 1193,
+    "conservative_spend_upper_bound_usd": 0.1,
+    "remote_local_hash_match": true,
+    "active_pods_after_teardown": 0
+  },
+  "execution": {
+    "planned_runs": 38,
+    "executed_runs": 36,
+    "skipped_runs_due_to_cycle_gate": 2,
+    "coordinate_decisions": 72,
+    "integration_failures": 0,
+    "recording_buffer_saturations": 0,
+    "minimum_final_survivors": 121,
+    "minimum_return_pairs": 1002,
+    "throughput_state_steps_per_second": [509079036.7613237, 622116729.807008]
+  },
+  "oracle_cells": {
+    "branch_resolved_two": 16,
+    "branch_resolved_three": 10,
+    "branch_variant_disagreement": 46,
+    "slope_resolved_negative": 9,
+    "slope_resolved_positive": 25,
+    "slope_sign_disagreement": 30,
+    "slope_below_magnitude_floor": 8
+  },
+  "run_joint_labels": {"two": 4, "three": 5, "unresolved": 27},
+  "controls": {
+    "published_two": {"passed": true, "profile_labels": [2, 2, 2]},
+    "published_three": {"passed": true, "profile_labels": [3, 3, 3]},
+    "local_pim_two": {"passed": false, "profile_labels": [null, null, null]},
+    "local_pim_three": {"passed": false, "profile_labels": [null, null, null]}
+  },
+  "slices": {
+    "c_19p8": {
+      "passed": false,
+      "resolved_labels": {},
+      "cycle_gate_failure": {"a": 0.149, "label": "unresolved"},
+      "pim_candidates": {
+        "lower": {"a": 0.145, "prediction": 2, "support": "one complete joint run and a second near-threshold negative/two run"},
+        "upper": {"a": 0.148, "prediction": 3, "support": "positive slope in both coordinates across both seeds and the half-step run; branch oracle unresolved"}
+      }
+    },
+    "c_19p9": {
+      "passed": false,
+      "resolved_labels": {"0.15": 3},
+      "pim_candidates": {
+        "lower": {"a": 0.145, "prediction": 2, "support": "mostly two-branch critical-point decisions with near-zero or sign-unstable boundary slope"},
+        "upper": {"a": 0.15, "prediction": 3, "support": "complete two-seed joint resolution"}
+      }
+    }
+  },
+  "interpretation": "The qualified GPU kernel remains fast and correct on published controls, but brute finite-time survivor clouds are not a reliable topology oracle at the narrow PIM-defined boundary. The failed gate forbids a transverse TBA claim and selects four explicit adaptive-DOP853 PIM endpoint tests."
+}

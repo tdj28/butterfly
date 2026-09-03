@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.resolution-convergence-summary.v1",
+  "experiment_id": "EXP-119",
+  "passed": true,
+  "source_commit": "e01457b23b5d23d63b40e734905ff81cd091aa1d",
+  "manifest_sha256": "f5d4f34efa32376ac224b7a9c02f84f75f5496e0a461c19a31e54cb5e5ebe482",
+  "raw_receipt": "artifacts/EXP-119/receipt.json",
+  "raw_receipt_sha256": "7206a97e5059ae60a32118645eaf12ec37ec514aaf9914fc60618e4fc5f9e37c",
+  "raw_receipt_bytes": 63492,
+  "elapsed_seconds": 310.79977475013584,
+  "datasets": 5,
+  "crossings_per_dataset": 2400,
+  "pairs_per_coordinate_per_dataset": 2399,
+  "coarse_control_cells": {"passed": 30, "total": 30, "branch_count": 2, "maximum_across_span": 0.008347930024310075},
+  "adequate_resolution_cells": {"passed": 120, "total": 120, "branch_count": 3, "maximum_within_dataset_span": 0.011839360510435692, "maximum_combined_exp118_exp119_span": 0.01806973977439491},
+  "lyapunov": [
+    {"id": "original", "classification": "chaotic", "exponents": [0.05943149617371875, 0.000874381506864607, -19.67520799207557], "independent_largest": 0.056562686468065386, "largest_difference": 0.002868809705653362, "trace_identity_error": 0.00000012448750297266997, "passed": true},
+    {"id": "sobol-0", "classification": "chaotic", "exponents": [0.05902380661517464, -0.00012642655187643085, -19.680967681939656], "independent_largest": 0.06421265370703193, "largest_difference": 0.005188847091857289, "trace_identity_error": 0.00000012458673026571887, "passed": true}
+  ],
+  "interpretation": "a=0.150 is qualified as a persistent chaotic three-branch invariant set at 30-to-80-bin resolution; 20-bin variants reproducibly under-resolve the shallow added extremum as two"
+}

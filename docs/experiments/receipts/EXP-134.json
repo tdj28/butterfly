@@ -1,0 +1,32 @@
+{
+  "schema": "butterfly.pim-upo-primitivity-audit-summary.v1",
+  "experiment_id": "EXP-134",
+  "passed": true,
+  "source_commit": "33f849861fd9e9d1a761f919ce4041fdd1f92741",
+  "manifest_sha256": "276dbef73e383d9d8bb7ce756204154cd06c4355fd33b234a0940b4fdf625b26",
+  "source_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
+  "raw_receipt": "artifacts/EXP-134/receipt.json",
+  "raw_receipt_sha256": "a269d64b04cb93777924f744551bb4e871e13a8158f59c96fcff6fc84aa88a93",
+  "raw_receipt_bytes": 13677,
+  "elapsed_seconds": 4.076491999905556,
+  "cases": [
+    {
+      "id": "local-two-branch-saddle",
+      "accepted_source_recoveries": 9,
+      "primitive_as_reported_count": 9,
+      "double_or_higher_cover_count": 0,
+      "nominal_unique_family_count": 9,
+      "fundamental_lags": [3, 5, 7, 8, 12, 13]
+    },
+    {
+      "id": "local-three-branch-saddle",
+      "accepted_source_recoveries": 6,
+      "primitive_as_reported_count": 4,
+      "double_or_higher_cover_count": 2,
+      "nominal_unique_family_count": 4,
+      "fundamental_lags": [4, 12],
+      "lag8_half_period_closure_errors": [1.113599879771089e-11, 1.1060465275280412e-11]
+    }
+  ],
+  "qualification_boundary": "The proper-divisor audit passes and confirms primitive UPOs on both sides. The nominal family count above is not promoted because coarse cyclic phase sampling fails to merge numerically identical lag-4 recoveries; EXP-135 freezes continuous phase alignment."
+}

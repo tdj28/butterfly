@@ -1,0 +1,29 @@
+{
+  "schema": "butterfly.jones-homoclinic-multiple-shooting-summary.v1",
+  "experiment_id": "EXP-357",
+  "passed": false,
+  "source_commit": "2329096247744cd229052b83513a931c0fc47d03",
+  "manifest_sha256": "8b0ab5d8e28adb5ad1efd16de490bd1ea1d1969f9b0bdff09a0f53fab79732b9",
+  "source_receipt_sha256": "9c7be8271d4f672604c033af37aa1c56138873fb6958e41d98925b0b54a39130",
+  "raw_artifact": "artifacts/EXP-357/receipt.json",
+  "raw_artifact_bytes": 31790,
+  "raw_artifact_sha256": "622add457335304fed9b3269b747a3034c8cb2e1806433ad4c9a07a7eba4d685",
+  "elapsed_seconds": 385.0391252087429,
+  "fixed_b": 0.2,
+  "fixed_c": 10.317135394165936,
+  "segment_count": 128,
+  "initial_maximum_block_residual": 4.100579818790836e-6,
+  "final_residual_norm": 3.797245941903396e-6,
+  "final_maximum_block_residual": 3.7645841867813573e-6,
+  "final_variables": {
+    "a": 0.17981749003698058,
+    "angle": 2.3815468570629514,
+    "total_flight_time": 234.35974836287653
+  },
+  "node_boundary_margin": 0.9771724530619856,
+  "optimizer_optimality": 2.2034942697515253e-10,
+  "root_nominated": false,
+  "classification": "multiple_shooting_unresolved",
+  "failed_checks": ["optimizer_terminated_or_root_gate"],
+  "interpretation": "The third fixed-c correction reaches a conditioning floor above the root gate, but supplies nodes only 1.749e-5 from exact a=0.1798. Those nodes are a substantially improved source for a renewed direct fixed-a solve."
+}

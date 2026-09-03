@@ -1,0 +1,46 @@
+{
+  "schema": "butterfly.period2-c-child-qualification-manifest.v1",
+  "experiment_id": "EXP-158",
+  "child_receipt_sha256": "dbf1bd63fa987be7307557fa094edeec74c0e79afc2acfa6436ec2d6b09b244f",
+  "parent_receipt_sha256": "2b74e4c3303ffd0f69d7d8963856d87a8fe80cd270f882450bc72fd81a3e67b8",
+  "fixed_a": 0.1798,
+  "fixed_b": 0.2,
+  "target_c": 3.1845,
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": 1e-14,
+    "max_step": 0.015
+  },
+  "independent_solver": {
+    "method": "Radau",
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.01
+  },
+  "corrector": {
+    "tolerance": 1e-11,
+    "maximum_evaluations": 120
+  },
+  "comparison": {
+    "phase_samples": 4096,
+    "coarse_shifts": 512,
+    "shift_tolerance": 1e-10
+  },
+  "orbit_sample_count": 4097,
+  "attraction": {
+    "perturbation": [0.0001, -0.0001, 0.00005],
+    "transient_periods": 64,
+    "max_step": 0.02
+  },
+  "acceptance": {
+    "maximum_closure_error": 1e-9,
+    "maximum_arm_identity_rms": 1e-5,
+    "maximum_solver_identity_rms": 1e-6,
+    "maximum_solver_modulus_difference": 1e-6,
+    "minimum_half_period_closure": 0.1,
+    "maximum_period_ratio_error": 0.001,
+    "maximum_winding_error": 0.01,
+    "maximum_recovered_identity_rms": 1e-5
+  }
+}

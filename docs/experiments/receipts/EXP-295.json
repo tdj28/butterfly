@@ -1,0 +1,39 @@
+{
+  "schema": "butterfly.jones-period768-decimal-augmented-independent-receipt.v1",
+  "experiment_id": "EXP-295",
+  "source_commit": "8f22e8ed3b6be5a36946878a280ffb170cce4fcc",
+  "manifest_sha256": "ddc86e09d4d8d5cbde858acefb72aed8e4b9ba95b84a50e48b219dc110eec365",
+  "raw_receipt_sha256": "447f5b7b73206f985b21b0848f2804117aef5c47602df82a6dd7bbf947a39c77",
+  "step_counts": [1024, 2048, 4096],
+  "a_values_decimal": [
+    "0.24070100421588047186190022655689747684944437549735",
+    "0.24070100798206622883465535317761366427977392096371",
+    "0.24070100822162978683428904790901863605859457564433"
+  ],
+  "a_convergence_ratio": 15.72102947718999,
+  "period_convergence_ratio": 15.706949492322758,
+  "extrapolated_a_decimal": "0.24070100823760069070093129422444563417718261928970",
+  "cross_tableau_extrapolated_a_difference": 2.054266265232304e-14,
+  "cross_tableau_extrapolated_period_difference": 3.6037840281004046e-11,
+  "finest_orbit_residual": 5.1834515496126185e-28,
+  "finest_tangent_residual": 7.838290912583611e-27,
+  "node_maximum_difference": 1.235400942466694e-10,
+  "node_rms_difference": 5.0350269415101106e-11,
+  "base_tangent_maximum_difference": 1.6076633248259462e-13,
+  "global_tangent_cosine": 1.0,
+  "fraction_pointwise_cosine_at_least_0_999": 1.0,
+  "half_node_rms_separation": 2.5800907163569805e-05,
+  "checks": {
+    "correction": true,
+    "a_convergence": true,
+    "period_convergence": true,
+    "a_bounds": true,
+    "cross_a": true,
+    "cross_period": true,
+    "node_identity": true,
+    "base_tangent": true,
+    "tangent_line": true,
+    "primitive_half_separation": true
+  },
+  "passed": true
+}

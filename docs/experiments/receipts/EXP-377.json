@@ -1,0 +1,60 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-377",
+  "passed": false,
+  "source_commit": "a410748ca8ab46780e029b923ddade057f17363e",
+  "manifest_sha256": "bb6299ac76959c8c7a233bc9986464f5adfd593b2f567f2710d7b45f089f609e",
+  "raw_artifact": "artifacts/EXP-377/receipt.json",
+  "raw_artifact_bytes": 80710,
+  "raw_artifact_sha256": "a51a048538709add996ade7e96e6fae720e5dd26d2204f6f0d570724d4a4a7d9",
+  "elapsed_seconds": 221.14604112505913,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "warm_start_receipt": {
+    "experiment_id": "EXP-376",
+    "sha256": "5cf1726acf35b04ad32f7cda305d5170be3685a20df54e1fa900e6e099cf57c9",
+    "passed": false
+  },
+  "initial_maximum_block_residual": 0.0000052088761002681735,
+  "final_maximum_block_residual": 0.0000052088761002681735,
+  "final_arclength_residual": -1.7643617634607867e-9,
+  "newton_linear_residual_norm": 2.5776055398529527e-13,
+  "scaled_step_norm": 1522.6804667959032,
+  "maximum_scaled_step_component": 799.3468220797673,
+  "starting_cost": 1.973682755194932e-11,
+  "attempted_step_fractions": [
+    0.0005410706948873934,
+    0.0002705353474436967,
+    0.00013526767372184836,
+    0.00006763383686092418,
+    0.00003381691843046209,
+    0.000016908459215231045,
+    0.000008454229607615523,
+    0.000004227114803807761,
+    0.0000021135574019038806,
+    0.0000010567787009519403
+  ],
+  "attempted_costs": [
+    0.000043600658678825075,
+    0.0000026964940574647385,
+    1.6766514907484587e-7,
+    1.0471798945160412e-8,
+    6.726431890887777e-10,
+    6.064671764320192e-11,
+    2.2325306200643266e-11,
+    1.990662249368576e-11,
+    1.97494127175665e-11,
+    1.97380892993484e-11
+  ],
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "root_nominated"
+  ],
+  "interpretation": "Ten prospectively sampled Newton fractions through 1.05678e-6 all increase the objective; the smallest is still 6.39e-5 relatively above the start. Direct-Newton restarts are retired. Adaptive collocation is the next method because it removes the free multiple-shooting-node near-null coordinates while retaining the same manifold and physical continuation conditions."
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "butterfly.jones-homoclinic-manifold-match-scan-summary.v1",
+  "experiment_id": "EXP-332",
+  "passed": true,
+  "source_commit": "8899eaa8c9f2b544f977629c5ae79f6cf3a66a00",
+  "manifest_sha256": "0f2b9cd5acacf97dde72081fef36d7fc1d76c335cfc955ffd609796e6007c4fc",
+  "raw_artifact": "artifacts/EXP-332/receipt.json",
+  "raw_artifact_bytes": 429236,
+  "raw_artifact_sha256": "32edf3c3f8cc47c7d101f06dd7c790d41ae842c40d39d97f0cb20b350a921557",
+  "elapsed_seconds": 74.00603233324364,
+  "c_range": [10.3044, 10.3124],
+  "c_count": 9,
+  "angle_count_per_c": 96,
+  "row_count": 864,
+  "completed_return_count": 223,
+  "candidate_count": 0,
+  "nominated_cell_count": 0,
+  "closest_match": {
+    "c": 10.3124,
+    "c_index": 8,
+    "angle": 1.538071403320003,
+    "angle_index": 23,
+    "stable_branch_sign": 1,
+    "chord_mismatch": 0.006566842514012916,
+    "normalized_chord_mismatch": 0.3283421257006458,
+    "tangent_residual": [0.005075400204778428, 0.004025104344898968],
+    "return_radius_residual": 1.0304257447302234e-15
+  },
+  "per_c_minimum_chord_mismatch": [
+    [10.3044, 0.015659498347102965],
+    [10.3054, 0.014023088591802638],
+    [10.3064, 0.01291610141455332],
+    [10.3074, 0.01178060283339467],
+    [10.3084, 0.010642475697490623],
+    [10.3094, 0.00958500625132832],
+    [10.3104, 0.008558429326796829],
+    [10.3114, 0.007603669734255905],
+    [10.3124, 0.006566842514012916]
+  ],
+  "classification": "no_sampled_manifold_match",
+  "interpretation": "The first parameter-aware nonlinear manifold scan passes with 223 inward sphere crossings but no direct match or signed-zero cell. The best chord mismatch decreases at every sampled c value and reaches the upper boundary with both tangential residuals still positive. This prospectively selects an upper-c extension; it does not establish a connection or reject one at or near the approximately printed coordinate."
+}

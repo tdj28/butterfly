@@ -1,0 +1,103 @@
+{
+  "schema": "butterfly.sprinkler-coverage-censor-manifest.v1",
+  "experiment_id": "EXP-121",
+  "source": {
+    "predecessors": ["EXP-112", "EXP-120"],
+    "role": "prospective control qualification of coverage-only censoring before use at a=0.145"
+  },
+  "fixed_parameters": {"b": 0.2, "c": 20.0},
+  "cases": [
+    {"id": "published-unimodal-saddle", "a": 0.118, "stable_period": 4, "expected_saddle_branch_count": 2},
+    {"id": "a145-saddle", "a": 0.145, "stable_period": 4, "expected_saddle_branch_count": 2, "sample_power_offset": 3},
+    {"id": "published-bimodal-saddle", "a": 0.149, "stable_period": 4, "expected_saddle_branch_count": 3}
+  ],
+  "cycle_initial_state": [0.0, 4.0, 0.0],
+  "cycle_reference": {
+    "transient": 2000.0,
+    "observation_horizon": 200.0,
+    "max_crossings": 16,
+    "recurrence": {"max_period": 16, "required_repeats": 3, "atol": 1e-9, "rtol": 1e-9}
+  },
+  "ensemble": {
+    "y_range": [-38.0, -8.0],
+    "y_count": 128,
+    "z_range": [0.0088, 0.0102],
+    "z_count": 64,
+    "dt": 0.01,
+    "horizon": 300.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0, 250.0, 300.0],
+    "midpoint_window": [120.0, 180.0],
+    "escape_radius": 10000.0
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [30.0, 0.0006],
+    "radius": 0.002,
+    "required_crossings": 8
+  },
+  "runs": [
+    {"id": "sobol-123-baseline", "sampler": "sobol", "sample_power": 13, "scramble_seed": 123},
+    {"id": "sobol-123-half-step", "sampler": "sobol", "sample_power": 13, "scramble_seed": 123, "dt": 0.005},
+    {"id": "sobol-123-later-conditioning", "sampler": "sobol", "sample_power": 13, "scramble_seed": 123, "horizon": 360.0, "checkpoint_times": [50.0, 100.0, 150.0, 200.0, 250.0, 300.0, 360.0], "midpoint_window": [150.0, 210.0]},
+    {"id": "sobol-124", "sampler": "sobol", "sample_power": 13, "scramble_seed": 124},
+    {"id": "sobol-125", "sampler": "sobol", "sample_power": 13, "scramble_seed": 125},
+    {"id": "sobol-123-coarse", "sampler": "sobol", "sample_power": 12, "scramble_seed": 123},
+    {"id": "sobol-123-fine", "sampler": "sobol", "sample_power": 14, "scramble_seed": 123}
+  ],
+  "coordinates": [{"name": "y", "axis": 1}, {"name": "z", "axis": 2}],
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.001,
+    "maximum_conditional_spread_ratio": 0.08,
+    "minimum_domain_coverage": 0.7,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 121
+  },
+  "oracle_variants": [
+    {"bin_count": 20, "smoothing": 3e-6},
+    {"bin_count": 20, "smoothing": 1e-5},
+    {"bin_count": 20, "smoothing": 3e-5},
+    {"bin_count": 30, "smoothing": 3e-6},
+    {"bin_count": 30, "smoothing": 1e-5},
+    {"bin_count": 30, "smoothing": 3e-5},
+    {"bin_count": 40, "smoothing": 3e-6},
+    {"bin_count": 40, "smoothing": 1e-5},
+    {"bin_count": 40, "smoothing": 3e-5},
+    {"bin_count": 60, "smoothing": 3e-6},
+    {"bin_count": 60, "smoothing": 1e-5},
+    {"bin_count": 60, "smoothing": 3e-5},
+    {"bin_count": 80, "smoothing": 3e-6},
+    {"bin_count": 80, "smoothing": 1e-5},
+    {"bin_count": 80, "smoothing": 3e-5}
+  ],
+  "short_horizon_audit": {
+    "trajectory_fractions": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "dt": 0.01,
+    "horizon": 40.0,
+    "max_crossings": 16,
+    "comparison_crossings": 5,
+    "disabled_capture_radius": 1e-12,
+    "disabled_capture_crossings": 100
+  },
+  "reference_solver": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+  "acceptance": {
+    "baseline_run_id": "sobol-123-baseline",
+    "minimum_final_survivors": 100,
+    "minimum_return_pairs": 1000,
+    "minimum_oracle_variant_consensus": 1.0,
+    "minimum_fully_resolved_variants": 12,
+    "minimum_censored_domain_coverage": 0.65,
+    "maximum_within_run_normalized_critical_span": 0.03,
+    "maximum_across_run_normalized_critical_span": 0.04,
+    "maximum_survivor_fraction_difference": 0.05,
+    "maximum_short_horizon_scaled_state_error": 0.001,
+    "maximum_short_horizon_time_error": 0.00002
+  },
+  "path_acceptance": {
+    "allowed_branch_counts": [2, 3],
+    "required_observed_counts": [2, 3],
+    "required_transition_count": 1
+  }
+}

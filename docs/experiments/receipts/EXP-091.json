@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.period640-segmented-qualification-summary.v1",
+  "experiment_id": "EXP-091",
+  "passed": true,
+  "source_commit": "afbd1e0d3281935171b6a37089c8ce10650bb95a",
+  "manifest_sha256": "78c927874325050a53144056f482065cf347d53e2245529968a922778b352926",
+  "full_receipt_sha256": "3a26c981a4462051e2d5666b28538520141a94d6459f52ca16d3db9b81b35445",
+  "target_b": 0.17971235,
+  "matching_residuals": [
+    1.347963695586356e-12,
+    1.2082558005096926e-12
+  ],
+  "dominant_nontrivial_moduli": [
+    0.07076453293652356,
+    0.07076441098398245
+  ],
+  "modulus_difference": 1.2195254110725084e-7,
+  "period_difference": 0.0,
+  "phase_shift": 0.5000000023574103,
+  "phase_aligned_identity_rms": 1.3921280651395729e-8,
+  "maximum_segment_endpoint_error": 6.032941874825514e-11,
+  "interpretation": "both switch signs are half-period phase representations of one strongly stable period-640 child"
+}

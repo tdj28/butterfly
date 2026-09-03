@@ -1,0 +1,34 @@
+{
+  "schema": "butterfly.jones-period96-segmented-continuation-manifest.v1",
+  "output_schema": "butterfly.jones-period96-segmented-continuation-receipt.v1",
+  "experiment_id": "EXP-257",
+  "switch_receipt_sha256": "5cfed28b20ba1050486804ed39b4d09ebc2041baf9c81c710112e78d12f45a68",
+  "event_receipt_sha256": "376a8f433a7ca73297bd4d9f00b73fbe638176c620aa2c0a5334c91aedddd5a8",
+  "audit_schema": "butterfly.jones-augmented-flip-residual-safe-audit-receipt.v1",
+  "audit_receipt_sha256": "db095fb0f303aee1d39418024517958b8b514e949ba6b82233eed49241cac2f5",
+  "source_candidate": {"step_length": 0.002, "direction": -1},
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 128,
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"maximum_evaluations": 120, "tolerance": 1e-10},
+  "continuation": {
+    "nominal_step": 0.005,
+    "minimum_step": 0.00015625,
+    "growth_factor": 1.0,
+    "maximum_steps": 8,
+    "a_guard": [0.24069, 0.24071]
+  },
+  "identity": {"historical_phase_count": 112, "barrio_phase_count": 128},
+  "acceptance": {
+    "minimum_points": 9,
+    "minimum_a_span": 1e-9,
+    "maximum_matching_residual": 1e-8,
+    "minimum_half_node_rms": 0.0001,
+    "maximum_closure_error": 0.002,
+    "maximum_neutral_error": 0.002,
+    "minimum_half_period_closure": 0.0001,
+    "maximum_period_ratio_error": 0.005
+  },
+  "claim_scope": "prospective 128-segment pseudo-arclength continuation of the EXP-252 step-0.002 negative-mode primitive period-96 nomination for eight frozen steps of nominal length 0.005 at fixed b=0.2 and c=7.625815600403827, with the failed-status EXP-250 parent event usable only under its bound passing EXP-251 audit and the two switch signs already phase-qualified as one orbit by EXP-256; matching, half-node separation, terminal full/half closure, neutral, period-ratio, and exact 112/128 section-identity gates remain mandatory; a pass supplies exact child rows for a separately frozen branch-continuous next-flip scan, but does not establish a period-96-to192 event or child, attraction over a basin, a limiting scaling law, a child sheet, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

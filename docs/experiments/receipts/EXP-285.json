@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-period768-decimal-multiplier-audit-summary.v1",
+  "experiment_id": "EXP-285",
+  "passed": false,
+  "source_commit": "a564dacb12448a74edc34fd28a897e65a450d58a",
+  "manifest_sha256": "154220e1b146988bb47bf7b01b8184d9dc19222f7deadfcfd4c6c5a3113d7ef0",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "pilot_receipt_sha256": "df5bb5ddaa893fad4cfb9a9a1a209d0e5f6349f88c1f769bcd153a245a04bed2",
+  "raw_artifact": "artifacts/EXP-285/receipt.json",
+  "raw_artifact_bytes": 6190,
+  "raw_artifact_sha256": "832e419cf3e1597a878df5a1f7da80a740626715f2d6bd34fb8f990ea33b6c21",
+  "medium_flip_multiplier": -1.0000773583351934,
+  "fine_flip_multiplier": -1.0000048384586278,
+  "medium_fine_flip_difference": 7.251987656557036e-5,
+  "raw_error_ratio": 15.988218799698032,
+  "fine_cyclic_spread": 1.811174e-43,
+  "maximum_fine_orbit_matching_residual": 5.532293029670532e-11,
+  "maximum_fine_tangent_matching_residual": 1.817967336984234e-10,
+  "failed_checks": ["multiplier_convergence"],
+  "interpretation": "The full Decimal integration is internally precise but raw 4096/8192-step multipliers are not converged; their near-16 error ratio motivates a separately frozen three-level Richardson audit."
+}

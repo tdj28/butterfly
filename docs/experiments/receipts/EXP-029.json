@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.periodic-branch-switch-summary.v1",
+  "experiment_id": "EXP-029",
+  "passed": true,
+  "source_commit": "51460c43ab0e1c49bb9e0a0532e51e243a8444db",
+  "manifest_sha256": "52dd7e0d2b320fc0b530261819d0720a055e43264a4556472090f6443318dd44",
+  "event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "primary_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "full_receipt_sha256": "eb03f92d7577a866413d756e491f1a114b7e180643aba0bbd525700214298aee",
+  "shooting_singular_values": [68.82391509216765, 1.0061137834346747, 1.0, 4.6374971980723834e-11],
+  "absolute_tangent_dot": 5.551115123125783e-17,
+  "point_counts": [12, 12],
+  "endpoint_distances_from_primary": [0.07059403846979755, 0.08120634237892205],
+  "max_closure_error": 2.4175450697811427e-11,
+  "interpretation": "Coordinate branch-switch gates pass. A post-result phase-invariant diagnostic suggests the two arms represent one secondary orbit; EXP-030 prospectively tests orbit identity."
+}

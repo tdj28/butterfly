@@ -1,0 +1,40 @@
+{
+  "schema": "butterfly.jones-period6-flip-adaptive-below-grazing-summary.v1",
+  "experiment_id": "EXP-216",
+  "passed": false,
+  "source_commit": "cc55946306e09dd51f20787aaa930f2f98f0a7a2",
+  "manifest_sha256": "796ebf4ea694e7092dbcb09f79cf2221eb3e760ecd73d266e3e55c28921c0e60",
+  "source_receipt_sha256": "43488e68c43e6873ce1240f44d609c7a259fa1502d09ed6fb72946fdea346c3c",
+  "raw_artifact": "artifacts/EXP-216/receipt.json",
+  "raw_artifact_bytes": 64425,
+  "raw_artifact_sha256": "c0dfcfc02153da3066e4e1198dd1a8ce9ada902c78afa4d584ab1c469b75f2e5",
+  "accepted_point_count": 21,
+  "accepted_c_range": [6.83305915872901, 6.999932884904238],
+  "sampled_combined_c_minimum": 6.830932735963652,
+  "accepted_a_range": [0.21663864682415732, 0.2204843484987464],
+  "combined_c_projection_reversals": 1,
+  "maximum_orbit_residual": 1.6682223723898046e-12,
+  "maximum_event_eigenvector_residual": 6.962933976873513e-13,
+  "maximum_arclength_residual": 6.834511090377589e-14,
+  "maximum_extremum_section_residual": 2.795333409189027e-13,
+  "accepted_counts": {"historical_raw": 7, "historical_extremum": 7, "barrio": 8},
+  "accepted_step_range": [0.000582852230980608, 0.021587119665948448],
+  "terminal_guard_failure": {
+    "guard": "c<=7.0",
+    "errors": [
+      "ValueError: Initial guess is outside of provided bounds",
+      "ValueError: Initial guess is outside of provided bounds"
+    ]
+  },
+  "independent_radau": {
+    "passed": true,
+    "a_difference": 9.926504063173525e-13,
+    "period_relative_difference": 9.488110919468098e-13,
+    "state_difference": 1.6411778593876635e-11,
+    "multiplier_modulus_difference": 1.7905371629822753e-9,
+    "historical_extremum_count": 7,
+    "barrio_count": 8
+  },
+  "elapsed_seconds": 119.34885025024414,
+  "interpretation": "The frozen decreasing-c target is rejected. The exact event locus turns near the EXP-215 terminal point and returns toward increasing c; the stop at c=6.99993 is caused by the frozen c guard rather than loss of the event or section identity."
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.upo-lobe-pim-overlap-summary.v1",
+  "experiment_id": "EXP-145",
+  "passed": true,
+  "source_commit": "ac65b0b5f324d5a1d5efadc912c81a9bee74a2f9",
+  "manifest_sha256": "4b77fe605252eb10b34e1361801a9a2bf630bab108d453836c08528e7b00ad83",
+  "raw_receipt": "artifacts/EXP-145/receipt.json",
+  "raw_receipt_sha256": "4cc45edde38fe417563d954945bb0cd16776636090b43ff7943e0515beaedd62",
+  "raw_receipt_bytes": 5447,
+  "elapsed_seconds": 0.036108916625380516,
+  "left_lobe_y_upper_bound": -31.135026064071056,
+  "two_branch_endpoint": {
+    "fine_lobe_point_count": 1089,
+    "coarse_lobe_point_count": 617,
+    "pim_access_line_horizon_count": 6,
+    "pim_left_lobe_count_range": [0, 0]
+  },
+  "three_branch_endpoint": {
+    "fine_lobe_point_count": 956,
+    "coarse_lobe_point_count": 550,
+    "pim_access_line_horizon_count": 6,
+    "pim_left_lobe_count_range": [11, 15],
+    "maximum_fine_directed_distance": 0.00002398251577238386,
+    "maximum_coarse_directed_distance": 0.0000609910736807291
+  },
+  "interpretation": "A pre-existing UPO unstable escape lobe is excluded from every qualified two-branch PIM saddle trace but is represented on every three-branch access line at both horizons with converged two-dimensional distance to the atlas. This retrospective result supports lobe inclusion/pruning or reinjection and selects a prospective held-out parameter test; it is not an exact manifold-intersection proof."
+}

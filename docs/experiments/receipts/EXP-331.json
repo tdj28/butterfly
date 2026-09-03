@@ -1,0 +1,33 @@
+{
+  "schema": "butterfly.jones-homoclinic-unstable-angle-refinement-summary.v1",
+  "experiment_id": "EXP-331",
+  "passed": true,
+  "source_commit": "f223c95b4f6a2976115e7cff104a52be487f3a00",
+  "manifest_sha256": "5cb6339c57b78216be296402cbcdcdf124c0256261aea08c0a13ba4b2b549ed1",
+  "source_receipt_sha256": "ee7d0f82fba78a8334097ae1e5c14cd8fa533b5f38b08fc3594e4c340d7ddfea",
+  "raw_artifact": "artifacts/EXP-331/receipt.json",
+  "raw_artifact_bytes": 136516,
+  "raw_artifact_sha256": "8f2b2d23b1bf18b1f974a1148cd7dfda61c7f6e81b7004d6222d7b2ade436f95",
+  "elapsed_seconds": 31.158598667010665,
+  "angle_count": 257,
+  "angle_center": 4.352414822160859,
+  "angle_half_width": 0.06544984694978735,
+  "angle_step": 0.0005113269292955636,
+  "candidate_count": 0,
+  "closest_return": {
+    "index": 34,
+    "angle": 4.304350090807109,
+    "minimum_return_distance": 0.010451007332282615,
+    "stable_direction_cosine": 0.03752517459399446,
+    "stable_transverse_ratio": 0.9992956826043482
+  },
+  "most_stable_aligned_return": {
+    "index": 246,
+    "angle": 4.412751399817695,
+    "minimum_return_distance": 0.02535758574016693,
+    "stable_direction_cosine": 0.07662858487757378,
+    "stable_transverse_ratio": 0.9970597073293357
+  },
+  "classification": "no_refined_close_stable_return",
+  "interpretation": "All 257 receipt-selected refinement rows completed and none met the joint distance/alignment gate. The closest distance improved by only 2.3624e-5 relative to EXP-329 and remained 0.9992957 transverse to the stable eigendirection. The frozen local interval therefore contains no sampled stable-aligned return, but the finite scan at an approximately printed parameter coordinate neither proves nor rejects a homoclinic connection."
+}

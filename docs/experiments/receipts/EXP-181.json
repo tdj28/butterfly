@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-181",
+  "status": "executed-failed",
+  "source_commit": "b6cb854a9f8fd9fc7e536eecce04a7be7b0d1870",
+  "source_dirty": false,
+  "manifest_sha256": "dcc89fcf5a4ce74fb1aaa31fbc5b0535b4e112761c7945252e2659a61a2ee847",
+  "raw_receipt_sha256": "6b59c47d75d0c14fbe6ad46c3e601def0ca695c7472e8efe9d8ef0e83df5905b",
+  "states_artifact_sha256": "23fb0dc5914d7933f3da16cc97935b5ce5d2f9eabd5f5d3df8fc3cd55916fd7c",
+  "elapsed_seconds": 64.99382312502712,
+  "reference_crossing_counts": [951, 952],
+  "reference_symmetric_maximum_scaled_distance": 0.00011533089550427968,
+  "survivor_counts": [8192, 8163, 7992, 7855, 7707, 7552],
+  "return_pairs_per_coordinate": 64571,
+  "local_critical": {
+    "x": {"physical_location": -18.576544117062156, "prediction_error": 0.001203347949115141, "normalized_span": 0.019593822784676806, "variant_consensus": 1.0},
+    "z": {"physical_location": 0.005182247149532594, "prediction_error": 8.169986026344486e-7, "normalized_span": 0.017567008997632416, "variant_consensus": 1.0}
+  },
+  "global_variant_counts": {"x": [null, 2, 3, 3, 3, 3, 2], "z": [3, 2, 3, 3, 2, 3, 2]},
+  "precision_audit": {"matches": 10, "total": 16, "agreement": 0.625, "threshold": 0.9},
+  "passed": false
+}

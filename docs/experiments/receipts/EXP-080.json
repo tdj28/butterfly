@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.multiple-shooting-switch-validation-summary.v1",
+  "experiment_id": "EXP-080",
+  "passed": false,
+  "source_commit": "0abfab04b4e7dcccc48c5ea09ab643a7b3bd20a1",
+  "manifest_sha256": "8e1be5255d4ff6f3d77ad061b240e20f5f56667aa0f249a8209dfdfd3ef8e958",
+  "full_receipt_sha256": "d967a4f0cfaa8cf26d54fa358b889fcd88c8fbbd09ccc4efa0581c3ffc2013a7",
+  "segment_count": 8,
+  "event_smallest_singular_value": 8.818023481706805e-11,
+  "absolute_tangent_dot": 1.6653345369377348e-16,
+  "attempt_count": 6,
+  "successful_correction_count": 6,
+  "maximum_matching_residual": 5.058364168043671e-13,
+  "maximum_half_period_closure": 0.00020835522019310956,
+  "maximum_event_parameter_displacement": 2.9825472541711302e-8,
+  "nearest_known_child_parameter_displacement": 9.75980138958743e-6,
+  "diagnosis": "the segmented secondary direction converged but the frozen predictor scale was too small to overlap the independently continued child branch"
+}

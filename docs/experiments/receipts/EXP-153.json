@@ -1,0 +1,33 @@
+{
+  "schema": "butterfly.rossler-hopf-curve-summary.v1",
+  "experiment_id": "EXP-153",
+  "passed": true,
+  "source_commit": "902ae5ecdffcbfcd4628f516b9ed32eac2795613",
+  "manifest_sha256": "4ab33b250aafdd2c53c41e17bb2e1323ee1788f493450b27ba3a193a147b4297",
+  "raw_receipt": "artifacts/EXP-153/receipt.json",
+  "raw_receipt_sha256": "3d6d240dc66d410e231cba6ffa8e7db5156ddd4119145128ebe8b191510bc314",
+  "raw_receipt_bytes": 172836,
+  "figure": "artifacts/EXP-153/rossler-hopf-curve.png",
+  "figure_sha256": "12f3aa78a86b790895c08104c79e893e783e0f31db91d93544759ba9414a6e6c",
+  "figure_bytes": 76213,
+  "point_count": 192,
+  "a_range": [0.1, 0.195],
+  "c_range": [0.42182966452535364, 1.07027420411954],
+  "angular_frequency_range": [1.0416932955397686, 1.283060009658045],
+  "real_eigenvalue_range": [-0.9512492197250394, -0.0899760668486131],
+  "reported_hub_a_hopf_c": 0.5192306256940273,
+  "reported_hub_a_vertical_separation": 9.789169374305974,
+  "maximum_errors": {
+    "equilibrium_residual": 5.551115123125783e-17,
+    "routh_residual": 2.220446049250313e-16,
+    "characteristic_coefficient_error": 3.774758283725532e-15,
+    "complex_pair_real_error": 2.973009946221457e-16,
+    "frequency_error": 1.7763568394002505e-15,
+    "independent_brent_root_c_error": 5.995204332975845e-15
+  },
+  "minimum_transversality_margins": {
+    "left_negative_magnitude": 4.251505058921572e-8,
+    "right_positive": 4.251520051622692e-8
+  },
+  "interpretation": "The regular small-equilibrium Hopf locus at b=0.2 is qualified analytically and by independent eigensystem root solves. At a=0.1798 it lies at c=0.5192306256940273, supplying a verified local start for an L2-like fixed-a path. The result does not continue the period-1 orbit, locate a homoclinic connection, recover exact L1/L2 paths, or establish logistic ordering."
+}

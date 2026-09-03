@@ -1,0 +1,70 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-summary.v1",
+  "experiment_id": "EXP-197",
+  "passed": false,
+  "source_commit": "9b8b55761f7e0c19d42a4ca598016674a3f115ca",
+  "source_archive_sha256": "72f805af577ded44d7572b48859cba8ed8eb1f544c759ae2a4a7a34890f08a3d",
+  "manifest_sha256": "d45be4476eb137e505e0ed6ba0b4405e2d94632b22b944221884440dafacab25",
+  "candidate_input_sha256": "0bbf83dda61ea29b87a469c5ece5459467bea1847684d6683f3f8e5aeecbed20",
+  "raw_artifact": "artifacts/EXP-197/receipt.json",
+  "raw_artifact_bytes": 336414,
+  "raw_artifact_sha256": "6a823588e5cf581b831ff70d2cdc276b172399638f8267648b923b95c15f4c71",
+  "expected_candidate_count": 58,
+  "return_coordinate": {"name": "z", "axis": 2},
+  "section": {"kind": "barrio_positive_x", "cycle_state_count": 8},
+  "environment": {
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_memory_bytes": 25283526656,
+    "compute_capability": [8, 6],
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0"
+  },
+  "profiles": [
+    {
+      "name": "rk4_dt_001",
+      "dt": 0.01,
+      "eligible_candidates": 31,
+      "elapsed_seconds": 7.913055989891291,
+      "state_steps_per_second": 300222822.0089514
+    },
+    {
+      "name": "rk4_dt_0005",
+      "dt": 0.005,
+      "eligible_candidates": 32,
+      "elapsed_seconds": 10.396499095018953,
+      "state_steps_per_second": 457015381.4832163
+    }
+  ],
+  "cross_step_eligible_candidates": 31,
+  "final_gate_counts": {
+    "midpoint_distance": 1,
+    "critical_interval_membership": 0,
+    "assigned_zero_slope": 0,
+    "all_final_gates": 0
+  },
+  "selected_candidate": {
+    "id": "component-sample-059",
+    "parameters": {"a": 0.21555, "b": 0.2, "c": 7.372},
+    "assigned_phase_indices": [3, 1],
+    "maximum_normalized_midpoint_distance": 0.04963091851861146,
+    "maximum_normalized_interval_distance": 0.0360328491341314,
+    "maximum_zero_slope_residual": 1.894034732335714,
+    "critical_step_difference": 0.00009004771907500375,
+    "survivor_fraction_difference": 0.00244140625
+  },
+  "maximum_cross_step_critical_difference": 0.006655397987740064,
+  "maximum_cross_step_survivor_fraction_difference": 0.0078125,
+  "provisioning": {
+    "worker": "SECURE NVIDIA RTX A5000 at 0.27 USD/hour",
+    "conservative_cost_bound_usd": 0.04,
+    "remote_local_hash_match": true,
+    "task_worker_terminated": true,
+    "active_task_pods_after_teardown": 0,
+    "unrelated_account_pods_left_untouched": 1
+  },
+  "interpretation": "No sampled corrected orbit is a direct double-critical Barrio-z center. The closest frozen point localizes a denser coupled search but does not establish or exclude an inter-sample root."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-phase-registration-summary.v1",
+  "experiment_id": "EXP-327",
+  "passed": true,
+  "source_commit": "4b92bd5eed5bf36efec5327d19327792187dc625",
+  "manifest_sha256": "6a411124762ce8739876f5891eac7ca110914736e7cc43a6d4300f1925025179",
+  "connection_receipt_sha256": "f94a3c63dad90c729138c4902b5af44d7194bda42dd18c42f730737f640ff89f",
+  "raw_artifact": "artifacts/EXP-327/receipt.json",
+  "raw_artifact_bytes": 350053,
+  "raw_artifact_sha256": "c9ec92bd735fb8460ed0e7986ef07102943ff2032261c0c72edabcfa6b54d9c9",
+  "elapsed_seconds": 161.37523079197854,
+  "termination_reason": "converged",
+  "accepted_updates": 2,
+  "initial_phase_residual": 3.163038725721334e-6,
+  "initial_direct_node_rms": 1.1985676831401637e-6,
+  "final_matching_residual": 8.566734587287383e-26,
+  "final_shared_phase_node_rms": 6.3542325888728854e-18,
+  "connected_period_difference": 1.019018139161066e-21,
+  "half_node_rms": 7.98849353404915e-6,
+  "dominant_multiplier": -0.9999999999999993,
+  "interpretation": "Exact shared-phase correction collapses EXP-326's sole node-identity discrepancy by eleven orders of magnitude while retaining primitive amplitude, closure, period, and real-minus-one event gates. Combined with EXP-326's same-map bracket and connected root, this qualifies the immediate seventh daughter as the parent sheet of event eight."
+}

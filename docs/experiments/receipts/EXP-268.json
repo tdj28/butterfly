@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period192-to384-segmented-child-switch-summary.v1",
+  "experiment_id": "EXP-268",
+  "passed": true,
+  "source_commit": "41f6947b476ef780503732188424b33c71f8ee8b",
+  "manifest_sha256": "c254c42889fe7791d71aa4c2f95873b4f7c5bfe2e4559d6b35145e4bb50d20ce",
+  "event_receipt_sha256": "b2ae9d6ec1ecdd56de14d9c97a7a6dd56d444f6d4ace9dc1ea35a9be851243dd",
+  "raw_artifact": "artifacts/EXP-268/receipt.json",
+  "raw_artifact_bytes": 389758,
+  "raw_artifact_sha256": "f361d0d23327ef8b66e17312fbeea0b6b90781220889e459127ac8825379f064",
+  "event_matching_residual": 8.015035071628645e-11,
+  "secondary_null_residual": 1.9878803682848965e-12,
+  "attempt_count": 6,
+  "accepted_candidate_count": 6,
+  "accepted_step_length": 0.001,
+  "accepted_directions": [-1, 1],
+  "candidate_a_range": [0.24070100850046297, 0.24070100850674792],
+  "candidate_half_period_closure_range": [0.00005447804887225581, 0.00005633737552617458],
+  "candidate_preliminary_modulus_range": [0.3909864561296195, 0.43254776889556873],
+  "historical_phase_count": 448,
+  "barrio_phase_count": 512,
+  "interpretation": "Exact bilateral switching nominates primitive stable-looking period-384 solutions; independent stability exchange remains frozen in EXP-269."
+}

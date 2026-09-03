@@ -1,0 +1,25 @@
+{
+  "schema": "butterfly.jones-period3072-solver-relative-criticality-summary.v1",
+  "experiment_id": "EXP-316",
+  "passed": false,
+  "source_commit": "2355b4fccbb90c16bd27958ce71329c1b54a2350",
+  "manifest_sha256": "88b84e075f594a64377f514c379378710048a9bcee1bf554751be5f385f29e46",
+  "refinement_receipt_sha256": "0e95f1a653269c443a175f41f9c5d4ede6fbca23f74266da1362e50c0eedd526",
+  "switch_receipt_sha256": "f4991cc53e1fe68eea5a0a60e3f52ec2f731b43371d943db49ae1e3a19c0510a",
+  "raw_artifact": "artifacts/EXP-316/receipt.json",
+  "raw_artifact_bytes": 766025,
+  "raw_artifact_sha256": "3cf9fa153187e9a82a06f34d5ffc83ec3a547defa0fdd58824ea70e382f2368e",
+  "elapsed_seconds": 7312.990707625169,
+  "classifications": {
+    "dop853": {"parent": "stable", "child": "unstable"},
+    "radau": {"parent": "stable", "child": "unstable"}
+  },
+  "parent_moduli": {"dop853": 0.9996806830860976, "radau": 0.9996553918342659},
+  "child_moduli": {"dop853": 18.983633480840417, "radau": 18.98308374238984},
+  "child_half_period_nonclosure": {
+    "dop853": 9.430202955493554e-7,
+    "radau": 1.6054525646973142e-6
+  },
+  "failed_gate": "minimum_half_period_closure_2e-6",
+  "interpretation": "Both solver-relative samples support a local subcritical eighth birth but fail the frozen primitive-child direct-nonclosure gate. Post-run diagnosis finds unchanged 9.01896e-6 half-node RMS and 3.34e-10 cross-solver child RMS, so daughter collapse is rejected; the long single-shot diagnostic lies below its accumulated closure-error scale. No birth-direction promotion is made pending a segmented precision audit."
+}

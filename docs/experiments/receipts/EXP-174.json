@@ -1,0 +1,37 @@
+{
+  "schema": "butterfly.jones-figure6-landmark-classification-summary.v1",
+  "experiment_id": "EXP-174",
+  "passed": false,
+  "source_commit": "ac376d90b10207eb8e46bd7090da4e821f24555c",
+  "manifest_sha256": "0b4444e9470ad88987a594d46067d82689f850c2ce93b419f193afa13c12240c",
+  "transcription_sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da",
+  "raw_receipt": "artifacts/EXP-174/receipt.json",
+  "raw_receipt_sha256": "521cc4d4e459109f88a26a59c2ca7f0dc7a8c663b84efc8b39b8e82493ad1fc5",
+  "raw_receipt_bytes": 64875,
+  "row_count": 60,
+  "elapsed_seconds": 1252.1662494172342,
+  "all_integrations_successful": true,
+  "qualified_solver_agreement": true,
+  "dop853_profile_agreement": false,
+  "resolved_periodic_count": 8,
+  "initial_condition_dependent_count_at_qualified_profile": 0,
+  "landmarks": [
+    {"index": 0, "a": 0.21888, "b": 0.2, "c": 5.816, "qualified_label": "periodic", "qualified_period": 5},
+    {"index": 1, "a": 0.21564, "b": 0.2, "c": 6.124, "qualified_label": "periodic", "qualified_period": 6},
+    {"index": 2, "a": 0.204, "b": 0.2, "c": 7.22, "qualified_label": "periodic", "qualified_period": 8},
+    {"index": 3, "a": 0.20676, "b": 0.2, "c": 7.18, "qualified_label": "periodic", "qualified_period": 14},
+    {"index": 4, "a": 0.215, "b": 0.2, "c": 7.6, "qualified_label": "periodic", "qualified_period": 6},
+    {"index": 5, "a": 0.199, "b": 0.2, "c": 7.9, "qualified_label": "periodic", "qualified_period": 5},
+    {"index": 6, "a": 0.19, "b": 0.2, "c": 8.9, "qualified_label": "unresolved", "qualified_period": null},
+    {"index": 7, "a": 0.19368, "b": 0.2, "c": 8.456, "qualified_label": "periodic", "qualified_period": 14, "early_second_initial_label": "unresolved"},
+    {"index": 8, "a": 0.2013, "b": 0.2, "c": 7.55, "qualified_label": "periodic", "qualified_period": 14},
+    {"index": 9, "a": 0.18696, "b": 0.2, "c": 9.38, "qualified_label": "unresolved", "qualified_period": null}
+  ],
+  "failed_profile_check": {
+    "landmark_index": 7,
+    "initial_state_index": 1,
+    "early_signature": ["unresolved", null],
+    "qualified_signature": ["periodic", 14]
+  },
+  "interpretation": "All 20 qualified-profile initial-condition cases agree between DOP853 and Radau. Eight exact printed landmarks resolve periodically and two remain unresolved. The full frozen experiment fails because one initial condition at landmark 7 changes from unresolved after an 800-unit transient to period 14 after a 1600-unit transient. This is a preserved delayed-capture sensitivity, not a solver disagreement. No symbol word or Figure 6 arrow is validated."
+}

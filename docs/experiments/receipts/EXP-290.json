@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.jones-period1536-segmented-continuation-summary.v1",
+  "experiment_id": "EXP-290",
+  "passed": true,
+  "source_commit": "6849ebcc7ca68603ae0a4f0444f07bae6ae1c3a8",
+  "manifest_sha256": "d78e8146c86471ad04a1f875acc84546808ce10450e2c0f99efcc852ac2b0d49",
+  "switch_receipt_sha256": "d06fe7cb53d69d7b4692d14c8947f7db6ebd9ed6952b610eb2817b95c6cf4de0",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "audit_receipt_sha256": "b0535b124411e3d7f4a18852843a9f47224ab4497bc9f27c10ecd9d8ccde939a",
+  "raw_artifact": "artifacts/EXP-290/receipt.json",
+  "raw_artifact_bytes": 1138117,
+  "raw_artifact_sha256": "3ecfae732464bd8816ae434a2902cdd7f90265dbdc83e1479f5891b3c14ed1bc",
+  "point_count": 9,
+  "a_span_from_event": 3.0140057116767593e-12,
+  "terminal_a": 0.2407010081704185,
+  "terminal_half_node_rms": 6.945485709196598e-5,
+  "terminal_half_period_closure": 9.070775489682665e-5,
+  "terminal_direct_multiplier": -3.0273960871274115,
+  "interpretation": "Eight exact sparse steps continue the primitive period-1536 branch away from the seventh event with growing half-period separation and exact section identity; the sub-precision reversal in a is not promoted as a fold, and stability remains separate."
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-360",
+  "passed": true,
+  "source_commit": "ce38dacc8754dcaae3401b308fc54731b2cd6145",
+  "manifest_sha256": "3ff3a7b230df4d8886580e1a646f24a976e039f0676b6632b3c563331cc1dca2",
+  "raw_artifact": "artifacts/EXP-360/receipt.json",
+  "raw_artifact_bytes": 29123,
+  "raw_artifact_sha256": "d7f7231c2634fe07d334c77c2f9b66df09fca11443fa34d8bfdeb307686b5224",
+  "elapsed_seconds": 372.408698040992,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 128,
+  "source_receipts": [
+    {"experiment_id": "EXP-347", "sha256": "95d1469277344c9fe9c5373837a502c72f60ca4c071abaaa046dd625a7df5fc3"},
+    {"experiment_id": "EXP-350", "sha256": "f9e93a9e593f8c722c97c7fc2fd16a48f8bcc882ae3f18911bf0850e49909b04"}
+  ],
+  "desired_c_increment": 0.0005,
+  "initial_maximum_block_residual": 0.0016408824355925924,
+  "final_residual_norm": 1.2390073164154253e-8,
+  "final_matching_residual_norm": 1.2390073164106867e-8,
+  "final_maximum_block_residual": 6.7747229841834155e-9,
+  "final_arclength_residual": -3.4267090033568426e-12,
+  "final_variables": {
+    "a": 0.18053212047071568,
+    "c": 10.314886371675088,
+    "angle": 2.281183332963897,
+    "total_flight_time": 234.48122232002694
+  },
+  "secant_from_exp350": {
+    "da_dc": -0.3255435270240039,
+    "predicted_c_at_a_0_1798": 10.317135288977818
+  },
+  "node_boundary_margin": 0.9448817910395171,
+  "jacobian_condition_number": 28063268493.517456,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 35,
+    "njev": 29,
+    "optimality": 4.152521585195262e-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The first gauge-aligned two-parameter pseudo-arclength step passes the unchanged 1e-8 matching gate. It demonstrates that the earlier fixed-coordinate floor was not an immediate branch termination, but it does not yet establish the historical fixed-a intersection, a fold, uniqueness, or computer-assisted existence."
+}

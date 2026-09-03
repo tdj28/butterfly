@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.floquet-boundary-refinement-manifest.v1",
+  "experiment_id": "EXP-024",
+  "source_continuation_sha256": "e3dab3bd688d20d37d13ac51a4bfb0e860f9ea99eb53385adf2f2728cbbe80eb",
+  "boundaries": [
+    {"id": "period3-pd", "family_id": "period3-fixed-ac", "target_multiplier": -1, "b_bracket": [0.175, 0.18]},
+    {"id": "period5-pd-low", "family_id": "period5-fixed-ac", "target_multiplier": -1, "b_bracket": [0.14, 0.145]},
+    {"id": "period5-pd-middle", "family_id": "period5-fixed-ac", "target_multiplier": -1, "b_bracket": [0.18, 0.185]},
+    {"id": "period5-sn-high", "family_id": "period5-fixed-ac", "target_multiplier": 1, "b_bracket": [0.275, 0.28]}
+  ],
+  "solver": {"method": "DOP853", "rtol": 1E-11, "atol": 1E-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 40, "tolerance": 1E-11},
+  "refinement": {"b_tolerance": 1E-9, "maximum_iterations": 30},
+  "acceptance": {
+    "max_b_bracket_width": 1E-8,
+    "max_multiplier_residual": 0.000001,
+    "max_closure_error": 1E-9
+  }
+}

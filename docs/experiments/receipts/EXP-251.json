@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.jones-augmented-flip-residual-safe-audit-summary.v1",
+  "experiment_id": "EXP-251",
+  "passed": true,
+  "source_commit": "974052b7d0e9da03f37115698ade7ac0a66a8059",
+  "manifest_sha256": "7c5946809d360f211faf41b32a80d0fdf5de46255c5c4521fdfffde39f2f2f1f",
+  "event_receipt_sha256": "376a8f433a7ca73297bd4d9f00b73fbe638176c620aa2c0a5334c91aedddd5a8",
+  "raw_artifact": "artifacts/EXP-251/receipt.json",
+  "raw_artifact_bytes": 5512,
+  "raw_artifact_sha256": "db095fb0f303aee1d39418024517958b8b514e949ba6b82233eed49241cac2f5",
+  "corrected_a": 0.24070101640878155,
+  "period_time": 357.74169375155117,
+  "independent_orbit_residual": 2.1585865523709948e-10,
+  "independent_tangent_residual": 1.213190007863917e-10,
+  "independent_flip_multiplier": -1.0000000328522352,
+  "independent_flip_residual": -3.2852235154479104e-8,
+  "independent_cyclic_product_spread": 2.3654411762663585e-12,
+  "minimum_proper_subperiod_closure": 0.0059126242535077495,
+  "historical_phase_count": 56,
+  "barrio_phase_count": 64,
+  "interpretation": "The residual-qualified EXP-250 event independently passes the same segmented augmented equations and cyclic block-Floquet calculation under Radau. The period-48 flip and tangent representation are qualified for a separately frozen period-96 switch."
+}

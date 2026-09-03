@@ -1,0 +1,16 @@
+{
+  "schema": "butterfly.period320-to-640-switch-summary.v1",
+  "experiment_id": "EXP-090",
+  "passed": true,
+  "source_commit": "bfbe0ea889b6befe03debd875804a3cddad5e24b",
+  "manifest_sha256": "03b1c1afc687bfd314d31009701765c13e82bba0c9d89c12fcda3794933630c2",
+  "full_receipt_sha256": "cafd55e04edfd004144dfd9560e244bae5304a78df96958bd35e14c3b8e1c125",
+  "segment_count": 64,
+  "event_smallest_singular_value": 2.7339649791266193e-12,
+  "attempt_count": 8,
+  "accepted_candidate_count": 6,
+  "maximum_accepted_matching_residual": 1.5761790500081992e-12,
+  "minimum_accepted_half_node_rms": 7.169442507774669e-5,
+  "maximum_accepted_period_ratio_error": 2.5295951993076224e-9,
+  "interpretation": "both segmented switch signs produce distinct period-640 candidates; common-parameter identity and stability remain prospective"
+}

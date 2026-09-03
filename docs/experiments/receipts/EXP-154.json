@@ -1,0 +1,28 @@
+{
+  "schema": "butterfly.hopf-period1-to-hub-failed-summary.v1",
+  "experiment_id": "EXP-154",
+  "passed": false,
+  "failure_class": "administrative schedule cardinality defect",
+  "source_commit": "eafcb7b0182f3929cf9a58f227b9769a6fe6aa7d",
+  "manifest_sha256": "77274387472f17797eb412c752aeb2795649743c0cd28a5048d01f21a7702c53",
+  "raw_receipt": "artifacts/EXP-154/receipt.json",
+  "raw_receipt_sha256": "693531919dae8e05de4595e43055f691975ee1dc70cdf1aa1e6640afdac9a192",
+  "raw_receipt_bytes": 103641,
+  "figure": "artifacts/EXP-154/hopf-period1-to-hub.png",
+  "figure_sha256": "6b61c5b83e580a95b6e5bd8b6a5508be1f92acdd5381a55c7e17b0243e5ab12d",
+  "figure_bytes": 102405,
+  "observed_point_count": 119,
+  "required_point_count": 118,
+  "scientific_gates": {
+    "all_rows_passed": true,
+    "all_independent_solver_checks_passed": true,
+    "near_hopf_amplitude_exponent": 0.5017311219291734,
+    "near_hopf_amplitude_r_squared": 0.9999983234783234,
+    "near_hopf_period_error": 0.0014170432787574683,
+    "minus_one_crossings": 1,
+    "maximum_closure_error": 3.599811528527754e-12,
+    "maximum_neutral_multiplier_error": 3.7834180233176085e-12,
+    "maximum_winding_error": 1.1457501614131615e-13
+  },
+  "defect": "The near-Hopf Radau checkpoint c=0.5292306256940273 was incorrectly inserted into the upward grid as well as the downward grid. Because the upward list was numerically sorted, dropping its first element removed that checkpoint rather than the seed and duplicated c=1.0, producing 119 rows. No scientific tolerance failed. EXP-155 freezes the corrected direction-aware schedule with unchanged scientific gates."
+}

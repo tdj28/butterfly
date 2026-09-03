@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-period12-surface-summary.v1",
+  "experiment_id": "EXP-210",
+  "passed": false,
+  "source_commit": "825142f3bd2d55784f728f68a11547fe2820d1f8",
+  "manifest_sha256": "b129e3e428c9994071ffb692c13de9178523797ad52186cbae2d176d8eae82d6",
+  "event_receipt_sha256": "e0ced2227c7074ea5eec55ff191159d80bc43216b8f2d5826c1cfe645f3708ba",
+  "normal_form_receipt_sha256": "f57becaf08aa0ddb7a05bd7e258448cc95f3aca7611ebcd4cf00265303ebbfd0",
+  "raw_artifact": "artifacts/EXP-210/receipt.json",
+  "raw_artifact_bytes": 220385,
+  "raw_artifact_sha256": "4f9c5885d91754a29ac59d2d0bdfae7916f7a19d5d91ea91ff797fc1ccb211ce",
+  "surface_point_count": 124,
+  "pointwise_pass_count": 108,
+  "collapsed_to_doubled_parent_count": 16,
+  "maximum_collapsed_opening_rms": 1.6808768241204435e-8,
+  "maximum_adjacent_child_identity_rms": 0.08702155482825787,
+  "opening_exponent_range": [-3.7193575591068124, 7.954716115215721],
+  "minimum_opening_r_squared": 0.026384253073643338,
+  "elapsed_seconds": 760.0399010828696,
+  "interpretation": "The frozen dense surface gate fails because 16 single-shooting child corrections collapse to the double-covered period-6 root. Isolated collapses between valid child cells identify root-selection failure, not a resolved physical termination. A prospective identity-constrained independently seeded successor is required."
+}

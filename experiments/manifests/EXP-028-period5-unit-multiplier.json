@@ -1,0 +1,15 @@
+{
+  "schema": "butterfly.unit-multiplier-manifest.v1",
+  "experiment_id": "EXP-028",
+  "source_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "fixed_a": 0.245,
+  "fixed_c": 5.1,
+  "source_b_bracket": [0.27204621592418715, 0.27274966287991],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.05},
+  "corrector": {"max_evaluations": 120, "tolerance": 1e-10},
+  "acceptance": {
+    "max_closure_error": 1e-8,
+    "max_eigen_residual": 1e-8,
+    "max_flow_orthogonality_residual": 1e-8
+  }
+}

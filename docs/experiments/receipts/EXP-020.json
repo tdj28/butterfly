@@ -1,0 +1,36 @@
+{
+  "schema": "butterfly.basin-uncertainty-summary.v1",
+  "experiment_id": "EXP-020",
+  "passed": true,
+  "source_commit": "7b11a1a5892b413ed4a85b8b335bb11b5bb50aea",
+  "source_archive_sha256": "ba5d56c3f7de816bff80581df4f91a35d66349639e601cd86c1237307bc7ccf1",
+  "full_receipt_sha256": "c6cc78bab8f227cf41b8225c17ccaa9b4802f37ddf211617f633b7c524698473",
+  "remote_local_receipt_hash_match": true,
+  "parameters": {"a": 0.245, "b": 0.2, "c": 5.75},
+  "target_periods": [3, 12],
+  "epsilons": [0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125],
+  "pairs_per_scale": 8192,
+  "resolved_counts": [8192, 8192, 8192, 8191, 8192, 8191, 8192],
+  "uncertain_counts": [2651, 2114, 1621, 1162, 860, 633, 463],
+  "uncertain_fractions_jeffreys": [
+    0.3236299279873062,
+    0.25808617112168925,
+    0.1979128524350055,
+    0.14190673828125,
+    0.10502868302209203,
+    0.07733154296875,
+    0.056572683998535336
+  ],
+  "prospective_all_scale_fit": {
+    "alpha": 0.4264297254558697,
+    "alpha_bootstrap_95_interval": [0.4094207225175447, 0.4441758924742208],
+    "r_squared": 0.9975856440869891,
+    "boundary_dimension_estimate": 1.5735702745441302
+  },
+  "elapsed_seconds": 130.93479081615806,
+  "gpu": "NVIDIA L4",
+  "experiment_pod_terminated": true,
+  "experiment_pod_absent_from_account_list": true,
+  "unrelated_pod_left_untouched": "ndl-lyapunov-20260806",
+  "interpretation": "Prospective numerical support for a fractal, non-riddled period-3/period-12 basin boundary in the declared initial-condition plane; dimension remains provisional."
+}

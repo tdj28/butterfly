@@ -1,0 +1,50 @@
+{
+  "schema": "butterfly.jones-figure6-landmark-classification-manifest.v1",
+  "experiment_id": "EXP-174",
+  "source": {
+    "predecessors": ["DEC-014", "CLM-006", "CLM-011"],
+    "transcription_path": "experiments/source-transcriptions/jones2012-figures-2-and-6.json",
+    "transcription_sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da",
+    "claim_scope": "blind recurrence classification of the ten approximate Figure 6 parameter landmarks; not a symbol-partition, word, arrow, caustic, or homoclinic validation",
+    "prospective_blindness": "the source transcription supplies coordinates only; expected periods, landmark-to-word associations, and local parameter adjustments are absent and prohibited"
+  },
+  "initial_states": [
+    [0.0, 4.0, 0.0],
+    [0.0, 6.0, 0.0]
+  ],
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05},
+    "radau": {"method": "Radau", "rtol": 1e-10, "atol": 1e-12, "max_step": 0.05}
+  },
+  "profiles": [
+    {
+      "id": "early",
+      "transient": 800.0,
+      "observation_horizon": 900.0,
+      "max_crossings": 160,
+      "solvers": ["dop853"]
+    },
+    {
+      "id": "qualified",
+      "transient": 1600.0,
+      "observation_horizon": 900.0,
+      "max_crossings": 160,
+      "solvers": ["dop853", "radau"]
+    }
+  ],
+  "recurrence": {
+    "max_period": 16,
+    "required_repeats": 6,
+    "atol": 2e-7,
+    "rtol": 1e-8,
+    "escape_radius": 1000000.0
+  },
+  "execution": {"workers": 4},
+  "acceptance": {
+    "required_landmark_count": 10,
+    "minimum_crossings": 96,
+    "require_all_integrations_successful": true,
+    "require_qualified_solver_agreement": true,
+    "require_dop853_profile_agreement": true
+  }
+}

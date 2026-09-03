@@ -1,0 +1,55 @@
+{
+  "schema": "butterfly.pim-seeded-upo-discovery-manifest.v1",
+  "experiment_id": "EXP-133",
+  "source": {
+    "predecessors": ["EXP-125", "EXP-128", "DEC-011"],
+    "selection_informed_by_prior_close_return_inspection": true,
+    "claim_scope": "exploratory recovery of finite unstable periodic orbits on the two- and three-branch PIM saddles"
+  },
+  "cases": [
+    {
+      "id": "local-two-branch-saddle",
+      "a": 0.148,
+      "b": 0.2,
+      "c": 20.0,
+      "states_artifact": "artifacts/EXP-125/blind-a148-censored-pim-straddles.npz",
+      "states_artifact_sha256": "74300f95d4af34a810dbd58972e45df9add4cbfa96d1810f88c9f150bd16b045",
+      "key_prefix": "blind-a148-period4-saddle__horizon-256__"
+    },
+    {
+      "id": "local-three-branch-saddle",
+      "a": 0.14825,
+      "b": 0.2,
+      "c": 20.0,
+      "states_artifact": "artifacts/EXP-128/blind-a14825-censored-pim-straddles.npz",
+      "states_artifact_sha256": "24b38f64600a8ea19acde0fda7f8fc5d5ed6fd15bd81985067265ed54918b3c2",
+      "key_prefix": "blind-a14825-period4-saddle__horizon-256__"
+    }
+  ],
+  "selection": {
+    "burn_in_returns": 100,
+    "coordinate_scales": [1.0, 30.0, 0.0006],
+    "minimum_lag": 2,
+    "maximum_lag": 20,
+    "candidates_per_lag_per_line": 1,
+    "exclusion_radius": 3,
+    "maximum_pim_normalized_distance": 0.0001,
+    "maximum_candidates_per_case": 18
+  },
+  "exact_return": {"maximum_flight_time": 50.0},
+  "corrector": {"maximum_evaluations": 80, "tolerance": 1e-11},
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "acceptance": {
+    "maximum_exact_return_normalized_closure": 0.001,
+    "maximum_flow_closure": 1e-08,
+    "maximum_phase_residual": 1e-08,
+    "maximum_neutral_multiplier_error": 0.0001,
+    "minimum_instability_margin": 0.001,
+    "minimum_accepted_upos_per_case": 1
+  }
+}

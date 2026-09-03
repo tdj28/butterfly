@@ -1,0 +1,42 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-augmented-8192-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-decimal-augmented-8192-receipt.v1",
+  "experiment_id": "EXP-307",
+  "independent_schema": "butterfly.jones-period1536-decimal-augmented-independent-receipt.v1",
+  "independent_receipt_sha256": "28972c4727ea48191311f8684be79a183782578d6463989cf3b3cca06f21f843",
+  "continuation_schema": "butterfly.jones-period1536-segmented-continuation-receipt.v1",
+  "continuation_receipt_sha256": "c91fadcd01f8ac6095b97538796cc7e4c25b51a1af94f15531bb47e14ab41bf8",
+  "continuation_envelope": {
+    "minimum_successful_rows": 23,
+    "expected_lower_a_decimal": "0.24070100816116163",
+    "expected_upper_a_decimal": "0.24070100823781396"
+  },
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "method_order": 4,
+  "steps_per_segment": 8192,
+  "workers": 8,
+  "maximum_newton_updates": 4,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "dop853_solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "acceptance": {
+    "maximum_augmented_residual": 1e-22,
+    "minimum_convergence_ratio": 12.0,
+    "maximum_convergence_ratio": 20.0,
+    "maximum_successive_richardson_a_difference": 1e-11,
+    "maximum_successive_richardson_period_difference": 1e-6,
+    "maximum_source_node_displacement": 1e-5,
+    "maximum_source_tangent_displacement": 1e-3,
+    "maximum_source_period_displacement": 1e-6,
+    "minimum_half_node_rms_separation": 5e-6,
+    "maximum_dop853_event_matching_residual": 1e-8,
+    "maximum_secondary_null_residual": 1e-6
+  },
+  "claim_scope": "prospective 50-decimal-digit RK4 3/8 extension of the independently qualified augmented period-1536 event from 4096 to 8192 steps per each of 2048 segments before any period-3072 switch; the 2048/4096/8192 increments in a and period must show order-four ratios in [12,20], successive Richardson estimates and source displacement must pass frozen gates, finest and extrapolated a must remain in the target-blind successful EXP-300 continuation envelope, augmented residuals and primitive half-orbit separation must pass, and the doubled 8192-step representation must satisfy the unchanged 1e-8 DOP853 event-matching and 1e-6 secondary-null gates used at the preceding rung; a pass qualifies this representation for a period-3072 switch only, not child existence, eighth-birth criticality, attraction, a ninth event, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

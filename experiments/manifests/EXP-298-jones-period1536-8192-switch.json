@@ -1,0 +1,41 @@
+{
+  "schema": "butterfly.jones-period768-segmented-child-switch-manifest.v1",
+  "output_schema": "butterfly.jones-period768-to1536-segmented-child-switch-receipt.v1",
+  "experiment_id": "EXP-298",
+  "event_schema": "butterfly.jones-period768-decimal-augmented-8192-receipt.v1",
+  "event_receipt_sha256": "8942a66a3bad641624ddb188630c4e0f882a0b806d6519dfe0b48ee622118c95",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 2048,
+  "jacobian_storage": "sparse_csr",
+  "step_lengths": [0.00025],
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "max_step": 0.03
+  },
+  "corrector": {
+    "maximum_evaluations": 720,
+    "tolerance": 1e-10
+  },
+  "identity": {
+    "historical_phase_count": 1792,
+    "barrio_phase_count": 2048
+  },
+  "acceptance": {
+    "maximum_event_matching_residual": 1e-8,
+    "maximum_secondary_null_residual": 1e-6,
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_closure_error": 0.08,
+    "maximum_neutral_error": 0.08,
+    "minimum_half_period_closure": 5e-8,
+    "minimum_half_node_rms": 5e-8,
+    "minimum_parameter_displacement": 1e-16,
+    "maximum_parameter_displacement": 0.0001,
+    "maximum_period_ratio_error": 0.001,
+    "minimum_accepted_candidates": 2
+  },
+  "claim_scope": "prospective sparse-Jacobian 2048-segment bilateral period-1536 switch from the passed EXP-297 8192-step RK4 3/8 augmented event representation, using only the largest EXP-296 predictor length because it was preselected by maximum half-node and half-period separation rather than preliminary stability, both tangent signs, the unchanged EXP-288/296 DOP853 residual, primitivity, displacement, period-ratio, and exact 1792/2048 identity gates, and fixed b=0.2 and c=7.625815600403827; both candidates must pass before either is nominated for independent sign-equivalence and criticality testing; a pass does not qualify birth direction, attraction, an eighth event, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

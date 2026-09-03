@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-period768-decimal-richardson-audit-summary.v1",
+  "experiment_id": "EXP-286",
+  "passed": true,
+  "source_commit": "888a0ae340d87cc3f04a81707f11eaf53da71cbd",
+  "manifest_sha256": "4c84c01e5d08cb5313bf24a515f720cbf6c6b2e0da273631776eb00d86e0a8a3",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "source_receipt_sha256": "832e419cf3e1597a878df5a1f7da80a740626715f2d6bd34fb8f990ea33b6c21",
+  "raw_artifact": "artifacts/EXP-286/receipt.json",
+  "raw_artifact_bytes": 4896,
+  "raw_artifact_sha256": "3010388772d5fc8f1e975f19171192bd35b21df375c1d416c1b2faafdb8e7b02",
+  "new_profile_flip_multiplier": -1.0000002975551732,
+  "raw_convergence_ratio": 15.970363010312793,
+  "first_richardson_flip": -1.00000000380019,
+  "second_richardson_flip": -0.9999999948282761,
+  "successive_richardson_flip_difference": 8.971913923741127e-9,
+  "second_richardson_flip_residual": 5.171723907343435e-9,
+  "maximum_new_orbit_matching_residual": 3.727302061176464e-11,
+  "maximum_new_tangent_matching_residual": 1.1473404365759218e-11,
+  "interpretation": "A third full Decimal RK4 level confirms fourth-order scaling and a converged extrapolated flip multiplier at the immutable coordinate; an independent high-precision tableau remains required for event qualification."
+}

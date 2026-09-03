@@ -1,0 +1,54 @@
+{
+  "schema": "butterfly.jones-returning-child-strip-endpoint-manifest.v1",
+  "experiment_id": "EXP-226",
+  "event_receipt_sha256": "b2ae896f075fc14c5cc580dc657611b041e62dce6eaf44a2da9b155ad39f3b65",
+  "adaptive_receipt_sha256": "1ee1f5c4c59e15403b06c745e5c66ce64944f01700d02bfb54fafb2a86dd1782",
+  "fixed_b": 0.2,
+  "expected_delta_a": -5.730236757039986e-7,
+  "source_interval": {
+    "left_c": 7.620601779937221,
+    "right_c": 7.6352726301845655
+  },
+  "endpoint_bracket": {
+    "left_c": 7.625186420639517,
+    "right_c": 7.625415652674632
+  },
+  "terminal_seed_c": 7.625186420639517,
+  "bilateral": {"delta_c": 0.00015},
+  "radau_double_cover_mode": "parent_square",
+  "root": {"xtol": 2e-11, "rtol": 1e-12, "maximum_iterations": 60},
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "independent_solver": {"method": "Radau", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"tolerance": 1e-10, "maximum_evaluations": 120},
+  "comparison": {
+    "phase_samples": 2048,
+    "coarse_shifts": 256,
+    "shift_tolerance": 1e-10
+  },
+  "identity": {
+    "historical_parent_phase_count": 7,
+    "barrio_parent_phase_count": 8,
+    "historical_child_phase_count": 14,
+    "barrio_child_phase_count": 16
+  },
+  "acceptance": {
+    "maximum_closure_error": 2e-8,
+    "minimum_parent_multiplier_modulus": 1.0001,
+    "maximum_child_multiplier_modulus": 0.999,
+    "maximum_period_ratio_error": 0.0005,
+    "minimum_proper_subperiod_closure": 0.0001,
+    "maximum_solver_identity_rms": 1e-7,
+    "maximum_solver_modulus_difference": 1e-5,
+    "maximum_solver_period_relative_difference": 1e-8,
+    "minimum_subperiod_to_full_closure_ratio": 10000,
+    "minimum_bracket_residual_magnitude": 0.001,
+    "maximum_root_residual": 2e-6,
+    "maximum_multiplier_imaginary_part": 1e-8,
+    "maximum_solver_root_difference": 2e-7,
+    "maximum_right_parent_multiplier_modulus": 0.9999,
+    "maximum_double_cover_state_distance": 0.0001,
+    "maximum_double_cover_half_period_closure": 0.0001,
+    "maximum_multiplier_square_error": 0.0001
+  },
+  "claim_scope": "prospectively frozen successor localization of the real-minus-one crossing encountered by EXP-223 on its exact constant event-relative a offset path, retaining EXP-225's independent DOP853 and Radau scalar roots, bilateral distance, primitive-child qualification, and every threshold while replacing only the singular redundant-2T Radau Newton correction with independent Radau parent correction followed by exact 2T integration, doubled section counts, closure, and monodromy-square tests; a pass establishes a second period-6 flip crossing bounding this sampled one-dimensional child strip, not a global child-sheet endpoint, a second continued flip curve, paired shrimp boundaries, TBA membership, or double-criticality"
+}

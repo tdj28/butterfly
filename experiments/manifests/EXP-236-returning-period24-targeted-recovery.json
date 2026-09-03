@@ -1,0 +1,44 @@
+{
+  "schema": "butterfly.jones-returning-period24-multiscale-switch-manifest.v1",
+  "experiment_id": "EXP-236",
+  "source_receipt_sha256": "462f8d2992327d1289a53bd0ed019b113c41d5512787765c2a56fc0147e85fa6",
+  "source_solver": "dop853",
+  "fixed_b": 0.2,
+  "primary_tangent_offsets": [-0.00002, -0.00001, 0.0],
+  "step_lengths": [0.00025],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"maximum_evaluations": 480, "tolerance": 1e-10},
+  "correction_acceptance": {
+    "allowed_failure_message": "`xtol` termination condition is satisfied.",
+    "maximum_raw_correction_closure": 2e-8,
+    "maximum_phase_residual": 1e-8
+  },
+  "continuation": {
+    "steps_per_direction": 1,
+    "a_guard_offsets": [-0.0002, 0.0002]
+  },
+  "acceptance": {
+    "required_events": 1,
+    "maximum_small_singular_value": 1e-5,
+    "maximum_tangent_dot": 0.2,
+    "minimum_points_per_direction": 0,
+    "minimum_endpoint_distance": 0.0,
+    "minimum_a_separation": 0.0,
+    "maximum_closure_error": 2e-8,
+    "historical_child_phase_count": 28,
+    "barrio_child_phase_count": 32
+  },
+  "candidate_acceptance": {
+    "maximum_small_singular_value": 1e-5,
+    "maximum_tangent_dot": 0.2,
+    "minimum_accepted_candidates": 1,
+    "maximum_closure_error": 2e-8,
+    "historical_child_phase_count": 28,
+    "barrio_child_phase_count": 32,
+    "maximum_period_ratio_error": 0.0005,
+    "minimum_half_period_closure": 0.0001,
+    "minimum_parameter_displacement": 1e-9,
+    "minimum_primary_distance": 0.0001
+  },
+  "claim_scope": "result-informed targeted recovery of EXP-235's closest full-period period-24 switch trial, retaining the exact EXP-232 event, one-sided primary tangent, positive and negative directions, step length 0.00025, solver, residual-safe correction rule, 28/32 identity, period-ratio, half-period nonclosure, parameter displacement, primary-family separation, and every scientific threshold while increasing only the nonlinear corrector ceiling from 160 to 480 evaluations; a pass nominates primitive period-24 candidates for independent DOP853/Radau qualification, while a failure triggers segmented multiple shooting and does not reject child existence, stability, supercriticality, attraction, a continued sheet, paired shrimp boundaries, TBA membership, double-criticality, or a full-plane explanation"
+}

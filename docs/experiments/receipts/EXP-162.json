@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.period2-c-flip-switch-summary.v1",
+  "experiment_id": "EXP-162",
+  "passed": true,
+  "source_commit": "88705db595b218c372e394a368ddb9eebf215dee",
+  "manifest_sha256": "60be80c286fef396f9126d528601c1f84748c2a20552018c5672544c6f6a7c2d",
+  "event_receipt_sha256": "f8ec5706dab040b68aa039c1ca9afa891d592774ecdf7a52821e6d41d2b17f30",
+  "parent_receipt_sha256": "808d16e4285e2b8c4be98f55f2ee8c4b47804032e435759a2c9f62fb244ffaeb",
+  "raw_receipt": "artifacts/EXP-162/receipt.json",
+  "raw_receipt_sha256": "dcaebcc2a6ad4225eba12ecb19da579aae44dd88c050ac72a2a7ace2973601ce",
+  "raw_receipt_bytes": 45049,
+  "smallest_shooting_singular_value": 1.1835248223547217e-13,
+  "absolute_tangent_dot": 5.551115123125783e-17,
+  "points_per_direction": [32, 32],
+  "endpoint_distances_from_doubled_parent": [0.09168924189750885, 0.10045418311634183],
+  "endpoint_half_period_closures": [0.23896104005875193, 0.29514070042918145],
+  "endpoint_multiplier_moduli": [0.9427237864324163, 0.9119829648216308],
+  "interpretation": "Both nullspace-switch signs open nontrivial locally stable period-4 arms; independent identity and attraction remain for EXP-163."
+}

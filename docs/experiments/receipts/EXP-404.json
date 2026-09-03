@@ -1,0 +1,82 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-404",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": false,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "e43637bd00cbc9d0d8b7942194c9f76de71706ef",
+    "dirty": false
+  },
+  "manifest_sha256": "40b2b91d457b6c8f8204b28dc8cc3ad3256902c2a76a4004fcaca4af45e3b131",
+  "raw_receipt": {
+    "path": "artifacts/EXP-404/receipt.json",
+    "bytes": 78866,
+    "sha256": "a9838f5525c0e1dee21e78da564b9a35f43e1f2b1c49197ba2b9069b3fd5750b"
+  },
+  "elapsed_seconds": 22.28904345817864,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 3.273649712501359e-10,
+  "normalized_arclength_step": 0.0011496701841098146,
+  "tangent_source": "local_matching_jacobian",
+  "tangent_orientation": {
+    "name": "decreasing_a",
+    "component": "a",
+    "declared": true
+  },
+  "local_tangent_group_norms": {
+    "a": 0.000046350686430614845,
+    "angle": 0.00371279662876288,
+    "c": 0.00007118671419308256,
+    "nodes": 0.9999928337160936,
+    "total_flight_time": 0.0007351474112685458
+  },
+  "local_tangent_residual": 1.0736508744588147e-16,
+  "current_variables": {
+    "a": 0.17981749353685614,
+    "c": 10.317081502559637
+  },
+  "predictor_variables": {
+    "a": 0.17981749343028014,
+    "c": 10.317081502887001,
+    "angle": 2.6718274295396136,
+    "total_flight_time": 234.42047013223254
+  },
+  "final_variables": {
+    "a": 0.17981749367526342,
+    "c": 10.317081501703367,
+    "angle": 2.6715275711378204,
+    "total_flight_time": 234.42047038808946
+  },
+  "final_c_increment": -8.562697217939785e-10,
+  "final_a_increment": 1.384072856325247e-10,
+  "initial_maximum_block_residual": 1.318314859592378e-8,
+  "final_maximum_block_residual": 4.004071816010325e-9,
+  "final_matching_residual_norm": 1.470524517241973e-8,
+  "final_residual_norm": 1.4705245172520538e-8,
+  "final_arclength_residual": 5.4449907463291177e-14,
+  "inferred_signed_arclength_progress": 0.0011496701841642646,
+  "jacobian_minimum_singular_value": 1.6826266136701472e-9,
+  "maximum_normalized_node_displacement": 0.002352530802397723,
+  "node_boundary_margin": 0.9976474691976023,
+  "global_boundary_margins": [
+    0.24999974414308213,
+    0.00019999975501672207,
+    0.00019999881636501016,
+    0.9997001415982067
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 2,
+    "njev": 2,
+    "optimality": 1.0341743180156511e-12
+  },
+  "failed_checks": [
+    "directional_a_requirement"
+  ],
+  "interpretation": "The recomputed post-fold tangent yields a clean full-state forward root, but both displayed parameters reverse relative to the chosen coordinate gate. Preserve the failed decreasing-a protocol and replace coordinate direction with secant-aligned signed arclength prospectively."
+}

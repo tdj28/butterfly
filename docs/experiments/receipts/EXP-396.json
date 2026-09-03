@@ -1,0 +1,59 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-396",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "d63776657c7fead20016e0b5bad88f550ab238e1",
+    "dirty": false
+  },
+  "manifest_sha256": "ea10f13a4231caab6e51a8fa677dcbc8c9e55b5e46ddebafbe23090a987d0b26",
+  "raw_receipt": {
+    "path": "artifacts/EXP-396/receipt.json",
+    "bytes": 79086,
+    "sha256": "8d4a0a56e471021970df473dd3cd5fc0164e1084222e02fcafbc78882662511c"
+  },
+  "elapsed_seconds": 66.98140329215676,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 0.0,
+  "normalized_arclength_step": 0.0,
+  "tangent_source": "local_matching_jacobian",
+  "local_tangent_residual": 1.4056470405395967e-16,
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "final_variables": {
+    "a": 0.17981750016073034,
+    "c": 10.317081481735999,
+    "angle": 2.672114758924832,
+    "total_flight_time": 234.4204927259373
+  },
+  "final_c_drift": -7.00588564939153e-9,
+  "initial_maximum_block_residual": 9.999341446422604e-9,
+  "final_maximum_block_residual": 4.008452520993577e-9,
+  "final_matching_residual_norm": 1.4720759596412671e-8,
+  "final_arclength_residual": 5.33665993340815e-14,
+  "jacobian_minimum_singular_value": 1.6948986116687517e-9,
+  "maximum_normalized_node_displacement": 0.002004531848747604,
+  "node_boundary_margin": 0.9979954681512524,
+  "global_boundary_margins": [
+    0.24998600995971287,
+    0.00019999772493106693,
+    0.0001999929941138845,
+    0.8618285579859739
+  ],
+  "root_nominated": true,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 4,
+    "njev": 3,
+    "optimality": 7.033582716937842e-13
+  },
+  "failed_checks": [],
+  "interpretation": "The zero-step standard local-tangent-normal plane passes every frozen root, stationarity, arclength, margin, tangent, and conditioning gate. It licenses a wall-free quarter-step replay without adding a curve point itself."
+}

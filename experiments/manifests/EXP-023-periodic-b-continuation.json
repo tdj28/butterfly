@@ -1,0 +1,35 @@
+{
+  "schema": "butterfly.periodic-b-continuation-manifest.v1",
+  "experiment_id": "EXP-023",
+  "families": [
+    {
+      "id": "period3-fixed-ac",
+      "period": 3,
+      "start": {"a": 0.3225, "b": 0.2, "c": 3.0}
+    },
+    {
+      "id": "period5-fixed-ac",
+      "period": 5,
+      "start": {"a": 0.245, "b": 0.2, "c": 5.1}
+    }
+  ],
+  "crossings": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 2400.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 128,
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1E-7
+  },
+  "solver": {"method": "DOP853", "rtol": 1E-10, "atol": 1E-12, "max_step": 0.05},
+  "corrector": {"max_evaluations": 40, "tolerance": 1E-10},
+  "continuation": {
+    "b_min": 0.05,
+    "b_max": 0.35,
+    "nominal_step": 0.005,
+    "minimum_step": 0.0003125
+  },
+  "acceptance": {"minimum_points_per_family": 20, "max_closure_error": 1E-8}
+}

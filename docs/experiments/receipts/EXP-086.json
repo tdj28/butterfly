@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.cascade-scaling-analysis-summary.v1",
+  "experiment_id": "EXP-086",
+  "passed": true,
+  "source_commit": "63ed4ae0e4f3bb9543b474df30099ec30b3ee0bf",
+  "manifest_sha256": "90c0af4a87859f73aaca0c34204c281307c01a321e1627ad1d2750658b54e72c",
+  "full_receipt_sha256": "8f663320835e57174b5f70dfca125662867cc9b9c87b1aa95a9a136bb0635bdb",
+  "spacing_ratios": [
+    4.536305186250418,
+    4.594405660654856,
+    4.647626535466122,
+    4.664602998096293
+  ],
+  "predicted_period320_to_640_b": 0.17971249429433594,
+  "predicted_spacing": 1.3890061963425996e-6,
+  "accumulation_b": 0.17971211573617962,
+  "interpretation": "finite ratios approach the frozen reference and define a prospective next-event search; universality remains unproved"
+}

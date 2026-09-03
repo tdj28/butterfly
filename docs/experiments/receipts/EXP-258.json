@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.jones-period96-segmented-flip-scan-summary.v1",
+  "experiment_id": "EXP-258",
+  "passed": true,
+  "source_commit": "021e07bf3797952ecf85e5eeddec16291dcfc535",
+  "manifest_sha256": "b003c6aa5283b64a68b64a4ff6d8c235d1b6674bd4a402ff1a00cfa072dc3a72",
+  "continuation_receipt_sha256": "5356c719ff84a1ff91c00eb1ca000eaeca2635ea2965a70eeb01fcbed1a7eb6b",
+  "raw_artifact": "artifacts/EXP-258/receipt.json",
+  "raw_artifact_bytes": 22169,
+  "raw_artifact_sha256": "f81780ae78787e15697374cd32a9a34c21d1dd08cb89fe91adb29db07227b30a",
+  "point_count": 9,
+  "flip_bracket_count": 1,
+  "a_bracket": [0.24070100367571418, 0.24070101194748178],
+  "bracket_multiplier_range": [-3.2892379994283427, -0.3484809099335215],
+  "minimum_modulus_separation_ratio": 1.3848886783589933e19,
+  "maximum_cyclic_real_spread": 2.439151103317272e-10,
+  "interpretation": "The exact primitive period-96 branch contains one clean magnitude-separated real-minus-one bracket for a separately frozen augmented event solve."
+}

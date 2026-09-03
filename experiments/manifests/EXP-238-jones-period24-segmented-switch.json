@@ -1,0 +1,28 @@
+{
+  "schema": "butterfly.jones-period12-segmented-child-switch-manifest.v1",
+  "experiment_id": "EXP-238",
+  "event_schema": "butterfly.jones-period12-augmented-flip-receipt.v1",
+  "event_receipt_sha256": "088258b0c0cca6f5cb847ced26ff44dff00a6c67bdd50858d4f504e45f4e2cba",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 32,
+  "step_lengths": [0.0005, 0.001, 0.002],
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "corrector": {"maximum_evaluations": 160, "tolerance": 1e-10},
+  "identity": {"historical_phase_count": 28, "barrio_phase_count": 32},
+  "acceptance": {
+    "maximum_event_matching_residual": 1e-8,
+    "maximum_secondary_null_residual": 1e-6,
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_closure_error": 2e-7,
+    "maximum_neutral_error": 2e-6,
+    "minimum_half_period_closure": 1e-5,
+    "minimum_half_node_rms": 1e-6,
+    "minimum_parameter_displacement": 1e-10,
+    "maximum_parameter_displacement": 0.0001,
+    "maximum_period_ratio_error": 0.001,
+    "minimum_accepted_candidates": 1
+  },
+  "claim_scope": "prospective 32-segment child switch from the passed EXP-237 primitive period-12 augmented real-minus-one event, using its exact anti-periodic tangent mode, three frozen predictor lengths, both tangent signs, fixed b=0.2 and c=7.625815600403827, a as the branch parameter, and orbit, phase, primitivity, 28/32 section-identity, closure, neutral, parameter-displacement, and period-ratio gates; a pass nominates period-24 candidates for independent DOP853/Radau identity, stability-exchange, attraction, and branch-equivalence qualification, but does not by itself establish supercriticality, attraction, a continued period-24 sheet, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

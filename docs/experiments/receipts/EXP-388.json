@@ -1,0 +1,61 @@
+{
+  "schema": "butterfly.compact-experiment-receipt.v1",
+  "experiment_id": "EXP-388",
+  "classification": "pseudoarclength_root_nominated",
+  "passed": true,
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "d36bfb3f85020f919f633cc5aed953509a9dd8d5",
+    "dirty": false
+  },
+  "manifest_sha256": "74b7b970df87f561a9d3875624b9136e210e116dfbc988a044202fa79579cd69",
+  "raw_receipt": {
+    "path": "artifacts/EXP-388/receipt.json",
+    "bytes": 78310,
+    "sha256": "bd072349ed698f8d12dd5e6bd233b92296d377d190cd8376ed5d2e5f2953d55e"
+  },
+  "elapsed_seconds": 44.36128020752221,
+  "segment_count": 512,
+  "matching_radius": 0.02,
+  "desired_c_increment": 0.0,
+  "arclength_component_weights": {
+    "a": 1.0,
+    "c": 1.0,
+    "nodes": 0.003,
+    "total_flight_time": 0.003,
+    "angle": 0.003
+  },
+  "arclength_tangent_group_norms": {
+    "a": 0.5454034747652173,
+    "c": 0.8376478217500443,
+    "nodes": 0.021078380913833964,
+    "total_flight_time": 0.00018616390250905874,
+    "angle": 0.020900804589430062
+  },
+  "current_variables": {
+    "a": 0.1798174978856614,
+    "c": 10.317081488741884
+  },
+  "final_variables": {
+    "a": 0.1798174973592475,
+    "c": 10.31708149112443,
+    "angle": 2.810172366651406,
+    "total_flight_time": 234.42046586907082
+  },
+  "initial_maximum_block_residual": 9.999341446422604e-9,
+  "final_maximum_block_residual": 5.108701573712036e-9,
+  "final_matching_residual_norm": 1.8637629659718988e-8,
+  "final_arclength_residual": -4.0991374706346234e-14,
+  "jacobian_minimum_singular_value": 1.7669731555522209e-9,
+  "node_boundary_margin": 0.9997085416207199,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 3,
+    "njev": 3,
+    "optimality": 6.412294798153258e-13
+  },
+  "failed_checks": [],
+  "interpretation": "The 0.003 nuisance-weight zero-step control reproduces the qualified EXP-368 root and passes a prospective conditioning floor. It licenses one forward continuation step but is not itself a new curve point."
+}

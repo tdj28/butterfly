@@ -1,0 +1,80 @@
+{
+  "schema": "butterfly.resolution-convergence-manifest.v1",
+  "experiment_id": "EXP-119",
+  "source": {"predecessor": "EXP-118", "role": "prospective new-data resolution convergence and tighter trace audit"},
+  "parameters": {"a": 0.15, "b": 0.2, "c": 20.0},
+  "initial_conditions": [
+    {"id": "original", "kind": "explicit", "state": [0.0, 4.0, 0.0]},
+    {"id": "sobol", "kind": "sobol-section", "sample_power": 2, "scramble_seed": 119, "y_range": [-38.0, -8.0], "z_range": [0.0088, 0.0102]}
+  ],
+  "datasets": [
+    {"id": "original-burn-10000", "initial_state_id": "original", "transient": 10000.0},
+    {"id": "sobol-0-burn-10000", "initial_state_id": "sobol-0", "transient": 10000.0},
+    {"id": "sobol-1-burn-10000", "initial_state_id": "sobol-1", "transient": 10000.0},
+    {"id": "sobol-2-burn-10000", "initial_state_id": "sobol-2", "transient": 10000.0},
+    {"id": "sobol-3-burn-10000", "initial_state_id": "sobol-3", "transient": 10000.0}
+  ],
+  "crossings": {"observation_horizon": 16000.0, "max_crossings": 2400},
+  "recurrence": {"max_period": 64, "required_repeats": 5, "atol": 1e-8, "rtol": 1e-8},
+  "coordinates": [{"name": "y", "axis": 1}, {"name": "z", "axis": 2}],
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.001,
+    "maximum_conditional_spread_ratio": 0.08,
+    "minimum_domain_coverage": 0.7,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 119
+  },
+  "oracle_variants": [
+    {"bin_count": 20, "smoothing": 3e-6},
+    {"bin_count": 20, "smoothing": 1e-5},
+    {"bin_count": 20, "smoothing": 3e-5},
+    {"bin_count": 30, "smoothing": 3e-6},
+    {"bin_count": 30, "smoothing": 1e-5},
+    {"bin_count": 30, "smoothing": 3e-5},
+    {"bin_count": 40, "smoothing": 3e-6},
+    {"bin_count": 40, "smoothing": 1e-5},
+    {"bin_count": 40, "smoothing": 3e-5},
+    {"bin_count": 60, "smoothing": 3e-6},
+    {"bin_count": 60, "smoothing": 1e-5},
+    {"bin_count": 60, "smoothing": 3e-5},
+    {"bin_count": 80, "smoothing": 3e-6},
+    {"bin_count": 80, "smoothing": 1e-5},
+    {"bin_count": 80, "smoothing": 3e-5}
+  ],
+  "oracle_groups": [
+    {"id": "coarse-under-resolution-control", "variant_indices": [0, 1, 2], "expected_branch_count": 2},
+    {"id": "adequate-resolution", "variant_indices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "expected_branch_count": 3}
+  ],
+  "frozen_reference": {
+    "raw_receipt_sha256": "fec3f8d9c06b4cf670938f9d17ea97c18a2a4a0e23ec9af80fe43b597da2e9bc",
+    "adequate-resolution": {
+      "y": {"domain": [-31.881356782892375, -8.697471765156902], "critical_point_intervals": [[-31.296885823979398, -31.011844956927646], [-21.18546405344291, -20.766537181365585]]},
+      "z": {"domain": [0.009348092002482912, 0.009798056562810806], "critical_point_intervals": [[0.009357982470379814, 0.009363866588481295], [0.009542170612227344, 0.009546698036703233]]}
+    }
+  },
+  "lyapunov": {
+    "transient": 10000.0,
+    "duration": 1600.0,
+    "qr_interval": 0.5,
+    "blocks": 8,
+    "two_trajectory_perturbation": 1e-8,
+    "cases": [
+      {"id": "original", "initial_state_id": "original", "recurrence_dataset_id": "original-burn-10000"},
+      {"id": "sobol-0", "initial_state_id": "sobol-0", "recurrence_dataset_id": "sobol-0-burn-10000"}
+    ]
+  },
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.025},
+  "acceptance": {
+    "minimum_crossings": 2400,
+    "minimum_return_pairs": 2000,
+    "allowed_branch_counts": [2, 3],
+    "minimum_oracle_variant_consensus": 1.0,
+    "maximum_within_dataset_normalized_critical_span": 0.03,
+    "maximum_across_dataset_normalized_critical_span": 0.04,
+    "maximum_trace_identity_error": 1e-6,
+    "maximum_largest_exponent_difference": 0.03
+  }
+}

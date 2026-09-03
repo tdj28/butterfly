@@ -1,0 +1,138 @@
+{
+  "schema": "butterfly.upo-manifold-seed-manifest.v1",
+  "experiment_id": "EXP-142",
+  "source_receipts": [
+    {
+      "id": "EXP-136",
+      "path": "artifacts/EXP-136/receipt.json",
+      "sha256": "6c10804172d3463f99be9340744a849cb61cf7015036ba57340db7bcfcde1b4e"
+    },
+    {
+      "id": "EXP-138",
+      "path": "artifacts/EXP-138/receipt.json",
+      "sha256": "a4ad0a077efd1b99b5b2947ed804bcd1e944eecf814b9d1e234a02ff354d71fb"
+    },
+    {
+      "id": "EXP-139",
+      "path": "artifacts/EXP-139/receipt.json",
+      "sha256": "3a738bec30bc4ac34faa2bcd3c48d1824e6e9eed1c53986f6bb78144ae9a17c7"
+    },
+    {
+      "id": "EXP-141",
+      "path": "artifacts/EXP-141/receipt.json",
+      "sha256": "c245dbb1e4aa6a51651f918662acf0cc9bf75116f4bd854c38e9090ad262753b"
+    }
+  ],
+  "cases": [
+    {
+      "id": "two-branch-endpoint",
+      "a": 0.148
+    },
+    {
+      "id": "three-branch-endpoint",
+      "a": 0.14825
+    }
+  ],
+  "families": [
+    {
+      "id": "lower-family-01-lag13",
+      "source_receipt_id": "EXP-141",
+      "source_branch_id": "lower-family-01-lag13-acceptance-aligned",
+      "fundamental_lag": 13
+    },
+    {
+      "id": "lower-family-02-lag5",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-02-lag5",
+      "fundamental_lag": 5
+    },
+    {
+      "id": "lower-family-03-lag7",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-03-lag7",
+      "fundamental_lag": 7
+    },
+    {
+      "id": "lower-family-04-lag8",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-04-lag8",
+      "fundamental_lag": 8
+    },
+    {
+      "id": "lower-family-05-lag7",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-05-lag7",
+      "fundamental_lag": 7
+    },
+    {
+      "id": "lower-family-06-lag12",
+      "source_receipt_id": "EXP-138",
+      "source_branch_id": "lag12-lower-to-upper-flow",
+      "fundamental_lag": 12
+    },
+    {
+      "id": "lower-family-07-lag13",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-07-lag13",
+      "fundamental_lag": 13
+    },
+    {
+      "id": "lower-family-08-lag7",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-08-lag7",
+      "fundamental_lag": 7
+    },
+    {
+      "id": "lower-family-09-lag3",
+      "source_receipt_id": "EXP-139",
+      "source_branch_id": "lower-family-09-lag3",
+      "fundamental_lag": 3
+    },
+    {
+      "id": "upper-family-01-lag4",
+      "source_receipt_id": "EXP-136",
+      "source_branch_id": "lag4-upper-to-lower",
+      "fundamental_lag": 4
+    },
+    {
+      "id": "upper-family-02-lag12",
+      "source_receipt_id": "EXP-138",
+      "source_branch_id": "lag12-upper-to-lower-flow",
+      "fundamental_lag": 12
+    }
+  ],
+  "source_parameter_tolerance": 1E-14,
+  "coordinate_scales": [
+    1.0,
+    30.0,
+    0.0006
+  ],
+  "perturbation_sizes": [
+    1E-9,
+    3E-9,
+    1E-8
+  ],
+  "crossing_search": {
+    "transient_period_fraction": 0.05,
+    "observation_period_fraction": 0.75,
+    "maximum_flight_time": 50.0
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1E-11,
+    "atol": 1E-13,
+    "max_step": 0.025
+  },
+  "acceptance": {
+    "maximum_unstable_multiplier_imaginary_part": 1E-8,
+    "maximum_unstable_direction_imaginary_norm": 1E-8,
+    "minimum_instability_margin": 0.001,
+    "minimum_section_speed": 0.001,
+    "maximum_section_tangent_residual": 1E-12,
+    "maximum_scaled_direction_norm_error": 1E-12,
+    "maximum_base_lag_return_scaled_closure": 0.000001,
+    "maximum_relative_multiplier_error": 0.01,
+    "maximum_transverse_residual_ratio": 0.01,
+    "minimum_passing_sizes_per_sign": 2
+  }
+}

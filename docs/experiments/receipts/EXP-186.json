@@ -1,0 +1,52 @@
+{
+  "schema": "butterfly.jones-landmark-word-summary.v1",
+  "experiment_id": "EXP-186",
+  "passed": false,
+  "source_commit": "877ee75e77bbbd874bbd4311ebd38f8f14e1ed95",
+  "source_dirty": false,
+  "manifest_sha256": "a5375219a3497ae852aa47d68d06f7671a66d23195b2b2cab36fd7b22347e601",
+  "raw_receipt_sha256": "efae1b0cbee8edf74bf11b6bf3de38c56418c5f8acb454ea3297722d7a836903",
+  "states_artifact_sha256": "f58894f952a40857d29b77f12f959001cb05eaa5a9a5eb2e88d1585ddb295731",
+  "elapsed_seconds": 28.6782532078214,
+  "parameters": {"a": 0.21564, "b": 0.2, "c": 6.124},
+  "landmark_index": 1,
+  "reference": {
+    "fundamental_period": 6,
+    "crossing_count": 157,
+    "recurrence_error": 3.682792188333875e-12
+  },
+  "orbit_corrections": {
+    "DOP853": {"closure_error": 1.368667080949217e-13, "period_time": 34.46514848941352},
+    "Radau": {"closure_error": 2.1379378862727472e-13, "period_time": 34.46514848916649},
+    "maximum_scaled_solver_difference": 1.2304876275899484e-9
+  },
+  "sprinkler": {
+    "survivor_counts_dt_0.01": [2038, 1798, 1283, 777],
+    "survivor_counts_dt_0.005": [2038, 1797, 1282, 774],
+    "pair_counts": [7335, 7299],
+    "maximum_survivor_fraction_difference": 0.00146484375,
+    "integration_failures": 0
+  },
+  "partitions": {
+    "x_branch_counts": [2, 2],
+    "z_branch_counts": [1, 1],
+    "x_maximum_normalized_critical_midpoint_difference": 8.407237799701317e-5,
+    "x_critical_intervals": [[-5.948545409931382, -5.884942180467692], [-5.9485407211915895, -5.8835857407631895]]
+  },
+  "x_words": {
+    "dt_0.01_DOP853_Radau": "010011",
+    "dt_0.005_DOP853_Radau": "C10011",
+    "target_matches": [],
+    "reversal_only_target_matches": []
+  },
+  "target_words": ["CD0000", "CD0001", "CD0010", "CD0011", "CD0111"],
+  "gates": {
+    "reference_passed": true,
+    "corrections_passed": true,
+    "profiles_passed": true,
+    "partition_parity_passed": false,
+    "words_passed": false,
+    "passed": false
+  },
+  "interpretation": "The exact printed landmark is a solver-qualified period-6 orbit but not a reproducible Figure 6 word center under the frozen procedure. This does not reject the conceptual source words; a target-word-blind dynamical search for actual superstable centers is required."
+}

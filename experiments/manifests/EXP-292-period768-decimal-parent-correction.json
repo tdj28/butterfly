@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period768-decimal-parent-correction-manifest.v1",
+  "experiment_id": "EXP-292",
+  "qualification_schema": "butterfly.jones-period1536-near-event-qualification-receipt.v1",
+  "qualification_receipt_sha256": "546a199d1c3747d2eeaaa868f420c5bcc5ab3de9b8a3ab6a144e957d0a13f16c",
+  "audit_schema": "butterfly.jones-period768-decimal-parent-side-receipt.v1",
+  "audit_receipt_sha256": "0030def998d90f85158c6ba23659a6b1f7eb49cb28c972962e1f19289c3ac230",
+  "qualification_solver": "dop853",
+  "family": "parent",
+  "decimal_digits": 50,
+  "method": "classical_rk4",
+  "method_order": 4,
+  "step_counts": [4096, 8192, 16384],
+  "workers": 8,
+  "maximum_newton_updates": 4,
+  "cyclic_shifts": [0, 256, 512, 768],
+  "acceptance": {
+    "maximum_matching_residual": 1e-25,
+    "maximum_phase_residual": 1e-25,
+    "maximum_source_node_displacement": 1e-6,
+    "maximum_source_period_displacement": 1e-6,
+    "minimum_raw_convergence_ratio": 12.0,
+    "maximum_raw_convergence_ratio": 20.0,
+    "maximum_successive_richardson_flip_difference": 1e-7,
+    "maximum_successive_richardson_neutral_difference": 1e-7,
+    "maximum_extrapolated_neutral_residual": 1e-6,
+    "maximum_fine_cyclic_spread": 1e-30,
+    "maximum_fine_characteristic_residual": 1e-30
+  },
+  "claim_scope": "prospective fixed-a 50-decimal-digit cyclic multiple-shooting correction of all 1024 EXP-289 DOP853 parent nodes at the identical child coordinate, independently solved at 4096, 8192, and 16384 classical-RK4 steps per segment by block elimination to a 4-by-4 phase-fixed Newton system; every discrete orbit must reach 1e-25 matching and phase residuals without moving any node or the period by more than 1e-6, and the corrected multipliers must show fourth-order raw and Richardson convergence with neutral, cyclic, and characteristic gates; a pass qualifies a converged high-precision corrected classical-RK4 parent representation and multiplier estimate only, not the side of the event, subcriticality, supercriticality, child stability beyond EXP-289, a child saddle-node, stable period-1536 attraction, eighth event, limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

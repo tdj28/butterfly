@@ -1,0 +1,15 @@
+{
+  "schema":"butterfly.identity-constrained-b-continuation-summary.v1",
+  "experiment_id":"EXP-050",
+  "passed":true,
+  "source_commit":"9fa0e76a162e72b71e0bedc63daebdf4947fcb98",
+  "manifest_sha256":"429b7f3305558cc01d0f6cd26b90efebf5605924e82647b33c993046d3a5f958",
+  "full_receipt_sha256":"df83f5136762207d6a1f9385f55e946b33f0dd6015d1d86e71e92920a73de9fb",
+  "accepted_points":19,
+  "b_range":[0.17366943359374998,0.20480834960937502],
+  "maximum_closure_error":9.294836513717073e-12,
+  "crossing_count":5,
+  "period_doubling_bracket":[0.1825,0.185],
+  "linear_boundary_estimate":0.1834656728976732,
+  "interpretation":"Identity enforcement recovers the true fixed-(a,c) period-5 branch and rejects six-crossing corrector roots at both accessible ends."
+}

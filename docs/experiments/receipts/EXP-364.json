@@ -1,0 +1,47 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-364",
+  "passed": false,
+  "source_commit": "831727a502902fdae824800a89f0250c15a44c34",
+  "manifest_sha256": "cd2ab04b03b3ce030558fdd7a613371cc7220c9e7dc58b9913f86df62216d7db",
+  "raw_artifact": "artifacts/EXP-364/receipt.json",
+  "raw_artifact_bytes": 30348,
+  "raw_artifact_sha256": "b2bbec2a2ebfa0eee4a5d2a03d835de17e0e74a84ac5b64e6064a2c4043f7c65",
+  "elapsed_seconds": 451.80218637548387,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 128,
+  "source_receipts": [
+    {"experiment_id": "EXP-362", "sha256": "b217c3d72915f926c394039ccd512b672178828114b1f82a51289f62737ffcc1"},
+    {"experiment_id": "EXP-363", "sha256": "78b85011bd678454ca9de5e386f50ce864fb8b59588ef85e99439c877cc626e8"}
+  ],
+  "desired_c_increment": 0.00025,
+  "initial_maximum_block_residual": 0.0005662733044117221,
+  "final_residual_norm": 2.0180513484600063e-8,
+  "final_matching_residual_norm": 2.018051348448873e-8,
+  "final_maximum_block_residual": 1.093268261414582e-8,
+  "final_arclength_residual": -6.703342958838676e-12,
+  "final_variables": {
+    "a": 0.1800116479651023,
+    "c": 10.316485123164421,
+    "angle": 2.4599124904116194,
+    "total_flight_time": 234.45259185330033
+  },
+  "node_boundary_margin": 0.9556919487035032,
+  "jacobian_condition_number": 49946599706.520454,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 32,
+    "optimality": 1.4536158253127864e-10
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "optimizer_terminated_or_root_gate",
+    "root_nominated"
+  ],
+  "interpretation": "The prospectively reduced step remains narrowly above the unchanged matching gate, localized in its first shooting block. All geometry, arclength, direction, source, and bound checks pass. This motivates finer segmentation rather than a relaxed gate and is not evidence of branch termination."
+}

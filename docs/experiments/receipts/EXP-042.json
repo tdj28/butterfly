@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.period-doubled-offspring-audit-summary.v1",
+  "experiment_id": "EXP-042",
+  "passed": true,
+  "source_commit": "a2dd8e1385b2f0fd02f7ca0e326db20ca3f60e88",
+  "manifest_sha256": "58433d79d1d36f109bf082fc0ad25adf2ff6d5def643c708206c0ff433d398da",
+  "full_receipt_sha256": "51b4d48b2f6711d7e18655339c3c6639d373120341f81b757aab6917aaae0eff",
+  "event_count": 3,
+  "all_events_passed": true,
+  "parent_half_closure_max": 4.861986527276127e-12,
+  "parent_fundamental_transverse_modulus_range": [1.005054516275467, 1.0171324024971262],
+  "child_half_closure_range": [0.158667055741179, 0.23338089191356098],
+  "child_full_closure_max": 2.3435677555628343e-13,
+  "child_full_transverse_modulus_range": [0.9317805832238948, 0.9797925500536401],
+  "period_ratio_range": [1.9996419437354815, 2.0000036822935146],
+  "interpretation": "Beyond each qualified event, the fundamental parent is unstable and a stable child closes only after twice the parent period, directly confirming a supercritical period-doubling at all three points."
+}

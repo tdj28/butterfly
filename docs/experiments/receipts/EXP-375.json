@@ -1,0 +1,59 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-375",
+  "passed": false,
+  "source_commit": "19d38d2d356ae7e0b939bc2a6c65305e00da7859",
+  "manifest_sha256": "f49dce82ba8484fa2662de17c36fd671ed2f29365ca96089db1cf20dc138cf3c",
+  "raw_artifact": "artifacts/EXP-375/receipt.json",
+  "raw_artifact_bytes": 84703,
+  "raw_artifact_sha256": "bd4c1e85c9533e616bf8377cc34c78fece4c43ff7b045e8aa91807e6da38a451",
+  "elapsed_seconds": 737.7211981667206,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {"experiment_id": "EXP-367", "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"},
+    {"experiment_id": "EXP-368", "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"}
+  ],
+  "warm_start_receipt": {
+    "experiment_id": "EXP-374",
+    "sha256": "eb33dd814da0c50fa82c4e4c3e111aaba5246ae87266056326dc9c9ccad2d760",
+    "passed": false
+  },
+  "arclength_components": ["a", "c"],
+  "desired_c_increment": 0.000075,
+  "initial_maximum_block_residual": 0.0000052683678233527775,
+  "final_residual_norm": 0.000006282806308004301,
+  "final_matching_residual_norm": 0.000006282806060266878,
+  "final_maximum_block_residual": 0.0000052088761002681735,
+  "final_arclength_residual": -1.7643617634607867e-9,
+  "final_variables": {
+    "a": 0.17981742643035933,
+    "c": 10.317188191803234,
+    "angle": 2.317505887755577,
+    "total_flight_time": 234.42817934711846
+  },
+  "node_boundary_margin": 0.8737437181388472,
+  "global_boundary_margins": [
+    1.9853542003564542,
+    0.0009756547138355109,
+    0.0009682969386499707,
+    1.4292453727362378
+  ],
+  "jacobian_largest_singular_value": 345.2784806170508,
+  "jacobian_smallest_singular_value": 3.2170960333649684e-10,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 34,
+    "njev": 28,
+    "optimality": 4.665977295822754e-12
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "root_nominated"
+  ],
+  "interpretation": "The exact-node restart terminates normally at a trust-region stationary point but reduces the maximum defect by only 1.13%. More evaluations or identical restarts are not justified. The square residual Jacobian is nearly singular, so the successor must use a direct sparse Newton/block solve or change the boundary formulation while retaining every scientific gate."
+}

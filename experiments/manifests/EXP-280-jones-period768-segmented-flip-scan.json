@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-period768-segmented-flip-scan-manifest.v1",
+  "output_schema": "butterfly.jones-period768-segmented-flip-scan-receipt.v1",
+  "experiment_id": "EXP-280",
+  "continuation_receipt_sha256": "b5fc6c5465eb0869542a3ce8ee716e352309df5d5dd1ee40245c0cb0540ee4cb",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "tracking_method": "magnitude_separated",
+  "solver": {"method": "DOP853", "rtol": 1e-11, "atol": 1e-13, "max_step": 0.03},
+  "cyclic_shifts": [0, 256, 512, 768],
+  "acceptance": {
+    "required_points": 9,
+    "minimum_flip_brackets": 1,
+    "maximum_matching_residual": 1e-8,
+    "minimum_modulus_separation_ratio": 1e8,
+    "maximum_multiplier_imaginary": 1e-6,
+    "maximum_initial_multiplier_modulus": 0.9999,
+    "maximum_terminal_multiplier_real": -2.0
+  },
+  "claim_scope": "prospective block-Floquet scan of all nine exact EXP-279 primitive period-768 continuation rows at fixed b=0.2 and c=7.625815600403827; the larger-modulus transverse mode is admissible only while separated from the collapsed mode by at least eight orders of magnitude, and four cyclic products must be recorded; a pass nominates one or more real-minus-one brackets for a separately frozen exact 1024-segment event solve, but does not establish a period-768-to-1536 event or child, a limiting scaling law, universality, a child sheet, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

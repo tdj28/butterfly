@@ -1,0 +1,34 @@
+{
+  "schema": "butterfly.scan-receipt.v1",
+  "experiment_id": "EXP-006",
+  "plan_hash": "549f694bc333bf033b48ea880f678f4eef5ee141bb44843e10c327131fa79064",
+  "input_manifest_sha256": "bd1810e494de1b31c862ec95db7869bad2cd96a3f438034fd3beab18363ee485",
+  "result_file": "result.json",
+  "result_sha256": "b769bf01904566935be59c8ed809c4925f8ad50acf34f035f930fa7db6e16f4f",
+  "row_count": 25,
+  "started_at": "2026-08-06T21:20:28.039226+00:00",
+  "finished_at": "2026-08-06T21:21:34.233072+00:00",
+  "elapsed_seconds": 66.19335837475955,
+  "source": {
+    "commit": "9e4c91e8fa89bcc1238eeb7574cb1f7497725c5c",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0"
+  },
+  "label_counts": {
+    "chaotic": 25
+  },
+  "derived_summary": {
+    "all_integrations_successful": true,
+    "crossing_count_range": [96, 96],
+    "largest_exponent_range": [0.077449666650959, 0.11014844725529063],
+    "largest_lower_2se_range": [0.05977600553264772, 0.10357380325046628],
+    "max_trace_identity_error": 1.8040520188833398e-9
+  },
+  "interpretation_limit": "The 5 x 5 grid is too coarse to resolve narrow periodic windows or hub spirals; label absence between sampled points is not inferred."
+}

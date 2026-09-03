@@ -1,0 +1,61 @@
+{
+  "schema": "butterfly.gpu-barrio-section-parity-summary.v1",
+  "experiment_id": "EXP-196",
+  "passed": true,
+  "source_commit": "c942b463b57c2c39e4a694d76906d1bc684f02af",
+  "source_archive_sha256": "d3dbd1db7a53685e14dcdce37563469bdcdcb8df964c70873bb092c72f0a982a",
+  "manifest_sha256": "4604912140b520d7a6485688b966ca75b3ede15439c4837e5b906b572783ba19",
+  "raw_artifact": "artifacts/EXP-196/receipt.json",
+  "raw_artifact_sha256": "22a829a721276bcfe8aef7fa3123e2bd9502a6856e36e29efa252b74fb34859c",
+  "environment": {
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_memory_bytes": 25283526656,
+    "compute_capability": [8, 6],
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0"
+  },
+  "anchor": {
+    "parameters": {"a": 0.215, "b": 0.2, "c": 7.6},
+    "historical_period": 6,
+    "barrio_phase_count": 8,
+    "flow_closure": 1.1396139106165864e-13,
+    "phase_residual": 4.83783621270557e-19,
+    "flow_period": 43.89544600853501
+  },
+  "profiles": [
+    {
+      "name": "rk4_dt_001",
+      "dt": 0.01,
+      "cpu_survivor_counts": [2023, 1956, 1852, 1740],
+      "gpu_survivor_counts": [2023, 1956, 1852, 1740],
+      "cpu_return_pairs": 16405,
+      "gpu_return_pairs": 16405,
+      "branch_count": 3,
+      "maximum_normalized_critical_midpoint_difference": 1.5720758028692217e-11,
+      "gpu_state_steps_per_second": 8701690.409147767
+    },
+    {
+      "name": "rk4_dt_0005",
+      "dt": 0.005,
+      "cpu_survivor_counts": [2023, 1957, 1855, 1739],
+      "gpu_survivor_counts": [2023, 1957, 1855, 1739],
+      "cpu_return_pairs": 16376,
+      "gpu_return_pairs": 16376,
+      "branch_count": 3,
+      "maximum_normalized_critical_midpoint_difference": 8.240258475566975e-11,
+      "gpu_state_steps_per_second": 38566491.038080856
+    }
+  ],
+  "critical_interval_envelope": [[0.023588627767300672, 0.023630160100087345], [0.025690892363519176, 0.02577122408767902]],
+  "provisioning": {
+    "worker": "SECURE NVIDIA RTX A5000 at 0.27 USD/hour",
+    "conservative_cost_bound_usd": 0.04,
+    "remote_local_hash_match": true,
+    "active_pods_after_teardown": 0
+  },
+  "interpretation": "CPU and GPU exactly match survivor counts and return-pair counts at both RK4 steps, independently recover the robust three-branch Barrio z map, and agree on normalized critical midpoints to better than 8.3e-11."
+}

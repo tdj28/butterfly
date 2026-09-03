@@ -1,0 +1,48 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-362",
+  "passed": true,
+  "source_commit": "b8d61b34a90c1e7c520d85e870045e79dbe48a9d",
+  "manifest_sha256": "1d3ca29bfd244b5bf244a59ee578277e61ce025aae327101397270d6bae40ad6",
+  "raw_artifact": "artifacts/EXP-362/receipt.json",
+  "raw_artifact_bytes": 22651,
+  "raw_artifact_sha256": "b217c3d72915f926c394039ccd512b672178828114b1f82a51289f62737ffcc1",
+  "elapsed_seconds": 45.74960337486118,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 128,
+  "source_receipts": [
+    {"experiment_id": "EXP-360", "sha256": "d7f7231c2634fe07d334c77c2f9b66df09fca11443fa34d8bfdeb307686b5224"},
+    {"experiment_id": "EXP-361", "sha256": "85104fe7396008b728f54e2982a1baabde21873a7412dc0b205658a6dfe2283f"}
+  ],
+  "desired_c_increment": 0.0005,
+  "initial_maximum_block_residual": 0.0008440558887835101,
+  "final_residual_norm": 1.55216624517043e-8,
+  "final_matching_residual_norm": 1.5521662451615815e-8,
+  "final_maximum_block_residual": 8.484944612257776e-9,
+  "final_arclength_residual": -5.241129145266976e-12,
+  "final_variables": {
+    "a": 0.18022554996795825,
+    "c": 10.3158280790748,
+    "angle": 2.3553644762475545,
+    "total_flight_time": 234.46811987001198
+  },
+  "secant_from_exp361": {
+    "da_dc": -0.32554896474515754,
+    "predicted_c_at_a_0_1798": 10.317135255610568
+  },
+  "node_boundary_margin": 0.9353233915155137,
+  "jacobian_condition_number": 37821454613.006195,
+  "optimizer": {
+    "success": true,
+    "status": 1,
+    "message": "`gtol` termination condition is satisfied.",
+    "nfev": 5,
+    "njev": 5,
+    "optimality": 7.379257544143068e-12
+  },
+  "root_nominated": true,
+  "classification": "pseudoarclength_root_nominated",
+  "failed_checks": [],
+  "interpretation": "The third chained pseudo-arclength point passes normally in five evaluations. Three corrected local secants preserve the same projected historical fixed-a crossing, but an exact section root, uniqueness, and computer-assisted existence remain open."
+}

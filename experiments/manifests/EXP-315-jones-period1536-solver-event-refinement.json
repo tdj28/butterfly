@@ -1,0 +1,41 @@
+{
+  "schema": "butterfly.jones-period1536-solver-event-refinement-manifest.v1",
+  "output_schema": "butterfly.jones-period1536-solver-event-refinement-receipt.v1",
+  "experiment_id": "EXP-315",
+  "bracket_schema": "butterfly.jones-period1536-solver-event-bracket-receipt.v1",
+  "bracket_receipt_sha256": "29b3155f3cfd650afe220f0e2babefaf74250353eae7e60ee20d78de17d6fb6b",
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "segment_count": 2048,
+  "bisection_iterations": 2,
+  "jacobian_storage": "sparse_csr",
+  "solvers": {
+    "dop853": {
+      "method": "DOP853",
+      "rtol": 1e-11,
+      "atol": 1e-13,
+      "max_step": 0.03
+    },
+    "radau": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "max_step": 0.03
+    }
+  },
+  "corrector": {
+    "maximum_evaluations": 240,
+    "tolerance": 1e-10
+  },
+  "cyclic_shifts": {
+    "2048": [0, 512, 1024, 1536]
+  },
+  "acceptance": {
+    "maximum_bracket_width": 1.6e-13,
+    "maximum_matching_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_direct_closure_error": 0.01,
+    "maximum_direct_neutral_error": 0.01
+  },
+  "claim_scope": "prospective two-step deterministic bisection of each passed EXP-314 solver-specific period-1536 real-minus-one bracket; every midpoint is a fresh fixed-a 2048-segment correction under the corresponding unchanged DOP853 or Radau profile, and both final signed brackets must be at most 1.6e-13 wide while matching, phase, direct closure, neutral mode, and block Floquet gates pass; a pass establishes only refined solver-specific event brackets and their numerical representation discrepancy, not a common exact event, period-3072 branch existence, eighth-birth direction, sign equivalence, attracting-basin measure, a ninth event, universality, TBA membership, double-criticality, or global parameter-plane topology"
+}

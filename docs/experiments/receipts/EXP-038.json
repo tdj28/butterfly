@@ -1,0 +1,28 @@
+{
+  "schema": "butterfly.unit-event-surface-patch-summary.v1",
+  "experiment_id": "EXP-038",
+  "passed": true,
+  "source_commit": "d5afb122d552f0d180492459af19384f5a44d53d",
+  "manifest_sha256": "838fbed5925f60103ee4eddc54692f138f58354cc2644a3c6b596508a6d9f57c",
+  "source_spine_receipt_sha256": "5ced7a162409846449bf1b51015b9a6f5b19826aac6b042b1de334ed34176ba1",
+  "full_receipt_sha256": "a7b28b07943ef746d8907b0e7f9259b56bee676b5571580e4b1b302f6ff7a3be",
+  "point_count": 45,
+  "a_range": [0.24, 0.25],
+  "c_range": [4.9, 5.3],
+  "b_range": [0.23239054773549395, 0.3153187186154919],
+  "max_adjacent_b_jump": 0.0144850326739,
+  "max_closure_error": 3.808751212581893e-12,
+  "max_eigen_residual": 2.2837568107856138e-12,
+  "max_flow_orthogonality_residual": 1.486542822431297e-18,
+  "descriptive_quadratic_fit": {
+    "variables": ["1", "a-0.245", "c-5.1", "(a-0.245)^2", "(a-0.245)(c-5.1)", "(c-5.1)^2"],
+    "coefficients": [0.27220573, 3.49328738, -0.12065169, 19.28714591, 0.14934939, 0.03297716],
+    "r_squared": 0.9998176080545728,
+    "max_absolute_residual": 0.000884742500999347
+  },
+  "figure": {
+    "path": "artifacts/EXP-038/EXP-038-period5-unit-event-surface.png",
+    "sha256": "848c78e2510ff5a302c499baf59f881c4dcb12bb2da2f431fbc7faa7e1c2d062"
+  },
+  "interpretation": "All 45 coupled solves establish a resolution-qualified local graph b*(a,c). Normal-form identity is proven only near the EXP-031 source and must be tested elsewhere."
+}

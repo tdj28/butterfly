@@ -1,0 +1,60 @@
+{
+  "schema": "butterfly.upo-unstable-lobe-atlas-summary.v1",
+  "experiment_id": "EXP-143",
+  "passed": true,
+  "source_commit": "a13e043baa7ba45d5b9a3e7795ced9391d6b0fe8",
+  "manifest_sha256": "050038b5d3658236aa31a6dbcbed8a1c3c061212cc104c56641fe9fb1a5334a3",
+  "raw_receipt": "artifacts/EXP-143/receipt.json",
+  "raw_receipt_sha256": "f0dda22c2739859633883b53d80de5558a8f4f3bc4d1ec669a5f685ee9b82c1d",
+  "raw_receipt_bytes": 1730707,
+  "elapsed_seconds": 144.31009362498298,
+  "trajectory_count": 396,
+  "group_count": 44,
+  "return_integration_failures": 0,
+  "captured_trajectory_count": 128,
+  "retained_pre_capture_points": 23871,
+  "stable_cycle_maximum_scaled_recurrence": {
+    "two_branch_endpoint": 3.618855832906563E-10,
+    "three_branch_endpoint": 5.009968212347793E-12
+  },
+  "group_minima": {
+    "pre_capture_points": 454,
+    "inside_domain_fraction": 1.0,
+    "coarse_coverage_of_fine_occupancy": 0.9423076923076923
+  },
+  "selected_refinement_candidates": [
+    {
+      "family_id": "lower-family-06-lag12",
+      "sign": -1,
+      "dilated_occupancy_jaccard": 0.9054726368159204,
+      "left_capture_fraction": 0.2222222222222222,
+      "right_capture_fraction": 0.5555555555555556,
+      "discovery_score": 0.17786069651741296
+    },
+    {
+      "family_id": "lower-family-03-lag7",
+      "sign": 1,
+      "dilated_occupancy_jaccard": 0.9128205128205128,
+      "left_capture_fraction": 0.3333333333333333,
+      "right_capture_fraction": 0.5555555555555556,
+      "discovery_score": 0.14273504273504278
+    },
+    {
+      "family_id": "lower-family-02-lag5",
+      "sign": 1,
+      "dilated_occupancy_jaccard": 0.9195979899497487,
+      "left_capture_fraction": 0.5555555555555556,
+      "right_capture_fraction": 0.7777777777777778,
+      "discovery_score": 0.13595756560580682
+    },
+    {
+      "family_id": "lower-family-07-lag13",
+      "sign": 1,
+      "dilated_occupancy_jaccard": 0.984251968503937,
+      "left_capture_fraction": 0.4444444444444444,
+      "right_capture_fraction": 0.8888888888888888,
+      "discovery_score": 0.12685914260717407
+    }
+  ],
+  "interpretation": "The complete capture-truncated unstable-lobe atlas is numerically qualified and seed-density stable at the frozen resolution. Endpoint occupancy remains highly overlapping; the automatic shortlist is driven partly by earlier attractor capture on the three-branch side and is exploratory only."
+}

@@ -1,0 +1,31 @@
+{
+  "experiment_id": "EXP-183",
+  "status": "executed-passed",
+  "source_commit": "a962cd2a55fcc08ce1ef6ef5674bc5aeba4a5888",
+  "source_dirty": false,
+  "manifest_sha256": "b9762df7411d70730b3b5cd06db543c0d6df2e28b19b43b0d74d8c5330909468",
+  "raw_receipt_sha256": "a1898e9a942bc7a15d0dbffb3c3833be33bc8b9d5eca7be85d61929334f8d4f3",
+  "states_artifact_sha256": "7c7640a0c2632bd74ff866970d673b3e087d1d2737f4a3b03645fbe409b10ea6",
+  "elapsed_seconds": 117.74326783278957,
+  "reference_symmetric_maximum_scaled_distance": 0.00011533089550427968,
+  "profiles": {
+    "rk4-dt-0.01": {
+      "survivor_counts": [8192, 8163, 7992, 7855, 7707, 7552],
+      "return_pairs_per_coordinate": 64571,
+      "x_critical": -18.576544117062156,
+      "z_critical": 0.005182247149532594,
+      "attractor_control_survivors": [128, 72, 0, 0]
+    },
+    "rk4-dt-0.005": {
+      "survivor_counts": [8192, 8192, 8069, 7956, 7824, 7689],
+      "return_pairs_per_coordinate": 65731,
+      "x_critical": -18.575958304025402,
+      "z_critical": 0.0051824703790963565,
+      "attractor_control_survivors": [128, 72, 0, 0]
+    }
+  },
+  "maximum_survivor_fraction_difference": 0.0167236328125,
+  "critical_location_differences": {"x": 0.0005858130367535352, "z": 2.2322956376268077e-7},
+  "short_horizon_audit": {"trajectories": 5, "returns_each": 5, "maximum_scaled_state_error": 4.472653116546572e-7, "maximum_time_error": 2.2918527342596917e-6},
+  "gates": {"reference_passed": true, "profiles_passed": true, "step_parity_passed": true, "short_horizon_audit_passed": true, "passed": true}
+}

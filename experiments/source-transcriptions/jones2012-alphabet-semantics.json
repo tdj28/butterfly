@@ -1,0 +1,50 @@
+{
+  "schema": "butterfly.jones2012-alphabet-semantics.v1",
+  "source": {
+    "paper": "Timothy D. Jones, Topological origins of a bi-parameter periodicity hub for the Rossler attractor",
+    "arxiv": "1201.4343v1",
+    "pdf_sha256": "54b2a35bcfe50c5c2dc2f8ac1f3d3f98acbb2991dab7bc6e66cf61dc4b5ffb6f",
+    "source_archive_sha256": "c7b38955cdfb5954c89dc5e86fc5a312ff9c2626a6e712173e8c58bcd09115bb",
+    "tex_file": "prl2.tex",
+    "source_locations": {
+      "critical_identity": "lines 346-350 in the extracted author TeX",
+      "third_branch_and_inner_deposition": "lines 355-363 in the extracted author TeX",
+      "third_branch_birth": "lines 241-244 in the extracted author TeX"
+    }
+  },
+  "source_semantics": {
+    "C": "the critical point retained from the two-branch unimodal side",
+    "D": "the additional critical point available on the three-branch bimodal side",
+    "2": "the branch-3 excursion used while the third branch is present",
+    "0": "the newly deposited orbit point in the innermost region of the main attractor plane",
+    "1": "the remaining branch symbol after 0 and 2 are assigned"
+  },
+  "operational_predictions": {
+    "critical_mapping": {
+      "K0": "D",
+      "K1": "C"
+    },
+    "branch_mapping": {
+      "B0": "2",
+      "B1": "1",
+      "B2": "0"
+    },
+    "derivation": {
+      "critical_mapping": "EXP-183 identifies the unimodal critical with the higher-coordinate trimodal critical K1; the other lower-coordinate critical K0 is therefore D.",
+      "B0_to_2": "With K0=D below K1=C, B0 is the outer interval on the far side of the new critical D from retained C and is therefore the newly opened third branch.",
+      "B2_to_0": "B2 is predicted to be the innermost return interval; this must be tested using physical distance to the small equilibrium in fresh trajectories.",
+      "B1_to_1": "B1 is the only remaining interval after the independently defined third and inner intervals are assigned."
+    }
+  },
+  "blindness": {
+    "figure6_words_used_to_choose_mapping": false,
+    "figure6_landmark_orbits_used_to_choose_mapping": false,
+    "allowed_inputs": [
+      "author prose defining C, D, the third-branch excursion, and inner deposition",
+      "EXP-176 frozen neutral three-branch partition",
+      "EXP-183 qualified local critical identity",
+      "fresh dense chaotic-control trajectories"
+    ]
+  },
+  "claim_boundary": "This record freezes a source-derived operational alphabet prediction before any Figure 6 target-cycle word is computed. Passing its geometric test would qualify an operational historical mapping on the recovered Jones section, not a unique topological generating partition."
+}

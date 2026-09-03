@@ -1,0 +1,30 @@
+{
+  "artifact": "artifacts/EXP-110/receipt.json",
+  "artifact_sha256": "26b9ad1ff2ac3fa2ad777b9cf7c95791de94e67531d28f819de4449513ceec65",
+  "elapsed_seconds": 31.792403290979564,
+  "experiment_id": "EXP-110",
+  "manifest_sha256": "66015f138e18f6e94cd3dda5d45359883c0d1799a18672579e3082d4425d1f0d",
+  "passed": false,
+  "results": [
+    {
+      "branch_counts": {"y": 2, "z": 2},
+      "final_survivors": 2775,
+      "id": "published-unimodal-saddle",
+      "midpoint_return_pairs": {"y": 23022, "z": 23022},
+      "precision_audit": {"matches": 12, "total": 16},
+      "stable_period": 4,
+      "survivor_counts": [8192, 7104, 5893, 4418, 3578, 2775]
+    },
+    {
+      "branch_counts": {"y": 2, "z": 2},
+      "final_survivors": 1564,
+      "id": "published-bimodal-saddle",
+      "midpoint_return_pairs": {"y": 12892, "z": 12892},
+      "precision_audit": {"matches": 13, "total": 16},
+      "stable_period": 4,
+      "survivor_counts": [8192, 6528, 4631, 3049, 2191, 1564]
+    }
+  ],
+  "source_commit": "b9d535431793b89c7bc983f508fbf3c9df4f2373",
+  "status": "failed_as_preregistered"
+}

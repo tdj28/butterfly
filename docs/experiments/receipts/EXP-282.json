@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.jones-augmented-flip-precision-audit-summary.v1",
+  "experiment_id": "EXP-282",
+  "passed": false,
+  "source_commit": "6d741574cb8ee5b371094abd179b8aa86f50991d",
+  "manifest_sha256": "754f5dc3bae8d98239bd5f84627b2a499f803c5e7d94a8f7f6de551cd0da7463",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "raw_artifact": "artifacts/EXP-282/receipt.json",
+  "raw_artifact_bytes": 7550,
+  "raw_artifact_sha256": "41e409957e70b7069434d845cc9cd7135a3fc7523c62f4f1b5dfe734d940c4e1",
+  "corrected_a": 0.2407010081734325,
+  "period_time": 5723.866415965068,
+  "dop853_flip_multiplier": -0.9999999962888693,
+  "radau_flip_multiplier": -1.0000003635810177,
+  "cross_solver_flip_difference": 3.6729214847319724e-7,
+  "dop853_orbit_residual": 8.607945694369398e-11,
+  "radau_orbit_residual": 8.627941550016953e-11,
+  "maximum_cyclic_spread": 4.3367109903158507e-10,
+  "failed_checks": ["flip", "cross_solver_flip"],
+  "interpretation": "Tighter immutable DOP853/Radau evaluation preserves the orbit but does not satisfy the unchanged two-solver multiplier standard, so the seventh event remains unqualified."
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "butterfly.multi-b-raster-components-summary.v1",
+  "experiment_id": "EXP-021",
+  "full_component_result_sha256": "163ded4c78033d194cd17bbacc75e4b855bdef420cc5c34c71930447a36d4496",
+  "adjacency": "same-period 26-neighbor adjacency in regular (b,c,a) raster indices",
+  "component_count": 5142,
+  "components_all_11_frames": 46,
+  "components_at_least_6_frames": 129,
+  "per_period": {
+    "1": {"components": 260, "all_frames": 2, "at_least_6_frames": 8, "voxels": 40645},
+    "2": {"components": 543, "all_frames": 10, "at_least_6_frames": 29, "voxels": 26356},
+    "3": {"components": 442, "all_frames": 7, "at_least_6_frames": 16, "voxels": 4588},
+    "4": {"components": 952, "all_frames": 17, "at_least_6_frames": 42, "voxels": 9420},
+    "5": {"components": 464, "all_frames": 4, "at_least_6_frames": 8, "voxels": 1019},
+    "6": {"components": 671, "all_frames": 1, "at_least_6_frames": 13, "voxels": 2443},
+    "7": {"components": 205, "all_frames": 0, "at_least_6_frames": 0, "voxels": 231},
+    "8": {"components": 572, "all_frames": 5, "at_least_6_frames": 9, "voxels": 2430},
+    "9": {"components": 99, "all_frames": 0, "at_least_6_frames": 0, "voxels": 102},
+    "10": {"components": 380, "all_frames": 0, "at_least_6_frames": 0, "voxels": 478},
+    "11": {"components": 17, "all_frames": 0, "at_least_6_frames": 0, "voxels": 17},
+    "12": {"components": 467, "all_frames": 0, "at_least_6_frames": 4, "voxels": 616},
+    "13": {"components": 3, "all_frames": 0, "at_least_6_frames": 0, "voxels": 3},
+    "14": {"components": 67, "all_frames": 0, "at_least_6_frames": 0, "voxels": 70}
+  },
+  "interpretation_limit": "Raster components are continuation candidates, not proof of dynamical-family connectivity."
+}

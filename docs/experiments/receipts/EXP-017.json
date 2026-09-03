@@ -1,0 +1,25 @@
+{
+  "schema": "butterfly.basin-plane-summary-receipt.v1",
+  "experiment_id": "EXP-017",
+  "source": {
+    "commit": "be279486f47c881dfbe9c84447eb48f9a32934e1",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "manifest_sha256": "14c5c0595126cc8b0966420ba4a94e59718903ea6f3021594193d28d8cc6bd4d",
+  "result_sha256": "0037fd278b2da2e77565d28b4b15cba14e86f385a6c5998aceec615648cec69a",
+  "row_count": 441,
+  "workers": 8,
+  "elapsed_seconds": 284.90437287511304,
+  "all_integrations_succeeded": true,
+  "period_counts": {"3": 159, "12": 282},
+  "discordant_four_neighbor_edges": 395,
+  "total_four_neighbor_edges": 840,
+  "discordant_edge_fraction": 0.47023809523809523,
+  "points_with_mixed_3x3_neighborhood": 432,
+  "figure": {
+    "artifact": "artifacts/EXP-017/EXP-017-basin-plane.png",
+    "sha256": "45fe03f2a949e52aeb13dff46111048df9294c276f39774061ac16dcaf8ebeef"
+  },
+  "interpretation_limit": "Strong coarse intermingling; no fractal, riddled, or Wada claim without scale-dependent tests."
+}

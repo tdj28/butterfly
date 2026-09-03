@@ -1,0 +1,41 @@
+{
+  "schema": "butterfly.a-upo-continuation-summary.v1",
+  "experiment_id": "EXP-137",
+  "passed": false,
+  "failure_class": "bitwise floating-point parameter equality gate",
+  "source_commit": "5cd1544cab7af16f593e9fe3bb6f0c7fad278992",
+  "manifest_sha256": "9279458da6d49d64967adf839ec6d0f835b0384a71708672f3f4c1a50c6ee49a",
+  "raw_receipt": "artifacts/EXP-137/receipt.json",
+  "raw_receipt_sha256": "1269da1be112b45ab23e7d1eb23c538999f0ad1839e7a8932ef3b6c37a68077f",
+  "raw_receipt_bytes": 61197,
+  "elapsed_seconds": 126.38512300001457,
+  "flow_continuations": {
+    "both_reached_opposite_endpoint": true,
+    "points_per_path": 21,
+    "all_flow_orbit_floquet_and_primitivity_gates_passed": true,
+    "lower_family_period_interval": [
+      75.09811009532595,
+      75.10836796778754
+    ],
+    "upper_family_period_interval": [
+      75.23354268669111,
+      75.24331879541538
+    ]
+  },
+  "phase_shifted_section_count": {
+    "window": "(0.1 T, 1.1 T]",
+    "evaluated_points": 42,
+    "observed_counts": [
+      12
+    ],
+    "passed": true
+  },
+  "midpoint_identity": {
+    "classification": "distinct",
+    "relative_period_difference": 0.0017970178023541128,
+    "phase_invariant_rms": 6092.157445031553,
+    "maximum_parameter_representation_error": 2.7755575615628914E-17,
+    "strict_gate_passed": false
+  },
+  "interpretation": "All substantive flow and shifted-section gates pass, and the two lag-12 paths are decisively distinct. The receipt remains failed because bitwise equality rejected a 2.78e-17 binary representation difference at the mathematical midpoint. EXP-138 prospectively repairs only that software gate."
+}

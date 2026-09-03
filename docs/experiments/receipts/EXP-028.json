@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.unit-multiplier-summary.v1",
+  "experiment_id": "EXP-028",
+  "passed": true,
+  "source_commit": "71169b49a2f2ca5bd36a00b487027e118db10d9a",
+  "manifest_sha256": "d34a865b2cc054a868e05841e13e6eb518f913e11e4b9c4a5e91894a85a3f39e",
+  "source_receipt_sha256": "eef4f1b88665c821c9b6a6dc55406b45836e57bc4a7ce07358f122a254fca6a3",
+  "full_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "fixed_a": 0.245,
+  "fixed_c": 5.1,
+  "corrected_b": 0.2722840597934716,
+  "period_time": 33.79007747453978,
+  "closure_error": 1.6109802931725411e-12,
+  "eigen_residual": 5.479028630432832e-13,
+  "flow_orthogonality_residual": 1.9015889665859043e-19,
+  "event_eigenvector": [-0.9999937753122291, -0.0014959299585640517, -0.003195548521643018],
+  "multipliers": [6.246447138480475e-18, 1.0000000000000373, 0.9999999999159987],
+  "interpretation": "A second unit Floquet direction is accepted after explicitly excluding the autonomous flow mode. Generic classification awaits branch switching."
+}

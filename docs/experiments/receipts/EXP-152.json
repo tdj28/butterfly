@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.discovered-upo-manifold-seed-summary.v1",
+  "experiment_id": "EXP-152",
+  "passed": true,
+  "source_commit": "8a96aa003d2dbf6916685baa496f9628bc8df715",
+  "manifest_sha256": "efedf1fd0b7d1eb04cd9339214de67f37ceed464b7c774fb0d154dfa4b6d2682",
+  "source_discovery_receipt_sha256": "4155d0193817c53ca1c85d500fe64d6d4eb67f2b15ef0e94db93b5c2d78db364",
+  "source_identity_receipt_sha256": "ba871ce9170c791be564a3626b091f3edb1574228bd1ed0bc65de7c8b3bf8004",
+  "raw_receipt": "artifacts/EXP-152/receipt.json",
+  "raw_receipt_sha256": "54048d64323a4b0c932ccbde9e32271af9226d5be4d052d7b58da9046d77c6ca",
+  "raw_receipt_bytes": 22583,
+  "qualified_instance_count": 7,
+  "case_family_counts": {"c19p9-two-branch-saddle": 3, "c19p9-three-branch-saddle": 4},
+  "fundamental_lags": [3, 10, 13, 13, 14, 15, 15],
+  "maximum_base_lag_return_scaled_closure": 2.651543203118138e-9,
+  "maximum_relative_multiplier_error": 0.003477012889759743,
+  "maximum_transverse_residual_ratio": 0.001257594964871229,
+  "all_perturbation_sizes_and_signs_passed": true
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "butterfly.atlas-transient-summary-receipt.v1",
+  "experiment_id": "EXP-015",
+  "source": {
+    "commit": "7a7ae07",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "source_result_sha256": "85f8553ce644dd13b96e7596a7b85b613a8f2a233fd3147a3643ce28e898d75b",
+  "case_count": 5,
+  "checkpoint_run_count": 50,
+  "all_integrations_succeeded": true,
+  "outcome_counts": {
+    "common_periodic_capture": 4,
+    "distinct_periodic_endpoints": 1
+  },
+  "distinct_periodic_candidate": {
+    "parameters": {"a": 0.245, "b": 0.2, "c": 5.75},
+    "initial_state_0_period": 12,
+    "initial_state_1_period": 3,
+    "maximum_transient": 19200.0,
+    "final_recurrence_errors": [2.6025405062885188e-11, 1.7824302600665627e-11]
+  },
+  "interpretation_limit": "Distinct stable-looking periods through transient 19,200 retain a strong persistent-multistability candidate but require independent Floquet stability and basin analysis."
+}

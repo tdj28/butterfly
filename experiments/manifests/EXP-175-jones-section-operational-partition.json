@@ -1,0 +1,71 @@
+{
+  "schema": "butterfly.operational-partition-control-manifest.v1",
+  "experiment_id": "EXP-175",
+  "source": {
+    "parent_experiment": "EXP-107",
+    "decision": "DEC-014",
+    "role": "fresh calibration/validation qualification of a neutral operational partition on the recovered Jones section",
+    "claim_scope": "dense chaotic-control return partition only; no Figure 6 target cycle, historical alphabet mapping, word, arrow, template, caustic, or homoclinic claim"
+  },
+  "parameters": {"a": 0.2, "b": 0.2, "c": 20.0},
+  "initial_state": [0.0, 4.0, 0.0],
+  "section": {
+    "kind": "legacy-small-equilibrium-half-plane",
+    "direction": -1,
+    "gate": "x < x_eq",
+    "orientation_basis": "on y=y_eq, the x<x_eq gate implies dy/dt<0"
+  },
+  "integration": {
+    "transient": 1200.0,
+    "observation_horizon": 9000.0,
+    "max_crossings": 1700,
+    "minimum_total_crossings": 1250
+  },
+  "segments": {
+    "calibration": {"pair_start": 0, "pair_count": 550},
+    "guard_pair_count": 100,
+    "validation": {"pair_start": 650, "pair_count": 550}
+  },
+  "coordinates": [
+    {"name": "x", "axis": 0},
+    {"name": "z", "axis": 2}
+  ],
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-10,
+    "atol": 1e-12,
+    "max_step": 0.05
+  },
+  "oracle_common": {
+    "minimum_bin_points": 5,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.08,
+    "minimum_domain_coverage": 0.7,
+    "bootstrap_samples": 100,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 175
+  },
+  "oracle_variants": [
+    {"name": "baseline", "options": {"bin_count": 40, "smoothing": 1e-5}},
+    {"name": "bins-30", "options": {"bin_count": 30, "smoothing": 1e-5}},
+    {"name": "bins-50", "options": {"bin_count": 50, "smoothing": 1e-5}},
+    {"name": "smoothing-1e-6", "options": {"bin_count": 40, "smoothing": 1e-6}},
+    {"name": "smoothing-1e-4", "options": {"bin_count": 40, "smoothing": 1e-4}},
+    {"name": "prominence-0.02", "options": {"bin_count": 40, "smoothing": 1e-5, "minimum_prominence": 0.02}},
+    {"name": "prominence-0.05", "options": {"bin_count": 40, "smoothing": 1e-5, "minimum_prominence": 0.05}}
+  ],
+  "operational_symbols": {
+    "branch_symbols_in_increasing_coordinate_order": ["B0", "B1", "B2"],
+    "critical_symbols_in_increasing_coordinate_order": ["K0", "K1"],
+    "historical_mapping": null
+  },
+  "acceptance": {
+    "expected_branch_count": 3,
+    "minimum_segment_pairs": 550,
+    "maximum_within_segment_normalized_critical_span": 0.03,
+    "maximum_joint_normalized_critical_span": 0.04,
+    "require_both_coordinates": true,
+    "require_both_segments": true
+  }
+}

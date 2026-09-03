@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.jones-augmented-flip-precision-audit-manifest.v1",
+  "experiment_id": "EXP-266",
+  "event_schema": "butterfly.jones-period192-augmented-flip-receipt.v1",
+  "event_receipt_sha256": "5d305bf240dbf84c6d1dd8558f8208ef813a8b9d4543572da604d321a30ee7ce",
+  "isolated_failed_check": "reference_flip",
+  "reference_solver": "dop853",
+  "independent_solver": "radau",
+  "solvers": {
+    "dop853": {"method": "DOP853", "rtol": 3e-12, "atol": 3e-14, "max_step": 0.01},
+    "radau": {"method": "Radau", "rtol": 3e-11, "atol": 3e-13, "max_step": 0.01}
+  },
+  "cyclic_shifts": [0, 64, 128, 192],
+  "identity": {"historical_phase_count": 224, "barrio_phase_count": 256},
+  "acceptance": {
+    "maximum_orbit_residual": 1e-8,
+    "maximum_phase_residual": 1e-8,
+    "maximum_tangent_residual": 1e-8,
+    "maximum_normalization_residual": 1e-8,
+    "maximum_flip_residual": 1e-7,
+    "maximum_multiplier_imaginary": 1e-8,
+    "maximum_cyclic_product_spread": 1e-4,
+    "maximum_cross_solver_flip_difference": 1e-7,
+    "minimum_proper_subperiod_closure": 2e-5
+  },
+  "claim_scope": "result-informed representation-precision audit of failed EXP-265, allowed only because its source failure is isolated to the DOP853 direct-product flip residual exceeding the frozen 1e-7 gate by 6.50e-9 while the coupled orbit and anti-periodic tangent residuals and every independent Radau gate pass; the immutable 256-segment nodes, tangent nodes, period, and a are re-evaluated under tighter-step DOP853 and Radau with the unchanged 1e-7 multiplier threshold, a 1e-7 cross-solver agreement gate, cyclic products, proper-subperiod separation, and exact 224/256 identity; a pass qualifies the period-192 event representation for a separately frozen period-384 switch but does not establish that child, criticality, attraction, a limiting scaling law, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "butterfly.jones-period768-decimal-augmented-independent-manifest.v1",
+  "experiment_id": "EXP-295",
+  "classical_schema": "butterfly.jones-period768-decimal-augmented-refinement-receipt.v1",
+  "classical_receipt_sha256": "08ebfdb13fdf24a63873ed51481e82fb2ecf41b772f6cc1c145f6096d0024449",
+  "decimal_digits": 50,
+  "method": "rk4_three_eighths",
+  "method_order": 4,
+  "step_counts": [1024, 2048, 4096],
+  "workers": 8,
+  "maximum_newton_updates": 5,
+  "fixed_b": 0.2,
+  "fixed_c": 7.625815600403827,
+  "a_bounds": [0.24070100814897039, 0.24070100827074953],
+  "acceptance": {
+    "maximum_augmented_residual": 1e-22,
+    "minimum_convergence_ratio": 12.0,
+    "maximum_convergence_ratio": 20.0,
+    "maximum_cross_tableau_finest_a_difference": 1e-10,
+    "maximum_cross_tableau_extrapolated_a_difference": 1e-10,
+    "maximum_cross_tableau_extrapolated_period_difference": 1e-6,
+    "maximum_node_difference": 1e-5,
+    "maximum_node_rms_difference": 1e-6,
+    "maximum_base_tangent_difference": 1e-3,
+    "minimum_global_tangent_cosine": 0.9999,
+    "minimum_median_pointwise_tangent_cosine": 0.999999,
+    "minimum_fraction_pointwise_tangent_cosine": 0.99,
+    "minimum_half_node_rms_separation": 2e-6
+  },
+  "claim_scope": "prospective independent 50-decimal-digit augmented correction of the unresolved period-768 event with the algebraically distinct RK4 3/8 tableau at 1024, 2048, and 4096 steps per each of 1024 segments; all discrete corrections must reach 1e-22 residuals, independent a and period sequences must converge with ratios in [12,20], finest and extrapolated a must remain inside the untouched EXP-280 bracket, finest and extrapolated coordinates/period must agree with EXP-294, orbit nodes and the globally sign-aligned tangent line must pass frozen identity gates, and half-orbit node RMS must remain above 2e-6; a pass independently qualifies a resolution-converged primitive seventh real-minus-one event representation and may supersede only the tangent-source failure and FND-101 event retraction, not seventh-birth criticality, period-1536 stability, an eighth event, a limiting scaling law, universality, paired shrimp boundaries, TBA membership, double-criticality, or global parameter-plane topology"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.jones-period768-decimal-parent-correction-summary.v1",
+  "experiment_id": "EXP-292",
+  "passed": false,
+  "source_commit": "8e5a6b9b1fced9068fb4554d7c0a4a2c08fd15d5",
+  "manifest_sha256": "2483d348334d733fd14b1accd135901b77a7e9c9702c2b9677ba602e71d8f18a",
+  "qualification_receipt_sha256": "546a199d1c3747d2eeaaa868f420c5bcc5ab3de9b8a3ab6a144e957d0a13f16c",
+  "audit_receipt_sha256": "0030def998d90f85158c6ba23659a6b1f7eb49cb28c972962e1f19289c3ac230",
+  "raw_artifact": "artifacts/EXP-292/receipt.json",
+  "raw_artifact_bytes": 13198,
+  "raw_artifact_sha256": "acbc7accff4e480536affad6ea062768b9936f870518e0afa5a81eb521bc5dd5",
+  "final_matching_residuals": [1.1777979225371526e-16, 1.6277234036943275e-15, 1.8544851790617852e-15],
+  "maximum_source_node_displacements": [7.316969326791206e-5, 9.205414655174076e-5, 9.319913386896348e-5],
+  "raw_convergence_ratio": 3.3390973242388795,
+  "failed_checks": ["correction", "raw_convergence", "source_neighborhood"],
+  "interpretation": "Unconstrained 50-digit fixed-a orbit correction leaves the primitive source neighborhood and approaches a lower-period double-cover representation; frozen-node multiplier agreement therefore does not qualify a seventh exact event."
+}

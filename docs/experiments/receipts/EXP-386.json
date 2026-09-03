@@ -1,0 +1,62 @@
+{
+  "schema": "butterfly.jones-homoclinic-pseudoarclength-summary.v1",
+  "experiment_id": "EXP-386",
+  "passed": false,
+  "source_commit": "e2913c7d29b7b605c4fc6389b6a91b9838e446ed",
+  "manifest_sha256": "0f91d9cbb9eacfc87356e1b932ed04ca396d5e2efbceb9c83a9b7287529e7129",
+  "raw_artifact": "artifacts/EXP-386/receipt.json",
+  "raw_artifact_bytes": 86294,
+  "raw_artifact_sha256": "24471c96d0324a71a4a1bcbf5ef56905cfb226dfc847fc549ce88b7eed5412a2",
+  "elapsed_seconds": 873.6350857922807,
+  "solver_method": "Radau",
+  "matching_radius": 0.02,
+  "segment_count": 512,
+  "source_receipts": [
+    {
+      "experiment_id": "EXP-367",
+      "sha256": "9bb8300bff8b606a125f235592d4ebaa3415130b96d519a8b67fe9e3745eaf65"
+    },
+    {
+      "experiment_id": "EXP-368",
+      "sha256": "03daaaa5c08327bb8b9dcf21a68afd5613b4e1f4667481f7eb97be368ceb9481"
+    }
+  ],
+  "desired_c_increment": 0.000075,
+  "initial_maximum_block_residual": 0.0011801893051336869,
+  "final_residual_norm": 7.502415394704134E-7,
+  "final_matching_residual_norm": 7.502415394704052E-7,
+  "final_maximum_block_residual": 6.187790002507055E-7,
+  "final_arclength_residual": 1.1020004353490265E-13,
+  "final_variables": {
+    "a": 0.17982129005720598,
+    "c": 10.317082488741885,
+    "angle": 3.0704360106064272,
+    "total_flight_time": 234.41836420996785
+  },
+  "arclength_component_weights": {
+    "nodes": 0.01,
+    "total_flight_time": 0.01,
+    "a": 1.0,
+    "c": 1.0,
+    "angle": 0.01
+  },
+  "minimum_jacobian_singular_value": 1.381809613653062E-9,
+  "node_boundary_margin": 0.74593371835428,
+  "optimizer": {
+    "success": false,
+    "status": 0,
+    "message": "The maximum number of function evaluations is exceeded.",
+    "nfev": 40,
+    "njev": 35,
+    "optimality": 3.676140896080736E-8
+  },
+  "root_nominated": false,
+  "classification": "pseudoarclength_unresolved",
+  "failed_checks": [
+    "global_status_bound",
+    "maximum_final_a",
+    "optimizer_terminated_or_root_gate",
+    "root_nominated"
+  ],
+  "interpretation": "Forward predictor correction closes the weighted plane but reaches the prospective c lower wall at a 6.19e-7 matching floor and remains above the historical section. More iterations at the same wall are not licensed; the continuation increment must be reduced before another crossing attempt."
+}

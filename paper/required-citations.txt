@@ -1,0 +1,13 @@
+# One BibTeX key per line. These entries must exist and be cited in the paper.
+# The first five cover the source papers and every work explicitly requested
+# by the original referee. The Rössler paper defines the model itself.
+jones2012topological
+barrio2011global
+barrio2012topological
+holmes1984bifurcation
+lefranc1994combining
+rossler1976equation
+kantz1985repellers
+nusse1989procedure
+gilmore1998topological
+metropolis1973finite

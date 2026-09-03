@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.period320-qualification-summary.v1",
+  "experiment_id": "EXP-083",
+  "passed": false,
+  "source_commit": "04fffd6832624ab5856a4f3db84127ab8c81ad44",
+  "manifest_sha256": "59dafa876bb0f80e800f05bdb2f0fb955408c03d5d781cc1f8d0e6993c9a0edd",
+  "full_receipt_sha256": "99441eaee59c718fa853e090a608fff9da0e5562ce9cac42dbfc54cfee307d93",
+  "block_validation_modulus_error": 4.070152412587874e-8,
+  "candidate_matching_residuals": [
+    8.012172083813205e-13,
+    9.89365335441333e-13
+  ],
+  "candidate_period_difference": 2.2737367544323206e-11,
+  "candidate_dominant_nontrivial_moduli": [
+    0.0549699092186917,
+    0.05496953721419016
+  ],
+  "discrete_node_identity_rms": 0.00013757439187421814,
+  "diagnosis": "stability and fixed-parameter corrections passed, but 32 discrete phase shifts do not resolve the fractional phase offset between switch signs"
+}

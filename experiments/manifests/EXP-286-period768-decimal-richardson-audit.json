@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.jones-period768-decimal-richardson-audit-manifest.v1",
+  "experiment_id": "EXP-286",
+  "event_schema": "butterfly.jones-period768-augmented-flip-receipt.v1",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "source_schema": "butterfly.jones-period768-decimal-multiplier-audit-receipt.v1",
+  "source_receipt_sha256": "832e419cf3e1597a878df5a1f7da80a740626715f2d6bd34fb8f990ea33b6c21",
+  "expected_source_failed_check": "multiplier_convergence",
+  "decimal_digits": 50,
+  "source_step_counts": [4096, 8192],
+  "new_step_count": 16384,
+  "method_order": 4,
+  "workers": 8,
+  "cyclic_shifts": [0, 256, 512, 768],
+  "identity": {"historical_phase_count": 896, "barrio_phase_count": 1024},
+  "acceptance": {
+    "minimum_raw_convergence_ratio": 12.0,
+    "maximum_raw_convergence_ratio": 20.0,
+    "maximum_successive_richardson_flip_difference": 1e-7,
+    "maximum_extrapolated_flip_residual": 1e-7,
+    "maximum_successive_richardson_neutral_difference": 1e-7,
+    "maximum_extrapolated_neutral_residual": 1e-6,
+    "maximum_new_cyclic_spread": 1e-7,
+    "maximum_new_characteristic_residual": 1e-30,
+    "maximum_new_orbit_matching_residual": 1e-7,
+    "maximum_new_tangent_matching_residual": 1e-6,
+    "minimum_proper_subperiod_closure": 2e-6
+  },
+  "claim_scope": "prospective three-level 50-decimal-digit Richardson convergence audit of the failed EXP-285 classical-RK4 multiplier sequence, adding a full 16384-step profile at every immutable EXP-281 segment; the observed 4096/8192 values are bound but the new profile is untouched, raw convergence must remain consistent with fourth order, successive order-4 Richardson flip and neutral estimates must converge under fixed gates, and cyclic, characteristic, orbit, tangent, primitive, and exact-section gates remain mandatory; a pass qualifies one converged high-precision classical-RK4 multiplier estimate at the immutable coordinate and permits a separately frozen independent high-precision integrator audit, but does not by itself qualify the seventh event or establish a period-1536 child, accumulation law, universality, or global parameter-plane topology"
+}

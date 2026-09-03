@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period24-to48-segmented-child-switch-summary.v1",
+  "experiment_id": "EXP-245",
+  "passed": true,
+  "source_commit": "6f55a6026b6bbc463c00b065de4cda1b2ee03035",
+  "manifest_sha256": "1b4d96b115a682be5d5efe52d95246bcd0989c2d335faf3ca4a798c93b29fc0e",
+  "event_receipt_sha256": "9c3579c86500998daca262dda77b480beaaee913ab3089767bea3a20102defba",
+  "raw_artifact": "artifacts/EXP-245/receipt.json",
+  "raw_artifact_bytes": 40488,
+  "raw_artifact_sha256": "a94cc3efe278fdc6ddae53ac4610d46564beab1c7424e29253ae746606038527",
+  "event_matching_residual": 4.2091564764138885e-12,
+  "secondary_null_residual": 1.3911071349503697e-12,
+  "attempt_count": 6,
+  "accepted_candidate_count": 2,
+  "accepted_step_length": 0.002,
+  "accepted_directions": [-1, 1],
+  "candidate_a_range": [0.24070104590496114, 0.24070104590857766],
+  "candidate_half_period_closure_range": [0.0004921297049581223, 0.0004964580899181824],
+  "candidate_preliminary_modulus_range": [0.9870314970717244, 0.987257576523686],
+  "historical_phase_count": 56,
+  "barrio_phase_count": 64,
+  "interpretation": "Exact segmented switching nominates primitive period-48 solutions on both anti-periodic mode signs. Independent stability exchange remains frozen in EXP-246."
+}

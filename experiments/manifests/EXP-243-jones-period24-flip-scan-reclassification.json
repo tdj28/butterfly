@@ -1,0 +1,15 @@
+{
+  "schema": "butterfly.jones-period24-flip-scan-reclassification-manifest.v1",
+  "experiment_id": "EXP-243",
+  "scan_schema": "butterfly.jones-period24-segmented-flip-scan-receipt.v1",
+  "scan_receipt_sha256": "f86482271775b9f0ba2af25312c1522845b80bfaabd63ee25f3b52c44d88ad9c",
+  "acceptance": {
+    "required_points": 21,
+    "required_flip_brackets": 1,
+    "minimum_modulus_separation_ratio": 1e8,
+    "maximum_multiplier_imaginary": 1e-6,
+    "maximum_initial_multiplier_modulus": 0.9999,
+    "maximum_terminal_multiplier_real": -2.0
+  },
+  "claim_scope": "result-informed reclassification of the immutable EXP-242 direct-product spectra after its nearest-neighbor rule swapped onto the collapsed near-zero transverse multiplier; the replacement selects the uniquely magnitude-separated non-neutral multiplier at every row, requires at least eight orders of modulus separation, and freezes exactly one real-minus-one bracket; a pass nominates that bracket for a separately frozen exact augmented segmented period-24 event solve but does not establish the event, a period-48 child, criticality, attraction, sign equivalence, a child sheet, paired shrimp boundaries, TBA membership, double-criticality, or a global parameter-plane explanation"
+}

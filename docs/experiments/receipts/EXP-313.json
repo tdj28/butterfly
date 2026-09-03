@@ -1,0 +1,27 @@
+{
+  "schema": "butterfly.jones-period3072-first-separated-criticality-summary.v1",
+  "experiment_id": "EXP-313",
+  "passed": false,
+  "source_commit": "1079dfd3d3c22d3d802e4dc01c0b3f61b20924cc",
+  "manifest_sha256": "212ea107481497f6b80fc969a4e1ffef3fbc593e8ab30ded7aa6d049d07784fe",
+  "continuation_receipt_sha256": "d12f7e73df018745e031384c1174342a39a45e8982f69312f589935db5258e02",
+  "event_receipt_sha256": "59be65492475319a704f19fdc88ec985571a9cc117c837530804b43a2a34098c",
+  "raw_artifact": "artifacts/EXP-313/receipt.json",
+  "raw_artifact_bytes": 765961,
+  "raw_artifact_sha256": "31713599cd595f690cec64a3a5a32f72a1e326fa0cde52e78adebc24fa1ae39a",
+  "elapsed_seconds": 6921.879576291889,
+  "target_a": 0.24070100821872153,
+  "a_offset": -4.524158825347513e-12,
+  "classifications": {
+    "dop853": {"parent": "unstable", "child": "unstable"},
+    "radau": {"parent": "unstable", "child": "unstable"}
+  },
+  "parent_moduli": [1.0023029157656944, 1.0023671999958215],
+  "child_moduli": [22667.88286182802, 22667.89015610283],
+  "parent_multiplier_relative_spread": 6.413241587246876e-5,
+  "child_multiplier_relative_spread": 3.2178887219503665e-7,
+  "parent_solver_node_rms": 7.905143640538608e-10,
+  "child_solver_node_rms": 0.0,
+  "local_criticality_classification": "other-or-unresolved",
+  "interpretation": "Both solvers independently classify both the period-1536 parent and primitive period-3072 child as unstable while every orbit, identity, nonclosure, and agreement gate passes. The farther branch row therefore does not resolve birth direction; it shows that the curved daughter branch has crossed to the parent-unstable side."
+}

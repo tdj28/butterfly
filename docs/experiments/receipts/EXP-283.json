@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.jones-period768-float64-resolution-summary.v1",
+  "experiment_id": "EXP-283",
+  "passed": true,
+  "source_commit": "5f186df5595ed9876ac1757fa054afadeeca0645",
+  "manifest_sha256": "a22d796d064ad29f6ac73472d209681784ad888df720b88f81c8a5b5b39fb710",
+  "scan_receipt_sha256": "882a2943be868e3f1ed0edbd0cd4c4912d88d38a09fa3985c3302a3bed6034b2",
+  "precision_receipt_sha256": "41e409957e70b7069434d845cc9cd7135a3fc7523c62f4f1b5dfe734d940c4e1",
+  "raw_artifact": "artifacts/EXP-283/receipt.json",
+  "raw_artifact_bytes": 2085,
+  "raw_artifact_sha256": "8c95e4f58cd77dd58b9272a1bbe7559e8287957c439a9e53462e8f60c3095a4d",
+  "corrected_a": 0.2407010081734325,
+  "a_spacing": 2.7755575615628914e-17,
+  "bracket_width_ulps": 4387556.0,
+  "solver_disagreement": 3.6729214847319724e-7,
+  "minimax_centering_residual": 1.8364607423659862e-7,
+  "estimated_multiplier_increment_per_ulp": 1.0239948229278233e-6,
+  "interpretation": "Both the tight two-solver disagreement and the bracket-secant multiplier increment per representable a exceed the unchanged event gate, diagnosing a Float64 resolution frontier without qualifying the seventh event."
+}

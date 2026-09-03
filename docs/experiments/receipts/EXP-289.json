@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.jones-period1536-near-event-qualification-summary.v1",
+  "experiment_id": "EXP-289",
+  "passed": false,
+  "source_commit": "a83579789cbfa2c88ff830fcd94454938794c736",
+  "manifest_sha256": "3fb3b259356ed5f08764948b7b65f4e72d2ad00300270ccda1e51d9b26ae4b13",
+  "switch_receipt_sha256": "d06fe7cb53d69d7b4692d14c8947f7db6ebd9ed6952b610eb2817b95c6cf4de0",
+  "event_receipt_sha256": "b31c07081892d09bf37d53b949b4fb6365ae86ae18f54ba65a2dcc672437a790",
+  "audit_receipt_sha256": "b0535b124411e3d7f4a18852843a9f47224ab4497bc9f27c10ecd9d8ccde939a",
+  "raw_artifact": "artifacts/EXP-289/receipt.json",
+  "raw_artifact_bytes": 388767,
+  "raw_artifact_sha256": "546a199d1c3747d2eeaaa868f420c5bcc5ab3de9b8a3ab6a144e957d0a13f16c",
+  "target_a": 0.24070100817350334,
+  "a_offset": 7.083222897108499e-14,
+  "dop853_parent_modulus": 0.999997255707068,
+  "radau_parent_modulus": 1.0000021581550373,
+  "dop853_child_modulus": 1.1073340103541303,
+  "radau_child_modulus": 1.1073276570168011,
+  "parent_multiplier_relative_spread": 4.90243738913718e-6,
+  "child_multiplier_relative_spread": 5.7375076261694075e-6,
+  "local_criticality_classification": "other-or-unresolved",
+  "interpretation": "Both solvers classify the primitive period-1536 child as unstable and pass every nonclassification gate, but the parent moduli straddle one inside the frozen neutral margin, so criticality remains unresolved rather than being promoted as subcritical."
+}

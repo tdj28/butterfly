@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.unit-event-surface-patch-summary.v1",
+  "experiment_id": "EXP-037",
+  "passed": false,
+  "source_commit": "e6d6ed390b175dc8e6464f5b593dc4d6d2d4580e",
+  "manifest_sha256": "dbc3d93f0dfb64b92b419c33fe64358320335421ef281910a059ec8a93187313",
+  "source_spine_receipt_sha256": "5ced7a162409846449bf1b51015b9a6f5b19826aac6b042b1de334ed34176ba1",
+  "full_receipt_sha256": "f992bfc959dcf4825b86c9b2c563078e87d4f321ec94f6b398f465b9f07c1e33",
+  "row_count": 24,
+  "valid_point_count": 23,
+  "required_point_count": 25,
+  "complete_c_slices": [5.0, 5.1, 5.2, 5.3],
+  "failed_coordinate": {"a": 0.2425, "c": 4.9},
+  "failed_closure_error": 0.21935592864338188,
+  "failed_eigen_residual": 0.06652983555436762,
+  "interpretation": "The coarse local surface patch fails at the first lower-a c=4.9 point. Four complete slices and three valid c=4.9 points survive; EXP-038 prospectively halves the a step over the same domain."
+}

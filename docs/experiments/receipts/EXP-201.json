@@ -1,0 +1,80 @@
+{
+  "schema": "butterfly.jones-smoothing-scale-audit-summary.v1",
+  "experiment_id": "EXP-201",
+  "passed": true,
+  "source_commit": "63d9ec2569ccf9b512809f38f8650842337e6ccf",
+  "source_archive_sha256": "c173e3901f8900f20655b515abd833996f5734b4dbef456a919f7acae7685bde",
+  "manifest_sha256": "6669ba8343719f25a079db8321ef08ca806817e54f3b9a6ce3ff19f5601335a3",
+  "selection_manifest_sha256": "f6b26017d473f51b5bbd074ba9610676dd25f4b9089148063951767dd416d609",
+  "candidate_input_sha256": "79065c539cd6c3ae16ea2ed6b5dc627e8a2322d6de950295f56f43d42b747ed0",
+  "raw_artifact": "artifacts/EXP-201/receipt.json",
+  "raw_artifact_bytes": 1261031,
+  "raw_artifact_sha256": "537699301785f34ad4e28c5ef682660851ea5e23af4ed7094b0164ac9078097c",
+  "candidate_count": 104,
+  "qualified_candidate_count": 94,
+  "minimum_qualified_candidate_count": 70,
+  "all_pair_gates_passed": true,
+  "transition_resolved_candidate_count": 94,
+  "transition_unresolved_candidate_count": 10,
+  "qualified_transition_index_spans": {
+    "0": 86,
+    "1": 8
+  },
+  "qualified_transition_bracket_counts": {
+    "2.1544346900318823e-05_to_4.641588833612782e-05": 7,
+    "2.1544346900318823e-05_to_0.0001": 25,
+    "4.641588833612782e-05_to_0.0001": 344
+  },
+  "qualified_normalized_second_critical_span": {
+    "median": 0.010310527982295148,
+    "maximum": 0.016794277151543247,
+    "gate": 0.03
+  },
+  "support_pair_counts": {
+    "nested_2048": {
+      "minimum": 11505,
+      "median": 13056.0,
+      "maximum": 17683
+    },
+    "full_8192": {
+      "minimum": 45125,
+      "median": 51393.0,
+      "maximum": 70516
+    }
+  },
+  "profiles": [
+    {
+      "name": "rk4_dt_001",
+      "dt": 0.01,
+      "elapsed_seconds": 35.951965800952166,
+      "state_steps_per_second": 473947936.3753935,
+      "resolved_support_reconstructions": 199
+    },
+    {
+      "name": "rk4_dt_0005",
+      "dt": 0.005,
+      "elapsed_seconds": 67.7790676872246,
+      "state_steps_per_second": 502791218.03888965,
+      "resolved_support_reconstructions": 197
+    }
+  ],
+  "environment": {
+    "python": "3.11.11",
+    "numpy": "2.1.2",
+    "scipy": "1.17.1",
+    "torch": "2.8.0.dev20250319+cu128",
+    "torch_cuda": "12.8",
+    "triton": "3.3.0",
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_memory_bytes": 25283526656
+  },
+  "provisioning": {
+    "runpod_id": "d0gj1ov2cojzfb",
+    "rate_usd_per_hour": 0.27,
+    "estimated_cost_upper_bound_usd": 0.12,
+    "remote_local_hash_match": true,
+    "task_worker_terminated": true,
+    "active_account_pods_after_teardown": 0
+  },
+  "interpretation": "The shallow lower-c critical and its three-to-two smoothing transition qualify as a reproducible finite-data scale object across nested support and two RK4 steps. This does not identify the invariant zero-smoothing topology or establish double superstability."
+}

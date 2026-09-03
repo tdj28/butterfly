@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.coverage-censor-summary.v1",
+  "experiment_id": "EXP-121",
+  "passed": true,
+  "source_commit": "8d96f1cffb7ba377c50c58048213c8f350b751b5",
+  "manifest_sha256": "6336867a91671ae9f29ad5078cfdce86dc4e84327a9783f94a479d8a7940b853",
+  "raw_receipt": "artifacts/EXP-121/receipt.json",
+  "raw_receipt_sha256": "f396d3e034a2ee4f3f8a2785316b7ec099021c512d22274f93efb548ef985b9b",
+  "raw_receipt_bytes": 265746,
+  "elapsed_seconds": 686.7905749171041,
+  "ordered_branch_counts": [2, 2, 3],
+  "sampled_transition_bracket": [0.145, 0.149],
+  "a145_minimum_final_survivors": 327,
+  "a145_minimum_return_pairs": 2768,
+  "a145_y_variants": {"fully_resolved_two": 105, "coverage_censored_nominal_two": 0, "rejected": 0},
+  "a145_z_variants": {"fully_resolved_two": 84, "coverage_censored_nominal_two": 21, "rejected": 0, "minimum_coverage": 0.6875},
+  "a145_maximum_across_run_critical_span": 0.01494500904083026,
+  "published_control_variants": {"fully_resolved": 420, "coverage_censored": 0, "rejected": 0},
+  "maximum_short_horizon_scaled_state_error": 2.668670290493069e-6,
+  "maximum_short_horizon_time_error": 1.7196749535486333e-6,
+  "integration_failures": 0,
+  "interpretation": "the prospectively frozen coverage-censor rule reproduces both published controls and qualifies the a=0.145 saddle as two-branch, narrowing the sampled saddle transition bracket to [0.145,0.149] without establishing a continuous global TBA curve"
+}

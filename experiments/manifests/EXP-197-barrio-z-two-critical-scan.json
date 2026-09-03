@@ -1,0 +1,71 @@
+{
+  "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+  "experiment_id": "EXP-197",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-195.json",
+      "sha256": "266eab73eda1c20b9be200008835cf745982224475a1c328d94154d83c897b20",
+      "role": "58 corrected stable candidates with immutable eight-phase Barrio representations"
+    },
+    {
+      "path": "docs/experiments/receipts/EXP-196.json",
+      "sha256": "081c73d4470472a69200790f4004f3fabcd52b74ec9a87761850f7bb556dc55f",
+      "role": "exact CPU/GPU statistical parity for the eight-phase Barrio z-map kernel"
+    }
+  ],
+  "candidate_input_sha256": "0bbf83dda61ea29b87a469c5ece5459467bea1847684d6683f3f8e5aeecbed20",
+  "expected_candidate_count": 58,
+  "section": {"kind": "barrio_positive_x"},
+  "cycle_state_count": 8,
+  "return_coordinate": {"name": "z", "axis": 2},
+  "profiles": [
+    {"name": "rk4_dt_001", "dt": 0.01},
+    {"name": "rk4_dt_0005", "dt": 0.005}
+  ],
+  "ensemble": {
+    "x_range": [-14.0, -0.2],
+    "x_count": 64,
+    "z_range": [0.008, 0.55],
+    "z_count": 32,
+    "horizon": 200.0,
+    "checkpoint_times": [50.0, 100.0, 150.0, 200.0],
+    "midpoint_window": [80.0, 140.0],
+    "escape_radius": 1000000.0
+  },
+  "capture": {
+    "coordinate_axes": [1, 2],
+    "coordinate_scales": [15.0, 0.01],
+    "radius": 0.0002,
+    "required_crossings": 5
+  },
+  "gpu": {"chunk_steps": 512, "max_recorded_crossings": 32, "dtype": "float64"},
+  "oracle_common": {
+    "minimum_bin_points": 4,
+    "grid_size": 4097,
+    "minimum_prominence": 0.03,
+    "maximum_conditional_spread_ratio": 0.1,
+    "minimum_domain_coverage": 0.6,
+    "bootstrap_samples": 50,
+    "minimum_bootstrap_consensus": 0.8,
+    "random_seed": 197
+  },
+  "oracle_variants": [
+    {"name": "bins20", "options": {"bin_count": 20, "smoothing": 1e-5}},
+    {"name": "bins25", "options": {"bin_count": 25, "smoothing": 1e-5}},
+    {"name": "bins30", "options": {"bin_count": 30, "smoothing": 1e-5}},
+    {"name": "smooth1e-4", "options": {"bin_count": 25, "smoothing": 1e-4}},
+    {"name": "prominence005", "options": {"bin_count": 25, "smoothing": 1e-5, "minimum_prominence": 0.05}}
+  ],
+  "acceptance": {
+    "minimum_final_survivors": 500,
+    "minimum_return_pairs": 4000,
+    "maximum_normalized_critical_span": 0.05,
+    "maximum_step_critical_midpoint_difference": 0.03,
+    "maximum_survivor_fraction_difference": 0.03,
+    "minimum_eligible_candidates": 3,
+    "maximum_selected_midpoint_distance": 0.05,
+    "maximum_selected_interval_distance": 0.02,
+    "maximum_selected_zero_slope_residual": 0.2
+  },
+  "claim_scope": "target-word-blind GPU discovery scan over all 58 corrected stable candidates from the isolated second-landmark component, using the qualified positive-x Barrio section, all eight section phases, two survivor-derived z criticals, and factor-two RK4 parity; a pass nominates a center for independent DOP853/Radau and denser local confirmation but does not prove double superstability, a Figure 6 word, TBA membership, tangency, or global continuation"
+}

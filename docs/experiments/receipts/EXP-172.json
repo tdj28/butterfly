@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.period8-c-flip-switch-summary.v1",
+  "experiment_id": "EXP-172",
+  "passed": true,
+  "source_commit": "6593c651c94eecceef2062cb96703fb6667ef2ad",
+  "manifest_sha256": "471ce984ada5b45a9c3c851925fc43c807a9d61bcde0193b236509a3ad344a3c",
+  "event_receipt_sha256": "f889f48fada33c8d169488b87c91434b7afe26e3432ced9610ee9adb46a1aecf",
+  "parent_receipt_sha256": "a420205fc0719d5b61bd29d8bd8eeef209ab5805c173a9bd9bea6ae75a4c7e09",
+  "raw_receipt": "artifacts/EXP-172/receipt.json",
+  "raw_receipt_sha256": "36fcdffe894d4f55d63e60dbd9bd01cdf5c8529d8fadcf88e0867b26488b60cd",
+  "raw_receipt_bytes": 34138,
+  "smallest_shooting_singular_value": 5.014420682525377e-12,
+  "absolute_tangent_dot": 6.938893903907228e-18,
+  "points_per_direction": [24, 24],
+  "endpoint_distances_from_doubled_parent": [0.03433688089143238, 0.010125279105874296],
+  "endpoint_half_period_closures": [0.06345487876782266, 0.06682824190590891],
+  "endpoint_multiplier_moduli": [6.6862959503398915, 8.333838006379745],
+  "selected_qualification_c": 4.716,
+  "interpretation": "Both signs open nontrivial period-16 arms. Their endpoints have passed beyond the narrow stable window, so qualification is frozen at the common interior c=4.716 where both recorded arms are stable and well separated."
+}

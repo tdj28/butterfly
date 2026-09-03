@@ -1,0 +1,19 @@
+{
+  "schema": "butterfly.jones-zero-edge-candidates-summary.v1",
+  "experiment_id": "EXP-189",
+  "passed": true,
+  "source_commit": "84a9621f5a61efc28ad2f53fecee1213348864cc",
+  "source_dirty": false,
+  "manifest_sha256": "4baa47e16283f692edb568583c46faa38535e7fbe20296f1f12807ec3880ceed",
+  "candidate_artifact_sha256": "33ccb7968190d2af7ac775fcbc0418fab76ea1935bd83027db0178f5f379070a",
+  "elapsed_seconds": 18.07647908339277,
+  "zero_edge_count": 65,
+  "passed_candidate_count": 65,
+  "maximum_closure_error": 1.830701963943116e-12,
+  "maximum_phase_residual": 4.6827707772877274e-18,
+  "maximum_endpoint_scaled_orbit_error": 0.032104721508000075,
+  "maximum_neutral_multiplier_error": 2.036483426337554e-9,
+  "transverse_multiplier_modulus_range": [8.305159991006043e-5, 0.04717203335343861],
+  "parameter_ranges": {"a": [0.21514, 0.21614], "b": [0.2, 0.2], "c": [6.105888051519179, 6.132050307683685]},
+  "interpretation": "Every signed-Floquet zero edge yields a stable, identity-safe corrected period-6 candidate. No candidate is ranked or assigned a critical or symbol until EXP-190."
+}

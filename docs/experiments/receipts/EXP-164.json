@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.period4-c-arclength-to-flip-summary.v1",
+  "experiment_id": "EXP-164",
+  "passed": true,
+  "source_commit": "f3ee0ff3cabd6d42d0506f24b7bf92f3d6b291ff",
+  "manifest_sha256": "13e97eed16d1710f92ab43474eea8b8afc2bdba958dbf74adee2afef0cbd7c09",
+  "source_receipt_sha256": "dcaebcc2a6ad4225eba12ecb19da579aae44dd88c050ac72a2a7ace2973601ce",
+  "raw_receipt": "artifacts/EXP-164/receipt.json",
+  "raw_receipt_sha256": "7a4acee514dbfe83abcc11696ec5638e72d9b96316b4576a9224858baff471ab",
+  "raw_receipt_bytes": 29830,
+  "point_count": 38,
+  "c_range": [4.32509368978852, 4.729261323804735],
+  "first_real_minus_one_bracket": [4.631470750402099, 4.6511284829018225],
+  "bracket_multipliers": [-0.9679953281145295, -1.0947016212302736],
+  "maximum_closure_error": 2.3453238545205895e-12,
+  "minimum_half_period_closure": 0.29514070042918145,
+  "maximum_winding_error": 6.572520305780927e-14,
+  "independent_check_count": 3,
+  "maximum_independent_identity_rms": 5.558938931152974e-12,
+  "maximum_independent_multiplier_difference": 1.5499601602186885e-11,
+  "interpretation": "Pseudo-arclength continuation preserves the primitive four-winding period-4 child and brackets its first real -1 crossing."
+}

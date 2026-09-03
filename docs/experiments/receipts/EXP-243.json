@@ -1,0 +1,17 @@
+{
+  "schema": "butterfly.jones-period24-flip-scan-reclassification-summary.v1",
+  "experiment_id": "EXP-243",
+  "passed": true,
+  "source_commit": "e8933df48c03e85bb6e2d52e62174ad220946513",
+  "manifest_sha256": "8eb833579c4b83dd95f53a59689132b2ca6e04336283d218ac3641d9bc4b672d",
+  "scan_receipt_sha256": "f86482271775b9f0ba2af25312c1522845b80bfaabd63ee25f3b52c44d88ad9c",
+  "raw_artifact": "artifacts/EXP-243/receipt.json",
+  "raw_artifact_bytes": 7079,
+  "raw_artifact_sha256": "9cb35ac8d303dd9a65b29c5e4b22eba8dd1017f0d43fefb1a1604940c6396cf1",
+  "minimum_modulus_separation_ratio": 5.800105356305009e17,
+  "flip_bracket_count": 1,
+  "a_bracket": [0.24070104185451183, 0.24070114273020712],
+  "stable_endpoint_multiplier": 0.4502522448156048,
+  "unstable_endpoint_multiplier": -1.06659469899932,
+  "interpretation": "The immutable 21-row spectra contain one unambiguous real-minus-one bracket after excluding a collapsed transverse mode separated by at least 5.80e17 in modulus."
+}

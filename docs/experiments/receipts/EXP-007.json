@@ -1,0 +1,40 @@
+{
+  "schema": "butterfly.tiled-scan-receipt.v1",
+  "experiment_id": "EXP-007",
+  "plan_hash": "a306e9911acd9affc891b290b7b5c29df7dad0afe25d3d92766892082cb420d9",
+  "input_manifest_sha256": "eeeb210cf1cf035111ad143440fb81e39e2d8a64c34453468736d96ca72e21c9",
+  "tile_count": 4,
+  "tile_ids": [
+    "47faed2c394452033c22ad0429360ed92a4a43f3e7a5fa45cce041602ef55e9c",
+    "1ed1440e7648117b7c0fd7d7fc7daead5f40cbb61c91570d75ec4103994a6793",
+    "695ca5b66ad61eb5c19a394a41b6e8fe5e0c833ccc66d8e8706dac25e2140fa2",
+    "0d12bfcac17e787cd2976ef4d76ed3fcec9ccc295c89804b9cf494529da4276a"
+  ],
+  "tile_result_sha256": [
+    "4d5eb403dbfab4725bc624e0b7062adefcbfa693eed460b15abfa55ae66f3db4",
+    "51a81da6446218bd3550850a9cbab47956126f72699a135c7e22c4c865ba1117",
+    "ccb3860d807f5c08f71fb522d0ace6c794426493833a719e867753cc71fecfc5",
+    "e130c53124d21e840225f473c2adf7bd3eca09099de5cde401b7d68da7b0af2f"
+  ],
+  "row_count": 16,
+  "result_sha256": "a5e81c2c971fc4edfeb8890f2851a7cf5137d44974d4f6673599d6b1e8375b42",
+  "aggregate_receipt_sha256": "0daa033685854b49d0ee837b075220a6052b087fb593b31e23662f8974a03bda",
+  "aggregate_completion_sha256": "1f968100185289acb19065d8efad0210d49e98aa991288d85c1f0a90868b662c",
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "c154f07c42676dfb259d23d1a117560aa5edf8c7",
+    "dirty": false
+  },
+  "label_counts": {
+    "unresolved": 16
+  },
+  "qualification": {
+    "point_indices_exact": true,
+    "all_tiles_clean": true,
+    "resume_verified_all_tiles": true,
+    "resume_elapsed_seconds": 0.39,
+    "corruption_rejection_test": true,
+    "interrupted_temporary_file_recovery_test": true
+  },
+  "limitation": "Actual process-kill restart remains required locally and on the eventual remote stack."
+}

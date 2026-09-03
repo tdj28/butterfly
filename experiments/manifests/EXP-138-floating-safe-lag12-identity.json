@@ -1,0 +1,68 @@
+{
+  "schema": "butterfly.a-upo-continuation-manifest.v1",
+  "experiment_id": "EXP-138",
+  "source_experiment": "EXP-133",
+  "source_receipt_sha256": "5c1135f8278ca6a836d50d0e855d8061ededf36b35aaeab787f5a385d703930c",
+  "identity_experiment": "EXP-135",
+  "identity_receipt_sha256": "e14655511f032efb16a5a8a69baeeadbbff522cb350e3b2a7229d373318e0c0f",
+  "branches": [
+    {
+      "id": "lag12-lower-to-upper-flow",
+      "source_case_id": "local-two-branch-saddle",
+      "source_recovery_index": 6,
+      "fundamental_lag": 12,
+      "a_start": 0.148,
+      "a_stop": 0.14825,
+      "a_step": 0.0000125
+    },
+    {
+      "id": "lag12-upper-to-lower-flow",
+      "source_case_id": "local-three-branch-saddle",
+      "source_recovery_index": 4,
+      "fundamental_lag": 12,
+      "a_start": 0.14825,
+      "a_stop": 0.148,
+      "a_step": 0.0000125
+    }
+  ],
+  "section_count": {
+    "gate": false,
+    "phase_fraction": 0.1,
+    "expected_crossings": 12
+  },
+  "shared_family_identity": {
+    "left_branch_id": "lag12-lower-to-upper-flow",
+    "right_branch_id": "lag12-upper-to-lower-flow",
+    "comparison_a": 0.148125,
+    "parameter_match_tolerance": 1E-14,
+    "coordinate_scales": [
+      1.0,
+      30.0,
+      0.0006
+    ],
+    "phase_samples": 512,
+    "phase_shift_tolerance": 1E-12,
+    "classification": {
+      "minimum_distinct_relative_period_difference": 0.0001,
+      "minimum_distinct_phase_invariant_rms": 0.001
+    }
+  },
+  "corrector": {
+    "maximum_evaluations": 80,
+    "tolerance": 1E-11
+  },
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1E-10,
+    "atol": 1E-12,
+    "max_step": 0.05
+  },
+  "acceptance": {
+    "maximum_flow_closure": 1E-8,
+    "maximum_neutral_multiplier_error": 0.00001,
+    "minimum_proper_divisor_closure": 0.001,
+    "minimum_instability_margin": 0.001,
+    "maximum_shared_relative_period_difference": 0.000001,
+    "maximum_shared_phase_invariant_rms": 0.00001
+  }
+}

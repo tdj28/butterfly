@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.period8-c-arclength-to-flip-summary.v1",
+  "experiment_id": "EXP-169",
+  "passed": true,
+  "source_commit": "ecd8b49c86fe501ebf299198cec604692d4f1e15",
+  "manifest_sha256": "db6ae479bb4afbce7518d34bde2edb0c04dc7100541af0b950752b8f35edc488",
+  "source_receipt_sha256": "95e3b92f038c1a78ff2e7967e2998d5836c83c3cf69d30e5aef6f72f060eb78e",
+  "raw_receipt": "artifacts/EXP-169/receipt.json",
+  "raw_receipt_sha256": "a420205fc0719d5b61bd29d8bd8eeef209ab5805c173a9bd9bea6ae75a4c7e09",
+  "raw_receipt_bytes": 11089,
+  "point_count": 13,
+  "c_range": [4.705611030651078, 4.759850083754651],
+  "first_real_minus_one_bracket": [4.708476891711592, 4.711572660267806],
+  "bracket_multipliers": [-0.9842624418387966, -1.0756303712386446],
+  "maximum_closure_error": 2.2501972433303945e-12,
+  "minimum_half_period_closure": 0.23427702482183455,
+  "maximum_winding_error": 6.128431095930864e-14,
+  "independent_check_count": 2,
+  "maximum_independent_identity_rms": 4.160670003115298e-12,
+  "maximum_independent_multiplier_difference": 4.575895218295045e-11,
+  "interpretation": "The unchanged-gate successor preserves the primitive eight-winding period-8 child, collects thirteen points, and brackets its first real -1 crossing."
+}

@@ -1,0 +1,26 @@
+{
+  "elapsed_seconds": 2.3639362091198564,
+  "environment": {
+    "numpy": "2.5.1",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "scipy": "1.18.0"
+  },
+  "experiment_id": "EXP-003",
+  "finished_at": "2026-08-06T20:48:16.943805+00:00",
+  "input_manifest_sha256": "e7e763c23b0d9dada34f481d66f0ce0189c0bf59668b9c8e9e643f51a6fde247",
+  "label_counts": {
+    "unresolved": 9
+  },
+  "plan_hash": "9f9c3f071f98282dcae737c421b5cb20bcf3c5bed97a17d33fb82018a2055b55",
+  "result_file": "result.json",
+  "result_sha256": "c5c2c5b9e752fd65c0ebaf963edefbdc15f5b1fcef1ecd21ed781f5e1fd77ff3",
+  "row_count": 9,
+  "schema": "butterfly.scan-receipt.v1",
+  "source": {
+    "branch": "feat/modernize-shrimp-findings",
+    "commit": "0316c7ab1a286ed94f5a4ece7b3286f0774176d8",
+    "dirty": false
+  },
+  "started_at": "2026-08-06T20:48:14.577872+00:00"
+}

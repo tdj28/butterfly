@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.unit-event-c-spine-summary.v1",
+  "experiment_id": "EXP-036",
+  "passed": true,
+  "source_commit": "4d243ab8668daaa3a6c3da326aa8cada6ca2020a",
+  "manifest_sha256": "1af0cc8c51988cf66d3ad3ff2807b037ebabed5119254d9bda139b2711cb8b8e",
+  "source_event_receipt_sha256": "bcd3ffcd261f48298ba58ed1ac1eb08f446bd2d68f6d0a4234cf0155a32a6e54",
+  "full_receipt_sha256": "5ced7a162409846449bf1b51015b9a6f5b19826aac6b042b1de334ed34176ba1",
+  "point_count": 13,
+  "fixed_a": 0.245,
+  "c_range": [4.8, 5.4],
+  "b_range": [0.23832714557632417, 0.3134384568021982],
+  "max_adjacent_b_jump": 0.008466091963370947,
+  "max_closure_error": 1.6947820507808415e-12,
+  "max_eigen_residual": 5.479028630432832e-13,
+  "max_flow_orthogonality_residual": 3.702677473980086e-17,
+  "interpretation": "The coupled event persists smoothly in c at fixed a=0.245, providing a transverse spine for a prospective event surface."
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.jones-period96-sign-phase-resolution-audit-summary.v1",
+  "experiment_id": "EXP-256",
+  "passed": true,
+  "source_commit": "444b609aaa47f41c8f173ea7ea8808c6c7691613",
+  "manifest_sha256": "da1340ab71f4e297a928bff911017778216d99493bad0ac653b19a244dbb3478",
+  "source_receipt_sha256": "2d7d709643aa720c2910c9ac523c730b790aab2edb62f95e0bd82a1d8458ed07",
+  "raw_artifact": "artifacts/EXP-256/receipt.json",
+  "raw_artifact_bytes": 2480,
+  "raw_artifact_sha256": "fab190b9975dbaa47fe5b68016f71fb1bf3e206761fb6c22834b8fc9f96cb892",
+  "target_a": 0.24070101600213994,
+  "dop853_phase_shift": 0.5000000060318837,
+  "radau_phase_shift": 0.5000000060309144,
+  "dop853_sign_identity_rms": 3.454930054163987e-10,
+  "radau_sign_identity_rms": 4.5728705007575484e-9,
+  "final_phase_bracket_width": 7.882583474838611e-15,
+  "interpretation": "Continuous phase resolution independently establishes that both period-96 tangent signs are one stable primitive orbit up to an approximately half-period shift."
+}

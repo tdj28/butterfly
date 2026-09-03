@@ -1,0 +1,30 @@
+{
+  "schema": "butterfly.candidate-confirmation-receipt.v1",
+  "experiment_id": "EXP-014",
+  "plan_hash": "985aa21bc13a0bfdf27cf87704b7955ae8ab0c0ee812492dd08b44ebd942762a",
+  "source_result_sha256": "58aa45114962c285edff6deab08915f89f953b5b7437996b82bb9a7ad6e50e3d",
+  "result_sha256": "85f8553ce644dd13b96e7596a7b85b613a8f2a233fd3147a3643ce28e898d75b",
+  "source": {
+    "commit": "fc64ad7c52f95e8344449d5e247a264ad79cfbef",
+    "branch": "feat/modernize-shrimp-findings",
+    "dirty": false
+  },
+  "core_count": 39,
+  "selected_count": 39,
+  "row_count": 39,
+  "tile_count": 16,
+  "summed_tile_seconds": 590.1768505433574,
+  "maximum_tile_seconds": 55.17475362494588,
+  "label_counts": {
+    "multistable": 4,
+    "periodic": 26,
+    "unresolved": 9
+  },
+  "initial_condition_label_counts": {
+    "chaotic": 2,
+    "periodic": 63,
+    "unresolved": 13
+  },
+  "finite_time_multistability_point_indices": [208, 317, 355, 1087],
+  "interpretation_limit": "Finite-time distinct outcomes are not persistent-multistability evidence until long transient capture is rejected."
+}

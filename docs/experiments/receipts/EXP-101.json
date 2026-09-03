@@ -1,0 +1,23 @@
+{
+  "schema": "butterfly.analytic-augmented-flip-summary.v1",
+  "experiment_id": "EXP-101",
+  "passed": false,
+  "source_commit": "3bcb0a2c91c6baefbe18c84e4948671234f98c5e",
+  "manifest_sha256": "e448872cce6f7837d3c1b289f0fbf6f4c78b0a847fccdee77e024d0130c7d556",
+  "full_receipt_sha256": "be34f74bde50df60763f26b25179e1309c953aa08e0413131e77bad98c9ff95a",
+  "corrected_b": 0.17971249507978945,
+  "reference_error": 1.0858597077056942e-9,
+  "orbit_matching_residual": 1.782513437836942e-9,
+  "tangent_transport_residual": 1.7669719348359051e-10,
+  "direct_flip_multiplier": -0.9999999762833427,
+  "block_product_difference": 3.197442310920451e-14,
+  "cyclic_product_spread": 1.5543122344752192e-15,
+  "evaluations": 20,
+  "elapsed_seconds": 207.37506654206663,
+  "baseline_speedup": 11.41565168133982,
+  "failed_gates": [
+    "solver did not report success",
+    "reference error exceeds 5e-10"
+  ],
+  "interpretation": "the exact second-variational Jacobian and explicit flip-spectrum selection are validated numerically, but the known-event solve requires a receipt-bound continuation to pass the frozen reference and solver-success gates"
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "butterfly.gpu-component-period-candidates-manifest.v1",
+  "experiment_id": "EXP-193",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-192.json",
+      "sha256": "8f42a3c252591db9a98c8232b3c46032f9d9d90e0e4551fb2c0f73c250565d97",
+      "role": "qualified two-landmark atlas and isolated second-landmark component"
+    }
+  ],
+  "inputs": {
+    "frame": {
+      "path": "artifacts/EXP-192/frame-000.json",
+      "sha256": "cf1f25aa9e21dc2a94a8eb686b881e407dd69a120d99dcdb6ce859ac23098e86"
+    },
+    "frame_receipt": {
+      "path": "artifacts/EXP-192/frame-000.receipt.json",
+      "sha256": "aebfddd8597ffb3e85f168fc63acafa801da5e92a9172fd96c1e1852a33f50ac"
+    },
+    "component": {
+      "path": "artifacts/EXP-192/anchor-period6-component.json",
+      "sha256": "6da094446375f8f1f4990ee1cd7407199c6237180a415aaa0540d0a88bb75723"
+    }
+  },
+  "selection": {
+    "target_period": 6,
+    "sample_count": 257,
+    "method": "begin at the second Jones landmark and repeatedly select the component pixel farthest from the existing sample in component-range-normalized (a,c) distance; break ties by ascending point index",
+    "word_blind": true,
+    "critical_blind": true
+  },
+  "integration": {
+    "initial_state": [0.0, 4.0, 0.0],
+    "transient": 2400.0,
+    "observation_horizon": 800.0,
+    "max_crossings": 128,
+    "dt": 0.005,
+    "chunk_steps": 4096,
+    "dtype": "float64"
+  },
+  "classifier": {
+    "max_period": 32,
+    "required_repeats": 8,
+    "atol": 0.000001,
+    "rtol": 1e-7
+  },
+  "acceptance": {"minimum_passed_candidates": 250},
+  "claim_scope": "geometry-only Float64 GPU extraction of approximate six-return cycles from 257 pixels in the isolated second-landmark period-6 component; passing prepares target-word-blind candidates for a separately frozen z-return-map critical-residual scan but does not correct flow orbits, establish continuation identity, locate a center, or prove double superstability"
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "butterfly.gpu-sprinkler-parity-manifest.v1",
+  "experiment_id": "EXP-113",
+  "cpu_manifest": "experiments/manifests/EXP-112-sobol-hermite-saddles.json",
+  "cpu_manifest_sha256": "1f6d1394ba94b6e2e36534c1967f0459895922c5fe741ea35962385532bf1a73",
+  "cpu_receipt_sha256": "cb3b79ec57521bf5fcd6ce9d00bafe40b633b9d4eb21df812d2d41e97b6c71f7",
+  "gpu": {"chunk_steps": 2048, "max_recorded_crossings": 16, "dtype": "float64"},
+  "short_horizon_audit": {
+    "trajectory_ids": [0, 2048, 4096, 6144, 8191],
+    "dt": 0.01,
+    "horizon": 40.0,
+    "max_crossings": 16,
+    "comparison_crossings": 5,
+    "disabled_capture_radius": 1e-12,
+    "disabled_capture_crossings": 100
+  },
+  "acceptance": {
+    "minimum_return_pairs": 1000,
+    "minimum_oracle_variant_consensus": 1.0,
+    "maximum_within_gpu_critical_span": 0.03,
+    "maximum_across_backend_critical_span": 0.04,
+    "maximum_survivor_fraction_difference": 0.02,
+    "maximum_short_horizon_scaled_state_error": 0.001,
+    "maximum_short_horizon_time_error": 0.00002
+  },
+  "cpu_reference": {
+    "published-unimodal-saddle": {
+      "survivor_counts": [8179, 7190, 5851, 4692, 3780, 2991],
+      "coordinates": {
+        "y": {"source_minimum": -29.540518041581265, "source_maximum": -10.547627278630676, "critical_point_intervals": [[-21.72336805524017, -21.445632724936846]]},
+        "z": {"source_minimum": 0.009388045218108963, "source_maximum": 0.00975727902095483, "critical_point_intervals": [[0.009532513285272883, 0.009536596541448112]]}
+      }
+    },
+    "published-bimodal-saddle": {
+      "survivor_counts": [8192, 6571, 4773, 3395, 2440, 1757],
+      "coordinates": {
+        "y": {"source_minimum": -31.80831852686507, "source_maximum": -8.808088386079474, "critical_point_intervals": [[-31.248986194031385, -31.08875522316294], [-21.107183830076796, -20.820950019275]]},
+        "z": {"source_minimum": 0.009349325800171962, "source_maximum": 0.009795607862398295, "critical_point_intervals": [[0.009360207280427416, 0.009362742837534861], [0.009542457996402787, 0.009547242913000674]]}
+      }
+    }
+  },
+  "runpod_cost_gate": {
+    "preferred_gpu": "NVIDIA A40",
+    "cloud": "SECURE",
+    "catalog_price_per_hour_usd": 0.35,
+    "maximum_hourly_usd": 0.40,
+    "maximum_wall_hours": 2.0,
+    "hard_spend_ceiling_usd": 0.80,
+    "no_progress_minutes": 15
+  }
+}

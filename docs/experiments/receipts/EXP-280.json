@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.jones-period768-segmented-flip-scan-summary.v1",
+  "experiment_id": "EXP-280",
+  "passed": true,
+  "source_commit": "e5ab9b04741b43f5c2dfd72b7c2c3a9cdec7dfcc",
+  "manifest_sha256": "090df782659b6f4bbda32f2f2866605c2de03311d84dba75e3fbff0146a9a724",
+  "continuation_receipt_sha256": "b5fc6c5465eb0869542a3ce8ee716e352309df5d5dd1ee40245c0cb0540ee4cb",
+  "raw_artifact": "artifacts/EXP-280/receipt.json",
+  "raw_artifact_bytes": 22201,
+  "raw_artifact_sha256": "882a2943be868e3f1ed0edbd0cd4c4912d88d38a09fa3985c3302a3bed6034b2",
+  "point_count": 9,
+  "flip_bracket_count": 1,
+  "a_bracket": [0.24070100814897039, 0.24070100827074953],
+  "stable_endpoint_multiplier": 0.08362765152614399,
+  "unstable_endpoint_multiplier": -4.409206977779765,
+  "minimum_modulus_separation_ratio": 1.8754364977033427e17,
+  "maximum_cyclic_product_spread": 2.8810063668061048e-8,
+  "maximum_matching_residual": 4.687091527540825e-13,
+  "interpretation": "The exact period-768 continuation contains one spectrally isolated real-minus-one bracket suitable for a separately frozen augmented event solve."
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "butterfly.return-map-sensitivity-summary.v1",
+  "experiment_id": "EXP-107",
+  "passed": true,
+  "primary_passed": true,
+  "representation_invariance_passed": false,
+  "source_commit": "d0259372ae139de19afd90fde37430571f7e2cfb",
+  "manifest_sha256": "c1ba860b460ab35578980cc74363255f41685d85a21cb8f533dfb2cee000d77e",
+  "full_receipt_sha256": "3c6c6d60981c88b6fe5559a36bc7a45d1cfb11a050b5b36268588662666731b1",
+  "integration_count": 15,
+  "oracle_cell_count": 420,
+  "oriented_crossing_count_range": [1204, 1215],
+  "near_tangent_crossing_count": 0,
+  "representations": {
+    "negative:x": {"resolved": 105, "total": 105, "branch_histogram": {"3": 105}},
+    "negative:z": {"resolved": 105, "total": 105, "branch_histogram": {"3": 105}},
+    "positive:x": {"resolved": 3, "total": 105, "branch_histogram": {"5": 3}},
+    "positive:z": {"resolved": 0, "total": 105, "branch_histogram": {}}
+  },
+  "qualified_interpretation": "the negative-oriented historical-half-plane return relation is locally parameter-, section-, coordinate-, and oracle-robust with three branches; scalar branch count is not orientation invariant, so global topology and reinjection require the two-dimensional Poincare map"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "butterfly.component-section-cycle-requalification-manifest.v1",
+  "experiment_id": "EXP-195",
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-194.json",
+      "sha256": "cf141cbbd4a2fd9622dafba136d26f4b68251de254c75eab8c9bba229bf87145",
+      "role": "preserved failed six-phase expectation and 58 otherwise-qualified corrected orbits"
+    }
+  ],
+  "input": {
+    "path": "artifacts/EXP-194/candidates.json",
+    "sha256": "90a1c5f5e0f3f8ce4514d153845b6deef595cb6fd8797ab8d0e42420308fcdf7"
+  },
+  "section": {
+    "kind": "barrio_positive_x",
+    "expected_crossing_count": 8,
+    "rationale": "all 58 corrected historical-period-6 flow orbits in EXP-194 intersect the independently published Barrio section exactly eight times per flow period"
+  },
+  "acceptance": {"minimum_passed_candidates": 55},
+  "claim_scope": "one-check requalification of immutable EXP-194 orbit data for the representation-specific eight-phase Barrio cycle; passing supplies corrected stable candidates for a separately frozen target-word-blind z-return-map scan but does not establish continuation identity, critical membership, a center, or double superstability"
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "butterfly.period320-block-flip-refinement-summary.v1",
+  "experiment_id": "EXP-088",
+  "passed": false,
+  "source_commit": "44796bfc34fa3a09f33f7b540eab23a754361f8a",
+  "manifest_sha256": "bc98ef52fafec153e693ba6e46e35754cec19247e6d4e6617966f0ad0bb8be57",
+  "full_receipt_sha256": "7d184accb97ebf5158408fa824313d3c335cf81737e067ad6713ad18463336e5",
+  "b_estimate": 0.17971249400877815,
+  "prediction_error": -2.855577996285774e-10,
+  "multiplier_residual": 2.307721792005335e-5,
+  "estimated_b_uncertainty": 1.484837059188079e-11,
+  "matching_residual": 8.578594690215122e-13,
+  "retained_bracket": [
+    0.17971249366495956,
+    0.17971249400877815
+  ],
+  "diagnosis": "the event and prediction agree closely, but eight safeguarded trials did not meet the frozen residual and uncertainty gates"
+}

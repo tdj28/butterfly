@@ -1,0 +1,38 @@
+{
+  "schema": "butterfly.hopf-period1-to-hub-summary.v1",
+  "experiment_id": "EXP-155",
+  "passed": true,
+  "source_commit": "7867c44441dfd0576e5f1b99575a0817ebcce351",
+  "manifest_sha256": "4ac60fc55da7455554add542db7105e1bf817ef3d493e6cb24c72caed8591f04",
+  "raw_receipt": "artifacts/EXP-155/receipt.json",
+  "raw_receipt_sha256": "2b74e4c3303ffd0f69d7d8963856d87a8fe80cd270f882450bc72fd81a3e67b8",
+  "raw_receipt_bytes": 102844,
+  "figure": "artifacts/EXP-155/hopf-period1-to-hub.png",
+  "figure_sha256": "6b61c5b83e580a95b6e5bd8b6a5508be1f92acdd5381a55c7e17b0243e5ab12d",
+  "figure_bytes": 102405,
+  "point_count": 118,
+  "c_range": [0.5202306256940273, 10.3084],
+  "maximum_closure_error": 3.599811528527754e-12,
+  "maximum_phase_residual": 1.2586584845090415e-16,
+  "maximum_neutral_multiplier_error": 3.7834180233176085e-12,
+  "maximum_winding_error": 1.1457501614131615e-13,
+  "near_hopf_amplitude_fit": {
+    "exponent": 0.5017311219291734,
+    "r_squared": 0.9999983234783234
+  },
+  "near_hopf_period_error": 0.0014170432787574683,
+  "stable_sampled_c_range": [0.5202306256940273, 3.1556294736842108],
+  "minus_one_crossing": {
+    "c_bracket": [3.1556294736842108, 3.2536126315789478],
+    "multiplier_bracket": [-0.9857415184137821, -1.0409522201847734]
+  },
+  "independent_radau_checkpoints": 6,
+  "hub_orbit": {
+    "period_time": 5.993543708979821,
+    "minimum_equilibrium_distance": 10.031003336125112,
+    "maximum_equilibrium_distance": 17.690032222448668,
+    "winding_number": 0.9999999999999991,
+    "primary_nontrivial_multiplier": -3.2022459545743627
+  },
+  "interpretation": "A single one-winding period-1 family connects the qualified supercritical Hopf neighborhood to the exact reported hub coordinate along fixed (a,b)=(0.1798,0.2), and its first loss of stability is bracketed by a real -1 multiplier. At the hub the finite-period orbit remains more than 10 state-space units from the equilibrium and is therefore not itself the proposed homoclinic orbit. The equilibrium-manifold connection remains untested."
+}

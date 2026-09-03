@@ -1,0 +1,20 @@
+{
+  "schema": "butterfly.jones-period1536-decimal-event-connection-summary.v1",
+  "experiment_id": "EXP-326",
+  "passed": false,
+  "source_commit": "3440aa35189d2470389b3f026a08966021eef768",
+  "manifest_sha256": "e0fbc7d062167f4a5c91815ba9d4336f5c80e3fdbd84a00268d3d18fd2372f5f",
+  "raw_artifact": "artifacts/EXP-326/receipt.json",
+  "raw_artifact_bytes": 1740694,
+  "raw_artifact_sha256": "f94a3c63dad90c729138c4902b5af44d7194bda42dd18c42f730737f640ff89f",
+  "elapsed_seconds": 933.0149717917666,
+  "failed_checks": ["node_identity"],
+  "continued_rows": 4,
+  "target_matching_residual": 8.983570407789963e-23,
+  "target_period_difference": 3.1301321604867053e-22,
+  "target_half_node_rms": 7.988493534049649e-6,
+  "target_dominant_multiplier": -1.0000000000002505,
+  "integer_shift": 1024,
+  "integer_shift_node_rms": 1.1985676831401637e-6,
+  "interpretation": "The exact immediate daughter crosses the event coordinate, closes there, remains primitive, matches the target period to 3.13e-22, and independently recovers the real-minus-one multiplier. The frozen integer-node identity gate alone fails because the event and connection meshes use different continuous phases; EXP-327 freezes exact shared-phase registration without reclassifying EXP-326."
+}
