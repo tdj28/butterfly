@@ -115,3 +115,34 @@ def test_distinct_initial_condition_periods_are_multistable() -> None:
     result = combine_initial_conditions([period_two, period_three])
     assert result.label == OrbitLabel.MULTISTABLE
     assert set(result.evidence) == {"periodic:p2", "periodic:p3"}
+
+
+def test_escape_and_periodic_capture_do_not_imply_multistability() -> None:
+    periodic = DynamicsClassification(
+        OrbitLabel.PERIODIC, 2, 0.9, "period two", ("test",)
+    )
+    escaping = DynamicsClassification(
+        OrbitLabel.ESCAPING, None, 1.0, "escape radius exceeded", ("test",)
+    )
+    result = combine_initial_conditions([periodic, escaping])
+    assert result.label == OrbitLabel.UNRESOLVED
+    assert result.fundamental_period is None
+    assert "escape is not a bounded attractor" in result.reason
+
+
+def test_agreeing_escaping_initial_conditions_remain_escaping() -> None:
+    escaping = DynamicsClassification(
+        OrbitLabel.ESCAPING, None, 1.0, "escape radius exceeded", ("test",)
+    )
+    result = combine_initial_conditions([escaping, escaping])
+    assert result.label == OrbitLabel.ESCAPING
+
+
+def test_escape_with_unresolved_initial_condition_remains_unresolved() -> None:
+    escaping = DynamicsClassification(
+        OrbitLabel.ESCAPING, None, 1.0, "escape radius exceeded", ("test",)
+    )
+    unresolved = DynamicsClassification(
+        OrbitLabel.UNRESOLVED, None, 0.0, "insufficient returns", ("test",)
+    )
+    assert combine_initial_conditions([escaping, unresolved]).label == OrbitLabel.UNRESOLVED
