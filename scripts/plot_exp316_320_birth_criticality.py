@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot the qualified seventh and eighth returning-arm birth directions."""
+"""Plot seventh-birth opening and finite-offset eighth-birth stability evidence."""
 
 from __future__ import annotations
 
@@ -196,7 +196,7 @@ def main() -> int:
     )
 
     figure.suptitle(
-        "EXP-316--320: opposite criticality at the seventh and eighth returning-arm births",
+        "EXP-316--320: seventh-birth opening and eighth-birth finite-offset stability",
         fontsize=13,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -223,6 +223,7 @@ def main() -> int:
         "event8_parent_moduli": parent,
         "event8_child_moduli": child,
         "event8_identity_separation_error_ratio": exp317["separation_error_ratio"],
+        "interpretation_note": "Event-eight local criticality requires daughter-to-parent convergence.",
     }
     atomic_write(
         args.output.with_suffix(args.output.suffix + ".receipt.json"),

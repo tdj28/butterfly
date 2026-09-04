@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-04-public-research-audit.md`](2026-09-04-public-research-audit.md)
+  — fixes numerical acceptance and public-source portability, retracts the
+  full-flow Floquet-zero interpretation, qualifies homoclinic/criticality
+  uncertainty, and prioritizes reproducibility and independent mechanism tests.
+
 - [`2026-09-02-exp468-seventy-sixth-point-and-new-branch.md`](2026-09-02-exp468-seventy-sixth-point-and-new-branch.md)
   — the project resumes on a new research branch with a figure-rich README;
   EXP-468--473 add qualified Jones homoclinic points 76--81; the 80-point

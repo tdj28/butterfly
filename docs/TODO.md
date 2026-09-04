@@ -3,6 +3,17 @@
 This is the live implementation queue. A checkbox closes only when its
 acceptance evidence exists in tests, receipts, or a cited experiment record.
 
+## Current execution order — 2026-09-04
+
+The [post-audit priorities](next-steps.md) supersede the order implied by the
+historical experiment narrative below. First audit affected numerical outputs
+and release reproducible evidence, then independently resolve the homoclinic
+candidate and target the original finite-ordering/reinjection gaps. EXP-474
+remains a frozen, unexecuted protocol; repeatedly adding nearby continuation
+points is deferred until an independent formulation and parameter-error study
+can resolve the geometry. Full-flow Floquet-zero center finding is retired:
+see the [mathematical correction](findings/FND-060-floquet-zero-surface-does-not-uniquely-locate-center.md).
+
 ## P0 — trustworthy Rössler reproduction
 
 - [x] **P0-001 — Repository and paper claim audit.** Evidence:

@@ -127,8 +127,9 @@ standard-tangent control passes, and a fourfold-smaller step then adds a
 twelfth point at
 $(a,c)=(0.1798174938833,10.3170815075378)$.  Fixing normalized arclength removes
 step inflation but further reductions still reverse $c$ while moving toward
-smaller $a$.  This diagnoses a local $c$ fold, not disappearance of the
-homoclinic root.  Reorienting the prospectively frozen tangent and direction
+smaller $a$.  This is consistent with a local turn in the sampled numerical
+curve, but its physical location has not been bounded.  Reorienting the
+prospectively frozen tangent and direction
 gate toward decreasing $a$, with $c$ unconstrained, passes in two corrections
 at
 \[
@@ -136,8 +137,8 @@ at
 \]
 Its maximum block defect is $4.01\times10^{-9}$, plane residual
 $5.07\times10^{-14}$, and smallest measured Jacobian singular value
-$1.69\times10^{-9}$.  This thirteenth qualified point demonstrates numerical
-continuation through the local $c$ fold.  The remaining fixed-$a$ gap is
+$1.69\times10^{-9}$.  This thirteenth accepted point continues the numerical
+branch through the sampled reversal in $c$.  The remaining fixed-$a$ gap is
 $1.74935\times10^{-5}$; consequently the pre-fold projected crossing is no
 longer treated as a monotone-$c$ prediction, and the exact historical-path
 intersection is still not claimed.
@@ -145,7 +146,7 @@ intersection is still not claimed.
 At that scale neither displayed parameter supplies a reliable orientation:
 the next clean full-state-forward correction reverses both $a$ and $c$.
 Replacing coordinate gates by secant-aligned signed arclength adds five more
-qualified points and resolves EXP-403 as the sampled first local minimum in
+qualified points and identifies EXP-403 as the sampled first local minimum in
 $a$.  The outgoing branch reaches
 \[
   (a,c)=(0.1798177050799,10.3170808940738)
@@ -188,6 +189,18 @@ the historical fixed-$a$ section, so it does not provide the printed
 intersection.  A later turn or another branch remains possible and global
 nonintersection is not claimed.
 
+The displayed coordinates are solver outputs, not certified parameter
+enclosures.  In particular, a residual below $10^{-8}$ together with a
+smallest Jacobian singular value of order $10^{-9}$ does not bound the
+parameter error below the $1.75\times10^{-5}$ historical-slice gap.  The
+near-null direction may be largely gauge motion, but that must be established
+by parameter-sensitive error estimates and independent changes in boundary
+conditions, mesh, and truncation.  These chained continuation points are
+correlated numerical evidence, not independent confirmations of a physical
+fold.  Figure~\ref{fig:homoclinic-continuation} retains the eighty-point
+EXP-472 snapshot; the subsequent accepted EXP-473 point is
+$(a,c)=(0.179860578278265,10.316949180519163)$.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/fig29-exp342-346-homoclinic-root.png}
@@ -208,8 +221,8 @@ nonintersection is not claimed.
   \includegraphics[width=\textwidth]{figures/fig30-exp342-382-homoclinic-continuation.png}
   \caption{Continuation of the qualified homoclinic candidate toward Jones's
   printed $a=0.1798$ section.  A: eighty qualified roots through EXP-472 and
-  the pre-fold EXP-367/368 secant extrapolation.  B: a nanoscopic offset view
-  resolves the first sampled local minimum in $a$ and separates qualified
+  the pre-turn EXP-367/368 secant extrapolation.  B: a magnified offset view
+  displays the first sampled local minimum in $a$ and separates accepted
   signed-arclength steps from coordinate-gate rejections.  C: the outgoing
   branch, defect-aware step control, and EXP-409 conditioning-only
   rejection show why adaptive step size is required.  D: every accepted point remains
@@ -217,7 +230,8 @@ nonintersection is not claimed.
   failures expose conditioning and method limits rather than silently
   extending the curve.  The zero-step collocation control also escapes and is
   excluded from the defect scale.  The open star is a pre-fold extrapolation,
-  not a qualified intersection.}
+  not a qualified intersection. Parameter-error bounds for the apparent turn
+  remain open; the numerical defect gate alone does not supply them.}
   \label{fig:homoclinic-continuation}
 \end{figure}
 
@@ -1529,14 +1543,18 @@ $18.98363/18.98308$. A preserved single-shot half-period diagnostic falls
 below its frozen floor, but a separately frozen tighter segmented audit retains
 phase-invariant half-orbit separation $8.66425\times10^{-6}$ against only
 $3.34029\times10^{-10}$ cross-solver node RMS, a separation/error ratio of
-$25{,}938.6$. The combined evidence qualifies the eighth local birth as
-subcritical while retaining the failed single-shot gate. The seventh birth
+$25{,}938.6$. These finite-offset observations support a subcritical
+interpretation while retaining the failed single-shot gate. The strongly
+unstable daughter is not yet an asymptotic local-criticality test: its
+amplitude must be followed toward zero and its relevant multiplier toward
+$+1$ as the daughter approaches the event. Nearby sheet folding and finite
+offsets must be distinguished from the local birth. The seventh birth
 is independently qualified as supercritical by the same-map switches above.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{figures/fig25-exp316-320-birth-criticality.png}
-  \caption{Opposite criticality at the seventh and eighth returning-arm births.
+  \includegraphics[width=\textwidth]{figures/fig25-exp316-320-birth-criticality-audited.png}
+  \caption{Criticality evidence at the seventh and eighth returning-arm births.
   Upper left: both 4,096- and 8,192-step same-map switches show quadratic
   lower-$a$ opening of the immediate seventh daughter. Upper right: every
   immediate period-1536 daughter is stable. Lower left: resolution doubling
@@ -1544,8 +1562,9 @@ is independently qualified as supercritical by the same-map switches above.
   Lower right: event-relative DOP853 and Radau calculations place the eighth
   primitive period-3072 daughter on the unstable side of a stable parent;
   segmented identity clears its empirical representation error by a factor
-  $25{,}938.6$. Thus event seven is locally supercritical and event eight
-  locally subcritical; neither result establishes global sheet connectivity or
+  $25{,}938.6$. Event seven has local supercritical opening evidence; event
+  eight has finite-offset evidence consistent with subcriticality, pending
+  daughter-to-parent convergence. Neither establishes global sheet connectivity or
   a universality limit.}
   \label{fig:exp316-320-criticality}
 \end{figure}

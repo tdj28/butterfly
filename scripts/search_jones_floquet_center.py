@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Search word-blindly for an intersection of period-6 superstability curves."""
+"""Replay the retired EXP-187/188 signed-Floquet center heuristic.
+
+This diagnostic does not locate full-flow superstability curves: the exact
+finite-time monodromy is invertible. Sign changes of a selected eigenvalue's
+real part are not eigenvalue zeros. Retained for historical reproducibility;
+see docs/findings/FND-060-floquet-zero-surface-does-not-uniquely-locate-center.md.
+"""
 
 from __future__ import annotations
 

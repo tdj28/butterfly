@@ -1,7 +1,7 @@
 # Butterfly: reproducible periodicity-hub dynamics
 
 This repository turns a 2012 study of Rössler periodicity hubs into a modern,
-receipt-bearing program of numerical research. It combines parameter-plane
+program of numerical research with recorded protocols and results. It combines parameter-plane
 atlases, invariant-orbit continuation, Floquet analysis, chaotic-saddle
 reconstruction, independent integrators, and explicit negative results.
 
@@ -14,21 +14,32 @@ determine which historical claims reproduce, strengthen the mechanisms that
 survive, correct those that do not, and build methods that can transfer to
 other strange attractors.
 
+This is an active research repository, not a completed reproduction or an
+existence proof. The [September 2026 audit](docs/reviews/2026-09-04-public-research-audit.md)
+records corrected software bugs, a retracted Floquet-zero interpretation, and
+the limits of the current evidence. The [next research steps](docs/next-steps.md)
+prioritize independent validation and public reproducibility.
+
 ## What the computations currently show
 
-- The large-scale shrimp and periodic-window skeleton evolves coherently over
-  eleven sampled planes, `b = 0.10, ..., 0.30`.
+- The shrimp and periodic-window skeleton evolves coherently over eleven
+  sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
+  These are finite-time, single-initial-condition recurrence maps; unresolved
+  pixels are not automatically chaotic.
 - The reported Jones hub has the claimed local saddle-focus equilibrium. The
   Hopf-born period-1 family reaches the reported hub neighborhood, and four
   exact supercritical period doublings with stable children are independently
   qualified on that path.
-- A separate equilibrium-manifold calculation strongly qualifies a nearby
-  homoclinic curve. At fixed `c = 10.3084`, the reproduced root is near
-  `a = 0.182643608174`, rather than the printed `a = 0.1798`.
-- Eighty-one receipt-bound homoclinic roots—including 78 gauge-aligned
-  pseudo-arclength roots—continue that curve through a first sampled local
-  minimum. The closest sampled root remains `1.74935e-5` above the historical
-  fixed-`a` section; the observed outgoing arm then moves away from it.
+- A separate equilibrium-manifold calculation gives a nearby numerical
+  homoclinic candidate. At fixed `c = 10.3084`, two integrators and boundary-radius
+  checks place it near `a = 0.182643608174`. Finding this candidate does not
+  exclude a different connection at the printed `a = 0.1798`.
+- Eighty-one recorded homoclinic candidates—including 78 gauge-aligned
+  pseudo-arclength points—trace the same computed branch. The sampled minimum
+  is about `1.75e-5` above the historical fixed-`a` section. Its fine turn
+  geometry remains provisional because the ill-conditioned solve has no
+  parameter-error bound. More points on the same branch are not independent
+  confirmations. The figure below retains the 80-point manuscript checkpoint.
 - A second orbit family is resolved through eight finite period doublings.
   These calculations substantially strengthen the finite cascade, but do not
   prove universality or a global logistic-map conjugacy.
@@ -43,7 +54,7 @@ Those boundaries are part of the result, not fine print.
 
 ## A visual tour
 
-### From the whole parameter plane to individual shrimp
+### From broad parameter scans to individual shrimp
 
 ![Global parameter plane and period-6 zoom](paper/figures/fig02-global-and-period6-zoom.png)
 
@@ -68,7 +79,7 @@ and finite spacing ratios resolve the returning cascade through a stable
 period-768 child. Later high-precision work extends the connected finite chain
 while retaining the boundary between finite evidence and universality.
 
-All 30 manuscript figures and their regeneration commands are indexed in
+All 31 manuscript figures and their regeneration commands are indexed in
 [`paper/figures/README.md`](paper/figures/README.md). The animated multi-`b`
 atlas is documented under [`paper/supplement/`](paper/supplement/).
 
@@ -91,6 +102,13 @@ Source commit, solver configuration, acceptance gates, input hashes, and
 failed checks travel with the result. Negative experiments are preserved so a
 later narrative cannot silently erase an inconvenient method failure.
 
+The source, manifests, compact receipts, and finished figures are public.
+Most raw `artifacts/` inputs are currently local and are **not distributed in
+this repository**. Tests, the CPU smoke check, and manuscript compilation can
+run from a clean checkout; most historical figure-regeneration commands need
+those additional inputs. A versioned data archive is still required for full
+independent reproduction; hashes alone do not provide the missing data.
+
 ## Quick start
 
 The modern research stack requires Python 3.12 or newer. With
@@ -102,14 +120,15 @@ uv sync --extra dev
 .venv/bin/python -m pytest -q
 ```
 
-Optional service and GPU workflows read credentials from `.env`. Start from
-the documented, secret-free template and fill in only the services you use:
+RunPod workflows read `RUNPOD_API_KEY` from the environment or `.env`. If you
+need that workflow, copy the template without overwriting an existing file:
 
 ```sh
-cp .env-example .env
+cp -n .env-example .env
 ```
 
-See [`.env-example`](.env-example) for the supported variables. The populated
+See [`.env-example`](.env-example) for required and optional placeholders. Local CPU
+work requires no API keys. The populated
 `.env` file is ignored by Git and must never be committed.
 
 The command-line interface also exposes frozen CPU scans, resumable tiled
@@ -134,6 +153,8 @@ documented in [`docs/compute/runpod-strategy.md`](docs/compute/runpod-strategy.m
 
 - [`docs/README.md`](docs/README.md) — entry point to the living scientific
   record.
+- [`docs/next-steps.md`](docs/next-steps.md) — current priorities and acceptance
+  criteria after the public-repository audit.
 - [`docs/claim-ledger.md`](docs/claim-ledger.md) — historical claim versus
   current evidence and required closure test.
 - [`docs/TODO.md`](docs/TODO.md) — active execution queue.

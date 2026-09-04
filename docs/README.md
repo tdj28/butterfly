@@ -1,5 +1,11 @@
 # Butterfly research record
 
+Start with the [current research priorities](next-steps.md) and the
+[2026-09-04 audit](reviews/2026-09-04-public-research-audit.md). The audit
+supersedes earlier interpretations of full-flow Floquet zeros and cautions
+against treating the fine homoclinic turn as error-bounded. The long index
+below is a historical record, not the current execution order.
+
 ## Purpose
 
 This directory is the living scientific record for a modern, reproducible

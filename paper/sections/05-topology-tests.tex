@@ -130,14 +130,14 @@ map $K_0,K_1$ onto $C,D$ or $B_0,B_1,B_2$ onto Jones's numerals.  Two frozen
 global-count paths repeatedly selected the higher-coordinate critical but
 failed strict bracket gates.  A separate local bootstrap then resolved the
 same feature at 20 of 21 DOP853 rows and four of five Radau controls; all four
-endpoint decisions selected trimodal index 1.  The sole $a=0.156$ row failed
+endpoint decisions selected bimodal index 1.  The sole $a=0.156$ row failed
 only invariant-domain coverage.  A prospectively predicted survivor cloud at
 that point supplies 64,571 and 65,731 pairs under RK4 steps 0.01 and 0.005.
 Both coordinates resolve in every local variant, their physical critical
 locations differ across steps by only $0.000586$ and $2.24\times10^{-7}$, all
 128 attractor controls capture at each step, and five-return DOP853 audits pass.
 Thus the local operational identity is qualified: the unimodal critical
-continues to the higher-coordinate trimodal critical.  Mapping that neutral
+continues to the higher-coordinate bimodal critical.  Mapping that neutral
 identity to $C,D$ and Jones's numerals was then frozen from the author's prose
 before any target word was evaluated.  The resulting prediction is
 $K_1\mapsto C$, $K_0\mapsto D$, and
@@ -189,11 +189,13 @@ identity gate and is retained as failed.  A tenfold finer successor resolves
 coverage is $0.655329$ against a frozen $0.75$ gate, the neighborhood contains
 65 sign-changing edges, and its sole preliminary stationary-saddle fit
 disappears on a complete $5\times5$ refinement.  This rejects the Floquet-only
-selector, not double superstability.  The full period multiplier conflates
-zero factors from multiple orbit phases and either critical point.  The
-successor must therefore reconstruct both criticals independently and solve
-their two distances to the corrected orbit; multiplier zeros may only bound
-that search.
+selector, not double superstability of a scalar model.  A full-flow Floquet
+multiplier cannot vanish on a regular finite-period orbit.  The 65 sampled
+sign changes therefore do not establish zero curves: unresolved contracting
+modes, complex pairs, or changes in the selected dominant eigenvalue must be
+audited before giving them a dynamical interpretation.  The successor
+reconstructs the two scalar-map criticals independently and evaluates their
+separate distances to the corrected orbit.
 
 That direct successor retains all 65 zero-edge candidates and reconstructs
 their middle-time survivor maps at two fixed steps on a GPU.  Every one of the
@@ -201,8 +203,10 @@ their middle-time survivor maps at two fixed steps on a GPU.  Every one of the
 variants.  Final survivor counts range from 605 to 977, return-pair counts from
 5682 to 9256, no integration fails, and normalized critical-interval spans
 remain below 0.0134.  Thus the missing second critical is not a sampling-power
-failure: the complete local Floquet-zero set around the first approximate
-period-6 landmark is unimodal on the recovered historical x representation.
+failure within these candidates: all 65 selected sign-change-neighborhood
+samples around the first approximate period-6 landmark are unimodal on the
+recovered historical x representation.  They do not establish a complete
+Floquet-zero set or exclude a shallow critical elsewhere in the neighborhood.
 No center is selected.  This further narrows the search without rejecting
 double superstability elsewhere, particularly because the source prints
 unordered approximate landmarks and no reproducible section equation.

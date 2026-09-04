@@ -1,106 +1,34 @@
-We reassess and extend the proposed topological explanation of periodicity
-hubs in the R{\"o}ssler flow using provenance-bearing parameter scans,
-periodic-orbit continuation, independent integrators, Floquet analysis, and
-return-map reconstructions.  Multi-slice $(a,c)$ atlases at
-$b=0.10,\ldots,0.30$ expose a smoothly deforming superstructure of shrimp-like
-periodic windows and provide the visual context for the orbit-level tests.
-At the reported hub, the small equilibrium is a saddle focus.  Its exact Hopf
-locus supplies a verified local endpoint, and the emerging period-1 family is
-continued to the reported hub coordinate.  Four exact supercritical flips and
-stable children through period 16 are established on this path; the orbit at
-the hub nevertheless remains finite-period and far from the equilibrium, so
-it is not itself the proposed homoclinic connection.  A separate
-stable/unstable-manifold boundary-value calculation does qualify a nearby
-homoclinic candidate across DOP853 and Radau, 16 and 32 shooting arcs, and
-three shrinking matching radii.  At fixed $c=10.3084$, however, its persistent
-value $a\simeq0.182643608174$ differs materially from the printed $a=0.1798$.
-Two qualified natural-continuation points point toward the historical fixed-$a$
-path, but repeated direct corrections reach reproducible residual floors.
-Seventy-seven gauge-aligned two-parameter pseudo-arclength points
-through as many as 512 arcs pass the matching, arclength, conditioning, and
-direction gates.  Together the eighty qualified curve points reach within
-$1.75\times10^{-5}$ in $a$ of the historical section.  Full-state signed
-arclength resolves the first sampled local $a$ minimum and follows the branch
-through sixty-three tangent-recomputed steps toward larger $a$, including
-defect-aware reductions and a qualified doubled-step regime, so the pre-fold
-projected crossing near
-$c=10.31713524$ remains only an extrapolation.  The first residual floor was
-not immediate branch termination, although the exact historical intersection
-remains unqualified.
-On a second path,
-identity-safe continuation resolves eight period doublings of a period-5
-family through a stable period-1280 child.
+We reassess periodicity-hub organization in the R{\"o}ssler flow using
+parameter-plane atlases, corrected periodic orbits, independent integrators,
+Floquet analysis, and reconstructed chaotic saddles. Eleven sampled
+$(a,c)$ planes at $b=0.10,0.12,\ldots,0.30$ reveal coherent changes in
+shrimp-like periodic windows; these finite-time images provide context rather
+than a global bifurcation classification.
 
-On the section used by Barrio, Blesa, and Serrano, the published one- and
-two-critical-point return-map controls are reproduced.  Censor-aware
-straddle reconstructions of the corresponding nonattracting chaotic saddles
-localize a sampled two/three-branch transition at
-$a\in[0.1481875,0.14825]$ for $(b,c)=(0.2,20)$.  Recovered unstable periodic
-orbits persist across this bracket, while a pre-existing unstable lobe joins
-the reconstructed saddle only on the three-branch side, favoring a global
-pruning or reinjection mechanism over a local orbit birth or death.
+At the reported Jones hub, the small equilibrium has the stated saddle-focus
+eigenstructure. Its analytically determined Hopf locus anchors a continued
+period-1 family, with four numerically qualified supercritical doublings
+through a stable period-16 child on a declared fixed-$a$ path. A separate
+manifold boundary-value calculation supports a nearby homoclinic candidate at
+$(a,b,c)\simeq(0.182643608174,0.2,10.3084)$, with agreement across two
+integrators, shooting meshes, and matching radii. This differs from the
+printed coordinate; it neither excludes another connection there nor proves
+homoclinic existence. Subsequent continuation exhibits a sampled parameter
+turn, whose physical location still requires conditioning-aware error control.
 
-High-resolution scans around two historical period-6 landmarks place them in
-distinct stable raster components.  Fifty-eight corrected period-6 flow
-orbits show that historical period 6 appears as an eight-phase cycle on the
-published section.  None of the sampled representatives satisfies the frozen
-double-critical-center test; a denser corrected-orbit mesh localizes a
-connected candidate region but fails its preregistered coverage gate.  On its
-126 two-step-qualified maps, one signed critical residual crosses zero but the
-other remains strictly positive, so neither a direct center nor a simultaneous
-bracket is present in the incomplete sampled field.  Quadrupling support below
-that field exposes a shallow critical retained by four baseline variants but
-removed by one high-smoothing variant.  A nested scale audit nevertheless
-qualifies that critical at 94 of 104 points, after which the second residual
-remains one-sided over all 1,128 low-smoothing reconstructions.  A lower-$c$
-extension finds a bounded 551-orbit stable period-6 strip, and seven
-prospectively selected edge brackets all refine to real $-1$ Floquet events.
-Exact-Jacobian coupled continuation then passes all 41 frozen points across
-$c\in[7.16,7.32]$.  This supplies a dense period-doubling boundary segment for
-continued search. Three separately frozen post-flip checks then independently
-qualify primitive stable period-12 children paired with unstable period-6
-parents. Seven-point continuation toward each event yields square-root opening,
-the cubic flip multiplier ratio, cross-solver agreement, and perturbed
-attraction at all three slices.  Independent child-family interpolation then
-qualifies all 124 points of a 31-by-4 period-12 sheet above the flip curve;
-all 31 fixed-$c$ opening fits have exponent $0.50264$--$0.50309$.  This remains
-a sampled patch, not a formal global surface or double-critical center.
-Pseudo-arclength extends the parent event through $c=8.40309$ and isolates a
-historical-section grazing at $c=6.9383180212$: the historical phase count
-changes while the exact flow event and Barrio-section count persist. Adaptive
-continuation crosses that representation boundary, turns near $c=6.83093$,
-and qualifies a second arm through 135 further exact events to
-$(a,c)=(0.271267,8.252733)$.  On that returning arm, adaptive continuation
-qualifies a stable primitive period-12 strip through 45 exact event samples;
-two solvers localize a period-6 flip crossing at
-$(a,c)=(0.2406843530,7.6253782976)$ to $3.96\times10^{-9}$ in $c$ and verify
-primitive-child versus parent-double-cover behavior bilaterally.  A subsequent
-21-point exact-coordinate audit identifies that crossing with the same
-returning flip arm to $1.46\times10^{-14}$ in $a$, retracting an apparent
-second-boundary inference caused by linear interpolation. At a nearby fixed
-returning-arm slice, exact augmented events and independent child switches
-qualify six local supercritical doublings through a stable primitive period-768
-child. Frozen-representation multiplier agreement proves insufficient for the
-next event when unconstrained orbit correction approaches a lower-period double
-cover. Coupled 50-digit orbit--antiperiodic-tangent solves with two independent
-fourth-order tableaux then converge across three resolutions and qualify a
-seventh primitive real-$-1$ event near $a=0.24070100823759$. Repeating the
-same coupled, two-tableau protocol on 2,048 segments qualifies an eighth event
-near $a=0.24070100822410$, even though it rejects an inherited Float64
-micro-bracket. Event-relative solver bracketing and segmented identity then
-qualify the period-3072 birth as locally subcritical. Same-map
-4,096/8,192-step switches recover an immediate stable period-1536 daughter
-with quadratic lower-$a$ opening and qualify the seventh birth as locally
-supercritical. A nominal higher-$a$ Float64 daughter initially produces an
-apparent stable/stable pair, but 50-digit Armijo correction closes it below
-$1.20\times10^{-23}$ and collapses its primitive amplitude below
-$7.4\times10^{-20}$ in the 4,096-step map. An independent 8,192-step replay
-from the unchanged seed reaches $7.22\times10^{-30}$ matching and
-$6.03\times10^{-25}$ amplitude, reproducing the doubled-parent collapse.
-Fresh same-map continuation then connects the exact immediate daughter to the
-eighth event; shared-phase node RMS is $6.35\times10^{-18}$ at the event.
-Thus the computations substantially strengthen the
-finite cascade and return-map parts of the Jones picture while keeping the
-homoclinic endpoint, the global double-critical-center claim, a continuous
-topology-transition curve, and a complete explanation of the full parameter
-plane open.
+On the Barrio--Blesa--Serrano section, independent saddle reconstructions
+localize a change between two and three branches to
+$a\in[0.1481875,0.14825]$ at $(b,c)=(0.2,20)$. Eleven recovered unstable
+periodic-orbit families persist across this interval. A pre-existing unstable
+lobe appears in the reconstructed saddle only on the three-branch side,
+supporting a pruning or reinjection hypothesis that remains to be tested by
+direct manifold geometry.
+
+Continuation of a period-6 family resolves two arms of its flip locus and
+distinguishes section grazing from an invariant orbit bifurcation. Its
+returning family includes seven numerically qualified supercritical doublings
+and evidence for a subcritical eighth birth. High-precision correction also
+retracts an apparent daughter that collapses to a doubled parent. These
+results strengthen local computational structure while leaving finite
+logistic ordering, a continuous topology-transition curve, and a complete
+explanation of the parameter plane open.

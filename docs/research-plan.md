@@ -1,6 +1,11 @@
 # Reproduction and validation plan
 
-Last updated: 2026-08-07
+Phase outline: 2026-08-07. Current priorities reviewed: 2026-09-04.
+
+Use [next-steps.md](next-steps.md) for the current execution order and
+[the public audit](reviews/2026-09-04-public-research-audit.md) for corrected
+interpretations. The phases below describe the original program; several
+foundation items have since been implemented.
 
 This document covers the Rössler reproduction and claim-validation program. The
 broader platform and multi-attractor program is in
@@ -104,7 +109,7 @@ robust result or explicitly narrowed/rejected.
 Exit criterion: the strongest revised claims have explicit numerical error
 bounds and independent computational support.
 
-## Immediate priorities
+## Original foundation priorities (historical)
 
 1. Build the serial reference solver and test suite.
 2. Reproduce a small period map around the hub.
