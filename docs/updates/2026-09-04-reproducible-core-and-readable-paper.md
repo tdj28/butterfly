@@ -98,3 +98,38 @@ No paid compute, RunPod host, or credential upload was needed for this phase.
 - `84f85b1`: same-seed replay identity safeguards, independently reviewed.
 - `cf27508`: prospectively frozen EXP-475 method, controls, and target protocol.
 - `e0e1528`: portable Python 3.13 archive-rejection fixture; both CI versions green.
+- `d1c09a1`: caller/segmented-arclength guards and failure-injection tests.
+- `ba9accb`: EXP-475 evidence and figure, expanded core inputs, updated manuscript.
+
+## Public release
+
+[PR #4](https://github.com/tdj28/butterfly/pull/4) is merged at
+`13d1e1aa3a079704b26b372e110614c774b0793d`. Both Python 3.12 and 3.13 passed
+on the PR and again on
+[main](https://github.com/tdj28/butterfly/actions/runs/33925535636).
+
+[Research core v1](https://github.com/tdj28/butterfly/releases/tag/research-core-v1)
+now supplies the 1,156,243-byte archive, manuscript PDF, verification receipt,
+and `SHA256SUMS`. Archive SHA-256:
+`eb8d8c244bea1ffc2807132f300f0fa819232cb9c70492e48da1ad3ed4ec8cec`.
+The source tree is `df3ae94b6f82badaf2cbddec1ddb14bdd88dfdda`.
+
+A fresh HTTPS clone of the public repository, with a new locked Python
+3.13.11 environment, passes all 542 tests and all core replay gates.
+This first qualification used the exact locally exported archive;
+the frozen release verification receipt explicitly records that distinction.
+After publication, all four assets were downloaded over anonymous HTTPS,
+all three `SHA256SUMS` entries matched, and the published tag resolved to
+the exact source commit and tree above.
+Replaying that downloaded archive into a new output directory also passes:
+all 11 flip gates and both homoclinic gates pass, with the same reported
+multiplier, closure, seed-identity differences, and largest arc defect as the
+prepublication check. The
+[postpublication receipt](../reviews/receipts/research-core-v1-public-download.json)
+retains the separate output hashes; elapsed-time differences are expected.
+The full campaign's raw-data archive is still a separate, incomplete task.
+
+Next implementation task: a prospectively frozen
+[radius-by-tolerance grid](../plans/2026-09-04-homoclinic-refinement.md), with
+separate technical, discretization, and endpoint-resolution outcomes. It is
+a proposal, not an executed experiment or an established error bound.

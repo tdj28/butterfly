@@ -8,6 +8,7 @@ record, including failed experiments and corrected interpretations.
 
 ## Start here
 
+- Download the built PDF from [research core v1](https://github.com/tdj28/butterfly/releases/tag/research-core-v1).
 - [`manuscript.tex`](manuscript.tex) builds the combined article and supplement.
 - [`sections/01-introduction.tex`](sections/01-introduction.tex) introduces the
   question and historical context.
