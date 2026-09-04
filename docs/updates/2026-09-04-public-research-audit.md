@@ -77,6 +77,16 @@ Removing the implicit `assert_allclose` relative tolerance also strengthens
 the two nonzero-offset section tests. This is a floating-point test allowance,
 not a rigorous bound on trajectory error.
 
+After that correction, the [pull-request CI run](https://github.com/tdj28/butterfly/actions/runs/33920718648)
+passed on both Linux Python 3.12 and 3.13, including all 461 tests, CPU smoke
+verification, manuscript assets/citations, and credential checks. The 463
+local links in changed Markdown documents also resolve. CI action pins were
+then updated to verified current Node 24 releases (`checkout` v7.0.1 and
+`setup-uv` v10.0.1) to remove the runner's deprecation warnings.
+
+The work is published for review in [PR #3](https://github.com/tdj28/butterfly/pull/3).
+Its checks track the final branch revision; it has not been merged into `main`.
+
 ## Next actions
 
 Publish reproducible core evidence and audit the remaining callers of the
