@@ -42,6 +42,15 @@ def read_json(root: Path, name: str) -> dict:
     return json.loads((root / name).read_text())
 
 
+def flip_identity_checks(correction, seed, policy):
+    period_difference = abs(correction.period_time - seed["period_time"]) / seed["period_time"]
+    state_difference = float(np.linalg.norm(np.asarray(correction.initial_state) - seed["initial_state"]))
+    return {
+        "same_seed_period": bool(period_difference <= policy["maximum_relative_period_difference"]),
+        "same_phase_fixed_state": bool(state_difference <= policy["maximum_phase_fixed_state_difference"]),
+    }
+
+
 def segment_residuals(starts, destinations, duration, parameters, solver):
     """Reintegrate every short arc; do not substitute stored residuals."""
     starts = np.asarray(starts, dtype=float)
@@ -99,6 +108,8 @@ def replay_flip(root: Path) -> dict:
         "historical_section": integrations["historical"] and counts["historical"] == gate["historical_phase_count"],
         "barrio_section": integrations["barrio"] and counts["barrio"] == gate["barrio_phase_count"],
     }
+    identity_policy = read_json(root, "experiments/core-bundle.json")["numerical_replay"]["flip_identity"]
+    checks.update(flip_identity_checks(correction, seed["correction"], identity_policy))
     result.pop("seed")
     return {
         "kind": "fixed-seed periodic correction and Floquet/section recomputation",
@@ -106,6 +117,8 @@ def replay_flip(root: Path) -> dict:
         "evaluation": result, "section_counts": counts,
         "flow_closure_error": monodromy.closure_error,
         "period_difference_from_saved_seed": abs(correction.period_time - seed["correction"]["period_time"]),
+        "phase_fixed_state_difference_from_saved_seed": float(np.linalg.norm(np.asarray(correction.initial_state) - seed["correction"]["initial_state"])),
+        "identity_policy": identity_policy,
         "limitation": "Does not repeat bracket discovery or prove bifurcation transversality.",
     }
 

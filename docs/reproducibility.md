@@ -75,7 +75,10 @@ and are not relabeled as chaotic.
 
 The flip and homoclinic checks **perform new numerical integrations** from
 the preserved candidates using explicit, recorded settings. This checks
-that their local numerical diagnostics reproduce. It does not redo candidate
+that their local numerical diagnostics reproduce. The flip corrector must also
+remain within `1e-6` in its phase-fixed initial state and `1e-8` in relative
+period of the released seed; those reproduction gates are in the bundle policy
+and do not establish uniqueness. It does not redo candidate
 discovery, establish uniqueness, resolve the complete parameter plane, or
 provide an independent existence proof. In particular, a homoclinic
 candidate with small segmented defects may still have large one-shot

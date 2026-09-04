@@ -3,6 +3,13 @@
   "bundle_id": "butterfly-core-v1",
   "license": "GPL-2.0-only",
   "scope": "One archived b=0.2 recurrence atlas panel, one frozen period-6 flip candidate, and the initial 32-segment homoclinic candidate. Closed inputs for the core replay, not the entire upstream discovery campaign. Cached atlas plotting is not a new integration; numerical replay is not an independent existence proof.",
+  "numerical_replay": {
+    "flip_identity": {
+      "maximum_relative_period_difference": 1e-8,
+      "maximum_phase_fixed_state_difference": 1e-6,
+      "purpose": "Require the fixed-phase corrector to remain in a narrow neighborhood of the released seed, not merely find any closing orbit with the same counts. These reproduction tolerances are not orbit-uniqueness bounds."
+    }
+  },
   "files": [
     {
       "path": "artifacts/EXP-021/frame-005.json",
