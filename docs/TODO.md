@@ -14,6 +14,13 @@ points is deferred until an independent formulation and parameter-error study
 can resolve the geometry. Full-flow Floquet-zero center finding is retired:
 see the [mathematical correction](findings/FND-060-floquet-zero-surface-does-not-uniquely-locate-center.md).
 
+The [new checkpoint](updates/2026-09-04-reproducible-core-and-readable-paper.md)
+completes a readable main-paper rewrite and the first public core-data workflow.
+EXP-475 passes an independent initial-point homoclinic formulation test.
+Next, use that method for controlled truncation/discretization studies before
+approaching the fine turn; finite symbolic and manifold-contact tests remain
+separate open priorities.
+
 ## P0 — trustworthy Rössler reproduction
 
 - [x] **P0-001 — Repository and paper claim audit.** Evidence:

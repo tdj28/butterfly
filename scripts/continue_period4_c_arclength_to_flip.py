@@ -146,6 +146,11 @@ def run_arclength_continuation(
                 tolerance=float(manifest["corrector"]["tolerance"]),
                 max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
             )
+            if not independent_orbit.success:
+                raise RuntimeError(
+                    f"independent periodic correction failed at c={corrected[4]}: "
+                    f"{independent_orbit.message}"
+                )
             independent_monodromy = flow_monodromy(
                 parameters,
                 independent_orbit.initial_state,
@@ -161,6 +166,11 @@ def run_arclength_continuation(
                 tolerance=float(manifest["corrector"]["tolerance"]),
                 max_evaluations=int(manifest["corrector"]["maximum_evaluations"]),
             )
+            if not reference_correction.success:
+                raise RuntimeError(
+                    f"reference periodic correction failed at c={corrected[4]}: "
+                    f"{reference_correction.message}"
+                )
             reference_dense = dense_orbit(reference_correction, parameters, solver)
             independent_dense = dense_orbit(
                 independent_orbit, parameters, independent_solver

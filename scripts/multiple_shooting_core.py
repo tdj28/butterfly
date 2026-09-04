@@ -253,6 +253,7 @@ def correct_arclength(
             solution.success
             and np.linalg.norm(matching) <= 1e-8
             and abs(residual[3 * segment_count]) <= 1e-8
+            and abs(residual[-1]) <= 1e-8
         ),
         "message": solution.message,
         "evaluations": int(solution.nfev),

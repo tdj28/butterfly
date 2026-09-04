@@ -196,6 +196,10 @@ def main() -> int:
             max_evaluations=int(manifest["corrector"]["max_evaluations"]),
             tolerance=float(manifest["corrector"]["tolerance"]),
         )
+        if not corrected.success:
+            raise RuntimeError(
+                f"{family['id']} seed periodic correction failed: {corrected.message}"
+            )
         seed_row = orbit_row(parameters, corrected, solver)
         downward, downward_status = continue_direction(
             seed_row,

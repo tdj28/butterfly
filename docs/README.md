@@ -6,6 +6,10 @@ supersedes earlier interpretations of full-flow Floquet zeros and cautions
 against treating the fine homoclinic turn as error-bounded. The long index
 below is a historical record, not the current execution order.
 
+The [new execution checkpoint](updates/2026-09-04-reproducible-core-and-readable-paper.md)
+adds a public core-data replay, readable manuscript, and a successful
+independent endpoint/collocation test of the initial homoclinic candidate.
+
 ## Purpose
 
 This directory is the living scientific record for a modern, reproducible

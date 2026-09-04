@@ -1,0 +1,66 @@
+{
+  "schema": "butterfly.projected-homoclinic-pilot.v1",
+  "experiment_id": "EXP-475",
+  "source_receipt": {
+    "path": "artifacts/EXP-342/receipt.json",
+    "sha256": "efa36db56b9dc288b973627fc588296656942dd1404191517892470761fd87b1",
+    "experiment_id": "EXP-342",
+    "role": "archived path is an initial guess only; no source matching equations reused"
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "physical_bounds": {
+    "a": [0.1823436081740286, 0.1829436081740286],
+    "flight_time": [60.0, 200.0]
+  },
+  "formulation": {
+    "ode": "dy/ds=T*f(y,a), s in [0,1]; fixed b,c",
+    "left_boundary": "orthogonal complement of unstable invariant subspace dotted with (y(0)-equilibrium), divided by left radius",
+    "right_boundary": "orthogonal complement of stable invariant subspace dotted with (y(1)-equilibrium), divided by right radius",
+    "radius_gauges": "((norm(endpoint-equilibrium)/radius)^2-1)/2 at each endpoint",
+    "unknown_parameters": ["a", "flight_time"],
+    "parameterization": "bounded tanh transformations; saturation cannot pass interiority gate",
+    "local_geometry": "independently implemented ordered real Schur projections, smoothly aligned by Procrustes",
+    "jacobian": "analytic ODE state/parameter and endpoint-state derivatives; centered transformed-parameter boundary derivative with step 1e-4",
+    "solver": "SciPy solve_bvp fourth-order collocation with adaptive residual control",
+    "no_reused_matching_residual": true,
+    "AUTO_HomCont": "not installed; this implementation is not AUTO/HomCont"
+  },
+  "analytic_controls": {
+    "model": "x'=y, y'=x-x^3+mu*y; exact mu=0 solution x=sqrt(2)*sech(t), y=-sqrt(2)*sech(t)*tanh(t)",
+    "radii": [0.1, 0.05, 0.025],
+    "initial_damping": 0.002,
+    "initial_nodes": 201,
+    "tolerance": 1e-7,
+    "boundary_tolerance": 1e-9,
+    "maximum_nodes": 5000,
+    "maximum_absolute_damping": 1e-8,
+    "analytic_error_gate": "maximum aligned state error <= radius^2 and error decreases by at least factor 2.5 with each radius halving",
+    "negative_control": "same analytic seed with damping constrained to [0.03,0.07] must fail numerical gates; H'=mu*y^2 excludes a nontrivial true homoclinic for positive mu"
+  },
+  "cases": [
+    {"name": "radius-0.01", "radius": 0.01, "tolerance": 1e-5},
+    {"name": "radius-0.005", "radius": 0.005, "tolerance": 1e-5},
+    {"name": "radius-0.0025", "radius": 0.0025, "tolerance": 1e-5},
+    {"name": "radius-0.0025-refined", "radius": 0.0025, "tolerance": 1e-6}
+  ],
+  "budget": {
+    "maximum_total_seconds": 300.0,
+    "maximum_trial_seconds": 45.0,
+    "maximum_nodes": 16000,
+    "maximum_seed_step": 0.03,
+    "maximum_state_norm": 1000.0,
+    "stop_on_first_failed_case": true,
+    "hardware": "local CPU only; no paid resources"
+  },
+  "replay": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "segments": 128, "maximum_step": 0.05},
+  "acceptance": {
+    "maximum_scaled_boundary_residual": 1e-8,
+    "minimum_parameter_box_margin": 0.0001,
+    "minimum_excursion": 5.0,
+    "maximum_source_a_difference": 0.00002,
+    "maximum_replay_state_defect": 0.0005,
+    "maximum_last_radius_a_difference": 0.00001,
+    "maximum_mesh_a_difference": 0.000002
+  },
+  "claim_scope": "A pass independently reproduces a nontrivial finite-radius orbit candidate near the initial EXP-342 a coordinate using new collocation and eigenspace endpoint equations. It requires analytic positive/negative controls, departure-and-arrival radius reduction, one discretization refinement, interior bounded parameters, and short DOP853 replay. Initial guesses and the mathematical Rossler model remain shared with prior work. This is not independent discovery, AUTO/HomCont validation, a radius-to-zero existence proof, a rigorous parameter interval, uniqueness, validation of Jones's printed coordinate, or a claim about the later continued turn. Failures are retained without parameter-box or tolerance tuning in this experiment."
+}

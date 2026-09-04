@@ -226,6 +226,11 @@ def main() -> int:
                 tolerance=float(corrector["tolerance"]),
                 max_evaluations=int(corrector["maximum_evaluations"]),
             )
+            if not independent_orbit.success:
+                raise RuntimeError(
+                    f"independent periodic correction failed at c={c}: "
+                    f"{independent_orbit.message}"
+                )
             independent_monodromy = flow_monodromy(
                 parameters,
                 independent_orbit.initial_state,

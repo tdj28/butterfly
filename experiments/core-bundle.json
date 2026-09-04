@@ -1,0 +1,69 @@
+{
+  "schema": "butterfly.core-bundle-spec.v1",
+  "bundle_id": "butterfly-core-v1",
+  "license": "GPL-2.0-only",
+  "scope": "One archived b=0.2 recurrence atlas panel, one frozen period-6 flip candidate, and the initial 32-segment homoclinic candidate, plus the full EXP-475 projected-boundary pilot receipt and protocol for inspection. Closed inputs for the three-example core replay, not the entire upstream discovery campaign. The wrapper does not rerun EXP-475. Cached atlas plotting is not a new integration; core numerical replay is not an independent existence proof.",
+  "numerical_replay": {
+    "flip_identity": {
+      "maximum_relative_period_difference": 1e-8,
+      "maximum_phase_fixed_state_difference": 1e-6,
+      "purpose": "Require the fixed-phase corrector to remain in a narrow neighborhood of the released seed, not merely find any closing orbit with the same counts. These reproduction tolerances are not orbit-uniqueness bounds."
+    }
+  },
+  "files": [
+    {
+      "path": "artifacts/EXP-021/frame-005.json",
+      "bytes": 4961884,
+      "sha256": "0727c463175109e3eb6808b531ff8bedecf15e15e9865143296e5d4f8c3bac4f",
+      "role": "Archived b=0.2 recurrence classifications for 26931 parameter points"
+    },
+    {
+      "path": "artifacts/EXP-021/frame-005.receipt.json",
+      "bytes": 862,
+      "sha256": "77b65b2da2eae3542032f877b3cf7cd628e03000c4471ef3b75804dc19dfae2b",
+      "role": "Hash-bound atlas frame receipt and historical source revision"
+    },
+    {
+      "path": "artifacts/EXP-205/receipt.json",
+      "bytes": 6080,
+      "sha256": "42580233a066dc3dee8766f7fab75202ff4594b99cd74f0047e9966a0af22ee0",
+      "role": "Frozen corrected orbit, period, parameters, and multiplier for flip-c7192; other six historical results retained unchanged"
+    },
+    {
+      "path": "artifacts/EXP-342/receipt.json",
+      "bytes": 16175,
+      "sha256": "efa36db56b9dc288b973627fc588296656942dd1404191517892470761fd87b1",
+      "role": "Frozen 32-arc homoclinic nodes and candidate parameters, including failed direct-replay diagnostic"
+    },
+    {
+      "path": "experiments/manifests/EXP-021-multi-b-ac-atlas.json",
+      "bytes": 777,
+      "sha256": "e127ff55c5abb484d00006ace61e72809dd537693c7567d18893f8c11cd2f4bd",
+      "role": "Original atlas integration and classification policy"
+    },
+    {
+      "path": "experiments/manifests/EXP-205-lower-c-period6-flip-refinement.json",
+      "bytes": 2106,
+      "sha256": "e1fd79d493ca086adedf1caa79c739c44767226f869e5bd53c8dd42de886c70f",
+      "role": "Original flip solver policy and acceptance gates; upstream discovery field is outside this core replay"
+    },
+    {
+      "path": "experiments/manifests/EXP-342-jones-homoclinic-radau-32-segment.json",
+      "bytes": 3337,
+      "sha256": "31eef9eb78ee6cef7c1c3344521cbe7f372f1f57fd4fbb682d921c7cced8bc15",
+      "role": "Original local manifold geometry, solver policy, and acceptance gates"
+    },
+    {
+      "path": "artifacts/EXP-475/receipt.json",
+      "bytes": 1633857,
+      "sha256": "7da4fa60891f1ecf057edde9072576e709f270ff0a2143250415e6c87d92309f",
+      "role": "Full projected-boundary homoclinic pilot evidence, including controls, reductions, refinement, and limitations; inspectable but not rerun by the core wrapper"
+    },
+    {
+      "path": "experiments/manifests/EXP-475-independent-projected-homoclinic-pilot.json",
+      "bytes": 3959,
+      "sha256": "dc67e2a2777ee98c1459e91bf634d7ffe7ba54f985d1f0914390b554c3f30656",
+      "role": "Frozen EXP-475 protocol; candidate-seeded independent formulation, not independent discovery or an existence proof"
+    }
+  ]
+}

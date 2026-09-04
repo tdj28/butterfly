@@ -24,6 +24,20 @@ and assessed.
 
 ## Citation decisions already fixed
 
+### Targeted post-2012 update (2026-09-04)
+
+This is a first source-checked expansion, not a complete review through 2026.
+See the [claim comparison](../docs/reviews/2026-09-04-post-2012-literature.md)
+for implications and the essential equation-convention conversion.
+
+| BibTeX key | Role and verification | Reading status / boundary |
+|---|---|---|
+| `barrio2013spirals` | Homoclinic hub organization and cross-system symbolic scans; author-hosted published chapter, pp. 53–64 and DOI checked | Rössler section and Lorenz/Shimizu–Morioka examples examined; not new mechanisms introduced here |
+| `malykh2020homoclinic` | Direct later hub/homoclinic study; published DOI and author-list cross-checked with arXiv and publisher PDF | Equations (1)–(2) and hub/continuation sections read in author preprint; translated parameterization must be converted before comparing numbers |
+| `gierzkiewicz2021periodic` | Rigorous period-forcing benchmark; publisher metadata and arXiv author record checked | Abstract and model/parameter statements read; full proof/code audit pending |
+| `capinski2017homoclinics` | Interval-validation standard beyond floating-point agreement; SIAM metadata and author preprint abstract checked | Method summary read; proof implementation not yet reproduced |
+| `nitta2022verification` | Alternative validated homoclinic method; open Springer article metadata checked | Abstract, assumptions and method outline read; its parameter-independent-equilibrium restriction needs explicit treatment |
+
 - We do not call logistic-like finite ordering new. Holmes (1984) and Lefranc
   et al. (1994) delimit the claim.
 - We credit Barrio et al. (2011) before describing the TTL/TBA as a Jones
@@ -46,3 +60,4 @@ Rössler partition convention beyond Gilmore's general template framework,
 (iv) finite-ordering results beyond the current primary sources, and (v)
 post-2012 work that directly tests periodicity hubs. Each entry must be added
 here with its role and claim boundary; a raw BibTeX import is insufficient.
+The five entries above begin this work; they do not close the full review.

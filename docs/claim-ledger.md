@@ -26,6 +26,15 @@ supersedes incompatible interpretations in the historical narrative below:
 The detailed rows retain experiment history; the current execution order is
 in [next-steps.md](next-steps.md).
 
+**EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
+and eigenspace-endpoint formulation now reproduces the initial candidate
+near `a≈0.1826436`, after analytic positive/negative controls. All four
+radius/tolerance cases pass. The finest result differs from EXP-342 by
+`3.86e-9`, but tolerance refinement changes `a` by `4.06e-8`; these are
+observed sensitivities, not error bounds. This closes the first independent
+initial-point formulation test, not the turn, printed-coordinate, or
+uniqueness claims. See [the experiment](experiments/EXP-475-independent-projected-homoclinic.md).
+
 | ID | Claim | Current state | Recovered-code coverage | Required acceptance test |
 |---|---|---|---|---|
 | CLM-001 | A primary periodicity hub and nested spirals exist for the Rössler system at fixed `b = 0.2` in the `(a,c)` plane. | Original claim; reported as externally supported, source verification pending | Partial: an MPI period-map kernel exists | Reproduce the hub with two independent integrators; publish convergence, horizon, and basin tests |

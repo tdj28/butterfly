@@ -5,10 +5,15 @@ Reviewed 2026-09-04. This is the current execution order; the long
 The [audit](reviews/2026-09-04-public-research-audit.md) explains the corrections
 that motivate this sequence. No new GPU jobs were launched for the audit.
 
+The [execution update](updates/2026-09-04-reproducible-core-and-readable-paper.md)
+records the first implementation checkpoint. A completed subtask does not
+close the broader scientific acceptance criterion below.
+
 ## 1. Make the central evidence independently reproducible
 
-- [ ] Inventory the input files needed for the principal figures and claims,
-  including their dependencies on earlier experiment receipts.
+- [x] Inventory a first core replay: one atlas panel, one flip, and the initial
+  homoclinic candidate, with exact input hashes. Full-campaign dependency
+  closure remains open.
 - [ ] Create a versioned, openly downloadable data bundle with checksums,
   source revision, locked environment, and a clear data license. Include
   corrected orbits and section/saddle samples needed to recompute the results;
@@ -26,10 +31,10 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Resolve the homoclinic accuracy question
 
-- [ ] Reproduce the initial fixed-c candidate with an independent boundary-value
-  formulation. Evaluate [AUTO/HomCont](https://github.com/auto-07p/auto-07p)
-  against a small known example first; sharing an integrator is less independent
-  than changing the boundary formulation and continuation implementation.
+- [x] Reproduce the initial fixed-c candidate with an independent boundary-value
+  formulation. EXP-475 passes analytic positive/negative controls and four
+  eigenspace-endpoint collocation cases. AUTO/HomCont was not installed;
+  this is a distinct SciPy formulation, not an AUTO validation or proof.
 - [ ] Vary departure/arrival radii, truncation time, mesh, gauge, and precision
   at selected points before and near the apparent turn. Preserve failed solves.
 - [ ] Estimate errors in `a` and `c` specifically, rather than interpreting a
@@ -85,11 +90,13 @@ sampled stable-parent/unstable-child pair settles the local normal form.
   periodicity hubs, homoclinic organization, return-map reduction, pruning,
   numerical continuation, and validated numerics. The pre-audit bibliography
   had only ten entries, all dated 2012 or earlier.
-- [ ] Maintain a claim-level comparison: prior result, Jones/Barrio co-discovery,
+- [x] Start a targeted post-2012 update: five verified sources, a tested
+  equation-convention conversion, and explicit reading-status boundaries.
+- [x] Start a claim-level comparison: prior result, Jones/Barrio co-discovery,
   modern reproduction, correction, and potentially new result. Preserve the
   agreed independent co-discovery wording without extending priority claims
   to earlier TTL/TBA work.
-- [ ] Focus the main paper on a small connected set of defensible results;
+- [x] Focus the main paper on a small connected set of defensible results;
   move the chronological experiment narrative into supplements. Keep the
   figure-rich presentation and explicit negative controls.
 
