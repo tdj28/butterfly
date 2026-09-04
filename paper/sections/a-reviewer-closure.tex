@@ -1,69 +1,83 @@
-\section{Claim, evidence, limitation, and referee closure}
+\section{Reviewer concerns and remaining closure tests}
+\label{supp:reviewers}
 
-\begin{table}[H]
-\centering
-\fontsize{8}{7.5}\selectfont
-\renewcommand{\arraystretch}{0.52}
-\begin{tabular}{@{}P{0.22\textwidth}P{0.26\textwidth}P{0.32\textwidth}P{0.10\textwidth}@{}}
+The original reviews identified explanatory gaps as well as presentation
+problems. Better orbit numerics address some of those gaps, but a deeper
+cascade does not automatically answer a question about symbolic ordering or
+reinjection. The table below separates work completed from the test still
+needed. Experiment details are in Appendix~\ref{supp:experiments}; the
+repository claim ledger gives the full acceptance criteria.
+
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}P{0.22\textwidth}P{0.34\textwidth}P{0.35\textwidth}@{}}
+\caption{Reviewer traceability at the current checkpoint. A passed numerical
+control is not equivalent to closing the broader scientific claim.}
+\label{tab:reviewer-closure}\\
 \toprule
-Claim & Evidence & Present limitation & Gate \\
+Concern & What is now available & What remains \\
 \midrule
-Eight local supercritical flips & Identity-safe continuation, multiple shooting,
-Floquet stability, three prospective predictions & One fixed $(a,c)$ slice; no
-global universality claim & passed locally \\
-Historical crossing-count change is a section grazing & Continuous tangency
-refinement on the stable child & Alternate sections still need systematic tests
-& partial \\
-Two/three-branch transition organizes hub windows & Original 2012 reports and
-210/210 passed Jones-half-plane cells, 84/84 passed published-section
-attractor endpoint cells, 420/420 passed CPU saddle cells, and 30/30 passed
-GPU saddle-parity cells; censor-aware PIM independently recovers both controls
-and remains stable from 128 to 256 returns; prospective coverage and midpoint
-tests qualify $a=0.145/0.147$ as two; blind PIM qualifies $a=0.148/0.148125$
-as two and $a=0.14825/0.1485$ as three; the held-out signed-edge prediction
-passes and a later blind two-branch midpoint narrows the sampled bracket to
-$[0.1481875,0.14825]$; transverse PIM
-falsifies a nearly vertical extension at $c=19.8$; its 256-return successor
-qualifies a finite bracket at $c=19.9$ and a new three-branch endpoint at
-$c=19.8$ & No
-continued global branch curve, infinite-lifetime saddle proof, or
-two-dimensional reinjection mechanism; the sampled bracket is not yet a
-continuous TBA curve; finite-time sprinkler
-geometry at $a=0.148$ is conditioning-sensitive even though independent PIM
-qualifies the long-lived saddle as two; branch-conditioned survival rejects
-faster capture and identifies delayed but bounded transient residence; and $a=0.150$ requires an adequate-
-resolution rule
-& partial \\
-Recovered UPO skeleton identifies the topology mechanism & Exact section
-returns, shooting, divisor reduction, continuous whole-orbit identity, and
-Floquet audits recover eleven primitive families; all continue across the
-local bracket with fundamental section lag intact & No stable/unstable
-manifold connection, pruning residual, or global TBA event has yet been
-continued & partial \\
-Finite logistic ordering on the proposed slices & Four exact flips,
-doubled-cover branch switches, and independent Radau stability exchanges
-qualify stable primitive children through period 16 on one explicit
-$L_2$-like path; a separate 41-point period-6 flip curve supports an
-identity-safe 124-point period-12 child-sheet patch with 31 square-root fits,
-stability exchange, exact two-section identity, and Radau controls; Figures 2
-and 6 are machine-transcribed; neutral two/three
-partitions and the local unimodal-to-higher-critical identity are independently
-qualified; a source-geometric operational alphabet then passes across two
-solvers and both coordinates; an exact period-6 landmark orbit is strongly
-qualified & The source prints no exact historical $L_1/L_2$ equations or
-generating partition; the exact landmark fails coordinate/word gates, so
-global child-sheet endpoints, superstable centers, Jones words, and permutations remain to be located and
-tested independently; a fine Floquet-only center proxy is rejected because
-its multiple zero sheets do not survive the frozen saddle refinement & partial \\
-Third-branch reinjection predicts $p\to p+1$ links & Original Jones hypothesis
-& A scalar transient-domain lifetime observable now rejects faster capture;
-invariant-saddle reinjection, coordinate robustness, and held-out prediction
-remain absent & open \\
-Method generalizes across chaotic flows & Reusable numerical components & No
-frozen cross-flow tests yet & open \\
+\endfirsthead
+\toprule
+Concern & What is now available & What remains \\
+\midrule
+\endhead
 \bottomrule
-\end{tabular}
-\caption{Compact claim/evidence/limitation table.  The repository's claim
-ledger and reviewer traceability document are authoritative for the detailed
-acceptance criteria.}
-\end{table}
+\endfoot
+Definitions and terminology (RVR-001) &
+The flow, sections, two-dimensional return map, scalar projection, integer
+labels, and full-flow multiplier constraint are stated separately. &
+Establish any proposed quotient and its domain before claiming
+conjugacy or topological invariance. \\[0.5em]
+Attribution and novelty (RVR-002) &
+The 2011 foundation, the two 2012 co-discoveries, prior finite-ordering work,
+and later computational literature are distinguished. &
+Complete the source-by-source comparison for each claimed new mechanism;
+a literature citation alone does not establish novelty. \\[0.5em]
+Two/three-branch mechanism (RVR-003) &
+Attracting and saddle controls reproduce. Blind saddle tests bound a sampled
+classification change by $a\in[0.1481875,0.14825]$ at $(b,c)=(0.2,20)$. &
+Continue a representation-robust transition and identify the direct
+manifold or pruning event. Finite samples do not prove an infinite-time
+topological boundary. \\[0.5em]
+Finite logistic ordering (RVR-004) &
+The Jones-path reconstruction has four checked doublings through period 16.
+The source words are transcribed and an operational alphabet is partly
+qualified. &
+Enumerate words and orbit permutations through the original period-seven
+claim. The landmark word test failed; a period-doubling chain is not the
+required finite enumeration. \\[0.5em]
+Third-branch reinjection (RVR-005) &
+Eleven recovered unstable periodic-orbit families persist across the local
+bracket. A held-out saddle midpoint confirms the lobe association. &
+Measure stable/unstable manifold contact or an equivalent pruning
+observable and test a new predicted window connection. The capture-timing
+proxy failed. \\[0.5em]
+Unfolded-spiral explanation (RVR-006) &
+The original Figure 6 words, arrows, and approximate landmarks have been
+transcribed into reproducible targets. &
+Generate a readable figure linking parameter position, branches, orbit
+points, and symbolic words, including unresolved connections. \\[0.5em]
+Exploitation and generality (RVR-007) &
+Connected period-6 flip arms, a sampled period-12 sheet, and deep finite
+cascades are available with identity and solver controls. &
+Establish their relation to shrimp boundaries and repeat the qualified
+mechanism tests on two unlike flows before a larger survey. \\[0.5em]
+Accessible exposition (RVR-008) &
+A short main narrative, vocabulary table, seven central figures, and explicit
+claim summary precede the technical record. &
+Continue independent readability checks as the mechanism figures and
+source comparisons are completed. \\[0.5em]
+Homoclinic endpoint (CLM-003) &
+A nearby boundary-value candidate survives solver, mesh, and radius checks.
+Eighty-one continuation points are accepted numerically. &
+Independently test the formulation and parameter uncertainty. The printed
+point, the physical location of the apparent turn, uniqueness, and
+organizing role remain unestablished. \\
+\end{longtable}
+\normalsize
+
+The high-period results are valuable evidence about orbit computation.
+They do not replace the RVR-003--006 mechanism tests. The incorrect
+full-flow zero-multiplier rationale and the false period-1536 daughter are
+retained as explicit corrections in the experimental record.

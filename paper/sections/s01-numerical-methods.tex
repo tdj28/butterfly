@@ -1,0 +1,131 @@
+\section{Numerical methods and acceptance tests}
+\label{supp:methods}
+
+This supplement retains the detailed experiment sequence, including failed
+controls and interpretations that were revised later.  Statements such as
+``next'' or ``at this stage'' refer to that sequence; the main article and
+its claim summary state the current conclusions.
+
+
+Throughout the experiment record, ``exact'' orbit or event denotes a directly
+corrected shooting or augmented-system solution at a specified parameter,
+rather than an interpolated raster estimate.  These are numerical solutions
+with measured residuals.  Neither that terminology nor high-precision
+arithmetic supplies a rigorous enclosure of a continuous-flow solution.
+Results for a fixed-step Runge--Kutta map additionally require discretization
+convergence before they support a statement about the flow.
+
+Finite-time $(a,c)$ rasters are used for discovery, not for declaring invariant
+bifurcations.  Candidate periodic states are corrected by shooting equations
+with an explicit phase condition.  Stability is computed from the variational
+flow and nontrivial Floquet multipliers.  Every continuation correction is
+checked against the intended minimal-period orbit identity so that a
+double-covered parent cannot be mislabeled as a doubled child.  Adaptive
+DOP853 or Radau integrates the state and variational equations; Newton-style
+least squares acts only on the finite-dimensional shooting, phase, parameter,
+and pseudo-arclength residuals.  Thus correction is not used as a time
+integrator.  For continuation in $c$, the exact sensitivity forcing is
+$f_c=(0,0,-z)$ and the resulting shooting Jacobian is checked against centered
+finite differences.
+
+At high period, full-period shooting becomes poorly conditioned and can lose
+the flip direction.  We therefore divide an orbit into multiple shooting
+segments, enforce continuity between segment endpoints, and obtain the
+monodromy action from the product of the segment variational maps.  Child
+identity is tested at a common parameter by phase-aligning the entire orbit and
+comparing against the double-covered parent, rather than by comparing one
+section point.
+
+Numerical tolerances, frozen predictors, failed acceptance gates, hashes, and
+output paths are recorded in experiment receipts in the accompanying
+repository.  Event predictions used as prospective tests are frozen before the
+subsequent crossing scan and refinement.  This separation prevents an
+after-the-fact fit from being reported as prediction.
+
+The return-map topology work uses a gated scalar oracle.  It requires
+invariant-domain coverage, a bounded conditional-spread ratio, prominent
+spline critical points, and deterministic bootstrap consensus; a failed gate
+returns ``unresolved'' rather than a forced branch label.  Each experiment
+freezes $\Sigma$, the crossing orientation, scalar coordinate, critical-point
+criterion, and perturbation matrix before execution.  A scalar classification
+that survives these gates is still representation-bounded: the full
+two-dimensional return map must be retained for any topological-invariance or
+reinjection claim.
+
+Persistent critical identity is evaluated separately from global branch
+count.  A physical critical location predicted from independently resolved
+neighboring rows is selected locally in each spline variant, bootstrapped
+without requiring the shallow added extremum to be detected, and checked in
+both scalar coordinates.  Where attracting support is insufficient, a
+middle-time survivor cloud may vote only after factor-two RK4 step-size parity,
+complete attractor-capture controls, and short-horizon adaptive-DOP853
+state/event agreement.  Long-time pointwise trajectory equality is not used
+after chaotic decorrelation.
+
+Historical symbols are attached only in a separately frozen source-geometric
+test.  The critical retained from the unimodal side defines $C$ and the added
+critical defines $D$.  The interval beyond the added critical is assigned the
+third-branch symbol, while the deposited interval must independently be the
+unique closest interval to the small equilibrium in physical state space.
+Both assignments must agree across $x$ and $z$, disjoint return segments, and
+DOP853/Radau trajectories before any target-cycle word is evaluated.
+
+Inside regular windows, the attracting orbit cannot supply the chaotic return
+map.  We therefore begin with a survival-ensemble sprinkler construction:
+sample a declared section region, reject trajectories only after repeated
+capture by the stable cycle, and retain middle-time states of long-lived
+survivors as a finite approximation of the saddle
+\citep{kantz1985repellers}.  Survivor and captured classifications are audited
+pointwise against adaptive DOP853 only over short horizons.  Over long chaotic
+horizons, convergence is defined statistically through survivor curves,
+return-map geometry, and critical-point stability across time step,
+conditioning window, grid phase, and grid resolution.  Candidate shallow
+critical points must persist across a frozen binning/smoothing matrix and
+bootstrap resampling in both section coordinates.  Regular-grid aliasing is
+tested and then replaced by independently scrambled, nested Sobol ensembles;
+section roots inside fixed RK4 steps are located with cubic Hermite
+interpolation from endpoint vector fields.  Four bounded Newton updates refine
+only the scalar within-step section root on that interpolant; RK4 remains the
+state integrator.  Adaptive DOP853 provides the independent short-horizon
+reference.  PIM-triple trajectories
+provide a structurally different follow-up method rather than a tuning fallback
+\citep{nusse1989procedure}.  For censor-aware PIM refinement, capture before
+the observation ceiling gives an exact lifetime while survival gives only a
+right-censored lower bound.  A censored block is admissible only when it is
+strictly interior and its lower bound exceeds the exact lifetimes of captured
+neighbors on both sides; boundary blocks and integration failures remain
+unresolved.  Repeating the complete construction at frozen lifetime horizons
+tests whether branch topology and invariant-domain coverage depend on that
+ceiling.
+
+PIM trajectories are used only to propose close-return seeds for unstable
+periodic orbits.  A seed is retained only after exact section returns,
+phase-conditioned flow shooting, independent monodromy integration, a neutral
+Floquet multiplier, transverse instability, and the declared section identity
+all pass.  Every proper integer divisor of the reported lag is tested for
+closure, and primitive survivors are deduplicated by continuous phase-
+invariant whole-orbit RMS.  Natural continuation then retains independent flow,
+Floquet, primitivity, and section checks at every parameter point.  To avoid an
+arbitrary orbit phase changing a half-open crossing count, the section identity
+is counted over the shifted full-period interval $(0.1T,1.1T]$.  Optimizer
+convergence is recorded separately from the prospectively declared scientific
+closure bound.
+
+To obtain a signed companion to the integer branch count, we affinely normalize
+each scalar PIM return relation and evaluate the fitted-spline derivative at
+the first populated binned-source median.  This avoids extrapolation outside
+the occupied support.  A sign resolves only when every frozen binning and
+smoothing variant agrees and the smallest absolute normalized derivative
+exceeds a preregistered floor.  The observable remains section- and coordinate-
+bounded, and it shares state data with the branch oracle; it is therefore a
+candidate continuation coordinate rather than an independent topological
+invariant.
+
+Branch-conditioned capture is tested by freezing critical-point uncertainty
+bands from prior return-map data and excluding those bands from later branch
+assignment.  Each new trajectory contributes only its last section crossing
+before a fixed landmark and is followed from that landmark to attractor capture
+or a common administrative censor.  The primary contrast is extra-minus-core
+restricted mean survival time, with a trajectory bootstrap interval, log-rank
+test, independent Sobol scrambles, and a same-ensemble half-step control.
+Repeated crossings are not counted as independent observations.

@@ -1,6 +1,6 @@
 # Butterfly: reproducible periodicity-hub dynamics
 
-This repository turns a 2012 study of Rössler periodicity hubs into a modern,
+This repository turns a 2012 study of Rössler periodicity hubs into a modern
 program of numerical research with recorded protocols and results. It combines parameter-plane
 atlases, invariant-orbit continuation, Floquet analysis, chaotic-saddle
 reconstruction, independent integrators, and explicit negative results.
@@ -20,6 +20,12 @@ records corrected software bugs, a retracted Floquet-zero interpretation, and
 the limits of the current evidence. The [next research steps](docs/next-steps.md)
 prioritize independent validation and public reproducibility.
 
+For an accessible introduction, the [manuscript](paper/README.md) now puts a
+short illustrated article before the detailed technical supplement, preserving
+all 31 figures. The [core-data replay guide](docs/reproducibility.md) documents
+the first downloadable-input workflow: one atlas panel and two numerical
+candidate checks, with explicit limits on what is reproduced.
+
 ## What the computations currently show
 
 - The shrimp and periodic-window skeleton evolves coherently over eleven
@@ -28,7 +34,7 @@ prioritize independent validation and public reproducibility.
   pixels are not automatically chaotic.
 - The reported Jones hub has the claimed local saddle-focus equilibrium. The
   Hopf-born period-1 family reaches the reported hub neighborhood, and four
-  exact supercritical period doublings with stable children are independently
+  numerically localized supercritical period doublings with stable children are independently
   qualified on that path.
 - A separate equilibrium-manifold calculation gives a nearby numerical
   homoclinic candidate. At fixed `c = 10.3084`, two integrators and boundary-radius
@@ -74,7 +80,7 @@ figure. Failed correctors and conditioning rejections remain visible.
 
 ![Exact returning-arm cascade](paper/figures/fig22-exp237-275-returning-cascade.png)
 
-Exact real-`-1` events, stable primitive children, two independent integrators,
+Numerically localized real-`-1` events, stable primitive children, two independent integrators,
 and finite spacing ratios resolve the returning cascade through a stable
 period-768 child. Later high-precision work extends the connected finite chain
 while retaining the boundary between finite evidence and universality.
@@ -106,8 +112,9 @@ The source, manifests, compact receipts, and finished figures are public.
 Most raw `artifacts/` inputs are currently local and are **not distributed in
 this repository**. Tests, the CPU smoke check, and manuscript compilation can
 run from a clean checkout; most historical figure-regeneration commands need
-those additional inputs. A versioned data archive is still required for full
-independent reproduction; hashes alone do not provide the missing data.
+those additional inputs. The [core bundle](docs/reproducibility.md) supplies
+an explicit seven-file subset for a first public replay; it is not the full
+campaign archive. Hashes alone do not provide the remaining missing data.
 
 ## Quick start
 
@@ -115,7 +122,7 @@ The modern research stack requires Python 3.12 or newer. With
 [`uv`](https://docs.astral.sh/uv/) installed:
 
 ```sh
-uv sync --extra dev
+uv sync --locked --extra dev
 .venv/bin/butterfly verify
 .venv/bin/python -m pytest -q
 ```

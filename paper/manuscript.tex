@@ -1,17 +1,22 @@
 \documentclass[11pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage[section]{placeins}
 \usepackage{tabularx}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
 
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
-\title{A Reproducible Computational Reassessment of Periodicity-Hub Dynamics in the R{\"o}ssler Flow}
+\title{Periodicity Hubs in the R{\"o}ssler Flow:\\A Computational Reassessment}
 \author{Timothy D. Jones}
 \date{Working draft --- \today}
 
@@ -23,6 +28,13 @@
 \input{sections/00-abstract}
 \end{abstract}
 
+\noindent\small
+\textit{Reading guide.} The main article explains the questions, seven central
+figures, and current conclusions. The technical supplement starts on
+page~\pageref{supp:start} and retains the detailed experiments and additional
+figures. Table~\ref{tab:vocabulary} introduces the terminology.
+\normalsize
+
 \input{sections/01-introduction}
 \input{sections/02-mathematical-objects}
 \input{sections/03-methods}
@@ -33,6 +45,20 @@
 
 \clearpage
 \appendix
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theHfigure}{supp.\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theHtable}{supp.\arabic{table}}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\theHequation}{supp.\arabic{equation}}
+\input{sections/s00-reading-guide}
+\input{sections/s01-numerical-methods}
+\input{sections/s02-experiment-record}
+\input{sections/s03-symbolic-tests}
+\input{sections/s04-interpretation-record}
 \input{sections/a-reviewer-closure}
 \clearpage
 

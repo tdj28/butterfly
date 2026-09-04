@@ -1,77 +1,97 @@
 # Paper workspace
 
-This directory is the continuously updated manuscript for the modern
-reassessment and extension of Jones (2012). It is intentionally developed in
-parallel with the computation, but a result enters the prose as established
-only after it has a repository experiment receipt and a matching state in
-[`../docs/claim-ledger.md`](../docs/claim-ledger.md).
+This directory contains a readable main article followed by a detailed technical
+supplement in the same PDF. The main article asks what organizes the Rössler
+periodicity windows, explains the measurements, and separates supported local
+results from the mechanisms still open. The supplement preserves the numerical
+record, including failed experiments and corrected interpretations.
 
-## Files
+## Start here
 
-- [figures/](figures/) contains the visual argument and generation receipts.
-- [supplement/](supplement/) contains Supplemental Movie S1, the animated
-  multi-\(b\) parameter-plane atlas.
+- [`manuscript.tex`](manuscript.tex) builds the combined article and supplement.
+- [`sections/01-introduction.tex`](sections/01-introduction.tex) introduces the
+  question and historical context.
+- [`sections/02-mathematical-objects.tex`](sections/02-mathematical-objects.tex)
+  defines the measurements and includes a short vocabulary table.
+- [`sections/04-results.tex`](sections/04-results.tex) presents the main visual
+  argument, with seven central figures and their limitations.
+- [`sections/06-discussion.tex`](sections/06-discussion.tex) summarizes what the
+  evidence changes for the original claims.
 
-- [`manuscript.tex`](manuscript.tex) is the compile entry point.
-- [`sections/`](sections/) holds the paper prose in reviewable units.
-- [`references.bib`](references.bib) is the authoritative project bibliography.
-- [`reference-ledger.md`](reference-ledger.md) records why each source matters,
-  where its metadata was verified, and where it should be cited.
-- [`reviewer-traceability.md`](reviewer-traceability.md) maps the original
-  referee objections to manuscript text and scientific closure gates.
-- [`required-citations.txt`](required-citations.txt) lists citations that may
-  not disappear from the manuscript during editing.
-- [`../scripts/check_paper_references.py`](../scripts/check_paper_references.py)
-  checks the BibTeX/citation/required-source contract.
+The main narrative is approximately 3,900 words, including captions. It uses
+rounded coordinates where extra digits do not help interpretation; the technical
+record retains the full numerical values and acceptance criteria.
+
+## Technical supplement
+
+The reader guide at [`sections/s00-reading-guide.tex`](sections/s00-reading-guide.tex)
+links to the following appendices and their PDF page numbers:
+
+- [`sections/s01-numerical-methods.tex`](sections/s01-numerical-methods.tex):
+  shooting, continuation, orbit identity, Floquet calculations, and saddle methods.
+- [`sections/s02-experiment-record.tex`](sections/s02-experiment-record.tex):
+  the full experimental sequence and the remaining 24 figures.
+- [`sections/s03-symbolic-tests.tex`](sections/s03-symbolic-tests.tex): source
+  transcription, operational symbols, failed center searches, and remaining tests.
+- [`sections/s04-interpretation-record.tex`](sections/s04-interpretation-record.tex):
+  how interpretations changed as evidence accumulated.
+- [`sections/a-reviewer-closure.tex`](sections/a-reviewer-closure.tex): a readable,
+  multipage table mapping referee concerns to current evidence and open tests.
+
+The long experimental sections retain chronological statements such as “next”
+or “at this stage.” Their meaning is historical. The main article and its
+claim summary state the current conclusions. This preserves the audit trail
+without requiring a reader to reconstruct the whole chronology first.
+
+## Figures and references
+
+All **31 scientific figures** remain in the combined manuscript: seven in the
+main article and 24 in the supplement. Supplementary figures use S-prefixed
+numbers, while asset filenames and generation receipts keep their stable
+historical identifiers. No scientific image or figure receipt was changed by
+the narrative reorganization.
+
+[figures/README.md](figures/README.md) lists regeneration commands and source
+hashes. [supplement/](supplement/) contains the existing animation materials.
+The homoclinic-continuation asset named `fig30` is the **EXP-472, 80-point
+snapshot**; the subsequent EXP-473 point is described in the text. The apparent
+local turn remains a sampled numerical feature requiring parameter-sensitive
+error control and an independent formulation.
+
+[`references.bib`](references.bib) holds the bibliography;
+[`reference-ledger.md`](reference-ledger.md) records each source's role and
+verification status. [`required-citations.txt`](required-citations.txt) protects
+required sources from accidental removal. The citation checker follows all
+included main and supplemental sources and verifies figure paths.
 
 ## Build and check
 
 From the repository root:
 
 ```sh
-python3 scripts/check_paper_references.py
-latexmk -pdf -cd paper/manuscript.tex
+.venv/bin/python scripts/check_paper_references.py
+latexmk -pdf -cd -interaction=nonstopmode -halt-on-error paper/manuscript.tex
 ```
 
-The current target is a portable `article` draft. Journal formatting comes
-only after the scientific closure gates are satisfied.
-
-## Visual build
-
-The figure-generation commands and source hashes are recorded in
-[figures/README.md](figures/README.md). The 30-figure collection covers:
-
-- Multi-\(b\) recurrence atlases, a global-to-shrimp zoom, and historical landmarks.
-- The Hopf locus, corrected periodic families, and finite period-doubling chains.
-- Attracting and chaotic-saddle return maps, critical-point tests, and failed center searches.
-- Period-6 flip arms, section grazing, and a sampled period-12 child sheet.
-- High-precision correction of the returning cascade, including retraction of a false daughter.
-- The nearby homoclinic candidate and its numerical continuation.
-
-Figure 30 is the frozen **EXP-472, 80-point snapshot**. EXP-473 subsequently
-adds an eighty-first accepted continuation point, described in the text and
-repository record. Its absence from that figure is a snapshot boundary.
-The apparent local turn is a feature of the sampled numerical branch;
-conditioning-aware parameter errors and an independent formulation remain
-necessary to establish its physical location.
-
-The abstract and conclusion summarize the current findings; the detailed
-results preserve the experiment sequence and failed checks. A publication
-edit should move most chronological solver development into a supplement
-while retaining the source receipts and reproducible figure inventory.
+The target remains a portable `article` draft. Numerical evidence, rather than
+journal formatting, determines when a claim can be promoted.
 
 ## Writing rules
 
-1. Define the flow, section, return map, invariant set, and symbolic quotient
-   separately.
-2. Do not use *conjugate*, *topological*, *branched manifold*, or
-   *universality* without a precise mathematical object and a passed test.
-3. Cite prior work at the first statement of prior knowledge. The two 2012
-   papers are described as independent, near-simultaneous co-discoveries of
-   the return-map topology transition's role in periodicity-hub organization.
-4. Label open mechanisms as hypotheses. A deep cascade is not evidence that
-   the two/three-branch, reinjection, or unfolded-spiral mechanisms are closed.
-5. Every quantitative result names its experiment IDs in the source comments
-   or the accompanying project record.
-6. Negative results, failed gates, and section/coordinate dependence remain in
-   scope; they are not edited away to improve the narrative.
+1. Define the flow, section, return map, invariant set, and any scalar quotient
+   separately. Explain a technical term before relying on it.
+2. Put the scientific question, result, and implication in the main article.
+   Put chronological solver development and detailed acceptance checks in the
+   supplement, without removing negative evidence.
+3. Do not use *conjugacy*, *topological invariant*, *branched manifold*, or
+   *universality* without stating the mathematical object and its evidence.
+4. Treat the two 2012 studies as independent, near-simultaneous co-discoveries
+   while crediting earlier foundations and subsequent work explicitly.
+5. Distinguish the three cascade paths; integer cycle labels are not flow times,
+   scalar-map criticality is not a zero full-flow multiplier, and solver
+   agreement is not a rigorous existence proof.
+6. Every quantitative result must be traceable through experiment IDs, source
+   comments, or the accompanying project record. A figure is not an independent
+   validation of its source data.
+7. Keep the claim ledger and manuscript consistent. A paragraph or citation may
+   fix exposition but cannot close an unperformed scientific test.

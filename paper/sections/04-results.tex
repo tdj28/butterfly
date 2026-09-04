@@ -1,1587 +1,224 @@
-\section{Established computational results}
+\section{What the evidence shows}
+\label{sec:results}
 
-\subsection{Parameter-plane superstructure and period-6 landmarks}
+\subsection{The broad pattern and the individual windows are different tests}
 
-At $b=0.2$, the global recurrence atlas contains several curved families of
-periodic windows rather than one isolated shrimp.  Figure~\ref{fig:global-zoom}
-places the reported hub and both historical period-6 landmarks in that global
-field, then resolves the narrow band containing the second landmark at 50
-times the earlier sampling density per parameter axis.  The prospective
-$92{,}736$-pixel expansion reproduces both landmarks as period 6, but they
-belong to distinct eight-connected stable raster components.  The outlined
-second-landmark component contains 2,598 pixels and spans
-$c\in[7.124,8.192]$; the first landmark near $c=6.124$ is outside it.  This
-rejects a shared \emph{resolved stable raster} band, while leaving open a
-subgrid bridge or continuation through unstable period-6 orbits.
+The multi-$b$ atlas shows a coherent family of patterns
+(Figure~\ref{fig:multib-superstructure}). It also shows why the global problem
+is difficult: narrow periodic bands are embedded in a much larger region
+whose finite-time behavior is often unresolved. A convincing explanation
+must connect individual invariant orbits to that larger picture.
 
-\begin{figure}[t]
+At $b=0.2$, a refined scan resolves two historical period-6 landmarks
+(Figure~\ref{fig:global-zoom}). They lie in different connected components
+of the sampled stable raster. The component around the second landmark
+contains 2,598 pixels and spans approximately $c=7.124$ to $8.192$.
+This establishes separation at the chosen resolution. It does not exclude a
+narrower bridge or a connection through unstable periodic orbits.
+% Evidence: EXP-191 and subsequent period-6 component preparation.
+
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=\textwidth]{figures/fig02-global-and-period6-zoom.png}
-  \caption{Global and local views of the $b=0.2$ parameter plane.  Left: the
-  full recurrence atlas with the reported hub (red star), the second
-  period-6 landmark (yellow star), the first period-6 landmark (magenta
-  cross), and the refined search rectangle.  Right: the refined landmark
-  band; the black contour encloses the eight-connected period-6 component
-  selected from the second landmark.  The disconnected raster components are
-  a search result, not proof that no invariant period-6 continuation joins
-  them.}
+  \caption{From the broad parameter region to one periodic window. Left:
+  the reported hub and two period-6 landmarks are marked in the $b=0.2$
+  atlas. Right: a scan with 50 times finer spacing in each parameter
+  resolves the band around the second landmark; the black outline selects
+  its sampled period-6 component. The separation from the first landmark
+  is a raster observation, not proof that their orbit families are
+  disconnected.}
   \label{fig:global-zoom}
 \end{figure}
 
-\subsection{Reference equilibrium at the proposed hub}
+\subsection{Two and three branches can be reconstructed}
 
-At $(a,b,c)=(0.1798,0.2,10.3084)$, the equilibrium equations have a small
-solution
-\[
-(x_*,y_*,z_*)=(0.003489598512,-0.019408223091,0.019408223091).
-\]
-The analytic Jacobian eigenvalues are
-$0.0889667722\pm0.9959555077i$ and $-10.3030439458$.  Thus this equilibrium is
-a saddle focus with a two-dimensional unstable spiral eigenspace and one
-strongly stable real direction.  Central-difference Jacobian checks,
-vector-field residuals, and equilibrium invariance under DOP853 pass.  This
-verifies the local eigenstructure asserted at the proposed hub coordinate; it
-does not exhibit a homoclinic orbit or prove uniqueness on a parameter segment.
+Figure~\ref{fig:return-map-controls} makes the branch distinction concrete.
+For two published attracting controls at $(b,c)=(0.2,20)$, the return
+relation has either one or two turning points. This reproduces the
+unimodal/bimodal contrast on the declared section
+\citep{barrio2012topological}.
 
-As a first global-manifold search, 96 midpoint directions on a radius
-$10^{-7}$ circle in the two-dimensional unstable eigenspace were integrated
-through an outward radius-$0.01$ event and for 400 further time units.  No row
-met the joint return-distance and stable-alignment gates.  A prospectively
-selected 257-angle refinement over the closest coarse neighborhood improved
-the minimum distance only from $0.01047463$ to $0.01045101$; at the latter
-point the displacement remained $0.9992957$ transverse to the stable
-eigendirection.  Figure~\ref{fig:homoclinic-angle-scan} shows why the small
-distance alone is not evidence of a homoclinic approach.  Because the source
-coordinate is printed only approximately and the parameter direction was not
-varied, this finite null scan neither rejects a nearby connection nor tests
-uniqueness.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig28-exp329-331-homoclinic-angle-scan.png}
-  \caption{Forward unstable-manifold discovery scans at the approximately
-  printed hub coordinate. Left: 96 departures cover the unstable-eigenspace
-  circle. Right: 257 prospectively selected directions refine the closest
-  coarse neighborhood. The upper panels compare return distance with the
-  $0.01$ discovery gate; the lower panels compare stable-direction cosine with
-  the equivalent $\sqrt{0.99}$ alignment gate. A few trajectories return near
-  the equilibrium, but all sampled approaches are overwhelmingly transverse.
-  The result excludes a sampled candidate on these finite grids, not a nearby
-  codimension-one homoclinic connection.}
-  \label{fig:homoclinic-angle-scan}
-\end{figure}
-
-Parameter-aware scans then replace stable-eigenvector alignment with direct
-matching to both nonlinear local stable-manifold branches on common spheres.
-At fixed $a=0.1798$, a radius-$0.02$ scan produces 25 direct near matches;
-a radius-$0.025$ successor doubles angular resolution, halves the parameter
-spacing, and records 977 inward returns over 2,496 launches.  Its best chord
-mismatch is $0.00129410$ near $c=10.3189$, close to the smaller-sphere
-minimum.  However, a prospective winding-number audit rejects every
-four-corner residual hull at degree zero, including return-time-continuous
-cells.  The repeatable near miss motivates an orthogonal parameter slice, but
-does not yet supply a stable/unstable manifold intersection.
-
-The orthogonal fixed-$c=10.3084$ scan reduces the common-sphere mismatch to
-$1.62262\times10^{-4}$ near $a=0.18255$.  Corrected long single shooting
-improves that value but exposes a poorly conditioned 234-time-unit flow map.
-Replacing it by 16 matched DOP853 arcs produces a candidate with maximum arc
-defect $2.66\times10^{-9}$.  An independently integrated 32-arc Radau solve
-reproduces the root at
-\[
-  a=0.1826436081740286
-\]
-with maximum defect $1.09\times10^{-9}$.  The parameter then remains within
-$4.35\times10^{-13}$ as the nonlinear stable-manifold matching radius is
-reduced from $0.03$ through $0.025$ to $0.02$; all three maximum arc defects
-remain below $10^{-8}$ (Figure~\ref{fig:homoclinic-root}).  Direct one-shot
-replay diverges, as expected from the ill-conditioned unstable orbit, whereas
-the boundary-value arcs remain matched.  This strongly qualifies a
-homoclinic connection at the revised fixed-$c$ coordinate.  It does not
-validate the printed $a=0.1798$, which is lower by approximately $0.00284361$,
-and it does not establish uniqueness along a parameter segment.
-
-Two qualified continuation points at $c=10.3104$ and $10.3144$ initially
-give nearly identical secant slopes, predicting an intersection with the
-historical $a=0.1798$ path near $c=10.31714$.  Direct tests do not qualify
-that extrapolation.  Fixed-$c$ predictor corrections approach
-$a=0.17981749$ but stall at maximum defect $3.76\times10^{-6}$; two
-independently seeded fixed-$a$ corrections return near $c=10.317127$ with the
-same stable-end defect of approximately $2.10\times10^{-4}$.  These preserved
-failures motivate a gauge-aligned two-parameter pseudo-arclength system rather
-than another forced-coordinate solve.  Eight chained Radau steps through 256
-arcs pass, initially producing eleven qualified curve points and reaching
-\[
-  (a,c)=(0.1798174978857,10.3170814887419),
-\]
-with maximum matching defects below $10^{-8}$ and arclength
-residuals below $4.40\times10^{-11}$.  The last point is only
-$1.74979\times10^{-5}$ above the historical $a$ section.  The pre-fold slope,
-$-0.32555655$, projects $a=0.1798$ near $c=10.31713524$.
-
-The 512-arc successor program preserves every failed formulation rather than
-silently extending the curve.  Unconstrained collocation escapes even on a
-zero-step control; long-secant weighted planes hit walls or select backward
-roots; and oversized local-tangent steps reverse in $c$.  A bounded
-standard-tangent control passes, and a fourfold-smaller step then adds a
-twelfth point at
-$(a,c)=(0.1798174938833,10.3170815075378)$.  Fixing normalized arclength removes
-step inflation but further reductions still reverse $c$ while moving toward
-smaller $a$.  This is consistent with a local turn in the sampled numerical
-curve, but its physical location has not been bounded.  Reorienting the
-prospectively frozen tangent and direction
-gate toward decreasing $a$, with $c$ unconstrained, passes in two corrections
-at
-\[
-  (a,c)=(0.1798174935369,10.3170815025596).
-\]
-Its maximum block defect is $4.01\times10^{-9}$, plane residual
-$5.07\times10^{-14}$, and smallest measured Jacobian singular value
-$1.69\times10^{-9}$.  This thirteenth accepted point continues the numerical
-branch through the sampled reversal in $c$.  The remaining fixed-$a$ gap is
-$1.74935\times10^{-5}$; consequently the pre-fold projected crossing is no
-longer treated as a monotone-$c$ prediction, and the exact historical-path
-intersection is still not claimed.
-
-At that scale neither displayed parameter supplies a reliable orientation:
-the next clean full-state-forward correction reverses both $a$ and $c$.
-Replacing coordinate gates by secant-aligned signed arclength adds five more
-qualified points and identifies EXP-403 as the sampled first local minimum in
-$a$.  The outgoing branch reaches
-\[
-  (a,c)=(0.1798177050799,10.3170808940738)
-\]
-at EXP-410.  Its maximum block defect is $3.20\times10^{-9}$ and its smallest
-measured singular value is $1.25\times10^{-9}$.  A twice-larger step reaches a
-clean root but fails only the fixed conditioning floor; halving that step
-passes every unchanged gate in two corrections.  Thus eighteen roots are now
-qualified.  Three further tangent-recomputed half-steps each pass in two
-corrections, reaching
-\[
-  (a,c)=(0.1798182269380,10.3170793858051)
-\]
-with $6.68\times10^{-9}$ maximum block defect and
-$1.20\times10^{-9}$ smallest measured singular value.  Thus twenty-one roots
-are qualified and the outgoing arm is reproduced under four newly computed
-tangents.  A fifth same-size step passes but uses $78.5\%$ of the frozen
-block-defect gate.  Halving arclength restores the defect to
-$4.76\times10^{-9}$, and two further smaller steps reach
-\[
-  (a,c)=(0.1798189322263,10.3170771259104)
-\]
-with $3.20\times10^{-9}$ maximum block defect and
-$1.17\times10^{-9}$ smallest measured singular value.  Ten further qualified
-points recompute the tangent at every root.  EXP-419--421 pass three
-consecutive doubled steps; when the defect rises to $73.9\%$ of its frozen
-gate, EXP-422 returns prospectively to the proven smaller step.  EXP-423--425
-then pass three smaller steps at the defect floor, licensing a second doubled
-regime.  EXP-426--428 pass three doubled steps.  A defect-aware reduction then
-yields nine consecutive smaller passed steps through EXP-437. Thirty-five
-further same-size steps pass every unchanged gate and reach EXP-472 at
-\[
-  (a,c)=(0.1798592842285,10.3169531561905)
-\]
-with $3.20\times10^{-9}$ maximum block defect and
-$8.02\times10^{-10}$ smallest measured singular value.  Thus eighty roots
-are qualified and the outgoing arm has passed sixty-three consecutive newly
-computed tangents after EXP-408.  The first observed local turn moves away from
-the historical fixed-$a$ section, so it does not provide the printed
-intersection.  A later turn or another branch remains possible and global
-nonintersection is not claimed.
-
-The displayed coordinates are solver outputs, not certified parameter
-enclosures.  In particular, a residual below $10^{-8}$ together with a
-smallest Jacobian singular value of order $10^{-9}$ does not bound the
-parameter error below the $1.75\times10^{-5}$ historical-slice gap.  The
-near-null direction may be largely gauge motion, but that must be established
-by parameter-sensitive error estimates and independent changes in boundary
-conditions, mesh, and truncation.  These chained continuation points are
-correlated numerical evidence, not independent confirmations of a physical
-fold.  Figure~\ref{fig:homoclinic-continuation} retains the eighty-point
-EXP-472 snapshot; the subsequent accepted EXP-473 point is
-$(a,c)=(0.179860578278265,10.316949180519163)$.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig29-exp342-346-homoclinic-root.png}
-  \caption{Qualified numerical homoclinic candidate at fixed
-  $(b,c)=(0.2,10.3084)$.  A--B: the radius-$0.02$, 32-arc Radau boundary-value
-  orbit in two projections, colored by flight time; the star is the saddle
-  focus and the open circle is the nonlinear stable-manifold target.
-  C: DOP853/Radau and 16/32-arc correction followed by shrinking-sphere Radau
-  solves preserve $a\simeq0.182643608174$ while every maximum arc defect stays
-  below the prospective $10^{-8}$ gate.  The dashed line marks Jones's printed
-  $a=0.1798$.  The result is strong numerical qualification of a nearby
-  connection, not a computer-assisted proof or uniqueness result.}
-  \label{fig:homoclinic-root}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig30-exp342-382-homoclinic-continuation.png}
-  \caption{Continuation of the qualified homoclinic candidate toward Jones's
-  printed $a=0.1798$ section.  A: eighty qualified roots through EXP-472 and
-  the pre-turn EXP-367/368 secant extrapolation.  B: a magnified offset view
-  displays the first sampled local minimum in $a$ and separates accepted
-  signed-arclength steps from coordinate-gate rejections.  C: the outgoing
-  branch, defect-aware step control, and EXP-409 conditioning-only
-  rejection show why adaptive step size is required.  D: every accepted point remains
-  below the prospective $10^{-8}$ maximum-block-defect gate; the preserved
-  failures expose conditioning and method limits rather than silently
-  extending the curve.  The zero-step collocation control also escapes and is
-  excluded from the defect scale.  The open star is a pre-fold extrapolation,
-  not a qualified intersection. Parameter-error bounds for the apparent turn
-  remain open; the numerical defect gate alone does not supply them.}
-  \label{fig:homoclinic-continuation}
-\end{figure}
-
-\subsection{Analytic small-equilibrium Hopf locus}
-
-Writing an equilibrium as $(az,-z,z)$ and defining $r=b/z=c-az$, the
-characteristic polynomial is $\lambda^3+A\lambda^2+B\lambda+C$, with
-$A=r-a$, $B=1+z-ar$, and $C=r-az$.  The Hopf condition $AB=C$ therefore
-reduces exactly to
-\[
-a(1+r^2-ar)=b,
-\]
-after which $z=b/r$ and $c=az+r$.  At fixed $b=0.2$, all 192 sampled points
-over $a\in[0.1,0.195]$, including the exact hub abscissa, pass independent
-eigensystem root and transverse-sign checks.  The locus covers
-$c\in[0.4218296645,1.0702742041]$.  At $a=0.1798$ its value is
-$c=0.5192306256940273$, giving a fixed-$a$ separation of
-$9.789169374305974$ from the reported hub coordinate.  This qualifies the
-local Hopf endpoint of an L2-like slice; it neither continues the period-1
-cycle to the hub nor establishes the proposed homoclinic endpoint.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.96\textwidth]{figures/fig03-hopf-locus.png}
-  \caption{The exact small-equilibrium Hopf locus at $b=0.2$.  The analytic
-  curve is independently checked by direct eigensystem and transversality
-  tests at 192 points.  The marked reported hub is separated from the Hopf
-  point on its fixed-$a$ slice; the locus supplies a verified local start, not
-  a homoclinic endpoint.}
-  \label{fig:hopf-locus}
-\end{figure}
-
-A pilot-informed, unchanged-gate successor then phase-corrects the same
-one-winding period-1 family at 118 points from $c=c_H+0.001$ to the reported
-hub coordinate.
-Every point passes closure, phase, neutral-multiplier, trajectory, and winding
-gates, and six checkpoints pass independent Radau correction.  The near-Hopf
-RMS amplitude exponent is $0.5017311$ ($R^2=0.9999983$), while the nearest
-period differs from the linear Hopf value by $0.001417$.  A real $-1$ Floquet
-crossing is initially bracketed in $c\in[3.1556294737,3.2536126316]$.
-A coupled four-node orbit--parameter--anti-periodic-tangent solve then locates
-the event at
-\[
-c_{1\to2}=3.1807265333384103.
-\]
-All coupled residuals are below $4.76\times10^{-15}$; four cyclic monodromy
-products have median multiplier $-1.0000000000000067$ and spread
-$1.56\times10^{-15}$.  Independent Radau monodromy gives
-$-0.9999999999998008$, closure $3.50\times10^{-14}$, and winding one.  This
-qualifies the parent flip.  A doubled-cover shooting nullspace switch then
-continues both transverse signs for 24 points on the post-flip side.  At the
-frozen common checkpoint $c=3.1845$, independent Radau correction gives the
-parent multiplier $-1.0021368076$ and child multiplier $0.9914596621$.  The
-two signs agree up to phase with whole-orbit RMS $7.82\times10^{-8}$ and phase
-shift $0.49739$.  Their period ratio is $1.9999363$, half-period closure fails
-by approximately $0.193$, and each child winds twice.  Perturbed forward
-integration recovers the child with phase-invariant RMS
-$3.38\times10^{-10}$.  This establishes a primitive stable period-2 child and
-the first supercritical rung on this explicit path.
-
-Pseudo-arclength continuation then preserves that primitive child through 83
-points and brackets its first real $-1$ crossing.  A coupled eight-node solve
-locates the exact second event at
-\[
-c_{2\to4}=4.3100451384813105,
-\]
-with period $11.724290361610073$.  The reference flip residual is
-$3.94\times10^{-14}$; independent Radau gives $5.91\times10^{-13}$, closure
-$1.12\times10^{-12}$, half-period nonclosure $2.8615$, and winding two.  A
-second doubled-cover nullspace switch opens both local child arms.  At the
-frozen checkpoint $c=4.318$, the arms agree up to phase with whole-orbit RMS
-$3.14\times10^{-7}$ and shift $0.50140$.  Independent Radau gives the unstable
-period-2 parent multiplier $-1.0115948996$ and stable period-4 child multiplier
-$0.9535193007$.  The period ratio is $2.000002$, the child winds four times,
-and perturbed integration recovers it to RMS $2.83\times10^{-9}$.  This
-establishes the second complete supercritical rung.  Periods beyond four and
-symbolic ordering remain separate gates.  Continuing the period-4 child then
-locates a third exact event at
-\[
-c_{4\to8}=4.636447200967924,
-\]
-with period $23.498538844189934$.  DOP853 and Radau flip residuals are
-$5.46\times10^{-14}$ and $2.40\times10^{-12}$, respectively.  At the frozen
-post-event checkpoint $c=4.65$, independent Radau gives an unstable period-4
-parent with multiplier $-1.0874073301$.  The stable period-8 child's multiplier
-is $0.6466564095$.  The two switched arms match with whole-orbit RMS
-$4.28\times10^{-8}$ after a $0.49962$ phase shift; their period ratio is
-$2.0000011$, their winding is eight, and perturbed integration recovers the
-child to RMS $2.59\times10^{-9}$.  Thus three complete rungs are established
-through period eight.  This covers the finite period range in the original
-ordering claim, but not its symbolic permutation or kneading order.
-
-The period-8 child next reaches an exact flip at
-\[
-c_{8\to16}=4.7090113823613065,
-\]
-with period $47.019522702249795$.  Radius-only clustering initially mixes the
-equal-modulus neutral and flip block roots; balanced clustering after raising
-each root to the segment count repairs the representation and agrees with all
-32 direct monodromy products to $2.12\times10^{-14}$.  Independent Radau gives
-$-1.0000000000223$.  At $c=4.716$, Radau gives the unstable period-8 parent
-multiplier $-1.2072088976$ and stable period-16 child multiplier
-$0.1483901906$.  The switched arms match to RMS $1.17\times10^{-6}$ after a
-half-cycle phase shift, the period ratio is $1.9999996$, the winding is
-sixteen, and perturbed integration recovers the child to RMS
-$7.07\times10^{-10}$.  The finite $c$-spacing ratios from the four events are
-$3.45990$ and $4.49812$; their trend supports accumulation but is not a
-universality result.
-
-At the reported hub the continued orbit has period $5.9935437090$, primary
-nontrivial multiplier $-3.2022459546$, and minimum distance
-$10.0310033361$ from the small equilibrium.  It is therefore a finite unstable
-period-1 orbit, not the proposed homoclinic orbit.  This does not reject a
-distinct stable/unstable equilibrium-manifold connection; it prevents the two
-objects from being conflated.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig04-hopf-family.png}
-  \caption{Identity-safe continuation of the one-winding period-1 family from
-  the analytic Hopf point toward the reported hub.  The panels show orbit
-  amplitude and period along the same corrected family.  Exact multiplier
-  events and switched children, rather than changes in raster color, certify
-  the period-doubling sequence described in the text.}
-  \label{fig:hopf-family}
-\end{figure}
-
-\subsection{Identity-safe local cascade}
-
-At fixed $(a,c)=(0.245,5.1)$, the true period-5 family undergoes eight resolved
-supercritical flips.  The first six parent-event values are
-\begin{equation}
-\begin{split}
-b_1&=0.1834675907716,\quad b_2=0.1805372082024,\\
-b_3&=0.1798912237616,\quad b_4=0.1797506213663,\\
-b_5&=0.1797203688505,\quad b_6=0.1797138833005,
-\end{split}
-\end{equation}
-and the resolved period-320 to period-640 event is
-$b_7=0.17971249399393$.  The associated finite spacing ratios are
-$4.5363$, $4.5944$, $4.6476$, $4.6646$, and $4.6682$.  Multiple shooting,
-block-Floquet stability, and whole-orbit identity establish a stable period-640
-child.  These are finite numerical observations; proximity of the ratios to a
-classical constant is not presented as a universality proof.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig05-flip-fold-line.png}
-  \caption{Corrected continuation of the period-5 family and its real
-  multiplier events.  The flip and fold diagnostics separate true orbit
-  bifurcations from nearby changes in stability or section representation.
-  Event locations are obtained from corrected periodic orbits with Floquet
-  checks, not inferred from the surrounding parameter raster.}
-  \label{fig:flip-fold-line}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.92\textwidth]{figures/fig06-flip-fold-atlas-overlay.png}
-  \caption{The corrected period-5 flip/fold continuation over a coarse
-  recurrence atlas.  This overlay illustrates the division of labor between
-  the two data products: the raster reveals shrimp-scale context, whereas the
-  corrected orbit curve supplies the invariant bifurcation evidence.}
-  \label{fig:flip-fold-overlay}
-\end{figure}
-
-The period-640 parent has a corrected eighth flip event at
-$b_8=0.1797121964322390$.  The resulting next finite spacing ratio is
-$4.66899$.  At common parameter $b=0.17971215$, the two independently switched
-signs agree up to phase with whole-orbit RMS $3.94\times10^{-8}$ and have
-dominant nontrivial moduli $0.4261745532$ and $0.4261741560$.  This establishes
-a stable period-1280 child and closes the eighth supercritical rung.
-
-Three event locations were predicted from earlier rungs before their dedicated
-search.  The frozen period-80 to period-160 prediction missed the resolved
-event by $1.398\times10^{-7}$.  The frozen period-320 to period-640 prediction
-missed by $3.00\times10^{-10}$.  The period-640 to period-1280 prediction at
-$b=0.1797121964470$ differs from the corrected eighth event by only
-$1.476\times10^{-11}$.  All three frozen prospective event-location tests
-therefore succeed; period-1280 child qualification remains separate.
-
-Subsequent baseline and tighter-solver scalar refinements retain a signed
-interval only $3.22\times10^{-15}$ wide, but the closest precision-audited
-point has multiplier residual $1.70\times10^{-8}$ and therefore misses the
-preregistered $10^{-8}$ equality gate.  The block-cyclic multiplier and direct
-monodromy products agree near $10^{-13}$, so the interval is retained as strong
-event evidence but is not promoted to a corrected eighth event.  A coupled
-orbit--parameter--eigenvector solve with an exact second-variational Jacobian
-recovers the already resolved seventh event within $8.94\times10^{-13}$, with
-orbit and tangent residuals $9.21\times10^{-13}$ and $1.01\times10^{-11}$.
-Applied prospectively to the period-640 parent, the same formulation converges
-in three evaluations with orbit and tangent residuals $1.46\times10^{-12}$ and
-$7.81\times10^{-12}$; four direct monodromy products give
-$-0.999999999810$.  Thus the scalar failures diagnose a numerical formulation
-limit rather than absence of the crossing.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig06b-normal-form-comparison.png}
-  \caption{Normal-form opening diagnostics for the period-5 event under the
-  baseline and successively strengthened calculations.  Agreement of sign
-  and local scaling across the independent reconstructions supports a
-  supercritical opening; the diagnostic is local and does not by itself imply
-  a universal cascade.}
-  \label{fig:normal-form-comparison}
-\end{figure}
-
-\subsection{Flow bifurcation versus section geometry}
-
-After the period-5 to period-10 flip, the stable period-10 child changes its
-crossing count on the historical return section near
-$b=0.181750232321$.  Continuous tangency refinement identifies this as a
-section-boundary grazing.  It is therefore not another bifurcation of the flow
-orbit.  This result is directly relevant to branch-count studies: an apparent
-change in a scalar return plot can originate in the measurement construction,
-so a topology-transition classifier must include section-robustness tests.
-
-\subsection{Long transient capture}
-
-Cases that initially appeared to show coexistence of a chaotic attractor and a
-stable periodic attractor were followed for longer horizons and with multiple
-initial conditions.  The trajectories eventually entered the stable periodic
-windows.  Persistent multistability is rejected for those tested cases; the
-evidence instead supports long chaotic-transient capture, consistent with a
-nonattracting chaotic-saddle mechanism.  Computing the saddle itself remains a
-separate acceptance test.
-
-\subsection{Qualified local three-branch return relation}
-
-The geometry behind the branch terminology is shown directly in
-Figure~\ref{fig:return-map-controls}.  On the declared Barrio section, the
-published control at $a=0.11$ has one critical point (two monotone branches),
-whereas the control at $a=0.20$ has two critical points (three branches).
-These controls calibrate the same frozen branch-count oracle subsequently
-used for chaotic saddles and blind midpoint tests.
-
-\begin{figure}[t]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=\textwidth]{figures/fig07-return-map-controls.png}
-  \caption{Direct reproduction of the published Barrio-section return-map
-  controls at $(b,c)=(0.2,20)$.  Blue points are 1,199 consecutive return
-  pairs after the declared transient, red curves are the frozen binned-spline
-  reconstructions, and dashed lines mark detected critical points.  The left
-  control is two-branch; the right control is three-branch.}
+  \caption{What a change from two branches to three looks like. Each
+  point pairs a crossing coordinate with its next value. The left control
+  has one turning point; the right has two. Dashed lines locate the
+  turning points and the red line is the fitted return relation.
+  These well-separated attracting controls establish the measurement
+  convention. The much narrower saddle-transition interval discussed in
+  the text requires separate nonattracting-set calculations.}
   \label{fig:return-map-controls}
 \end{figure}
 
-At the published chaotic control $(a,b,c)=(0.2,0.2,20)$, the historical
-negative-oriented section unexpectedly gives a three-branch rather than the
-prospectively expected two-branch scalar return relation.  A subsequently
-frozen sensitivity matrix varies five nearby $(a,c)$ points, three section
-offsets, seven binning/smoothing/prominence choices, and both nondegenerate
-section coordinates.  All 105 negative-oriented $x$ cells and all 105
-negative-oriented $z$ cells resolve as three branches.  Bootstrap consensus is
-one in every cell, invariant-domain coverage is at least $0.94$, and the
-conditional-spread ratio is at most $0.02502$.
+Inside a periodic window, a typical trajectory eventually repeats and cannot
+by itself reveal the surrounding chaotic saddle. In our tested cases,
+some trajectories first appeared chaotic but later entered the same stable
+periodic orbit. That removes those trajectories as evidence for coexisting
+chaotic attractors; it does not rule out every possible basin of attraction.
+Long transients must therefore be distinguished from persistent multistability.
 
-The same scalar reduction does not survive indiscriminately on the opposite
-oriented half-plane.  The positive-oriented $x$ relation is
-bootstrap-unstable in 102 of 105 cells; the remaining three resolve as five
-branches.  All 105 positive-oriented $z$ cells fail the preregistered
-invariant-domain-coverage gate.  Thus the three-branch result is qualified as a
-robust local property of the historically relevant oriented half-plane, not as
-an orientation-independent scalar topological invariant.
+Independent saddle reconstructions give a stronger result. At
+$(b,c)=(0.2,20)$, the last tested two-branch point is $a=0.1481875$ and the
+adjacent tested three-branch point is $a=0.14825$. The classifications survive
+two censor horizons and the prescribed reconstruction checks. They delimit
+a sampled transition interval, not a rigorously enclosed bifurcation or proof
+that only one transition lies inside it.
+% Evidence: EXP-112--132, EXP-148, EXP-149.
 
-The Barrio--Blesa--Serrano definition uses a distinct section through the small
-equilibrium's $x$ coordinate with $\dot{x}>0$.  On this published section, a
-separately frozen 84-cell matrix directly reproduces both Figure 2 controls.
-At fixed $(b,c)=(0.2,20)$, all 42 $y$ and $z$ cells at $a=0.11$ resolve as a
-unimodal two-branch map, while all 42 cells at $a=0.2$ resolve as a bimodal
-three-branch map.  Every bootstrap consensus is one, coverage is at least
-$0.98$, and conditional spread is at most $0.02389$.  This qualifies the two
-attracting endpoints, not the intervening TBA curve or its continuation through
-chaotic saddles in regular windows.
+What changes within that interval? Eleven recovered unstable periodic-orbit
+families persist across it. None of those families is created or destroyed
+at the sampled branch change. Instead, a pre-existing unstable lobe is
+represented in all tested three-branch saddle clouds and excluded from the
+tested two-branch clouds. An untouched midpoint reproduces that association.
+The result favors a change in which parts of the existing structure can be
+visited---a pruning or reinjection mechanism---over a birth or death of one
+of the recovered orbits. A direct manifold-contact calculation remains open.
+% Evidence: EXP-133--145 and EXP-148/149.
 
-A prospectively frozen 21-point attractor scan on the intervening $a$ path
-orders five resolved two-branch samples below eight resolved three-branch
-samples and brackets an attracting-set transition band
-$a\in[0.155,0.160]$.  Five points converge to period-4 attractors and three
-more fail invariant-domain coverage; these are retained as gaps.  The lower
-endpoint is uncertainty-marginal: $y$ returns two branches at exactly the
-bootstrap threshold $0.80$, while $z$ is unresolved at $0.70$ and nominally
-has two critical points.  At $a=0.160$, both coordinates return three with
-consensus one.  This band is not identified with the invariant-saddle TBA,
-which the published regular control already places on the bimodal side at
-$a=0.149$.
+\subsection{A connected periodic family supplies a local skeleton}
 
-The first prospectively frozen sprinkler reconstruction inside those two
-period-4 windows does not pass its complete qualification gate.  At $a=0.118$,
-2775 final survivors provide 23022 within-trajectory pairs per coordinate and
-both coordinates resolve the published two branches with unit bootstrap
-consensus.  At $a=0.149$, 1564 survivors provide 12892 pairs, but the frozen
-three-percent global-prominence criterion suppresses the shallow left-hand
-maximum and reports two branches.  A post-result diagnostic at lower
-prominence exposes two critical points in both coordinates with unit bootstrap
-consensus, matching the qualitative shape in the published saddle panel.  We
-retain the prospective failure: local uncertainty, rather than a retrospectively
-changed global cutoff, must qualify the shallow branch.  Pointwise fixed-step
-versus DOP853 finite-time capture labels agree on only 25 of 32 audited seeds,
-so long-horizon convergence will be tested at the ensemble-distribution level.
+A Hopf bifurcation creates a small periodic orbit near an equilibrium.
+At fixed $(a,b)=(0.1798,0.2)$, the analytic small-equilibrium Hopf point is
+$c_H\simeq0.5192306257$. The emerging period-1 family can be followed to the
+reported hub coordinate (Figure~\ref{fig:hopf-family}). Along this explicit
+reconstruction of the Jones path, four corrected flips occur at
+\[
+  c\simeq3.1807265333,\quad4.3100451385,\quad
+  4.6364472010,\quad4.7090113824.
+\]
+Independent child checks establish stable primitive orbits through period 16.
+These are finite period-doubling results; they do not establish the ordering
+of every symbolic orbit claimed in the original paper.
+% Evidence: EXP-153--173.
 
-A second prospectively frozen experiment performs that test across baseline,
-half-step, later-conditioning, shifted-grid, and coarser shifted-grid
-ensembles.  All 300 case--run--coordinate--oracle cells recover two branches at
-$a=0.118$ and three at $a=0.149$, with unit variant consensus and 15000 total
-bootstrap refits.  Across-run normalized critical-location drift is at most
-$0.01666$.  This qualifies the topology component over the declared
-perturbations.  The complete experiment still fails: regular-grid survivor
-fractions differ by as much as $0.07962$, exceeding the frozen $0.05$ gate,
-and one linearly interpolated crossing time misses its short-horizon tolerance.
-Scrambled low-discrepancy ensembles and higher-order event interpolation are
-therefore required before qualifying the complete saddle sampler.
-
-The next prospectively frozen experiment makes exactly those two changes
-without relaxing a threshold.  Three independent scrambled Sobol ensembles,
-nested sizes from 4096 through 16384, step halving, and later conditioning give
-14 complete saddle runs.  All 420 topology cells recover two branches at
-$a=0.118$ and three at $a=0.149$, with unit variant consensus and 21000
-bootstrap refits.  The maximum survivor-fraction differences fall to $0.01013$
-and $0.01135$, below the $0.05$ gate; maximum normalized critical drift is
-$0.01485$.  Cubic-Hermite section events agree with DOP853 within
-$2.46\times10^{-6}$ in scaled state and $3.16\times10^{-6}$ in time.  All
-support and numerical-failure gates pass.  This qualifies the finite-time CPU
-sprinkler reconstruction at both published regular-window controls, but not a
-continued TBA curve or a topological-template equivalence.
-
-A separately frozen Float64 GPU transfer reproduces these two controls on an
-NVIDIA RTX A5000.  All 30 case--coordinate--oracle cells retain the expected
-two/three distinction with unit variant consensus.  The six checkpoint
-survivor counts are identical at $a=0.149$; at $a=0.118$ only the final count
-differs, by one trajectory among 8192.  The largest combined CPU/GPU normalized
-critical-location span is $0.01463$.  Ten short-horizon GPU trajectories agree
-with DOP853 within $2.46\times10^{-6}$ in scaled state and
-$3.16\times10^{-6}$ in event time.  This passes statistical backend parity at
-the two controls; it is not an independent saddle construction or a continued
-TBA.
-
-The first independent-method experiment then uses strict PIM triples and an
-adaptive DOP853 return map.  Its complete two-control gate fails: all five
-unimodal access lines and two bimodal lines encounter a candidate that remains
-uncaptured through the frozen 256-return lifetime ceiling.  The other three
-bimodal lines complete 1200-return straddles.  Their 2997 retained pairs recover
-three branches in both coordinates with all 15 oracle variants agreeing; the
-largest combined CPU/PIM critical-location span is $0.01263$.  This is retained
-as independent bimodal-saddle corroboration, not as a successful reproduction
-of both controls.  The failure diagnoses zero censoring as incompatible with
-dynamic restraint: a surviving candidate supplies a lifetime lower bound and
-must be handled as right-censored data rather than discarded.
-
-The prospectively frozen successor implements that lower-bound ordering on
-three section lines and repeats the complete construction with censor ceilings
-of 64 and 128 returns.  The full nested-horizon experiment fails.  At 64
-returns, all three unimodal straddles complete but every oracle variant rejects
-their projections for insufficient invariant-domain coverage; only one of
-three bimodal lines completes, below the frozen straddle and pair-count gates.
-No integration fails and no branch label is forced.
-
-Both 128-return profiles independently pass.  Three unimodal straddles and
-three bimodal straddles each provide 2097 pooled return pairs per coordinate.
-Both coordinates recover respectively two and three branches in all 15 oracle
-variants.  The largest within-PIM normalized critical-location span is
-$0.01501$ and the largest combined sprinkler/PIM span is $0.01511$.  This is a
-qualified fixed-horizon two-control corroboration by an adaptive-DOP853 orbit-
-restraint method, but the failed 64-return profiles preclude a claim of censor-
-horizon invariance.
-
-A final frozen extension carries forward the exact 128-return intervals and
-artifact hashes, then computes new 256-return straddles.  All six access lines
-complete without integration failure.  Both coordinates again recover two
-branches at $a=0.118$ and three at $a=0.149$ in all 15 oracle variants.  The
-largest within-256, sprinkler/256, and frozen-128/new-256 normalized spans are
-$0.01601$, $0.01595$, and $0.01601$.  Censored evaluations fall from 1108/385
-at 128 returns to 34/1 at 256 returns, qualifying two-control finite-horizon
-PIM stability over that range.
-
-The first blind extension beyond those controls retains its failed complete
-gate.  At $a=0.140$, all seven sprinkler ensembles, both coordinates, and all
-210 oracle variants recover two branches, narrowing the resolved saddle
-bracket to $[0.140,0.149]$.  At $a=0.145$, rapid survivor loss leaves only
-284--1872 pairs: 72 of 90 attempted variants return two branches, none return
-three, and 18 remain unresolved, so no label is assigned.  The $a=0.120$
-oracle is unanimously two-branch but misses the frozen cycle-recurrence gate.
-The resulting sequence must not yet be joined to the adjacent two-branch
-$a=0.150$ aperiodic candidate from the shorter attractor scan without an
-invariant-set identity and long-horizon audit.
-
-That audit now shows persistent chaos but fails strict cross-resolution branch
-consensus.  Across four burn-ins and four independent section seeds, both
-Lyapunov cases classify chaotic and independent largest-exponent estimates
-agree within $0.00865$.  Of 48 coarse 20-bin oracle cells, 46 return two; of
-192 cells with 30--80 bins, 189 return three, with no opposite votes.  Thus the
-old $a=0.150$ two label is not robust: adequate resolution repeatedly exposes
-the shallow additional extremum.  The result remains failed pending a
-prospective resolution model and a tighter trace-identity audit.
-
-That successor passes on five new 2400-return datasets.  All 30 coarse 20-bin
-control cells return two, while all 120 30--80-bin cells return three.  Maximum
-combined critical drift against the frozen predecessor intervals is $0.01807$.
-Both tighter-tolerance Lyapunov cases classify chaotic, agree with independent
-largest-exponent estimates within $0.00519$, and reduce trace error to
-$1.25\times10^{-7}$.  Thus $a=0.150$ is qualified as a chaotic three-branch set
-at the declared adequate resolutions.
-
-An eightfold-support successor then revisits the unresolved $a=0.145$ saddle.
-All seven ensembles now exceed 323 final survivors and 2726 return pairs, with
-no integration or event-audit failure.  All 105 $y$-coordinate oracle cells
-resolve as two branches.  In $z$, 84 of 105 cells also resolve as two; the
-remaining 21 are exactly the three 80-bin variants in every ensemble.  Each of
-those cells fails only the frozen equal-width domain-coverage gate, at 0.675 or
-0.6875 versus the required 0.7, while retaining one nominal critical point in
-the interval recovered by the resolved cells.  No cell returns three branches.
-The full two-coordinate gate therefore remains failed, but sample scarcity is
-closed: the remaining decision concerns prospective treatment of bins outside
-the projected invariant support.
-
-The preregistered new-data successor passes that decision without revising the
-oracle.  All 420 variants at the published controls resolve normally,
-preserving two branches at $a=0.118$ and three at $a=0.149$.  At $a=0.145$,
-all 105 $y$ variants and 84 $z$ variants resolve normally as two; the remaining
-21 $z$ variants are exactly the declared coverage-only censors, with no
-rejection or contrary count.  The weakest target run retains 327 survivors and
-2768 return pairs, and maximum target across-run critical drift is $0.01495$.
-All survival and DOP853/Hermite gates pass.  The ordered saddle labels are
-therefore $2,2,3$, prospectively narrowing the sampled transition bracket to
-$[0.145,0.149]$.
-
-The first adaptive midpoint is then evaluated without an expected label.
-Candidate counts two and three are tested separately under the qualified rule.
-All 14 run--coordinate decisions at $a=0.147$ uniquely select two.  Of 210
-variant cells, 207 resolve normally and three are admissible coverage censors;
-none is rejected or returns three.  The weakest run retains 350 survivors and
-3008 pairs, maximum across-run critical drift is $0.01499$, and every numerical
-gate passes.  The sampled bracket consequently halves to $[0.147,0.149]$.
-
-The next blind midpoint at $a=0.148$ fails cross-conditioning consensus while
-passing its support and numerical gates.  All six 300-unit runs return three
-branches in every $y$ variant and every 30--80-bin $z$ variant; their 20-bin
-$z$ cells under-resolve or fail bootstrap stability.  The survivor subset
-conditioned through 360 time units instead returns two in all 30 coordinate
-variants.  The weakest run still retains 200 survivors and 1737 pairs, survivor
-fractions agree within $0.00403$, and no integration or event audit fails.  No
-label is assigned and the bracket remains $[0.147,0.149]$.
-
-The frozen nested-horizon successor also fails its all-run consensus gate, but
-localizes the failure.  Across horizons 360--480, 12 of 16 blind
-run--coordinate decisions select two branches and four are unassigned; none
-selects three.  Of 240 oracle cells, 228 resolve as two.  The remaining 12 are
-exactly the 80-bin variants in the four unassigned decisions and fail
-bootstrap stability at rare-survivor sample sizes.  Baseline 360 and 420,
-both independent 420 scrambles, and the doubled 420 sample select two in both
-coordinates.  At 480 only 121 survivors and 1061 pairs remain; 20--60-bin
-variants still resolve as two, but the 80-bin variants are unstable.  All
-period, survival, and numerical gates pass.  Thus no resolved third branch
-reappears at the longer horizons, but the strict finite-horizon label and
-$[0.147,0.149]$ bracket remain unchanged.
-
-An independent blind PIM successor removes final-survivor attrition from the
-decision and passes.  All three fixed access lines complete at both 128- and
-256-return right-censor ceilings.  Each profile supplies 2097 post-burn-in
-pairs per coordinate.  Both $y$ and $z$ select two branches in every one of 15
-oracle variants at both horizons: 60 of 60 cells are two-branch, with none
-three or unresolved.  The combined 128/256 critical spans are $0.008504$ in
-$y$ and $0.004735$ in $z$; the period-four and lifetime-integration gates pass.
-Thus the finite-horizon PIM saddle at $a=0.148$ is independently qualified as
-two-branch, and the sampled classifier bracket narrows to $[0.148,0.149]$.
-
-The identical blind PIM definition is then applied at the next midpoint,
-$a=0.1485$, and passes as three-branch.  All six access lines complete; each
-horizon again supplies 2097 pairs per coordinate.  Both coordinates select
-three in all 15 oracle variants at both 128 and 256 returns, giving 60 of 60
-three-branch cells.  The two critical points remain stable across horizons:
-maximum combined span is $0.014702$ in $y$ and $0.008531$ in $z$.  No lifetime
-integration fails.  The finite sampled classifier transition is consequently
-localized to $[0.148,0.1485]$.
-
-The second identical-method blind midpoint, $a=0.14825$, also passes as
-three-branch.  All six access lines complete; each profile supplies 2097 pairs
-per coordinate, and both coordinates select three in all 15 oracle variants at
-both censor ceilings.  Cross-horizon critical spans are $0.009043$ in $y$ and
-$0.009093$ in $z$, with no failed lifetime evaluation.  The finite bracket
-therefore halves again to $[0.148,0.14825]$.
-
-The branch-conditioned successor passes every support and numerical gate but
-rejects its prospectively frozen faster-capture hypothesis.  Three untouched
-Sobol ensembles give extra-minus-core restricted mean survival differences of
-$+30.50$, $+30.86$, and $+29.98$ time units; their 99% trajectory-bootstrap
-intervals are $[27.39,33.55]$, $[27.89,34.01]$, and $[27.25,32.66]$.
-The matched half-step result is $+30.90$, only $0.40$ from baseline.  Every
-extra-branch trajectory survives 60 residual time units and none survives 180;
-the two core domains capture earlier on average but retain a small tail through
-270.  The extra branch therefore has delayed but bounded capture, directly
-explaining its presence under 300-unit and absence under 360-unit survivor
-conditioning.
-
-The first held-out signed-edge test then passes.  At $a=0.148125$, all six PIM
-access lines complete and both censor horizons again supply 2097 pairs per
-coordinate.  All 60 branch-oracle cells return two branches.  Independently of
-the critical-point count, all 60 lower-support derivative fits are negative:
-the full numerical-sensitivity intervals are $[-1.2032,-0.4994]$ in $y$ and
-$[-1.4185,-0.8476]$ in $z$.  Both clear the preregistered magnitude floor and
-predict the blind two-branch class.  Maximum cross-horizon critical drift is
-$0.009643$ in $y$ and $0.005037$ in $z$, with no failed lifetime integration.
-The finite sampled bracket therefore narrows to $[0.148125,0.14825]$.  A
-subsequent blind PIM midpoint at $a=0.1481875$ completes all six access-line
-reconstructions with no failed lifetime evaluation.  Both coordinates and all
-oracle variants select two branches at 128 and 256 returns; the nested
-critical-point spans are $0.008410$ in $y$ and $0.005129$ in $z$.  The finite
-sampled bracket therefore narrows again to $[0.1481875,0.14825]$.
-
-The first transverse GPU pilot then fails its strict scientific gate despite
-successful controls and numerics.  Thirty-six Float64 RK4/Hermite runs have no
-integration failure or crossing-buffer saturation, retain at least 121
-survivors and 1002 return pairs, and reproduce both published controls under
-fresh Sobol seeds and step halving.  The two narrow PIM-local controls are
-nevertheless oracle-dependent.  Thus finite survivor clouds are rejected as a
-claim-bearing continuation method near the boundary; no transverse bracket is
-assigned from this pilot.
-
-The prospectively frozen adaptive-DOP853 PIM successor also fails its
-all-endpoint gate, but now by informative falsification.  All twelve access
-lines resolve, every endpoint supplies 2097 pairs in each coordinate, and none
-of 72,717 lifetime integrations fails.  At $(c,a)=(19.9,0.150)$, all 30 branch
-variants resolve three and all 30 edge slopes are positive.  At both
-$a=0.145$ lower endpoints, 24 of 30 variants resolve two, the six remainders
-fail only coverage at 0.675, and every slope is negative.  Most importantly,
-the preregistered three/positive prediction at $(19.8,0.148)$ is contradicted:
-24 of 30 variants return two, the remaining six are bootstrap-unstable rather
-than three, and the complete signed-slope intervals are
-$[-1.4647,-0.8185]$ in $y$ and $[-1.7981,-1.0380]$ in $z$.  The failed gate is
-retained and no curve is promoted; the result instead selects a displaced
-$c=19.8$ upper endpoint for higher-horizon testing.
-
-The 256-return successor produces a mixed prospective result.  Every one of
-its twelve PIM access lines resolves, each endpoint again supplies 2097 pairs
-per coordinate, and none of 69,351 lifetime evaluations fails.  At $c=19.9$,
-$a=0.145$ passes as two/negative under the independently qualified
-coverage-only censor and $a=0.150$ passes as three/positive in all variants.
-This establishes the finite bracket $a\in[0.145,0.150]$ on that slice.  At
-$c=19.8$, the untouched $a=0.150$ endpoint likewise passes as three/positive
-in all 30 coordinate/variant decisions.  The proposed lower endpoint
-$a=0.148$ retains 24/30 two-branch counts and 30/30 negative slopes, but its
-six high-bin cells are bootstrap-unstable rather than coverage-limited.  The
-frozen censor correctly rejects them.  Thus three endpoints pass but the
-all-endpoint gate, the second bracket, and any continuous-curve claim fail.
-
-The first orbit-level mechanism census produces a strong negative result.
-PIM close returns seed 15 accepted shooting recoveries across the two local
-endpoint saddles.  Proper-divisor tests identify two repeated traversals, and
-continuous phase alignment reduces the recoveries to nine distinct primitive
-families at $a=0.148$ and two at $a=0.14825$.  The two lag-12 endpoint
-recoveries are not one continued family: after independent continuation to
-$a=0.148125$, their relative period difference is $1.7970\times10^{-3}$ and
-their scaled whole-orbit RMS is $6092.16$, decisively classifying them as
-distinct.  Both lag-12 families, the upper lag-4 family, and all eight
-remaining lower families continue across all 21 points of
-$a\in[0.148,0.14825]$.  All shifted full-period counts retain the corresponding
-fundamental lags.  Two intermediate lag-13 runs stopped at a hardcoded
-$10^{-10}$ shooting floor despite normal optimizer convergence; separating
-optimizer status from the unchanged $10^{-8}$ scientific closure gate yields
-21/21 passed points, with maximum independent flow closure
-$2.30\times10^{-9}$.  Thus all eleven recovered primitive UPO families persist
-across the sampled topology bracket.
-
-The same recovery and identity pipeline then transfers prospectively to the
-independent $c=19.9$ finite bracket.  At $a=0.145$, six accepted recoveries
-reduce to three primitive families with lags 3, 10, and 13.  At $a=0.150$, four
-accepted recoveries remain four distinct families: lags 13 and 14 plus two
-lag-15 cycles with distinct periods.  All seven representative families pass
-the unchanged section-tangent unstable-seed test for both signs and all three
-perturbation sizes.  Maximum relative multiplier error is $0.003477$, maximum
-transverse residual ratio is $0.001258$, and maximum scaled base-return closure
-is $2.652\times10^{-9}$.  This qualifies a second transverse local skeleton
-and its manifold seeds, but not cross-$c$ family identity or lobe continuation.
-
-The first manifold-derived proxy also supplies a useful negative result.  All
-22 endpoint UPO instances validate section-tangent unstable directions on both
-signs and at three perturbation sizes.  A capture-truncated atlas of 396
-trajectories then selects four branches whose finite-horizon capture fractions
-change most between endpoints.  In a prospectively frozen refinement, all 408
-denser trajectories and all 24 phase-transported directions pass numerically,
-but none of the four candidates retains a five-return endpoint difference at
-all three orbit phases.  Only 13 of 24 phase/endpoint summaries meet the
-nested-grid tolerance, and two candidates reverse endpoint direction between
-the 64- and 96-return summaries at one phase.  Finite-horizon capture timing is
-therefore rejected as a robust manifold-event observable.
-
-A hash-bound two-dimensional overlap diagnostic then distinguishes lobe
-existence from saddle membership.  The unstable atlas contains 1089 points in
-the declared left lobe at $a=0.148$, but none of 4200 post-burn-in PIM states
-from three access lines and two censor horizons enters it.  At $a=0.14825$,
-all six access-line/horizon profiles contain 11--15 left-lobe states.  Every
-such state lies within scaled $(y,z)$ distance $2.399\times10^{-5}$ of the
-nine-amplitude UPO atlas and $6.099\times10^{-5}$ of its nested five-amplitude
-subset.  Thus the lobe exists on both sides but joins the reconstructed
-nonattracting saddle only on the three-branch side in this retrospective test.
-
-\subsection{Direct critical-center search in the second period-6 window}
-
-The second landmark component supplies a separate test of the proposed
-doubly-superstable shrimp-center mechanism.  Geometry-only sampling followed
-by DOP853 shooting and Floquet qualification yields 58 stable, corrected
-period-6 flow orbits.  Each orbit crosses the historical section six times but
-the published Barrio positive-$x$ section eight times per flow period.
-Therefore the direct critical-membership test must compare both return-map
-criticals against all eight section phases; a six-phase comparison would test
-the wrong representation.
-
-An independent CPU/GPU audit at the second landmark matches every survivor and
-return-pair count at two RK4 steps.  All four reconstructions resolve the same
-three-branch Barrio $z$ map, with corresponding normalized critical midpoints
-agreeing within $8.24\times10^{-11}$.  A target-word-blind scan of the 58
-corrected representatives then finds 31 cross-step-consistent three-branch
-maps.  None places both assigned phases in the two critical intervals, and
-none passes the frozen zero-slope threshold.  The nearest representative,
-$(a,c)=(0.21555,7.372)$, passes only the midpoint test: its normalized
-interval distance is $0.0360$ against a $0.02$ limit, and its maximum assigned
-slope residual is $1.894$ against a $0.2$ limit.  This rejects the sampled
-orbits as double-critical centers, not the existence of a center between
-samples.
-
-The prospectively frozen dense successor corrects a $31\times81$ local mesh
-around that nearest representative without inspecting the dense critical
-residuals.  The center itself passes, and 685 of 2,511 points pass every
-individual closure, phase, family-identity, section-count, Floquet, and
-stability gate.  The experiment nevertheless fails its preregistered
-1,000-point coverage threshold.  Moreover, the 152-point passing component
-containing the center touches the lower-$a$ mesh boundary
-(Figure~\ref{fig:local-period6-mesh}).  The mesh is therefore a useful
-localization for a signed-residual diagnostic, but not yet a closed search
-domain or a certified shrimp center.
-
-\begin{figure}[t]
+\begin{figure}[tbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/fig08-local-period6-mesh.png}
-  \caption{Dense corrected period-6 orbit mesh around the best sampled
-  direct-critical localization.  Left: all individually qualified orbits
-  (blue), the eight-connected component containing the marked center (yellow
-  with black boundary), and failed cells (gray).  Right: dominant nontrivial
-  Floquet modulus for qualified stable orbits.  The center component reaches
-  the lower-$a$ boundary, and only 685 points qualify against the frozen
-  minimum of 1,000; the figure is therefore evidence of a coherent but
-  coverage-incomplete search region.}
-  \label{fig:local-period6-mesh}
+  \includegraphics[width=\textwidth]{figures/fig04-hopf-family.png}
+  \caption{Following one family instead of guessing from pixel colors.
+  The periodic orbit born at the Hopf point grows and changes its return
+  time as $c$ increases on the fixed-$a$ path. Independent corrections
+  check that the same family is being followed. Its period doublings are
+  located from stability equations and separately checked daughters.
+  Reaching the reported hub coordinate does not make this periodic orbit
+  a homoclinic orbit.}
+  \label{fig:hopf-family}
 \end{figure}
 
-The separately frozen GPU diagnostic then reconstructs the signed residuals
-without changing the orbit mesh.  At two RK4 steps, 126 candidates retain a
-robust three-branch map, the same distinct phase assignment, and the frozen
-survivor and critical-location parity.  No candidate passes the midpoint,
-critical-interval, or zero-slope gate, even separately.  The nearest point is
-$(a,c)=(0.21559,7.32)$: its maximum normalized midpoint distance is $0.03153$
-against $0.02$, its interval distance is $0.03040$ against $0.005$, and its
-zero-slope residual is $1.870$ against $0.1$.
+A second calculation follows the period-doubling boundary of the period-6
+window itself. The resulting locus bends back in the $(a,c)$ plane, forming
+two widely separated arms (Figure~\ref{fig:exp215-217-folded}). A sampled
+period-12 child sheet connects locally to the first arm; further checks
+recover stable children on part of the returning arm. At $c=8.25$, the
+two parent-event arms are separated by about $0.05778$ in $a$.
+The connected event locus is a substantial part of the local structure,
+but it has not been shown that both complete arms bound the same shrimp.
 
-The signed field in Figure~\ref{fig:exp199-residuals} exposes the obstruction.
-The first critical residual changes sign at both steps, but the second is
-positive at all 126 points, with lower bounds $0.03149$ and $0.03153$.  Hence
-no complete same-assignment lattice cell brackets both residuals.  This
-rejects a double-critical center in the cross-step-qualified sampled stable
-field; it does not reject one beyond the fragmented, boundary-touching region
-that failed the preceding coverage gate.
+A section-dependent change occurs along this continuation. Near
+$c=6.9383180212$, the orbit grazes the historical section boundary and its
+recorded crossing count changes. The underlying flip event and the
+Barrio-section count persist. The apparent count change therefore belongs
+to the measurement. It is distinct from the later turn of the parameter
+curve near $c=6.83093$.
+% Evidence: EXP-203--229; EXP-229 retracts the distinct second-boundary inference.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig09-exp199-signed-residual-field.png}
-  \caption{Incomplete two-step signed-residual scan over the individually
-  qualified dense period-6 mesh.  Colors show the mean of the two RK4 profiles;
-  gray cells are outside the cross-step-qualified field.  Left: the first
-  assigned critical-to-orbit residual changes sign.  Center: the second remains
-  strictly positive.  Right: even the closest of the three normalized direct-
-  membership gate ratios exceeds one at every point.  The star marks the
-  selected candidate.  The absence of a simultaneous bracket is a finite-field
-  rejection, not an extrapolation across the missing mesh coverage.}
-  \label{fig:exp199-residuals}
-\end{figure}
-
-A targeted successor quadruples the initial-condition ensemble on 168
-previously qualified lower-$c$ orbits.  Only 10 and 9 candidates pass the full
-five-variant oracle at the two RK4 steps, and only 8 agree across steps, below
-the frozen minimum of 40.  Return-pair support and step parity pass; the
-failure is an oracle-scale effect.  All four baseline bin-count and prominence
-variants return three branches at both steps for 125 candidates, whereas the
-single high-smoothing variant reduces 104 of those to two at both steps
-(Figure~\ref{fig:exp200-smoothing}).  The eight strict survivors retain a
-positive second residual and none passes a direct-center gate.  Quadrupled
-support therefore rejects simple sample scarcity, but the scale dependence
-prevents the lower-$c$ boundary from being called a topological branch loss.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig10-exp200-oracle-sensitivity.png}
-  \caption{Oracle-scale diagnosis under quadrupled trajectory support.  Left:
-  125 of 168 candidates are three-branch under all four baseline bin-count and
-  prominence variants at both RK4 steps.  Center: the high-smoothing variant
-  alone classifies 104 of these as two-branch at both steps.  Right: requiring
-  all five variants leaves only eight cross-step-eligible candidates.  Gray
-  denotes failure of the panel's condition, not numerical integration failure;
-  the star marks the selected strict survivor.}
-  \label{fig:exp200-smoothing}
-\end{figure}
-
-The preregistered scale audit then replaces the binary smoothing veto with a
-seven-level logarithmic ladder and nested 2,048/8,192-trajectory supports at
-both RK4 steps.  It passes: 94 of 104 candidates qualify against the frozen
-minimum of 70.  Eighty-six have identical transition indices in all four
-step/support reconstructions and eight differ by one ladder step.  Their
-normalized second-critical spans have median $0.01031$ and maximum $0.01679$,
-below the $0.03$ gate.
-
-Of the 376 qualified support-profile reconstructions, 344 retain three branches
-through smoothing $4.6416\times10^{-5}$ and first return two at $10^{-4}$;
-25 bracket the transition between $2.1544\times10^{-5}$ and $10^{-4}$ because
-the intermediate level is unresolved, and seven transition one level earlier
-(Figure~\ref{fig:exp201-scale}).  Thus the shallow critical has a reproducible
-finite-data scale across the tested support and step limits.  This is not a
-choice of invariant zero-smoothing topology and does not establish double
-superstability; it licenses a scale-aware reconstruction of the signed
-critical-membership residual.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig11-exp201-smoothing-scale-audit.png}
-  \caption{Nested-support smoothing-scale audit.  Left: 94 of 104 candidates
-  qualify across both RK4 steps and both trajectory supports; the ten crosses
-  lack a monotone resolved transition in at least one reconstruction.  Center:
-  last-three to first-two smoothing brackets for all 376 qualified
-  support-profile reconstructions.  Right: every qualified normalized
-  second-critical span lies below the frozen $0.03$ gate.  The result qualifies
-  a finite-data scale transition, not an invariant branch count.}
-  \label{fig:exp201-scale}
-\end{figure}
-
-A preregistered low-smoothing residual audit then uses three contiguous scales
-that remain three-branch in every EXP-201 reconstruction.  All 94 candidates
-retain the same ordered phases $[7,5]$ across 12 scale/support/step views, but
-no point passes the direct gate and none of 40 complete lattice cells brackets
-both residuals view-by-view.  The first residual ranges from $-0.004116$ to
-$0.002440$.  The second is positive in every one of 1,128 evaluations, from
-$0.019945$ to $0.043328$ with median $0.030794$
-(Figure~\ref{fig:exp202-residuals}).  The closest point,
-$(a,c)=(0.21565,7.284)$, has worst residual $0.028711$, or $1.436$ times the
-frozen direct gate.  Thus the one-sided obstruction survives a scale ensemble;
-the rejection remains bounded to the sampled stable field.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig12-exp202-scale-ensemble-residual-field.png}
-  \caption{Low-smoothing scale-ensemble residual field.  Left: the first mean
-  residual changes sign across the sampled field.  Center: the second mean
-  residual remains positive.  Right: the worst residual over all 12
-  reconstructions exceeds the direct gate at every point.  The star marks the
-  closest direct candidate; white cells were not EXP-201-qualified.}
-  \label{fig:exp202-residuals}
-\end{figure}
-
-The direction suggested by the second residual is then tested without looking
-at new criticals.  A fresh $61\times103$ DOP853/Floquet mesh extends the stable
-period-6 family to lower $c$.  The seed passes, but only 551 of 6,283 points
-pass every orbit, identity, section, and stability gate, below the frozen
-minimum of 1,000.  The qualified points form five components of sizes
-$331,156,62,1,1$ over only $a\in[0.2155,0.2158]$ and
-$c\in[7.132,7.288]$ (Figure~\ref{fig:exp203-strip}).  The seed component
-touches the lower-$a$ boundary, while the upper component touches the overlap
-boundary at $c=7.288$.  Correction is the first failed gate at 4,921 points;
-stability is first at 806, and the qualified dominant Floquet modulus reaches
-$0.99945$.  Hence the residual descent meets a bounded correction/stability
-structure, not an open stable sheet.  This redirects the search toward
-boundary or unstable-family continuation while preserving the 551 qualified
-orbits for a separately frozen residual replay.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig13-exp203-stable-period6-extension.png}
-  \caption{Lower-$c$ corrected period-6 extension.  Left: qualified orbits,
-  first correction failures, and first stability failures.  Center: the five
-  eight-connected qualified components; the star marks the seed.  Right:
-  dominant nontrivial Floquet modulus on qualified points.  The failed
-  coverage gate prevents the strip from being treated as a closed search
-  domain.}
-  \label{fig:exp203-strip}
-\end{figure}
-
-Seven adjacent real-$-1$ Floquet brackets on this edge were selected before
-refinement at fixed $c$ values from $7.192$ to $7.288$.  All seven pass fresh
-DOP853 correction and monodromy tests (Figure~\ref{fig:exp205-flip}).  Their
-locations trace a smooth sampled edge from
-$(a,c)=(0.2157982843,7.192)$ to $(0.2157187473,7.288)$.  Every final $a$
-bracket is $7.63\times10^{-11}$ wide; the maximum absolute multiplier
-residual is $2.02\times10^{-7}$, maximum closure is
-$2.83\times10^{-13}$, and all orbits retain six historical-section plus eight
-Barrio-section phases.  Thus the sampled high-$a$ edge is a genuine period-6
-period-doubling boundary, not a raster or stability-threshold artifact.  The
-seven events are seeds rather than a completed curve: continuity, the
-period-12 child, criticality, and relation to the TBA curve remain to be
-tested independently.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig14-exp205-period6-flip-curve.png}
-  \caption{Refined period-6 flip boundary.  Left: seven real-$-1$ Floquet
-  events over the EXP-203 corrected field separate qualified stable orbits
-  from corrected unstable ones.  Right: every prospectively selected endpoint
-  pair changes the sign of $\lambda_{\mathrm{dom}}+1$ and the refined event
-  lies on zero to the stated tolerance.  These points seed continuous
-  bifurcation continuation; they do not by themselves prove a global curve or
-  a period-12 child.}
-  \label{fig:exp205-flip}
-\end{figure}
-
-The central event is next continued with $a$ free while orbit closure, phase,
-and an anti-periodic tangent are solved simultaneously using the exact first-
-and second-variational Jacobian.  Both directions complete at all 41 frozen
-$c$ values from $7.16$ to $7.32$ (Figure~\ref{fig:exp206-flip-curve}).  The
-curve is monotone over the sampled segment, from
-$(a,c)=(0.2158160512,7.16)$ to $(0.2156835308,7.32)$, and its maximum adjacent
-$a$ step is $4.64\times10^{-6}$.  Maximum orbit and tangent residuals are
-$1.10\times10^{-11}$ and $1.71\times10^{-12}$; independent monodromy places
-the real multiplier within $2.05\times10^{-9}$ of $-1$ and the neutral
-multiplier within $1.82\times10^{-9}$ of $+1$.  Both section identities remain
-exact.  This is a dense orbit-defined flip-curve segment, not yet its global
-continuation, period-12 child, criticality, or identification with the TBA.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig15-exp206-period6-flip-continuation.png}
-  \caption{Coupled continuation of the period-6 flip boundary.  Left: the
-  41-point exact-Jacobian curve extends beyond the seven independently refined
-  scalar roots.  Center: event $a$ and flow period vary monotonically over the
-  sampled segment.  Right: coupled orbit/tangent and independent Floquet
-  residuals remain below their frozen gates.  This curve is not identified
-  with the topology-transition curve.}
-\label{fig:exp206-flip-curve}
-\end{figure}
-
-The doubled-period nullspace switch does not satisfy its strict continuation
-gate: each negative switch direction produces only one point and each positive
-direction produces none, versus the frozen minimum of eight per arm.  Those
-three isolated points were therefore treated only as post-run nominations.
-A separately frozen experiment then corrects the period-6 parent and nominated
-child independently with DOP853 and Radau at $c=7.18,7.24,7.30$
-(Figure~\ref{fig:exp208-children}).  All three pass.  Radau gives unstable
-parent multiplier moduli $1.20713$, $1.24791$, and $1.29062$, paired with
-stable child moduli $0.149090$, $0.0235436$, and $0.206148$.  The three
-child/parent period ratios lie in $[1.999923,1.999932]$.  Every parent has six
-historical and eight Barrio phases; every child has twelve and sixteen.
-DOP853/Radau whole-orbit RMS is at most $6.29\times10^{-11}$, and every proper
-divisor of historical period 12 is rejected: the smallest subperiod return
-distance is $0.09413$, compared with full-period closures below
-$5.30\times10^{-11}$.  Thus three sampled primitive stable period-12 children
-are established even though the multi-point arm continuation remains failed.
-Normal-form scaling, attraction basins, a continuous child surface, and any
-identification with the TBA remain open.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig16-exp208-period12-children.png}
-  \caption{Independent qualification of three period-12 children.  Left:
-  sampled post-flip child coordinates relative to the EXP-206 period-6 flip
-  curve.  Center: independent Radau monodromy places every parent outside and
-  every child inside the transverse unit-modulus stability band.  Right: none
-  of the five proper-divisor fractions closes, whereas the full period closes
-  below $5.30\times10^{-11}$.  The result establishes three sampled children,
-  not a continuous period-12 surface or the TBA curve.}
-\label{fig:exp208-children}
-\end{figure}
-
-Fixed-$c$ child continuation next samples seven common fractional offsets from
-each event to its qualified child (Figure~\ref{fig:exp209-normal-form}).  The
-phase-aligned whole-orbit opening exponents are $0.502576$, $0.503031$, and
-$0.503504$, all with $R^2>0.999995$.  The cubic flip normal form predicts
-$(1-\lambda_{12})/(-\lambda_6-1)\to4$; all 21 sampled ratios lie in
-$[4.01066,4.15024]$, with slice medians $4.03423$--$4.04734$.  Every parent is
-unstable, every child is stable and primitive, and nine Radau checkpoints
-agree with DOP853 to maximum whole-orbit RMS $1.34\times10^{-8}$.  Two opposite
-perturbations at each full-offset child return within $6.57\times10^{-11}$ of
-the orbit and recorrect to the same child.  These replicated finite-slice
-results support a local supercritical interpretation.  They do not estimate a
-formal criticality coefficient, measure basin size, construct a continuous
-two-parameter child surface, or identify the flip set with the TBA.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig17-exp209-period12-normal-form.png}
-  \caption{Local normal-form and attraction tests at three period-6-to-12
-  slices.  Left: phase-aligned child opening follows a square-root law at each
-  fixed $c$.  Center: all 21 parent/child multiplier ratios remain near the
-  cubic flip limit four.  Right: both perturbation signs return to every
-  full-offset child and pass the phase-invariant recovery gates.  This is a
-  replicated finite-slice result, not a global period-12 or TBA surface.}
-  \label{fig:exp209-normal-form}
-\end{figure}
-
-The first dense two-parameter attempt is retained as a negative method result.
-Direct single-shooting correction completes 124 cells but converges to the
-double-covered period-6 parent in 16 of them, including isolated cells between
-valid children.  Their half-period returns close numerically, so this is a
-root-identity failure rather than evidence that the sampled child family ends.
-A separately frozen recovery interpolates the three qualified child families
-first in physical post-flip offset and then in $c$, and requires nonclosure at
-half period before accepting a root (Figure~\ref{fig:exp211-surface}).  All
-124 cells pass without invoking either declared fallback.  Every parent is
-unstable, every child is stable and primitive, and every row retains exactly
-six/eight parent phases and twelve/sixteen child phases on the historical and
-Barrio sections.  The 31 opening exponents lie in
-$[0.502636,0.503088]$ with minimum $R^2=0.99999696$; all multiplier ratios lie
-in $[4.01176,4.12635]$.  Neighboring child orbits agree to maximum RMS
-$0.005020$, while six independent Radau controls agree with DOP853 to maximum
-whole-orbit RMS $1.32\times10^{-8}$.  Thus the flip segment carries a dense
-regular sampled period-12 child sheet.  Formal continuity, sheet endpoints,
-basin size, the TBA, and double-critical membership remain unestablished.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig18-exp211-period12-surface.png}
-  \caption{Identity-safe period-12 child sheet over the sampled period-6 flip
-  segment.  Upper left: whole-orbit opening over the 31-by-4 parameter grid.
-  Upper right: every fixed-$c$ fit follows the square-root law.  Lower left:
-  unstable period-6 parents (dashed) are paired with stable period-12 children
-  (solid).  Lower right: the prospective identity rule recovers all 16 cells
-  where direct shooting had converged to the doubled parent, and all 124 cells
-  pass without fallback.  The figure establishes a regular sampled sheet, not
-  a global continuity theorem, TBA curve, or doubly-superstable center.}
-  \label{fig:exp211-surface}
-\end{figure}
-
-Dual-parameter pseudo-arclength then probes the parent flip curve beyond the
-child-sheet rectangle (Figure~\ref{fig:exp212-214-grazing}).  The frozen
-symmetric range claim fails: the upper arm completes all 100 requested points
-through $c=8.40309$, whereas the lower arm accepts 23 points and stops near
-$c=6.94$.  The rejected next point still closes to $1.87\times10^{-13}$,
-retains a real multiplier $-0.9999999980$, and has eight Barrio phases, but its
-historical count changes from six to seven.  Thus the failure nominates a
-section event rather than an invariant-curve endpoint.
-
-Direct continuous refinement locates the closest $y$ extremum's coincidence
-with the equilibrium-defined section plane and half-plane gate at
-$c=6.93831802121$, in a bracket of width $6.58\times10^{-11}$.  DOP853 gives
-clearance $2.22\times10^{-11}$, gate margin $4.81\times10^{-12}$, and
-$d^2y/dt^2=-13.6961$; Radau independently agrees.  That frozen experiment
-nevertheless fails because a standard sign-change collector skips the two
-coalescing roots and reports six crossings on both final sides.  A separately
-frozen extremum-partitioned audit resolves the numerical pathology: all four
-lower offsets have seven historical phases, all four upper offsets have six,
-and every Barrio count remains eight.  The standard collector misses three of
-the lower-side crossings.  Four Radau controls reproduce the extremum-aware
-counts with maximum clearance difference $4.86\times10^{-12}$.  This
-establishes a section-dependent representation boundary on an intact
-flow-orbit flip curve, not the TBA or another flow bifurcation.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig19-exp212-214-flip-extension-grazing.png}
-  \caption{Broad extension of the period-6 flip curve and qualification of a
-  historical-section grazing.  Upper left: the upper pseudo-arclength arm
-  reaches $c=8.40309$; the lower frozen range gate stops at the section event.
-  Upper right: the nearest-extremum clearance crosses zero nondegenerately.
-  Lower left: extremum-partitioned historical counts change seven-to-six while
-  the Barrio count remains eight; the standard collector misses three close
-  lower-side crossings.  Lower right: the section-plane clearance and
-  half-plane gate margin vanish together by the exact R\"ossler extremum
-  relation.  The grazing changes a representation, not the invariant flow
-  event, and is not identified with the TBA.}
-  \label{fig:exp212-214-grazing}
-\end{figure}
-
-The apparent lower continuation target is itself incorrect.  Six fixed-step
-events first cross the qualified grazing and reach $c=6.83093$.  A separately
-frozen adaptive successor then turns in the $c$ projection and returns through
-21 exact events to $c=6.99993$, where it stops only at its declared upper
-parameter guard.  Expanding that guard prospectively yields 135/135 accepted
-events through $(a,c)=(0.27126703,8.25273305)$
-(Figure~\ref{fig:exp215-217-folded}).  Every returning event retains seven
-extremum-partitioned historical phases and eight Barrio phases.  Maximum orbit,
-event-eigenvector, arclength, and section-root residuals are
-$1.26\times10^{-11}$, $2.92\times10^{-12}$, $8.49\times10^{-12}$, and
-$4.55\times10^{-13}$.  The terminal event independently recorrects under
-Radau with parameter difference $6.90\times10^{-13}$.
-
-The connected sampled locus therefore has two widely separated arms over
-$c\in[7.01,8.25]$.  Their $a$ separation grows from $0.00891$ at $c=7.16$ to
-$0.05778$ at $c=8.25$.  This is an orbit-defined folded skeleton, not yet a
-proof that both arms bound the same stable shrimp.  Child switching and
-stability exchange on the returning arm remain required.
-
-A prospectively frozen three-slice switch tests that interpretation.  Its
-global claim fails, but at the untouched near slice $c=7.16299104$, four
-primitive period-12 children open toward lower $a$, opposite the original
-arm's qualified direction.  All four pair with unstable period-6 parents,
-retain exact $7/8$ parent and $14/16$ child section identities, and pass
-DOP853/Radau whole-orbit comparison.  Child moduli are $0.156$--$0.818$ while
-parent moduli are $1.045$--$1.270$.  The middle and far switches do not produce
-a qualified lower-$a$ child, so this supplies local opposing-side stability
-exchange but not a whole-arm shrimp-boundary identification.
-
-\begin{figure}[H]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=\textwidth]{figures/fig20-exp215-217-folded-flip-locus.png}
-  \caption{The exact period-6 flip locus turns and forms a broad returning
-  arm. Upper left: the original and returning real-$-1$ arms, the sampled
-  period-12 child patch, the qualified historical-section grazing, and the
-  lower-$c$ turn. Upper right: the section grazing and parameter-projection
-  turn are distinct events. Lower left: arm separation grows across their
-  shared $c$ interval. Lower right: all 135 EXP-217 events satisfy the frozen
-  orbit, eigenvector, arclength, and section-root gates. The figure establishes
-  a folded event locus, not paired shrimp boundaries, a TBA curve, or a
-  doubly-superstable center.}
+  \caption{One period-doubling curve has two separated arms. Upper left:
+  corrected parent events trace the original arm, a lower turn, and the
+  returning arm. Upper right: the red star marks a section grazing,
+  while the diamond marks the later turn in parameter space.
+  Lower left: the arms separate as $c$ increases. Lower right: numerical
+  residuals stay below their declared acceptance thresholds.
+  The connected curve is established numerically; its identification as
+  two complete boundaries of a single shrimp is still open.}
   \label{fig:exp215-217-folded}
 \end{figure}
 
-Adaptive branch-coherent continuation then tests whether the local returning
-child persists.  The frozen 52-event claim fails, but only after 212 accepted
-points spanning 45 exact returning-arm events to $c=7.62518642$.  Every
-accepted point retains unstable period-6 parent, stable primitive period-12
-child, period ratio two, proper-subperiod nonclosure, and $7/8$ versus $14/16$
-two-section identity.  The largest accepted child-state step is $0.002965$
-against a prospective $0.003$ gate.  At the next narrow interval, the nominal
-child collapses onto the parent traversed twice rather than jumping to another
-primitive root.
+\subsection{The cascades extend deeply, but high period exposes false identities}
 
-A representation-safe successor solves the intervening parent real-$-1$
-crossing independently.  DOP853 gives
-$(a,c)=(0.240684352976565,7.62537829761012)$; Radau gives
-$c=7.62537829364544$, differing by $3.96\times10^{-9}$.  At
-$c_{\rm root}-1.5\times10^{-4}$, the primitive child passes full cross-solver
-qualification.  At $c_{\rm root}+1.5\times10^{-4}$, both solvers instead
-recover a stable parent and its double cover: parent moduli are
-$0.99209826/0.99209804$, double-cover moduli $0.98425894/0.98425852$, and
-multiplier-square errors $2.08\times10^{-8}/5.91\times10^{-9}$.
+There are three different parameter paths in the record. The Hopf-born
+Jones-path family above fixes $(a,b)$ and varies $c$. A period-5 cascade
+fixes $(a,c)=(0.245,5.1)$ and varies $b$, reaching eight locally checked
+supercritical doublings and a stable period-1280 child. The returning
+period-6 cascade fixes $(b,c)=(0.2,7.625815600403827)$ and varies $a$.
+Their period counts and parameter spacings must not be combined.
+% Evidence: EXP-056--106; EXP-153--173; EXP-230--327.
 
-This crossing was initially classified as a distinct second flip because its
-$a$ coordinate lay $5.60\times10^{-7}$--$5.85\times10^{-7}$ below a linear
-interpolation of the sparse returning-arm samples.  A post-diagnostic
-21-point audit instead corrects the EXP-217 event freshly at each identical
-$c$.  All points coincide: the maximum differences are
-$1.46\times10^{-14}$ in $a$, $2.23\times10^{-15}$ in relative period,
-$4.77\times10^{-11}$ in phase state, and $1.14\times10^{-10}$ in multiplier
-modulus; three Radau controls also pass.  The apparent gap is exactly the
-chord-interpolation error.  We therefore retract the distinct-boundary
-interpretation: the constructed path recrosses the known returning flip arm.
-The child and double-cover calculations remain evidence for the local
-stability exchange, not for paired shrimp boundaries.
+The first six returning-arm doublings have independently checked stable
+children through period 768 (Figure~\ref{fig:exp237-275-returning-cascade}).
+Higher-precision calculations recover a seventh supercritical birth and a
+connected eighth event. Evidence for the eighth birth's subcritical direction
+is discussed in Section~\ref{sec:claims}; it requires further local testing.
+The finite event-spacing ratios are not a demonstration of universality.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig21-exp223-226-returning-child-endpoint.png}
-  \caption{A stable returning-arm period-12 strip recrosses the known period-6
-  flip arm on the frozen offset path. Upper left: 212 qualified child points span
-  45 exact returning-arm event samples. Upper right: DOP853 and Radau localize
-  the terminal parent real-$-1$ crossing to $3.96\times10^{-9}$ in $c$.
-  Lower left: the primitive child occupies the unstable-parent side of the
-  crossing. Lower right: proper-subperiod separation is finite before the
-  root, whereas independent post-root double-cover audits close after half
-  the nominal period. EXP-229 identifies this crossing with the same returning
-  arm to $1.46\times10^{-14}$ in $a$ and attributes the former apparent gap to
-  linear interpolation. This establishes local stability exchange, not a
-  second flip curve, paired shrimp boundaries, the TBA, or a doubly-superstable
-  center.}
-  \label{fig:exp223-226-child-endpoint}
-\end{figure}
-
-Removing source-arm interpolation from the child path carries the primitive
-period-12 orbit beyond the false endpoint and reveals a genuine cascade at
-fixed $(b,c)=(0.2,7.625815600403827)$. Exact augmented multiple shooting
-locates qualified real-$-1$ events of the period-12, period-24, period-48,
-period-96, period-192, and period-384 parents at
-\begin{align}
- a_{12}&=0.24070118147582764,&
- a_{24}&=0.24070104611236293,&
- a_{48}&=0.24070101640878155,\\
- a_{96}&=0.24070101008421760,&
- a_{192}&=0.24070100861338276,&
- a_{384}&=0.24070100830924687.&&
-\end{align}
-The first six events pass orbit, anti-periodic tangent, proper-subperiod, exact
-two-section identity, and independent Radau gates. The period-384 event requires a
-segmented residual-safe audit: the original optimizer exhausts its evaluation
-ceiling after reaching DOP853 orbit and tangent residuals
-$2.16\times10^{-10}$ and $1.31\times10^{-10}$, while segmented Radau gives
-$\mu=-1.000000032852$ with cyclic-product spread $2.37\times10^{-12}$.
-At period 192 an initial solve and unchanged-node precision audit preserve
-near-threshold product failures. A separately frozen tighter coupled
-correction then passes symmetric DOP853/Radau multiplier gates, giving
-$-0.99999999330/-0.99999992395$ with orbit/tangent residuals below
-$5.31\times10^{-11}/1.39\times10^{-11}$. The period-384 event independently
-passes with DOP853/Radau multipliers
-$-0.999999998671/-1.00000003625$, orbit residuals below
-$2.26\times10^{-11}$, and exact $448/512$ section identity.
-
-Exact node-doubling switches produce primitive period-24, period-48,
-period-96, period-192, period-384, and period-768 children. At prospectively frozen
-near-event samples, DOP853 and
-Radau agree that every parent is unstable and every child stable. For the
-sixth birth the parent moduli are $1.22260901/1.22168588$ and child moduli are
-$0.08362765/0.08362578$; the period-768 orbit retains exact $896/1024$ section
-identity. Two full-orbit sign-equivalence audits pass their orbit-identity
-gates but fail a common $0.002$ four-representation multiplier-spread gate
-($0.003450$ and $0.002661$). A prospectively frozen common-phase audit then
-passes the same gate with DOP853/Radau child moduli
-$0.0879289933/0.0879290911$ and spread $9.78\times10^{-8}$, identifying the
-discrepancy as phase-representation conditioning rather than evidence for a
-second cycle. Thus six local doublings are qualified as supercritical and the
-returning-arm cascade reaches stable period 768. The four qualified finite
-event-spacing ratios are $4.557$, $4.697$, $4.300$, and $4.836$. Their
-non-monotonicity reinforces
-that this is finite cascade evidence, not an accumulation-limit estimate or
-proof of universality.
-
-A subsequent period-768 continuation first reaches a Float64 resolution
-frontier. At the corrected event coordinate, tighter immutable replay gives
-the DOP853 value $-0.99999999629$ and the Radau value $-1.00000036358$;
-the latter fails the unchanged $10^{-7}$ two-solver standard. One Float64 increment in $a$ is
-$2.78\times10^{-17}$, while the bracket secant implies an estimated
-$1.02\times10^{-6}$ multiplier change per increment. The failed receipts are
-retained. Prospectively frozen 50-digit classical-RK4 and RK4 3/8 sequences,
-each using 4,096, 8,192, and 16,384 steps on every one of 1,024 segments, then
-show fourth-order convergence and give Richardson flip estimates
-$-0.9999999948283$ and $-0.9999999948805$. Their difference is
-$5.22\times10^{-11}$, both residuals are below $10^{-7}$, and all neutral,
-cyclic, characteristic, frozen-node, tangent, primitivity, and exact-section
-gates pass. However, three subsequent 50-digit corrections of the orbit itself
-move $7.32\times10^{-5}$--$9.32\times10^{-5}$ from those nodes, exceeding the
-prospective $10^{-6}$ source-neighborhood gate, while the tracked $-1$ root
-collapses toward zero. This is consistent with unconstrained correction to a
-nearby lower-period double cover. The coordinate
-$a_{768}=0.24070100817343250$ is therefore retained only as a seventh-event
-candidate, and the corresponding unqualified spacing ratio $2.239$ is excluded
-from the qualified sequence. An augmented high-precision orbit--antiperiodic-
-tangent solve is required before the event or a period-1536 birth is promoted.
-
-That augmented solve changes the conclusion. Classical RK4 corrections of all
-1,024 orbit and antiperiodic-tangent nodes at 1,024, 2,048, and 4,096 steps per
-segment give $a$ and period convergence ratios $15.718/15.706$. The finest and
-order-four Richardson coordinates are $0.24070100821945930$ and
-$0.24070100823758015$. An algebraically distinct RK4 3/8 sequence gives
-independent ratios $15.721/15.707$. Its finest and Richardson coordinates are
-$0.24070100822162979$ and $0.24070100823760069$, respectively. The two
-Richardson coordinates differ by
-$2.05\times10^{-14}$; finest orbit nodes agree within $1.24\times10^{-10}$,
-base tangents within $1.61\times10^{-13}$, and every sign-aligned pointwise
-tangent direction passes its prospective cosine gate. Orbit and tangent
-residuals are below $7.84\times10^{-27}$, while half-orbit node RMS remains
-$2.58\times10^{-5}$ and excludes the period-384 double cover. These augmented
-results supersede the frozen tangent representation and qualify the seventh
-primitive real-$-1$ event at consensus
-$a_{768}\simeq0.24070100823759042$. The corrected fifth finite spacing ratio is
-$4.244$, giving $4.557/4.697/4.300/4.836/4.244$. The sequence remains
-non-monotone; the seventh birth's criticality and stable period-1536 attraction
-remain unqualified at this stage.
-
-A subsequent same-coordinate audit resolves why the first criticality attempt
-cannot be promoted. At $a=0.24070100823781396$, only
-$7.24\times10^{-14}$ above the extrapolated event coordinate, DOP853 and Radau
-initially classify a nominal period-1536 candidate as strongly stable,
-with transverse moduli $0.12419628/0.12419164$. Independent 50-digit
-classical-RK4 and RK4 3/8 profiles then place the period-768 parent on the
-stable side as well: its signed real-$-1$ residuals are
-$+6.4226805\times10^{-6}$ and $+6.4226424\times10^{-6}$. The largest
-successive-Richardson or cross-tableau uncertainty is
-$7.7932\times10^{-9}$, giving an $824.1$ signal-to-error ratio. Thus the
-frozen criticality test fails as stable/stable, not because the parent remains
-numerically neutral. This rules out interpreting that sampled pair as a
-supercritical exchange at that stage. The candidate retains
-$2.53\times10^{-11}$ multiple-shooting mismatch and $2.86\times10^{-7}$ direct
-closure, however, so its primitive identity requires exact-map correction
-below.
-
-Same-map high-precision branch switching resolves the immediate daughter.
-Starting independently from the passed 4,096- and 8,192-step RK4 3/8 augmented
-events, both antiperiodic tangent signs are corrected at two amplitudes in
-50-digit arithmetic. At each resolution the primitive period-1536 daughter is
-stable and opens toward lower $a$, opposite the higher-$a$ stable-parent side.
-Mean event-relative displacement grows from $1.29205\times10^{-13}$ to
-$5.17089\times10^{-13}$ as half-node RMS doubles from
-$7.88364\times10^{-7}$ to $1.57674\times10^{-6}$. The independently repeated
-parameter-amplitude exponents are $2.000728180629$ and $2.000728180631$.
-Resolution doubling changes displacement by at most $9.08\times10^{-10}$
-relatively, amplitude by $9.27\times10^{-13}$, and child modulus by
-$1.41\times10^{-10}$. Child moduli range from $0.92877$ to $0.98228$, and
-matching residuals remain below $2.84\times10^{-21}$. This qualifies the
-seventh local birth as supercritical and shows that the nominal stable
-higher-$a$ candidate is not the immediate daughter.
-
-Six further 50-digit same-map continuation rows carry the immediate daughter
-from half-node RMS $1.58\times10^{-6}$ to $6.27\times10^{-6}$. Every row is
-stable, $a$ decreases monotonically, and no fold appears. Direct correction of
-the original higher-$a$ Float64 seed is initially ill conditioned: undamped
-Newton and a factor-independent decrease rule fail prospectively. A frozen
-step-scaled Armijo rule then converges in thirteen accepted updates, reducing
-matching from $5.37\times10^{-10}$ to $1.20\times10^{-23}$ and half-node RMS
-from $6.31\times10^{-6}$ to $7.38\times10^{-20}$. Cyclic spread is zero and
-the neutral residual is $1.22\times10^{-20}$. In the 4,096-step exact map the
-nominal higher-$a$ child is therefore the doubled period-768 parent, not a
-primitive daughter or a distinct nearby sheet. A complete 8,192-step replay
-then starts independently from the unchanged original seed. Nineteen accepted
-updates reduce matching from $4.67\times10^{-11}$ to
-$7.22\times10^{-30}$ and half-node RMS from $6.31\times10^{-6}$ to
-$6.03\times10^{-25}$. It again closes on the doubled parent, with zero cyclic
-spread and maximum neutral residual $7.11\times10^{-27}$. Thus the fate of
-this stored seed is qualified across two exact-map resolutions; this does not
-exclude every remote period-1536 sheet.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig26-exp324-325-target-collapse.png}
-  \caption{Resolution-doubled correction of the nominal higher-$a$
-  period-1536 seed. Upper left: both exact maps cross the frozen closure gate.
-  Upper right: primitive half-node amplitude collapses below the parent-class
-  gate. Lower left: the accepted Armijo factors expose severe near-flip
-  conditioning before full Newton steps take over. Lower right: distinct
-  correction paths reach the same doubled-parent class. This retracts the
-  primitive interpretation of the stored EXP-299 seed, not Jones's local
-  cascade, and does not prove global nonexistence of remote period-1536
-  sheets.}
-  \label{fig:exp324-325-target-collapse}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig23-exp293-295-augmented-event.png}
-  \caption{High-precision augmented qualification of the seventh returning-arm
-  event. Upper left: classical RK4 and RK4 3/8 coordinates converge toward
-  their Richardson limits with fourth-order slopes. Upper right: every
-  orbit--antiperiodic-tangent system closes below the prospective residual
-  gate. Lower left: the corrected coordinate adds the fifth finite spacing
-  ratio $4.244$. Lower right: independent coordinate, period, node, base-
-  tangent, and tangent-line discrepancies consume only small fractions of
-  their frozen gates. This qualifies the primitive real-$-1$ event, not the
-  period-1536 birth's criticality or a limiting universality constant.}
-  \label{fig:exp293-295-augmented-event}
-\end{figure}
-
-The primitive period-1536 branch can be carried one rung farther, but only
-after separating exact-root evidence from a misleading Float64 bracket. A
-block-Floquet scan of approximately corrected continuation rows initially
-nominates a $1.04\times10^{-13}$ interval. A 50-digit, 2,048-segment
-orbit--antiperiodic-tangent solve reduced by cyclic elimination converges at
-1,024, 2,048, and 4,096 steps per segment, with parameter and period ratios
-$15.7178/15.7060$. Its Richardson coordinate,
-$0.24070100822409128$, lies $1.36\times10^{-11}$ below that inherited
-interval, so the bracket gate is retained as failed rather than relaxed.
-
-An algebraically independent RK4 3/8 sequence then converges with ratios
-$15.7210/15.7069$ and Richardson coordinate
-$0.24070100822411182$. The two extrapolated coordinates differ by only
-$2.05\times10^{-14}$, extrapolated periods by $7.21\times10^{-11}$, and
-finest nodes by $1.24\times10^{-10}$ maximum. Base tangents agree within
-$5.73\times10^{-13}$, the global tangent-line cosine differs from one by
-$4.51\times10^{-23}$, and the finest independent orbit/tangent residuals are
-$5.05\times10^{-28}/7.72\times10^{-25}$. Half-orbit node RMS remains
-$7.99\times10^{-6}$ and excludes the period-768 double cover. These two exact
-augmented sequences qualify the eighth primitive real-$-1$ event at consensus
-$a_{1536}\simeq0.24070100822410155$. The sixth finite spacing ratio is
-$5.312$, extending the non-monotone sequence to
-$4.557/4.697/4.300/4.836/4.244/5.312$. A period-3072 child and the seventh and
-eighth birth directions remain unqualified.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig24-exp304-306-augmented-event.png}
-  \caption{Two-tableau augmented qualification of the eighth returning-arm
-  event. Upper left: classical RK4 and RK4 3/8 coordinates converge with
-  fourth-order slopes. Upper right: all augmented systems close below the
-  frozen $10^{-22}$ gate. Lower left: the eighth event adds the sixth finite
-  spacing ratio, $5.312$, without producing a monotone sequence. Lower right:
-  the independently converged exact roots coincide inside the target-blind
-  successful-continuation envelope while rejecting EXP-302's inherited
-  micro-bracket. The result qualifies the event, not a period-3072 child,
-  birth criticality, or a universality limit.}
-  \label{fig:exp304-306-augmented-event}
-\end{figure}
-
-Because the old source collapses, membership of the independently qualified
-eighth event on the immediate daughter sheet must be re-established without
-using that source. Four further 50-digit continuation rows carry the exact
-4,096-step daughter across the independent event coordinate. Fixed-$a$
-correction at that coordinate reaches $8.98\times10^{-23}$ matching, retains
-primitive half-node RMS $7.98849\times10^{-6}$, matches the target period to
-$3.13\times10^{-22}$, and recovers transverse multiplier
-$-1.00000000000025$. An integer-node identity gate is deliberately retained
-as failed because the independently built meshes use different continuous
-phase hyperplanes. A prospectively frozen shared-phase correction then reduces
-direct node RMS from $1.20\times10^{-6}$ to $6.35\times10^{-18}$, with
-$8.57\times10^{-26}$ matching and $1.02\times10^{-21}$ period discrepancy.
-Thus the immediate seventh daughter is the parent sheet of the eighth event in
-the same exact map; this connection no longer depends on EXP-299.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig27-exp321-327-sheet-connection.png}
-  \caption{Direct sheet connection from the seventh birth to the eighth event.
-  Upper left: exact continuation of the immediate period-1536 daughter crosses
-  the independently qualified event coordinate. Upper right: the signed
-  transverse multiplier crosses $-1$ on that same sheet. Lower left: exact
-  shared-phase correction removes the apparent integer-node mismatch while
-  restoring closure. Lower right: matching, node identity, period identity,
-  and neutral-mode discrepancies all lie far below their frozen gates. This
-  qualifies a bounded connected cascade segment, not global sheet uniqueness
-  or a limiting universality law.}
-  \label{fig:exp321-327-sheet-connection}
-\end{figure}
-
-Solver-specific event bracketing and a tighter identity audit resolve the
-eighth birth separately. DOP853 and Radau place the event in disjoint numerical
-intervals of width $1.49\times10^{-13}$, so each representation is sampled
-exactly $5\times10^{-13}$ above its own upper event bound. Both then classify
-the period-1536 parent as stable, with moduli $0.99968068/0.99965539$, and the
-primitive period-3072 daughter as strongly unstable, with moduli
-$18.98363/18.98308$. A preserved single-shot half-period diagnostic falls
-below its frozen floor, but a separately frozen tighter segmented audit retains
-phase-invariant half-orbit separation $8.66425\times10^{-6}$ against only
-$3.34029\times10^{-10}$ cross-solver node RMS, a separation/error ratio of
-$25{,}938.6$. These finite-offset observations support a subcritical
-interpretation while retaining the failed single-shot gate. The strongly
-unstable daughter is not yet an asymptotic local-criticality test: its
-amplitude must be followed toward zero and its relevant multiplier toward
-$+1$ as the daughter approaches the event. Nearby sheet folding and finite
-offsets must be distinguished from the local birth. The seventh birth
-is independently qualified as supercritical by the same-map switches above.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig25-exp316-320-birth-criticality-audited.png}
-  \caption{Criticality evidence at the seventh and eighth returning-arm births.
-  Upper left: both 4,096- and 8,192-step same-map switches show quadratic
-  lower-$a$ opening of the immediate seventh daughter. Upper right: every
-  immediate period-1536 daughter is stable. Lower left: resolution doubling
-  reproduces displacement, amplitude, child modulus, and opening exponent.
-  Lower right: event-relative DOP853 and Radau calculations place the eighth
-  primitive period-3072 daughter on the unstable side of a stable parent;
-  segmented identity clears its empirical representation error by a factor
-  $25{,}938.6$. Event seven has local supercritical opening evidence; event
-  eight has finite-offset evidence consistent with subcriticality, pending
-  daughter-to-parent convergence. Neither establishes global sheet connectivity or
-  a universality limit.}
-  \label{fig:exp316-320-criticality}
-\end{figure}
-
-\begin{figure}[H]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}
-  \caption{The first six child-qualified rungs of the exact returning-arm
-  cascade through stable period 768. Upper left: six corrected real-$-1$
-  events converge rapidly in $a$ while the
-  parent period doubles. Upper right: five spacings give four finite ratios,
-  $4.557$, $4.697$, $4.300$, and $4.836$, which do not define a universality estimate. Lower left:
-  independent DOP853 and Radau calculations recover unstable parents and
-  stable primitive children at all six near-event samples. Lower right:
-  each event multiplier remains close to $-1$ under independent integration.
-  The figure establishes a finite local cascade, not a full child sheet,
-  paired shrimp boundaries, TBA membership, double-criticality, or a global
-  parameter-plane explanation.}
+  \caption{The first six checked doublings of the returning family.
+  Upper panels show event locations and finite spacing ratios.
+  Lower panels compare the loss of parent stability with the stability
+  of the doubled children, using independent integrators.
+  This figure stops at the stable period-768 child. The technical
+  supplement records the subsequent high-precision events, the false
+  daughter that was retracted, and the remaining criticality question.}
   \label{fig:exp237-275-returning-cascade}
 \end{figure}
+
+The deepest calculations also provide a caution. One apparently stable
+period-1536 daughter survived several ordinary checks, but stronger
+same-map correction drove its half-orbit separation to zero. It was the
+period-768 parent followed twice. A distinct immediate daughter was then
+recovered and connected to the next event. This corrects the modern
+reconstruction; it does not refute period doubling itself.
+% Evidence: EXP-318--327; source EXP-299 primitive identity retracted.
+
+\subsection{A homoclinic candidate is supported near the reported hub}
+
+At the printed coordinate $(a,b,c)=(0.1798,0.2,10.3084)$, the small
+equilibrium has eigenvalues approximately
+$0.08897\pm0.99596i$ and $-10.30304$. It therefore has the proposed
+saddle-focus structure: outward spiral motion in two directions and strong
+contraction in one. That local calculation is necessary for the proposed
+mechanism, but does not show a global return to the equilibrium.
+
+Direct scans at the printed point do not find a qualifying connection.
+A separate boundary-value calculation instead matches outgoing trajectories
+to the nonlinear stable manifold near
+\[
+  (a,b,c)\simeq(0.182643608174,0.2,10.3084).
+\]
+DOP853 and Radau, different shooting meshes, and three matching radii support
+this candidate (Figure~\ref{fig:homoclinic-root}). Its $a$ coordinate differs
+from the printed value by about $0.00284$, exceeding four-decimal rounding.
+Finding it neither excludes another connection at the printed point nor
+establishes that it organizes the observed hub.
+% Evidence: EXP-329--346.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig29-exp342-346-homoclinic-root.png}
+  \caption{A nearby candidate leaves the saddle focus and returns toward
+  its stable manifold. Left and center: the matched trajectory in two
+  projections, with color showing flight time. Right: shrinking the
+  matching sphere preserves the fitted parameter while the arc defects
+  remain below the declared numerical threshold. The dashed line is
+  Jones's printed $a$. Agreement across these checks supports the
+  candidate; it does not prove existence, uniqueness, or the candidate's
+  organizing role in the full parameter plane.}
+  \label{fig:homoclinic-root}
+\end{figure}
+
+Subsequent continuation produces 81 accepted numerical points and an apparent
+local parameter turn. The closest sampled point lies about
+$1.75\times10^{-5}$ above the exact fixed-$a=0.1798$ slice; the outgoing
+samples then move away. The detailed plot in
+Figure~\ref{fig:homoclinic-continuation} preserves the 80-point EXP-472
+snapshot, with EXP-473 recorded in the accompanying text.
+The small Jacobian singular values mean that residual size alone does not
+bound the parameter error at the scale of this gap. A changed formulation,
+truncation study, and parameter-sensitive error estimate are therefore
+required before assigning a precise physical location to the turn.
+The printed intersection, uniqueness, and global nonintersection remain open.
+% Evidence: EXP-347--473; parameter-error caveat added in the public audit.

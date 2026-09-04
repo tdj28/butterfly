@@ -1,60 +1,69 @@
-\section{Introduction}
+\section{Why do periodic windows form spirals?}
+\label{sec:question}
 
-The R{\"o}ssler equations provide a compact continuous-time system in which
-chaotic attractors, periodic windows, homoclinic organization, and symbolic
-dynamics can be studied together \citep{rossler1976equation}.  Two-parameter
-scans reveal periodic windows arranged in shrimp-like families and nested
-spirals.  The organizing center of such a spiral is commonly called a
-\emph{periodicity hub}.
+A chaotic system can become regular when a parameter changes by a small
+amount. In two-parameter plots, those regular regions often resemble shrimp:
+a central body with narrow extensions, surrounded by other periodic windows.
+In the R{\"o}ssler system, families of these windows wind into nested spirals.
+A \emph{periodicity hub} is the apparent organizing center of such a spiral.
+A useful explanation must account for the connections between windows, not
+only reproduce their appearance.
 
-Figure~\ref{fig:multib-superstructure} makes the principal geometric object
-visible before we introduce the orbit-level tests.  Across eleven fixed-$b$
-slices, the broad families persist while bending, merging in projection, and
-changing their internal period decoration.  This is the superstructure that
-the proposed Hopf, cascade, return-map, and reinjection mechanisms must
-explain; no single raster pixel is treated as a bifurcation certificate.
+We study the R{\"o}ssler equations \citep{rossler1976equation},
+\begin{equation}
+\label{eq:rossler}
+  \dot{x}=-y-z,\qquad
+  \dot{y}=x+ay,\qquad
+  \dot{z}=b+z(x-c),
+\end{equation}
+where $(x,y,z)$ is the state and $(a,b,c)$ are parameters. Most of the
+historical question concerns the $(a,c)$ plane at $b=0.2$.
+Figure~\ref{fig:multib-superstructure} extends the view across eleven values
+of $b$. Curved bands persist and change shape, suggesting a shared
+organization. The images alone cannot tell us which invariant objects
+produce it.
 
-\begin{figure}[t]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=\textwidth]{figures/fig01-multib-superstructure.png}
-  \caption{Finite-time recurrence atlases of the $(a,c)$ plane for
-  $b=0.10,0.12,\ldots,0.30$.  Color records the detected fundamental period;
-  gray is unresolved at the declared finite horizon, and the remaining
-  special colors encode nonperiodic or failed classifications.  The coherent
-  motion of the shrimp-like bands across $b$ is the global phenomenon to be
-  explained.  The panels are observational maps, not continuations of
-  invariant bifurcation curves.  The same sequence is supplied as
-  Supplemental Movie~S1.}
+  \caption{The pattern to be explained. Each panel scans the same $(a,c)$
+  region at a different fixed $b$, from $0.10$ to $0.30$. Colors indicate
+  detected integer period labels; gray includes points unresolved within the
+  observation horizon. Follow the curved bands from panel to panel to see
+  how the periodic-window structure changes. These are finite-time
+  observations, not a continuation of every bifurcation boundary.
+  Supplemental Movie~S1 animates the same sequence.}
   \label{fig:multib-superstructure}
 \end{figure}
 
-The historical claim boundary matters.  Barrio, Blesa, Serrano, and Shilnikov
-identified a global organization of spiral structures and a transition between
-return-map topologies before the two 2012 papers \citep{barrio2011global}.
-Jones then connected a two/three-branch transition, finite symbolic ordering,
-and a proposed reinjection mechanism to the nested R{\"o}ssler spirals
-\citep{jones2012topological}.  Independently and at nearly the same time,
-Barrio, Blesa, and Serrano connected the topology bifurcation of attractors
-(TBA) to periodicity hubs and doubly superstable shrimp centers
-\citep{barrio2012topological}.  We therefore treat the 2012 topology--hub
-connection as an independent, near-simultaneous co-discovery while keeping the
-earlier 2011 attribution explicit.
+Earlier work connected spiral organization to saddle-focus homoclinic
+geometry and changes in return-map topology \citep{barrio2011global}.
+The two 2012 studies are treated here as independent, near-simultaneous
+co-discoveries of the return-map transition's connection to periodicity
+hubs. Jones proposed finite symbolic ordering and a reinjection explanation
+for links between neighboring windows \citep{jones2012topological}.
+Barrio, Blesa, and Serrano developed a topology-bifurcation and
+double-superstability description \citep{barrio2012topological}.
+The earlier 2011 attribution remains explicit.
 
-The original Jones language also made the relationship to a logistic map too
-strong.  Similar finite kneading order in experimental flow data was known at
-least through period eight \citep{lefranc1994combining}, whereas a genuinely
-two-dimensional return map permits infinitely many high-period bifurcation
-orders that differ from a one-dimensional unimodal map
-\citep{holmes1984bifurcation}.  Accordingly, this paper does not assume global
-conjugacy or universal ordering.  It asks which explicitly defined finite
-correspondences survive computation, where the first disagreement occurs, and
-whether a measurable reinjection observable predicts structure beyond the
-already known TBA and homoclinic organization.
+Subsequent work developed spiral and homoclinic organization in R{\"o}ssler
+and other flows \citep{barrio2013spirals,malykh2020homoclinic}.
+Computer-assisted studies also supply rigorous periodic-orbit results and
+methods for validating homoclinic connections in specified settings
+\citep{gierzkiewicz2021periodic,capinski2017homoclinics,nitta2022verification}.
+These are prior results and methodological benchmarks, not certifications
+of the numerical candidates studied here. Parameter conventions differ
+between papers and must be translated before comparing coordinates.
+Our contribution is a reproducible reassessment of declared claims and
+the tests that distinguish supported mechanisms from unresolved ones.
 
-Our immediate contribution is narrower and testable.  We reconstruct the
-R{\"o}ssler computation with provenance-bearing experiments, continue exact
-periodic orbits instead of reading bifurcations from pixels, resolve a deep
-local period-doubling cascade, and distinguish a flow bifurcation from a
-change induced by the chosen return section.  The central topology and
-reinjection claims remain global prospective tests, while a local sampled
-saddle-topology bracket is now qualified below.
+We ask three questions. Which local objects in this explanation can be
+reproduced? Which observed changes belong to the dynamics, and which arise
+from the way trajectories are measured? What remains necessary to turn local
+agreement into a predictive explanation of the spirals?
+
+The answer is partly positive and partly corrective. Periodic families,
+several doublings, and local return-map branch distinctions reproduce.
+Some earlier numerical interpretations do not survive stronger checks.
+The main article follows those results and their implications; the technical
+supplement preserves the full experiment sequence, including failed tests.
