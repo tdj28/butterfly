@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 from butterfly.scan import ScanManifest
+from butterfly import tiles
 from butterfly.tiles import (
     TileSpec,
     aggregate_scan_tiles,
@@ -11,6 +12,17 @@ from butterfly.tiles import (
     verify_completed_aggregate,
     verify_completed_tile,
 )
+
+
+@pytest.fixture
+def source_revision(monkeypatch):
+    """Tile behavior tests must also run from source archives without .git."""
+    values = {
+        ("rev-parse", "HEAD"): "a" * 40,
+        ("branch", "--show-current"): "test-branch",
+        ("status", "--porcelain"): "",
+    }
+    monkeypatch.setattr(tiles, "git_value", lambda *arguments: values[arguments])
 
 
 def tiled_manifest() -> dict:
@@ -58,7 +70,7 @@ def test_tile_partition_is_exact_and_balanced() -> None:
     assert [len(spec.point_indices) for spec in specs] == [4, 3, 3]
 
 
-def test_tiles_resume_and_aggregate_exact_grid(tmp_path: Path) -> None:
+def test_tiles_resume_and_aggregate_exact_grid(tmp_path: Path, source_revision) -> None:
     manifest_path = write_manifest(tmp_path / "manifest.json")
     output = tmp_path / "tiles"
     first = execute_scan_tile(
@@ -97,7 +109,7 @@ def test_tiles_resume_and_aggregate_exact_grid(tmp_path: Path) -> None:
     assert verify_completed_aggregate(output / "aggregate") == aggregate
 
 
-def test_resume_rejects_corrupted_completed_tile(tmp_path: Path) -> None:
+def test_resume_rejects_corrupted_completed_tile(tmp_path: Path, source_revision) -> None:
     manifest_path = write_manifest(tmp_path / "manifest.json")
     output = tmp_path / "tiles"
     execute_scan_tile(
@@ -114,7 +126,7 @@ def test_resume_rejects_corrupted_completed_tile(tmp_path: Path) -> None:
         verify_completed_tile(directory)
 
 
-def test_resume_recovers_directory_with_only_temporary_file(tmp_path: Path) -> None:
+def test_resume_recovers_directory_with_only_temporary_file(tmp_path: Path, source_revision) -> None:
     manifest_path = write_manifest(tmp_path / "manifest.json")
     output = tmp_path / "tiles"
     directory = output / "tile-00000-of-00002"
@@ -130,3 +142,18 @@ def test_resume_recovers_directory_with_only_temporary_file(tmp_path: Path) -> N
     )
     assert receipt["row_count"] == 2
     verify_completed_tile(directory)
+
+
+def test_tiled_scan_still_requires_real_git_provenance(monkeypatch):
+    monkeypatch.setattr(tiles, "git_value", lambda *arguments: None)
+    with pytest.raises(RuntimeError, match="require a Git source commit"):
+        tiles._source(require_clean=False)
+
+
+def test_tiled_scan_rejects_dirty_source_when_required(monkeypatch):
+    def git_value(*arguments):
+        return " M source.py" if arguments == ("status", "--porcelain") else "a" * 40
+
+    monkeypatch.setattr(tiles, "git_value", git_value)
+    with pytest.raises(RuntimeError, match="require a clean source tree"):
+        tiles._source(require_clean=True)
