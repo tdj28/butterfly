@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-04-reproducible-core-and-readable-paper.md`](2026-09-04-reproducible-core-and-readable-paper.md)
+  — a readable illustrated main article, preserved technical supplement,
+  public core-data replay, later literature, and the independent homoclinic pilot.
+
 - [`2026-09-04-public-research-audit.md`](2026-09-04-public-research-audit.md)
   — fixes numerical acceptance and public-source portability, retracts the
   full-flow Floquet-zero interpretation, qualifies homoclinic/criticality
