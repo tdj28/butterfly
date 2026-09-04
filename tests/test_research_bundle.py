@@ -209,11 +209,13 @@ def test_tar_path_traversal_is_rejected_before_writing(source, tmp_path):
     assert not (tmp_path / "outside").exists()
 
 
-def test_oversized_tar_member_is_rejected(source, tmp_path):
+def test_oversized_tar_member_is_rejected(source, tmp_path, monkeypatch):
     archive, result = build(source, tmp_path)
     payload = archive_payload(archive, result["sha256"])
-    extra = tarfile.TarInfo("large.json")
-    extra.size = bundle.MAX_FILE_BYTES + 1
-    checksum = repack(archive, payload, extra)
+    # Use a valid small archive rather than an incomplete oversized header:
+    # newer tarfile versions reject nonempty members without a file object.
+    limit = max(len(data) for name, data in payload.items() if name != "index.json")
+    monkeypatch.setattr(bundle, "MAX_FILE_BYTES", limit)
+    checksum = repack(archive, {**payload, "large.json": b"x" * (limit + 1)})
     with pytest.raises(ValueError, match="size limit"):
         bundle.read_archive(archive, expected_sha256=checksum)
