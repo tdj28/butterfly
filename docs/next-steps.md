@@ -14,15 +14,21 @@ close the broader scientific acceptance criterion below.
 - [x] Inventory a first core replay: one atlas panel, one flip, and the initial
   homoclinic candidate, with exact input hashes. Full-campaign dependency
   closure remains open.
-- [ ] Create a versioned, openly downloadable data bundle with checksums,
-  source revision, locked environment, and a clear data license. Include
-  corrected orbits and section/saddle samples needed to recompute the results;
-  a hash of an unavailable file is not a substitute for that file.
-- [ ] Reproduce one atlas panel, one flip event, and the initial homoclinic
+- [x] Publish the first versioned [core data bundle](reproducibility.md) with
+  checksums, source revision, locked environment, and data license.
+- [ ] Expand the public dependency closure to the full campaign, including
+  remaining corrected orbits and section/saddle samples. A hash of an
+  unavailable file is not a substitute for that file.
+- [x] Reproduce one atlas panel, one flip event, and the initial homoclinic
   candidate from a fresh checkout using only the published bundle. Make this
-  a documented command and retain discrepancies.
+  a documented command and retain discrepancies. The
+  [public-download check](reviews/receipts/research-core-v1-public-download.json)
+  passes the declared gates; the atlas is a cached-classification redraw.
 - [ ] Re-audit all callers of the corrected periodic/phase/arclength gates.
-  The initial spot checks pass, but do not cover the full archive.
+  The [caller audit](reviews/2026-09-04-corrector-caller-audit.md) now fixes
+  nine unchecked periodic sites and one shared segmented-arclength gate,
+  with failure-injection tests. It does not revalidate the full archive or
+  every other corrector implementation.
 
 Acceptance: a separate environment can acquire the documented inputs, verify
 their hashes, recompute the selected results, and regenerate the figures
@@ -35,6 +41,10 @@ inputs; historical result reproduction is a separate requirement.
   formulation. EXP-475 passes analytic positive/negative controls and four
   eigenspace-endpoint collocation cases. AUTO/HomCont was not installed;
   this is a distinct SciPy formulation, not an AUTO validation or proof.
+- [ ] Implement and prospectively freeze the proposed
+  [radius-by-tolerance grid](plans/2026-09-04-homoclinic-refinement.md).
+  This is the next bounded initial-point accuracy study; no target run has
+  been performed for that proposal.
 - [ ] Vary departure/arrival radii, truncation time, mesh, gauge, and precision
   at selected points before and near the apparent turn. Preserve failed solves.
 - [ ] Estimate errors in `a` and `c` specifically, rather than interpreting a

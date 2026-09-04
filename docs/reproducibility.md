@@ -32,13 +32,24 @@ outside the allowlist.
 
 ## Replay a release
 
-Publication is being prepared under the tag `research-core-v1`; the download
-commands below become usable when that release is published. Its release
-page will supply the final source revision, archive checksum, and replay
-qualification. Local draft archives are not the public release.
+The [public release](https://github.com/tdj28/butterfly/releases/tag/research-core-v1)
+is available under tag `research-core-v1`, bound to source
+`13d1e1aa3a079704b26b372e110614c774b0793d`. The core archive is 1,156,243 bytes,
+with SHA-256
+`eb8d8c244bea1ffc2807132f300f0fa819232cb9c70492e48da1ad3ed4ec8cec`.
+It was exported clean and replayed from a fresh public GitHub checkout with
+locked Python 3.13 dependencies. The release's `verification.json` records
+that prepublication check and its numerical results; it is not a proof.
+Local draft archives are not the public release.
+
+The subsequent [public-download verification](reviews/receipts/research-core-v1-public-download.json)
+checks anonymous HTTPS acquisition of all four assets, their checksums, the
+tagged source, and a new replay of the downloaded archive. All core gates pass.
+Its diagnostics match the prepublication run; timing-dependent output hashes
+are recorded separately rather than required to be identical.
 
 With the GitHub CLI installed, start from this repository and check out the
-tagged source. The download includes the core archive, paper PDF, and
+tagged source. The download includes the core archive, paper PDF, verification receipt, and
 `SHA256SUMS` so all published assets can be checked together:
 
 ```sh

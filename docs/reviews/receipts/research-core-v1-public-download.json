@@ -1,0 +1,104 @@
+{
+  "schema": "butterfly.public-release-download-check.v1",
+  "release_tag": "research-core-v1",
+  "release_url": "https://github.com/tdj28/butterfly/releases/tag/research-core-v1",
+  "passed": true,
+  "acquisition": {
+    "method": "anonymous HTTPS GET with curl configuration disabled using -q, no authentication options, and HTTPS-only redirects",
+    "download_directory_was_new": true,
+    "all_four_assets_downloaded": true,
+    "all_three_SHA256SUMS_entries_passed": true,
+    "checksum_command": "shasum -a 256 -c SHA256SUMS",
+    "release_assets_modified": false
+  },
+  "source": {
+    "repository": "https://github.com/tdj28/butterfly.git",
+    "acquisition": "fresh public HTTPS GitHub clone, reused unchanged from the prepublication qualification",
+    "tag_fetched_from_public_origin": true,
+    "tag_commit": "13d1e1aa3a079704b26b372e110614c774b0793d",
+    "tag_tree": "df3ae94b6f82badaf2cbddec1ddb14bdd88dfdda",
+    "replay_commit": "13d1e1aa3a079704b26b372e110614c774b0793d",
+    "dirty": false
+  },
+  "downloaded_assets": {
+    "butterfly-core-v1.tar.gz": {
+      "bytes": 1156243,
+      "sha256": "eb8d8c244bea1ffc2807132f300f0fa819232cb9c70492e48da1ad3ed4ec8cec"
+    },
+    "manuscript.pdf": {
+      "bytes": 10472063,
+      "sha256": "e44f1ae4464bbf0b79573594e1f0f88b6943e29344928daae432758b8d1fa245"
+    },
+    "verification.json": {
+      "bytes": 5080,
+      "sha256": "8a9f06e6a70abb531289d1a467f6d998e20a4ed423fbf3e4bae0dc135146f66f"
+    },
+    "SHA256SUMS": {
+      "bytes": 256,
+      "sha256": "78cc5d7d9af1360b051f70f5a88bdb4b601bc14f80c6a7850c05f4d7e1c6ca42"
+    }
+  },
+  "replay": {
+    "operation": "replay the anonymously downloaded archive into a new output directory",
+    "passed": true,
+    "environment": {
+      "python": "3.13.11",
+      "numpy": "2.5.1",
+      "scipy": "1.18.0"
+    },
+    "numerical_elapsed_seconds": 10.149983917362988,
+    "atlas": {
+      "operation": "cached classification rerender",
+      "point_count": 26931,
+      "b": 0.2,
+      "new_trajectory_integration": false
+    },
+    "flip": {
+      "source": "EXP-205/flip-c7192",
+      "checks_passed": 11,
+      "dominant_multiplier_real": -0.999999888417178,
+      "flow_closure_error": 1.658342675153476e-10,
+      "phase_fixed_state_difference_from_saved_seed": 0.0,
+      "period_difference_from_saved_seed": 0.0
+    },
+    "homoclinic": {
+      "source": "EXP-342",
+      "checks_passed": 2,
+      "segment_count": 32,
+      "maximum_block_residual": 1.0886081483823313e-9,
+      "maximum_allowed_block_residual": 1e-8,
+      "stable_target_difference": 0.0
+    },
+    "key_numerical_metrics_match_prepublication_qualification": true,
+    "outputs_relative_to_replay_directory": {
+      "replay.receipt.json": {
+        "bytes": 1369,
+        "sha256": "8fa3907d30f8bd253a2c0ed2ffb7ef37a135e5a2508ba68e36956932e9ee1ab2"
+      },
+      "numerics/receipt.json": {
+        "bytes": 4138,
+        "sha256": "6e8a6239a2e35cb774dcb8091f37a6731b1170ec3d5ae03b4c012feee944201c"
+      },
+      "atlas.receipt.json": {
+        "bytes": 700,
+        "sha256": "08a13f8db547e85c4f0c83fb012fd5c4073d56b3b268d95512b1d5d125bacf68"
+      },
+      "atlas-b020.png": {
+        "bytes": 69654,
+        "sha256": "66578910a9d9b6721428ab9fb980b1a7992de70e9bd6dabbf0a025d7a236c059"
+      },
+      "data/index.json": {
+        "bytes": 4502,
+        "sha256": "8a70b5674d202d6d02e9aec3d659b7abcd8e17de7f5ca9123e5d49ca91dcf849"
+      }
+    }
+  },
+  "retained_local_evidence": "artifacts/public-release-verification/research-core-v1",
+  "limitations": [
+    "This checks public asset access, integrity, tagged source identity, and the three-example core replay. It does not reproduce the full research campaign.",
+    "The atlas is redrawn from archived classifications. The flip and EXP-342 candidates are reintegrated using the existing formulations, not independently discovered or proved to exist.",
+    "EXP-475 raw evidence and protocol are hash-verified within the bundle but are not rerun by this core command.",
+    "Output timing and hashes may differ on another machine. Numerical gates govern subsequent replays; frozen input hashes must match exactly.",
+    "The published prepublication verification asset remains unchanged. This separate receipt records the later public-download check."
+  ]
+}
