@@ -31,10 +31,10 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Resolve the homoclinic accuracy question
 
-- [ ] Reproduce the initial fixed-c candidate with an independent boundary-value
-  formulation. Evaluate [AUTO/HomCont](https://github.com/auto-07p/auto-07p)
-  against a small known example first; sharing an integrator is less independent
-  than changing the boundary formulation and continuation implementation.
+- [x] Reproduce the initial fixed-c candidate with an independent boundary-value
+  formulation. EXP-475 passes analytic positive/negative controls and four
+  eigenspace-endpoint collocation cases. AUTO/HomCont was not installed;
+  this is a distinct SciPy formulation, not an AUTO validation or proof.
 - [ ] Vary departure/arrival radii, truncation time, mesh, gauge, and precision
   at selected points before and near the apparent turn. Preserve failed solves.
 - [ ] Estimate errors in `a` and `c` specifically, rather than interpreting a

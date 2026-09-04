@@ -222,3 +222,35 @@ truncation study, and parameter-sensitive error estimate are therefore
 required before assigning a precise physical location to the turn.
 The printed intersection, uniqueness, and global nonintersection remain open.
 % Evidence: EXP-347--473; parameter-error caveat added in the public audit.
+
+We then changed the numerical question rather than extending the same
+continuation. A new whole-orbit collocation calculation imposes eigenspace
+conditions at both ends, with a free parameter and flight time. It first
+passes a known analytic homoclinic example and a negative control, then
+recovers the R{\"o}ssler candidate at three shrinking endpoint radii
+(Figure~\ref{fig:independent-homoclinic}). The archived trajectory is only
+the initial guess; its matching equations are not reused.
+
+All four prescribed target cases pass. The finest calculation gives
+$a\simeq0.1826436120$, differing from the archived candidate by
+$3.86\times10^{-9}$. Importantly, tightening the collocation tolerance
+changes $a$ by $4.06\times10^{-8}$, more than the last radius change.
+The calculation therefore supports the candidate near $a\simeq0.1826436$,
+not the accuracy of every reported digit. It is an independent numerical
+formulation check at the initial fixed-$c$ point, not an existence proof
+or a validation of the later turn.
+% Evidence: EXP-475, frozen at cf275082 before target execution.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig31-exp475-independent-homoclinic.png}
+  \caption{A different formulation tests the initial homoclinic candidate.
+  The analytic control checks the new endpoint conditions before they are
+  applied to R{\"o}ssler. The target comparison shows how the fitted parameter
+  changes with endpoint radius and collocation tolerance. The reference is
+  the archived numerical estimate, not a known exact answer. The larger
+  shift under tolerance refinement identifies discretization as the dominant
+  measured sensitivity in this pilot. No plotted difference is a rigorous
+  error bound.}
+  \label{fig:independent-homoclinic}
+\end{figure}

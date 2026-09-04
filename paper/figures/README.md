@@ -306,6 +306,15 @@ the compact, repository-bound experiment summaries:
       --receipt paper/figures/fig30-exp342-382-homoclinic-continuation.png.receipt.json \
       --dpi 260
 
+Regenerate the independent EXP-475 control/sensitivity figure using only its
+checked-in compact summary (no raw artifact download required):
+
+    uv run --locked python scripts/plot_projected_homoclinic_pilot.py
+
+This adds `fig31-exp475-independent-homoclinic.png` and its generation receipt.
+Its parameter shifts show observed finite-radius/discretization sensitivity,
+not confidence intervals or rigorous error bounds.
+
 ## Promoted experiment figures
 
 The remaining images are metadata-stripped publication copies of existing

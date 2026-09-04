@@ -2,7 +2,7 @@
   "schema": "butterfly.core-bundle-spec.v1",
   "bundle_id": "butterfly-core-v1",
   "license": "GPL-2.0-only",
-  "scope": "One archived b=0.2 recurrence atlas panel, one frozen period-6 flip candidate, and the initial 32-segment homoclinic candidate. Closed inputs for the core replay, not the entire upstream discovery campaign. Cached atlas plotting is not a new integration; numerical replay is not an independent existence proof.",
+  "scope": "One archived b=0.2 recurrence atlas panel, one frozen period-6 flip candidate, and the initial 32-segment homoclinic candidate, plus the full EXP-475 projected-boundary pilot receipt and protocol for inspection. Closed inputs for the three-example core replay, not the entire upstream discovery campaign. The wrapper does not rerun EXP-475. Cached atlas plotting is not a new integration; core numerical replay is not an independent existence proof.",
   "numerical_replay": {
     "flip_identity": {
       "maximum_relative_period_difference": 1e-8,
@@ -52,6 +52,18 @@
       "bytes": 3337,
       "sha256": "31eef9eb78ee6cef7c1c3344521cbe7f372f1f57fd4fbb682d921c7cced8bc15",
       "role": "Original local manifold geometry, solver policy, and acceptance gates"
+    },
+    {
+      "path": "artifacts/EXP-475/receipt.json",
+      "bytes": 1633857,
+      "sha256": "7da4fa60891f1ecf057edde9072576e709f270ff0a2143250415e6c87d92309f",
+      "role": "Full projected-boundary homoclinic pilot evidence, including controls, reductions, refinement, and limitations; inspectable but not rerun by the core wrapper"
+    },
+    {
+      "path": "experiments/manifests/EXP-475-independent-projected-homoclinic-pilot.json",
+      "bytes": 3959,
+      "sha256": "dc67e2a2777ee98c1459e91bf634d7ffe7ba54f985d1f0914390b554c3f30656",
+      "role": "Frozen EXP-475 protocol; candidate-seeded independent formulation, not independent discovery or an existence proof"
     }
   ]
 }

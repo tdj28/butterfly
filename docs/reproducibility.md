@@ -3,10 +3,11 @@
 The first core bundle supplies a small, explicit set of inputs that can be
 checked on an ordinary CPU. It includes one archived parameter-plane panel,
 a period-6 flip candidate, and the initial 32-segment homoclinic candidate.
+It also includes the full EXP-475 projected-boundary pilot evidence for inspection.
 Its scope is narrower than reproducing the entire research campaign.
 
 The frozen allowlist is [`experiments/core-bundle.json`](../experiments/core-bundle.json).
-The seven data/protocol files occupy **4,991,221 bytes**, before compression:
+The nine data/protocol files occupy **6,629,037 bytes**, before compression:
 
 | Included input | Bytes | Replay purpose |
 | --- | ---: | --- |
@@ -17,6 +18,8 @@ The seven data/protocol files occupy **4,991,221 bytes**, before compression:
 | Original EXP-021 manifest | 777 | Preserve the atlas integration/classification protocol |
 | Original EXP-205 manifest | 2,106 | Preserve the flip solver and acceptance gates |
 | Original EXP-342 manifest | 3,337 | Preserve the local manifold construction and solver gates |
+| EXP-475 `receipt.json` | 1,633,857 | Inspect the complete independent-formulation pilot and its controls; not rerun by the core wrapper |
+| Frozen EXP-475 manifest | 3,959 | Inspect the pilot's prospective gates and shared-seed limitation |
 
 The archive also contains `LICENSE`, `pyproject.toml`, `uv.lock`, the frozen
 allowlist, and `index.json`. The index records every file's size and SHA-256,
@@ -29,18 +32,40 @@ outside the allowlist.
 
 ## Replay a release
 
-Use the source revision named by the release, obtain its core `.tar.gz`
-asset and published SHA-256, then run from that checkout:
+Publication is being prepared under the tag `research-core-v1`; the download
+commands below become usable when that release is published. Its release
+page will supply the final source revision, archive checksum, and replay
+qualification. Local draft archives are not the public release.
+
+With the GitHub CLI installed, start from this repository and check out the
+tagged source. The download includes the core archive, paper PDF, and
+`SHA256SUMS` so all published assets can be checked together:
+
+```sh
+git fetch origin --tags
+git switch --detach research-core-v1
+gh release download research-core-v1 --repo tdj28/butterfly \
+  --dir artifacts/releases/research-core-v1
+(cd artifacts/releases/research-core-v1 && shasum -a 256 -c SHA256SUMS)
+```
+
+Use a fresh download directory; existing assets are not overwritten. You can
+also obtain the assets through the
+[release page](https://github.com/tdj28/butterfly/releases/tag/research-core-v1)
+in a browser. The numerical replay itself needs no GitHub or RunPod credentials.
+
+Then install the locked dependencies and use the checksum published for the
+archive, without needing to edit it into this document:
 
 ```sh
 uv sync --locked --extra dev
+core_archive_sha256="$(awk '$2 == "butterfly-core-v1.tar.gz" {print $1}' artifacts/releases/research-core-v1/SHA256SUMS)"
 uv run --no-sync python scripts/replay_research_bundle.py \
-  --archive /path/to/butterfly-core-v1.tar.gz \
-  --sha256 RELEASE_ARCHIVE_SHA256 \
+  --archive artifacts/releases/research-core-v1/butterfly-core-v1.tar.gz \
+  --sha256 "$core_archive_sha256" \
   --output-dir artifacts/core-replay
 ```
 
-Replace the archive path and checksum with the release's actual values.
 `artifacts/core-replay` must not already exist. The command verifies the
 archive before extraction, rejects links and unsafe paths, checks every
 member against its index and frozen input policy, and verifies that the active
@@ -58,8 +83,9 @@ For verification or extraction alone, which needs only Python's standard
 library:
 
 ```sh
-python3 scripts/verify_research_bundle.py /path/to/butterfly-core-v1.tar.gz \
-  --sha256 RELEASE_ARCHIVE_SHA256 --extract artifacts/core-inputs
+python3 scripts/verify_research_bundle.py \
+  artifacts/releases/research-core-v1/butterfly-core-v1.tar.gz \
+  --sha256 "$core_archive_sha256" --extract artifacts/core-inputs
 ```
 
 An already extracted bundle can be replayed with `--bundle-dir
@@ -92,6 +118,14 @@ command. The selected final candidate receipts contain the states, parameters,
 times, and nodes needed by this replay. Reproducing the full campaign requires
 a larger archived dependency graph, additional validation, and GPU data.
 
+EXP-475 is included as additional inspectable evidence. Its full receipt and
+frozen protocol preserve analytic controls, endpoint-radius reductions,
+discretization refinement, and short-arc replay diagnostics. The three-example
+core command does **not** repeat that pilot's collocation calculations. Its
+independent formulation still shares the Rössler model and initial candidate
+with the earlier calculation, and does not establish independent discovery,
+radius-to-zero existence, a rigorous parameter interval, or uniqueness.
+
 The archive's environment records the source lockfile. Fresh numerical values
 and plot bytes may vary with platform, solver libraries, and rendering
 versions; acceptance uses numerical gates rather than requiring identical
@@ -110,7 +144,7 @@ From a clean, committed source revision with the required local artifacts:
 
 ```sh
 python3 scripts/export_research_bundle.py \
-  --output artifacts/releases/butterfly-core-v1.tar.gz
+  --output artifacts/releases/research-core-v1/butterfly-core-v1.tar.gz
 ```
 
 It prints the compressed size, archive SHA-256, and full index for review.

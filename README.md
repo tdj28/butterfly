@@ -22,7 +22,7 @@ prioritize independent validation and public reproducibility.
 
 For an accessible introduction, the [manuscript](paper/README.md) now puts a
 short illustrated article before the detailed technical supplement, preserving
-all 31 figures. The [core-data replay guide](docs/reproducibility.md) documents
+all earlier figures and adding an independent-validation comparison. The [core-data replay guide](docs/reproducibility.md) documents
 the first downloadable-input workflow: one atlas panel and two numerical
 candidate checks, with explicit limits on what is reproduced.
 
@@ -40,6 +40,10 @@ candidate checks, with explicit limits on what is reproduced.
   homoclinic candidate. At fixed `c = 10.3084`, two integrators and boundary-radius
   checks place it near `a = 0.182643608174`. Finding this candidate does not
   exclude a different connection at the printed `a = 0.1798`.
+- A different endpoint/collocation formulation now reproduces that initial
+  candidate near `a ≈ 0.1826436`, after passing analytic controls. Its measured
+  tolerance sensitivity is about `4.1e-8` in `a`; this is not a rigorous error
+  bound or confirmation of the later turn. See [EXP-475](docs/experiments/EXP-475-independent-projected-homoclinic.md).
 - Eighty-one recorded homoclinic candidates—including 78 gauge-aligned
   pseudo-arclength points—trace the same computed branch. The sampled minimum
   is about `1.75e-5` above the historical fixed-`a` section. Its fine turn
@@ -85,7 +89,7 @@ and finite spacing ratios resolve the returning cascade through a stable
 period-768 child. Later high-precision work extends the connected finite chain
 while retaining the boundary between finite evidence and universality.
 
-All 31 manuscript figures and their regeneration commands are indexed in
+All 32 manuscript figures and their regeneration commands are indexed in
 [`paper/figures/README.md`](paper/figures/README.md). The animated multi-`b`
 atlas is documented under [`paper/supplement/`](paper/supplement/).
 

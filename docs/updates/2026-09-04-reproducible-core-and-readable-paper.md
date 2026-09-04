@@ -7,10 +7,12 @@ global research program is complete.
 
 ## What is already checked
 
-- The main article is now approximately 3,850 words and **12 pages**, with
-  seven central figures, a vocabulary table, and a clear claim summary.
-  The combined **59-page** draft retains all **31 figures** and the complete
-  technical record. The old compressed reviewer table is now readable.
+- The main article is now approximately 4,100 words, with eight central
+  figures, a vocabulary table, and a clear claim summary. The combined draft
+  retains all 31 earlier figures and adds the independent homoclinic
+  comparison, for **32 figures** and the complete technical record.
+  The combined PDF is 60 pages; the main article occupies the first 13.
+  The old compressed reviewer table is now readable.
   The LaTeX build has no warnings; all rendered pages were visually checked
   for layout, with close checks of the main narrative and reviewer table.
 - Five later primary references have been added and cited. The
@@ -21,8 +23,9 @@ global research program is complete.
   tested. It prevents directly comparing our `b=0.2` slice to differently
   parameterized later papers.
 - A deterministic, explicitly allowlisted core-data archive and safe verifier
-  now support a public replay command. The seven historical data/protocol
-  files total 4,991,221 bytes before compression; source/environment metadata
+  now support a public replay command. The nine historical data/protocol
+  files total 6,629,037 bytes before compression, including the new pilot's
+  full record and protocol; source/environment metadata
   and checksums accompany them. Secrets, reference PDFs and machine logs are
   excluded. See the [replay guide](../reproducibility.md).
 - The local replay redraws the archived 26,931-point atlas panel, recomputes
@@ -46,13 +49,36 @@ an initial guess. This is not AUTO/HomCont and not an independent discovery.
 
 Before target execution, the same formulation recovers the analytic Duffing
 connection with damping near zero; each endpoint-radius halving lowers the
-measured state error by approximately a factor of eight. A positive-damping
+measured state error by approximately a factor of eight. A positive-`mu`
 negative control fails as required. Bounds, numerical gates, a local CPU
 budget, and the stop-on-failure rule are recorded in the EXP-475 manifest.
 The source and protocol must be committed before the target run.
 
-Target execution and the clean-release publication receipt will be recorded
-below when completed; no unperformed target result is claimed here.
+**Result: passed**, in 3.04 seconds on local CPU with no retries or tuning,
+after source and protocol were committed and pushed as `cf275082`.
+All three endpoint-radius cases and the final tolerance-refinement case pass.
+The finest estimate is `a=0.18264361203806015`, only `3.86e-9` from EXP-342,
+but the refinement changes `a` by `4.06e-8`, versus `4.30e-9` for the last
+radius change. The finer result has maximum short-segment replay defect
+`1.06e-7`. The measured sensitivity is not a rigorous error bound.
+See [EXP-475](../experiments/EXP-475-independent-projected-homoclinic.md)
+and its [compact receipt](../experiments/receipts/EXP-475.json).
+
+The remaining caller audit found a missing arclength acceptance condition
+and nine unchecked correction sites across seven scripts. These are fixed
+with regression tests; historical receipts remain unchanged. A read-only
+scan found 360 reported-success matching/arclength records, all below the
+`1e-8` gate (largest `2.81e-12`). This is scoped evidence, not a complete
+revalidation of every historical result.
+See the [caller audit](../reviews/2026-09-04-corrector-caller-audit.md).
+
+The complete local suite passes **542 tests**. The manuscript checker finds
+16 bibliography entries, all 16 cited, all 15 required citations, and all
+32 included figures. The final LaTeX pass has no warnings.
+
+The initial Python 3.13 CI failure was a malformed-archive test-fixture
+incompatibility, not a numerical failure. A portable fixture exercises the
+same rejection path; both Linux Python versions pass after the fix.
 
 ## Interpretation
 
@@ -70,3 +96,5 @@ No paid compute, RunPod host, or credential upload was needed for this phase.
 - `08a4f1b`: allowlisted bundle, safe extraction and numerical replay.
 - `ef7390f`: illustrated main article and technical supplement.
 - `84f85b1`: same-seed replay identity safeguards, independently reviewed.
+- `cf27508`: prospectively frozen EXP-475 method, controls, and target protocol.
+- `e0e1528`: portable Python 3.13 archive-rejection fixture; both CI versions green.

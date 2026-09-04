@@ -1,0 +1,60 @@
+{
+  "schema": "butterfly.projected-homoclinic-pilot-summary.v1",
+  "experiment_id": "EXP-475",
+  "passed": true,
+  "source_commit": "cf2750824604eb53affe92336b2500ae42d50683",
+  "source_dirty": false,
+  "manifest_sha256": "dc67e2a2777ee98c1459e91bf634d7ffe7ba54f985d1f0914390b554c3f30656",
+  "raw_receipt": "artifacts/EXP-475/receipt.json",
+  "raw_receipt_bytes": 1633857,
+  "raw_receipt_sha256": "7da4fa60891f1ecf057edde9072576e709f270ff0a2143250415e6c87d92309f",
+  "elapsed_seconds": 3.0422191256657243,
+  "hardware": "local CPU; no paid resources",
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "reference": {
+    "experiment_id": "EXP-342",
+    "a": 0.1826436081740286,
+    "raw_receipt_sha256": "efa36db56b9dc288b973627fc588296656942dd1404191517892470761fd87b1",
+    "role": "archived trajectory reused as an initial guess only"
+  },
+  "controls": {
+    "passed": true,
+    "model": "x'=y, y'=x-x^3+mu*y; exact homoclinic at mu=0",
+    "collocation_tolerance": 1e-7,
+    "boundary_tolerance": 1e-9,
+    "positive_controls": [
+      {"radius": 0.1, "damping": 3.4449247840328237e-18, "maximum_analytic_state_error": 6.26677541703615e-5, "maximum_replay_state_defect": 1.2755052376869622e-10, "maximum_scaled_boundary_residual": 1.1102230246251565e-16, "nodes": 629, "passed": true},
+      {"radius": 0.05, "damping": 8.131567304908925e-18, "maximum_analytic_state_error": 7.8175276499506e-6, "maximum_replay_state_defect": 8.879200946838656e-11, "maximum_scaled_boundary_residual": 1.1102230246251565e-16, "nodes": 741, "passed": true},
+      {"radius": 0.025, "damping": 3.350832851726712e-19, "maximum_analytic_state_error": 9.7671668646039e-7, "maximum_replay_state_defect": 1.304053884284114e-10, "maximum_scaled_boundary_residual": 1.1102230246251565e-16, "nodes": 735, "passed": true}
+    ],
+    "negative_control": {
+      "damping_bounds": [0.03, 0.07],
+      "accepted": false,
+      "returned_damping": 0.03,
+      "solver_status": 2,
+      "maximum_scaled_boundary_residual": 0.007494180868266254,
+      "maximum_collocation_relative_rms": 0.19142156893379864,
+      "minimum_parameter_box_margin": 0.0,
+      "interpretation": "positive mu injects energy and excludes a nontrivial exact homoclinic through H'=mu*y^2; the numerical control correctly fails"
+    }
+  },
+  "cases": [
+    {"name": "radius-0.01", "radius": 0.01, "tolerance": 1e-5, "a": 0.18264363051140478, "flight_time": 106.122682164255, "nodes": 4217, "iterations": 6, "maximum_scaled_boundary_residual": 2.8059152223924855e-16, "maximum_collocation_relative_rms": 9.990517676628982e-6, "maximum_replay_state_defect": 1.3671869839713131e-6, "minimum_parameter_box_margin": 0.32944772974467856, "maximum_excursion": 54.756439413510684, "source_a_difference": 2.233737617096665e-8, "passed": true},
+    {"name": "radius-0.005", "radius": 0.005, "tolerance": 1e-5, "a": 0.18264364829595603, "flight_time": 114.62490640837377, "nodes": 4513, "iterations": 6, "maximum_scaled_boundary_residual": 6.003545770590603e-16, "maximum_collocation_relative_rms": 9.988403456467662e-6, "maximum_replay_state_defect": 1.997445740313753e-6, "minimum_parameter_box_margin": 0.39017790291695553, "maximum_excursion": 54.756439236686724, "source_a_difference": 4.012192741931209e-8, "passed": true},
+    {"name": "radius-0.0025", "radius": 0.0025, "tolerance": 1e-5, "a": 0.18264365259550344, "flight_time": 121.8103310201265, "nodes": 4765, "iterations": 6, "maximum_scaled_boundary_residual": 8.326672684688674e-16, "maximum_collocation_relative_rms": 9.979017613962103e-6, "maximum_replay_state_defect": 2.80144498085302e-6, "minimum_parameter_box_margin": 0.441502364429475, "maximum_excursion": 54.756439179726314, "source_a_difference": 4.442147483185721e-8, "passed": true},
+    {"name": "radius-0.0025-refined", "radius": 0.0025, "tolerance": 1e-6, "a": 0.18264361203806015, "flight_time": 121.81034150218213, "nodes": 6545, "iterations": 6, "maximum_scaled_boundary_residual": 7.216449660063518e-16, "maximum_collocation_relative_rms": 9.989405182187116e-7, "maximum_replay_state_defect": 1.0647611119028517e-7, "minimum_parameter_box_margin": 0.4415024393013009, "maximum_excursion": 54.75643923534355, "source_a_difference": 3.864031539180246e-9, "passed": true}
+  ],
+  "sensitivity": {
+    "radius_a_differences": [1.7784551248345437e-8, 4.299547412545124e-9],
+    "mesh_a_difference": 4.0557443292676965e-8,
+    "empirical_a_sensitivity": 4.0557443292676965e-8,
+    "interpretation": "observed finite-radius/discretization sensitivity, not a rigorous parameter error bound; the mesh effect exceeds the last radius effect"
+  },
+  "independence": {
+    "changed": ["whole-orbit collocation discretization", "linear eigenspace endpoint projection formulation", "both departure and arrival truncation radii"],
+    "shared": ["Rossler mathematical model", "archived EXP-342 trajectory as initial guess", "SciPy numerical ecosystem"],
+    "not_used": ["archived matching-sphere residual", "archived nonlinear stable target in the new boundary equations", "AUTO/HomCont"]
+  },
+  "interpretation": "Independent numerical reproduction of a nontrivial finite-radius candidate near a=0.1826436 at fixed b=0.2,c=10.3084. No target retries or post-result tuning. The refined estimate agrees with EXP-342 within 3.86e-9, but observed mesh sensitivity is 4.06e-8 and does not support inherited thirteen-digit parameter accuracy.",
+  "limitations": ["not independent discovery", "not a radius-to-zero existence proof", "not a rigorous parameter interval", "not a uniqueness result", "not validation of Jones's printed coordinate", "not qualification of the later continuation turn"]
+}
