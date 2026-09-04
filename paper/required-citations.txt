@@ -11,3 +11,8 @@ kantz1985repellers
 nusse1989procedure
 gilmore1998topological
 metropolis1973finite
+barrio2013spirals
+malykh2020homoclinic
+gierzkiewicz2021periodic
+capinski2017homoclinics
+nitta2022verification
