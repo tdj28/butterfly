@@ -1,4 +1,7 @@
 import numpy as np
+from types import SimpleNamespace
+
+import pytest
 
 from butterfly import (
     RosslerParameters,
@@ -70,3 +73,28 @@ def test_coupled_unit_multiplier_correction_excludes_flow_mode() -> None:
     assert correction.eigen_residual < 1e-7
     assert correction.flow_orthogonality_residual < 1e-7
     assert correction.normalization_residual < 1e-7
+
+
+def test_periodic_corrector_rejects_closure_with_failed_phase_condition(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # a=b=0 and z=0 give the exact circle x=cos(t), y=sin(t).
+    # Optimizer termination can occur through stagnation; it is not proof that
+    # all equations passed. Simulate such a termination on the correct orbit
+    # but outside the phase plane through the requested seed.
+    variables = np.asarray((1.0, 0.0, 0.0, 2.0 * np.pi))
+    monkeypatch.setattr(
+        "butterfly.periodic.least_squares",
+        lambda *args, **kwargs: SimpleNamespace(
+            x=variables, success=True, nfev=1, message="xtol termination"
+        ),
+    )
+    correction = correct_periodic_orbit(
+        RosslerParameters(a=0.0, b=0.0, c=1.0),
+        (1.0, 0.01, 0.0),
+        2.0 * np.pi,
+    )
+    assert correction.optimizer_success
+    assert correction.closure_error < 1e-10
+    assert correction.phase_residual > 1e-3
+    assert not correction.success

@@ -142,7 +142,7 @@ def correct_arclength_c(
     )
     residual, _ = evaluate(solution.x)
     return np.asarray(solution.x), {
-        "success": bool(solution.success and np.linalg.norm(residual[:3]) <= 1e-8),
+        "success": bool(solution.success and np.linalg.norm(residual) <= 1e-8),
         "message": str(solution.message),
         "evaluations": int(solution.nfev),
         "closure_error": float(np.linalg.norm(residual[:3])),

@@ -199,6 +199,9 @@ On 2026-08-06 the repository owner authorized use of the local
 resource-control boundary: it refuses duplicate names, requires an explicit
 hourly ceiling, records the returned pod ID/cost, and exposes a direct terminate
 command. Credentials remain in ignored `.env` and are never printed.
+Create that local file from the repository's secret-free
+[`.env-example`](../../.env-example); only `RUNPOD_API_KEY` is needed for this
+workflow.
 
 The live catalog query found a $0.13/hour RTX 3070 and $0.19/hour V100 PCIe,
 both with low stock. The first Float64 qualification targets the V100 with a

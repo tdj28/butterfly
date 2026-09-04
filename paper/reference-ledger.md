@@ -1,6 +1,6 @@
 # Reference ledger
 
-Last updated: 2026-08-07
+Last updated: 2026-09-04
 
 This is the human-readable companion to `references.bib`. “Verified” means
 that title, author list, venue, year, pages/article number, and DOI or arXiv ID
@@ -11,6 +11,7 @@ and assessed.
 | BibTeX key | Why it matters | Requested by | Metadata verification | Planned manuscript use | Full-text status |
 |---|---|---|---|---|---|
 | `rossler1976equation` | Defines the Rössler flow | Baseline | Elsevier/ScienceDirect record and DOI | Introduction; mathematical objects | Bibliographic record verified |
+| `teschl2012ordinary` | Liouville's determinant formula and Floquet theory show why full-flow multipliers cannot vanish on a regular finite-period orbit | 2026-09-04 mathematical audit | Author-hosted AMS book PDF; title, author, series, volume, publisher, and year verified | Mathematical objects; distinction between scalar-model criticality and full-flow stability | Relevant Floquet discussion and equation (3.122) checked |
 | `holmes1984bifurcation` | Establishes the high-period obstruction to treating a two-dimensional horseshoe return map as globally logistic | Referee B | Elsevier/ScienceDirect record and DOI | Introduction; prior work; limitations | Bibliographic record verified; close reading pending |
 | `lefranc1994combining` | Prior experimental use of kneading/logistic ordering through finite period; blocks a novelty claim for generic finite unimodal ordering | Referee B | APS issue record, PubMed record, and DOI | Introduction; prior work; limitations | Bibliographic record verified; close reading pending |
 | `gilmore1998topological` | Defines the template/branched-manifold role and the boundary between a topological invariant and a coordinate-dependent return-map projection | Jones Ref. 12; active partition reconstruction | APS *Reviews of Modern Physics* record and DOI | Mathematical objects; symbolic-test design; limitations | Abstract and bibliographic record verified; full partition convention close reading pending access |

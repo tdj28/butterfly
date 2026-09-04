@@ -1,5 +1,13 @@
 \section{Computational methods and provenance}
 
+Throughout the experiment record, ``exact'' orbit or event denotes a directly
+corrected shooting or augmented-system solution at a specified parameter,
+rather than an interpolated raster estimate.  These are numerical solutions
+with measured residuals.  Neither that terminology nor high-precision
+arithmetic supplies a rigorous enclosure of a continuous-flow solution.
+Results for a fixed-step Runge--Kutta map additionally require discretization
+convergence before they support a statement about the flow.
+
 Finite-time $(a,c)$ rasters are used for discovery, not for declaring invariant
 bifurcations.  Candidate periodic states are corrected by shooting equations
 with an explicit phase condition.  Stability is computed from the variational

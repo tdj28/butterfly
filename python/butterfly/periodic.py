@@ -170,7 +170,10 @@ def correct_periodic_orbit(
         correction_norm=float(np.linalg.norm(solution.x - seed)),
         evaluations=int(solution.nfev),
         optimizer_success=bool(solution.success),
-        success=bool(solution.success and closure_error <= max(10.0 * tolerance, 1e-10)),
+        success=bool(
+            solution.success
+            and np.linalg.norm(residual) <= max(10.0 * tolerance, 1e-10)
+        ),
         message=str(solution.message),
     )
 
@@ -188,7 +191,10 @@ def flow_monodromy(
     periodic shooting equations. One multiplier of a true autonomous-flow
     periodic orbit should approach one. Strong contraction can make the
     smallest multiplier unrecoverable in Float64, so both the computed and
-    divergence-predicted determinants are retained.
+    divergence-predicted determinants are retained. For a finite smooth flow
+    segment the exact determinant is strictly positive: a numerically zero
+    multiplier is not evidence of a superstable flow orbit. Critical points
+    of a scalar projection of a return map require a separate diagnostic.
     """
 
     state = np.asarray(initial_state, dtype=np.float64)
@@ -259,6 +265,12 @@ def correct_unit_multiplier_orbit(
     The resulting nine-residual/eight-unknown system is intentionally
     overdetermined: away from a second unit multiplier the eigenvector and
     orthogonality conditions cannot both vanish.
+
+    This formulation requires a second independent unit eigenvector. A generic
+    saddle-node of cycles can instead have a defective double unit multiplier
+    of the full monodromy, with only the flow direction as an eigenvector. Such
+    folds require a projected Poincare or bordered formulation; failure of this
+    corrector cannot exclude them.
     """
 
     reference = np.asarray(initial_state, dtype=np.float64)

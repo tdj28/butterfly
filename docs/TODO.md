@@ -3,6 +3,17 @@
 This is the live implementation queue. A checkbox closes only when its
 acceptance evidence exists in tests, receipts, or a cited experiment record.
 
+## Current execution order — 2026-09-04
+
+The [post-audit priorities](next-steps.md) supersede the order implied by the
+historical experiment narrative below. First audit affected numerical outputs
+and release reproducible evidence, then independently resolve the homoclinic
+candidate and target the original finite-ordering/reinjection gaps. EXP-474
+remains a frozen, unexecuted protocol; repeatedly adding nearby continuation
+points is deferred until an independent formulation and parameter-error study
+can resolve the geometry. Full-flow Floquet-zero center finding is retired:
+see the [mathematical correction](findings/FND-060-floquet-zero-surface-does-not-uniquely-locate-center.md).
+
 ## P0 — trustworthy Rössler reproduction
 
 - [x] **P0-001 — Repository and paper claim audit.** Evidence:
@@ -1270,8 +1281,21 @@ acceptance evidence exists in tests, receipts, or a cited experiment record.
   receipts. It passes and adds the seventy-fifth point. The receipt-bound
   75-point figure and 55-page manuscript are regenerated, hash-bound, and
   visually inspected. EXP-468 is prospectively frozen from the exact
-  EXP-466/467 receipts; execute it without enlarging while conditioning
-  remains below twice its floor.
+  EXP-466/467 receipts and passes every unchanged gate in two evaluations,
+  adding the seventy-sixth point. EXP-469 is prospectively frozen from the
+  exact EXP-467/468 receipts at the same conservative step and passes every
+  unchanged gate in two evaluations, adding the seventy-seventh point. EXP-470
+  is frozen from the exact EXP-468/469 receipts and passes every unchanged gate
+  in two evaluations, adding the seventy-eighth point. EXP-471 is frozen from
+  the exact EXP-469/470 receipts and passes every unchanged gate in two
+  evaluations, adding the seventy-ninth point. EXP-472 is prospectively frozen
+  as the 80-point checkpoint from the exact EXP-470/471 receipts and passes
+  every unchanged gate in two evaluations. The receipt-bound 80-point figure
+  is regenerated from a clean source commit, hash-bound, and visually
+  inspected. The 55-page manuscript is rebuilt, log-audited, hash-bound, and
+  visually inspected on five representative pages. EXP-473 then passes every
+  unchanged gate in two evaluations and adds the eighty-first point. Execute
+  the prospectively frozen EXP-474 successor next.
 - [ ] **P2-003 — Validated numerics.** Interval validation of selected decisive
   orbits, windows, crossings, and forcing/covering statements.
 - [ ] **P2-004 — Two-system qualification.** Add two structurally different

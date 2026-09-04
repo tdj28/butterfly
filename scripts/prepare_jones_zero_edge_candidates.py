@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Prepare corrected period-6 candidates from every frozen Floquet zero edge."""
+"""Replay EXP-189's orbit correction on signed-diagnostic candidate edges.
+
+Legacy 'zero edge' field names are retained for receipt compatibility. These
+are heuristic samples, not zeros of full-flow Floquet multipliers; see FND-060.
+"""
 
 from __future__ import annotations
 

@@ -39,33 +39,26 @@ only after the scientific closure gates are satisfied.
 ## Visual build
 
 The figure-generation commands and source hashes are recorded in
-[figures/README.md](figures/README.md). The manuscript currently contains 30
-figures: the multi-\(b\) superstructure, a global-to-shrimp zoom, the Hopf
-locus and connected family, cascade and return-map controls, the dense
-period-6 corrected-orbit fields, scale-aware two-critical audits, the lower-c
-stable strip, its refined real-minus-one Floquet edge, and the dense coupled
-continuation of that edge, followed by independent qualification of three
-primitive stable period-12 children and their local normal-form openings.
-The newest figure shows the identity-safe 124-point child-sheet patch, all 31
-square-root fits, parent/child stability exchange, and the explicit recovery
-of 16 doubled-parent shooting collapses.  The final figure broadens the parent
-flip curve to `c=8.40309` and separates its qualified historical-section
-grazing from the persistent invariant orbit event. The newest figure follows
-that event through its lower-`c` turn and across a 135-point returning arm,
-making the broad two-arm skeleton and its present claim boundary visible. The
-latest figure follows a stable primitive period-12 child through 45 exact
-returning-arm events, shows its recrossing of the known returning flip arm with
-bilateral primitive-child and parent-double-cover controls, and records the
-EXP-229 correction of the former interpolation-based second-boundary claim.
-The new cascade figure resolves three exact returning-arm flip events and
-their independently qualified stable children through primitive period 96,
-while displaying the finite-spacing and universality claim boundary.
-The latest homoclinic figure follows all seventy-five qualified curve points to
-within $1.75\times10^{-5}$ in $a$ of the historical section, resolves the
-first local $a$ minimum and defect-aware outgoing branch at nanoscopic scale,
-shows the qualified doubled-step regimes and later defect-aware reductions,
-including thirty-five final conservative steps, and
-displays prospective gate failures separately from the accepted branch.
+[figures/README.md](figures/README.md). The 30-figure collection covers:
+
+- Multi-\(b\) recurrence atlases, a global-to-shrimp zoom, and historical landmarks.
+- The Hopf locus, corrected periodic families, and finite period-doubling chains.
+- Attracting and chaotic-saddle return maps, critical-point tests, and failed center searches.
+- Period-6 flip arms, section grazing, and a sampled period-12 child sheet.
+- High-precision correction of the returning cascade, including retraction of a false daughter.
+- The nearby homoclinic candidate and its numerical continuation.
+
+Figure 30 is the frozen **EXP-472, 80-point snapshot**. EXP-473 subsequently
+adds an eighty-first accepted continuation point, described in the text and
+repository record. Its absence from that figure is a snapshot boundary.
+The apparent local turn is a feature of the sampled numerical branch;
+conditioning-aware parameter errors and an independent formulation remain
+necessary to establish its physical location.
+
+The abstract and conclusion summarize the current findings; the detailed
+results preserve the experiment sequence and failed checks. A publication
+edit should move most chronological solver development into a supplement
+while retaining the source receipts and reproducible figure inventory.
 
 ## Writing rules
 

@@ -7,7 +7,7 @@ from typing import Any
 
 import numpy as np
 
-from .classify import classify_fundamental_period
+from .classify import OrbitLabel, classify_fundamental_period
 from .integrate import SolverConfig
 from .models import RosslerParameters
 from .poincare import collect_crossings, legacy_rossler_section
@@ -188,8 +188,14 @@ def evaluate_initial_condition(
     return {
         "point_index": point_index,
         "initial_state": list(initial_state),
-        "label": recurrence.label.value,
-        "fundamental_period": recurrence.fundamental_period,
+        "label": (
+            recurrence.label.value
+            if crossings.integration_success
+            else OrbitLabel.NUMERICAL_FAILURE.value
+        ),
+        "fundamental_period": (
+            recurrence.fundamental_period if crossings.integration_success else None
+        ),
         "recurrence_error": recurrence.recurrence_error,
         "recurrence_tolerance": recurrence.recurrence_tolerance,
         "crossing_count": len(crossings.times),

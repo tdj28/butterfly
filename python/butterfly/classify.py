@@ -308,10 +308,35 @@ def classify_with_lyapunov(
 def combine_initial_conditions(
     classifications: list[DynamicsClassification],
 ) -> DynamicsClassification:
-    """Promote distinct resolved attractor signatures to multistability."""
+    """Combine finite-horizon signatures without treating escape as an attractor.
+
+    Distinct bounded signatures flag candidate multistability. Persistence and
+    attractor identity still require separate checks at longer horizons.
+    """
 
     if not classifications:
         raise ValueError("at least one initial-condition classification is required")
+    escaping = [
+        classification
+        for classification in classifications
+        if classification.label == OrbitLabel.ESCAPING
+    ]
+    if escaping:
+        if len(escaping) == len(classifications):
+            return DynamicsClassification(
+                OrbitLabel.ESCAPING,
+                None,
+                min(item.confidence for item in escaping),
+                "all initial conditions exceeded the declared escape radius",
+                tuple(item.reason for item in escaping),
+            )
+        return DynamicsClassification(
+            OrbitLabel.UNRESOLVED,
+            None,
+            0.0,
+            "mixed escaping and other outcomes; escape is not a bounded attractor signature",
+            tuple(item.reason for item in classifications),
+        )
     resolved = [
         classification
         for classification in classifications
@@ -327,7 +352,7 @@ def combine_initial_conditions(
             OrbitLabel.MULTISTABLE,
             None,
             min(classification.confidence for classification in resolved),
-            "different initial conditions converged to distinct resolved attractor signatures",
+            "different initial conditions have distinct bounded signatures; persistence remains to be checked",
             tuple(
                 sorted(
                     f"{label.value}:p{period}" for label, period in signatures

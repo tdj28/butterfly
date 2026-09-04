@@ -45,9 +45,12 @@ topology claims.
 - fig22-exp237-275-returning-cascade.png: six exact returning-arm flip events,
   four finite spacing ratios, and two-solver supercritical stability exchange
   through a stable primitive period-768 child.
-- fig25-exp316-320-birth-criticality.png: resolution-doubled quadratic opening
-  and stable immediate daughters at the supercritical seventh birth, plus the
-  stable-parent/unstable-daughter evidence for the subcritical eighth birth.
+- fig25-exp316-320-birth-criticality-audited.png: resolution-doubled quadratic
+  opening and stable immediate daughters at the seventh birth, plus the
+  finite-offset stable-parent/unstable-daughter evidence at the eighth birth.
+  The 2026-09-04 audit changes the title, not the data. The original figure
+  and its receipt are retained; local eighth-birth criticality remains subject
+  to daughter-to-parent convergence.
 - fig26-exp324-325-target-collapse.png: matching, primitive amplitude, Armijo
   factors, and phase-space convergence for the independently repeated
   4,096/8,192-step collapse of the old EXP-299 seed to its doubled parent.
@@ -57,7 +60,24 @@ topology claims.
 - fig07-return-map-controls.png: freshly integrated EXP-108 published
   Barrio-section controls.
 
-Regenerate the first three and their receipt from the repository root:
+## Regeneration commands (require the local research artifacts)
+
+The audited birth-criticality figure uses the original four input receipts:
+
+```sh
+MPLCONFIGDIR=tmp/butterfly-mpl .venv/bin/python scripts/plot_exp316_320_birth_criticality.py \
+  --exp316 artifacts/EXP-316/receipt.json \
+  --exp316-sha256 3cf9fa153187e9a82a06f34d5ffc83ec3a547defa0fdd58824ea70e382f2368e \
+  --exp317 artifacts/EXP-317/receipt.json \
+  --exp317-sha256 eef0f6c1e5171a4cb8028503c852e559132e5b28b2dd096ee0cb299bb1cedea3 \
+  --exp319 artifacts/EXP-319/receipt.json \
+  --exp319-sha256 6b9ca510a9f04c5a8964a04dffbaeb4471f9a760ddadde0a14a2208febd42c33 \
+  --exp320 artifacts/EXP-320/receipt.json \
+  --exp320-sha256 5679b266a5e38c4c0fab6aa3d8e053f7685949060213000841d4f2faf86fd633 \
+  --output paper/figures/fig25-exp316-320-birth-criticality-audited.png --dpi 260
+```
+
+Regenerate the first three composites and their receipt from the repository root:
 
     MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=. .venv/bin/python \
       scripts/plot_paper_parameter_figures.py \
@@ -276,7 +296,7 @@ Regenerate the EXP-321/326/327 sheet-connection figure and receipt:
       --exp327-sha256 c9ec92bd735fb8460ed0e7986ef07102943ff2032261c0c72edabcfa6b54d9c9 \
       --output paper/figures/fig27-exp321-327-sheet-connection.png --dpi 260
 
-Regenerate the EXP-342--467 homoclinic-continuation figure and receipt from
+Regenerate the EXP-342--472 homoclinic-continuation figure and receipt from
 the compact, repository-bound experiment summaries:
 
     MPLCONFIGDIR=/tmp/butterfly-mpl PYTHONPATH=python:. .venv/bin/python \

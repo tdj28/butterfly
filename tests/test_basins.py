@@ -3,9 +3,11 @@ import pytest
 
 from butterfly.basins import (
     BasinPlaneManifest,
+    evaluate_initial_condition,
     fit_uncertainty_exponent,
     initial_condition_grid,
 )
+from butterfly.poincare import PoincareCrossings, legacy_rossler_section
 
 
 def manifest_dict() -> dict:
@@ -64,3 +66,26 @@ def test_uncertainty_exponent_rejects_invalid_counts() -> None:
             np.asarray([10, 10, 10]),
             bootstrap_samples=100,
         )
+
+
+@pytest.mark.parametrize("crossing_count", [0, 5])
+def test_failed_basin_integration_never_labels_partial_returns_periodic(
+    monkeypatch: pytest.MonkeyPatch, crossing_count: int
+) -> None:
+    manifest = BasinPlaneManifest.from_dict(manifest_dict())
+    partial = PoincareCrossings(
+        times=np.arange(crossing_count, dtype=float),
+        states=np.tile((-1.0, 0.0, 0.1), (crossing_count, 1)),
+        section=legacy_rossler_section(manifest.parameters),
+        transient=manifest.transient,
+        observation_horizon=manifest.observation_horizon,
+        solver_config=manifest.solver,
+        integration_success=False,
+        integration_message="Required step size is less than spacing between numbers.",
+    )
+    monkeypatch.setattr("butterfly.basins.collect_crossings", lambda *args, **kwargs: partial)
+    row = evaluate_initial_condition(manifest, 0, (1.0, 0.0, 0.0))
+    assert row["label"] == "numerical_failure"
+    assert row["fundamental_period"] is None
+    assert row["crossing_count"] == crossing_count
+    assert not row["integration_success"]

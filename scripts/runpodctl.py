@@ -10,13 +10,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import sys
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from typing import Any
+from typing import Any, NoReturn
 
 REST_BASE = "https://rest.runpod.io/v1"
 GRAPHQL_URL = "https://api.runpod.io/graphql"
@@ -45,16 +46,33 @@ def api_key() -> str:
     return value
 
 
+def redact_key(message: str, key: str) -> str:
+    """Redact authentication echoed as raw text, JSON, or a query parameter."""
+
+    if not key:
+        return message
+    encodings = {
+        key,
+        urllib.parse.quote(key, safe=""),
+        urllib.parse.quote_plus(key, safe=""),
+        json.dumps(key)[1:-1],
+    }
+    for value in sorted(encodings, key=len, reverse=True):
+        message = message.replace(value, "[REDACTED]")
+    return message
+
+
 def request_json(
     method: str, url: str, *, payload: dict[str, Any] | None = None
 ) -> Any:
     body = None if payload is None else json.dumps(payload).encode("utf-8")
+    key = api_key()
     request = urllib.request.Request(
         url,
         data=body,
         method=method,
         headers={
-            "Authorization": f"Bearer {api_key()}",
+            "Authorization": f"Bearer {key}",
             "Content-Type": "application/json",
             "User-Agent": "butterfly-research/0.1 (+https://github.com/tdj28/butterfly)",
         },
@@ -65,16 +83,21 @@ def request_json(
             return None if not raw else json.loads(raw)
     except urllib.error.HTTPError as error:
         message = error.read().decode("utf-8", errors="replace")
-        raise SystemExit(f"Runpod API returned HTTP {error.code}: {message}") from None
+        raise SystemExit(
+            f"Runpod API returned HTTP {error.code}: {redact_key(message, key)}"
+        ) from None
+    except urllib.error.URLError as error:
+        raise SystemExit(f"Runpod request failed: {redact_key(str(error), key)}") from None
 
 
 def graphql(query: str) -> dict[str, Any]:
     # GraphQL currently authenticates through api_key in the query string.
     # Constructing it in-process keeps the secret out of command arguments.
-    url = f"{GRAPHQL_URL}?{urllib.parse.urlencode({'api_key': api_key()})}"
+    key = api_key()
+    url = f"{GRAPHQL_URL}?{urllib.parse.urlencode({'api_key': key})}"
     result = request_json("POST", url, payload={"query": query})
     if result.get("errors"):
-        raise SystemExit(json.dumps(result["errors"], indent=2))
+        raise SystemExit(redact_key(json.dumps(result["errors"], indent=2), key))
     return result["data"]
 
 
@@ -100,7 +123,20 @@ def list_pods(_args: argparse.Namespace) -> None:
     )
 
 
+def hourly_ceiling(value: float) -> float:
+    """Reject invalid caller limits before making any provider request."""
+
+    try:
+        ceiling = float(value)
+    except (TypeError, ValueError, OverflowError):
+        raise SystemExit("--max-hourly must be finite and positive") from None
+    if isinstance(value, bool) or not math.isfinite(ceiling) or ceiling <= 0.0:
+        raise SystemExit("--max-hourly must be finite and positive")
+    return ceiling
+
+
 def catalog(args: argparse.Namespace) -> None:
+    ceiling = hourly_ceiling(args.max_hourly)
     data = graphql(
         """
         query {
@@ -123,8 +159,13 @@ def catalog(args: argparse.Namespace) -> None:
     for gpu in data["gpuTypes"]:
         price = (gpu.get("lowestPrice") or {}).get("uninterruptablePrice")
         stock = (gpu.get("lowestPrice") or {}).get("stockStatus")
-        if price is None or price > args.max_hourly or stock == "None":
+        try:
+            valid_price = not isinstance(price, bool) and math.isfinite(float(price))
+        except (TypeError, ValueError, OverflowError):
+            valid_price = False
+        if not valid_price or float(price) < 0.0 or float(price) > ceiling or stock == "None":
             continue
+        price = float(price)
         rows.append(
             {
                 "id": gpu["id"],
@@ -139,9 +180,27 @@ def catalog(args: argparse.Namespace) -> None:
     print_json(sorted(rows, key=lambda row: (row["price_per_hour"], row["id"])))
 
 
+def reject_created_pod(pod: Any, reason: str) -> NoReturn:
+    """Clean up only the ID returned by this launch and report uncertainty."""
+
+    pod_id = pod.get("id") if isinstance(pod, dict) else None
+    if not isinstance(pod_id, str) or not pod_id.strip():
+        raise SystemExit(
+            f"{reason}; provider returned no usable pod ID, so cleanup could not be "
+            "requested and termination is unconfirmed; inspect the Runpod account"
+        )
+    try:
+        request_json("DELETE", f"{REST_BASE}/pods/{urllib.parse.quote(pod_id, safe='')}")
+    except (Exception, SystemExit):
+        raise SystemExit(
+            f"{reason}; cleanup request failed for pod {pod_id!r}; termination is "
+            "unconfirmed; inspect the Runpod account"
+        ) from None
+    raise SystemExit(f"{reason}; termination request succeeded for pod {pod_id!r}")
+
+
 def launch(args: argparse.Namespace) -> None:
-    if args.max_hourly <= 0.0:
-        raise SystemExit("--max-hourly must be positive")
+    ceiling = hourly_ceiling(args.max_hourly)
     existing = request_json("GET", f"{REST_BASE}/pods")
     duplicates = [pod for pod in existing if pod.get("name") == args.name]
     if duplicates:
@@ -165,15 +224,24 @@ def launch(args: argparse.Namespace) -> None:
         "minRAMPerGPU": 8,
     }
     pod = request_json("POST", f"{REST_BASE}/pods", payload=payload)
-    cost = float(pod.get("adjustedCostPerHr", pod.get("costPerHr", "inf")))
-    if cost > args.max_hourly:
-        pod_id = pod.get("id")
-        if pod_id:
-            request_json("DELETE", f"{REST_BASE}/pods/{pod_id}")
-        raise SystemExit(
-            f"provider returned ${cost:.4f}/hour above ${args.max_hourly:.4f} ceiling; "
-            "pod was terminated"
+    raw_cost = (
+        pod.get("adjustedCostPerHr", pod.get("costPerHr"))
+        if isinstance(pod, dict)
+        else None
+    )
+    try:
+        cost = float(raw_cost)
+    except (TypeError, ValueError, OverflowError):
+        reject_created_pod(pod, "provider returned missing or malformed hourly cost")
+    if isinstance(raw_cost, bool) or not math.isfinite(cost) or cost < 0.0:
+        reject_created_pod(pod, "provider returned invalid hourly cost")
+    if cost > ceiling:
+        reject_created_pod(
+            pod,
+            f"provider returned ${cost:.4f}/hour above ${ceiling:.4f} ceiling",
         )
+    if not isinstance(pod.get("id"), str) or not pod["id"].strip():
+        reject_created_pod(pod, "provider returned no usable pod ID")
     print_json(
         {
             "id": pod.get("id"),

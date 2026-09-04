@@ -1,0 +1,164 @@
+# EXP-468: seventy-sixth homoclinic point and new research branch
+
+The merged research history now continues on
+`codex/world-class-shrimp-research`. The new `main` branch is published at the
+remote, and the old remote `master` is intentionally retained until GitHub's
+default branch can be changed in an authenticated session. The repository
+README was rebuilt at commit `5f484ade9b16f20ee895e54dd49a62842624d040`
+as a current, figure-rich research landing page and passed all 401 tests,
+numerical verification, citation checks, and local-link checks.
+
+From that clean commit, EXP-468 passed every prospectively frozen gate in two
+evaluations, adding the seventy-sixth qualified point to the Jones homoclinic
+continuation:
+
+```text
+(a, c) = (0.17985430934117327, 10.316968440239535)
+maximum block defect = 3.1997883185634873e-9
+minimum singular value = 8.072649888863062e-10
+node-boundary margin = 0.9938912216178979
+```
+
+The raw receipt is 78,608 bytes with SHA-256
+`1a1b442d0ae81d815931f69737f9670f148c911b20503893be815271fb467b9a`.
+The chain now contains 73 gauge-aligned pseudo-arclength roots and 76 qualified
+roots overall. Fifty-nine tangent-recomputed outgoing steps after EXP-408
+remain smooth and interior. EXP-403 remains the sampled local `a` minimum and
+the closest root to the historical `a=0.1798` section. EXP-468 increases that
+section gap to `5.430934117328645e-5`, so it strengthens the computed nearby
+homoclinic curve without recovering the printed coordinate or proving that a
+later branch cannot return.
+
+The minimum singular value is `1.61x` the unchanged `5e-10` floor. EXP-469 is
+therefore frozen prospectively from the exact EXP-467/468 receipts at the same
+normalized step, with both parameters unconstrained and every numerical and
+scientific gate retained. A pass adds the seventy-seventh point; a failure is
+preserved. Global nonintersection, uniqueness, topology, and validated
+existence remain open.
+
+## EXP-469 successor
+
+EXP-469 subsequently passed every unchanged gate in two evaluations and added
+the seventy-seventh qualified point:
+
+```text
+(a, c) = (0.17985552203128571, 10.316964714594972)
+maximum block defect = 3.199779173213645e-9
+minimum singular value = 8.054840696863713e-10
+node-boundary margin = 0.9938804489142896
+```
+
+Its 78,650-byte raw receipt has SHA-256
+`459bfe4f8889f243ba32e879b09436a16dc4e724b7c1a79a09e0fc4103cedef3`.
+The chain contains 74 gauge-aligned pseudo-arclength roots and 77 qualified
+roots overall; 60 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap increases to
+`5.55220312857263e-5`. EXP-470 is prospectively frozen at the same conservative
+step from the exact EXP-468/469 receipts.
+
+## EXP-470 successor
+
+EXP-470 passed every unchanged gate in two evaluations and added the
+seventy-eighth qualified point:
+
+```text
+(a, c) = (0.17985675567226783, 10.316960924561714)
+maximum block defect = 3.1997698267870753e-9
+minimum singular value = 8.03989657761402e-10
+node-boundary margin = 0.9938718199704422
+```
+
+Its 78,658-byte raw receipt has SHA-256
+`4e9823116d3eaa41e1783f75664912f134222dcdcbc9c0bdf69b36c98c242b66`.
+The chain contains 75 gauge-aligned pseudo-arclength roots and 78 qualified
+roots overall; 61 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap increases to
+`5.675567226784417e-5`. EXP-471 is prospectively frozen at the same
+conservative step from the exact EXP-469/470 receipts.
+
+## EXP-471 successor
+
+EXP-471 passed every unchanged gate in two evaluations and added the
+seventy-ninth qualified point:
+
+```text
+(a, c) = (0.1798580098768402, 10.316957071332267)
+maximum block defect = 3.1997605598566762e-9
+minimum singular value = 8.02785104500578e-10
+node-boundary margin = 0.9938653672585698
+```
+
+Its 78,691-byte raw receipt has SHA-256
+`f1e020c1391b5086fc253b3988fb15c0b5aac96f69af9367d882c0037da416e9`.
+The chain contains 76 gauge-aligned pseudo-arclength roots and 79 qualified
+roots overall; 62 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap increases to
+`5.800987684020931e-5`. EXP-472 is prospectively frozen as the 80-point
+checkpoint at the same conservative step from the exact EXP-470/471 receipts.
+A pass triggers a receipt-bound figure and manuscript refresh.
+
+## EXP-472 eighty-point checkpoint
+
+EXP-472 passed every unchanged gate in two evaluations and added the eightieth
+qualified point:
+
+```text
+(a, c) = (0.17985928422847947, 10.316953156190541)
+maximum block defect = 3.19975131291399e-9
+minimum singular value = 8.01872542256545e-10
+node-boundary margin = 0.9938611038487002
+```
+
+Its 78,637-byte raw receipt has SHA-256
+`a94d266fe99dca283811fa20d6406cbc9d26c739310f1745088a1849baa33fce`.
+The chain contains 77 gauge-aligned pseudo-arclength roots and 80 qualified
+roots overall; 63 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap is now
+`5.928422847947812e-5`. EXP-473 is frozen prospectively at the same
+conservative step from the exact EXP-471/472 receipts.
+
+## Eighty-point figure refresh
+
+The four-panel homoclinic-continuation figure was regenerated from clean
+commit `449b727271d8d008b7bac11dd4fcebc6508610d6`. Its receipt binds all 80
+qualified roots and all 26 preserved failures, keeps EXP-403 as the closest
+sampled point to the historical section, and records the endpoint gap above.
+After a full-resolution inspection, the endpoint annotation and failure note
+were repositioned so neither obscures the data. The final artifacts are:
+
+```text
+image SHA-256   247664c311b957db2154ac24ab11286aee1089265d48826b379df23da7886f9b
+receipt SHA-256 cb5bf1005d8bc5bc661a1b1115bf1b445316588fc111c38b696354e1e3d91b2c
+```
+
+## Manuscript verification
+
+The manuscript was rebuilt from clean figure commit
+`8afbbc5fa703e2cedc9681f0b187a92bf29724d4`. The resulting 55-page,
+10,185,564-byte PDF has SHA-256
+`dd9c0154ed8af98871fdcdb1870064e84a18fc9dcd6d15789fbd68cdf7c52171`.
+The build log contains no undefined citations or references and no overfull or
+underfull boxes. Full-page renders of pages 1, 11, 49, 50, and 55 were visually
+inspected for the abstract, updated homoclinic figure and caption, conclusion,
+and bibliography. The checkpoint also passes all 401 tests and the reference
+audit with 10 BibTeX entries, 10 cited keys, and all 10 required citations.
+
+## EXP-473 post-checkpoint successor
+
+EXP-473 passed every unchanged gate in two evaluations and added the
+eighty-first qualified point:
+
+```text
+(a, c) = (0.179860578278265, 10.316949180519163)
+maximum block defect = 3.1997419033005116e-9
+minimum singular value = 8.012533846968259e-10
+node-boundary margin = 0.9938590494991724
+```
+
+Its 78,640-byte raw receipt has SHA-256
+`b93d2b38587dec27838d659ee6107ea702c2ec01c89f75bbfa2f6f8b61c0323b`.
+The chain contains 78 gauge-aligned pseudo-arclength roots and 81 qualified
+roots overall; 64 tangent-recomputed outgoing steps after EXP-408 remain
+smooth and interior. The historical-section gap increases to
+`6.057827826499995e-5`. EXP-474 is prospectively frozen at the same
+conservative step from the exact EXP-472/473 receipts.
