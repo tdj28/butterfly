@@ -14,6 +14,25 @@ HUB = RosslerParameters(a=0.1798, b=0.2, c=10.3084)
 CONFIG = SolverConfig(rtol=1e-10, atol=1e-12, max_step=0.05)
 
 
+def assert_on_section_at_event_precision(result) -> None:
+    # solve_ivp locates events with Brent xtol=rtol=4*eps in time, not
+    # section-coordinate units. Convert that scale using the normal velocity,
+    # allowing a factor two for interpolation/evaluation roundoff. This tests
+    # the interpolated section residual, not forward trajectory accuracy.
+    normal = np.asarray(result.section.normal)
+    speed = np.asarray([
+        abs(np.dot(normal, rossler_rhs(time, state, HUB)))
+        for time, state in zip(result.times, result.states, strict=True)
+    ])
+    eps = np.finfo(float).eps
+    time_roundoff = 8 * eps * (1 + np.abs(result.times)) * np.maximum(1.0, speed)
+    state_roundoff = 8 * eps * (
+        1 + np.abs(result.states) @ np.abs(normal) + abs(result.section.offset)
+    )
+    residual = np.abs(result.states @ normal - result.section.offset)
+    assert np.all(residual <= time_roundoff + state_roundoff)
+
+
 def test_oriented_crossings_are_interpolated_and_ordered() -> None:
     section = PoincareSection(normal=(0.0, 1.0, 0.0), offset=0.0, direction=1)
     result = collect_crossings(
@@ -28,7 +47,7 @@ def test_oriented_crossings_are_interpolated_and_ordered() -> None:
     assert result.integration_success
     assert result.states.shape == (5, 3)
     assert np.all(np.diff(result.times) > 0.0)
-    np.testing.assert_allclose(result.states[:, 1], 0.0, atol=2e-14)
+    assert_on_section_at_event_precision(result)
     derivatives = np.asarray(
         [np.dot(section.normal, rossler_rhs(time, state, HUB)) for time, state in zip(result.times, result.states)]
     )
@@ -48,7 +67,7 @@ def test_legacy_section_matches_declared_half_plane() -> None:
     )
     assert result.integration_success
     assert result.states.shape == (6, 3)
-    np.testing.assert_allclose(result.states[:, 1], section.offset, atol=2e-14)
+    assert_on_section_at_event_precision(result)
     assert np.all(result.states[:, 0] < section.gate_upper)
 
 
@@ -65,7 +84,7 @@ def test_barrio_section_matches_declared_oriented_plane() -> None:
     )
     assert result.integration_success
     assert result.states.shape == (6, 3)
-    np.testing.assert_allclose(result.states[:, 0], section.offset, atol=2e-14)
+    assert_on_section_at_event_precision(result)
     derivatives = np.asarray(
         [
             np.dot(section.normal, rossler_rhs(time, state, HUB))

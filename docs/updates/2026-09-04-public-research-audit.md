@@ -64,7 +64,20 @@ audited birth-criticality image SHA-256:
 1873c28b26031f33dc21bda9c7901ecf8c669d791743324a3ef6ca2a7630179c
 ```
 
-## Next
+## Linux CI follow-up
+
+The first Linux Python 3.12/3.13 runs each passed 460 tests and failed the
+same pre-existing section-interpolation assertion: `5.45e-14` versus a fixed
+`2e-14` state-coordinate threshold. SciPy's event finder controls time with
+Brent `xtol=rtol=4*eps`; the resulting coordinate residual also depends on
+event time and normal velocity. The three section tests now use that scaled
+roundoff model while preserving count, ordering, orientation, and gate checks.
+No production integration tolerance or experiment acceptance gate changed.
+Removing the implicit `assert_allclose` relative tolerance also strengthens
+the two nonzero-offset section tests. This is a floating-point test allowance,
+not a rigorous bound on trajectory error.
+
+## Next actions
 
 Publish reproducible core evidence and audit the remaining callers of the
 fixed numerical gates. Then prioritize an independent homoclinic formulation
