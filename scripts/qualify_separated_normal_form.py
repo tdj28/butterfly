@@ -45,6 +45,8 @@ def correct_fixed_b(
         tolerance=tolerance,
         max_evaluations=max_evaluations,
     )
+    if not correction.success:
+        raise RuntimeError(f"fixed-b periodic correction failed: {correction.message}")
     monodromy = flow_monodromy(
         parameters, correction.initial_state, correction.period_time, config=solver
     )

@@ -8,7 +8,26 @@ from butterfly import RosslerParameters,SolverConfig,correct_periodic_orbit,flow
 from butterfly.scan import atomic_write,canonical_json,git_value,sha256_bytes
 from continue_identity_constrained_periodic_b import crossing_count
 def multiplier(a,b,c,state,period,solver,corrector):
- x=correct_periodic_orbit(RosslerParameters(a=a,b=b,c=c),state,period,config=solver,max_evaluations=corrector['max_evaluations'],tolerance=corrector['tolerance']);m=flow_monodromy(RosslerParameters(a=a,b=b,c=c),x.initial_state,x.period_time,config=solver);n=int(np.argmin(abs(m.multipliers-1)));v=max(np.delete(m.multipliers,n),key=abs);count,ok=crossing_count(a,b,c,x.initial_state,x.period_time,solver);return x,complex(v),count,ok
+    parameters = RosslerParameters(a=a, b=b, c=c)
+    correction = correct_periodic_orbit(
+        parameters,
+        state,
+        period,
+        config=solver,
+        max_evaluations=corrector["max_evaluations"],
+        tolerance=corrector["tolerance"],
+    )
+    if not correction.success:
+        raise RuntimeError(f"flip periodic correction failed: {correction.message}")
+    monodromy = flow_monodromy(
+        parameters, correction.initial_state, correction.period_time, config=solver
+    )
+    neutral = int(np.argmin(abs(monodromy.multipliers - 1)))
+    value = max(np.delete(monodromy.multipliers, neutral), key=abs)
+    count, ok = crossing_count(
+        a, b, c, correction.initial_state, correction.period_time, solver
+    )
+    return correction, complex(value), count, ok
 def row_value(r):return max((complex(v['real'],v['imag']) for v in r['nontrivial_multipliers']),key=abs)
 def main():
  p=argparse.ArgumentParser();p.add_argument('--manifest',type=Path,required=True);p.add_argument('--source-continuation',type=Path,required=True);p.add_argument('--output',type=Path,required=True);z=p.parse_args();mb=z.manifest.read_bytes();m=json.loads(mb);sb=z.source_continuation.read_bytes()

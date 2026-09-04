@@ -56,6 +56,8 @@ def corrected_from_rows(
         tolerance=tolerance,
         max_evaluations=max_evaluations,
     )
+    if not correction.success:
+        raise RuntimeError(f"periodic identity correction failed: {correction.message}")
     monodromy = flow_monodromy(
         parameters, correction.initial_state, correction.period_time, config=solver
     )
