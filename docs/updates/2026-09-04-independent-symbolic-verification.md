@@ -71,3 +71,31 @@ or provide a writable external-drive destination. No existing research data
 was deleted, and the retrieval limit was not weakened to bypass this gate.
 No paid EXP-477 worker has been created. This is an operational blocker,
 not a negative result about Jones's chains.
+
+## Frozen runtime and local deployment control
+
+The final runtime was pushed at
+[`bf6231e`](https://github.com/tdj28/butterfly/commit/bf6231ed489bf9c2ee5599fa0f9ee71191578e9f)
+and its exact remote SHA was checked before the known-anchor CPU control ran
+from a clean checkout. Tags `exp-477-protocol` and `exp-478-protocol` retain
+the exact source freezes across the eventual PR squash merge.
+
+The [full CPU control receipt](../experiments/receipts/EXP-477-cpu-control.json)
+is byte-identical to the retained local output: 219,604 bytes, SHA-256
+`6849f6a1cf53689e96cc70f0b436c2823e669df105e18b378281dad0ca777118`.
+Both prescribed step profiles completed and saved their event records.
+This establishes the local deployment reference only: the GPU has not yet
+been compared against it, and no target center or word was computed here.
+
+Preparation-only was then attempted once. The storage gate reported
+8,638,885,888 available bytes and 17,722,933,248 required bytes, and exited
+before staging/upload or any provider call. No owned-worker state or cloud
+attempt directory was created. The runtime is preparation-only by default;
+live provisioning requires the explicit `--execute` opt-in.
+
+Final local validation: 1,062 tests passed; the generated symbolic table,
+citations/figure inventory, staged credential scan and LaTeX build passed.
+The final manuscript is 70 pages with a blank author field. All pages were
+visually inspected at reduced scale, with detailed checks of the new table
+and revised main discussion. Python 3.12 and 3.13 CI passed on the runtime
+freeze. These checks do not establish a live GPU deployment.

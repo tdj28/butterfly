@@ -3,6 +3,8 @@
 Status: prepared; target trajectories not yet collected. Cloud launch is
 blocked by local retrieval storage; see the
 [current update](../updates/2026-09-04-independent-symbolic-verification.md).
+The known-anchor CPU deployment reference has completed; GPU parity and
+target collection have not run.
 
 ## Why this is needed
 
@@ -167,3 +169,19 @@ After complete hash-verified retrieval **and verified owned-worker absence**,
 run `run_symbolic_center_pilot.py --mode analyze` locally with the same frozen
 source, collection directory and collection-receipt SHA-256. The analysis
 refuses incomplete collection and rechecks all raw hashes before fitting.
+
+## Execution checkpoint
+
+Frozen runtime: `bf6231ed489bf9c2ee5599fa0f9ee71191578e9f`, retained by tag
+`exp-477-protocol`. The complete
+[CPU control receipt](receipts/EXP-477-cpu-control.json) was generated from
+that clean, publicly pushed commit and passed its local construction checks.
+Its SHA-256 is
+`6849f6a1cf53689e96cc70f0b436c2823e669df105e18b378281dad0ca777118`.
+This is a reusable GPU comparison input, not a flow-center result. Subsequent
+execution must use that frozen source (or prospectively declare a successor),
+not substitute the later documentation-only merge commit for its source ID.
+
+The preparation-only attempt stopped at the local disk gate before any
+provider calls. No GPU qualification, target collection, spline analysis,
+center nomination or chain verification has occurred in EXP-477.
