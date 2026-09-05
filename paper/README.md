@@ -8,8 +8,10 @@ record, including failed experiments and corrected interpretations.
 
 ## Start here
 
-- Download the current built PDF from [the symbolic-chain manuscript checkpoint](https://github.com/tdj28/butterfly/releases/tag/manuscript-symbolic-v1).
-  Earlier research-checkpoint PDFs remain unchanged as historical artifacts.
+- Build the current PDF using the commands below. The revised
+  `manuscript-symbolic-v1` release is prepared as a draft; public PDF publication
+  is pending approval. Earlier research-checkpoint PDFs remain unchanged as
+  historical artifacts.
 - [`manuscript.tex`](manuscript.tex) builds the combined article and supplement.
 - [`sections/01-introduction.tex`](sections/01-introduction.tex) introduces the
   question and historical context.

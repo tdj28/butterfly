@@ -66,9 +66,13 @@ Figure 10 on page 14. `pdfinfo` confirms an empty Author field, and extracted
 title-page text contains no author line. Citations and source attributions
 remain intact.
 
-The current [manuscript checkpoint](https://github.com/tdj28/butterfly/releases/tag/manuscript-symbolic-v1)
-contains the revised PDF, the separate chain PNG, and checksums. Earlier
-research-checkpoint release assets are left unchanged. The new PDF SHA-256 is
+The source changes were merged in [PR #7](https://github.com/tdj28/butterfly/pull/7)
+at `33156f01909115dfa9955ce7a446fa083b231297`, with CI passing on Python 3.12
+and 3.13. The `manuscript-symbolic-v1` release is prepared as a draft containing
+the revised PDF, separate chain PNG, and checksums. Uploaded asset digests
+match the local files. Public release publication was blocked by a permission
+check and awaits explicit approval; no public-download verification is claimed.
+Earlier research-checkpoint release assets are left unchanged. The new PDF SHA-256 is
 `5eb3daa3dfc1c9e97200b2d24194a8aada910f89dd155e1f60646eeda2790e8f`;
 the chain PNG is
 `486493ed088a386d829bf3e29a089c8aa3d68c8ca6a7089988dca6986f0530ef`.
