@@ -503,7 +503,7 @@ def connect_owned(store, progress, *, seconds=600):
         pod = worker.direct_lookup(record["pod_id"])
         if pod is None:
             raise DeploymentError("owned worker disappeared before SSH readiness")
-        worker.actual_contract(record, pod)
+        worker.observed_actual_contract(store, pod)
         try:
             host, port = endpoint(pod)
             if ssh is not None and ssh.strict and (host, port) != (ssh.host, ssh.port):

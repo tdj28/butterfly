@@ -161,6 +161,27 @@ def test_graphql_cannot_override_explicit_spot_or_wrong_identity(store):
             "id": "unrelated-a", "name": pod["name"], "podType": "RESERVED"}})
 
 
+def test_real_ssh_connection_path_uses_rental_evidence(store, monkeypatch):
+    from scripts import execute_symbolic_center_cloud as cloud
+    provider = Provider(store)
+    pod = worker.provision_once(store, provider, lookup=lookup, now=100)
+    del pod["interruptible"]
+    pod.update(publicIp="203.0.113.1", portMappings={"22": 22022})
+    monkeypatch.setattr(worker, "direct_lookup", lambda _: pod)
+    monkeypatch.setattr(worker.runpodctl, "graphql", lambda _: {"pod": {
+        "id": pod["id"], "name": pod["name"], "podType": "RESERVED"}})
+    class PinnedSSH:
+        def __init__(self, host, port, directory):
+            self.host, self.port, self.strict = host, port, True
+        def call(self, command, timeout):
+            assert command == "true"
+    monkeypatch.setattr(cloud, "SSH", PinnedSSH)
+    progress = []
+    result = cloud.connect_owned(store, progress.append, seconds=1)
+    assert result.strict and progress == ["ssh-authenticated"]
+    assert store.read()["observed_rental_contract"]["podType"] == "RESERVED"
+
+
 @pytest.mark.parametrize("field,value", [("interruptible", True),
     ("containerDiskInGb", 50), ("volumeInGb", None),
     ("networkVolume", {"id": "synthetic"}), ("ports", ["22/tcp", "8888/http"])])

@@ -67,3 +67,20 @@ Authorize one fresh operational successor under the same $3/$0.50/hour/3-hour
 bounds after the tested source is pushed and a fresh CPU reference passes.
 This is a diagnosed pre-outcome API-schema repair; no scientific review cycle
 or numerical change is introduced, and no prior attempt is reused.
+
+## Second recovery: configuration passes; missed SSH call site
+
+Source `8a426cedd5c66f0e2fbaa82f3047c6540a2d6b24` obtained explicit
+`RESERVED` evidence for owned worker `kh4grqnntadv2c` and qualified the
+provider contract at $0.49/hour. The SSH consumer still called the old raw
+validator, however, so it rejected the omitted REST field before connecting
+or uploading. This was an executor oversight, not a provider or scientific
+failure. Target collection did not start; exact teardown and watchdog retirement
+passed. The original local workload and lifecycle records remain unchanged.
+
+The one-line consumer correction uses the same observed-contract function as
+provisioning and the watchdog. A regression executes the real `connect_owned`
+path with a provider-shaped response and pinned synthetic SSH; all production
+contract call sites were searched. Authorize one fresh successor within the
+same bounds after pushed source and CPU reference; no old authority or namespace
+is reused. Three attempts in this recovery turn are the current maximum.

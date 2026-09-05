@@ -32,3 +32,9 @@ GraphQL when REST omits the field; it never overrides explicit spot status.
 Full local suite after this repair: 1284 passed, one Linux-only skip; focused
 lifecycle suite: 86 passed. Live GraphQL query syntax/absence was rehearsed
 against the terminated owned ID. No target trajectories have run yet.
+
+Live configuration qualification subsequently passed with exact-owned
+GraphQL `RESERVED` evidence. SSH setup exposed a missed raw-validator call;
+the consumer is corrected and the real connection path now has a provider-
+shaped regression. Full suite: 1285 passed, one Linux-only skip. Failed worker
+and watchdog teardown verified; no upload or target computation occurred.
