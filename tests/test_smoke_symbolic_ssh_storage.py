@@ -103,7 +103,7 @@ def test_remote_quiescence_receipt_must_match_frozen_source(tmp_path, monkeypatc
         assert smoke.run_quiescence(store, content, source, tmp_path)["passed"]
 
 
-@pytest.mark.parametrize("failure", [None, "storage", "quiescence", "changed_source"])
+@pytest.mark.parametrize("failure", [None, "storage", "storage_false", "quiescence", "changed_source"])
 def test_orchestrator_retains_source_bound_success_or_honest_failure(tmp_path, monkeypatch, failure):
     source = source_value()
     path = tmp_path / smoke.SOURCE_FILES[2]
@@ -117,7 +117,7 @@ def test_orchestrator_retains_source_bound_success_or_honest_failure(tmp_path, m
     def transport(remote, output, **kwargs):
         output.mkdir()
         if failure == "storage": raise smoke.storage.StorageError("synthetic transport failure")
-        return {"passed": True, "remote_storage_binding": {"schema": "synthetic binding"}}
+        return {"passed": failure != "storage_false", "remote_storage_binding": {"schema": "synthetic binding"}}
     monkeypatch.setattr(smoke.storage, "storage_smoke", transport)
     monkeypatch.setattr(smoke.storage.SshEvidenceStore, "open_existing", lambda *args, **kwargs: SimpleNamespace())
     def quiescence(*args):

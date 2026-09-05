@@ -125,6 +125,8 @@ def execute_smoke(commit, remote_directory, output_directory, *, root=ROOT):
         transport = storage.storage_smoke(remote_directory, output,
                             helper_sha256=source["source_files"]["scripts/symbolic_ssh_storage.py"])
         result["storage"] = transport
+        if transport.get("passed") is not True:
+            raise storage.StorageError("storage roundtrip smoke did not pass")
         store = storage.SshEvidenceStore.open_existing(transport["remote_storage_binding"], local_control_directory=output)
         result["quiescence"] = run_quiescence(store, wrapper, source, output)
         if frozen_source(commit, root=root) != source:
