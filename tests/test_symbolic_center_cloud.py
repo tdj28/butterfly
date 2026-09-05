@@ -61,7 +61,7 @@ def make_tar(path, files, *, dirs=(), links=()):
 def required_source_files():
     return {name: b"{}\n" for name in (cloud.PILOT_MANIFEST, cloud.RUNTIME_MANIFEST,
             "scripts/execute_symbolic_center_cloud.py", "scripts/run_symbolic_center_pilot.py",
-            "scripts/qualify_symbolic_gpu_records.py", "pyproject.toml", "uv.lock")}
+            "scripts/qualify_symbolic_gpu_records.py", "scripts/symbolic_ssh_storage.py", "pyproject.toml", "uv.lock")}
 
 
 def test_git_archive_inventory_uses_only_committed_bytes_and_safe_ancestors(tmp_path, monkeypatch):
@@ -211,7 +211,9 @@ def closure(tmp_path):
                 "cpu_control_sha256": "c" * 64, "pilot_manifest_sha256": "d" * 64,
                 "collection_binding": {"input_hashes": {"candidates": "e" * 64}, "candidate_ids": ["x", "y", "z"],
                                        "profiles": [{"dt": 0.01}, {"dt": 0.005}], "batch_size": 2}}
-    write_json(tmp_path / "prepared-inputs/cpu-control.json", {"qualification_script_sha256": "f" * 64})
+    write_json(tmp_path / "prepared-inputs/cpu-control.json", {"qualification_script_sha256": "f" * 64,
+               "parent_sha256": cloud.qualification.PARENT_HASH, "state_atol": cloud.qualification.STATE_ATOL,
+               "time_atol": cloud.qualification.TIME_ATOL})
     prepared["cpu_control_sha256"] = cloud.pilot.sha256_file(tmp_path / "prepared-inputs/cpu-control.json")
     gpu = {"schema": "butterfly.symbolic-gpu-deployment-control.v1", "mode": "gpu", "passed": True,
            "source": source, "cpu_control_sha256": prepared["cpu_control_sha256"], "parent_sha256": cloud.qualification.PARENT_HASH,
@@ -237,7 +239,7 @@ def closure(tmp_path):
         receipt["batches"].append(batch)
     write_json(directory / "collection/receipt.json", receipt)
     for name in ("collection/started.json", "environment/python.txt", "environment/pip-freeze.txt", "environment/nvidia-smi.txt",
-                 "environment/torch.json", "logs/setup.log", "logs/qualification.log", "logs/collection.log"):
+                 "environment/torch.json", "environment/storage.json", "logs/setup.log", "logs/qualification.log", "logs/collection.log"):
         path = directory / name; path.parent.mkdir(exist_ok=True, parents=True); path.write_bytes(b"{}")
     for name in ("setup", "qualification", "collection"):
         write_json(directory / ("status/" + name + ".json"), {"passed": True})
@@ -309,7 +311,7 @@ def test_explicit_execute_is_the_only_dispatch_path(tmp_path, monkeypatch):
                 "runtime": {"retrieval": LIMITS}}
     monkeypatch.setattr(cloud, "prepare_inputs", lambda *args, **kwargs: prepared)
     monkeypatch.setattr(cloud, "require_free_space", lambda *args: calls.append("storage-check"))
-    monkeypatch.setattr(cloud, "workload", lambda *args: "synthetic-callback")
+    monkeypatch.setattr(cloud, "workload", lambda *args, **kwargs: "synthetic-callback")
     def dispatch(plan, directory, callback):
         assert callback == "synthetic-callback" and plan == prepared["plan"]
         calls.append("dispatch")
@@ -337,7 +339,7 @@ def test_failed_setup_still_retrieves_partial_evidence_but_never_starts_target(t
         strict = True
         def call(self, command, **kwargs):
             events.append(shlex.split(command)[3])
-            return SimpleNamespace(stdout=b"[]")
+            return SimpleNamespace(stdout=b'{"quiescent":true}')
         def monitored(self, command, **kwargs):
             mode = shlex.split(command)[3]; events.append(mode)
             if mode == "stage": raise cloud.DeploymentError("synthetic setup failure")
@@ -347,8 +349,96 @@ def test_failed_setup_still_retrieves_partial_evidence_but_never_starts_target(t
     monkeypatch.setattr(cloud, "stages", lambda *args: [{"name": "setup", "seconds": 1, "steps": []}])
     prepared = {"source_commit": COMMIT, "assets": {}, "runtime": {"retrieval": LIMITS}}
     result = cloud.workload(prepared, tmp_path)({}, SimpleNamespace(directory=tmp_path), lambda _: None)
-    assert events == ["init", "extract", "stage", "pack"]
+    assert events == ["init", "extract", "stage", "quiesce", "pack"]
     assert result["retrieval_verified"] and not result["complete_raw_closure_verified"]
     assert not result["passed"] and not result["target_collection_started"]
     assert (tmp_path / "retrieved/logs/setup.log").read_bytes() == b"synthetic failure"
     assert (tmp_path / "workload.json").exists()
+
+
+@pytest.mark.parametrize("missing", [False, True])
+def test_stdlib_remote_closure_matches_complete_and_missing_raw_gates(closure, missing):
+    directory, prepared, inventory = closure
+    expected = {"prepared": prepared, "cpu_control": json.loads((directory.parent / "prepared-inputs/cpu-control.json").read_bytes())}
+    if missing:
+        (directory / "collection/batch-0000-profile-0.npz").unlink()
+        with pytest.raises(cloud.ssh_storage.StorageError, match="required evidence missing"):
+            cloud.ssh_storage.validate_complete(directory, inventory(), expected)
+    else:
+        assert cloud.ssh_storage.validate_complete(directory, inventory(), expected)["candidate_count"] == 3
+
+
+def test_dead_leader_with_live_grandchild_never_qualifies_quiescence(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["helper", "unused", "/workspace/synthetic"])
+    namespace = {}
+    exec(cloud.REMOTE_PROGRAM.split("if mode=='init':")[0], namespace)
+    record = {"pid": 12345, "pgid": 12345, "session": 12345, "start_ticks": "100", "boot_id": "synthetic", "state": "S"}
+    namespace["same_process"] = lambda _: False
+    namespace["identity"] = lambda _: None
+    namespace["process_group_members"] = lambda _: [{"pid": 12346}]
+    with pytest.raises(RuntimeError, match="outlived identifiable leader"):
+        namespace["stop_owned"](record, True)
+    namespace["process_group_members"] = lambda _: []
+    namespace["stop_owned"](record, True)
+
+
+def test_reused_process_identity_is_never_signaled(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["helper", "unused", "/workspace/synthetic"])
+    namespace = {}
+    exec(cloud.REMOTE_PROGRAM.split("if mode=='init':")[0], namespace)
+    namespace["same_process"] = lambda _: False
+    namespace["identity"] = lambda _: {"state": "S", "start_ticks": "changed"}
+    with pytest.raises(RuntimeError, match="identity changed"):
+        namespace["stop_owned"]({"pid": 12345}, True)
+
+
+def test_remote_storage_wrapper_retains_failure_without_local_bulk_archive(tmp_path, monkeypatch):
+    events = []
+    class FakeSSH:
+        strict = True
+        def call(self, command, **kwargs):
+            events.append(shlex.split(command)[3]); return SimpleNamespace(stdout=b'{"quiescent":true}')
+        def argv(self, command): return ["synthetic-source", command]
+    class FakeStore:
+        binding = {}
+        def receive(self, argv, **kwargs):
+            events.append("receive"); raise TimeoutError("synthetic interruption")
+        def finalize(self, **kwargs):
+            events.append("finalize"); return {"retrieval_verified": True, "complete_raw_closure_verified": False}
+        def retain_compact_receipts(self, **kwargs):
+            events.append("compact"); return {"assets": []}
+    monkeypatch.setattr(cloud, "connect_owned", lambda *args, **kwargs: FakeSSH())
+    monkeypatch.setattr(cloud.worker, "owned_record", lambda _: {"nonce": "a" * 32, "pod_id": "owned-id", "name": "owned-name"})
+    monkeypatch.setattr(cloud, "stages", lambda *args: [])
+    prepared = {"source_commit": COMMIT, "assets": {}, "runtime": {"retrieval": LIMITS}}
+    storage = FakeStore()
+    result = cloud.workload(prepared, tmp_path, evidence_store=storage)({}, SimpleNamespace(directory=tmp_path), lambda _: None)
+    assert events == ["init", "extract", "quiesce", "receive", "finalize", "compact"]
+    assert result["retrieval_verified"] and not result["passed"] and "transfer_failure" in result
+    assert storage.binding["task_worker_id"] == "owned-id" and storage.binding["source_commit"] == COMMIT
+    assert not (tmp_path / "retrieved.tar").exists()
+
+
+def test_no_pack_when_owned_writers_are_not_quiescent(tmp_path, monkeypatch):
+    class FakeSSH:
+        strict = True
+        def call(self, command, **kwargs):
+            if shlex.split(command)[3] == "quiesce": raise cloud.DeploymentError("owned writer remains")
+            return SimpleNamespace(stdout=b"{}")
+        def monitored(self, *args, **kwargs): pytest.fail("mutable raw evidence was packed")
+    monkeypatch.setattr(cloud, "connect_owned", lambda *args, **kwargs: FakeSSH())
+    monkeypatch.setattr(cloud.worker, "owned_record", lambda _: {"nonce": "a" * 32})
+    monkeypatch.setattr(cloud, "stages", lambda *args: [])
+    result = cloud.workload({"source_commit": COMMIT, "assets": {}}, tmp_path)({}, object(), lambda _: None)
+    assert not result["retrieval_verified"] and not result["passed"]
+
+
+@pytest.mark.skipif(sys.platform != "linux", reason="production process identity/group check uses Linux /proc")
+def test_actual_linux_owned_parent_grandchild_quiescence_smoke(tmp_path, monkeypatch):
+    monkeypatch.setattr(cloud.ssh_storage, "BASE_DIRECTORY", str(tmp_path))
+    task = tmp_path / "task"
+    task.mkdir()
+    result = cloud.ssh_storage.quiescence_smoke(task / "quiescence", cloud.REMOTE_PROGRAM)
+    assert result["passed"]
+    assert result["cases"][0]["case"] == "interrupted"
+    assert result["cases"][1]["orphan_snapshot_refused"]

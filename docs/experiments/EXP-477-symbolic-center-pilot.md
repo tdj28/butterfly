@@ -1,8 +1,11 @@
 # EXP-477 — Raw-retaining, word-independent center nomination pilot
 
-Status: prepared; target trajectories not yet collected. Cloud launch is
-blocked by local retrieval storage; see the
-[current update](../updates/2026-09-04-independent-symbolic-verification.md).
+Status: prepared; target trajectories not yet collected. The original local
+storage block is retained in the
+[initial update](../updates/2026-09-04-independent-symbolic-verification.md).
+The owner has now authorized SSH evidence storage on `prax`; its implementation
+and current execution status are in the
+[remote-storage update](../updates/2026-09-05-prax-evidence-storage.md).
 The known-anchor CPU deployment reference has completed; GPU parity and
 target collection have not run.
 
@@ -185,3 +188,66 @@ not substitute the later documentation-only merge commit for its source ID.
 The preparation-only attempt stopped at the local disk gate before any
 provider calls. No GPU qualification, target collection, spline analysis,
 center nomination or chain verification has occurred in EXP-477.
+
+## Remote evidence deployment amendment
+
+The 2026-09-05 amendment adds `--ssh-storage-dir` to the cloud executor. An
+explicit path must be one **new** child of
+`/home/ubuntu/butterfly-research` on the authorized `ubuntu@prax` host.
+Preparation may stage the small hash-bound storage helper and expected
+evidence binding there; it creates no GPU worker. Only `--execute` provisions.
+No numerical thresholds, candidates, seeds, integration settings or fitting
+rules change. The original runtime tag and CPU control above remain historical;
+the complete amended source gets its own public freeze and fresh CPU control.
+
+Use the same cloud command with the additional argument:
+
+```sh
+--ssh-storage-dir /home/ubuntu/butterfly-research/NEW_UNIQUE_ATTEMPT
+```
+
+The bounded tar stream is relayed through the Mac's memory to `prax`. The
+same full raw-evidence size allowance and hash/identity checks apply at the
+destination. Original raw records stay there. Local metadata, controller,
+watchdog, provider credentials and private keys never move to the server.
+Both the authenticated watchdog and transfer path must pass a target-free
+live control before paid collection. Failed stages must be quiescent before
+their partial archive is packed.
+
+After verified GPU termination, the new
+[`analyze_symbolic_remote_collection.py`](../../scripts/analyze_symbolic_remote_collection.py)
+driver calls the same analysis with a remote asset provider. It validates
+the complete original inventory before the first fit and after the last,
+checks each fetched file, and caches only one raw profile at a time. The
+cache is capped, and compressed **and uncompressed** NPZ sizes are bounded
+before allocation. No analysis runs on `prax`; only its standard-library
+hashing/transfer helper executes there. The driver requires explicit hashes
+for the storage binding, collection receipt, ownership and final lifecycle
+receipts, and exact collection/analysis source-commit equality.
+
+The [remote-storage update](../updates/2026-09-05-prax-evidence-storage.md)
+will record the actual new freeze, commands, receipts and outcomes. Preparing
+this deployment is not a symbolic verification result.
+
+### Selected post-termination transport
+
+The live prax control passed but measured only about 1.86 MB/s Mac upload.
+That does not support an 8 GiB transfer within the inline relay deadline.
+Because the Mac now has sufficient local space, the selected attempt will
+use the original local retrieval mode, verify full raw closure and GPU
+termination, then upload with `archive_symbolic_collection_to_ssh.py`.
+Its separate 7,200-second transfer bound incurs no GPU rental, and local
+originals remain retained. The scientific manifest and USD 3 attempt ceiling
+are unchanged. The source amendment is frozen before target execution.
+
+### Final deployment checkpoint
+
+Source `b53bfabf441e5afe756b7cfaec69f0a6989690e5` is retained by
+`exp-477-post-termination-protocol`. Fresh CPU, read-only watchdog and
+prax/Linux controls passed. The sole paid request then failed configuration
+validation before source upload or workload execution; its exact owned
+worker was deleted and absence independently verified. No GPU comparison,
+target collection, fitting, nomination or flow-chain verification ran.
+The specific failing provider fields were not retained, so that diagnostic
+gap must be closed before a successor deployment. See the
+[dated outcome](../updates/2026-09-05-prax-evidence-storage.md) for details.

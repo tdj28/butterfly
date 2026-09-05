@@ -26,6 +26,7 @@ from scripts import runpod_symbolic_worker as worker
 from scripts import run_symbolic_center_pilot as pilot
 from scripts import qualify_symbolic_gpu_records as qualification
 from scripts.check_public_repository import check_file
+from scripts import symbolic_ssh_storage as ssh_storage
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,7 +37,7 @@ SOURCE_PATHS = ("scripts", "python", "experiments/manifests", "experiments/sourc
 STAGE_SECONDS = {"connect": 600, "setup": 900, "qualification": 900, "collection": 3900, "retrieval": 1200}
 IMAGE = "runpod/pytorch:2.8.0-py3.11-cuda12.8.1-cudnn-devel-ubuntu22.04"
 ASSET = re.compile(r"(?:gpu-control\.json|logs/(?:setup|qualification|collection)\.log|"
-                   r"environment/(?:python\.txt|pip-freeze\.txt|nvidia-smi\.txt|torch\.json)|"
+                   r"environment/(?:python\.txt|pip-freeze\.txt|nvidia-smi\.txt|torch\.json|storage\.json)|"
                    r"status/[a-z0-9-]+\.json|collection/(?:started|receipt)\.json|"
                    r"collection/batch-[0-9]{4}-profile-[01](?:-checkpoint)?\.(?:json|npz))\Z")
 
@@ -80,6 +81,17 @@ def require_free_space(output_dir, limits):
     return {"available_bytes": available, "required_bytes": required}
 
 
+def require_local_control_space(output_dir):
+    path = Path(output_dir).absolute()
+    while not path.exists():
+        path = path.parent
+    available = shutil.disk_usage(path).free
+    if available < ssh_storage.MINIMUM_LOCAL_FREE_BYTES:
+        raise DeploymentError("local controller/staging storage requires at least 2 GiB free")
+    return {"available_bytes": available, "required_bytes": ssh_storage.MINIMUM_LOCAL_FREE_BYTES,
+            "bulk_evidence_destination": "authenticated SSH; no bulk Mac archive"}
+
+
 def describe(path):
     path = Path(path)
     return {"path": path.name, "sha256": pilot.sha256_file(path), "bytes": path.stat().st_size}
@@ -103,6 +115,8 @@ def runtime_plan(commit, *, root=ROOT):
     worker.validate_plan(plan)
     if value["retrieval"] != {"maximum_total_bytes": 8589934592, "maximum_files": 2000}:
         raise DeploymentError("retrieval bounds differ from this frozen executor")
+    if value.get("minimum_worker_free_bytes") != 9663676416:
+        raise DeploymentError("worker disk gate differs from this frozen executor")
     pilot.source_binding(Path(root), commit, path, content)
     return value, plan
 
@@ -126,19 +140,31 @@ def build_source_archive(root, commit, archive_path):
                     raise DeploymentError(f"source archive failed credential scan: {name}; contents suppressed")
                 files[name] = hashlib.sha256(content).hexdigest()
     required = {PILOT_MANIFEST, RUNTIME_MANIFEST, "scripts/execute_symbolic_center_cloud.py",
-                "scripts/run_symbolic_center_pilot.py", "scripts/qualify_symbolic_gpu_records.py", "pyproject.toml", "uv.lock"}
+                "scripts/run_symbolic_center_pilot.py", "scripts/qualify_symbolic_gpu_records.py",
+                "scripts/symbolic_ssh_storage.py", "pyproject.toml", "uv.lock"}
     if not required <= files.keys():
         raise DeploymentError("source archive lacks required runtime closure")
     return {"schema": "butterfly.source-inventory.v1", "source_commit": commit, "pushed_source_commit": commit,
             "source_archive_sha256": pilot.sha256_file(archive_path), "files": files}
 
 
-def prepare_inputs(commit, cpu_control, cpu_sha256, output_dir, state_dir, *, root=ROOT):
+def prepare_inputs(commit, cpu_control, cpu_sha256, output_dir, state_dir, *, root=ROOT, ssh_storage_dir=None):
     root, output_dir, state_dir = Path(root).resolve(), Path(output_dir).absolute(), Path(state_dir).absolute()
     if output_dir.exists() or output_dir.is_symlink() or state_dir.exists() or state_dir.is_symlink():
         raise DeploymentError("output and private state directories must both be new")
     runtime, plan = runtime_plan(commit, root=root)
-    storage = require_free_space(output_dir, runtime["retrieval"])
+    if ssh_storage_dir is not None:
+        ssh_storage.validate_directory(ssh_storage_dir)
+        expected_remote = {"host": ssh_storage.HOST, "base_directory": ssh_storage.BASE_DIRECTORY,
+                           "minimum_local_free_bytes": ssh_storage.MINIMUM_LOCAL_FREE_BYTES,
+                           "minimum_remote_free_bytes": ssh_storage.MINIMUM_REMOTE_FREE_BYTES,
+                           "maximum_cached_asset_bytes": ssh_storage.MAXIMUM_CACHED_ASSET_BYTES,
+                           "maximum_control_bytes": ssh_storage.MAXIMUM_CONTROL_BYTES}
+        if runtime.get("remote_evidence") != expected_remote:
+            raise DeploymentError("SSH evidence storage differs from frozen runtime declaration")
+        storage = require_local_control_space(output_dir)
+    else:
+        storage = require_free_space(output_dir, runtime["retrieval"])
     prepared = pilot.prepare(root / PILOT_MANIFEST, commit, root=root)
     cpu_content = Path(cpu_control).read_bytes()
     if not re.fullmatch(r"[0-9a-f]{64}", cpu_sha256) or hashlib.sha256(cpu_content).hexdigest() != cpu_sha256:
@@ -179,6 +205,7 @@ def prepare_inputs(commit, cpu_control, cpu_sha256, output_dir, state_dir, *, ro
                                     "batch_size": prepared["manifest"]["execution"]["batch_size"]},
              "cpu_control_sha256": cpu_sha256, "assets": assets,
              "local_storage_preflight": storage,
+             "ssh_storage_directory": ssh_storage_dir,
              "prepared_utc": pilot.utc_now(), "provider_calls_performed": False}
     pilot.write_new_json(output_dir / "preparation.json", value)
     return value
@@ -187,11 +214,11 @@ def prepare_inputs(commit, cpu_control, cpu_sha256, output_dir, state_dir, *, ro
 # This standard-library bootstrap is sent as a command, never written over source.
 # It cannot read credentials, extract links, or include arbitrary paths in retrieval.
 REMOTE_PROGRAM = r'''
-import hashlib, io, json, os, pathlib, re, signal, subprocess, sys, tarfile, time
+import hashlib, io, json, os, pathlib, re, shutil, signal, subprocess, sys, tarfile, time
 mode, base_text = sys.argv[1:3]
 base = pathlib.Path(base_text)
 roots = ('scripts','python','experiments/manifests','experiments/source-transcriptions','docs/experiments/receipts','pyproject.toml','uv.lock','README.md','LICENSE')
-asset = re.compile(r'(?:gpu-control\.json|logs/(?:setup|qualification|collection)\.log|environment/(?:python\.txt|pip-freeze\.txt|nvidia-smi\.txt|torch\.json)|status/[a-z0-9-]+\.json|collection/(?:started|receipt)\.json|collection/batch-[0-9]{4}-profile-[01](?:-checkpoint)?\.(?:json|npz))\Z')
+asset = re.compile(r'(?:gpu-control\.json|logs/(?:setup|qualification|collection)\.log|environment/(?:python\.txt|pip-freeze\.txt|nvidia-smi\.txt|torch\.json|storage\.json)|status/[a-z0-9-]+\.json|collection/(?:started|receipt)\.json|collection/batch-[0-9]{4}-profile-[01](?:-checkpoint)?\.(?:json|npz))\Z')
 def safe(name):
  p=pathlib.PurePosixPath(name)
  return bool(name and not p.is_absolute() and '..' not in p.parts and '.' not in p.parts and '\\' not in name and str(p)==name)
@@ -207,6 +234,42 @@ def digest(path):
  return h.hexdigest()
 def new_json(path,value):
  with path.open('x') as f: json.dump(value,f,sort_keys=True)
+def identity(pid):
+ try:
+  value=pathlib.Path('/proc')/str(pid)/'stat'; raw=value.read_text(); fields=raw[raw.rfind(')')+2:].split()
+  return {'pid':pid,'pgid':int(fields[2]),'session':int(fields[3]),'start_ticks':fields[19],'boot_id':pathlib.Path('/proc/sys/kernel/random/boot_id').read_text().strip(),'state':fields[0]}
+ except (OSError,ValueError,IndexError): return None
+def same_process(record):
+ current=identity(record['pid'])
+ return current is not None and current['state']!='Z' and all(current[k]==record[k] for k in ('pid','pgid','session','start_ticks','boot_id'))
+def process_group_members(record):
+ if record['pgid']!=record['pid'] or record['session']!=record['pid']: raise RuntimeError('recorded child lacks dedicated session/group')
+ if pathlib.Path('/proc/sys/kernel/random/boot_id').read_text().strip()!=record['boot_id']: raise RuntimeError('owned group boot identity changed')
+ members=[]
+ for path in pathlib.Path('/proc').iterdir():
+  if not path.name.isdigit(): continue
+  current=identity(int(path.name))
+  if current is not None and current['state']!='Z' and current['pgid']==record['pgid']:
+   if current['session']!=record['session'] or int(current['start_ticks'])<int(record['start_ticks']): raise RuntimeError('ambiguous process group identity')
+   members.append(current)
+ return members
+def stop_owned(record,group=False):
+ if not same_process(record):
+  current=identity(record['pid'])
+  if current is not None and current['state']!='Z': raise RuntimeError('owned process identity changed; refusing signal')
+  if group and process_group_members(record): raise RuntimeError('owned group outlived identifiable leader; snapshot refused')
+  return
+ if group: process_group_members(record)
+ for sig,seconds in ((signal.SIGTERM,8),(signal.SIGKILL,5)):
+  if not same_process(record):
+   if group and process_group_members(record): raise RuntimeError('owned group remains after leader exit; snapshot refused')
+   return
+  try: os.killpg(record['pid'],sig) if group else os.kill(record['pid'],sig)
+  except ProcessLookupError: return
+  end=time.monotonic()+seconds
+  while time.monotonic()<end and (bool(process_group_members(record)) if group else same_process(record)): time.sleep(.05)
+ if same_process(record) or (group and process_group_members(record)): raise RuntimeError('owned writer group failed to stop')
+child_program="import json,os,pathlib,sys; p=pathlib.Path('/proc/self/stat'); raw=p.read_text(); f=raw[raw.rfind(')')+2:].split(); r={'pid':os.getpid(),'pgid':os.getpgrp(),'session':os.getsid(0),'start_ticks':f[19],'boot_id':pathlib.Path('/proc/sys/kernel/random/boot_id').read_text().strip(),'state':f[0]}; out=open(sys.argv[1],'x'); json.dump(r,out); out.flush(); os.fsync(out.fileno()); out.close(); argv=json.loads(sys.argv[2]); os.execvpe(argv[0],argv,os.environ)"
 if mode=='init':
  base.mkdir(mode=0o700)
  for name in ('incoming','results','results/logs','results/environment','results/status'): (base/name).mkdir(mode=0o700)
@@ -233,29 +296,62 @@ elif mode=='extract':
  new_json(base/'results/status/staged.json',{'verified':True,'files':expected})
 elif mode=='stage':
  spec=json.loads(sys.argv[3]); started=time.monotonic(); end=started+spec['seconds']; ok=True
+ new_json(base/'results/status'/(spec['name']+'-supervisor.json'),identity(os.getpid()))
+ def interrupted(signum,frame): raise KeyboardInterrupt('owned stage interrupted')
+ signal.signal(signal.SIGTERM,interrupted); signal.signal(signal.SIGHUP,interrupted)
  env=dict(os.environ); env['PYTHONPATH']='.:python'; env.pop('SSH_AUTH_SOCK',None); env.pop('RUNPOD_API_KEY',None)
  with (base/'results/logs'/ (spec['name']+'.log')).open('xb') as log:
   for step in spec['steps']:
-   stamp=time.monotonic(); stdout=log; owned=None; code=-1; failure=None
+   stamp=time.monotonic(); stdout=log; owned=None; code=-1; failure=None; p=None
    try:
     if 'stdout' in step:
      if not asset.fullmatch(step['stdout']) or not step['stdout'].startswith('environment/'): raise RuntimeError('invalid environment output')
      owned=(base/'results'/step['stdout']).open('xb'); stdout=owned
     if stamp>=end: raise TimeoutError('stage deadline')
-    p=subprocess.Popen(step['argv'],cwd=base/'source',env=env,stdout=stdout,stderr=log,start_new_session=True)
+    child_path=base/'results/status'/(spec['name']+'-'+step['name']+'-child.json')
+    new_json(base/'results/status'/(spec['name']+'-'+step['name']+'-launch.json'),{'child_file':child_path.name})
+    p=subprocess.Popen([sys.executable,'-c',child_program,str(child_path),json.dumps(step['argv'])],cwd=base/'source',env=env,stdout=stdout,stderr=log,start_new_session=True)
     try: code=p.wait(timeout=max(0.001,end-time.monotonic()))
     except subprocess.TimeoutExpired:
      os.killpg(p.pid,signal.SIGTERM)
      try: p.wait(timeout=20)
      except subprocess.TimeoutExpired: os.killpg(p.pid,signal.SIGKILL); p.wait(timeout=5)
      raise TimeoutError('owned stage process group exceeded deadline')
-   except Exception as e: failure={'type':type(e).__name__,'message':str(e)}
+   except BaseException as e: failure={'type':type(e).__name__,'message':str(e)}
    finally:
+    if p is not None and p.poll() is None:
+     record=identity(p.pid)
+     if record is not None: stop_owned(record,True)
+     p.wait(timeout=5)
     if owned: owned.close()
    new_json(base/'results/status'/(spec['name']+'-'+step['name']+'.json'),{'returncode':code,'elapsed_seconds':time.monotonic()-stamp,'failure':failure})
    if code!=0 or failure: ok=False; break
  new_json(base/'results/status'/(spec['name']+'.json'),{'passed':ok,'elapsed_seconds':time.monotonic()-started})
  sys.exit(0 if ok else 1)
+elif mode=='quiesce':
+ # Stop exact saved supervisors first, so they cannot launch another writer.
+ for path in sorted((base/'results/status').glob('*-supervisor.json')): stop_owned(json.loads(path.read_text()))
+ for path in sorted((base/'results/status').glob('*-launch.json')):
+  name=json.loads(path.read_text())['child_file']
+  if name!=path.name.replace('-launch.json','-child.json'): raise RuntimeError('owned child filename identity mismatch')
+  child=base/'results/status'/name; end=time.monotonic()+5
+  while not child.exists() and time.monotonic()<end: time.sleep(.05)
+  if not child.exists():
+   status=path.with_name(path.name.replace('-launch.json','.json'))
+   if not status.exists(): raise RuntimeError('unresolved owned launch; no quiescent snapshot')
+   continue
+  stop_owned(json.loads(child.read_text()),True)
+ for path in sorted((base/'results/status').glob('*-child.json')):
+  if process_group_members(json.loads(path.read_text())): raise RuntimeError('owned writer group remains live')
+ print(json.dumps({'quiescent':True}))
+elif mode=='storage':
+ required=json.loads(sys.argv[3])['minimum_worker_free_bytes']
+ if required!=9663676416: raise RuntimeError('unexpected frozen worker space gate')
+ usage=shutil.disk_usage(base/'results'); stat=os.statvfs(base/'results')
+ result={'available_bytes':usage.free,'required_bytes':required,'free_inodes':stat.f_favail,'passed':usage.free>=required and stat.f_favail>=2001}
+ new_json(base/'results/environment/storage.json',result)
+ print(json.dumps(result))
+ sys.exit(0 if result['passed'] else 1)
 elif mode=='snapshot':
  rows=[]
  for pattern in ('status/*.json','collection/*-checkpoint.json','collection/started.json','collection/receipt.json','gpu-control.json'):
@@ -576,15 +672,19 @@ def validate_retrieved_collection(directory, inventory, prepared):
     return {"complete": True, "candidate_count": len(ids), "profile_batch_count": len(batches) * len(profiles)}
 
 
-def workload(prepared, output_dir):
+def workload(prepared, output_dir, *, evidence_store=None):
     output_dir = Path(output_dir)
 
     def execute(pod, store, progress):
         del pod  # Re-read exact-owned provider state; never trust an alternative host.
-        nonce = worker.owned_record(store)["nonce"]
+        owned = worker.owned_record(store)
+        nonce = owned["nonce"]
         if not re.fullmatch(r"[0-9a-f]{32}", nonce):
             raise DeploymentError("invalid owned nonce")
         base = "/workspace/butterfly-exp477-" + nonce
+        if evidence_store is not None:
+            evidence_store.binding.update(task_worker_id=owned["pod_id"], task_worker_name=owned["name"],
+                                          task_worker_nonce=nonce, source_commit=prepared["source_commit"])
         receipt = {"schema": "butterfly.symbolic-cloud-workload.v1", "started_utc": pilot.utc_now(),
                    "source_commit": prepared["source_commit"], "remote_directory": base,
                    "stages": [], "retrieval_verified": False, "complete_raw_closure_verified": False,
@@ -606,6 +706,11 @@ def workload(prepared, output_dir):
                 if stage["name"] == "collection":
                     probe = ssh.call("python3 -c " + shlex.quote("import json,sys; p=json.load(open(sys.argv[1])); assert p.get('mode')=='gpu' and p.get('passed') is True and p['benchmark']['projected_collection_seconds_with_margin']<=2400.0") + " " + shlex.quote(base + "/results/gpu-control.json"))
                     del probe
+                    storage = json.loads(ssh.call(remote_command("storage", base,
+                            {"minimum_worker_free_bytes": prepared["runtime"]["minimum_worker_free_bytes"]})).stdout)
+                    if storage.get("passed") is not True:
+                        raise DeploymentError("worker lacks space/inodes for retained raw collection")
+                    receipt["worker_storage_preflight"] = storage
                     receipt["target_collection_started"] = True
                 ssh.monitored(remote_command("stage", base, stage), log_path=output_dir / (stage["name"] + "-ssh.log"),
                               seconds=stage["seconds"] + 45, progress=progress, base=base)
@@ -616,24 +721,52 @@ def workload(prepared, output_dir):
         finally:
             if ssh is not None and ssh.strict:
                 try:
-                    archive = output_dir / "retrieved.tar"
-                    ssh.monitored(remote_command("pack", base, prepared["runtime"]["retrieval"]),
-                                  log_path=output_dir / "retrieval-ssh.log", seconds=STAGE_SECONDS["retrieval"],
-                                  progress=progress, base=base, binary_output=archive,
-                                  maximum_bytes=archive_byte_limit(prepared["runtime"]["retrieval"]))
-                    inventory = extract_retrieval(archive, output_dir / "retrieved", prepared["runtime"]["retrieval"])
-                    receipt["retrieval_verified"] = True
-                    receipt["retrieved_file_count"] = len(inventory["assets"])
-                    receipt["retrieval_archive"] = describe(archive)
+                    quiet = json.loads(ssh.call(remote_command("quiesce", base), timeout=120).stdout)
+                    if quiet.get("quiescent") is not True:
+                        raise DeploymentError("owned writers were not proven quiescent; snapshot refused")
+                    receipt["owned_writers_quiescent"] = True
+                    command = remote_command("pack", base, prepared["runtime"]["retrieval"])
+                    if evidence_store is None:
+                        archive = output_dir / "retrieved.tar"
+                        ssh.monitored(command, log_path=output_dir / "retrieval-ssh.log", seconds=STAGE_SECONDS["retrieval"],
+                                      progress=progress, base=base, binary_output=archive,
+                                      maximum_bytes=archive_byte_limit(prepared["runtime"]["retrieval"]))
+                        inventory = extract_retrieval(archive, output_dir / "retrieved", prepared["runtime"]["retrieval"])
+                        receipt["retrieval_verified"] = True
+                        receipt["retrieved_file_count"] = len(inventory["assets"])
+                        receipt["retrieval_archive"] = describe(archive)
+                        receipt["raw_closure"] = validate_retrieved_collection(output_dir / "retrieved", inventory, prepared)
+                        receipt["complete_raw_closure_verified"] = True
+                    else:
+                        retrieval_started = time.monotonic()
+                        try:
+                            receipt["remote_transfer"] = evidence_store.receive(ssh.argv(command),
+                                    seconds=STAGE_SECONDS["retrieval"] - 300, progress=progress)
+                        except (Exception, SystemExit, KeyboardInterrupt) as error:
+                            receipt["transfer_failure"] = {"type": type(error).__name__, "message": str(error)}
+                        remaining = STAGE_SECONDS["retrieval"] - (time.monotonic() - retrieval_started)
+                        if remaining <= 0:
+                            raise TimeoutError("remote evidence retrieval deadline")
+                        result = evidence_store.finalize(seconds=remaining)
+                        receipt["remote_storage"] = result
+                        receipt["retrieval_verified"] = result.get("retrieval_verified") is True
+                        if receipt["retrieval_verified"]:
+                            remaining = STAGE_SECONDS["retrieval"] - (time.monotonic() - retrieval_started)
+                            if remaining <= 0:
+                                raise TimeoutError("compact evidence retrieval deadline")
+                            inventory = evidence_store.retain_compact_receipts(seconds=remaining)
+                            receipt["retrieved_file_count"] = len(inventory["assets"])
+                            receipt["complete_raw_closure_verified"] = result.get("complete_raw_closure_verified") is True
+                            receipt["raw_closure"] = result.get("raw_closure")
+                        if not receipt["complete_raw_closure_verified"]:
+                            raise DeploymentError("remote raw evidence is retained but incomplete or unqualified")
                     progress("retrieval-hashes-verified")
-                    receipt["raw_closure"] = validate_retrieved_collection(output_dir / "retrieved", inventory, prepared)
-                    receipt["complete_raw_closure_verified"] = True
                 except (Exception, SystemExit, KeyboardInterrupt) as error:
                     receipt["retrieval_failure"] = {"type": type(error).__name__, "message": str(error)}
             else:
                 receipt["retrieval_failure"] = {"type": "Unavailable", "message": "no authenticated pinned SSH session was established"}
             receipt["finished_utc"] = pilot.utc_now()
-            receipt["passed"] = ("failure" not in receipt and receipt["retrieval_verified"]
+            receipt["passed"] = ("failure" not in receipt and "transfer_failure" not in receipt and receipt["retrieval_verified"]
                                  and receipt["complete_raw_closure_verified"])
             pilot.write_new_json(output_dir / "workload.json", receipt)
         return receipt
@@ -648,16 +781,27 @@ def main(argv=None):
     parser.add_argument("--cpu-control-sha256", required=True)
     parser.add_argument("--state-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--ssh-storage-dir", help="fresh /home/ubuntu/butterfly-research/<run> evidence directory on ubuntu@prax")
     action = parser.add_mutually_exclusive_group()
-    action.add_argument("--prepare-only", action="store_true", help="prepare locally without provisioning (default)")
+    action.add_argument("--prepare-only", action="store_true", help="prepare without provisioning; --ssh-storage-dir also stages small remote control files (default)")
     action.add_argument("--execute", action="store_true", help="explicitly authorize dispatch to the bounded owned-worker controller")
     args = parser.parse_args(argv)
-    prepared = prepare_inputs(args.source_commit, args.cpu_control, args.cpu_control_sha256, args.output_dir, args.state_dir)
+    prepared = prepare_inputs(args.source_commit, args.cpu_control, args.cpu_control_sha256, args.output_dir, args.state_dir,
+                              ssh_storage_dir=args.ssh_storage_dir)
+    evidence_store = None
+    if args.ssh_storage_dir is not None:
+        inventory = json.loads((args.output_dir / "prepared-inputs/source-inventory.json").read_bytes())
+        evidence_store = ssh_storage.SshEvidenceStore(args.ssh_storage_dir, local_control_directory=args.output_dir)
+        evidence_store.prepare(prepared, (args.output_dir / "prepared-inputs/cpu-control.json").read_bytes(),
+                               helper_sha256=inventory["files"]["scripts/symbolic_ssh_storage.py"])
     if not args.execute:
         print(json.dumps({"prepared": True, "provider_calls_performed": False, "output_dir": str(args.output_dir)}))
         return 0
-    require_free_space(args.output_dir, prepared["runtime"]["retrieval"])
-    result = worker.run_owned_worker(prepared["plan"], args.state_dir, workload(prepared, args.output_dir))
+    if evidence_store is None:
+        require_free_space(args.output_dir, prepared["runtime"]["retrieval"])
+    else:
+        require_local_control_space(args.output_dir)
+    result = worker.run_owned_worker(prepared["plan"], args.state_dir, workload(prepared, args.output_dir, evidence_store=evidence_store))
     state = worker.Store(args.state_dir).read()
     pilot.write_new_json(args.output_dir / "lifecycle-summary.json", {
         "termination_verified": state.get("termination_verified"), "pod_id": state.get("pod_id"),

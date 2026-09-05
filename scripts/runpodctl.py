@@ -24,6 +24,19 @@ GRAPHQL_URL = "https://api.runpod.io/graphql"
 DEFAULT_IMAGE = "runpod/pytorch:2.8.0-py3.11-cuda12.8.1-cudnn-devel-ubuntu22.04"
 
 
+class RunpodHTTPError(SystemExit):
+    """Redacted CLI-compatible API failure with an actual HTTP status.
+
+    Callers may distinguish an authoritative response from transport errors
+    without parsing provider text. No raw body, header, key, or request URL
+    is retained beyond the already-redacted human-readable message.
+    """
+
+    def __init__(self, status_code: int, redacted_message: str):
+        self.status_code = status_code
+        super().__init__(redacted_message)
+
+
 def load_local_env(path: Path = Path(".env")) -> None:
     if not path.exists():
         return
@@ -83,8 +96,8 @@ def request_json(
             return None if not raw else json.loads(raw)
     except urllib.error.HTTPError as error:
         message = error.read().decode("utf-8", errors="replace")
-        raise SystemExit(
-            f"Runpod API returned HTTP {error.code}: {redact_key(message, key)}"
+        raise RunpodHTTPError(
+            error.code, f"Runpod API returned HTTP {error.code}: {redact_key(message, key)}"
         ) from None
     except urllib.error.URLError as error:
         raise SystemExit(f"Runpod request failed: {redact_key(str(error), key)}") from None

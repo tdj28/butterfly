@@ -10,6 +10,7 @@ import numpy as np
 import pytest
 
 from scripts import run_symbolic_center_pilot as pilot
+from scripts.analyze_symbolic_remote_collection import RemoteCollectionAssets
 
 
 COMMIT = "a" * 40
@@ -90,6 +91,122 @@ def collect_fixture(tmp_path, prepared):
     receipt = pilot.collect(prepared, directory)
     assert receipt["collection_passed"]
     return directory, pilot.sha256_file(directory / "receipt.json"), receipt
+
+
+class FixtureEvidenceStore:
+    """Read-only synthetic stand-in for prax: never opens a network connection."""
+
+    def __init__(self, directory):
+        self.directory = directory
+        self.inventory = {"assets": [{"path": "collection/" + path.name,
+                                       "bytes": path.stat().st_size, "sha256": pilot.sha256_file(path)}
+                                      for path in sorted(directory.iterdir())]}
+        self.audits = 0
+        self.fetched = []
+
+    def audit(self):
+        for row in self.inventory["assets"]:
+            path = self.directory / Path(row["path"]).name
+            if not path.is_file() or path.stat().st_size != row["bytes"] or pilot.sha256_file(path) != row["sha256"]:
+                raise ValueError("synthetic full inventory hash/size mismatch")
+        self.audits += 1
+        return deepcopy(self.inventory)
+
+    def fetch_asset(self, row, destination, *, maximum_bytes):
+        assert self.audits >= 1
+        assert row in self.inventory["assets"] and row["bytes"] <= maximum_bytes
+        source = self.directory / Path(row["path"]).name
+        with destination.open("xb") as stream:
+            stream.write(source.read_bytes())
+        self.fetched.append(row["path"])
+        return destination
+
+
+def test_remote_provider_matches_local_output_exactly_and_eviction_preserves_originals(
+        tmp_path, prepared, fake_runtime, monkeypatch):
+    monkeypatch.setattr(pilot, "utc_now", lambda: "2000-01-01T00:00:00Z")
+    monkeypatch.setattr(pilot.time, "monotonic", lambda: 0.0)
+    directory, digest, _ = collect_fixture(tmp_path, prepared)
+    store = FixtureEvidenceStore(directory)
+    originals = {path.name: path.read_bytes() for path in directory.iterdir()}
+    monkeypatch.setattr(pilot, "integrate_gpu", lambda *args, **kwargs: pytest.fail("analysis may not call GPU"))
+    local = pilot.analyze(prepared, directory, digest, tmp_path / "local-analysis")
+    cache_parent = tmp_path / "cache"
+    cache_parent.mkdir()
+    with RemoteCollectionAssets(store, cache_parent=cache_parent) as provider:
+        def fitting(*args):
+            assert store.audits == 1  # Entire immutable inventory checked before the first fit.
+            raw_copies = list(cache_parent.rglob("*.npz"))
+            assert len(raw_copies) == 1
+            assert not any(name.endswith(".npz") for name in store.fetched[:5])
+            return fake_fit(*args)
+        monkeypatch.setattr(pilot, "_profile_row", fitting)
+        remote = pilot.analyze(prepared, None, digest, tmp_path / "remote-analysis", asset_provider=provider)
+        assert provider.full_audits_completed == 2
+        assert provider.peak_cache_bytes <= provider.maximum_asset_bytes
+    assert remote["passed"] and remote == local
+    local_files = {path.name: path.read_bytes() for path in (tmp_path / "local-analysis").iterdir()}
+    remote_files = {path.name: path.read_bytes() for path in (tmp_path / "remote-analysis").iterdir()}
+    assert local_files == remote_files
+    assert list(cache_parent.iterdir()) == []
+    assert originals == {path.name: path.read_bytes() for path in directory.iterdir()}
+
+
+def test_remote_provider_does_not_relax_collection_source_equality(tmp_path, prepared, fake_runtime, monkeypatch):
+    directory, digest, _ = collect_fixture(tmp_path, prepared)
+    store = FixtureEvidenceStore(directory)
+    changed_source = deepcopy(prepared)
+    changed_source["source"]["commit"] = "b" * 40
+    monkeypatch.setattr(pilot, "_profile_row", lambda *args: pytest.fail("different source must not fit"))
+    with RemoteCollectionAssets(store, cache_parent=tmp_path) as provider:
+        result = pilot.analyze(changed_source, None, digest, tmp_path / "analysis", asset_provider=provider)
+    assert result["status"] == "failed" and result["nomination_result"] is None
+    assert "source binding mismatch" in result["failure"]["message"]
+    assert store.fetched == ["collection/receipt.json"]
+
+
+@pytest.mark.parametrize("asset", ["receipt.json", "batch-0000-profile-0.json", "batch-0000-profile-0.npz"])
+@pytest.mark.parametrize("mutation", ["changed", "missing"])
+def test_remote_provider_rejects_all_changed_or_missing_originals_before_fit(
+        tmp_path, prepared, fake_runtime, monkeypatch, asset, mutation):
+    directory, digest, _ = collect_fixture(tmp_path, prepared)
+    store = FixtureEvidenceStore(directory)
+    path = directory / asset
+    if mutation == "changed":
+        with path.open("ab") as stream:
+            stream.write(b" ")
+    else:
+        path.unlink()  # Synthetic fixture only; never an original research asset.
+    monkeypatch.setattr(pilot, "_profile_row", lambda *args: pytest.fail("bad evidence must not be fitted"))
+    with RemoteCollectionAssets(store, cache_parent=tmp_path) as provider:
+        result = pilot.analyze(prepared, None, digest, tmp_path / "analysis", asset_provider=provider)
+    assert result["status"] == "failed" and result["nomination_result"] is None
+    assert "hash/size mismatch" in result["failure"]["message"]
+    assert not store.fetched
+    assert not list(tmp_path.glob("butterfly-exp477-analysis-*"))
+
+
+@pytest.mark.parametrize("asset", ["receipt.json", "batch-0000-profile-0.json", "batch-0000-profile-0.npz", "started.json"])
+@pytest.mark.parametrize("mutation", ["changed", "missing"])
+def test_remote_provider_rehashes_even_undownloaded_originals_after_fit(
+        tmp_path, prepared, fake_runtime, asset, mutation):
+    directory, digest, _ = collect_fixture(tmp_path, prepared)
+    store = FixtureEvidenceStore(directory)
+    def mutate():
+        if mutation == "changed":
+            with (directory / asset).open("ab") as stream:
+                stream.write(b" ")
+        else:
+            (directory / asset).unlink()  # Synthetic fixture only.
+    with RemoteCollectionAssets(store, cache_parent=tmp_path) as provider:
+        result = pilot.analyze(prepared, None, digest, tmp_path / "analysis",
+                               source_recheck=mutate, asset_provider=provider)
+    assert result["status"] == "failed" and result["nomination_result"] is None
+    assert not result["passed"]
+    assert result["completed_candidate_ids"] == ["p-0", "p-1", "p-2"]
+    assert "mismatch" in result["failure"]["message"] or result["failure"]["type"] == "FileNotFoundError"
+    assert "collection/started.json" not in store.fetched
+    assert not list(tmp_path.glob("butterfly-exp477-analysis-*"))
 
 
 @pytest.mark.parametrize("kind", ["time_order", "fractional_seed", "out_of_range_seed"])

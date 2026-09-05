@@ -155,6 +155,9 @@ def test_http_error_redacts_raw_and_query_encoded_credentials(monkeypatch: pytes
     assert key not in str(error.value)
     assert encoded not in str(error.value)
     assert str(error.value).count("[REDACTED]") == 2
+    assert isinstance(error.value, runpodctl.RunpodHTTPError)
+    assert error.value.status_code == 403
+    assert set(vars(error.value)) == {"status_code"}
 
 
 def test_graphql_error_redacts_json_escaped_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -183,3 +186,4 @@ def test_url_error_redacts_query_credentials(monkeypatch: pytest.MonkeyPatch) ->
         runpodctl.request_json("GET", "https://example.invalid")
     assert encoded not in str(error.value)
     assert "[REDACTED]" in str(error.value)
+    assert not isinstance(error.value, runpodctl.RunpodHTTPError)

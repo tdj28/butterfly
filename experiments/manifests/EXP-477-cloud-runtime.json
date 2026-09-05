@@ -30,5 +30,19 @@
     "docs/experiments/receipts", "pyproject.toml", "uv.lock", "README.md", "LICENSE"
   ],
   "retrieval": {"maximum_total_bytes": 8589934592, "maximum_files": 2000},
-  "scope": "One task-owned secure A40; known-anchor deployment qualification precedes raw EXP-477 collection. No CPU fitting on the GPU host. Retrieve and hash-verify partial or complete evidence before callback return and owned teardown; no automatic worker retry. Managed Python patch and the extra pinned CUDA overlay are recorded, not claimed to be locked by uv.lock."
+  "minimum_worker_free_bytes": 9663676416,
+  "remote_evidence": {
+    "host": "ubuntu@prax",
+    "base_directory": "/home/ubuntu/butterfly-research",
+    "minimum_local_free_bytes": 2147483648,
+    "minimum_remote_free_bytes": 17722933248,
+    "maximum_cached_asset_bytes": 268435456,
+    "maximum_control_bytes": 4194304
+  },
+  "post_termination_archive": {
+    "maximum_transfer_seconds": 7200,
+    "gpu_termination_required": true,
+    "retain_local_originals": true
+  },
+  "scope": "One task-owned secure A40; known-anchor deployment qualification precedes raw EXP-477 collection. No CPU fitting on the GPU host or shared evidence server. Optional explicit prax storage retains the full bounded archive and extracted raw files; the Mac relays bytes without a bulk local copy and analyzes one bounded cached raw profile at a time. Retrieve and hash-verify partial or complete evidence before callback return and owned teardown; no automatic worker retry. Managed Python patch and the extra pinned CUDA overlay are recorded, not claimed to be locked by uv.lock."
 }

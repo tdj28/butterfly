@@ -1,0 +1,78 @@
+{
+  "attempt_producer_sha256": {
+    "scripts/execute_symbolic_center_cloud.py": "5d15d331d374becc2330f2b1593d01e8e126af0222656e42f10bf82c3fcb521d",
+    "scripts/runpod_symbolic_worker.py": "28f095ac6946c7532a615ab614457ef142d19cdea1aed19a1e7b63fe14a880ea"
+  },
+  "budget": {
+    "actual_hourly_usd": null,
+    "actual_rate_status": "unavailable: deployment never qualified",
+    "conditional_prorated_upper_estimate_usd": 0.000710642209,
+    "estimate_assumption": "actual hourly rate at or below the requested cap; continuous prorating over the recorded interval",
+    "estimate_limitations": "actual provider rate, minimum charges, billing rounding, and additional charges are unverified",
+    "is_invoice": false,
+    "maximum_hourly_usd": 0.5,
+    "maximum_lifetime_seconds": 10800,
+    "maximum_spend_usd": 3.0,
+    "storage_transfer_reserve_usd": 1.5
+  },
+  "create": {
+    "attempted": true,
+    "contract_qualified": false,
+    "create_or_contract_failed": true,
+    "failure_detail": "specific failing provider fields were not retained in these input receipts",
+    "immutable_ownership_consistent": true,
+    "owned_worker_id": "b03jtnuv8qws5q"
+  },
+  "evidence_boundary": {
+    "basis": "failure before contract qualification; no workload receipt exists",
+    "scientific_result": false,
+    "source_uploads_performed": false,
+    "target_collection_started": false,
+    "workload_callback_reached": false
+  },
+  "experiment_id": "EXP-477",
+  "frozen_source_commit": "b53bfabf441e5afe756b7cfaec69f0a6989690e5",
+  "input_hashes": {
+    "lifecycle": {
+      "bytes": 2670,
+      "sha256": "9dcf125fa67f67834502d993fc5ccc0aa892b85f45342afbb01cfc146574fe4e"
+    },
+    "ownership": {
+      "bytes": 300,
+      "sha256": "271d38043a9412ae93c8e19b37cb3a67fe9d30e21f05041396178966836fdef6"
+    },
+    "preparation": {
+      "bytes": 18185,
+      "sha256": "11986f6a86f20b8b57f3d6a19d01382444ea05da82e0ffe9d37743e9ec2d60e6"
+    },
+    "source_inventory": {
+      "bytes": 156695,
+      "sha256": "6f16d97a19eb3d2b0845cb1ecfeb23d4de64b0a6210abdaf8ad71f9cdc8742f7"
+    }
+  },
+  "privacy": {
+    "private_record_contents_copied": false,
+    "unrelated_resource_ids_published": false
+  },
+  "producer": {
+    "path": "scripts/summarize_symbolic_attempt.py",
+    "sha256": "1611c0b775b36a80829961f7e664071bb7acaa648c4f86e3ee35bd304fd93501"
+  },
+  "schema": "butterfly.symbolic-deployment-attempt-summary.v1",
+  "status": "deployment_not_qualified",
+  "teardown": {
+    "delete_request_completed": true,
+    "direct_lookup": "HTTP 404",
+    "known_watchdog_processes_exited": true,
+    "local_watchdog_service_absent": true,
+    "owned_worker_absent_from_inventory": true,
+    "unrelated_resources_mutated": false,
+    "verified": true
+  },
+  "timing": {
+    "basis": "saved controller wall-clock timestamps; not provider billing timestamps",
+    "create_attempt_to_verified_absence_seconds": 5.1166239,
+    "create_attempted_utc": "2026-09-05T14:04:12.042276+00:00",
+    "termination_verified_utc": "2026-09-05T14:04:17.158900+00:00"
+  }
+}
