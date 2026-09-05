@@ -315,6 +315,16 @@ This adds `fig31-exp475-independent-homoclinic.png` and its generation receipt.
 Its parameter shifts show observed finite-radius/discretization sensitivity,
 not confidence intervals or rigorous error bounds.
 
+Regenerate the EXP-476 incomplete-grid figure using only its checked-in compact
+summary (no raw artifact download or orbit computation required):
+
+    uv run --locked python scripts/plot_homoclinic_refinement_grid.py
+
+This adds `fig32-exp476-homoclinic-refinement.png` and its generation receipt.
+The figure preserves five passed, one failed, and three skipped cases. Its
+parameter-shift panel uses only the fully qualified radius `0.01` sequence;
+neither endpoint-radius comparison is qualified.
+
 ## Promoted experiment figures
 
 The remaining images are metadata-stripped publication copies of existing

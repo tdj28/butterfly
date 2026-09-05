@@ -8,21 +8,23 @@ record, including failed experiments and corrected interpretations.
 
 ## Start here
 
-- Download the built PDF from [research core v1](https://github.com/tdj28/butterfly/releases/tag/research-core-v1).
+- Download the current built PDF from [the EXP-476 research checkpoint](https://github.com/tdj28/butterfly/releases/tag/research-exp476).
+  The previous [research core v1 PDF](https://github.com/tdj28/butterfly/releases/tag/research-core-v1)
+  remains unchanged.
 - [`manuscript.tex`](manuscript.tex) builds the combined article and supplement.
 - [`sections/01-introduction.tex`](sections/01-introduction.tex) introduces the
   question and historical context.
 - [`sections/02-mathematical-objects.tex`](sections/02-mathematical-objects.tex)
   defines the measurements and includes a short vocabulary table.
 - [`sections/04-results.tex`](sections/04-results.tex) presents the main visual
-  argument, with eight central figures and their limitations.
+  argument, with nine central figures and their limitations.
 - [`sections/06-discussion.tex`](sections/06-discussion.tex) summarizes what the
   evidence changes for the original claims.
 
-The main narrative is approximately 4,100 words, including captions. It uses
+The main narrative is approximately 4,400 words, including captions. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
-The 4 September 2026 build is 60 pages: 13 pages of main article followed by
+The 4 September 2026 build is 61 pages: 14 pages of main article followed by
 the technical supplement and references.
 
 ## Technical supplement
@@ -48,12 +50,12 @@ without requiring a reader to reconstruct the whole chronology first.
 
 ## Figures and references
 
-All **31 earlier scientific figures** remain, with a new independent-homoclinic
-comparison bringing the total to **32**: eight in the main article and 24 in
+All **31 earlier scientific figures** remain, with independent-homoclinic and
+accuracy-grid comparisons bringing the total to **33**: nine in the main article and 24 in
 the supplement. Supplementary figures use S-prefixed
 numbers, while asset filenames and generation receipts keep their stable
 historical identifiers. No scientific image or figure receipt was changed by
-the narrative reorganization; EXP-475 adds a separate new figure.
+the narrative reorganization; EXP-475 and EXP-476 add separate new figures.
 
 [figures/README.md](figures/README.md) lists regeneration commands and source
 hashes. [supplement/](supplement/) contains the existing animation materials.
