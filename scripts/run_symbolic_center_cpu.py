@@ -104,7 +104,7 @@ def main():
                   "passed": all(row["passed"] for row in rows),
                   "scope": "adapter equivalence to existing CPU reference; not independent solver replication"}
         pilot.write_new_json(args.output_dir / "receipt.json", result)
-        print(json.dumps(result))
+        print(pilot.encoded_json(result).decode(), end="")
         return 0 if result["passed"] else 2
     if args.qualification is None or pilot.sha256_file(args.qualification) != args.qualification_sha256:
         parser.error("hash-bound CPU adapter qualification required")

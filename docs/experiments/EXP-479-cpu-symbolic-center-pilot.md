@@ -41,3 +41,9 @@ arrow. Historical-section flow and partition tests remain the next stage.
 Implementations: `scripts/run_symbolic_center_cpu.py` and
 `scripts/launch_symbolic_cpu.py`; plan:
 `experiments/manifests/EXP-479-cpu-symbolic-center-pilot.json`.
+
+Pre-target CLI rehearsal at `b4aa063` saved a passing qualification with exact
+zero state/time differences but failed printing NumPy Boolean diagnostics to
+stdout. The saved receipt and frozen worktree are retained. The repair uses
+the existing NumPy-aware JSON encoder, with a real qualification CLI regression;
+a fresh source-bound qualification must exit successfully before targets.
