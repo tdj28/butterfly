@@ -62,6 +62,8 @@ inputs; historical result reproduction is a separate requirement.
 - [ ] Execute the separately frozen, raw-retaining
   [EXP-477 center scout](experiments/EXP-477-symbolic-center-pilot.md), then
   qualify any nomination on the historical section before word comparison.
+  The [SSH storage amendment](updates/2026-09-05-prax-evidence-storage.md)
+  prepares the authorized `prax` destination while keeping analysis local.
 - [ ] Define the two-dimensional first-return map and the precise scalar
   projection or quotient used for critical-point claims. Quantify when a scalar
   coordinate is not a single-valued map; report conditional spread/support.

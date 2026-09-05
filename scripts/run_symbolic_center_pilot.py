@@ -8,6 +8,7 @@ must enforce any hard spending/runtime cap. No automatic retry or resume exists.
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
 from datetime import UTC, datetime
 import hashlib
 import json
@@ -427,8 +428,38 @@ def load_raw(path, expected_ids, parent):
             "recorded_angles": angles}
 
 
-def analyze(prepared, collection_dir, collection_sha256, output_dir, *, source_recheck=None):
-    """Fit only locally retained, hash-bound raw evidence; never call a GPU."""
+class LocalCollectionAssets:
+    """Original local-file I/O behind the same bounded-provider interface."""
+
+    def __init__(self, directory):
+        self.directory = Path(directory)
+
+    def receipt_bytes(self, expected_sha256):
+        path = self.directory / "receipt.json"
+        if not re.fullmatch(r"[0-9a-f]{64}", expected_sha256) or sha256_file(path) != expected_sha256:
+            raise ValueError("collection receipt hash mismatch")
+        return path.read_bytes()
+
+    def verify_assets(self, descriptors):
+        for descriptor in descriptors:
+            collection_file(self.directory, descriptor)
+
+    def metadata_bytes(self, descriptor):
+        return collection_file(self.directory, descriptor).read_bytes()
+
+    @contextmanager
+    def materialize(self, descriptor):
+        yield collection_file(self.directory, descriptor)
+
+
+def analyze(prepared, collection_dir, collection_sha256, output_dir, *, source_recheck=None,
+            asset_provider=None):
+    """Fit hash-bound evidence locally; optional provider changes only input I/O.
+
+    Providers must verify all immutable assets before fitting, return verified
+    metadata bytes, and materialize only one raw profile per context. The full
+    original receipt/asset set is checked again before any nomination result.
+    """
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=False)
     manifest, parent, candidates = (prepared[key] for key in ("manifest", "parent", "candidates"))
@@ -445,16 +476,14 @@ def analyze(prepared, collection_dir, collection_sha256, output_dir, *, source_r
     combined = []
     active_ids = []
     metadata_assets = []
+    assets = LocalCollectionAssets(collection_dir) if asset_provider is None else asset_provider
 
     def check_time(stage):
         if time.monotonic() >= deadline:
             raise TimeoutError(f"cooperative analysis budget exhausted at {stage}")
 
     try:
-        collection_path = Path(collection_dir) / "receipt.json"
-        if not re.fullmatch(r"[0-9a-f]{64}", collection_sha256) or sha256_file(collection_path) != collection_sha256:
-            raise ValueError("collection receipt hash mismatch")
-        collection = json.loads(collection_path.read_bytes())
+        collection = json.loads(assets.receipt_bytes(collection_sha256))
         if (collection.get("schema") != "butterfly.symbolic-center-collection.v1"
                 or collection.get("status") != "completed" or collection.get("collection_passed") is not True
                 or collection.get("nomination_performed") is not False):
@@ -468,17 +497,16 @@ def analyze(prepared, collection_dir, collection_sha256, output_dir, *, source_r
         if observed_ids != expected_ids or collection["completed_candidate_ids"] != expected_ids:
             raise ValueError("collection must contain each frozen candidate exactly once in order")
         # Validate every immutable asset before the first fit, not after finding a candidate.
+        metadata_assets = [metadata[key] for batch in collection["batches"]
+                           for metadata in batch["profiles"] for key in ("metadata_file", "raw")]
+        assets.verify_assets(metadata_assets)
         for batch in collection["batches"]:
             if len(batch["profiles"]) != len(parent["profiles"]):
                 raise ValueError("collection lacks the complete profile set")
             for metadata, profile in zip(batch["profiles"], parent["profiles"], strict=True):
-                metadata_path = collection_file(collection_dir, metadata["metadata_file"])
-                metadata_assets.append(metadata["metadata_file"])
-                metadata_assets.append(metadata["raw"])
                 expected_metadata = {key: value for key, value in metadata.items() if key != "metadata_file"}
-                if json.loads(metadata_path.read_bytes()) != expected_metadata:
+                if json.loads(assets.metadata_bytes(metadata["metadata_file"])) != expected_metadata:
                     raise ValueError("raw metadata content mismatch")
-                collection_file(collection_dir, metadata["raw"])
                 if metadata["validity_passed"] is not True or metadata["profile"] != profile or metadata["candidate_ids"] != batch["candidate_ids"]:
                     raise ValueError("raw metadata validity/profile binding mismatch")
         lookup = {row["id"]: row for row in candidates}
@@ -490,12 +518,14 @@ def analyze(prepared, collection_dir, collection_sha256, output_dir, *, source_r
             files = []
             for index, (metadata, profile) in enumerate(zip(batch["profiles"], parent["profiles"], strict=True)):
                 check_time("profile boundary")
-                raw = load_raw(collection_file(collection_dir, metadata["raw"]), active_ids, parent)
-                if len(raw["recorded_angles"]) and float(np.min(raw["recorded_angles"])) < manifest["validity"]["minimum_normalized_section_transversality"]:
-                    raise ValueError("preserved transversality gate failed")
-                rows = [_profile_row(candidate, raw["records"][j], raw, j, parent, profile,
-                                     parent["return_coordinate"]["axis"])
-                        for j, candidate in enumerate(candidate_batch)]
+                with assets.materialize(metadata["raw"]) as raw_path:
+                    raw = load_raw(raw_path, active_ids, parent)
+                    if len(raw["recorded_angles"]) and float(np.min(raw["recorded_angles"])) < manifest["validity"]["minimum_normalized_section_transversality"]:
+                        raise ValueError("preserved transversality gate failed")
+                    rows = [_profile_row(candidate, raw["records"][j], raw, j, parent, profile,
+                                         parent["return_coordinate"]["axis"])
+                            for j, candidate in enumerate(candidate_batch)]
+                    del raw  # Release the previous profile before loading the next.
                 # An unresolved fit may legitimately contain infinite failure diagnostics.
                 for row in rows:
                     for support in row["supports"]:
@@ -513,10 +543,8 @@ def analyze(prepared, collection_dir, collection_sha256, output_dir, *, source_r
             active_ids = []
         if source_recheck is not None:
             source_recheck()
-        if sha256_file(collection_path) != collection_sha256:
-            raise ValueError("collection receipt changed during analysis")
-        for descriptor in metadata_assets:
-            collection_file(collection_dir, descriptor)
+        assets.receipt_bytes(collection_sha256)
+        assets.verify_assets(metadata_assets)
         check_time("final source check")
         eligible = [row for row in combined if row["eligible"]]
         direct = [row["id"] for row in eligible if row["direct_gate_passed"]]

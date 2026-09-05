@@ -47,6 +47,8 @@ POD_ID = re.compile(r"[A-Za-z0-9_-]{1,128}\Z")
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 CANDIDATE_HASH = "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"
 CANDIDATE_BYTES = 867378
+WATCHDOG_READINESS_MAXIMUM_AGE = 120
+DEFINITIVE_CREATE_REJECTION_STATUSES = frozenset({400, 401, 403, 404, 422})
 
 
 class LifecycleError(RuntimeError):
@@ -55,6 +57,29 @@ class LifecycleError(RuntimeError):
 
 class OwnershipError(LifecycleError):
     pass
+
+
+def control_plane_credential_fingerprint(key_provider=None):
+    """Private local identity binding for a high-entropy control-plane key.
+
+    The key is neither returned nor persisted here. This fingerprint is kept
+    only in the private lifecycle/probe records, never uploaded to a worker
+    or prax and never included in compact public experiment summaries.
+    """
+    provider = runpodctl.api_key if key_provider is None else key_provider
+    value = provider()
+    if not isinstance(value, str) or not value:
+        raise LifecycleError("control-plane credential identity is unavailable")
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def require_credential_binding(record, fingerprint=None):
+    expected = record.get("controller_credential_fingerprint")
+    observed = control_plane_credential_fingerprint() if fingerprint is None else fingerprint
+    if (not isinstance(expected, str) or not SHA256.fullmatch(expected)
+            or observed != expected):
+        raise LifecycleError("local control-plane credential does not match this controller's private identity binding")
+    return observed
 
 
 @contextmanager
@@ -286,6 +311,7 @@ def watchdog_reason(record, heartbeat, now, *, lookup=process_start):
 
 def prepare_store(directory, plan, *, now=None):
     validate_plan(plan)
+    credential_fingerprint = control_plane_credential_fingerprint()
     directory = Path(directory)
     directory.mkdir(mode=0o700, parents=False, exist_ok=False)
     os.chmod(directory, 0o700)
@@ -298,6 +324,7 @@ def prepare_store(directory, plan, *, now=None):
     atomic_json(store.path, {
         "schema": SCHEMA, "nonce": nonce, "name": NAME_PREFIX + nonce,
         "plan": plan, "controller": controller, "prepared_at": timestamp,
+        "controller_credential_fingerprint": credential_fingerprint,
         "last_progress_at": timestamp, "create_attempted": False,
         "pod_id": None, "termination_verified": False,
         "controller_finished": False, "preexisting_ids": [],
@@ -422,13 +449,75 @@ def require_watchdog(store, *, now=None, lookup=process_start):
         raise LifecycleError("durable watchdog has no fresh, live PID/start-time acknowledgement")
     if heartbeat["pid"] == record["controller"]["pid"]:
         raise LifecycleError("watchdog must be a process independent of the controller")
+    try:
+        readiness = json.loads((store.directory / "watchdog-control-plane.json").read_bytes())
+        history_name = readiness.get("history_file", "")
+        if (not re.fullmatch(r"watchdog-probe-[0-9a-f]{32}\.json", history_name)
+                or json.loads((store.directory / history_name).read_bytes()) != readiness):
+            raise ValueError("readiness history is not bound")
+    except (OSError, ValueError, TypeError):
+        raise LifecycleError("watchdog has no preserved authenticated control-plane readiness probe") from None
+    if (readiness.get("schema") != "butterfly.watchdog-control-plane-readiness.v1"
+            or readiness.get("passed") is not True
+            or readiness.get("credential_fingerprint") != record.get("controller_credential_fingerprint")
+            or not isinstance(readiness.get("credential_fingerprint"), str)
+            or not SHA256.fullmatch(readiness["credential_fingerprint"])
+            or readiness.get("method") != "GET" or readiness.get("operation") != "inventory"
+            or not fresh_identity(readiness, record, stamp,
+                                  maximum_age=WATCHDOG_READINESS_MAXIMUM_AGE, lookup=lookup)
+            or readiness.get("pid") != heartbeat["pid"]
+            or readiness.get("ps_start") != heartbeat["ps_start"]):
+        raise LifecycleError("this live watchdog has not authenticated its own recent read-only inventory")
+
+
+def probe_watchdog_control_plane(store, request=runpodctl.request_json, *, lookup=process_start, clock=time.time):
+    """One read-only readiness call by the watchdog itself, never the controller.
+
+    launchd does not inherit the controller's exported shell credentials. Its
+    own successful authenticated request proves that the local environment or
+    WorkingDirectory/.env is available to it. No key, provider body, or list
+    of unrelated resources is copied into these private local probe records.
+    Every start gets a unique history file, retaining failed/pending attempts.
+    """
+    record = store.read()
+    pid, started = os.getpid(), lookup(os.getpid())
+    if started is None or pid == record["controller"]["pid"]:
+        raise LifecycleError("readiness must be probed by an independently identified watchdog process")
+    history = "watchdog-probe-" + uuid.uuid4().hex + ".json"
+    path = store.directory / history
+    probe = {"schema": "butterfly.watchdog-control-plane-readiness.v1",
+             "nonce": record["nonce"], "pid": pid, "ps_start": started,
+             "time": clock(), "started_at": clock(), "method": "GET", "operation": "inventory",
+             "passed": False, "status": "pending", "history_file": history}
+    # Reserve the history name exclusively before making any request.
+    descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(descriptor, "wb") as stream:
+        stream.write((json.dumps(probe, sort_keys=True, indent=2) + "\n").encode())
+        stream.flush()
+        os.fsync(stream.fileno())
+    atomic_json(store.directory / "watchdog-control-plane.json", probe)
+    try:
+        probe["credential_fingerprint"] = require_credential_binding(record)
+        inventory(request)
+        require_credential_binding(record)
+    except (Exception, SystemExit) as error:
+        probe.update(status="failed", time=clock(), failure={"kind": type(error).__name__,
+                     "message": "watchdog read-only control-plane authentication/readiness failed; provider details suppressed"})
+        atomic_json(path, probe)
+        atomic_json(store.directory / "watchdog-control-plane.json", probe)
+        raise LifecycleError("watchdog read-only control-plane readiness failed") from None
+    probe.update(status="completed", time=clock(), passed=True)
+    atomic_json(path, probe)
+    atomic_json(store.directory / "watchdog-control-plane.json", probe)
+    return probe
 
 
 def reconcile_ambiguous_create(store, request=runpodctl.request_json):
     """Never retry POST; recover only a new exact-name AND public-key match."""
     record = store.read()
-    if not record.get("create_attempted") or record.get("pod_id"):
+    if not record.get("create_attempted") or record.get("pod_id") or create_was_definitively_rejected(record):
         return record.get("pod_id")
+    require_credential_binding(record)
     matches = []
     for row in inventory(request):
         if row["id"] in record["preexisting_ids"] or row.get("name") != record["name"]:
@@ -447,9 +536,20 @@ def reconcile_ambiguous_create(store, request=runpodctl.request_json):
     return identifier
 
 
+def create_was_definitively_rejected(record):
+    response = record.get("create_response")
+    return (isinstance(response, dict) and record.get("create_attempted") is True
+            and record.get("pod_id") is None
+            and response.get("kind") == "authoritative-rejection"
+            and response.get("method") == "POST" and response.get("operation") == "create-pod"
+            and type(response.get("http_status")) is int
+            and response["http_status"] in DEFINITIVE_CREATE_REJECTION_STATUSES)
+
+
 def provision_once(store, request=runpodctl.request_json, *, lookup=process_start, now=None):
     timestamp = lambda: time.time() if now is None else now
     stamp = timestamp()
+    require_credential_binding(store.read())
     require_watchdog(store, now=stamp, lookup=lookup)
     rows = inventory(request)
     stamp = timestamp()
@@ -467,11 +567,22 @@ def provision_once(store, request=runpodctl.request_json, *, lookup=process_star
     # Recheck actual watchdog liveness immediately before the create request.
     try:
         require_watchdog(store, now=timestamp(), lookup=lookup)
+        require_credential_binding(store.read())
     except LifecycleError:
         store.update(create_aborted_before_post=True)
         raise
     try:
-        response = request("POST", f"{runpodctl.REST_BASE}/pods", payload=create_payload(record))
+        try:
+            response = request("POST", f"{runpodctl.REST_BASE}/pods", payload=create_payload(record))
+        except runpodctl.RunpodHTTPError as error:
+            # Only this specific POST's structured response establishes a
+            # rejected create. A later lookup/contract 4xx does not. Transport,
+            # 5xx, 408/409/429, malformed replies, and text-only SystemExit
+            # outcomes remain ambiguous; this record never retries its POST.
+            if error.status_code in DEFINITIVE_CREATE_REJECTION_STATUSES:
+                store.update(create_response={"kind": "authoritative-rejection", "method": "POST",
+                             "operation": "create-pod", "http_status": error.status_code})
+            raise
         if not isinstance(response, dict):
             raise OwnershipError("create response did not contain an ownership record")
         identifier = provider_id(response.get("id"))
@@ -494,6 +605,13 @@ def provision_once(store, request=runpodctl.request_json, *, lookup=process_star
 def terminate_owned(store, request=runpodctl.request_json, *, attempts=6, pause=time.sleep):
     record = store.read()
     identifier = record.get("pod_id")
+    if create_was_definitively_rejected(record):
+        if (store.directory / "ownership.json").exists():
+            raise OwnershipError("create rejection conflicts with an existing ownership receipt")
+        store.update(termination_verified=True,
+                     termination_reason="authoritative create-pod HTTP rejection; no worker was created",
+                     create_rejection_http_status=record["create_response"]["http_status"])
+        return True
     if identifier is None:
         identifier = reconcile_ambiguous_create(store, request)
     if identifier is None:
@@ -503,6 +621,7 @@ def terminate_owned(store, request=runpodctl.request_json, *, attempts=6, pause=
         store.update(termination_verified=False, teardown_error="create outcome remains unresolved")
         return False
     record = owned_record(store)
+    require_credential_binding(record)
     pod = direct_lookup(identifier, request)
     if pod is not None:
         assert_owned(record, pod)
@@ -530,9 +649,10 @@ def terminate_owned(store, request=runpodctl.request_json, *, attempts=6, pause=
     return False
 
 
-def launchd_watchdog(store, *, root=ROOT, timeout=25):
+def launchd_watchdog(store, *, root=ROOT, timeout=60):
     if sys.platform != "darwin":
         raise LifecycleError("durable watchdog requires macOS launchd; no detached-process substitute")
+    store.update(watchdog_start_attempted_at=time.time(), watchdog_start_status="preparing")
     runtime = store.directory / "watchdog-runtime"
     runtime.mkdir(mode=0o700)
     for source, leaf in ((Path(__file__), "runpod_symbolic_worker.py"),
@@ -559,39 +679,133 @@ def launchd_watchdog(store, *, root=ROOT, timeout=25):
             pass
         os.chmod(store.directory / leaf, 0o600)
     store.update(launchd_label=label, launchd_service=f"gui/{os.getuid()}/{label}")
-    subprocess.run(["/bin/launchctl", "bootstrap", f"gui/{os.getuid()}", str(plist)],
-                   check=True, capture_output=True, timeout=10)
+    store.update(watchdog_start_status="bootstrap-attempted")
+    try:
+        subprocess.run(["/bin/launchctl", "bootstrap", f"gui/{os.getuid()}", str(plist)],
+                       check=True, capture_output=True, timeout=10)
+    except (OSError, subprocess.SubprocessError) as error:
+        store.update(watchdog_start_status="bootstrap-failed", watchdog_start_failure={
+            "kind": type(error).__name__, "message": "launchd bootstrap failed; process details retained privately"})
+        raise
+    store.update(watchdog_start_status="awaiting-authenticated-readiness")
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
         try:
             require_watchdog(store)
+            store.update(watchdog_start_status="authenticated-readiness-confirmed")
             return
         except LifecycleError:
             time.sleep(0.2)
-    raise LifecycleError("launchd watchdog did not establish independent liveness before the deadline")
+    store.update(watchdog_start_status="authenticated-readiness-timeout", watchdog_start_failure={
+        "kind": "ReadinessTimeout", "message": "launchd watchdog did not establish independent authenticated readiness before the deadline"})
+    raise LifecycleError("launchd watchdog did not establish independent authenticated readiness before the deadline")
 
 
-def retire_watchdog(store):
+def launchd_service_state(service, *, seconds=5):
+    """Read one exact service; generic launchctl failure is not absence.
+
+    On this macOS launchctl, an unknown GUI service returns 113 and names
+    the exact service/domain in its diagnostic. Permission/domain/transport
+    errors retain an uncertain outcome rather than masquerading as absence.
+    """
+    result = subprocess.run(["/bin/launchctl", "print", service], check=False,
+                            capture_output=True, text=True, timeout=seconds,
+                            env={**os.environ, "LC_ALL": "C"})
+    if result.returncode == 0:
+        match = re.search(r"^\s*pid = ([1-9][0-9]*)\s*$", result.stdout, re.MULTILINE)
+        return "present", int(match.group(1)) if match else None
+    label = service.rsplit("/", 1)[1]
+    absence = f'Could not find service "{label}" in domain for user gui: {os.getuid()}'
+    if result.returncode == 113 and absence in result.stderr.splitlines():
+        return "absent", None
+    raise LifecycleError("exact launchd service absence could not be established")
+
+
+def retire_watchdog(store, *, timeout=45, lookup=process_start, pause=time.sleep, clock=time.monotonic):
+    """Request exact-service removal, then verify it and known process exit."""
     record = store.read()
     if not record.get("termination_verified"):
         raise LifecycleError("cannot retire watchdog while cloud termination is unconfirmed")
     service = record.get("launchd_service")
-    if service:
-        expected = f"gui/{os.getuid()}/io.butterfly.exp477.{record['nonce']}"
-        if service != expected:
-            raise OwnershipError("launchd service does not match this task's unique record")
-        subprocess.run(["/bin/launchctl", "bootout", service], check=False, capture_output=True, timeout=10)
+    expected = f"gui/{os.getuid()}/io.butterfly.exp477.{record['nonce']}"
+    if service is not None and service != expected:
+        raise OwnershipError("launchd service does not match this task's unique record")
+    # Even failed startup is checked against its one deterministically owned
+    # service name; no broad launchd or process inventory is inspected.
+    service = expected
+    timeout = finite_number(timeout, "local watchdog retirement timeout", minimum=1, maximum=60)
+    deadline = clock() + timeout
+    identities = []
+    retirement = {"service": service, "requested": False, "verified": False,
+                  "started_at": time.time(), "known_processes": identities}
+    store.update(local_watchdog_retirement=retirement)
+    try:
+        for role in ("watchdog", "control-plane-probe"):
+            if role == "watchdog":
+                candidate = heartbeat_record(store, "watchdog")
+            else:
+                try:
+                    candidate = json.loads((store.directory / "watchdog-control-plane.json").read_bytes())
+                except (OSError, ValueError):
+                    candidate = None
+            if (isinstance(candidate, dict) and candidate.get("nonce") == record["nonce"]
+                    and type(candidate.get("pid")) is int and candidate["pid"] > 1
+                    and isinstance(candidate.get("ps_start"), str) and candidate["ps_start"]):
+                identity = {"pid": candidate["pid"], "ps_start": candidate["ps_start"], "role": role}
+                if not any((row["pid"], row["ps_start"]) == (identity["pid"], identity["ps_start"]) for row in identities):
+                    identities.append(identity)
+        before, launcher_pid = launchd_service_state(service, seconds=min(5, max(0.001, deadline-clock())))
+        retirement["service_before"] = before
+        if launcher_pid is not None:
+            started = lookup(launcher_pid)
+            if started is not None:
+                identities.append({"pid": launcher_pid, "ps_start": started, "role": "launchd-caffeinate"})
+        retirement["requested"] = True
+        store.update(local_watchdog_retirement=retirement)
+        result = subprocess.run(["/bin/launchctl", "bootout", service], check=False,
+                                capture_output=True, timeout=min(10, max(0.001, deadline-clock())))
+        retirement["bootout_returncode"] = result.returncode
+        # The bootout return code alone proves neither service nor PID exit.
+        while clock() < deadline:
+            state, _pid = launchd_service_state(service, seconds=min(5, max(0.001, deadline-clock())))
+            remaining = [identity for identity in identities if identity_alive(identity, lookup)]
+            retirement["service_absence_verified"] = state == "absent"
+            retirement["known_process_exit_verified"] = not remaining
+            if state == "absent" and not remaining:
+                retirement.update(verified=True, finished_at=time.time())
+                store.update(local_watchdog_retirement=retirement)
+                return
+            pause(min(0.2, max(0.001, deadline-clock())))
+        raise LifecycleError("local watchdog service/process retirement remains unconfirmed")
+    except (Exception, SystemExit) as error:
+        retirement.update(failure={"kind": type(error).__name__,
+                          "message": "local watchdog retirement was not verified; only the exact owned service may be retried"})
+        store.update(local_watchdog_retirement=retirement)
+        raise
     # The task key is local and has no authority outside this terminated worker.
     # Retain it in the private record directory for explicit operator retirement;
     # it is never included in a transfer/retrieval or public receipt allowlist.
 
 
 def watchdog_loop(store):
+    record = store.read()
+    if record.get("termination_verified"):
+        return 0
+    if not record.get("create_attempted"):
+        probe_watchdog_control_plane(store)
+    # A restarted watchdog after an attempted create must supervise/teardown
+    # immediately even when inventory readiness cannot currently be probed.
+    # Its new PID cannot authorize another create using an older probe.
     while True:
         write_heartbeat(store, role="watchdog")
         record = store.read()
         if record.get("termination_verified"):
             return 0
+        try:
+            require_credential_binding(record)
+        except (Exception, SystemExit):
+            store.update(watchdog_credential_binding_failed=True)
+            raise LifecycleError("watchdog credential identity changed; no wrong-account supervision or teardown is permitted") from None
         reason = watchdog_reason(record, heartbeat_record(store, "controller"), time.time())
         if reason is None and record.get("pod_id"):
             try:

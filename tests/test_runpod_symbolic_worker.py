@@ -2,10 +2,15 @@
 
 import json
 from pathlib import Path
+import subprocess
 
 import pytest
 
 from scripts import runpod_symbolic_worker as worker
+
+
+REAL_CREDENTIAL_FINGERPRINT = worker.control_plane_credential_fingerprint
+SYNTHETIC_CREDENTIAL_FINGERPRINT = "f" * 64
 
 
 @pytest.fixture(autouse=True)
@@ -13,6 +18,7 @@ def no_credentials_or_network(monkeypatch, tmp_path):
     monkeypatch.setattr(worker.runpodctl, "api_key", lambda: pytest.fail("credentials must not be read"))
     monkeypatch.setattr(worker.runpodctl.urllib.request, "urlopen", lambda *_a, **_k: pytest.fail("network forbidden"))
     monkeypatch.setattr(worker, "CONTROLLER_LOCK_PATH", tmp_path / "shared-controller.lock")
+    monkeypatch.setattr(worker, "control_plane_credential_fingerprint", lambda: SYNTHETIC_CREDENTIAL_FINGERPRINT)
 
 
 def plan():
@@ -31,6 +37,7 @@ def store(tmp_path):
     worker.atomic_json(result.path, {
         "schema": worker.SCHEMA, "nonce": "unique", "name": worker.NAME_PREFIX + "unique",
         "plan": plan(), "controller": {"pid": 123, "ps_start": "controller-start"},
+        "controller_credential_fingerprint": SYNTHETIC_CREDENTIAL_FINGERPRINT,
         "prepared_at": 80.0, "last_progress_at": 90.0, "create_attempted": False,
         "pod_id": None, "termination_verified": False, "controller_finished": False,
         "preexisting_ids": [], "public_key": "ssh-ed25519 AAAA synthetic-key",
@@ -39,6 +46,13 @@ def store(tmp_path):
                        {"nonce": "unique", "pid": 123, "ps_start": "controller-start", "time": 100.0})
     worker.atomic_json(directory / "watchdog-heartbeat.json",
                        {"nonce": "unique", "pid": 456, "ps_start": "watchdog-start", "time": 100.0})
+    readiness = {"schema": "butterfly.watchdog-control-plane-readiness.v1",
+                 "nonce": "unique", "pid": 456, "ps_start": "watchdog-start", "time": 100.0,
+                 "passed": True, "method": "GET", "operation": "inventory",
+                 "credential_fingerprint": SYNTHETIC_CREDENTIAL_FINGERPRINT,
+                 "history_file": "watchdog-probe-" + "a" * 32 + ".json"}
+    worker.atomic_json(directory / readiness["history_file"], readiness)
+    worker.atomic_json(directory / "watchdog-control-plane.json", readiness)
     return result
 
 
@@ -342,3 +356,302 @@ def test_linux_cannot_substitute_an_ordinary_detached_watchdog(store, monkeypatc
     monkeypatch.setattr(worker.sys, "platform", "linux")
     with pytest.raises(worker.LifecycleError, match="macOS launchd"):
         worker.launchd_watchdog(store)
+
+
+@pytest.mark.parametrize("mutation", ["missing", "failed", "pid", "reused", "stale", "history", "method"])
+def test_live_watchdog_without_its_own_bound_authenticated_probe_prevents_every_provider_call(store, mutation):
+    path = store.directory / "watchdog-control-plane.json"
+    readiness = json.loads(path.read_bytes())
+    if mutation == "missing":
+        path.unlink()
+    else:
+        if mutation == "failed": readiness["passed"] = False
+        elif mutation == "pid": readiness["pid"] = 123
+        elif mutation == "reused": readiness["ps_start"] = "different-start"
+        elif mutation == "stale": readiness["time"] = -100
+        elif mutation == "method": readiness["method"] = "POST"
+        worker.atomic_json(path, readiness)
+        if mutation != "history":
+            worker.atomic_json(store.directory / readiness["history_file"], readiness)
+        else:
+            (store.directory / readiness["history_file"]).unlink()
+    provider = Provider(store)
+    with pytest.raises(worker.LifecycleError, match="watchdog"):
+        worker.provision_once(store, provider, lookup=lookup, now=100)
+    assert not provider.calls
+    assert not store.read()["create_attempted"]
+
+
+def test_watchdog_probe_uses_one_get_and_preserves_a_private_key_free_history(store, monkeypatch):
+    monkeypatch.setattr(worker.os, "getpid", lambda: 456)
+    calls = []
+    def authenticated_inventory(method, url):
+        calls.append((method, url))
+        return [{"id": "unrelated", "env": {"SECRET": "must-not-retain"}}]
+    probe = worker.probe_watchdog_control_plane(store, authenticated_inventory, lookup=lookup, clock=lambda: 100)
+    assert calls == [("GET", worker.runpodctl.REST_BASE + "/pods?includeMachine=true")]
+    assert probe["passed"] and probe["pid"] == 456
+    history = store.directory / probe["history_file"]
+    assert json.loads(history.read_bytes()) == probe
+    assert history.stat().st_mode & 0o077 == 0
+    assert "must-not-retain" not in history.read_text()
+    assert "unrelated" not in history.read_text()
+    worker.require_watchdog(store, now=100, lookup=lookup)
+
+
+def test_failed_probe_details_are_suppressed_and_history_survives_success(store, monkeypatch):
+    monkeypatch.setattr(worker.os, "getpid", lambda: 456)
+    def failed_inventory(*_args):
+        raise SystemExit("synthetic secret text must not be recorded")
+    with pytest.raises(worker.LifecycleError, match="readiness failed"):
+        worker.probe_watchdog_control_plane(store, failed_inventory, lookup=lookup, clock=lambda: 100)
+    failed = json.loads((store.directory / "watchdog-control-plane.json").read_bytes())
+    assert not failed["passed"] and failed["status"] == "failed"
+    original = (store.directory / failed["history_file"]).read_bytes()
+    assert b"synthetic secret" not in original
+    with pytest.raises(worker.LifecycleError):
+        worker.require_watchdog(store, now=100, lookup=lookup)
+    passed = worker.probe_watchdog_control_plane(store, lambda *_args: [], lookup=lookup, clock=lambda: 101)
+    assert passed["history_file"] != failed["history_file"]
+    assert (store.directory / failed["history_file"]).read_bytes() == original
+
+
+def test_controller_cannot_substitute_its_own_authentication_for_watchdog_readiness(store, monkeypatch):
+    monkeypatch.setattr(worker.os, "getpid", lambda: 123)
+    with pytest.raises(worker.LifecycleError, match="independently identified"):
+        worker.probe_watchdog_control_plane(store, lambda *_args: pytest.fail("controller must not probe"), lookup=lookup)
+
+
+def test_fresh_watchdog_probes_before_heartbeat_and_existing_create_recovery_does_not_wait(store, monkeypatch):
+    events = []
+    def probe(_store):
+        events.append("authenticated-inventory")
+    def heartbeat(_store, *, role):
+        events.append(role + "-heartbeat")
+        store.update(termination_verified=True)
+    monkeypatch.setattr(worker, "probe_watchdog_control_plane", probe)
+    monkeypatch.setattr(worker, "write_heartbeat", heartbeat)
+    assert worker.watchdog_loop(store) == 0
+    assert events == ["authenticated-inventory", "watchdog-heartbeat"]
+    store.update(termination_verified=False, create_attempted=True)
+    events.clear()
+    assert worker.watchdog_loop(store) == 0
+    assert events == ["watchdog-heartbeat"]
+
+
+def test_launchd_start_allows_one_thirty_second_probe_and_retains_bootstrap_failure(store, monkeypatch):
+    import inspect
+    assert inspect.signature(worker.launchd_watchdog).parameters["timeout"].default >= 45
+    monkeypatch.setattr(worker.sys, "platform", "darwin")
+    def bootstrap_failed(*_args, **_kwargs):
+        raise subprocess.CalledProcessError(1, "launchctl", stderr="synthetic private diagnostic")
+    monkeypatch.setattr(worker.subprocess, "run", bootstrap_failed)
+    with pytest.raises(subprocess.CalledProcessError):
+        worker.launchd_watchdog(store)
+    record = store.read()
+    assert record["watchdog_start_status"] == "bootstrap-failed"
+    assert "synthetic private diagnostic" not in json.dumps(record)
+
+
+@pytest.mark.parametrize("status", [400, 401, 403, 404, 422])
+def test_authoritative_create_rejection_closes_record_without_retry_or_deletion(store, status):
+    calls = []
+    def rejected(method, url, *, payload=None):
+        calls.append(method)
+        if method == "GET":
+            return []
+        if method == "POST":
+            raise worker.runpodctl.RunpodHTTPError(status, "synthetic private provider response")
+        pytest.fail("rejected create must not trigger a DELETE")
+    with pytest.raises(worker.runpodctl.RunpodHTTPError):
+        worker.provision_once(store, rejected, lookup=lookup, now=100)
+    assert calls == ["GET", "POST"]
+    assert worker.terminate_owned(store, rejected)
+    assert calls == ["GET", "POST"]
+    record = store.read()
+    assert record["termination_verified"] and record["create_rejection_http_status"] == status
+    assert record["create_attempted"] and record["pod_id"] is None
+    assert "private provider response" not in json.dumps(record)
+    with pytest.raises(worker.LifecycleError, match="already attempted"):
+        worker.provision_once(store, rejected, lookup=lookup, now=100)
+    assert calls.count("POST") == 1
+
+
+@pytest.mark.parametrize("error", [
+    worker.runpodctl.RunpodHTTPError(500, "server error"),
+    worker.runpodctl.RunpodHTTPError(503, "unavailable"),
+    worker.runpodctl.RunpodHTTPError(408, "request timeout"),
+    worker.runpodctl.RunpodHTTPError(409, "conflict"),
+    worker.runpodctl.RunpodHTTPError(429, "rate limit"),
+    SystemExit("Runpod API returned HTTP 403: only untyped text"),
+    TimeoutError("connection timed out"),
+])
+def test_uncertain_create_outcomes_remain_unresolved_and_never_retry(store, error):
+    calls = []
+    def uncertain(method, url, *, payload=None):
+        calls.append(method)
+        if method == "GET":
+            return []
+        if method == "POST":
+            raise error
+        pytest.fail("no exact ownership means no DELETE")
+    with pytest.raises((Exception, SystemExit)):
+        worker.provision_once(store, uncertain, lookup=lookup, now=100)
+    assert not worker.create_was_definitively_rejected(store.read())
+    assert not worker.terminate_owned(store, uncertain)
+    assert not store.read()["termination_verified"]
+    assert calls.count("POST") == 1
+    assert "DELETE" not in calls
+
+
+def test_later_get_4xx_cannot_reclassify_a_successful_create_as_rejected(store):
+    provider = Provider(store)
+    def missing_contract_permission(method, url, *, payload=None):
+        if method == "GET" and url.endswith("/created-owned"):
+            raise worker.runpodctl.RunpodHTTPError(403, "lookup not permitted")
+        return provider(method, url, payload=payload)
+    with pytest.raises(worker.runpodctl.RunpodHTTPError):
+        worker.provision_once(store, missing_contract_permission, lookup=lookup, now=100)
+    assert store.read()["pod_id"] == "created-owned"
+    assert not worker.create_was_definitively_rejected(store.read())
+    assert not store.read()["termination_verified"]
+
+
+def service_for(store):
+    return f"gui/{worker.os.getuid()}/io.butterfly.exp477.{store.read()['nonce']}"
+
+
+def absent_service_result(service):
+    from types import SimpleNamespace
+    return SimpleNamespace(returncode=113, stdout="", stderr=(
+        "Bad request.\nCould not find service \"" + service.rsplit("/", 1)[1]
+        + f"\" in domain for user gui: {worker.os.getuid()}\n"))
+
+
+def test_retirement_checks_exact_service_and_both_watchdog_and_caffeinate_identity_exit(store, monkeypatch):
+    from types import SimpleNamespace
+    service = service_for(store)
+    store.update(termination_verified=True, launchd_service=service)
+    commands = []
+    responses = iter([SimpleNamespace(returncode=0, stdout="\tpid = 789\n", stderr=""),
+                      SimpleNamespace(returncode=0), absent_service_result(service)])
+    def run(argv, **_kwargs):
+        commands.append(argv)
+        return next(responses)
+    def process_identity(pid):
+        # Capture launcher identity before bootout; afterward both are gone.
+        return "launcher-start" if pid == 789 and len(commands) == 1 else None
+    monkeypatch.setattr(worker.subprocess, "run", run)
+    worker.retire_watchdog(store, lookup=process_identity)
+    record = store.read()["local_watchdog_retirement"]
+    assert record["requested"] and record["verified"]
+    assert record["service_absence_verified"] and record["known_process_exit_verified"]
+    assert {row["pid"] for row in record["known_processes"]} == {456, 789}
+    assert commands == [["/bin/launchctl", "print", service], ["/bin/launchctl", "bootout", service],
+                        ["/bin/launchctl", "print", service]]
+
+
+def test_nonzero_launchctl_permission_failure_cannot_be_called_service_absence(store, monkeypatch):
+    from types import SimpleNamespace
+    store.update(termination_verified=True, launchd_service=service_for(store))
+    monkeypatch.setattr(worker.subprocess, "run", lambda *_args, **_kwargs: SimpleNamespace(
+        returncode=5, stdout="", stderr="Input/output error"))
+    with pytest.raises(worker.LifecycleError, match="absence could not"):
+        worker.retire_watchdog(store, lookup=lambda _pid: None)
+    record = store.read()["local_watchdog_retirement"]
+    assert not record["requested"] and not record["verified"]
+
+
+def test_absent_service_with_still_live_owned_pid_is_not_verified_retired(store, monkeypatch):
+    from types import SimpleNamespace
+    service = service_for(store)
+    store.update(termination_verified=True, launchd_service=service)
+    def run(argv, **_kwargs):
+        return absent_service_result(service) if argv[1] == "print" else SimpleNamespace(returncode=113)
+    monkeypatch.setattr(worker.subprocess, "run", run)
+    stamp = [0.0]
+    def pause(seconds):
+        stamp[0] += seconds
+    with pytest.raises(worker.LifecycleError, match="retirement remains unconfirmed"):
+        worker.retire_watchdog(store, timeout=1, lookup=lookup, clock=lambda: stamp[0], pause=pause)
+    record = store.read()["local_watchdog_retirement"]
+    assert record["requested"] and not record["verified"]
+    assert record["service_absence_verified"] and not record["known_process_exit_verified"]
+
+
+def test_retirement_rejects_wrong_service_before_any_local_mutation(store, monkeypatch):
+    store.update(termination_verified=True, launchd_service="gui/501/unrelated-service")
+    monkeypatch.setattr(worker.subprocess, "run", lambda *_args, **_kwargs: pytest.fail("wrong service touched"))
+    with pytest.raises(worker.OwnershipError):
+        worker.retire_watchdog(store)
+
+
+def test_retirement_treats_reused_pid_as_original_process_exited(store, monkeypatch):
+    from types import SimpleNamespace
+    service = service_for(store)
+    store.update(termination_verified=True, launchd_service=service)
+    monkeypatch.setattr(worker.subprocess, "run", lambda argv, **_kwargs:
+                        absent_service_result(service) if argv[1] == "print" else SimpleNamespace(returncode=113))
+    worker.retire_watchdog(store, lookup=lambda _pid: "different-process-start")
+    assert store.read()["local_watchdog_retirement"]["verified"]
+
+
+def test_private_credential_fingerprint_hashes_only_injected_key():
+    import hashlib
+    secret = "synthetic-high-entropy-key-for-local-test-only"
+    assert REAL_CREDENTIAL_FINGERPRINT(lambda: secret) == hashlib.sha256(secret.encode()).hexdigest()
+    for invalid in (None, "", 123):
+        with pytest.raises(worker.LifecycleError):
+            REAL_CREDENTIAL_FINGERPRINT(lambda: invalid)
+
+
+def test_watchdog_different_credential_cannot_probe_or_authorize_create(store, monkeypatch):
+    monkeypatch.setattr(worker.os, "getpid", lambda: 456)
+    monkeypatch.setattr(worker, "control_plane_credential_fingerprint", lambda: "b" * 64)
+    with pytest.raises(worker.LifecycleError, match="readiness failed"):
+        worker.probe_watchdog_control_plane(store, lambda *_args: pytest.fail("different account must not be queried"),
+                                          lookup=lookup, clock=lambda: 100)
+    assert json.loads((store.directory / "watchdog-control-plane.json").read_bytes())["passed"] is False
+    provider = Provider(store)
+    with pytest.raises(worker.LifecycleError, match="credential"):
+        worker.provision_once(store, provider, lookup=lookup, now=100)
+    assert not provider.calls
+
+
+def test_passing_watchdog_probe_from_another_account_is_rejected_before_create(store):
+    path = store.directory / "watchdog-control-plane.json"
+    readiness = json.loads(path.read_bytes())
+    readiness["credential_fingerprint"] = "b" * 64
+    worker.atomic_json(path, readiness)
+    worker.atomic_json(store.directory / readiness["history_file"], readiness)
+    provider = Provider(store)
+    with pytest.raises(worker.LifecycleError, match="watchdog"):
+        worker.provision_once(store, provider, lookup=lookup, now=100)
+    assert not provider.calls
+
+
+def test_changed_controller_credential_cannot_claim_wrong_account_absence(store, monkeypatch):
+    provider = Provider(store)
+    worker.provision_once(store, provider, lookup=lookup, now=100)
+    before = len(provider.calls)
+    monkeypatch.setattr(worker, "control_plane_credential_fingerprint", lambda: "b" * 64)
+    with pytest.raises(worker.LifecycleError, match="credential"):
+        worker.terminate_owned(store, provider)
+    assert len(provider.calls) == before
+    assert not store.read()["termination_verified"]
+
+
+def test_ambiguous_create_and_restarted_watchdog_cannot_query_another_account(store, monkeypatch):
+    store.update(create_attempted=True, create_attempted_at=100)
+    monkeypatch.setattr(worker, "control_plane_credential_fingerprint", lambda: "b" * 64)
+    with pytest.raises(worker.LifecycleError, match="credential"):
+        worker.reconcile_ambiguous_create(store, lambda *_args: pytest.fail("wrong-account inventory forbidden"))
+    monkeypatch.setattr(worker, "write_heartbeat", lambda *_args, **_kwargs: None)
+    with pytest.raises(worker.LifecycleError, match="wrong-account"):
+        worker.watchdog_loop(store)
+    assert store.read()["watchdog_credential_binding_failed"]
+    assert not store.read()["termination_verified"]
+
+
+def test_fingerprint_is_not_part_of_worker_create_payload(store):
+    assert SYNTHETIC_CREDENTIAL_FINGERPRINT not in json.dumps(worker.create_payload(store.read()))
