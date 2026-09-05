@@ -1,0 +1,77 @@
+{
+  "schema": "butterfly.projected-homoclinic-pilot.v2",
+  "experiment_id": "EXP-476",
+  "source_receipt": {
+    "path": "artifacts/EXP-342/receipt.json",
+    "sha256": "efa36db56b9dc288b973627fc588296656942dd1404191517892470761fd87b1",
+    "experiment_id": "EXP-342",
+    "role": "the same archived path independently reconstructs every initial guess; no grid-case warm starts or old matching residuals"
+  },
+  "fixed_parameters": {"b": 0.2, "c": 10.3084},
+  "physical_bounds": {
+    "a": [0.1823436081740286, 0.1829436081740286],
+    "flight_time": [60.0, 200.0]
+  },
+  "formulation": {
+    "ode": "dy/ds=T*f(y,a), s in [0,1]; fixed b,c",
+    "endpoint_equations": "unchanged EXP-475 ordered-Schur eigenspace projections and two equal endpoint-radius gauges",
+    "unknown_parameters": ["a", "flight_time"],
+    "parameterization": "bounded tanh transformations; saturation cannot pass interiority gate",
+    "discretization": "SciPy solve_bvp fourth-order adaptive collocation; unchanged analytic state/parameter Jacobians and centered transformed-parameter boundary derivative",
+    "independence": "same model and EXP-342 initial trajectory; different boundary formulation/discretization from EXP-342, same formulation as EXP-475",
+    "trajectory_identity_limit": "same seed and nearby parameter do not prove trajectory identity or uniqueness",
+    "no_reused_matching_residual": true
+  },
+  "analytic_controls": {
+    "model": "x'=y, y'=x-x^3+mu*y; exact mu=0 homoclinic x=sqrt(2)*sech(t), y=-sqrt(2)*sech(t)*tanh(t)",
+    "radii": [0.1, 0.05, 0.025],
+    "initial_damping": 0.002,
+    "initial_nodes": 201,
+    "tolerance": 1e-8,
+    "boundary_tolerance": 1e-9,
+    "maximum_nodes": 5000,
+    "maximum_absolute_damping": 1e-8,
+    "require_completed_negative_control": true,
+    "negative_control": "mu constrained to [0.03,0.07] must be numerically rejected; H'=mu*y^2 injects energy. Timeout, exception, or node-cap exhaustion does not qualify as rejection."
+  },
+  "cases": [
+    {"name": "r0.01-tol1e-6", "radius": 0.01, "tolerance": 1e-6},
+    {"name": "r0.01-tol1e-7", "radius": 0.01, "tolerance": 1e-7},
+    {"name": "r0.01-tol1e-8", "radius": 0.01, "tolerance": 1e-8},
+    {"name": "r0.005-tol1e-6", "radius": 0.005, "tolerance": 1e-6},
+    {"name": "r0.005-tol1e-7", "radius": 0.005, "tolerance": 1e-7},
+    {"name": "r0.005-tol1e-8", "radius": 0.005, "tolerance": 1e-8},
+    {"name": "r0.0025-tol1e-6", "radius": 0.0025, "tolerance": 1e-6},
+    {"name": "r0.0025-tol1e-7", "radius": 0.0025, "tolerance": 1e-7},
+    {"name": "r0.0025-tol1e-8", "radius": 0.0025, "tolerance": 1e-8}
+  ],
+  "budget": {
+    "maximum_total_seconds": 300.0,
+    "maximum_trial_seconds": 45.0,
+    "maximum_nodes": 48000,
+    "maximum_seed_step": 0.03,
+    "maximum_state_norm": 1000.0,
+    "stop_on_first_failed_case": true,
+    "deadline_scope": "cooperative callbacks/checks; each target case covers independent seed construction, collocation, and replay; controls and all cases share total deadline; no hard factorization preemption",
+    "hardware": "local CPU only; no paid resources"
+  },
+  "replay": {"method": "DOP853", "rtol": 1e-10, "atol": 1e-12, "segments": 128, "maximum_step": 0.05},
+  "acceptance": {
+    "maximum_scaled_boundary_residual": 1e-8,
+    "minimum_parameter_box_margin": 0.0001,
+    "minimum_excursion": 5.0,
+    "maximum_source_a_difference": 0.00002,
+    "maximum_replay_state_defect": "case_tolerance"
+  },
+  "refinement": {
+    "radii": [0.01, 0.005, 0.0025],
+    "tolerances": [1e-6, 1e-7, 1e-8],
+    "maximum_finest_a_difference": 1e-9,
+    "maximum_contraction_ratio": 0.3,
+    "contraction_absolute_slack": 1e-10,
+    "endpoint_resolution_fraction": 0.25,
+    "empirical_resolution": 1e-9,
+    "endpoint_classification_order": "below_declared_empirical_resolution if radius difference and summed D2 are each <=1e-9; otherwise resolved if summed D2 <=0.25*radius difference; otherwise unresolved. Failed/missing cases are unavailable."
+  },
+  "claim_scope": "The overall pass requires all nine technical cases and fixed-radius discretization gates. Endpoint-effect resolution is a separate reported outcome. Finite-radius solution paths are retained even when replay or comparison fails, and later cases stop after the first technical failure. No parameter-box, tolerance, or resource retuning is permitted after target execution. This measures empirical sensitivity at the initial fixed-c candidate, not a rigorous parameter error bound, homoclinic existence, uniqueness, trajectory identity, Jones's printed coordinate, or the later continuation turn."
+}

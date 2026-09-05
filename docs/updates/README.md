@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-04-homoclinic-accuracy-grid.md`](2026-09-04-homoclinic-accuracy-grid.md)
+  - the nine-case radius/tolerance study, prospective safeguards, and separate
+  numerical and accuracy outcomes.
+
 - [`2026-09-04-reproducible-core-and-readable-paper.md`](2026-09-04-reproducible-core-and-readable-paper.md)
   — a readable illustrated main article, preserved technical supplement,
   public core-data replay, later literature, and the independent homoclinic pilot.
