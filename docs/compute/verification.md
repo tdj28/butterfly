@@ -38,3 +38,10 @@ GraphQL `RESERVED` evidence. SSH setup exposed a missed raw-validator call;
 the consumer is corrected and the real connection path now has a provider-
 shaped regression. Full suite: 1285 passed, one Linux-only skip. Failed worker
 and watchdog teardown verified; no upload or target computation occurred.
+
+EXP-479 adds a default-off CPU adapter and detached-worktree local launcher.
+Both preserved 64-seed control profiles pass through the real adapter. The
+full-size, target-free 8192-seed benchmark retains both raw NPZ profiles with
+zero failed integrations. This is adapter/reference equivalence, not independent
+solver validation. The original CUDA path remains the default and its timing
+metadata is unchanged; CPU metadata explicitly says `elapsed_cpu_seconds`.
