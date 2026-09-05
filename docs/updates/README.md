@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-04-symbolic-chain-restored.md`](2026-09-04-symbolic-chain-restored.md)
+  - restores the source-derived 23-word chain and symbolic mechanism to the
+  main article, distinguishes reported arrows from new validation, and leaves
+  the draft author blank.
+
 - [`2026-09-04-homoclinic-accuracy-grid.md`](2026-09-04-homoclinic-accuracy-grid.md)
   - the nine-case radius/tolerance study, prospective safeguards, and separate
   numerical and accuracy outcomes.

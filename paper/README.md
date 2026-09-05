@@ -8,24 +8,29 @@ record, including failed experiments and corrected interpretations.
 
 ## Start here
 
-- Download the current built PDF from [the EXP-476 research checkpoint](https://github.com/tdj28/butterfly/releases/tag/research-exp476).
-  The previous [research core v1 PDF](https://github.com/tdj28/butterfly/releases/tag/research-core-v1)
-  remains unchanged.
+- Download the current built PDF from [the symbolic-chain manuscript checkpoint](https://github.com/tdj28/butterfly/releases/tag/manuscript-symbolic-v1).
+  Earlier research-checkpoint PDFs remain unchanged as historical artifacts.
 - [`manuscript.tex`](manuscript.tex) builds the combined article and supplement.
 - [`sections/01-introduction.tex`](sections/01-introduction.tex) introduces the
   question and historical context.
 - [`sections/02-mathematical-objects.tex`](sections/02-mathematical-objects.tex)
   defines the measurements and includes a short vocabulary table.
 - [`sections/04-results.tex`](sections/04-results.tex) presents the main visual
-  argument, with nine central figures and their limitations.
+  numerical evidence and its limitations.
+- [`sections/05-topology-tests.tex`](sections/05-topology-tests.tex) restores
+  the symbolic alphabet, reinjection/zero-insertion explanation, and full
+  source-derived chain diagram through period seven to the main article.
 - [`sections/06-discussion.tex`](sections/06-discussion.tex) summarizes what the
   evidence changes for the original claims.
 
-The main narrative is approximately 4,400 words, including captions. It uses
+The main article now includes ten central figures. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
-The 4 September 2026 build is 61 pages: 14 pages of main article followed by
-the technical supplement and references.
+The current draft's title-page author and PDF author metadata are deliberately
+blank. Historical citations still credit Jones and the other original authors.
+The current build is 63 pages: 16 pages of main article, followed by the
+technical supplement and references. The chain is Figure 10 on page 14;
+its explanation starts in Section 5 on page 12.
 
 ## Technical supplement
 
@@ -50,12 +55,15 @@ without requiring a reader to reconstruct the whole chronology first.
 
 ## Figures and references
 
-All **31 earlier scientific figures** remain, with independent-homoclinic and
-accuracy-grid comparisons bringing the total to **33**: nine in the main article and 24 in
+All **31 earlier scientific figures** remain, with independent-homoclinic,
+accuracy-grid, and symbolic-chain figures bringing the total to **34**: ten in the main article and 24 in
 the supplement. Supplementary figures use S-prefixed
 numbers, while asset filenames and generation receipts keep their stable
 historical identifiers. No scientific image or figure receipt was changed by
 the narrative reorganization; EXP-475 and EXP-476 add separate new figures.
+The symbolic-chain redraw uses all 23 words and 14 attributed relationships
+from the frozen Jones Figure 6 transcription. Its styles preserve the original
+evidence categories; it is not a new numerical validation of those arrows.
 
 [figures/README.md](figures/README.md) lists regeneration commands and source
 hashes. [supplement/](supplement/) contains the existing animation materials.

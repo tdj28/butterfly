@@ -26,6 +26,12 @@ supersedes incompatible interpretations in the historical narrative below:
 The detailed rows retain experiment history; the current execution order is
 in [next-steps.md](next-steps.md).
 
+**Symbolic-presentation update:** the main manuscript now displays the full
+23-word source-derived chain and explains the alphabet and zero-insertion
+proposal. This closes a presentation omission, not CLM-010/011's scientific
+acceptance tests. The locally qualified operational alphabet remains distinct
+from a generating partition and from independently validated word/arrow claims.
+
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate
 near `a≈0.1826436`, after analytic positive/negative controls. All four

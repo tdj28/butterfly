@@ -1,44 +1,139 @@
-\section{What would turn the local picture into an explanation?}
+\section{Symbolic dynamics: how the proposed chains connect shrimp}
 \label{sec:mechanism}
 
-The strongest remaining question is causal: does a change in reinjection
-predict which periodic windows connect? A branch count is an observation.
-To explain the spirals, it must be linked to geometry that can be followed
-across parameter space and tested at points not used to define it.
+The symbolic chain is a central part of Jones's proposed explanation, not
+an optional decoration of the parameter atlas. The idea is that following
+a connected spiral changes an orbit in a specific way: an additional
+inner return is inserted, increasing its period by one. The symbolic word
+records where that return appears. Figure~\ref{fig:symbolic-chain} restores
+the finite chain from the original Figure~6
+\citep{jones2012topological}. It is a redraw of the reported construction;
+its arrows are not new numerical results from the present study.
 
-The next local target is the unstable lobe associated with the two/three-branch
-change. We need a signed, convergent measurement of how stable and unstable
-manifolds meet, or of which symbolic trajectories become accessible. Its
-zero or discontinuity should predict the observed branch change. The same
-measurement must survive changes of section and numerical resolution. A
-finite PIM sample that misses a lobe cannot by itself prove the lobe absent
-from the infinite-time invariant set.
+\subsection{Reading an orbit as a word}
 
-The second target is Jones's finite symbolic claim. Symbolic dynamics replaces
-each visit to a return-map branch by a letter or digit, making an orbit into
-a cyclic word. The original Figure 6 has been transcribed into 23 words
-through period seven and their proposed connections. An independently
-constructed alphabet is partly qualified, but the first exact-coordinate
-landmark test does not reproduce the expected word. The source coordinates
-are approximate and the partition is incomplete, so this is a failed
-reproduction at those coordinates rather than a refutation of every
-proposed connection.
+Choose a return section and a scalar representation of its return map.
+Record the branch visited at each return. In Jones's notation, the digits
+$0,1,2$ name branches, $C$ marks the critical point retained from the
+unimodal regime, and $D$ marks the additional critical point in the bimodal
+regime. The source associates $2$ with the third-branch excursion and $0$
+with the innermost deposited return. A word such as $CD001$ has five
+symbols and describes a period-five critical itinerary in that
+representation, not a flight time of five. A word containing both $C$ and
+$D$ is intended to identify a doubly critical itinerary at a shrimp center.
 
-Finite agreement with logistic-map ordering must be tested directly.
+The word is cyclic: choosing another starting point rotates the same
+sequence. Reversing the sequence is a different operation and is not
+silently identified with a rotation. These labels describe a specified
+scalar return representation; they are not automatically invariants under
+changing the section or projecting the full flow differently. Assigning a
+critical symbol to numerical data therefore needs a measured critical
+location and an explicit uncertainty criterion.
+
+\subsection{Why the proposed chain gains one symbol}
+
+Jones's geometric picture is that, as a stable window is followed around
+the parameter-space spiral, the third-branch reinjection moves around the
+central equilibrium. On returning to the two-branch side, the excursion
+leaves an additional inner visit. The original paper illustrates this with
+\begin{equation}
+  C100\ \longrightarrow\ C200\ \longrightarrow\ C1000.
+  \label{eq:jones-insertion-example}
+\end{equation}
+The first change uses the third branch; the second replaces that excursion
+with an extra inner return. This is a proposed period-four to period-five
+connection, not a period doubling.
+
+At the reported doubly critical itineraries, the finite arrows have the
+compact form
+\begin{equation}
+  CDw\ \longrightarrow\ CD0w,
+  \label{eq:jones-zero-insertion}
+\end{equation}
+where $w$ is the unchanged suffix. For example,
+$CD01\to CD001\to CD0001\to CD00001$ connects the reported periods
+four through seven. Ten arrows in the source are reported as matched by
+both state-space geometry and symbols. The eleventh,
+$CD0111\to CD00111$, has only the source's visual-attractor evidence.
+The lower-period links from $C2$ and $C21$, and the separate doubling
+$C1\to CD01$, have distinct styles in the redraw.
+
+The isolated-shrimp origins are also part of the explanation: the source
+proposes that some sequences start new spirals instead of continuing a
+preceding one. Their marked nodes are retained, along with words for which
+no connecting edge was transcribed. A missing edge is left missing; the
+insertion rule is not used to invent a complete network or extrapolate
+the finite construction to all periods.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig33-jones-symbolic-chain.png}
+  \caption{The symbolic chains reported in Jones (2012), Figure~6,
+  redrawn from the frozen source transcription. All 23 words through
+  period seven are retained. Line styles distinguish ten source-matched
+  period-increment arrows, the visual-only arrow, two lower-period
+  third-branch connections, and a separate period doubling. Highlighted
+  nodes retain the source's isolated-shrimp origin marks. Placement is
+  schematic by period, not measured parameter geometry. The ambiguous
+  source coordinate-box associations are not reconstructed. These are
+  attributed historical claims and reproduction targets, not newly
+  validated transitions.}
+  \label{fig:symbolic-chain}
+\end{figure}
+% Source: jones2012-figures-2-and-6.json, SHA-256
+% 6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da.
+
+\subsection{What the modern reconstruction has established}
+
+The local operational alphabet is now qualified, not merely guessed to
+fit the target words. Neutral branches $B_0,B_1,B_2$ were assigned in
+increasing coordinate order, and critical intervals $K_0,K_1$ were
+tracked independently. The source-derived mapping
+\[
+ (B_0,B_1,B_2)\mapsto(2,1,0),\qquad K_1\mapsto C,\quad K_0\mapsto D
+\]
+passes local tests with two solvers, disjoint data segments, and both
+scalar coordinates. That establishes an operational dictionary on the
+recovered section. It does not establish a generating partition or
+validate the 23 words and their connections.
+% Evidence: EXP-183 and EXP-185; FND-056 and FND-057.
+
+At one exact printed landmark, the independently corrected period-six
+orbit gives $010011$ or $C10011$ as the empirical critical interval moves;
+neither matches the frozen source targets. The coordinates in the original
+figure are approximate and were not specified as exact word centers, so
+this failed test does not refute the whole chain. Later bounded searches
+also have not established the required two-critical center. The distinction
+is therefore precise: the alphabet has local support, while the critical
+itineraries and dynamical arrows remain reproduction targets.
+% Evidence: EXP-186 and EXP-202; FND-058 and FND-072.
+
+\subsection{Turning the chain into a tested explanation}
+
+The next symbolic test must locate centers using orbit and critical-point
+measurements without consulting the desired word, then encode the corrected
+orbits and follow each proposed connection. The same experiment should
+retain missing words, failed links, and the first disagreement. A long
+period-doubling cascade cannot substitute for that comparison.
 Related finite ordering was already observed in experimental flows
 \citep{lefranc1994combining}, and two-dimensional return maps can exhibit
 high-period orderings unavailable to one-dimensional unimodal maps
-\citep{holmes1984bifurcation}. The comparison should therefore enumerate
-orbit words, permutations, and stability through the original finite range,
-then report the first mismatch or a declared search limit.
+\citep{holmes1984bifurcation}.
 The finite-pattern literature and topological-template framework provide
 distinct reference objects \citep{metropolis1973finite,gilmore1998topological};
 neither can be inferred from a visually similar scalar plot.
 
-The intended visual result is an unfolded spiral: parameter position,
-branch geometry, orbit points, and symbolic words shown together, with
-each proposed connection traceable to computed data. The detailed source
-transcription and unsuccessful tests remain in
-Appendix~\ref{supp:symbolic}. That figure, backed by held-out predictions,
+The geometric test is equally important: measure how stable and unstable
+manifolds meet, or which symbolic trajectories become accessible, and ask
+whether that predicts the observed extra return at held-out parameters.
+The measurement must survive changes of section and numerical resolution.
+A finite saddle sample that misses a lobe cannot by itself prove the lobe
+absent from the infinite-time invariant set.
+
+The intended next figure is a \emph{computed} unfolded spiral: parameter
+position, return geometry, corrected orbit points, and words shown together.
+It would test the source-derived chain displayed here, not replace the need
+to show it. Appendix~\ref{supp:symbolic} preserves the detailed experiments
+and unsuccessful searches. Establishing the reinjection-to-word connection
 would answer the original explanatory question more directly than another
 doubling or another short continuation step.
