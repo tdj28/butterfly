@@ -55,6 +55,13 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
+- [x] Independently enumerate the finite quadratic-map control and compare
+  its words/order with the in-scope unimodal source subset under a predeclared
+  dictionary. [EXP-478](experiments/EXP-478-quadratic-symbolic-control.md)
+  passes this bounded test; third-branch nodes and Rössler arrows are excluded.
+- [ ] Execute the separately frozen, raw-retaining
+  [EXP-477 center scout](experiments/EXP-477-symbolic-center-pilot.md), then
+  qualify any nomination on the historical section before word comparison.
 - [ ] Define the two-dimensional first-return map and the precise scalar
   projection or quotient used for critical-point claims. Quantify when a scalar
   coordinate is not a single-valued map; report conditional spread/support.

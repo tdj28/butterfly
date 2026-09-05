@@ -1,5 +1,11 @@
 # Auditable manuscript tables
 
+- `quadratic-symbolic-control.tex` and its provenance JSON are generated from
+  the complete public EXP-478 exact root/sign certificates and the separately
+  frozen source comparison. The six rows distinguish finite scalar-map
+  agreement from still-unverified Rössler orbits and arrows. Regenerate with
+  `python scripts/render_quadratic_control_table.py`; use `--verify` for a
+  read-only, byte-for-byte check of every table value and its input hashes.
 - `review001-equilibria.json` records both equilibrium roots and local spectra
   at the printed hub, initial numerical candidate, and two scalar-classifier
   endpoints. It compares the package/NumPy calculation with independent

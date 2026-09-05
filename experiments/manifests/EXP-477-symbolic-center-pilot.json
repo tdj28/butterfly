@@ -1,0 +1,43 @@
+{
+  "schema": "butterfly.symbolic-center-pilot-manifest.v1",
+  "experiment_id": "EXP-477",
+  "parent_design": {
+    "path": "experiments/manifests/EXP-204-lower-c-scale-ensemble-residual-gpu.json",
+    "sha256": "83a6d8fc986c6a1cec8fab38c90b3c023d98db77cbdc2a86bf433f604faee867"
+  },
+  "candidate_input": {
+    "path": "artifacts/EXP-204/candidates.json",
+    "sha256": "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"
+  },
+  "evidence": [
+    {
+      "path": "docs/experiments/receipts/EXP-203.json",
+      "sha256": "3dd394079bf4cb1af2afb3da365611767c561a57f0efc93b226953f2d2c8d198"
+    },
+    {
+      "path": "experiments/manifests/EXP-204-lower-c-candidate-selection.json",
+      "sha256": "df93c04ce734e2198ce9dab26da4a6256e5c8bcb4839ba16b9e17beeb66194f8"
+    }
+  ],
+  "execution": {
+    "batch_size": 8,
+    "maximum_wall_seconds": 3600,
+    "maximum_analysis_seconds": 7200,
+    "stop_on_first_invalid_batch": true,
+    "collect_then_local_analyze": true
+  },
+  "validity": {
+    "reject_saturated_survivor_records": true,
+    "minimum_normalized_section_transversality": 0.000001
+  },
+  "interpretation": {
+    "exploratory_nomination_only": true,
+    "jones_words_used": false,
+    "deferred_verification": [
+      "orbit",
+      "critical_membership",
+      "alphabet_transport",
+      "symbolic_arrows"
+    ]
+  }
+}

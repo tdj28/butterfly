@@ -84,3 +84,21 @@ calculation and selected table are documented in
 [paper/tables](../../paper/tables/README.md). No paid compute, cloud upload,
 new orbit integration, manuscript publication, or change to a frozen
 experimental acceptance status was performed for this response.
+
+## Follow-up: independent symbolic verification request
+
+The subsequent audit caught two remaining overstatements. The abstract and
+main results now say that EXP-186 failed **partition parity as well as word
+recovery**; it was not a qualified counterexample to symbolic ordering.
+The distant EXP-185 alphabet control is explicitly separated from the tested
+landmark. Supplement S3 no longer says the negative center search rules out
+a sampling-power failure: unresolved/subthreshold critical points remain
+possible under the finite-horizon protocol, including at sampled parameters.
+
+New computation is tracked separately in
+[EXP-477](../experiments/EXP-477-symbolic-center-pilot.md) and
+[EXP-478](../experiments/EXP-478-quadratic-symbolic-control.md). The former is
+a word-independent flow-center scout; the latter is a finite scalar-map
+control. Neither a source redraw nor a successful scalar comparison is to be
+reported as independent verification of the Rössler chains. Their results
+must be assessed on their own receipts, not inferred from this review response.

@@ -1,6 +1,7 @@
 # EXP-478 — Independent finite quadratic-map symbolic control
 
-Status: protocol prepared; no period-3–7 target enumeration before public freeze.
+Status: completed locally after public source/protocol freeze; all six scalar
+periods and the separate conditional source comparison pass.
 
 ## Question and separation from Jones's flow claim
 
@@ -77,3 +78,65 @@ Preserve failed receipts. Publish the exact certificates and a separately
 derived comparison receipt before adding any result to the manuscript.
 These certificates assume the implementation and Python exact arithmetic are
 correct; they are not proof-assistant-checked.
+
+## Result and interpretation
+
+The full run used the clean, detached published commit
+`f4b2ea13c60395713911240b0fbf0ce469850cc4`; the before/after source records
+are identical. It completed in 14.12 seconds on the local CPU, with
+13,755,598 counted exact-arithmetic operations and no paid compute. For
+periods 2 through 7, respectively, complete closed-domain isolation returned
+`1, 1, 2, 3, 5, 9` primitive critical cycles: **21 total**. Every retained
+root has an exact recurrence-factor certificate, a disjoint rational
+enclosure (or exact rational value), and strictly nonzero certified signs
+for all intervening iterates. No period, root, or unresolved sign was dropped.
+
+The separately run, predeclared dictionary gives exact within-period word
+multiset and order matches for all **21 comparable source nodes**. It retains
+all 23 historical nodes in its output, explicitly marking `C2` and `C21` as
+outside this unimodal model. There are no missing comparable words, extra
+scalar words, duplicate mapped words, or order mismatches. Increasing `mu`
+matches the original Figure 6 top-to-bottom order without reversing time,
+reordering roots, or selecting another dictionary after enumeration.
+
+Here, **independent** means that the polynomial construction, root isolation,
+and sign encoding do not consume Jones's word list. The historical list was
+already known when this scalar family and conditional comparison were
+specified; this was not a blinded test against unknown targets. The result
+establishes finite combinatorial consistency with a fully specified scalar
+model, not that a positive scalar iterate becomes a second critical visit in
+a Rössler return map. It verifies no Rössler node, center, branch transport,
+or connecting arrow. EXP-477 and its independently qualified successors are
+still needed for the flow-level claim.
+
+The complete, byte-preserved public evidence is:
+
+- [Exact scalar receipt](receipts/EXP-478-quadratic-control.json), SHA-256
+  `6d46529e6ae6b53f6796848855f1c01d6cf936399da6455fe6ef12e6140b925e`.
+- [Separate source comparison](receipts/EXP-478-source-comparison.json), SHA-256
+  `90031254a6f0ede05f77ff6d5cc2f617046b159b118dcc9fcba1889d2ecf31ae`.
+- Frozen manifest SHA-256
+  `afc851204f68b3e248bb9eb980332e42252e46a4991ac308340ce80ce5b75781`;
+  the exact receipt additionally records the enumerator, dependency-lock,
+  source-commit and source-tree hashes.
+
+The [manuscript table](../../paper/tables/quadratic-symbolic-control.tex) and
+its [provenance](../../paper/tables/quadratic-symbolic-control.provenance.json)
+are derived from these public receipts and the frozen source transcription.
+The [complete 21-row word and root export](../../paper/tables/quadratic-symbolic-words.csv)
+lists every native word, its proposed source word, and both exact rational
+parameter bounds in increasing-`mu` order within each period. Its zero-based
+root index restarts each period. `mu_midpoint_decimal_approx` is only the
+enclosure midpoint rounded to 16 decimal places for display; it can lie
+outside the much narrower certified interval and must not replace the exact
+bounds. The CSV's match field records conditional source membership, not
+Rössler-orbit verification. Its hash and all formatting conventions are
+included in the same provenance file.
+The renderer replays the comparison and derives every displayed count; it
+does not rerun root enumeration or independently replay the Sturm proof.
+Verify the deterministic table, CSV and provenance without changing them:
+
+```sh
+.venv/bin/python scripts/render_quadratic_control_table.py --verify
+.venv/bin/python -m pytest -q tests/test_quadratic_control_table.py
+```
