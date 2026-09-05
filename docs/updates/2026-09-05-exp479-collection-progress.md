@@ -88,3 +88,18 @@ no fitting, ranking, or symbolic interpretation was performed.
 The ambiguous Runpod transaction still has no ID or matching task name in
 inventory. Its watchdog identity matches and its heartbeat was under four
 seconds old. No additional rental or unrelated-resource mutation occurred.
+
+## September 5 heartbeat (21:30 UTC)
+
+228 of 551 candidates have completed both profiles. All 457 checkpointed
+profiles pass the frozen validity checks, including the first profile of the
+next candidate. Raw hashes and byte counts match throughout; the verified
+raw files total 883,516,946 bytes.
+
+The original CPU service remains running with one launch, no exit, and no
+stderr diagnostics. Approximately 44 GiB remains free. There is no terminal
+receipt, and no fitting, ranking, or symbolic interpretation was performed.
+
+The ambiguous provider transaction still has no assigned ID or matching task
+name in inventory. Its existing watchdog is live, with a heartbeat under six
+seconds old at inspection. No new rental or resource mutation occurred.
