@@ -85,7 +85,7 @@ class Provider:
             if self.timeout_after_create:
                 raise TimeoutError("simulated timeout after provider accepted POST")
             return self.pods["created-owned"]
-        identifier = url.rsplit("/", 1)[1]
+        identifier = url.split("?", 1)[0].rsplit("/", 1)[1]
         if method == "GET":
             if identifier not in self.pods:
                 raise SystemExit("Runpod API returned HTTP 404: absent")
@@ -119,6 +119,87 @@ def test_single_launch_then_verified_teardown_preserves_two_unrelated_pods(store
     assert record["post_delete_inventory_ids"] == ["unrelated-a", "unrelated-b"]
     assert set(provider.pods) == {"unrelated-a", "unrelated-b"}
     assert "delete_http_status" not in record  # request_json does not expose it.
+
+
+def test_direct_lookup_explicitly_requests_contract_details(store):
+    calls = []
+    def request(method, url):
+        calls.append((method, url))
+        return {"id": "created-owned"}
+    worker.direct_lookup("created-owned", request)
+    assert calls == [("GET", worker.runpodctl.REST_BASE +
+                      "/pods/created-owned?includeMachine=true&includeNetworkVolume=true")]
+
+
+@pytest.mark.parametrize("rental_type,passes", [("RESERVED", True),
+    ("INTERRUPTABLE", False), ("BID", False), ("BACKGROUND", False), (None, False)])
+def test_missing_rest_rental_status_needs_exact_graphql_confirmation(store, rental_type, passes):
+    provider = Provider(store)
+    pod = worker.provision_once(store, provider, lookup=lookup, now=100)
+    del pod["interruptible"]
+    def query(statement):
+        assert statement == 'query { pod(input: {podId: "created-owned"}) { id name podType } }'
+        return {"pod": {"id": pod["id"], "name": pod["name"], "podType": rental_type}}
+    if passes:
+        assert worker.observed_actual_contract(store, pod, query) == 0.25
+    else:
+        with pytest.raises(worker.LifecycleError, match="interruptible"):
+            worker.observed_actual_contract(store, pod, query)
+    assert "interruptible" not in store.read()["observed_contract"]
+    assert store.read()["observed_rental_contract"]["podType"] == rental_type
+
+
+def test_graphql_cannot_override_explicit_spot_or_wrong_identity(store):
+    provider = Provider(store)
+    pod = worker.provision_once(store, provider, lookup=lookup, now=100)
+    pod["interruptible"] = True
+    with pytest.raises(worker.LifecycleError, match="interruptible"):
+        worker.observed_actual_contract(store, pod, lambda _: pytest.fail("no override"))
+    del pod["interruptible"]
+    with pytest.raises(worker.OwnershipError):
+        worker.observed_actual_contract(store, pod, lambda _: {"pod": {
+            "id": "unrelated-a", "name": pod["name"], "podType": "RESERVED"}})
+
+
+def test_real_ssh_connection_path_uses_rental_evidence(store, monkeypatch):
+    from scripts import execute_symbolic_center_cloud as cloud
+    provider = Provider(store)
+    pod = worker.provision_once(store, provider, lookup=lookup, now=100)
+    del pod["interruptible"]
+    pod.update(publicIp="203.0.113.1", portMappings={"22": 22022})
+    monkeypatch.setattr(worker, "direct_lookup", lambda _: pod)
+    monkeypatch.setattr(worker.runpodctl, "graphql", lambda _: {"pod": {
+        "id": pod["id"], "name": pod["name"], "podType": "RESERVED"}})
+    class PinnedSSH:
+        def __init__(self, host, port, directory):
+            self.host, self.port, self.strict = host, port, True
+        def call(self, command, timeout):
+            assert command == "true"
+    monkeypatch.setattr(cloud, "SSH", PinnedSSH)
+    progress = []
+    result = cloud.connect_owned(store, progress.append, seconds=1)
+    assert result.strict and progress == ["ssh-authenticated"]
+    assert store.read()["observed_rental_contract"]["podType"] == "RESERVED"
+
+
+@pytest.mark.parametrize("field,value", [("interruptible", True),
+    ("containerDiskInGb", 50), ("volumeInGb", None),
+    ("networkVolume", {"id": "synthetic"}), ("ports", ["22/tcp", "8888/http"])])
+def test_failed_contract_retains_observations_before_teardown(store, field, value):
+    provider = Provider(store)
+    def mismatch(method, url, *, payload=None):
+        result = provider(method, url, payload=payload)
+        if method == "GET" and "/created-owned?" in url:
+            result[field] = value
+        return result
+    with pytest.raises(worker.LifecycleError, match=field):
+        worker.provision_once(store, mismatch, lookup=lookup, now=100)
+    observed = store.read()["observed_contract"]
+    assert observed["adjustedCostPerHr"] == 0.25
+    assert "env" not in observed
+    assert "synthetic-key" not in json.dumps(observed)
+    assert worker.terminate_owned(store, provider, pause=lambda _: None)
+    assert store.read()["observed_contract"] == observed
 
 
 @pytest.mark.parametrize("heartbeat", [None,
@@ -507,7 +588,7 @@ def test_uncertain_create_outcomes_remain_unresolved_and_never_retry(store, erro
 def test_later_get_4xx_cannot_reclassify_a_successful_create_as_rejected(store):
     provider = Provider(store)
     def missing_contract_permission(method, url, *, payload=None):
-        if method == "GET" and url.endswith("/created-owned"):
+        if method == "GET" and url.split("?", 1)[0].endswith("/created-owned"):
             raise worker.runpodctl.RunpodHTTPError(403, "lookup not permitted")
         return provider(method, url, payload=payload)
     with pytest.raises(worker.runpodctl.RunpodHTTPError):

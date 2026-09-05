@@ -16,3 +16,32 @@
 Earlier live GPU qualification and teardown records remain in
 [runpod-strategy.md](runpod-strategy.md) and the experiment receipts. They
 do not establish that the newly changed error paths have been tested live.
+# 2026-09-05 provider-contract recovery
+
+The direct REST lookup now explicitly requests machine and network-volume
+details. Configuration-only observations are durably saved before validation;
+failed disk/volume/port checks identify individual fields. Numerical and safety
+thresholds are unchanged. Local full suite: 1278 passed, one Linux-only process
+identity test skipped on macOS. Focused lifecycle suite: 80 passed, including
+forced contract failures with retained observations and verified teardown.
+Live successor qualification is pending; this is not flow-symbolics evidence.
+
+The first recovery isolated a missing REST `interruptible` field and verified
+teardown. A second repair obtains exact-owned `podType=RESERVED` evidence via
+GraphQL when REST omits the field; it never overrides explicit spot status.
+Full local suite after this repair: 1284 passed, one Linux-only skip; focused
+lifecycle suite: 86 passed. Live GraphQL query syntax/absence was rehearsed
+against the terminated owned ID. No target trajectories have run yet.
+
+Live configuration qualification subsequently passed with exact-owned
+GraphQL `RESERVED` evidence. SSH setup exposed a missed raw-validator call;
+the consumer is corrected and the real connection path now has a provider-
+shaped regression. Full suite: 1285 passed, one Linux-only skip. Failed worker
+and watchdog teardown verified; no upload or target computation occurred.
+
+EXP-479 adds a default-off CPU adapter and detached-worktree local launcher.
+Both preserved 64-seed control profiles pass through the real adapter. The
+full-size, target-free 8192-seed benchmark retains both raw NPZ profiles with
+zero failed integrations. This is adapter/reference equivalence, not independent
+solver validation. The original CUDA path remains the default and its timing
+metadata is unchanged; CPU metadata explicitly says `elapsed_cpu_seconds`.

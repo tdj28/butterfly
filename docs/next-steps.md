@@ -68,6 +68,9 @@ inputs; historical result reproduction is a separate requirement.
   or targets, then verified cleanup. Before another paid attempt, preserve
   allowlisted provider configuration diagnostics and resolve the exact
   contract/schema mismatch; do not weaken checks or silently retry.
+  Recovery corrected the API mapping but a later create returned an ambiguous
+  provider error. [EXP-479](experiments/EXP-479-cpu-symbolic-center-pilot.md)
+  now provides the local CPU route with unchanged numerical search rules.
 - [ ] Define the two-dimensional first-return map and the precise scalar
   projection or quotient used for critical-point claims. Quantify when a scalar
   coordinate is not a single-valued map; report conditional spread/support.

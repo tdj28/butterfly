@@ -1,0 +1,246 @@
+{
+  "candidate": {
+    "correction": {
+      "closure_error": 7.366762995319917e-14,
+      "initial_state": [
+        -7.339990753346647,
+        -0.026335409746494665,
+        0.013415687964901904
+      ],
+      "period_time": 43.89544600853491,
+      "phase_residual": 1.1049560501984995e-19
+    },
+    "parameters": {
+      "a": 0.215,
+      "b": 0.2,
+      "c": 7.6
+    },
+    "section_states": [
+      [
+        0.0056621130953552895,
+        -8.61751572874229,
+        0.023542454395762483
+      ],
+      [
+        0.005662113095355414,
+        -14.485157678450568,
+        0.022252977543684584
+      ],
+      [
+        0.005662113095351778,
+        -2.2616310506556596,
+        0.02638818109505578
+      ],
+      [
+        0.005662113095348788,
+        -4.385396241986862,
+        0.024727059120823475
+      ],
+      [
+        0.005662113095355692,
+        -8.491058084521624,
+        0.02357414359416236
+      ],
+      [
+        0.005662113095408788,
+        -14.506509414380371,
+        0.022248829725349285
+      ],
+      [
+        0.005662113095359016,
+        -2.2956473527682673,
+        0.02649191938758831
+      ],
+      [
+        0.005662113095346477,
+        -4.451589578519777,
+        0.024706235832472116
+      ]
+    ]
+  },
+  "config": {
+    "acceptance": {
+      "maximum_cpu_gpu_critical_midpoint_difference": 0.03,
+      "maximum_normalized_critical_span": 0.05,
+      "maximum_survivor_fraction_difference": 0.03,
+      "minimum_final_survivors": 500,
+      "minimum_return_pairs": 4000
+    },
+    "anchor": {
+      "barrio_phase_count": 8,
+      "corrector": {
+        "maximum_evaluations": 40,
+        "tolerance": 1e-11
+      },
+      "historical_period": 6,
+      "integration": {
+        "initial_state": [
+          0.0,
+          4.0,
+          0.0
+        ],
+        "max_crossings": 128,
+        "observation_horizon": 800.0,
+        "transient": 2400.0
+      },
+      "parameters": {
+        "a": 0.215,
+        "b": 0.2,
+        "c": 7.6
+      }
+    },
+    "capture": {
+      "coordinate_axes": [
+        1,
+        2
+      ],
+      "coordinate_scales": [
+        15.0,
+        0.01
+      ],
+      "radius": 0.0002,
+      "required_crossings": 5
+    },
+    "claim_scope": "source-only CPU/GPU statistical-parity qualification of the newly generalized positive-x Barrio section at the exact second Jones landmark, using all eight corrected section phases and scalar z return maps at RK4 steps 0.01 and 0.005; passing permits a separately frozen multi-candidate discovery scan but does not locate a center or prove double superstability",
+    "cpu_solver": {
+      "atol": 1e-12,
+      "max_step": 0.05,
+      "method": "DOP853",
+      "rtol": 1e-10
+    },
+    "ensemble": {
+      "checkpoint_times": [
+        50.0,
+        100.0,
+        150.0,
+        200.0
+      ],
+      "escape_radius": 1000000.0,
+      "horizon": 200.0,
+      "midpoint_window": [
+        80.0,
+        140.0
+      ],
+      "x_count": 128,
+      "x_range": [
+        -14.0,
+        -0.2
+      ],
+      "z_count": 64,
+      "z_range": [
+        0.008,
+        0.55
+      ]
+    },
+    "evidence": [
+      {
+        "path": "experiments/source-transcriptions/jones2012-figures-2-and-6.json",
+        "role": "source-transcribed exact second period-6 landmark",
+        "sha256": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da"
+      },
+      {
+        "path": "docs/experiments/receipts/EXP-194.json",
+        "role": "58 corrected historical-period-6 orbits with eight Barrio-section phases",
+        "sha256": "cf141cbbd4a2fd9622dafba136d26f4b68251de254c75eab8c9bba229bf87145"
+      }
+    ],
+    "experiment_id": "EXP-196",
+    "gpu": {
+      "chunk_steps": 512,
+      "dtype": "float64",
+      "max_recorded_crossings": 32
+    },
+    "oracle_common": {
+      "bootstrap_samples": 50,
+      "grid_size": 4097,
+      "maximum_conditional_spread_ratio": 0.1,
+      "minimum_bin_points": 4,
+      "minimum_bootstrap_consensus": 0.8,
+      "minimum_domain_coverage": 0.6,
+      "minimum_prominence": 0.03,
+      "random_seed": 196
+    },
+    "oracle_variants": [
+      {
+        "name": "bins20",
+        "options": {
+          "bin_count": 20,
+          "smoothing": 1e-05
+        }
+      },
+      {
+        "name": "bins25",
+        "options": {
+          "bin_count": 25,
+          "smoothing": 1e-05
+        }
+      },
+      {
+        "name": "bins30",
+        "options": {
+          "bin_count": 30,
+          "smoothing": 1e-05
+        }
+      },
+      {
+        "name": "smooth1e-4",
+        "options": {
+          "bin_count": 25,
+          "smoothing": 0.0001
+        }
+      },
+      {
+        "name": "prominence005",
+        "options": {
+          "bin_count": 25,
+          "minimum_prominence": 0.05,
+          "smoothing": 1e-05
+        }
+      }
+    ],
+    "profiles": [
+      {
+        "dt": 0.01,
+        "name": "rk4_dt_001"
+      },
+      {
+        "dt": 0.005,
+        "name": "rk4_dt_0005"
+      }
+    ],
+    "schema": "butterfly.gpu-barrio-section-qualification-manifest.v1"
+  },
+  "cpu_control_sha256": "aca38d8df29e040563b57ccff74c29fdd2a7ca038dc1d0b5817665af4242e8f3",
+  "finished_utc": "2026-09-05T17:55:52.759879+00:00",
+  "numpy": "2.5.1",
+  "producer_sha256": "d2d607f78838a5ac910248703211ac8478e81b3609a5b5f7d7d0377d08cb236e",
+  "profiles": [
+    {
+      "dt": 0.01,
+      "failed_count": 0,
+      "raw": {
+        "bytes": 1960919,
+        "path": "profile-0.npz",
+        "sha256": "46593a5bec8f2ecb3e878c5950d1abe38692e19afa0acc38fd3d1455c52952a5"
+      },
+      "wall_seconds_including_save": 15.023178125731647
+    },
+    {
+      "dt": 0.005,
+      "failed_count": 0,
+      "raw": {
+        "bytes": 1956439,
+        "path": "profile-1.npz",
+        "sha256": "fc10209ba4dd1bdf8aa35650a5ddf3532a30ea45c173394fa019ccf14cdd1444"
+      },
+      "wall_seconds_including_save": 29.5937160840258
+    }
+  ],
+  "projection_caveat": "Anchor extrapolation, not a measured target runtime or completion promise.",
+  "python": "3.13.11",
+  "schema": "butterfly.symbolic-cpu-fallback-benchmark.v1",
+  "scope": "known-anchor CPU throughput only; no target nominations or symbolic verification",
+  "serial_551_case_seconds_at_anchor_rate": 24583.908709576353,
+  "source_commit": "c6a2021e0d41604b1875b09e933815e5a5c4b2ad",
+  "started_utc": "2026-09-05T17:55:08.130530+00:00"
+}

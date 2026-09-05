@@ -1,0 +1,9 @@
+{
+  "schema": "butterfly.symbolic-cpu-successor.v1",
+  "experiment_id": "EXP-479",
+  "parent_manifest": "experiments/manifests/EXP-477-symbolic-center-pilot.json",
+  "execution": {"batch_size": 1, "maximum_wall_seconds": 43200},
+  "backend": "existing_numpy_sprinkler_reference",
+  "minimum_free_bytes": 17722933248,
+  "interpretation": "Exploratory CPU successor to EXP-477. All 551 inputs, both steps, full seeds, section, capture, validity and analysis rules unchanged. Only backend, serial batch size and wall-time allowance differ. No Jones word, center, partition, or arrow is verified by nomination. No automatic retry or resume."
+}

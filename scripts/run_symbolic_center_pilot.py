@@ -229,7 +229,7 @@ def prepare(manifest_path, commit, *, root=ROOT, inventory=None, inventory_sha25
                              "parent_design": manifest["parent_design"]["sha256"]}}
 
 
-def archive_raw(output_dir, name, candidates, run, profile, parent, validity):
+def archive_raw(output_dir, name, candidates, run, profile, parent, validity, *, duration_backend="gpu"):
     """Persist ragged survivor records and their metadata before fitting."""
     sections = _sections(candidates, parent["section"]["kind"])
     candidate_offsets, trajectory_offsets = [0], [0]
@@ -294,7 +294,7 @@ def archive_raw(output_dir, name, candidates, run, profile, parent, validity):
         "minimum_normalized_section_transversality": minimum,
         "transversality_passed": angle_passed, "validity_passed": finite and angle_passed and not saturated,
         "scope": "recorded final-survivor event states only; not captured trajectories, root isolation, between-step extrema, or archive-wide transversality",
-        "elapsed_gpu_seconds": run["elapsed_seconds"],
+        "elapsed_" + duration_backend + "_seconds": run["elapsed_seconds"],
     }
     metadata["metadata_file"] = write_new_json(Path(output_dir) / f"{name}.json", metadata)
     return metadata
@@ -309,7 +309,8 @@ def environment():
             "gpu_memory_bytes": torch.cuda.get_device_properties(0).total_memory}
 
 
-def collect(prepared, output_dir, *, source_recheck=None):
+def collect(prepared, output_dir, *, source_recheck=None, integrator=None,
+            runtime_environment=None, duration_backend="gpu"):
     """Collect raw GPU evidence only: no spline fitting or nomination analysis."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=False)
@@ -329,7 +330,8 @@ def collect(prepared, output_dir, *, source_recheck=None):
             raise TimeoutError(f"cooperative wall-time budget exhausted at {stage}")
 
     try:
-        receipt["environment"] = environment()
+        receipt["environment"] = environment() if runtime_environment is None else runtime_environment
+        integrate = integrate_gpu if integrator is None else integrator
         size = manifest["execution"]["batch_size"]
         for start in range(0, len(candidates), size):
             check_time("batch boundary")
@@ -341,14 +343,15 @@ def collect(prepared, output_dir, *, source_recheck=None):
             for profile_index, profile in enumerate(parent["profiles"]):
                 check_time("profile boundary")
                 name = f"batch-{batch_index:04d}-profile-{profile_index}"
-                raw_run = integrate_gpu(
+                raw_run = integrate(
                     batch, dt=profile["dt"], horizon=parent["ensemble"]["horizon"],
                     checkpoints=parent["ensemble"]["checkpoint_times"], midpoint=parent["ensemble"]["midpoint_window"],
                     ensemble=parent["ensemble"], capture=parent["capture"], gpu_options=parent["gpu"],
                     section_name=parent["section"]["kind"], section_code=1,
                     target_cycle_state_count=parent["cycle_state_count"],
                 )
-                metadata = archive_raw(output_dir, name, batch, raw_run, profile, parent, manifest["validity"])
+                metadata = archive_raw(output_dir, name, batch, raw_run, profile, parent, manifest["validity"],
+                                       duration_backend=duration_backend)
                 batch_row["profiles"].append(metadata)
                 write_new_json(output_dir / f"{name}-checkpoint.json", {"candidate_ids": active_ids, "raw_metadata": metadata})
                 if not metadata["validity_passed"]:
