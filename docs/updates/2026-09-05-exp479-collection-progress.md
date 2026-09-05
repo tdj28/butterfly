@@ -134,3 +134,18 @@ no fitting, ranking, or word comparison was performed.
 The ambiguous provider transaction still has no assigned ID or matching task
 name. Its existing watchdog identity matches and its heartbeat was under four
 seconds old. No additional rental or resource mutation occurred.
+
+## September 5 heartbeat (23:11 UTC)
+
+337 of 551 candidates have completed both profiles. All 675 checkpointed
+profiles pass the frozen validity checks, including the first profile of the
+next candidate. Raw hashes and byte counts match throughout; the checked
+files total 1,255,159,277 bytes.
+
+The original CPU service remains running with one launch, no exit, and no
+stderr diagnostics. Approximately 43 GiB remains free. There is no terminal
+receipt, and no fitting, ranking, or symbolic interpretation was performed.
+
+The ambiguous provider transaction still has no assigned ID or matching task
+name. Its watchdog identity matches and its heartbeat was under five seconds
+old. No additional rental or unrelated-resource mutation occurred.
