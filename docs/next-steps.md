@@ -37,6 +37,16 @@ organizer; no existing acceptance criterion or failed experiment is waived.
   nine unchecked periodic sites and one shared segmented-arclength gate,
   with failure-injection tests. It does not revalidate the full archive or
   every other corrector implementation.
+- [x] Link public code, immutable core/EXP-476 releases, and Movie S1 directly
+  from the PDF, with explicit limits on which calculations the public inputs
+  can replay. This fixes access information, not full-campaign data closure.
+- [ ] Audit return events for transversality throughout the principal orbit,
+  branch, and symbolic products. Record normalized crossing angle and invoke
+  extremum-aware collection or an unresolved status near tangencies; the
+  previously found grazing is not an archive-wide validation.
+- [ ] Cross-check a representative low-period flip/child branch in a separate
+  continuation formulation, not merely with another integrator inside the
+  same shooting/event implementation.
 
 Acceptance: a separate environment can acquire the documented inputs, verify
 their hashes, recompute the selected results, and regenerate the figures
@@ -48,6 +58,8 @@ inputs; historical result reproduction is a separate requirement.
 - [ ] Define the two-dimensional first-return map and the precise scalar
   projection or quotient used for critical-point claims. Quantify when a scalar
   coordinate is not a single-valued map; report conditional spread/support.
+  Review 001 adds the explicit quotient condition and an object-by-object
+  table; it does not construct or prove the quotient.
 - [ ] Replace the retired full-flow Floquet-zero proxy with separate,
   uncertainty-bearing critical-to-orbit membership residuals. Follow critical
   identities across parameter changes and test section/coordinate changes.
@@ -62,6 +74,15 @@ inputs; historical result reproduction is a separate requirement.
   observed lobe-inclusion change. Test a prediction at held-out parameters
   before identifying it with the topology-transition curve. Results on
   separate slices must not be described as one connected symbolic transition.
+- [x] Document both equilibria and time-directed spectral quantities at the
+  printed hub, numerical candidate, and classifier endpoints using independent
+  algebraic checks. This establishes local spectra, not global involvement.
+- [ ] Test competing manifold geometry involving the second equilibrium;
+  local eigenvalues neither establish nor exclude its reinjection role.
+- [ ] Freeze a randomized-net uncertainty study with independent scrambles
+  as the replicate unit. Existing within-net bootstraps/log-rank outputs are
+  descriptive; justify replicate count and inferential assumptions before
+  attaching calibrated coverage to new effect estimates.
 - [ ] Build one computed unfolded-spiral figure that connects parameter path,
   orbit identity, return-map branches, critical values, and symbolic transitions.
   The existing source-derived chain is the hypothesis, not this computed test.
@@ -127,6 +148,9 @@ sampled stable-parent/unstable-child pair settles the local normal form.
   modern reproduction, correction, and potentially new result. Preserve the
   agreed independent co-discovery wording without extending priority claims
   to earlier TTL/TBA work.
+- [x] Address Review 001's concrete literature omissions with nine verified
+  additions and an explicit source-level manuscript comparison. Preserve
+  reading-status limits: this is not a completed systematic survey.
 - [x] Focus the main paper on a small connected set of defensible results;
   move the chronological experiment narrative into supplements. Keep the
   figure-rich presentation and explicit negative controls.

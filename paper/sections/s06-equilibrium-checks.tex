@@ -1,0 +1,70 @@
+\section{Both equilibria and their local spectral conditions}
+\label{supp:equilibria}
+
+The equilibrium equation is $az^2-cz+b=0$, with
+$q_\pm=(az_\pm,-z_\pm,z_\pm)$. For the positive parameters considered here,
+we avoid cancellation in the small root by evaluating
+\[
+ z_-=\frac{2b}{c+\sqrt{c^2-4ab}},\qquad
+ z_+=\frac{c+\sqrt{c^2-4ab}}{2a}.
+\]
+At an equilibrium, setting $r=c-az$ gives the characteristic polynomial
+\[
+ \lambda^3+(r-a)\lambda^2+(1+z-ar)\lambda+(r-az).
+\]
+These are algebraic checks at declared parameter values, not a new
+homoclinic or manifold computation.
+
+The public script \texttt{scripts/report\_review001\_equilibria.py}
+evaluates both roots with the existing model code and independently with
+80-digit Decimal arithmetic. A bounded bisection of the cubic's real root
+and the remaining quadratic factor are compared with the NumPy Jacobian
+eigensolver. A second comparison uses precisely the same binary64 Jacobian
+entries, separating eigensolver differences from parameter and equilibrium
+rounding. The source-bound machine-readable report is
+\texttt{paper/tables/review001-equilibria.json}.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Parameter point & Root & Real eigenvalue & Pair real part & Pair $|\Im\lambda|$ \\
+\midrule
+Printed hub & $q_-$ & $-10.303044$ & $0.088967$ & $0.995956$ \\
+ & $q_+$ & $0.176659$ & $-0.00017406$ & $7.636270$ \\
+Initial candidate & $q_-$ & $-10.302989$ & $0.090389$ & $0.995825$ \\
+ & $q_+$ & $0.179403$ & $-0.00015206$ & $7.577597$ \\
+Two-branch endpoint & $q_-$ & $-19.998019$ & $0.073844$ & $0.997245$ \\
+ & $q_+$ & $0.147087$ & $-0.00019064$ & $11.659931$ \\
+Three-branch endpoint & $q_-$ & $-19.998019$ & $0.073876$ & $0.997243$ \\
+ & $q_+$ & $0.147148$ & $-0.00019049$ & $11.657491$ \\
+\bottomrule
+\end{tabular}
+\caption{Local spectra at four declared points, rounded for reading. All
+use $b=0.2$. Printed hub: $(a,c)=(0.1798,10.3084)$; initial candidate:
+$(0.182643608174,10.3084)$; classifier endpoints:
+$(0.1481875,20)$ and $(0.14825,20)$. The candidate's input digits identify
+the archived estimate, not an error-bounded homoclinic parameter.}
+\label{tab:both-equilibria}
+\end{table}
+
+In forward time, $q_-$ has one stable and two unstable directions at every
+listed point; $q_+$ has two stable and one unstable direction. The sum of
+the real eigenvalue and the real part of one complex eigenvalue changes
+sign under time reversal. For $q_-$ the standard one-real-unstable
+Shilnikov convention therefore uses reversed time: its saddle quantity is
+$10.21407717$, $10.21260015$, $19.92417484$, and $19.92414297$, respectively.
+For $q_+$ the same convention is already forward-time, giving positive
+quantities $0.17648446$, $0.17925086$, $0.14689616$, and $0.14695788$.
+This explicitly records the spectral convention; it does not infer the
+existence of a loop from a sign.
+
+In the archived check, the largest binary64 equilibrium residual is
+$7.42\times10^{-14}$ and the largest same-Jacobian spectral discrepancy
+is $6.44\times10^{-15}$. Decimal polynomial-component residuals are below
+$2.19\times10^{-69}$ across both comparisons. Working precision is not a certified accuracy bound:
+no interval arithmetic or validated manifold enclosure is used. Neither
+equilibrium's role in global reinjection has been established or excluded
+by these local calculations.

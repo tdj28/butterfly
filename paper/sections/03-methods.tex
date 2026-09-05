@@ -17,14 +17,18 @@ corrected orbit as a parameter changes. Its Floquet multipliers test
 stability; a separate identity check rejects an apparent daughter that is
 merely its parent traversed twice.
 
-DOP853 and Radau supply independent time integrators for selected checks.
+DOP853 and Radau are algorithmically distinct time integrators used for
+selected checks. Unless stated otherwise, they share the vector field,
+event definitions, and shooting formulation: they are not fully independent
+implementations of the whole experiment.
 Newton corrections solve the shooting equations; they do not replace time
 integration. Long orbits are divided into matched segments to limit
 conditioning problems. The deepest cascade tests additionally use
 50-digit arithmetic and two Runge--Kutta formulas at multiple step sizes.
-The word \emph{exact} in the historical experiment record means directly
-corrected rather than estimated by interpolation. It does not mean a
-rigorous enclosure of a continuous-flow solution.
+We describe these solutions as numerically corrected, not exact. Legacy
+file names and frozen figure labels containing \emph{exact} refer to
+shooting or discretized-map correction, not a rigorous enclosure of a
+continuous-flow solution.
 
 Chaotic saddles need a different approach. A trajectory that eventually
 settles onto a periodic attractor may still spend a long time near a
@@ -39,8 +43,16 @@ coverage, projection-width, critical-point, and resampling checks. Time-step,
 observation-horizon, smoothing, and coordinate changes test whether a label
 depends on a numerical choice. An ambiguous case remains unresolved.
 
+Within-net trajectory bootstraps and correlated classifier refits measure
+descriptive sensitivity, not calibrated independent-sample confidence.
+Independent Sobol scrambles provide the replicate unit for randomized-net
+error assessment \citep{owen2025error}; the small number of scrambles used
+here does not establish nominal confidence-interval coverage.
+
 Each experiment stores its protocol, source identifiers, input hashes,
-tolerances, numerical outputs, and failed acceptance checks. The present
+tolerances, numerical outputs, and failed acceptance checks. Public access
+and the incomplete raw-data coverage are stated in Section~\ref{sec:availability}.
+The present
 paper summarizes scientific conclusions; Appendices~\ref{supp:methods} and
 \ref{supp:experiments} retain the technical sequence. Agreement between two
 solvers is valuable evidence, but shared assumptions and ill-conditioning

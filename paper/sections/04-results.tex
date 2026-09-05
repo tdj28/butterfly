@@ -17,7 +17,7 @@ recovered section. It does not establish a generating partition or
 validate the 23 words and their connections.
 % Evidence: EXP-183 and EXP-185; FND-056 and FND-057.
 
-At one exact printed landmark, the independently corrected period-six
+At one landmark's printed coordinates, the independently corrected period-six
 orbit gives $010011$ or $C10011$ as the empirical critical interval moves;
 neither matches the frozen source targets. The coordinates in the original
 figure are approximate and were not specified as exact word centers, so
@@ -78,12 +78,23 @@ unimodal/bimodal contrast on the declared section
   \caption{What a change from two branches to three looks like. Each
   point pairs a crossing coordinate with its next value. The left control
   has one turning point; the right has two. Dashed lines locate the
-  turning points and the red line is the fitted return relation.
+  turning points and the red line is a cubic smoothing spline through
+  populated-bin medians (40 uniform bins, at least five pairs per bin).
+  Source and target coordinates are normalized separately; the spline
+  smoothing budget is $10^{-5}$ times the number of populated bins, and
+  the line is drawn only between their source medians.
   These well-separated attracting controls establish the measurement
   convention. The much narrower saddle-transition interval discussed in
   the text requires separate nonattracting-set calculations.}
   \label{fig:return-map-controls}
 \end{figure}
+
+These controls use $a=0.11$ and $0.20$. Across seven prescribed
+binning/smoothing variants on the same section, their turning-point
+$y$ locations span approximately $[-21.8324,-21.6959]$ in the first case
+and $[-29.6638,-29.4667]$, $[-20.2376,-19.7574]$ in the second. These are
+sensitivity envelopes, not confidence intervals. They do not bound the
+critical locations on another section or at the narrow saddle bracket.
 
 Inside a periodic window, a typical trajectory eventually repeats and cannot
 by itself reveal the surrounding chaotic saddle. In our tested cases,
@@ -92,22 +103,24 @@ periodic orbit. That removes those trajectories as evidence for coexisting
 chaotic attractors; it does not rule out every possible basin of attraction.
 Long transients must therefore be distinguished from persistent multistability.
 
-Independent saddle reconstructions give a stronger result. At
+The saddle reconstructions give a more targeted classifier result. At
 $(b,c)=(0.2,20)$, the last tested two-branch point is $a=0.1481875$ and the
 adjacent tested three-branch point is $a=0.14825$. The classifications survive
 two censor horizons and the prescribed reconstruction checks. They delimit
-a sampled transition interval, not a rigorously enclosed bifurcation or proof
-that only one transition lies inside it.
+a transition of the declared finite-horizon scalar classifier, not a
+codimension-one bifurcation of the full Poincar\'e map or flow. Neither a
+rigorous enclosure nor uniqueness of the change inside the interval follows.
 % Evidence: EXP-112--132, EXP-148, EXP-149.
 
 What changes within that interval? Eleven recovered unstable periodic-orbit
 families persist across it. None of those families is created or destroyed
 at the sampled branch change. Instead, a pre-existing unstable lobe is
-represented in all tested three-branch saddle clouds and excluded from the
+represented in all tested three-branch saddle clouds and not sampled in the
 tested two-branch clouds. An untouched midpoint reproduces that association.
-The result favors a change in which parts of the existing structure can be
-visited---a pruning or reinjection mechanism---over a birth or death of one
-of the recovered orbits. A direct manifold-contact calculation remains open.
+Conditional on the recovered eleven-family library, the result favors an
+accessibility, pruning, or reinjection interpretation over creation or
+destruction of a member of that library. An unrecovered orbit bifurcation
+is not excluded. A direct manifold-contact calculation remains open.
 % Evidence: EXP-133--145 and EXP-148/149.
 
 \subsection{A connected periodic family supplies a local skeleton}
@@ -115,8 +128,10 @@ of the recovered orbits. A direct manifold-contact calculation remains open.
 A Hopf bifurcation creates a small periodic orbit near an equilibrium.
 At fixed $(a,b)=(0.1798,0.2)$, the analytic small-equilibrium Hopf point is
 $c_H\simeq0.5192306257$. The emerging period-1 family can be followed to the
-reported hub coordinate (Figure~\ref{fig:hopf-family}). Along this explicit
-reconstruction of the Jones path, four corrected flips occur at
+reported hub height (Figure~\ref{fig:hopf-family}). This is an explicit
+fixed-$a$, endpoint-matched surrogate for the $L_2$-like path drawn by Jones;
+the original path equations and a homoclinic endpoint were not recovered.
+Along this surrogate, four corrected flips occur at
 \[
   c\simeq3.1807265333,\quad4.3100451385,\quad
   4.6364472010,\quad4.7090113824.
@@ -131,7 +146,7 @@ of every symbolic orbit claimed in the original paper.
   \includegraphics[width=\textwidth]{figures/fig04-hopf-family.png}
   \caption{Following one family instead of guessing from pixel colors.
   The periodic orbit born at the Hopf point grows and changes its return
-  time as $c$ increases on the fixed-$a$ path. Independent corrections
+  time as $c$ increases on the fixed-$a$ surrogate. Independent corrections
   check that the same family is being followed. Its period doublings are
   located from stability equations and separately checked daughters.
   Reaching the reported hub coordinate does not make this periodic orbit
@@ -178,7 +193,7 @@ in Figure~\ref{fig:symbolic-chain} principally asks about $p\to p+1$.
 More depth in the former cannot establish the latter.
 
 There are three different parameter paths in the record. The Hopf-born
-Jones-path family above fixes $(a,b)$ and varies $c$. A period-5 cascade
+surrogate above fixes $(a,b)$ and varies $c$. A period-5 cascade
 fixes $(a,c)=(0.245,5.1)$ and varies $b$, reaching eight locally checked
 supercritical doublings and a stable period-1280 child. The returning
 period-6 cascade fixes $(b,c)=(0.2,7.625815600403827)$ and varies $a$.
@@ -196,7 +211,8 @@ The finite event-spacing ratios are not a demonstration of universality.
   \centering
   \includegraphics[width=\textwidth]{figures/fig22-exp237-275-returning-cascade.png}
   \caption{The first six checked doublings of the returning family.
-  Upper panels show event locations and finite spacing ratios.
+  Upper panels show event locations and finite spacing ratios, with no
+  universality inference.
   Lower panels compare the loss of parent stability with the stability
   of the doubled children, using independent integrators.
   This figure stops at the stable period-768 child. The technical
@@ -222,11 +238,28 @@ saddle-focus structure: outward spiral motion in two directions and strong
 contraction in one. That local calculation is necessary for the proposed
 mechanism, but does not show a global return to the equilibrium.
 
+Both equilibria and their spectra are checked independently in
+Appendix~\ref{supp:equilibria}. At the printed point, the other equilibrium
+is approximately $(10.30491,-57.31318,57.31318)$, with eigenvalues
+$-0.00017406\pm7.63627i$ and $0.17666$. Its stable and unstable dimensions
+are opposite to those of the small equilibrium. Its possible contribution
+to global reinjection is untested, not excluded; two-focus interactions are
+relevant prior work \citep{malykh2020homoclinic}.
+
+For the small equilibrium, write the forward-time spectrum as
+$\alpha\pm i\omega,-\gamma$ with $\alpha,\gamma>0$. Time reversal gives
+the usual one-dimensional-unstable Shilnikov convention and saddle quantity
+$\sigma_{\rm rev}=\gamma-\alpha$. It is approximately $10.21408$ at the
+printed point and $10.21260$ at the candidate parameter below. This checks
+the local spectral inequality used in the homoclinic framework
+\citep{barrio2011global}; it does not establish a homoclinic orbit. The
+forward-time sum $\alpha-\gamma$ has the opposite sign.
+
 Direct scans at the printed point do not find a qualifying connection.
-A separate boundary-value calculation instead matches outgoing trajectories
-to the nonlinear stable manifold near
+A separate boundary-value calculation produces a numerical matching candidate
+using outgoing trajectories and a local nonlinear stable-manifold model near
 \[
-  (a,b,c)\simeq(0.182643608174,0.2,10.3084).
+  (a,b,c)\simeq(0.1826436,0.2,10.3084).
 \]
 DOP853 and Radau, different shooting meshes, and three matching radii support
 this candidate (Figure~\ref{fig:homoclinic-root}). Its $a$ coordinate differs
@@ -243,7 +276,8 @@ establishes that it organizes the observed hub.
   projections, with color showing flight time. Right: shrinking the
   matching sphere preserves the fitted parameter while the arc defects
   remain below the declared numerical threshold. The dashed line is
-  Jones's printed $a$. Agreement across these checks supports the
+  Jones's printed $a=0.1798$; the candidate is displaced by
+  $\Delta a\simeq2.84\times10^{-3}$. Agreement across these checks supports the
   candidate; it does not prove existence, uniqueness, or the candidate's
   organizing role in the full parameter plane.}
   \label{fig:homoclinic-root}

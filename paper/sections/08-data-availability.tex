@@ -1,0 +1,49 @@
+\section{Code, data, and reproducibility limits}
+\label{sec:availability}
+
+The \href{https://github.com/tdj28/butterfly}{public Butterfly repository}
+contains the manuscript source, figure generators, environment lockfile,
+frozen protocols, and compact experiment receipts. Source revisions and
+input hashes identify the recorded computations; a hash is not a substitute
+for access to its input file. Most campaign-wide raw orbit and saddle arrays
+are not yet distributed, so full reproduction of every main figure is
+\emph{not} claimed.
+
+The versioned
+\href{https://github.com/tdj28/butterfly/releases/tag/research-core-v1}{research-core-v1 release}
+is bound to source commit
+\href{https://github.com/tdj28/butterfly/commit/13d1e1aa3a079704b26b372e110614c774b0793d}{\texttt{13d1e1a}}.
+It supplies nine data/protocol inputs, their checksums, and the locked
+environment. A documented CPU command verifies and replays this subset
+from a fresh checkout; the
+\href{https://github.com/tdj28/butterfly/blob/main/docs/reproducibility.md}{replay guide}
+states its numerical gates and anonymous-download verification.
+Its atlas operation redraws cached classifications for one $b=0.2$ panel;
+it does not reintegrate the atlas. Its flip and segmented homoclinic checks
+reintegrate preserved candidates, not their complete discovery procedures.
+The independent collocation pilot is included for inspection, not executed
+by that three-example wrapper.
+
+The separate
+\href{https://github.com/tdj28/butterfly/releases/tag/research-exp476}{research-exp476 release}
+is bound to source commit
+\href{https://github.com/tdj28/butterfly/commit/f2fc9cd0885c8343e017a0b46238dff922b89ec7}{\texttt{f2fc9cd}}.
+It preserves the full failed-study receipt, saved-mesh diagnostics, scripts
+in the tagged source, and checksums. The failed and skipped cases remain
+failed and skipped. Replaying a diagnostic is not a successful rerun of the
+unfinished accuracy grid.
+
+\href{https://github.com/tdj28/butterfly/blob/research-exp476/paper/supplement/rossler-multib-atlas.gif}{Supplemental Movie S1}
+is publicly viewable as an animated GIF. The public core archive does not
+contain all eleven source frames needed to regenerate it.
+The \href{https://github.com/tdj28/butterfly/tree/main/paper/figures}{figure index}
+lists individual generators and their input requirements; several still
+need the undistributed historical arrays.
+The source-derived symbolic diagram uses tracked transcription inputs and
+needs no numerical campaign archive. The algebraic equilibrium check in
+Appendix~\ref{supp:equilibria} likewise runs from the source checkout.
+
+The remaining reproducibility requirement is public dependency closure for
+all principal results, including event-transversality diagnostics and
+independent-formulation orbit checks. The available subset is a verified
+starting point, not a claim that this larger requirement is complete.

@@ -26,6 +26,25 @@ two turning points give three. These are called \emph{unimodal} and
 \emph{bimodal}, respectively. A clean scalar plot is useful evidence, but does
 not by itself prove that the full return dynamics are one-dimensional.
 
+For a smooth flow, a regular return between transverse sections is locally
+invertible: nearby points can be followed back to their previous crossing
+\citep[Secs.~6.4 and 12.2]{teschl2012ordinary}. Thus a turning point in a
+scalar plot is not a singularity of the full Poincar\'e map. For an observable
+$s$ and a declared invariant set $A$, the plotted relation is
+\[
+  \mathcal R_s=\{(s(q),s(Pq)):q\in A\}.
+\]
+It need not be the graph of a function. A genuine scalar quotient would need
+a specified projection $\pi:A\to I=\pi(A)$ and map $F:I\to I$ satisfying
+\begin{equation}
+  \pi\circ P|_A=F\circ\pi.
+  \label{eq:quotient-condition}
+\end{equation}
+Narrow conditional spread in a finite sample does not establish this
+identity or an invariant strong-stable foliation. We therefore call the
+measured change a \emph{finite-horizon scalar-return classifier transition}.
+An invariant topology transition remains a separate explanatory target.
+
 \begin{table}[tbp]
 \centering
 \small
@@ -53,11 +72,12 @@ tests are collected in Appendix~\ref{supp:methods}.}
 \label{tab:vocabulary}
 \end{table}
 
-An integer label such as \emph{period 6} describes the historical winding or
-section-return convention; it does not mean $T=6$. Indeed, a family labeled
-period 6 below crosses the Barrio section eight times per circuit. A change
-in crossing count can therefore occur without a change in the orbit's
-underlying dynamics.
+We distinguish the physical flow period $T$, historical period label
+$p_{\rm hist}$, and counts $N_{\Sigma_J}$ and $N_{\Sigma_B}$ on the historical
+and Barrio sections. A family labeled $p_{\rm hist}=6$ below has
+$N_{\Sigma_B}=8$; neither integer means $T=6$ or $T=8$. A grazing can change
+a section count without changing the underlying periodic orbit. The section
+and counting convention must therefore accompany each reported period.
 
 There is also a strict mathematical limit on \emph{superstability}. For a
 regular periodic orbit, Liouville's formula \citep{teschl2012ordinary} gives
@@ -70,3 +90,33 @@ The autonomous neutral multiplier is one, so neither transverse multiplier
 can vanish. A zero derivative in a scalar model is therefore not an exact
 zero Floquet multiplier of the full flow. This distinction corrects one of
 our earlier search interpretations.
+It does not invalidate superstability as a property of a scalar reduced map;
+it invalidates our former identification of its zero derivative with a zero
+transverse flow multiplier.
+
+\begin{table}[tbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}P{0.25\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Parameter-space object & Defining event & Current scope \\
+\midrule
+Hopf locus & An equilibrium eigenpair crosses the imaginary axis. &
+Analytic equation and numerical checks. \\
+Period-doubling locus & A periodic orbit has a transverse multiplier $-1$. &
+Corrected local flip curves and daughter checks. \\
+Homoclinic locus & An orbit leaves and returns asymptotically to an equilibrium. &
+Numerical candidates; no existence enclosure or established hub connection. \\
+Scalar branch classifier & A declared finite return projection changes its
+resolved monotone-piece count. & Sampled bracket, dependent on representation
+and observation horizon. \\
+Double-critical locus & Two specified scalar critical points belong to one
+periodic itinerary. & Center search unresolved; not a zero flow multiplier. \\
+\bottomrule
+\end{tabularx}
+\caption{Different parameter-space objects answer different questions. A fold in the computed
+flip locus is not thereby a fold of a homoclinic locus or the historical
+topology-transition curve.}
+\label{tab:distinct-loci}
+\end{table}
