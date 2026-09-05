@@ -16,3 +16,12 @@
 Earlier live GPU qualification and teardown records remain in
 [runpod-strategy.md](runpod-strategy.md) and the experiment receipts. They
 do not establish that the newly changed error paths have been tested live.
+# 2026-09-05 provider-contract recovery
+
+The direct REST lookup now explicitly requests machine and network-volume
+details. Configuration-only observations are durably saved before validation;
+failed disk/volume/port checks identify individual fields. Numerical and safety
+thresholds are unchanged. Local full suite: 1278 passed, one Linux-only process
+identity test skipped on macOS. Focused lifecycle suite: 80 passed, including
+forced contract failures with retained observations and verified teardown.
+Live successor qualification is pending; this is not flow-symbolics evidence.

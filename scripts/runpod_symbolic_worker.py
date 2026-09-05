@@ -361,7 +361,8 @@ def inventory(request=runpodctl.request_json):
 def direct_lookup(pod_id, request=runpodctl.request_json):
     identifier = provider_id(pod_id)
     try:
-        row = request("GET", f"{runpodctl.REST_BASE}/pods/{urllib.parse.quote(identifier, safe='')}")
+        row = request("GET", f"{runpodctl.REST_BASE}/pods/{urllib.parse.quote(identifier, safe='')}"
+                      "?includeMachine=true&includeNetworkVolume=true")
     except SystemExit as error:
         if str(error).startswith("Runpod API returned HTTP 404:"):
             return None
@@ -413,14 +414,43 @@ def owned_record(store):
     return record
 
 
+def contract_observation(pod):
+    """Allowlisted configuration only; never retain env, keys, or full responses."""
+    def scalar(value):
+        if isinstance(value, float) and not math.isfinite(value):
+            return {"invalid_number": str(value)}
+        if value is None or type(value) in (str, int, float, bool):
+            return value
+        return {"unexpected_type": type(value).__name__}
+
+    fields = ("adjustedCostPerHr", "costPerHr", "interruptible", "containerDiskInGb",
+              "volumeInGb", "ports", "cloudType", "gpuCount", "image", "imageName")
+    observed = {key: scalar(pod[key]) for key in fields if key in pod}
+    if isinstance(pod.get("ports"), list):
+        observed["ports"] = [scalar(value) for value in pod["ports"]]
+    for key, allowed in (("machine", ("secureCloud", "gpuTypeId")),
+                         ("gpu", ("count", "id"))):
+        value = pod.get(key)
+        observed[key] = ({field: scalar(value[field]) for field in allowed if field in value}
+                         if isinstance(value, dict) else None)
+    observed["networkVolumeId_present"] = bool(pod.get("networkVolumeId"))
+    observed["networkVolume_present"] = bool(pod.get("networkVolume"))
+    return observed
+
+
 def actual_contract(record, pod):
     assert_owned(record, pod)
     rate = pod.get("adjustedCostPerHr", pod.get("costPerHr"))
     rate = finite_number(rate, "actual hourly rate", maximum=record["plan"]["maximum_hourly_usd"])
-    if (pod.get("interruptible") is not False or pod.get("containerDiskInGb") != 20
-            or pod.get("volumeInGb") != 0 or pod.get("networkVolumeId")
-            or pod.get("networkVolume") or pod.get("ports") != ["22/tcp"]):
-        raise LifecycleError("received pod violates on-demand/disk/no-volume/SSH-only contract")
+    checks = {"interruptible": pod.get("interruptible") is False,
+              "containerDiskInGb": pod.get("containerDiskInGb") == 20,
+              "volumeInGb": pod.get("volumeInGb") == 0,
+              "networkVolume": not (pod.get("networkVolumeId") or pod.get("networkVolume")),
+              "ports": pod.get("ports") == ["22/tcp"]}
+    failed = [field for field, passed in checks.items() if not passed]
+    if failed:
+        raise LifecycleError("received pod violates on-demand/disk/no-volume/SSH-only contract: "
+                             + ", ".join(failed))
     if not (pod.get("cloudType") == "SECURE" or (pod.get("machine") or {}).get("secureCloud") is True):
         raise LifecycleError("provider did not confirm secure-cloud placement")
     if (pod.get("gpu") or {}).get("count", pod.get("gpuCount")) != 1:
@@ -592,6 +622,8 @@ def provision_once(store, request=runpodctl.request_json, *, lookup=process_star
         current = direct_lookup(identifier, request)
         if current is None:
             raise LifecycleError("created pod vanished before contract qualification")
+        assert_owned(owned_record(store), current)
+        store.update(observed_contract=contract_observation(current))
         rate = actual_contract(owned_record(store), current)
         store.update(actual_hourly_usd=rate, contract_qualified=True)
         return current

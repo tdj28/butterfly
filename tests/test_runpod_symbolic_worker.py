@@ -85,7 +85,7 @@ class Provider:
             if self.timeout_after_create:
                 raise TimeoutError("simulated timeout after provider accepted POST")
             return self.pods["created-owned"]
-        identifier = url.rsplit("/", 1)[1]
+        identifier = url.split("?", 1)[0].rsplit("/", 1)[1]
         if method == "GET":
             if identifier not in self.pods:
                 raise SystemExit("Runpod API returned HTTP 404: absent")
@@ -119,6 +119,36 @@ def test_single_launch_then_verified_teardown_preserves_two_unrelated_pods(store
     assert record["post_delete_inventory_ids"] == ["unrelated-a", "unrelated-b"]
     assert set(provider.pods) == {"unrelated-a", "unrelated-b"}
     assert "delete_http_status" not in record  # request_json does not expose it.
+
+
+def test_direct_lookup_explicitly_requests_contract_details(store):
+    calls = []
+    def request(method, url):
+        calls.append((method, url))
+        return {"id": "created-owned"}
+    worker.direct_lookup("created-owned", request)
+    assert calls == [("GET", worker.runpodctl.REST_BASE +
+                      "/pods/created-owned?includeMachine=true&includeNetworkVolume=true")]
+
+
+@pytest.mark.parametrize("field,value", [("interruptible", True),
+    ("containerDiskInGb", 50), ("volumeInGb", None),
+    ("networkVolume", {"id": "synthetic"}), ("ports", ["22/tcp", "8888/http"])])
+def test_failed_contract_retains_observations_before_teardown(store, field, value):
+    provider = Provider(store)
+    def mismatch(method, url, *, payload=None):
+        result = provider(method, url, payload=payload)
+        if method == "GET" and "/created-owned?" in url:
+            result[field] = value
+        return result
+    with pytest.raises(worker.LifecycleError, match=field):
+        worker.provision_once(store, mismatch, lookup=lookup, now=100)
+    observed = store.read()["observed_contract"]
+    assert observed["adjustedCostPerHr"] == 0.25
+    assert "env" not in observed
+    assert "synthetic-key" not in json.dumps(observed)
+    assert worker.terminate_owned(store, provider, pause=lambda _: None)
+    assert store.read()["observed_contract"] == observed
 
 
 @pytest.mark.parametrize("heartbeat", [None,
@@ -507,7 +537,7 @@ def test_uncertain_create_outcomes_remain_unresolved_and_never_retry(store, erro
 def test_later_get_4xx_cannot_reclassify_a_successful_create_as_rejected(store):
     provider = Provider(store)
     def missing_contract_permission(method, url, *, payload=None):
-        if method == "GET" and url.endswith("/created-owned"):
+        if method == "GET" and url.split("?", 1)[0].endswith("/created-owned"):
             raise worker.runpodctl.RunpodHTTPError(403, "lookup not permitted")
         return provider(method, url, payload=payload)
     with pytest.raises(worker.runpodctl.RunpodHTTPError):
