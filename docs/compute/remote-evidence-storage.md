@@ -34,21 +34,37 @@ smoke is not GPU qualification or scientific evidence.
 
 ## Collection and analysis
 
-Add `--ssh-storage-dir /home/ubuntu/butterfly-research/UNIQUE_RUN_NAME` to
+The selected workflow uses the existing **local retrieval** mode of
+`scripts.execute_symbolic_center_cloud` (omit `--ssh-storage-dir`). After
+complete local raw verification and verified worker termination, run
+`scripts.archive_symbolic_collection_to_ssh` with its source-matched
+collection directory, lifecycle/ownership hashes and a fresh remote/output
+directory. Default is local preflight; `--execute` permits the upload. Its
+7,200-second transfer bound consumes no GPU rental time, and it retains
+local originals as well as the new remote copy.
+
+This choice follows a passing live smoke with approximately 1.86 MB/s Mac
+upload: streaming the maximum 8 GiB directly during GPU rental would exceed
+the short retrieval window. GPU-to-Mac retrieval still has its own bounded
+deadline; the prax smoke does not measure that link.
+
+An alternative inline mode remains opt-in: add
+`--ssh-storage-dir /home/ubuntu/butterfly-research/UNIQUE_RUN_NAME` to
 `scripts.execute_symbolic_center_cloud`, using its required matching frozen
 source and fresh CPU-control hash. Preparation-only remains the default;
 with this option preparation stages small public helper/control files on
 prax. Only explicit `--execute` permits the bounded worker creation.
 
-The evidence path is:
+The selected evidence path is:
 
 1. Collect on the single task-owned GPU worker after parity, throughput and
    disk qualification.
-2. Stop and verify the worker's owned writers, then relay a bounded archive
-   through the Mac to prax without a bulk local file.
+2. Stop and verify the worker's owned writers, then retrieve a bounded
+   archive to the Mac.
 3. Verify the archive, every raw file and the complete candidate/profile
-   inventory. Retain both the archive and extracted originals on prax.
-4. Terminate the exact owned worker and verify its absence.
+   inventory locally; terminate the exact owned worker and verify absence.
+4. Upload the retained archive to prax and verify its complete raw closure
+   again. Retain both the archive and extracted originals on both hosts.
 5. Run `scripts.analyze_symbolic_remote_collection` locally, supplying the
    hash-bound storage, collection, lifecycle and ownership receipts. This
    uses the unchanged numerical analysis with one disposable raw-file cache
@@ -59,8 +75,10 @@ arguments support analysis from the same frozen source snapshot after
 documentation advances; they do not permit changed analysis code.
 
 The frozen limits are 8 GiB of evidence / 2,000 files, at least
-17,722,933,248 free bytes on prax before preparation, 2 GiB on the Mac for
-control/staging, and 9 GiB on the worker after installation/qualification.
+17,722,933,248 free bytes on prax before preparation, and 9 GiB on the worker
+after installation/qualification. Inline mode needs 2 GiB on the Mac for
+control/staging; the selected local retrieval mode requires the full
+archive-plus-extraction reserve (also 17,722,933,248 bytes).
 Analysis limits one raw file to 256 MiB (including decompressed NPZ payload),
 with a 512 MiB total cache ceiling. Cache cleanup removes only local copies
 created by that invocation, never original remote data.

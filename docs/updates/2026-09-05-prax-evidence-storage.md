@@ -21,12 +21,14 @@ reusable commands and evidence-retention rules.
 - A new private directory below `/home/ubuntu/butterfly-research` on `prax`
   will retain the bounded archive and extracted raw data. Existing server
   files and unrelated workloads are outside scope.
-- SSH relays bytes through the Mac without saving a bulk local archive.
-  Both transfer size and time are bounded. A partial transfer remains
-  partial; a valid archive is not by itself a complete scientific receipt.
+- The initial implementation supports a bounded in-memory SSH relay. The
+  live timing below led to a different choice for this attempt: retain and
+  verify locally first, then upload after GPU shutdown. A partial transfer
+  remains partial; a valid archive alone is not a complete scientific receipt.
 - All received hashes and the complete candidate/profile/raw-file inventory
-  must pass before collection can be marked complete and before normal
-  owned-worker teardown.
+  must pass at the chosen retrieval destination before collection can be
+  marked complete and before normal owned-worker teardown. For the selected
+  post-termination workflow that first destination is the Mac.
 - CPU analysis remains on the Mac, fetching one hash-checked raw profile at
   a time into a bounded disposable cache. Full original evidence remains on
   `prax`; eviction removes only copies created by the analysis invocation.
@@ -91,3 +93,50 @@ Live storage timing will be reported as **Mac–prax transport only**; it
 cannot establish GPU-to-prax end-to-end bandwidth. Both the archive and
 extracted smoke data will remain in their own new test folder. No existing
 server data is overwritten or removed.
+
+## Live controls and transport decision
+
+Source `e8739a9d8d81d534f654d1baa8d942989e436443` was pushed and preserved
+as `exp-477-prax-protocol` before any target execution. The first commands
+at the earlier `e1c18f5` source correctly refused at clean-source preflight
+because a final guard/test edit had arrived after the commit. Those refused
+commands created no remote files, worker, or CPU reference.
+
+The completed controls at the new freeze are:
+
+- [Prax transport and Linux writer control](../experiments/receipts/EXP-477-prax-storage-smoke.json),
+  SHA-256 `cf3ea31cd92e5a1916364f0658e08c858248ac6703f94efe651da246f5a44177`.
+  The deterministic 16 MiB payload survived roundtrip hash checks; an
+  incorrect descriptor was rejected. Interrupted parent/grandchild writers
+  stopped, and an orphaned live group was refused as non-quiescent.
+- [Independent watchdog control](../experiments/receipts/EXP-477-prax-watchdog-smoke.json),
+  SHA-256 `e8c73c87db39c6ca1f1a1bc63c9701ae2c6789bf5d0fc708adb206e1a0fd3872`.
+  Authentication and exact local service/process retirement passed without
+  a provider mutation or paid worker.
+- [Fresh CPU reference](../experiments/receipts/EXP-477-prax-cpu-control.json),
+  SHA-256 `e3dee57e7916e8863c9336984acb65c1ebd5539ed7542bb9974e4a5e11523939`.
+  Both profiles passed at the same source; it is not a GPU comparison.
+
+The synthetic originals are retained at
+`/home/ubuntu/butterfly-research/exp477-storage-smoke-20260905-e8739a9`.
+Local validation finished with 1,217 passing tests and one Linux-only skip;
+public Python 3.12/3.13 CI passed, including the Linux control.
+
+The measured transport was approximately **1.86 MB/s upload** and
+**6.19 MB/s download** (decimal MB; full timings are in the receipt). An
+8 GiB archive would exceed the frozen 900-second streaming window at that
+upload rate. Therefore the paid scout will **not** use inline prax streaming.
+The Mac now has enough space for the original bounded local retrieval path:
+retrieve and verify complete raw evidence locally, verify GPU termination,
+then archive to prax with a separate bounded transfer while no GPU is rented.
+Both local and remote originals remain retained. This is a prospective
+operational amendment, not a changed numerical threshold or a target retry.
+The post-termination archiver and matching source will be frozen before
+target execution. The USD 3 attempt ceiling is unchanged.
+
+Review of that new archiver caught an admission error before live use: its
+CPU reference must be checked against the separate EXP-196 deployment
+design, not the EXP-204 scout design. Distinct-parent regression fixtures
+now exercise the real validator. The staged candidate bytes are also
+checked against their original frozen hash/size independently of their
+preparation descriptor. Neither correction changes any trajectory or fit.

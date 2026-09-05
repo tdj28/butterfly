@@ -228,3 +228,14 @@ receipts, and exact collection/analysis source-commit equality.
 The [remote-storage update](../updates/2026-09-05-prax-evidence-storage.md)
 will record the actual new freeze, commands, receipts and outcomes. Preparing
 this deployment is not a symbolic verification result.
+
+### Selected post-termination transport
+
+The live prax control passed but measured only about 1.86 MB/s Mac upload.
+That does not support an 8 GiB transfer within the inline relay deadline.
+Because the Mac now has sufficient local space, the selected attempt will
+use the original local retrieval mode, verify full raw closure and GPU
+termination, then upload with `archive_symbolic_collection_to_ssh.py`.
+Its separate 7,200-second transfer bound incurs no GPU rental, and local
+originals remain retained. The scientific manifest and USD 3 attempt ceiling
+are unchanged. The source amendment is frozen before target execution.

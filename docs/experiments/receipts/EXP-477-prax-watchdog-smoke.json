@@ -1,0 +1,21 @@
+{
+  "create_attempted": false,
+  "finished_utc": "2026-09-05T13:44:38.444713+00:00",
+  "independent_authenticated_watchdog_ready": true,
+  "local_watchdog_retired": true,
+  "passed": true,
+  "provider_create_called": false,
+  "provider_mutations_performed": false,
+  "schema": "butterfly.symbolic-watchdog-smoke.v1",
+  "source_commit": "e8739a9d8d81d534f654d1baa8d942989e436443",
+  "started_utc": "2026-09-05T13:44:37.156111+00:00",
+  "target_computation_performed": false,
+  "termination_reason": "no create request was issued",
+  "termination_verified": true,
+  "watchdog_heartbeat": {
+    "nonce": "31e3fac060eb41f59ccef0b995298718",
+    "pid": 93483,
+    "ps_start": "Sat Sep  5 06:44:37 2026",
+    "time": 1788615878.210948
+  }
+}
