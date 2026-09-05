@@ -1,27 +1,30 @@
 # Paper workspace
 
 This directory contains a readable main article followed by a detailed technical
-supplement in the same PDF. The main article asks what organizes the Rössler
-periodicity windows, explains the measurements, and separates supported local
-results from the mechanisms still open. The supplement preserves the numerical
+supplement in the same PDF. The main article tests the symbolic reinjection
+explanation for Rössler periodicity hubs: whether an extra inner return
+predicts the connections between neighboring windows. It presents the chain
+before methods and numerical results, separating supported local ingredients
+from the mechanism still open. The supplement preserves the numerical
 record, including failed experiments and corrected interpretations.
 
 ## Start here
 
-- Build the current PDF using the commands below. The revised
-  `manuscript-symbolic-v1` release is prepared as a draft; public PDF publication
-  is pending approval. Earlier research-checkpoint PDFs remain unchanged as
-  historical artifacts.
+- Build the current PDF using the commands below. Public PDF publication is
+  pending approval. The earlier `manuscript-symbolic-v1` draft contains the
+  previous layout, not this mechanism-first revision; published research
+  checkpoint PDFs remain unchanged as historical artifacts.
 - [`manuscript.tex`](manuscript.tex) builds the combined article and supplement.
 - [`sections/01-introduction.tex`](sections/01-introduction.tex) introduces the
   question and historical context.
 - [`sections/02-mathematical-objects.tex`](sections/02-mathematical-objects.tex)
   defines the measurements and includes a short vocabulary table.
-- [`sections/04-results.tex`](sections/04-results.tex) presents the main visual
-  numerical evidence and its limitations.
-- [`sections/05-topology-tests.tex`](sections/05-topology-tests.tex) restores
+- [`sections/05-topology-tests.tex`](sections/05-topology-tests.tex) introduces
   the symbolic alphabet, reinjection/zero-insertion explanation, and full
-  source-derived chain diagram through period seven to the main article.
+  source-derived chain diagram through period seven, before the methods and results.
+- [`sections/04-results.tex`](sections/04-results.tex) starts with the local
+  alphabet and unresolved critical-word tests, then assesses the geometric
+  and orbit ingredients. Evidence from separate slices is not a joined chain.
 - [`sections/06-discussion.tex`](sections/06-discussion.tex) summarizes what the
   evidence changes for the original claims.
 
@@ -31,8 +34,11 @@ record retains the full numerical values and acceptance criteria.
 The current draft's title-page author and PDF author metadata are deliberately
 blank. Historical citations still credit Jones and the other original authors.
 The current build is 63 pages: 16 pages of main article, followed by the
-technical supplement and references. The chain is Figure 10 on page 14;
-its explanation starts in Section 5 on page 12.
+technical supplement and references. The chain is Figure 2 on page 6;
+its explanation starts in Section 3 on page 4, before methods and results.
+The title, abstract, opening results, claims table, and conclusion all frame
+the symbolic reinjection prediction as the central test. Numeric section
+filenames retain their historical names; `manuscript.tex` sets reading order.
 
 ## Technical supplement
 

@@ -1,5 +1,39 @@
-\section{What the evidence shows}
+\section{How far the symbolic explanation has been tested}
 \label{sec:results}
+
+\subsection{The alphabet has local support; the chain is not yet reproduced}
+\label{sec:symbolic-results}
+
+The local operational alphabet is now qualified, not merely guessed to
+fit the target words. Neutral branches $B_0,B_1,B_2$ were assigned in
+increasing coordinate order, and critical intervals $K_0,K_1$ were
+tracked independently. The source-derived mapping
+\[
+ (B_0,B_1,B_2)\mapsto(2,1,0),\qquad K_1\mapsto C,\quad K_0\mapsto D
+\]
+passes local tests with two solvers, disjoint data segments, and both
+scalar coordinates. That establishes an operational dictionary on the
+recovered section. It does not establish a generating partition or
+validate the 23 words and their connections.
+% Evidence: EXP-183 and EXP-185; FND-056 and FND-057.
+
+At one exact printed landmark, the independently corrected period-six
+orbit gives $010011$ or $C10011$ as the empirical critical interval moves;
+neither matches the frozen source targets. The coordinates in the original
+figure are approximate and were not specified as exact word centers, so
+this failed test does not refute the whole chain. Later bounded searches
+also have not established the required two-critical center. The distinction
+is therefore precise: the alphabet has local support, while the critical
+itineraries and dynamical arrows remain reproduction targets.
+% Evidence: EXP-186 and EXP-202; FND-058 and FND-072.
+
+The remaining results test ingredients needed to close that gap: where the
+windows lie, how return branches change, which orbit families connect, and
+whether a candidate global return exists near the hub. They concern separate
+parameter paths and slices, not a single continued symbolic transition.
+In particular, the saddle-lobe result at $c=20$, the period-6 window studies
+near $c=6$--$8$, and the initial homoclinic candidate at $c=10.3084$ have
+not been joined into a verified $CDw\to CD0w$ connection.
 
 \subsection{The broad pattern and the individual windows are different tests}
 
@@ -137,6 +171,11 @@ curve near $c=6.83093$.
 \end{figure}
 
 \subsection{The cascades extend deeply, but high period exposes false identities}
+
+These cascades test orbit continuation and local stability, not the symbolic
+insertion rule. Period doubling changes the cycle label as $p\to2p$; the chain
+in Figure~\ref{fig:symbolic-chain} principally asks about $p\to p+1$.
+More depth in the former cannot establish the latter.
 
 There are three different parameter paths in the record. The Hopf-born
 Jones-path family above fixes $(a,b)$ and varies $c$. A period-5 cascade

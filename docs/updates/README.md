@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-04-symbolic-mechanism-first.md`](2026-09-04-symbolic-mechanism-first.md)
+  - makes the symbolic reinjection explanation the organizing question in the
+  title, abstract, early chain figure, results, conclusion, and research priorities;
+  preserves the distinction between local ingredients and a verified connection.
+
 - [`2026-09-04-symbolic-chain-restored.md`](2026-09-04-symbolic-chain-restored.md)
   - restores the source-derived 23-word chain and symbolic mechanism to the
   main article, distinguishes reported arrows from new validation, and leaves

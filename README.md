@@ -23,13 +23,22 @@ prioritize independent validation and public reproducibility.
 For an accessible introduction, the [manuscript](paper/README.md) now puts a
 short illustrated article before the detailed technical supplement, preserving
 all earlier figures and adding independent-validation, accuracy, and symbolic-chain
-diagrams. The main article now explains the original symbolic mechanism explicitly.
+diagrams. The main article is organized around the original symbolic
+reinjection mechanism: why an extra inner return should connect neighboring
+periods into shrimp chains. It presents that hypothesis before the methods
+and results, then distinguishes tests of its ingredients from validation of
+the connections themselves.
 The [core-data replay guide](docs/reproducibility.md) documents
 the first downloadable-input workflow: one atlas panel and two numerical
 candidate checks, with explicit limits on what is reproduced.
 
 ## What the computations currently show
 
+- The source-derived symbolic chain is an explicit reproduction target.
+  A local operational alphabet passes independent checks, but the 23 critical
+  words and their window-to-window connections remain unverified. Testing
+  the predicted `p -> p+1` insertion is the central mechanism priority;
+  deeper `p -> 2p` cascades do not establish it.
 - The shrimp and periodic-window skeleton evolves coherently over eleven
   sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
   These are finite-time, single-initial-condition recurrence maps; unresolved
@@ -71,6 +80,17 @@ Those boundaries are part of the result, not fine print.
 
 ## A visual tour
 
+### The symbolic chain behind the proposed spiral mechanism
+
+![Jones's source-derived symbolic chains through period seven](paper/figures/fig33-jones-symbolic-chain.png)
+
+This redraw retains the 23-word construction from Jones's original Figure 6.
+Arrow styles distinguish the source's matched transitions, visual-only link,
+lower-period connections, and period doubling. It shows the historical claim
+we aim to test; it does not present those arrows as newly reproduced results.
+The decisive computed figure will join the parameter path, return geometry,
+corrected orbits, and predicted extra symbol in one window-to-window test.
+
 ### From broad parameter scans to individual shrimp
 
 ![Global parameter plane and period-6 zoom](paper/figures/fig02-global-and-period6-zoom.png)
@@ -95,15 +115,6 @@ Numerically localized real-`-1` events, stable primitive children, two independe
 and finite spacing ratios resolve the returning cascade through a stable
 period-768 child. Later high-precision work extends the connected finite chain
 while retaining the boundary between finite evidence and universality.
-
-### The symbolic chain behind the proposed spiral mechanism
-
-![Jones's source-derived symbolic chains through period seven](paper/figures/fig33-jones-symbolic-chain.png)
-
-This redraw restores the 23-word construction from Jones's original Figure 6.
-Arrow styles distinguish the source's matched transitions, visual-only link,
-lower-period connections, and period doubling. It shows the historical claim
-we aim to test; it does not present those arrows as newly reproduced results.
 
 All 34 manuscript figures and their regeneration commands are indexed in
 [`paper/figures/README.md`](paper/figures/README.md). The animated multi-`b`

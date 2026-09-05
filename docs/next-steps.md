@@ -9,6 +9,14 @@ The [execution update](updates/2026-09-04-reproducible-core-and-readable-paper.m
 records the first implementation checkpoint. A completed subtask does not
 close the broader scientific acceptance criterion below.
 
+The symbolic reinjection explanation is the central scientific objective,
+not a final illustration after the numerical work. The next mechanism
+experiment should target one `p -> p+1` connection, with its definitions and
+inputs made independently reproducible. Full-campaign data release and
+completion of every homoclinic refinement are not prerequisites for that
+bounded test. Homoclinic accuracy remains required for claims about the global
+organizer; no existing acceptance criterion or failed experiment is waived.
+
 ## 1. Make the central evidence independently reproducible
 
 - [x] Inventory a first core replay: one atlas panel, one flip, and the initial
@@ -35,7 +43,37 @@ their hashes, recompute the selected results, and regenerate the figures
 within declared numerical tolerances. CPU tests already pass without private
 inputs; historical result reproduction is a separate requirement.
 
-## 2. Resolve the homoclinic accuracy question
+## 2. Test the symbolic reinjection mechanism
+
+- [ ] Define the two-dimensional first-return map and the precise scalar
+  projection or quotient used for critical-point claims. Quantify when a scalar
+  coordinate is not a single-valued map; report conditional spread/support.
+- [ ] Replace the retired full-flow Floquet-zero proxy with separate,
+  uncertainty-bearing critical-to-orbit membership residuals. Follow critical
+  identities across parameter changes and test section/coordinate changes.
+- [ ] Freeze one bounded pilot: locate a center without using the desired word,
+  encode the independently corrected orbit, and test a proposed `p -> p+1`
+  connection at held-out parameters. Stop on unresolved center/partition
+  measurements rather than tuning them to produce a source match.
+- [ ] Complete the 23-word, period-seven comparison using the frozen source
+  target: canonical words, orbit permutations, missing words, and first
+  disagreements. A period-doubling cascade alone cannot fill this table.
+- [ ] Define a signed manifold-contact or pruning observable for the already
+  observed lobe-inclusion change. Test a prediction at held-out parameters
+  before identifying it with the topology-transition curve. Results on
+  separate slices must not be described as one connected symbolic transition.
+- [ ] Build one computed unfolded-spiral figure that connects parameter path,
+  orbit identity, return-map branches, critical values, and symbolic transitions.
+  The existing source-derived chain is the hypothesis, not this computed test.
+
+Acceptance: a reader can trace every proposed `p -> p+1` connection to
+corrected orbits and an independently specified partition; a changed section
+does not silently become a changed invariant-flow claim. Negative or incomplete
+word matches are published with the successful matches. The pilot is not
+complete until the measured extra return is compared with the predicted
+insertion, rather than inferred from generic cascade depth.
+
+## 3. Resolve the homoclinic accuracy question
 
 - [x] Reproduce the initial fixed-c candidate with an independent boundary-value
   formulation. EXP-475 passes analytic positive/negative controls and four
@@ -63,28 +101,6 @@ uncertainty that resolves the feature being claimed. A validated local
 existence argument would be a further result, not a synonym for agreement.
 EXP-474 remains frozen but deferred; adding nearby points with unchanged
 uncertainty is lower priority than answering this question.
-
-## 3. Close the original finite-ordering and topology gaps
-
-- [ ] Define the two-dimensional first-return map and the precise scalar
-  projection or quotient used for critical-point claims. Quantify when a scalar
-  coordinate is not a single-valued map; report conditional spread/support.
-- [ ] Replace the retired full-flow Floquet-zero proxy with separate,
-  uncertainty-bearing critical-to-orbit membership residuals. Follow critical
-  identities across parameter changes and test section/coordinate changes.
-- [ ] Complete the 23-word, period-seven comparison using the frozen source
-  target: canonical words, orbit permutations, missing words, and first
-  disagreements. A period-doubling cascade alone cannot fill this table.
-- [ ] Define a signed manifold-contact or pruning observable for the already
-  observed lobe-inclusion change. Test a prediction at held-out parameters
-  before identifying it with the topology-transition curve.
-- [ ] Build one unfolded-spiral figure that connects parameter path, orbit
-  identity, return-map branches, critical values, and symbolic transitions.
-
-Acceptance: a reader can trace every proposed `p -> p+1` connection to
-corrected orbits and an independently specified partition; a changed section
-does not silently become a changed invariant-flow claim. Negative or incomplete
-word matches are published with the successful matches.
 
 ## 4. Resolve the unusual eighth birth before emphasizing it
 

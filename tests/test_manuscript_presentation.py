@@ -29,3 +29,12 @@ def test_symbolic_chain_is_in_main_article_with_source_credit():
     assert r"\citep{jones2012topological}" in symbolic
     assert r"\label{eq:jones-zero-insertion}" in symbolic
     assert r"\label{eq:jones-insertion-example}" in symbolic
+
+
+def test_symbolic_hypothesis_precedes_methods_and_results():
+    main_article = (PAPER / "manuscript.tex").read_text().split(r"\appendix", 1)[0]
+    inputs = re.findall(r"\\input\{([^{}]+)\}", main_article)
+    hypothesis = inputs.index("sections/05-topology-tests")
+    assert inputs.index("sections/02-mathematical-objects") < hypothesis
+    assert hypothesis < inputs.index("sections/03-methods")
+    assert hypothesis < inputs.index("sections/04-results")
