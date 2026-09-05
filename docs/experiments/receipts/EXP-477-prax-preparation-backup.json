@@ -1,0 +1,47 @@
+{
+  "schema": "butterfly.prax-preparation-backup.v1",
+  "source_commit": "b53bfabf441e5afe756b7cfaec69f0a6989690e5",
+  "host": "ubuntu@prax",
+  "remote_directory": "/home/ubuntu/butterfly-research/exp477-preparation-20260905-b53bfab",
+  "verified_at_utc": "2026-09-05 14:16:57 UTC",
+  "passed": true,
+  "scope": "Frozen public source archive, hash inventory, numerical candidates and CPU reference only; not a scientific trajectory collection or a migration of historical results",
+  "assets": [
+    {
+      "bytes": 867378,
+      "path": "candidates.json",
+      "sha256": "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"
+    },
+    {
+      "bytes": 219603,
+      "path": "cpu-control.json",
+      "sha256": "0c639fab4ecd09401f11bff62d68ad3e73419b3b4ba24b8739d49e6b0eaae87f"
+    },
+    {
+      "bytes": 156695,
+      "path": "source-inventory.json",
+      "sha256": "6f16d97a19eb3d2b0845cb1ecfeb23d4de64b0a6210abdaf8ad71f9cdc8742f7"
+    },
+    {
+      "bytes": 6871040,
+      "path": "source.tar",
+      "sha256": "c6c1c5acb4906289e924ddddb1960279d17f0bdedfcb4366973e572c9b7848c6"
+    }
+  ],
+  "total_asset_bytes": 8114716,
+  "verification": {
+    "local": "preparation asset descriptors plus local SHA-256",
+    "remote": "independent SSH sha256sum and stat; all four hashes and sizes compared exactly",
+    "directory_mode": "700",
+    "file_mode": "600"
+  },
+  "retention": {
+    "local_originals_retained": true,
+    "existing_remote_files_overwritten": false
+  },
+  "privacy": {
+    "credentials_uploaded": false,
+    "private_lifecycle_records_uploaded": false,
+    "private_correspondence_uploaded": false
+  }
+}

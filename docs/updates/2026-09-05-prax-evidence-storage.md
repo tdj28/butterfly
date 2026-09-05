@@ -140,3 +140,75 @@ design, not the EXP-204 scout design. Distinct-parent regression fixtures
 now exercise the real validator. The staged candidate bytes are also
 checked against their original frozen hash/size independently of their
 preparation descriptor. Neither correction changes any trajectory or fit.
+
+## Final freeze and bounded deployment outcome
+
+The final pre-target source is
+`b53bfabf441e5afe756b7cfaec69f0a6989690e5`, preserved by
+`exp-477-post-termination-protocol`. All 1,243 local tests passed (one
+Linux-only skip), and public Python 3.12/3.13 CI passed. Fresh matching
+[CPU](../experiments/receipts/EXP-477-post-termination-cpu-control.json),
+[watchdog](../experiments/receipts/EXP-477-post-termination-watchdog-smoke.json)
+and [prax/Linux](../experiments/receipts/EXP-477-post-termination-storage-smoke.json)
+controls passed. The CPU input hash actually used was
+`0c639fab4ecd09401f11bff62d68ad3e73419b3b4ba24b8739d49e6b0eaae87f`.
+
+The single authorized POST created task worker `b03jtnuv8qws5q`. Its
+configuration failed the frozen on-demand/disk/no-volume/SSH-only contract
+check **before the workload callback**. No source was uploaded to that
+worker, no GPU deployment comparison ran, and no target trajectory or
+scientific raw collection was produced. There was no second paid request.
+
+The controller/watchdog terminated that exact owned worker. Both direct
+HTTP 404 and inventory absence were verified, then independently rechecked.
+The local launchd service and recorded watchdog processes were also confirmed
+absent. The unrelated pre-existing worker was unchanged. The interval from
+the create-attempt timestamp to verified termination was about 5.12 seconds;
+actual provider billing was not queried and the realized hourly rate was not
+retained in this failed validation path.
+
+The [generated public attempt summary](../experiments/receipts/EXP-477-deployment-attempt-summary.json)
+has SHA-256 `e566bce27477744df61c3a8bca8ee161bf7b6d41a72251b1eb03d15f8f82478e`.
+It includes producer/input hashes and explicit teardown/cost limitations;
+private credentials, local identity records and unrelated worker IDs are
+not copied. Regenerate it with `scripts/summarize_symbolic_attempt.py` using
+the privately retained lifecycle/ownership and public preparation records.
+
+**Diagnostic limitation:** the failing provider configuration fields were
+not preserved before teardown. Therefore this record cannot identify which
+field failed, or distinguish an actual unwanted configuration from a
+provider response-schema mismatch. Do not guess that the provider allocated
+a volume or that a particular field was missing. Before another paid
+attempt, add an allowlisted configuration diagnostic receipt and compare it
+with the current API contract. Preserve this failure; do not weaken the
+deployment checks or describe it as a scientific negative result.
+
+Prax storage is working. The bounded post-termination archiver and
+remote-backed fitting remain unit-tested rather than target-verified,
+because this attempt produced no target collection to archive or fit.
+
+## Verified preparation backup on prax
+
+The server now also holds actual frozen preparation material at
+`/home/ubuntu/butterfly-research/exp477-preparation-20260905-b53bfab`:
+`source.tar`, `source-inventory.json`, `candidates.json` and
+`cpu-control.json`. This is an archive of the allowlisted public source and
+numerical inputs, not a working checkout or a trajectory result.
+
+All four remote SHA-256 values and sizes matched their frozen local
+descriptors exactly. The directory is mode 700 and files mode 600, verified
+through SSH. The [backup receipt](../experiments/receipts/EXP-477-prax-preparation-backup.json)
+lists the hashes and 8,114,716-byte total. Local originals remain intact;
+no credentials, private lifecycle records, correspondence or existing server
+files were uploaded, removed or overwritten.
+
+The transfer used the installed `rsync --ignore-existing --checksum` with
+an explicit four-file allowlist and strict existing-host-key SSH, followed
+by exact-file permission setting and independent `sha256sum`/`stat` checks.
+An initial rsync command rejected an unsupported permission option locally
+before transfer; no partial upload resulted from that command.
+
+This completes the remote storage setup and preparation backup. Historical
+research results have not been migrated. The next research step is resolving
+the deployment diagnostic gap above, then prospectively freezing any
+successor attempt; Jones' flow chains remain unverified by EXP-477.

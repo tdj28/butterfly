@@ -239,3 +239,15 @@ termination, then upload with `archive_symbolic_collection_to_ssh.py`.
 Its separate 7,200-second transfer bound incurs no GPU rental, and local
 originals remain retained. The scientific manifest and USD 3 attempt ceiling
 are unchanged. The source amendment is frozen before target execution.
+
+### Final deployment checkpoint
+
+Source `b53bfabf441e5afe756b7cfaec69f0a6989690e5` is retained by
+`exp-477-post-termination-protocol`. Fresh CPU, read-only watchdog and
+prax/Linux controls passed. The sole paid request then failed configuration
+validation before source upload or workload execution; its exact owned
+worker was deleted and absence independently verified. No GPU comparison,
+target collection, fitting, nomination or flow-chain verification ran.
+The specific failing provider fields were not retained, so that diagnostic
+gap must be closed before a successor deployment. See the
+[dated outcome](../updates/2026-09-05-prax-evidence-storage.md) for details.
