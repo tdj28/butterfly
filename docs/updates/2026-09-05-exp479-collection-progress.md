@@ -33,3 +33,16 @@ The completed, target-free CPU benchmark was also copied to the authorized
 `exp479-control-20260905-30f6c5b`. Both raw profile hashes and the receipt hash
 match the local originals. This backup covers the benchmark only, not the
 ongoing target collection; local originals are retained.
+
+## September 5 heartbeat (19:16 UTC)
+
+92 of 551 candidates have now completed both profiles. All 184 checkpointed
+profiles pass the frozen validity checks, and all raw SHA-256 values and byte
+counts match their metadata. These raw files total 371,701,547 bytes.
+
+The same local service remains running, with one launch, no exit, no stderr
+diagnostics, and approximately 47 GiB free disk. There is still no terminal
+collection receipt. No fitting, ranking, or symbolic interpretation was done.
+
+The ambiguous Runpod transaction still has no ID or matching task name in
+inventory. Its existing watchdog is alive; no further rental was attempted.
