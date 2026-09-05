@@ -9,6 +9,16 @@ A \emph{periodicity hub} is the apparent organizing center of such a spiral.
 A useful explanation must account for the connections between windows, not
 only reproduce their appearance.
 
+Jones's symbolic construction addresses exactly that requirement. It proposes
+that moving around a spiral changes how an orbit returns, leaving one extra
+inner visit in its repeating itinerary. If this mechanism is correct, it
+should explain both the increase from period $p$ to $p+1$ and where the new
+visit occurs in the symbolic word. That is a more specific prediction than
+the existence of periodic windows or a period-doubling cascade. Testing it
+is the central purpose of this paper. Section~\ref{sec:mechanism} explains
+the construction, and Figure~\ref{fig:symbolic-chain} displays its finite
+network of reported connections \citep{jones2012topological}.
+
 We study the R{\"o}ssler equations \citep{rossler1976equation},
 \begin{equation}
 \label{eq:rossler}
@@ -54,16 +64,21 @@ methods for validating homoclinic connections in specified settings
 These are prior results and methodological benchmarks, not certifications
 of the numerical candidates studied here. Parameter conventions differ
 between papers and must be translated before comparing coordinates.
-Our contribution is a reproducible reassessment of declared claims and
-the tests that distinguish supported mechanisms from unresolved ones.
+Our contribution is a reproducible reassessment centered on the explanatory
+step from return geometry to symbolic ordering, with explicit separation
+between source claims, successful local reconstructions, and missing tests.
 
-We ask three questions. Which local objects in this explanation can be
-reproduced? Which observed changes belong to the dynamics, and which arise
-from the way trajectories are measured? What remains necessary to turn local
-agreement into a predictive explanation of the spirals?
+We ask three linked questions. Can an independently reconstructed partition
+recover the reported finite words? Can measured reinjection predict the
+extra return between neighboring windows? Can those connections account for
+the larger spiral organization without confusing changes of measurement
+with changes of the dynamics?
 
-The answer is partly positive and partly corrective. Periodic families,
-several doublings, and local return-map branch distinctions reproduce.
-Some earlier numerical interpretations do not survive stronger checks.
-The main article follows those results and their implications; the technical
-supplement preserves the full experiment sequence, including failed tests.
+The answer is not yet a reproduced symbolic chain. The local alphabet has
+support, but the critical itineraries and their connections remain open.
+Orbit continuation, saddle reconstruction, and homoclinic calculations test
+supporting ingredients; agreement on separate parameter slices does not
+join those ingredients into one demonstrated mechanism. The main article
+therefore presents the symbolic hypothesis before the methods and numerical
+results. The technical supplement preserves the full experiment sequence,
+including failed tests and corrections to the modern reconstruction.
