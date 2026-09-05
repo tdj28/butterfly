@@ -1,0 +1,43 @@
+{
+  "cpu_control_sha256": "aca38d8df29e040563b57ccff74c29fdd2a7ca038dc1d0b5817665af4242e8f3",
+  "passed": true,
+  "producer_sha256": "dbbc76c1feab67ecb8c52e86622683020ab010bba197f88c0b3409dbc5e5c1c0",
+  "profiles": [
+    {
+      "checks": {
+        "finite": true,
+        "matching_event_counts": true,
+        "no_failures": true,
+        "no_saturation": true,
+        "seed_identity": true,
+        "state_parity": true,
+        "structure": true,
+        "survivor_counts": true,
+        "time_parity": true
+      },
+      "dt": 0.01,
+      "maximum_absolute_state_difference": 0.0,
+      "maximum_absolute_time_difference": 0.0,
+      "passed": true
+    },
+    {
+      "checks": {
+        "finite": true,
+        "matching_event_counts": true,
+        "no_failures": true,
+        "no_saturation": true,
+        "seed_identity": true,
+        "state_parity": true,
+        "structure": true,
+        "survivor_counts": true,
+        "time_parity": true
+      },
+      "dt": 0.005,
+      "maximum_absolute_state_difference": 0.0,
+      "maximum_absolute_time_difference": 0.0,
+      "passed": true
+    }
+  ],
+  "scope": "adapter equivalence to existing CPU reference; not independent solver replication",
+  "source_commit": "30f6c5b0aeaa4c9d8548bb2b0a60f802ebb096e2"
+}

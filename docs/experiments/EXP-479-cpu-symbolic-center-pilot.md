@@ -1,6 +1,6 @@
 # EXP-479: local CPU successor to the symbolic center scout
 
-Status: prospectively prepared; no target outcomes at this writing.
+Status: collecting locally from frozen source `30f6c5b`.
 
 Runpod's third recovery create returned an ambiguous HTTP 500. We do not
 assume rejection or rent a possible duplicate. Instead, use the existing
@@ -47,3 +47,21 @@ zero state/time differences but failed printing NumPy Boolean diagnostics to
 stdout. The saved receipt and frozen worktree are retained. The repair uses
 the existing NumPy-aware JSON encoder, with a real qualification CLI regression;
 a fresh source-bound qualification must exit successfully before targets.
+
+## Execution checkpoint
+
+The corrected CLI exited successfully at source
+`30f6c5b0aeaa4c9d8548bb2b0a60f802ebb096e2`; its
+[qualification receipt](receipts/EXP-479-cpu-adapter-qualification.json)
+has SHA-256 `0a338530d18905bf84e57060161c0396d77bee30bd3cda6775d4d125ec62f90f`.
+All state/time differences against the preserved reference were zero.
+The full local suite passed 1288 tests with one Linux-only skip; both CI
+Python versions passed. The frozen remote `codex/exp479-execution` branch
+and detached worktree are retained unchanged during collection.
+
+The task-owned local service survived an independent post-launch inspection.
+The first two candidates completed both profiles and retained raw NPZ files
+and checkpoints. No partition fitting or word comparison has been performed.
+Collection lives at `artifacts/EXP-479/collection-30f6c5b`; service records
+are in `artifacts/EXP-479/local-service-30f6c5b`. A thread heartbeat checks
+progress every 30 minutes and continues the audit/analysis after completion.

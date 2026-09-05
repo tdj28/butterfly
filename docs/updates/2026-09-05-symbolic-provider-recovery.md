@@ -100,3 +100,15 @@ the known qualification anchor. It preserves raw event arrays and timing.
 No target candidates or desired words are opened. An extrapolation to 551
 cases is explicitly a planning estimate, not a measured campaign duration.
 This benchmark does not change or claim execution of EXP-477's CUDA protocol.
+
+## Working solution: CPU collection is running
+
+[EXP-479](../experiments/EXP-479-cpu-symbolic-center-pilot.md) now runs the
+unchanged numerical search locally from an isolated frozen checkout. The first
+two candidates have completed both profiles with raw checkpoints retained.
+The exact adapter/control qualification passed, and a persistent local service
+plus 30-minute thread follow-up removes dependence on a continuously open chat
+turn. This is actual target collection, not another infrastructure-only test.
+No symbolic-dynamics conclusion is claimed before analysis and successor tests.
+The ambiguous Runpod transaction remains separately monitored without another
+rental; its ambiguity is not hidden by the successful CPU fallback.
