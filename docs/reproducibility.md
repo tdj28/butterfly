@@ -173,6 +173,11 @@ the updated 33-figure manuscript. The earlier `research-core-v1` assets are
 unchanged. This is inspectable negative evidence, not a successful nine-case
 qualification or a full-campaign archive.
 
+The [public-download check](reviews/receipts/research-exp476-public-download.json)
+verifies anonymous access and every asset checksum, then reproduces all six
+saved-mesh records, both selected arithmetic records, and both controls from
+the downloaded data. This is diagnostic replay, not another target solve.
+
 | Asset | Purpose |
 | --- | --- |
 | `receipt.json` | All controls, six attempted paths, five passes, one failure, three skipped records |

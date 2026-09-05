@@ -61,6 +61,15 @@ or overwriting them. The [separate EXP-476 release](https://github.com/tdj28/but
 preserves the failed result and diagnostics alongside the current manuscript;
 the previous core release remains unchanged.
 
+[PR #6](https://github.com/tdj28/butterfly/pull/6) is merged at
+`f2fc9cd0885c8343e017a0b46238dff922b89ec7`; both Python 3.12/3.13 CI jobs
+pass on the branch and merged main source. The separate release is public.
+An [anonymous-download verification](../reviews/receipts/research-exp476-public-download.json)
+checks all five asset hashes and reproduces every numerical field of both
+diagnostics from downloaded data without a target integration. All four
+earlier core-release asset digests are unchanged. The research source and
+original pre-run protocol remain separately tagged.
+
 ## Preserved pre-run checkpoint
 
 The next [planned study](../plans/2026-09-04-homoclinic-refinement.md) is now

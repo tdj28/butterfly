@@ -1,0 +1,40 @@
+{
+  "schema": "butterfly.exp476-public-download-check.v1",
+  "verified_at_utc": "2026-09-05T01:58:11Z",
+  "release_url": "https://github.com/tdj28/butterfly/releases/tag/research-exp476",
+  "release_tag": "research-exp476",
+  "release_source_commit": "f2fc9cd0885c8343e017a0b46238dff922b89ec7",
+  "protocol_tag": "exp-476-protocol",
+  "experiment_source_commit": "af90d04e6b484733bb2535a453157c4830691a34",
+  "download_method": "anonymous curl from the five public release asset URLs into a newly created temporary directory; no authentication headers",
+  "public_download_passed": true,
+  "all_asset_checksums_passed": true,
+  "assets": [
+    {"name": "receipt.json", "bytes": 8649021, "sha256": "c9818275ed3c585934cdeaa85857b04a5e9a6e1a6400f426a5cbf6e06d5b95bc"},
+    {"name": "mesh-diagnostic.json", "bytes": 128964, "sha256": "f27a842cc06b48ff8af19edeea83f6d167922e4a2d829f6fc2ce0ff033e8cb74"},
+    {"name": "arithmetic-diagnostic.json", "bytes": 20183, "sha256": "6efd6d9e5e78399d07880347b98dfd90bdc09fd2ee598a29b245567999ed0aa0"},
+    {"name": "manuscript.pdf", "bytes": 10686116, "sha256": "bcbcb04c0bf76be44304b9db19632a2f2c7ecdef859f3268794be374861590f9"},
+    {"name": "SHA256SUMS", "bytes": 340, "sha256": "fa0fd15709fd0583900ddf7ef0924720c0bde8147dfec09a7ce644a6f66ddc00"}
+  ],
+  "diagnostic_replay": {
+    "python": "3.13.11",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "input_source": "the anonymously downloaded raw receipt and original mesh diagnostic",
+    "all_six_mesh_case_fields_equal": true,
+    "both_arithmetic_interval_fields_equal": true,
+    "both_synthetic_controls_equal": true,
+    "target_integrations": 0,
+    "new_boundary_value_solves": 0,
+    "scope": "field-for-field algebraic reevaluation; environment metadata can differ; no new target qualification or rigorous error enclosure"
+  },
+  "experiment_passed": false,
+  "case_counts": {"passed": 5, "failed": 1, "skipped": 3},
+  "prior_research_core_v1_all_four_asset_digests_unchanged": true,
+  "merged_pr": "https://github.com/tdj28/butterfly/pull/6",
+  "release_source_main_ci": {
+    "run_id": 33937616824,
+    "python_versions": ["3.12", "3.13"],
+    "conclusion": "success"
+  }
+}
