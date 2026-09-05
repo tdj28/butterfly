@@ -48,9 +48,26 @@ for all prescribed periods. The conditional word-list and within-period order
 comparisons both passed; the two third-branch nodes remain outside the scalar
 model. The [complete experiment result](../experiments/EXP-478-quadratic-symbolic-control.md)
 links the full certificates and comparison, and the manuscript now includes
-a receipt-generated table. An independent reviewer checked the source
-identity, completeness and mapping after execution.
+a receipt-generated table. A separate code-review agent checked the source
+identity, completeness and mapping after execution; this is not external
+peer review or an independently implemented proof checker.
 
 This is positive evidence for the finite combinatorial structure, not a
 claim that the Rössler chains have been independently reproduced. No paid
 compute was used for this calculation.
+
+## Flow collection: storage gate, not a scientific outcome
+
+The owned-worker executor adds authenticated task-key SSH, frozen runtime
+installation, bounded raw retrieval, source/input hashes, and checks for all
+551 candidates before collection can be marked complete. A partial archive
+can be retrieved successfully while the experiment remains failed or
+incomplete. CPU fitting is never performed on the rented worker.
+
+Local storage currently prevents launch: the Mac reports about 8 GiB free,
+whereas the frozen retrieval gate requires about 16.5 GiB for the bounded
+archive, extraction and reserve. The user was asked to free at least 12 GB
+or provide a writable external-drive destination. No existing research data
+was deleted, and the retrieval limit was not weakened to bypass this gate.
+No paid EXP-477 worker has been created. This is an operational blocker,
+not a negative result about Jones's chains.

@@ -9,9 +9,10 @@ from scripts import runpod_symbolic_worker as worker
 
 
 @pytest.fixture(autouse=True)
-def no_credentials_or_network(monkeypatch):
+def no_credentials_or_network(monkeypatch, tmp_path):
     monkeypatch.setattr(worker.runpodctl, "api_key", lambda: pytest.fail("credentials must not be read"))
     monkeypatch.setattr(worker.runpodctl.urllib.request, "urlopen", lambda *_a, **_k: pytest.fail("network forbidden"))
+    monkeypatch.setattr(worker, "CONTROLLER_LOCK_PATH", tmp_path / "shared-controller.lock")
 
 
 def plan():
@@ -209,6 +210,65 @@ def test_duplicate_name_in_prelaunch_inventory_prevents_post(store):
     with pytest.raises(worker.LifecycleError, match="already exists"):
         worker.provision_once(store, provider, lookup=lookup, now=100)
     assert not any(method == "POST" for method, _, _ in provider.calls)
+
+
+def test_another_exp477_record_name_prevents_a_second_worker_without_mutation(store):
+    provider = Provider(store)
+    provider.pods["prior-exp477"] = {"id": "prior-exp477", "name": worker.NAME_PREFIX + "different-record"}
+    with pytest.raises(worker.LifecycleError, match="refusing another worker"):
+        worker.provision_once(store, provider, lookup=lookup, now=100)
+    assert not store.read()["create_attempted"]
+    assert all(method == "GET" for method, _, _ in provider.calls)
+    assert "prior-exp477" in provider.pods
+
+
+def test_task_wide_lock_blocks_other_state_directory_before_preparation(monkeypatch):
+    monkeypatch.setattr(worker, "prepare_store", lambda *_args: pytest.fail("blocked controller must not prepare"))
+    with worker.single_controller_lock():
+        with pytest.raises(worker.LifecycleError, match="another EXP-477 controller"):
+            worker.run_owned_worker(plan(), "a-different-record", lambda *_args: None)
+    # Release is reusable; the same empty inode is retained, never unlinked.
+    before = worker.CONTROLLER_LOCK_PATH.stat().st_ino
+    with worker.single_controller_lock():
+        assert worker.CONTROLLER_LOCK_PATH.stat().st_ino == before
+
+
+def test_task_wide_lock_releases_on_exception_and_rejects_links(tmp_path):
+    with pytest.raises(RuntimeError):
+        with worker.single_controller_lock():
+            raise RuntimeError("synthetic controller failure")
+    with worker.single_controller_lock():
+        pass
+    target = tmp_path / "unrelated-file"
+    target.write_text("preserve unrelated content")
+    link = tmp_path / "linked-lock"
+    link.symlink_to(target)
+    with pytest.raises(worker.LifecycleError, match="safely"):
+        with worker.single_controller_lock(link):
+            pytest.fail("must not acquire a symlink")
+    with pytest.raises(worker.LifecycleError, match="empty private"):
+        with worker.single_controller_lock(target):
+            pytest.fail("must not repurpose an unrelated nonempty file")
+    assert target.read_text() == "preserve unrelated content"
+
+
+def test_crashed_unresolved_record_blocks_new_record_before_any_inventory_or_preparation(store, monkeypatch):
+    # In particular, a create may still be in flight and absent from inventory.
+    store.update(create_attempted=True, create_attempted_at=100, pod_id=None)
+    worker.register_controller(store)
+    monkeypatch.setattr(worker, "prepare_store", lambda *_args: pytest.fail("unresolved earlier create must block preparation"))
+    with pytest.raises(worker.LifecycleError, match="earlier EXP-477 controller"):
+        worker.run_owned_worker(plan(), "another-state-directory", lambda *_args: None)
+    # A durable watchdog can later verify termination; only then may a new run proceed.
+    store.update(termination_verified=True)
+    worker.require_no_unresolved_controller()
+
+
+def test_missing_previous_lifecycle_record_fails_closed(store):
+    worker.register_controller(store)
+    store.path.unlink()
+    with pytest.raises(worker.LifecycleError, match="cannot be verified"):
+        worker.require_no_unresolved_controller()
 
 
 def test_teardown_requires_both_direct_404_and_inventory_absence(store):

@@ -24,6 +24,7 @@ from pathlib import Path
 import plistlib
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -41,6 +42,7 @@ except ModuleNotFoundError:  # Frozen local watchdog copy contains these two fil
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = "butterfly.runpod-symbolic-worker.v1"
 NAME_PREFIX = "butterfly-exp477-"
+CONTROLLER_LOCK_PATH = Path(f"/private/tmp/butterfly-exp477-controller-{os.getuid()}.lock")
 POD_ID = re.compile(r"[A-Za-z0-9_-]{1,128}\Z")
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 CANDIDATE_HASH = "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"
@@ -53,6 +55,40 @@ class LifecycleError(RuntimeError):
 
 class OwnershipError(LifecycleError):
     pass
+
+
+@contextmanager
+def single_controller_lock(path=None):
+    """One EXP-477 controller across state directories and local checkouts.
+
+    The empty, same-user 0600 lock file is retained intentionally: unlinking a
+    held flock file lets a later process create a different inode and bypass
+    exclusion. No provider call occurs here. Existing links, nonempty files,
+    foreign owners, or unsafe permissions are rejected rather than modified.
+    """
+    path = CONTROLLER_LOCK_PATH if path is None else Path(path)
+    try:
+        descriptor = os.open(path, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+    except OSError:
+        raise LifecycleError("cannot open the task-wide controller lock safely") from None
+    try:
+        metadata = os.fstat(descriptor)
+        if (not stat.S_ISREG(metadata.st_mode) or metadata.st_uid != os.getuid()
+                or metadata.st_nlink != 1 or metadata.st_size != 0 or metadata.st_mode & 0o077):
+            raise LifecycleError("task-wide lock is not an empty private same-user regular file")
+        try:
+            fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise LifecycleError("another EXP-477 controller holds the task-wide lock") from None
+        current = path.lstat()
+        if (current.st_dev, current.st_ino) != (metadata.st_dev, metadata.st_ino):
+            raise LifecycleError("task-wide controller lock path changed during acquisition")
+        try:
+            yield
+        finally:
+            fcntl.flock(descriptor, fcntl.LOCK_UN)
+    finally:
+        os.close(descriptor)
 
 
 def atomic_json(path: Path, value: dict):
@@ -94,6 +130,49 @@ class Store:
             record.update(changes)
             atomic_json(self.path, record)
         return record
+
+
+def controller_registry_path():
+    return CONTROLLER_LOCK_PATH.with_suffix(".active.json")
+
+
+def require_no_unresolved_controller():
+    """Keep an ambiguous create blocked after a crash releases its flock.
+
+    A previous controller may have died between POST and receiving the ID.
+    Inventory alone cannot prove such an in-flight request was rejected.
+    Only that record's verified termination permits a new state directory.
+    """
+    path = controller_registry_path()
+    if not os.path.lexists(path):
+        return
+    metadata = path.lstat()
+    if (not stat.S_ISREG(metadata.st_mode) or metadata.st_uid != os.getuid()
+            or metadata.st_nlink != 1 or metadata.st_size > 8192 or metadata.st_mode & 0o077):
+        raise LifecycleError("active-controller registry is not a private same-user regular file")
+    try:
+        registry = json.loads(path.read_bytes())
+        if (registry.get("schema") != "butterfly.exp477-controller-registry.v1"
+                or not isinstance(registry.get("state_directory"), str)
+                or not Path(registry["state_directory"]).is_absolute()):
+            raise ValueError("invalid registry")
+        previous = Store(registry["state_directory"]).read()
+        if previous.get("schema") != SCHEMA or previous.get("nonce") != registry.get("nonce"):
+            raise ValueError("registry identity mismatch")
+    except (OSError, ValueError, TypeError, KeyError):
+        raise LifecycleError("previous controller record cannot be verified; no new worker may launch") from None
+    if previous.get("termination_verified") is not True:
+        raise LifecycleError("an earlier EXP-477 controller has unverified termination; no new create is permitted")
+
+
+def register_controller(store):
+    # The task-wide flock remains held across this check, registration, and run.
+    require_no_unresolved_controller()
+    record = store.read()
+    atomic_json(controller_registry_path(), {
+        "schema": "butterfly.exp477-controller-registry.v1", "nonce": record["nonce"],
+        "state_directory": str(store.directory.resolve()),
+    })
 
 
 def finite_number(value, name, *, minimum=0.0, maximum=None):
@@ -378,8 +457,8 @@ def provision_once(store, request=runpodctl.request_json, *, lookup=process_star
         record = store.read()
         if record["create_attempted"]:
             raise LifecycleError("create already attempted; this record never permits another POST")
-        if any(row.get("name") == record["name"] for row in rows):
-            raise LifecycleError("unique task name already exists; refusing duplicate launch")
+        if any(isinstance(row.get("name"), str) and row["name"].startswith(NAME_PREFIX) for row in rows):
+            raise LifecycleError("an EXP-477 worker name already exists; refusing another worker without mutating it")
         if watchdog_reason(record, heartbeat_record(store, "controller"), stamp, lookup=lookup):
             raise LifecycleError("controller policy is not healthy before create")
         record.update(preexisting_ids=[row["id"] for row in rows], create_attempted=True,
@@ -533,8 +612,8 @@ def watchdog_loop(store):
         time.sleep(5)
 
 
-def run_owned_worker(plan, state_directory, workload, *, request=runpodctl.request_json,
-                     start_watchdog=launchd_watchdog, stop_watchdog=retire_watchdog):
+def _run_owned_worker_locked(plan, state_directory, workload, *, request,
+                             start_watchdog, stop_watchdog):
     """Execute one supplied raw-collection callback, always attempting teardown.
 
     workload(pod, store, progress) must stage only prevalidated inputs, require
@@ -543,6 +622,7 @@ def run_owned_worker(plan, state_directory, workload, *, request=runpodctl.reque
     Controller heartbeats are separate from that no-progress signal.
     """
     store = prepare_store(state_directory, plan)
+    register_controller(store)
     stop = threading.Event()
 
     def pulse():
@@ -576,6 +656,19 @@ def run_owned_worker(plan, state_directory, workload, *, request=runpodctl.reque
             stop_watchdog(store)
         else:
             raise LifecycleError("owned worker termination is unconfirmed; durable watchdog remains active")
+
+
+def run_owned_worker(plan, state_directory, workload, *, request=runpodctl.request_json,
+                     start_watchdog=launchd_watchdog, stop_watchdog=retire_watchdog):
+    """Hold task-wide exclusion before any preparation/readiness/provisioning.
+
+    See _run_owned_worker_locked for the callback's raw-retrieval contract.
+    A new state directory does not grant permission for a simultaneous worker.
+    """
+    with single_controller_lock():
+        require_no_unresolved_controller()
+        return _run_owned_worker_locked(plan, state_directory, workload, request=request,
+                                         start_watchdog=start_watchdog, stop_watchdog=stop_watchdog)
 
 
 def main(argv=None):

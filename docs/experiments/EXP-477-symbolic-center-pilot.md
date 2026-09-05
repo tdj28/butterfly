@@ -1,6 +1,8 @@
 # EXP-477 — Raw-retaining, word-independent center nomination pilot
 
-Status: prepared; target trajectories not yet collected.
+Status: prepared; target trajectories not yet collected. Cloud launch is
+blocked by local retrieval storage; see the
+[current update](../updates/2026-09-04-independent-symbolic-verification.md).
 
 ## Why this is needed
 
@@ -121,3 +123,47 @@ availability separately from any public compact result.
 Runpod control fields and lifecycle semantics were checked against its
 [create-pod API](https://docs.runpod.io/api-reference/pods/POST/pods) and
 [pod-management documentation](https://docs.runpod.io/pods/manage-pods).
+
+## Execution entry points
+
+The [cloud runtime manifest](../../experiments/manifests/EXP-477-cloud-runtime.json)
+pins one A40 image, Python minor version, CUDA/PyTorch overlay and stage
+deadlines. The installed Python patch, GPU driver, and complete installed
+package list are recorded. The extra CUDA overlay is not claimed to be
+covered by the CPU environment lockfile.
+
+From the clean, publicly pushed source commit, first create the small local
+known-anchor control:
+
+```sh
+PYTHONPATH=.:python .venv/bin/python -m scripts.qualify_symbolic_gpu_records \
+  --mode cpu --source-commit FULL_FROZEN_COMMIT \
+  --output artifacts/EXP-477/cpu-control.json
+```
+
+Then supply that receipt's SHA-256 and **new** ignored/private output and
+state paths to the executor. Preparation performs no provider calls:
+
+```sh
+PYTHONPATH=.:python .venv/bin/python -m scripts.execute_symbolic_center_cloud \
+  --source-commit FULL_FROZEN_COMMIT \
+  --cpu-control artifacts/EXP-477/cpu-control.json \
+  --cpu-control-sha256 CPU_CONTROL_SHA256 \
+  --state-dir artifacts/EXP-477/owned-worker-state \
+  --output-dir artifacts/EXP-477/cloud-attempt --prepare-only
+```
+
+The placeholder commit and hash above must be replaced with verified values.
+A live invocation replaces `--prepare-only` with the explicit `--execute`
+opt-in and uses new paths, because evidence is never overwritten or silently
+resumed. With neither flag the executor only prepares. It refuses to provision unless
+the local destination has space for the maximum 8 GiB payload, its archive,
+and reserve (about 16.5 GiB). This must be on the intended retrieval volume;
+free space elsewhere is not sufficient. A separate durable local watchdog
+must be confirmed alive before creation. It is not a provider-side lifetime
+guarantee and cannot act while the Mac or its network is unavailable.
+
+After complete hash-verified retrieval **and verified owned-worker absence**,
+run `run_symbolic_center_pilot.py --mode analyze` locally with the same frozen
+source, collection directory and collection-receipt SHA-256. The analysis
+refuses incomplete collection and rechecks all raw hashes before fitting.
