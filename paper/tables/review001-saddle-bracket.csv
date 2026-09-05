@@ -1,0 +1,5 @@
+a,b,c,maximum_escape_returns,pair_count_per_coordinate,successful_access_lines,y_branch_count,z_branch_count,source_summary
+0.1481875,0.2,20,128,2097,3,2,2,docs/experiments/receipts/EXP-148.json
+0.1481875,0.2,20,256,2097,3,2,2,docs/experiments/receipts/EXP-148.json
+0.14825,0.2,20,128,2097,3,3,3,docs/experiments/receipts/EXP-128.json
+0.14825,0.2,20,256,2097,3,3,3,docs/experiments/receipts/EXP-128.json

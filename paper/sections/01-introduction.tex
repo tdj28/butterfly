@@ -32,6 +32,9 @@ Figure~\ref{fig:multib-superstructure} extends the view across eleven values
 of $b$. Curved bands persist and change shape, suggesting a shared
 organization. The images alone cannot tell us which invariant objects
 produce it.
+Jones reported morphology over $b=0.2$--$2.0$
+\citep{jones2012topological}. Our denser local set of slices does not test
+that full range or establish a broader robustness result.
 
 \begin{figure}[tbp]
   \centering
@@ -42,12 +45,19 @@ produce it.
   observation horizon. Follow the curved bands from panel to panel to see
   how the periodic-window structure changes. These are finite-time
   observations, not a continuation of every bifurcation boundary.
-  Supplemental Movie~S1 animates the same sequence.}
+  Supplemental Movie~S1 animates the same sequence; its public link and
+  the narrower source-data replay are given in Section~\ref{sec:availability}.}
   \label{fig:multib-superstructure}
 \end{figure}
 
-Earlier work connected spiral organization to saddle-focus homoclinic
-geometry and changes in return-map topology \citep{barrio2011global}.
+Periodicity hubs were already described in nonlinear circuit models
+\citep{bonatto2008periodicity}. R{\"o}ssler bifurcation studies mapped local
+and global structures \citep{barrio2009qualitative}; Vitolo, Glendinning,
+and Gallas specifically related hub spirals to folded sheaves of Shilnikov
+homoclinic bifurcations \citep{vitolo2011global}. Barrio and colleagues
+also connected spiral organization to saddle-focus homoclinic geometry
+\citep{barrio2011global}. Those homoclinic objects are not the period-6
+flip curve computed here (Table~\ref{tab:distinct-loci}).
 The two 2012 studies are treated here as independent, near-simultaneous
 co-discoveries of the return-map transition's connection to periodicity
 hubs. Jones proposed finite symbolic ordering and a reinjection explanation
@@ -64,7 +74,14 @@ methods for validating homoclinic connections in specified settings
 These are prior results and methodological benchmarks, not certifications
 of the numerical candidates studied here. Parameter conventions differ
 between papers and must be translated before comparing coordinates.
-Our contribution is a reproducible reassessment centered on the explanatory
+R{\"o}ssler-specific symbolic and template analysis also predates this study
+\citep{letellier1995unstable}. More recent work rigorously establishes many
+periodic windows using symbolic orbit search, continuation, and interval
+methods \citep{galias2025symbolic}, while analytical work on an idealized
+heteroclinic model addresses a different set of assumptions
+\citep{igra2025knots}. Appendix~\ref{supp:prior-work} compares these results
+and their mathematical objects. Our contribution is a computational
+reassessment centered on the explanatory
 step from return geometry to symbolic ordering, with explicit separation
 between source claims, successful local reconstructions, and missing tests.
 
@@ -82,3 +99,7 @@ join those ingredients into one demonstrated mechanism. The main article
 therefore presents the symbolic hypothesis before the methods and numerical
 results. The technical supplement preserves the full experiment sequence,
 including failed tests and corrections to the modern reconstruction.
+The present paper is a claim-centered audit directed toward a symbolic
+explanation, not a completed proof of that explanation. Public reproduction
+is currently demonstrated only for the core subset in
+Section~\ref{sec:availability}.

@@ -53,6 +53,51 @@ for implications and the essential equation-convention conversion.
 
 ## Next bibliography expansion
 
+### Targeted manuscript-assessment corrections (2026-09-04)
+
+The following additions repair specific omissions in the historical and modern
+comparison. They are not a completed systematic review through 2026. The source
+assessment was treated as recommendations to check, not as evidence in place of
+the papers. Only the independently checked claims below enter the manuscript.
+
+| BibTeX key | Verified primary record and reading level | Narrow manuscript use and boundary |
+|---|---|---|
+| `bonatto2008periodicity` | [Published DOI](https://doi.org/10.1103/PhysRevLett.101.054101), [author abstract and metadata in PubMed](https://pubmed.ncbi.nlm.nih.gov/18764395/); historical method attribution cross-checked in Vitolo et al. (2011), p. 2 | Early periodicity-hub and nested-spiral organization in a nonlinear circuit model. Do not describe this 2008 paper as the experimental observation: Vitolo et al. explicitly distinguish the numerical anticipation from a later experiment. Full 2008 paper close reading remains pending. |
+| `barrio2009qualitative` | [Elsevier article record and abstract](https://www.sciencedirect.com/science/article/abs/pii/S0167278909000864), DOI `10.1016/j.physd.2009.03.010`; author list, volume 238, issue 13, pp. 1087-1100 checked | Local/global codimension-one and codimension-two limit-cycle bifurcation analysis predates this audit. The abstract does not establish identity with our particular period-6 branch; full continuation and parameter-convention comparison remains pending. |
+| `vitolo2011global` | [Author-hosted published paper](https://empslocal.ex.ac.uk/people/staff/rv211/mypapers/vgg_global_structure_PRE2011.pdf), DOI `10.1103/PhysRevE.84.016216`; equations (1)-(3) and hub/manifold discussion on pp. 1-4 read | Direct predecessor for global Rössler hub organization: folded homoclinic sheaves are tied to saddle-focus manifold geometry. Their folded homoclinic locus is not the folded period-6 flip locus computed here. Uses `dz/dt=(b+z)x-cz` with `b=0.3`, not our constant-forcing convention; parameter numbers cannot be copied directly. |
+| `letellier1995unstable` | [Author abstract and metadata in PubMed](https://pubmed.ncbi.nlm.nih.gov/12780181/), DOI `10.1063/1.166076`; title, authors' published initials, Chaos 5(1), pp. 271-282 checked | Systematic low-order UPO extraction, symbolic encoding, growth/pruning rules, and templates are established Rössler-specific prior work. The abstract states `a in [0.33,0.557], b=2, c=4`; it does not reproduce the Jones hub. Full text, exact partition, and encoding conventions remain to be compared before importing words. |
+| `galias2025symbolic` | [Elsevier article record and abstract](https://www.sciencedirect.com/science/article/abs/pii/S1007570424005884), [author publication record](https://www.zet.agh.edu.pl/~galias/publ.html), DOI `10.1016/j.cnsns.2024.108403`; journal year 2025, volume 140, article 108403 checked | Combines symbolic UPO search, continuation, and interval arithmetic to prove several thousand periodic windows near the classical case. This is a rigorous window-existence benchmark, not a validation of our hub-specific chain. Author-accepted manuscript introduction was accessible through indexed primary text, but direct PDF access failed certificate validation; full equations and proof implementation have not been audited. Its parameter labels must be converted before any numerical comparison. |
+| `igra2025knots` | [Elsevier record](https://www.sciencedirect.com/science/article/abs/pii/S0022039625003171), [author preprint v5](https://arxiv.org/html/2306.04772v5), DOI `10.1016/j.jde.2025.113290`; introduction, theorem statements, equations (1.1)/(1.5), and parameter assumptions read | Analytical chaoticity and symbolic periodic-orbit correspondence are obtained for an idealized trefoil/heteroclinic configuration. The required configuration is not established at our hub or scalar-classifier bracket. The paper switches from the standard constant-forcing equation to an equilibrium-translated convention, so assumptions and parameters require conversion. Full proof audit remains pending. |
+| `owen2025error` | [Author preprint v3 and version record](https://arxiv.org/abs/2501.00150v3), [Section 5](https://arxiv.org/html/2501.00150v3); title, author, version and revision date checked | RQMC uncertainty must distinguish dependent points within each randomized net from independent net-level replicates. Existing trajectory bootstrap ranges are descriptive sensitivities, not automatically calibrated population confidence intervals. This citation does not validate our current RMST intervals, require a universal minimum of 20 scrambles, or supply rigorous deterministic error bounds. |
+| `xing2023period1` | [ASME article record and abstract](https://doi.org/10.1115/1.4062201), [author bibliography](https://siyuan-xing.github.io/publications/); authors, volume 18, issue 8, article 081008 checked | Semi-analytical implicit-map treatment connects period-1 branches to approximate twin spiral homoclinic orbits. A relevant alternative approach, not a validated existence result or identification of our numerical candidate. Full equations, implementation and parameter correspondence have not been checked. |
+| `docarmo2025measure` | [AIP article record and abstract](https://doi.org/10.1063/5.0239023), [author metadata and abstract in PubMed](https://pubmed.ncbi.nlm.nih.gov/39899585/); Chaos 35(2), article 023116 checked | Studies local-maximum return-map densities near hubs in five three-dimensional systems, including Rössler. The density fits assume full ergodicity after rescaling; they do not establish a flow-topological invariant or our symbolic reinjection mechanism. Full cross-system parameter and numerical-method comparison remains pending. |
+
+The strongest novelty boundary is mechanism-specific auditing of the Jones
+finite symbolic chain at declared parameters and sections, not the invention
+of symbolic Rössler analysis, homoclinic hub organization, numerical
+continuation, or large periodic-window libraries. Likewise, high-precision
+floating-point agreement is not equivalent to the interval-validated
+existence statements in the rigorous-numerics literature.
+
+Two checked follow-up sources are not yet used as manuscript citations:
+
+- Art B. Owen, *Monte Carlo Variance of Scrambled Net Quadrature*, SIAM Journal
+  on Numerical Analysis 34(5), 1884-1910 (1997),
+  [DOI `10.1137/S0036142994277468`](https://epubs.siam.org/doi/abs/10.1137/S0036142994277468).
+  Publisher metadata and abstract checked. It supplies foundational variance
+  theory; the added 2025 source more directly addresses the present error-bar
+  interpretation.
+- Zbigniew Galias, *Is the Classical Rössler Attractor Periodic? A Validated
+  Numerical Study*, Chaos 36(5), 053121 (2026),
+  [DOI `10.1063/5.0301581`](https://doi.org/10.1063/5.0301581),
+  [author abstract and metadata](https://pubmed.ncbi.nlm.nih.gov/42089786/).
+  The abstract describes symbol-order-guided window searches extremely close
+  to classical parameters while leaving the classical attractor's nature
+  open. Full reading is needed before comparing its precise ordering,
+  parameter distance, or validation construction with this work.
+
+### Remaining scope
+
 Before the related-work section is considered complete, verify and add the
 remaining primary sources behind (i) the homoclinic organization of the hub,
 (ii) two-branch/three-branch terminology and its TBA history, (iii) the exact
@@ -60,4 +105,4 @@ Rössler partition convention beyond Gilmore's general template framework,
 (iv) finite-ordering results beyond the current primary sources, and (v)
 post-2012 work that directly tests periodicity hubs. Each entry must be added
 here with its role and claim boundary; a raw BibTeX import is insufficient.
-The five entries above begin this work; they do not close the full review.
+The additions above address concrete omissions; they do not close the full review.

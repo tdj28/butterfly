@@ -26,16 +26,22 @@ record, including failed experiments and corrected interpretations.
   alphabet and unresolved critical-word tests, then assesses the geometric
   and orbit ingredients. Evidence from separate slices is not a joined chain.
 - [`sections/06-discussion.tex`](sections/06-discussion.tex) summarizes what the
-  evidence changes for the original claims.
+  evidence changes for the original claims and what would close each open claim.
+- [`sections/08-data-availability.tex`](sections/08-data-availability.tex)
+  links the public source, versioned data subsets, replay guide, and movie,
+  and states what is not yet publicly reproducible.
+- [Review 001 response](../docs/reviews/2026-09-04-review-001-response.md)
+  explains which external criticisms were accepted, qualified, or require new
+  research; it does not reproduce the private review.
 
 The main article now includes ten central figures. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
 The current draft's title-page author and PDF author metadata are deliberately
 blank. Historical citations still credit Jones and the other original authors.
-The current build is 63 pages: 16 pages of main article, followed by the
-technical supplement and references. The chain is Figure 2 on page 6;
-its explanation starts in Section 3 on page 4, before methods and results.
+The current build is 69 pages: 19 pages of main article, followed by the
+technical supplement and references. The chain is Figure 2 on page 7;
+its explanation starts in Section 3 on page 5, before methods and results.
 The title, abstract, opening results, claims table, and conclusion all frame
 the symbolic reinjection prediction as the central test. Numeric section
 filenames retain their historical names; `manuscript.tex` sets reading order.
@@ -55,6 +61,15 @@ links to the following appendices and their PDF page numbers:
   how interpretations changed as evidence accumulated.
 - [`sections/a-reviewer-closure.tex`](sections/a-reviewer-closure.tex): a readable,
   multipage table mapping referee concerns to current evidence and open tests.
+- [`sections/s05-prior-work.tex`](sections/s05-prior-work.tex): a source-level
+  comparison with earlier and later work, defining the present contribution's limits.
+- [`sections/s06-equilibrium-checks.tex`](sections/s06-equilibrium-checks.tex):
+  both equilibrium spectra at four declared points, with an explicit
+  time-direction convention and a source-replayable algebraic check.
+
+[`tables/README.md`](tables/README.md) documents the new algebraic report and
+selected PIM classifier endpoint table. These additions do not close the
+remaining campaign-wide raw-data or invariant-mechanism requirements.
 
 The long experimental sections retain chronological statements such as “next”
 or “at this stage.” Their meaning is historical. The main article and its

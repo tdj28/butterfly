@@ -1,17 +1,42 @@
 \section{Numerical methods and acceptance tests}
 \label{supp:methods}
 
+\begin{table}[tbp]
+\centering
+\small
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$a$ & Return ceiling & Pairs/coordinate & Access lines & $y$ branches & $z$ branches \\
+\midrule
+0.1481875 & 128 & 2097 & 3 & 2 & 2 \\
+0.1481875 & 256 & 2097 & 3 & 2 & 2 \\
+0.14825 & 128 & 2097 & 3 & 3 & 3 \\
+0.14825 & 256 & 2097 & 3 & 3 & 3 \\
+\bottomrule
+\end{tabular}
+\caption{Representative PIM classifier endpoints at $(b,c)=(0.2,20)$,
+from the tracked EXP-148 and EXP-128 summaries. All fifteen variants per
+coordinate agree at these endpoints. The maximum normalized critical-location
+spans between horizons are $(0.00841,0.00513)$ for the lower endpoint and
+$(0.00904,0.00909)$ for the upper endpoint, ordered as $(y,z)$.
+The rows are robustness checks, not independent replications; they are not
+a complete inventory of all branch-classification experiments.
+The source-linked CSV is \texttt{paper/tables/review001-saddle-bracket.csv}.}
+\label{tab:saddle-endpoints}
+\end{table}
+
 This supplement retains the detailed experiment sequence, including failed
 controls and interpretations that were revised later.  Statements such as
 ``next'' or ``at this stage'' refer to that sequence; the main article and
 its claim summary state the current conclusions.
 
 
-Throughout the experiment record, ``exact'' orbit or event denotes a directly
-corrected shooting or augmented-system solution at a specified parameter,
-rather than an interpolated raster estimate.  These are numerical solutions
-with measured residuals.  Neither that terminology nor high-precision
-arithmetic supplies a rigorous enclosure of a continuous-flow solution.
+Throughout the experiment record, a \emph{corrected} orbit or event denotes a
+shooting or augmented-system solution at a specified parameter, rather than an
+interpolated raster estimate. Some frozen experiment or file labels retain the
+legacy word ``exact''; those identifiers do not assert mathematical exactness.
+These are numerical solutions with measured residuals. High-precision
+arithmetic does not supply a rigorous enclosure of a continuous-flow solution.
 Results for a fixed-step Runge--Kutta map additionally require discretization
 convergence before they support a statement about the flow.
 
@@ -24,7 +49,7 @@ double-covered parent cannot be mislabeled as a doubled child.  Adaptive
 DOP853 or Radau integrates the state and variational equations; Newton-style
 least squares acts only on the finite-dimensional shooting, phase, parameter,
 and pseudo-arclength residuals.  Thus correction is not used as a time
-integrator.  For continuation in $c$, the exact sensitivity forcing is
+integrator.  For continuation in $c$, the analytic sensitivity forcing is
 $f_c=(0,0,-z)$ and the resulting shooting Jacobian is checked against centered
 finite differences.
 
@@ -42,8 +67,8 @@ repository.  Event predictions used as prospective tests are frozen before the
 subsequent crossing scan and refinement.  This separation prevents an
 after-the-fact fit from being reported as prediction.
 
-The return-map topology work uses a gated scalar oracle.  It requires
-invariant-domain coverage, a bounded conditional-spread ratio, prominent
+The scalar return-projection work uses a gated classifier. It requires
+sampled-domain coverage, a bounded conditional-spread ratio, prominent
 spline critical points, and deterministic bootstrap consensus; a failed gate
 returns ``unresolved'' rather than a forced branch label.  Each experiment
 freezes $\Sigma$, the crossing orientation, scalar coordinate, critical-point
@@ -77,7 +102,7 @@ capture by the stable cycle, and retain middle-time states of long-lived
 survivors as a finite approximation of the saddle
 \citep{kantz1985repellers}.  Survivor and captured classifications are audited
 pointwise against adaptive DOP853 only over short horizons.  Over long chaotic
-horizons, convergence is defined statistically through survivor curves,
+horizons, robustness is assessed empirically through replicated survivor curves,
 return-map geometry, and critical-point stability across time step,
 conditioning window, grid phase, and grid resolution.  Candidate shallow
 critical points must persist across a frozen binning/smoothing matrix and
@@ -90,16 +115,16 @@ state integrator.  Adaptive DOP853 provides the independent short-horizon
 reference.  PIM-triple trajectories
 provide a structurally different follow-up method rather than a tuning fallback
 \citep{nusse1989procedure}.  For censor-aware PIM refinement, capture before
-the observation ceiling gives an exact lifetime while survival gives only a
-right-censored lower bound.  A censored block is admissible only when it is
-strictly interior and its lower bound exceeds the exact lifetimes of captured
+the observation ceiling gives an uncensored numerical capture lifetime, while
+survival gives only a right-censored lower bound. A censored block is admissible only when it is
+strictly interior and its lower bound exceeds the recorded lifetimes of captured
 neighbors on both sides; boundary blocks and integration failures remain
 unresolved.  Repeating the complete construction at frozen lifetime horizons
-tests whether branch topology and invariant-domain coverage depend on that
-ceiling.
+tests whether the scalar branch classification and sampled-domain coverage
+depend on that ceiling.
 
 PIM trajectories are used only to propose close-return seeds for unstable
-periodic orbits.  A seed is retained only after exact section returns,
+periodic orbits.  A seed is retained only after numerically resolved section returns,
 phase-conditioned flow shooting, independent monodromy integration, a neutral
 Floquet multiplier, transverse instability, and the declared section identity
 all pass.  Every proper integer divisor of the reported lag is tested for
@@ -121,11 +146,29 @@ bounded, and it shares state data with the branch oracle; it is therefore a
 candidate continuation coordinate rather than an independent topological
 invariant.
 
-Branch-conditioned capture is tested by freezing critical-point uncertainty
+Branch-conditioned capture is tested by freezing critical-point sensitivity
 bands from prior return-map data and excluding those bands from later branch
 assignment.  Each new trajectory contributes only its last section crossing
 before a fixed landmark and is followed from that landmark to attractor capture
 or a common administrative censor.  The primary contrast is extra-minus-core
-restricted mean survival time, with a trajectory bootstrap interval, log-rank
-test, independent Sobol scrambles, and a same-ensemble half-step control.
-Repeated crossings are not counted as independent observations.
+restricted mean survival time. Three independent Sobol scrambles and a
+same-ensemble half-step calculation provide replication and numerical controls.
+Repeated crossings are not counted as independent observations, but points
+within one scrambled Sobol net are still dependent. The retained within-net
+trajectory-bootstrap ranges and log-rank statistics are therefore descriptive
+sensitivity diagnostics: their nominal levels are not asserted to have
+calibrated confidence coverage or type-I error for this sampling design.
+Formal ensemble uncertainty would require an analysis using independent
+scrambles as the replication units; it has not been established here.
+
+Likewise, repeated branch-classifier fits over bins, smoothing scales, and
+bootstrap resamples reuse trajectory clouds. Their agreement is a robustness
+matrix, not a count of independent replications or independent evidence.
+
+The identified historical-section grazing exposes a separate unfinished audit.
+A systematic archive-wide check of normalized crossing transversality,
+$|n\!\cdot f|/(\|n\|\,\|f\|)$, and comparison with extremum-aware event detection
+has not been completed. The dedicated grazing checks qualify their selected
+orbit family; they do not retroactively certify every older section-based
+count or scalar return relation. Older results retain the scope of their
+declared event collectors until that broader audit is performed.

@@ -22,6 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-04-review-001-manuscript.md`](2026-09-04-review-001-manuscript.md)
+  - responds to the external review with sharper mathematical objects,
+  both-equilibrium spectral checks, corrected Sobol uncertainty language,
+  prior-work comparisons, and explicit public reproducibility limits;
+  preserves the central symbolic question and unperformed closure tests.
+
 - [`2026-09-04-symbolic-mechanism-first.md`](2026-09-04-symbolic-mechanism-first.md)
   - makes the symbolic reinjection explanation the organizing question in the
   title, abstract, early chain figure, results, conclusion, and research priorities;

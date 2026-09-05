@@ -92,8 +92,9 @@ $4.35\times10^{-13}$ as the nonlinear stable-manifold matching radius is
 reduced from $0.03$ through $0.025$ to $0.02$; all three maximum arc defects
 remain below $10^{-8}$ (Figure~\ref{fig:homoclinic-root}).  Direct one-shot
 replay diverges, as expected from the ill-conditioned unstable orbit, whereas
-the boundary-value arcs remain matched.  This strongly qualifies a
-homoclinic connection at the revised fixed-$c$ coordinate.  It does not
+the boundary-value arcs remain matched. This supports a numerical
+homoclinic candidate near the revised fixed-$c$ coordinate, not an existence
+proof or an error-bounded parameter estimate. It does not
 validate the printed $a=0.1798$, which is lower by approximately $0.00284361$,
 and it does not establish uniqueness along a parameter segment.
 
@@ -136,7 +137,7 @@ $5.07\times10^{-14}$, and smallest measured Jacobian singular value
 $1.69\times10^{-9}$.  This thirteenth accepted point continues the numerical
 branch through the sampled reversal in $c$.  The remaining fixed-$a$ gap is
 $1.74935\times10^{-5}$; consequently the pre-fold projected crossing is no
-longer treated as a monotone-$c$ prediction, and the exact historical-path
+longer treated as a monotone-$c$ prediction, and the historical-path
 intersection is still not claimed.
 
 At that scale neither displayed parameter supplies a reliable orientation:
@@ -229,7 +230,7 @@ reduces exactly to
 a(1+r^2-ar)=b,
 \]
 after which $z=b/r$ and $c=az+r$.  At fixed $b=0.2$, all 192 sampled points
-over $a\in[0.1,0.195]$, including the exact hub abscissa, pass independent
+over $a\in[0.1,0.195]$, including the printed hub abscissa, pass independent
 eigensystem root and transverse-sign checks.  The locus covers
 $c\in[0.4218296645,1.0702742041]$.  At $a=0.1798$ its value is
 $c=0.5192306256940273$, giving a fixed-$a$ separation of
@@ -240,7 +241,7 @@ cycle to the hub nor establishes the proposed homoclinic endpoint.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.96\textwidth]{figures/fig03-hopf-locus.png}
-  \caption{The exact small-equilibrium Hopf locus at $b=0.2$.  The analytic
+  \caption{The analytic small-equilibrium Hopf locus at $b=0.2$. The
   curve is independently checked by direct eigensystem and transversality
   tests at 192 points.  The marked reported hub is separated from the Hopf
   point on its fixed-$a$ slice; the locus supplies a verified local start, not
@@ -278,7 +279,7 @@ the first supercritical rung on this explicit path.
 
 Pseudo-arclength continuation then preserves that primitive child through 83
 points and brackets its first real $-1$ crossing.  A coupled eight-node solve
-locates the exact second event at
+locates the corrected second event at
 \[
 c_{2\to4}=4.3100451384813105,
 \]
@@ -293,7 +294,7 @@ $0.9535193007$.  The period ratio is $2.000002$, the child winds four times,
 and perturbed integration recovers it to RMS $2.83\times10^{-9}$.  This
 establishes the second complete supercritical rung.  Periods beyond four and
 symbolic ordering remain separate gates.  Continuing the period-4 child then
-locates a third exact event at
+locates a third corrected event at
 \[
 c_{4\to8}=4.636447200967924,
 \]
@@ -308,7 +309,7 @@ child to RMS $2.59\times10^{-9}$.  Thus three complete rungs are established
 through period eight.  This covers the finite period range in the original
 ordering claim, but not its symbolic permutation or kneading order.
 
-The period-8 child next reaches an exact flip at
+The period-8 child next reaches a numerically corrected flip at
 \[
 c_{8\to16}=4.7090113823613065,
 \]
@@ -395,7 +396,7 @@ point has multiplier residual $1.70\times10^{-8}$ and therefore misses the
 preregistered $10^{-8}$ equality gate.  The block-cyclic multiplier and direct
 monodromy products agree near $10^{-13}$, so the interval is retained as strong
 event evidence but is not promoted to a corrected eighth event.  A coupled
-orbit--parameter--eigenvector solve with an exact second-variational Jacobian
+orbit--parameter--eigenvector solve with an analytic second-variational Jacobian
 recovers the already resolved seventh event within $8.94\times10^{-13}$, with
 orbit and tangent residuals $9.21\times10^{-13}$ and $1.01\times10^{-11}$.
 Applied prospectively to the period-640 parent, the same formulation converges
@@ -505,8 +506,9 @@ A second prospectively frozen experiment performs that test across baseline,
 half-step, later-conditioning, shifted-grid, and coarser shifted-grid
 ensembles.  All 300 case--run--coordinate--oracle cells recover two branches at
 $a=0.118$ and three at $a=0.149$, with unit variant consensus and 15000 total
-bootstrap refits.  Across-run normalized critical-location drift is at most
-$0.01666$.  This qualifies the topology component over the declared
+bootstrap refits within a shared-data robustness matrix, not 15000 independent
+replications. Across-run normalized critical-location drift is at most
+$0.01666$. This qualifies the scalar-classification component over the declared
 perturbations.  The complete experiment still fails: regular-grid survivor
 fractions differ by as much as $0.07962$, exceeding the frozen $0.05$ gate,
 and one linearly interpolated crossing time misses its short-horizon tolerance.
@@ -518,7 +520,9 @@ without relaxing a threshold.  Three independent scrambled Sobol ensembles,
 nested sizes from 4096 through 16384, step halving, and later conditioning give
 14 complete saddle runs.  All 420 topology cells recover two branches at
 $a=0.118$ and three at $a=0.149$, with unit variant consensus and 21000
-bootstrap refits.  The maximum survivor-fraction differences fall to $0.01013$
+bootstrap refits within the shared-data robustness matrix. The 21000 refits
+are not independent replications; the three independent scrambles are the
+replication units. The maximum survivor-fraction differences fall to $0.01013$
 and $0.01135$, below the $0.05$ gate; maximum normalized critical drift is
 $0.01485$.  Cubic-Hermite section events agree with DOP853 within
 $2.46\times10^{-6}$ in scaled state and $3.16\times10^{-6}$ in time.  All
@@ -533,7 +537,7 @@ survivor counts are identical at $a=0.149$; at $a=0.118$ only the final count
 differs, by one trajectory among 8192.  The largest combined CPU/GPU normalized
 critical-location span is $0.01463$.  Ten short-horizon GPU trajectories agree
 with DOP853 within $2.46\times10^{-6}$ in scaled state and
-$3.16\times10^{-6}$ in event time.  This passes statistical backend parity at
+$3.16\times10^{-6}$ in event time. This passes finite-ensemble backend parity at
 the two controls; it is not an independent saddle construction or a continued
 TBA.
 
@@ -566,7 +570,7 @@ qualified fixed-horizon two-control corroboration by an adaptive-DOP853 orbit-
 restraint method, but the failed 64-return profiles preclude a claim of censor-
 horizon invariance.
 
-A final frozen extension carries forward the exact 128-return intervals and
+A final frozen extension carries forward the unchanged 128-return intervals and
 artifact hashes, then computes new 256-return straddles.  All six access lines
 complete without integration failure.  Both coordinates again recover two
 branches at $a=0.118$ and three at $a=0.149$ in all 15 oracle variants.  The
@@ -685,14 +689,23 @@ therefore halves again to $[0.148,0.14825]$.
 The branch-conditioned successor passes every support and numerical gate but
 rejects its prospectively frozen faster-capture hypothesis.  Three untouched
 Sobol ensembles give extra-minus-core restricted mean survival differences of
-$+30.50$, $+30.86$, and $+29.98$ time units; their 99% trajectory-bootstrap
-intervals are $[27.39,33.55]$, $[27.89,34.01]$, and $[27.25,32.66]$.
+$+30.50$, $+30.86$, and $+29.98$ time units. Their retained nominal 99\%
+within-net trajectory-bootstrap ranges are $[27.39,33.55]$, $[27.89,34.01]$,
+and $[27.25,32.66]$. These are descriptive resampling ranges, not calibrated
+confidence intervals for dependent Sobol points. The associated log-rank
+statistics have the same inferential limitation. Independent scramble seeds
+135, 136, and 137 each use $2^{16}$ initial points; the bootstrap uses 2000
+resamples with the frozen seed policy. Agreement of the three observed
+contrasts, rather than nominal bootstrap coverage or log-rank significance,
+supports the finite-ensemble capture asymmetry.
 The matched half-step result is $+30.90$, only $0.40$ from baseline.  Every
 extra-branch trajectory survives 60 residual time units and none survives 180;
 the two core domains capture earlier on average but retain a small tail through
-270.  The extra branch therefore has delayed but bounded capture, directly
-explaining its presence under 300-unit and absence under 360-unit survivor
-conditioning.
+270. The tested extra-branch trajectories therefore have delayed but bounded
+capture, consistent with their presence under 300-unit and absence under
+360-unit survivor conditioning. The original failed faster-capture decision
+and its numerical outputs are retained; no formal across-scramble uncertainty
+interval or causal effect of branch membership is established by this study.
 
 The first held-out signed-edge test then passes.  At $a=0.148125$, all six PIM
 access lines complete and both censor horizons again supply 2097 pairs per
@@ -1010,7 +1023,7 @@ tested independently.
 \end{figure}
 
 The central event is next continued with $a$ free while orbit closure, phase,
-and an anti-periodic tangent are solved simultaneously using the exact first-
+and an anti-periodic tangent are solved simultaneously using the analytic first-
 and second-variational Jacobian.  Both directions complete at all 41 frozen
 $c$ values from $7.16$ to $7.32$ (Figure~\ref{fig:exp206-flip-curve}).  The
 curve is monotone over the sampled segment, from
@@ -1019,14 +1032,14 @@ $a$ step is $4.64\times10^{-6}$.  Maximum orbit and tangent residuals are
 $1.10\times10^{-11}$ and $1.71\times10^{-12}$; independent monodromy places
 the real multiplier within $2.05\times10^{-9}$ of $-1$ and the neutral
 multiplier within $1.82\times10^{-9}$ of $+1$.  Both section identities remain
-exact.  This is a dense orbit-defined flip-curve segment, not yet its global
+unchanged. This is a dense orbit-defined flip-curve segment, not yet its global
 continuation, period-12 child, criticality, or identification with the TBA.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig15-exp206-period6-flip-continuation.png}
   \caption{Coupled continuation of the period-6 flip boundary.  Left: the
-  41-point exact-Jacobian curve extends beyond the seven independently refined
+  41-point analytic-Jacobian curve extends beyond the seven independently refined
   scalar roots.  Center: event $a$ and flow period vary monotonically over the
   sampled segment.  Right: coupled orbit/tangent and independent Floquet
   residuals remain below their frozen gates.  This curve is not identified
@@ -1159,7 +1172,7 @@ flow-orbit flip curve, not the TBA or another flow bifurcation.
   Lower left: extremum-partitioned historical counts change seven-to-six while
   the Barrio count remains eight; the standard collector misses three close
   lower-side crossings.  Lower right: the section-plane clearance and
-  half-plane gate margin vanish together by the exact R\"ossler extremum
+  half-plane gate margin vanish together by the analytic R\"ossler extremum
   relation.  The grazing changes a representation, not the invariant flow
   event, and is not identified with the TBA.}
   \label{fig:exp212-214-grazing}
@@ -1168,7 +1181,7 @@ flow-orbit flip curve, not the TBA or another flow bifurcation.
 The apparent lower continuation target is itself incorrect.  Six fixed-step
 events first cross the qualified grazing and reach $c=6.83093$.  A separately
 frozen adaptive successor then turns in the $c$ projection and returns through
-21 exact events to $c=6.99993$, where it stops only at its declared upper
+21 corrected events to $c=6.99993$, where it stops only at its declared upper
 parameter guard.  Expanding that guard prospectively yields 135/135 accepted
 events through $(a,c)=(0.27126703,8.25273305)$
 (Figure~\ref{fig:exp215-217-folded}).  Every returning event retains seven
@@ -1188,7 +1201,7 @@ A prospectively frozen three-slice switch tests that interpretation.  Its
 global claim fails, but at the untouched near slice $c=7.16299104$, four
 primitive period-12 children open toward lower $a$, opposite the original
 arm's qualified direction.  All four pair with unstable period-6 parents,
-retain exact $7/8$ parent and $14/16$ child section identities, and pass
+retain the prescribed $7/8$ parent and $14/16$ child section identities, and pass
 DOP853/Radau whole-orbit comparison.  Child moduli are $0.156$--$0.818$ while
 parent moduli are $1.045$--$1.270$.  The middle and far switches do not produce
 a qualified lower-$a$ child, so this supplies local opposing-side stability
@@ -1199,7 +1212,7 @@ exchange but not a whole-arm shrimp-boundary identification.
 
 Adaptive branch-coherent continuation then tests whether the local returning
 child persists.  The frozen 52-event claim fails, but only after 212 accepted
-points spanning 45 exact returning-arm events to $c=7.62518642$.  Every
+points spanning 45 corrected returning-arm events to $c=7.62518642$. Every
 accepted point retains unstable period-6 parent, stable primitive period-12
 child, period ratio two, proper-subperiod nonclosure, and $7/8$ versus $14/16$
 two-section identity.  The largest accepted child-state step is $0.002965$
@@ -1235,7 +1248,7 @@ stability exchange, not for paired shrimp boundaries.
   \includegraphics[width=\textwidth]{figures/fig21-exp223-226-returning-child-endpoint.png}
   \caption{A stable returning-arm period-12 strip recrosses the known period-6
   flip arm on the frozen offset path. Upper left: 212 qualified child points span
-  45 exact returning-arm event samples. Upper right: DOP853 and Radau localize
+  45 corrected returning-arm event samples. Upper right: DOP853 and Radau localize
   the terminal parent real-$-1$ crossing to $3.96\times10^{-9}$ in $c$.
   Lower left: the primitive child occupies the unstable-parent side of the
   crossing. Lower right: proper-subperiod separation is finite before the
@@ -1250,7 +1263,7 @@ stability exchange, not for paired shrimp boundaries.
 
 Removing source-arm interpolation from the child path carries the primitive
 period-12 orbit beyond the false endpoint and reveals a genuine cascade at
-fixed $(b,c)=(0.2,7.625815600403827)$. Exact augmented multiple shooting
+fixed $(b,c)=(0.2,7.625815600403827)$. Augmented multiple-shooting correction
 locates qualified real-$-1$ events of the period-12, period-24, period-48,
 period-96, period-192, and period-384 parents at
 \begin{align}
@@ -1261,7 +1274,7 @@ period-96, period-192, and period-384 parents at
  a_{192}&=0.24070100861338276,&
  a_{384}&=0.24070100830924687.&&
 \end{align}
-The first six events pass orbit, anti-periodic tangent, proper-subperiod, exact
+The first six events pass orbit, anti-periodic tangent, proper-subperiod,
 two-section identity, and independent Radau gates. The period-384 event requires a
 segmented residual-safe audit: the original optimizer exhausts its evaluation
 ceiling after reaching DOP853 orbit and tangent residuals
@@ -1274,14 +1287,14 @@ $-0.99999999330/-0.99999992395$ with orbit/tangent residuals below
 $5.31\times10^{-11}/1.39\times10^{-11}$. The period-384 event independently
 passes with DOP853/Radau multipliers
 $-0.999999998671/-1.00000003625$, orbit residuals below
-$2.26\times10^{-11}$, and exact $448/512$ section identity.
+$2.26\times10^{-11}$, and the prescribed $448/512$ section identity.
 
-Exact node-doubling switches produce primitive period-24, period-48,
+Corrected node-doubling switches produce primitive period-24, period-48,
 period-96, period-192, period-384, and period-768 children. At prospectively frozen
 near-event samples, DOP853 and
 Radau agree that every parent is unstable and every child stable. For the
 sixth birth the parent moduli are $1.22260901/1.22168588$ and child moduli are
-$0.08362765/0.08362578$; the period-768 orbit retains exact $896/1024$ section
+$0.08362765/0.08362578$; the period-768 orbit retains the prescribed $896/1024$ section
 identity. Two full-orbit sign-equivalence audits pass their orbit-identity
 gates but fail a common $0.002$ four-representation multiplier-spread gate
 ($0.003450$ and $0.002661$). A prospectively frozen common-phase audit then
@@ -1306,7 +1319,7 @@ each using 4,096, 8,192, and 16,384 steps on every one of 1,024 segments, then
 show fourth-order convergence and give Richardson flip estimates
 $-0.9999999948283$ and $-0.9999999948805$. Their difference is
 $5.22\times10^{-11}$, both residuals are below $10^{-7}$, and all neutral,
-cyclic, characteristic, frozen-node, tangent, primitivity, and exact-section
+cyclic, characteristic, frozen-node, tangent, primitivity, and section-count
 gates pass. However, three subsequent 50-digit corrections of the orbit itself
 move $7.32\times10^{-5}$--$9.32\times10^{-5}$ from those nodes, exceeding the
 prospective $10^{-6}$ source-neighborhood gate, while the tracked $-1$ root
@@ -1351,7 +1364,7 @@ frozen criticality test fails as stable/stable, not because the parent remains
 numerically neutral. This rules out interpreting that sampled pair as a
 supercritical exchange at that stage. The candidate retains
 $2.53\times10^{-11}$ multiple-shooting mismatch and $2.86\times10^{-7}$ direct
-closure, however, so its primitive identity requires exact-map correction
+closure, however, so its primitive identity requires discretized-map correction
 below.
 
 Same-map high-precision branch switching resolves the immediate daughter.
@@ -1378,7 +1391,7 @@ Newton and a factor-independent decrease rule fail prospectively. A frozen
 step-scaled Armijo rule then converges in thirteen accepted updates, reducing
 matching from $5.37\times10^{-10}$ to $1.20\times10^{-23}$ and half-node RMS
 from $6.31\times10^{-6}$ to $7.38\times10^{-20}$. Cyclic spread is zero and
-the neutral residual is $1.22\times10^{-20}$. In the 4,096-step exact map the
+the neutral residual is $1.22\times10^{-20}$. In the 4,096-step numerical map the
 nominal higher-$a$ child is therefore the doubled period-768 parent, not a
 primitive daughter or a distinct nearby sheet. A complete 8,192-step replay
 then starts independently from the unchanged original seed. Nineteen accepted
@@ -1386,14 +1399,14 @@ updates reduce matching from $4.67\times10^{-11}$ to
 $7.22\times10^{-30}$ and half-node RMS from $6.31\times10^{-6}$ to
 $6.03\times10^{-25}$. It again closes on the doubled parent, with zero cyclic
 spread and maximum neutral residual $7.11\times10^{-27}$. Thus the fate of
-this stored seed is qualified across two exact-map resolutions; this does not
+this stored seed is qualified across two discretized-map resolutions; this does not
 exclude every remote period-1536 sheet.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig26-exp324-325-target-collapse.png}
   \caption{Resolution-doubled correction of the nominal higher-$a$
-  period-1536 seed. Upper left: both exact maps cross the frozen closure gate.
+  period-1536 seed. Upper left: both discretized maps cross the frozen closure gate.
   Upper right: primitive half-node amplitude collapses below the parent-class
   gate. Lower left: the accepted Armijo factors expose severe near-flip
   conditioning before full Newton steps take over. Lower right: distinct
@@ -1420,7 +1433,7 @@ exclude every remote period-1536 sheet.
 \end{figure}
 
 The primitive period-1536 branch can be carried one rung farther, but only
-after separating exact-root evidence from a misleading Float64 bracket. A
+after separating corrected-root evidence from a misleading Float64 bracket. A
 block-Floquet scan of approximately corrected continuation rows initially
 nominates a $1.04\times10^{-13}$ interval. A 50-digit, 2,048-segment
 orbit--antiperiodic-tangent solve reduced by cyclic elimination converges at
@@ -1437,7 +1450,7 @@ finest nodes by $1.24\times10^{-10}$ maximum. Base tangents agree within
 $5.73\times10^{-13}$, the global tangent-line cosine differs from one by
 $4.51\times10^{-23}$, and the finest independent orbit/tangent residuals are
 $5.05\times10^{-28}/7.72\times10^{-25}$. Half-orbit node RMS remains
-$7.99\times10^{-6}$ and excludes the period-768 double cover. These two exact
+$7.99\times10^{-6}$ and excludes the period-768 double cover. These two corrected
 augmented sequences qualify the eighth primitive real-$-1$ event at consensus
 $a_{1536}\simeq0.24070100822410155$. The sixth finite spacing ratio is
 $5.312$, extending the non-monotone sequence to
@@ -1452,7 +1465,7 @@ eighth birth directions remain unqualified.
   fourth-order slopes. Upper right: all augmented systems close below the
   frozen $10^{-22}$ gate. Lower left: the eighth event adds the sixth finite
   spacing ratio, $5.312$, without producing a monotone sequence. Lower right:
-  the independently converged exact roots coincide inside the target-blind
+  the independently converged numerical roots coincide inside the target-blind
   successful-continuation envelope while rejecting EXP-302's inherited
   micro-bracket. The result qualifies the event, not a period-3072 child,
   birth criticality, or a universality limit.}
@@ -1461,7 +1474,7 @@ eighth birth directions remain unqualified.
 
 Because the old source collapses, membership of the independently qualified
 eighth event on the immediate daughter sheet must be re-established without
-using that source. Four further 50-digit continuation rows carry the exact
+using that source. Four further 50-digit continuation rows carry the corrected
 4,096-step daughter across the independent event coordinate. Fixed-$a$
 correction at that coordinate reaches $8.98\times10^{-23}$ matching, retains
 primitive half-node RMS $7.98849\times10^{-6}$, matches the target period to
@@ -1472,15 +1485,15 @@ phase hyperplanes. A prospectively frozen shared-phase correction then reduces
 direct node RMS from $1.20\times10^{-6}$ to $6.35\times10^{-18}$, with
 $8.57\times10^{-26}$ matching and $1.02\times10^{-21}$ period discrepancy.
 Thus the immediate seventh daughter is the parent sheet of the eighth event in
-the same exact map; this connection no longer depends on EXP-299.
+the same discretized map; this connection no longer depends on EXP-299.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/fig27-exp321-327-sheet-connection.png}
   \caption{Direct sheet connection from the seventh birth to the eighth event.
-  Upper left: exact continuation of the immediate period-1536 daughter crosses
+  Upper left: corrected continuation of the immediate period-1536 daughter crosses
   the independently qualified event coordinate. Upper right: the signed
-  transverse multiplier crosses $-1$ on that same sheet. Lower left: exact
+  transverse multiplier crosses $-1$ on that same sheet. Lower left: numerical
   shared-phase correction removes the apparent integer-node mismatch while
   restoring closure. Lower right: matching, node identity, period identity,
   and neutral-mode discrepancies all lie far below their frozen gates. This

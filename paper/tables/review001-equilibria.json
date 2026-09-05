@@ -1,0 +1,693 @@
+{
+  "comparison_semantics": "the same-binary64-matrix comparison isolates the NumPy eigensolver versus Decimal cubic solver; the analytic comparison also includes parameter, equilibrium, and matrix rounding",
+  "environment": {
+    "numpy": "2.5.1",
+    "python": "3.13.11"
+  },
+  "input_semantics": "declared decimal literals are exact inputs to Decimal; package calculations round them to binary64",
+  "limitations": [
+    "80-digit working arithmetic is not an 80-digit accuracy or enclosure claim",
+    "small residuals and cross-algorithm agreement do not validate a homoclinic parameter",
+    "neither equilibrium's global manifold involvement or hub-organizing role is tested",
+    "source parameter literals identify audit points, not error-bounded measured coordinates"
+  ],
+  "points": [
+    {
+      "equilibria": [
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.396377E-72",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "10.125110401488322853269414553421212413471378264494483519955466566857361822737985",
+              "-0.8334146670970712680913365844315656575226780861189753224022674541122874863066259",
+              "10.301420802976645706538829106842424826942756528988967039910933133714723645475970"
+            ],
+            "complex_pair_imaginary_magnitude": "0.99595550770060601590108356322250665814892505780128586833783984192427399429100365",
+            "complex_pair_real": "0.0889667721793619707715371042290421382120238047039708013996552053943918115265655",
+            "maximum_characteristic_component_residual": "2.34555123E-70",
+            "quadratic_discriminant": "-3.9677094932766875561555050945362627987590806358324336829837045064347497767050167",
+            "real_eigenvalue": "-10.303043945847046794812488761879296689895425873902425122754776977646145445791116"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.396377E-72",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "10.1251104014883230586274720508299651555716991424560546875",
+              "-0.8334146670970711793771100943554350814932492591463445261782381785070628055223096",
+              "10.301420802976645900514813558246702397956908314118156873833966000028247982783780"
+            ],
+            "complex_pair_imaginary_magnitude": "0.99595550770060601646352225907409321933216213399169839104953998712184711058272595",
+            "complex_pair_real": "0.088966772179361964798968894973343857142379725558077355674412208718939634062662",
+            "maximum_characteristic_component_residual": "3.42956743E-70",
+            "quadratic_discriminant": "-3.9677094932766875606368164295549317935189798488271967609198561047610851725240060",
+            "real_eigenvalue": "-10.303043945847046988225409840776652869856458593572209398848824417437879268125324"
+          },
+          "equilibrium": "small",
+          "maximum_spectral_component_difference_numpy_analytic": "7.29654199866429178327652181547972574877245223022353854554208884E-16",
+          "maximum_spectral_component_difference_same_binary64_matrix": "5.36241278787531822147691148828302790601151175582562120731874676E-16",
+          "maximum_state_difference_numpy_decimal80": "4.268889311822507889371560743995091798860725434608666169421663795E-18",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 0.9959555077006059,
+            "complex_pair_real": 0.08896677217936197,
+            "real_eigenvalue": -10.303043945847048
+          },
+          "quadratic_residual_decimal80": "0E-80",
+          "rhs_infinity_norm_decimal80": "0E-81",
+          "rhs_infinity_norm_numpy": 5.551115123125783e-17,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "-10.214077173667684824040951657650254551683402069198454321355121772251753634264550",
+            "forward_stable_dimension": 1,
+            "forward_unstable_dimension": 2,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "10.214077173667684824040951657650254551683402069198454321355121772251753634264550",
+            "reversed_stable_dimension": 2,
+            "reversed_unstable_dimension": 1,
+            "standard_one_dimensional_unstable_saddle_quantity": "10.214077173667684824040951657650254551683402069198454321355121772251753634264550",
+            "standard_one_dimensional_unstable_time_direction": "reversed",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "0.0034895985116771467305854465787875865286217355055164800445334331426381772620151503",
+            "-0.019408223090529180926504152273568334419475725837132814485725434608666169421663795",
+            "0.019408223090529180926504152273568334419475725837132814485725434608666169421663795"
+          ],
+          "state_numpy": [
+            0.0034895985116771455,
+            -0.019408223090529177,
+            0.019408223090529177
+          ]
+        },
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "5.2452683E-73",
+              "iterations": 247,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.176310401488322853269414553421212413471378264494483519955466566857361822737985",
+              "58.312556115728884393786553492106760318256827140623980884137528855669573359499063",
+              "-10.301420802976645706538829106842424826942756528988967039910933133714723645475970"
+            ],
+            "complex_pair_imaginary_magnitude": "7.636269873686347085712601625404955577632166357893490611724720030849408581431967",
+            "complex_pair_real": "-0.00017405992421636057724007455990242511091333860533257096434570919990133190569590",
+            "maximum_characteristic_component_residual": "2.896766E-72",
+            "quadratic_discriminant": "-233.25047033507879710227219751651027490794142702426735198682059257280025207703233",
+            "real_eigenvalue": "0.17665852133675557442389470254101726369320494170514866188415798525716448654937680"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "5.2452683E-73",
+              "iterations": 247,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.1763104014883241366096200408719596453011035919189453125",
+              "58.312556115728900361404534091070209208721716995909061173557734339759073272091427",
+              "-10.301420802976649121235199348677431061791461007995510271181382848382224182159916"
+            ],
+            "complex_pair_imaginary_magnitude": "7.6362698736863481165201816285539179697932352570130590721533610587843387640049935",
+            "complex_pair_real": "-0.00017405992421572433985185945269486749342409546519413715377005112740362161043494",
+            "maximum_characteristic_component_residual": "8.25406E-73",
+            "quadratic_discriminant": "-233.25047033507886007447114748111808606173195438927096025526916534772301409834535",
+            "real_eigenvalue": "0.17665852133675558528932375977734938028795178284933358680754010225480724322086988"
+          },
+          "equilibrium": "large",
+          "maximum_spectral_component_difference_numpy_analytic": "1.175355170204115735125323511572737240611724720030849408581431967E-15",
+          "maximum_spectral_component_difference_same_binary64_matrix": "2.2061627502072646975174845804718568090721533610587843387640049935E-15",
+          "maximum_state_difference_numpy_decimal80": "1.5734602437222267493508585229015082127252750464033051380296229227E-14",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 7.636269873686346,
+            "complex_pair_real": -0.00017405992421559165,
+            "real_eigenvalue": 0.1766585213367557
+          },
+          "quadratic_residual_decimal80": "1E-77",
+          "rhs_infinity_norm_decimal80": "8.61E-78",
+          "rhs_infinity_norm_numpy": 7.421840919619171e-14,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "0.17648446141253921384665462798111483858229160309981609091981227605726315464368090",
+            "forward_stable_dimension": 2,
+            "forward_unstable_dimension": 1,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "-0.17648446141253921384665462798111483858229160309981609091981227605726315464368090",
+            "reversed_stable_dimension": 1,
+            "reversed_unstable_dimension": 2,
+            "standard_one_dimensional_unstable_saddle_quantity": "0.17648446141253921384665462798111483858229160309981609091981227605726315464368090",
+            "standard_one_dimensional_unstable_time_direction": "forward",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "10.304910401488322853269414553421212413471378264494483519955466566857361822737985",
+            "-57.313183545541283944768712755401626326314673328667872747249535966948619703770773",
+            "57.313183545541283944768712755401626326314673328667872747249535966948619703770773"
+          ],
+          "state_numpy": [
+            10.304910401488325,
+            -57.3131835455413,
+            57.3131835455413
+          ]
+        }
+      ],
+      "id": "printed-hub",
+      "parameters_decimal": {
+        "a": "0.1798",
+        "b": "0.2",
+        "c": "10.3084"
+      }
+    },
+    {
+      "equilibria": [
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.396315E-72",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "10.122211584941260360720744818963706913478564855503511946319195541338711932430100",
+              "-0.8627076071108585811191510312289548071035124625343181512556585600768753890663311",
+              "10.301310386230520721441489637927413826957129711007023892638391082677423864860200"
+            ],
+            "complex_pair_imaginary_magnitude": "0.9958247890126527186485838887348828025643211118814198585330332704510684804468223",
+            "complex_pair_real": "0.090388564032857341793847638968059702243366246600808911858195912079686548272725",
+            "maximum_characteristic_component_residual": "1.24340054E-70",
+            "quadratic_discriminant": "-3.9666680416483772110286596943425140404574408751575021849254390765077066953224777",
+            "real_eigenvalue": "-10.302988713006975044308440096899826317965297348705129770035587365498085028975550"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.396315E-72",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "10.122211584941260553716091408205102197825908660888671875",
+              "-0.8627076071108585561480656905073091944521352621070864428393988078414000852944810",
+              "10.301310386230520909115847222609893417598133488075889408617550362195190456066074"
+            ],
+            "complex_pair_imaginary_magnitude": "0.9958247890126527189277890733767608967509172772760373733968490093244259321707677",
+            "complex_pair_real": "0.090388564032857338940869759005636205039622663414346298453290019559114413559393",
+            "maximum_characteristic_component_residual": "3.31418258E-70",
+            "quadratic_discriminant": "-3.9666680416483772132529752470404100275979738313482815390391162100984229865696037",
+            "real_eigenvalue": "-10.302988713006975231597830926216374607905153987717364471906580039118228827118786"
+          },
+          "equilibrium": "small",
+          "maximum_spectral_component_difference_numpy_analytic": "2.30002676566839258879483433120044870229964412634501914971024450E-16",
+          "maximum_spectral_component_difference_same_binary64_matrix": "2.033320715150064014974150754595403688766031509906755740678292323E-16",
+          "maximum_state_difference_numpy_decimal80": "3.474026106314832928235869291746589751211292711910280132538290431E-18",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 0.9958247890126529,
+            "complex_pair_real": 0.09038856403285744,
+            "real_eigenvalue": -10.302988713006975
+          },
+          "quadratic_residual_decimal80": "1E-80",
+          "rhs_infinity_norm_decimal80": "1E-80",
+          "rhs_infinity_norm_numpy": 5.551115123125783e-17,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "-10.212600148974117702514592457931766615721931102104320858177391453418398480702825",
+            "forward_stable_dimension": 1,
+            "forward_unstable_dimension": 2,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "10.212600148974117702514592457931766615721931102104320858177391453418398480702825",
+            "reversed_stable_dimension": 2,
+            "reversed_unstable_dimension": 1,
+            "standard_one_dimensional_unstable_saddle_quantity": "10.212600148974117702514592457931766615721931102104320858177391453418398480702825",
+            "standard_one_dimensional_unstable_time_direction": "reversed",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "0.0035448068847396392792551810362930865214351444964880536808044586612880675699003055",
+            "-0.019408327070294134624322585719293043128441456282112212148792711910280132538290431",
+            "0.019408327070294134624322585719293043128441456282112212148792711910280132538290431"
+          ],
+          "state_numpy": [
+            0.0035448068847396385,
+            -0.01940832707029413,
+            0.01940832707029413
+          ]
+        },
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "5.1663281E-73",
+              "iterations": 247,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.179098801289260360720744818963706913478564855503511946319195541338711932430100",
+              "57.419915517616693898236747264991147324267203742732405988227936923997629542574888",
+              "-10.301310386230520721441489637927413826957129711007023892638391082677423864860200"
+            ],
+            "complex_pair_imaginary_magnitude": "7.5775965882695619846431398069867735256812089790424031654636990655665177711233325",
+            "complex_pair_real": "-0.00015206012150291178266555251512923234344448195811792319039655464673976414507383",
+            "maximum_characteristic_component_residual": "1.2217891E-71",
+            "quadratic_discriminant": "-229.67988021821802277698157144649862239918564539450777224165455880500287508361634",
+            "real_eigenvalue": "0.17940292153226618428607592399396537816545381941974779269998865063219146072024766"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "5.1663282E-73",
+              "iterations": 247,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.179098801289261644331674006025423295795917510986328125",
+              "57.419915517616709533683338470558248081628946057083403984402675702264362556093147",
+              "-10.301310386230524481151015907296368388178043238584763550692554104348808152735728"
+            ],
+            "complex_pair_imaginary_magnitude": "7.577596588269563001355415969754236747214693933665059426140861578419438384451351",
+            "complex_pair_real": "-0.000152060121502278645085704790113831523631472570183768315654378097434072941988235",
+            "maximum_characteristic_component_residual": "1.3950923E-71",
+            "quadratic_discriminant": "-229.67988021821808441086537226864228456169376640821196956438907266129431285387827",
+            "real_eigenvalue": "0.17940292153226620162184541560565095884318045612669566163130875619486814588397647"
+          },
+          "equilibrium": "large",
+          "maximum_spectral_component_difference_numpy_analytic": "3.2962388943236405158887246137748638468345363009344334822288766675E-15",
+          "maximum_spectral_component_difference_same_binary64_matrix": "2.279526618160873052667191128820241190573859138421580561615548649E-15",
+          "maximum_state_difference_numpy_decimal80": "1.5399872468165512460366357816582334024375176514347989525979029734E-14",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 7.577596588269565,
+            "complex_pair_real": -0.0001520601215022723,
+            "real_eigenvalue": 0.17940292153226628
+          },
+          "quadratic_residual_decimal80": "2E-77",
+          "rhs_infinity_norm_decimal80": "1.723E-77",
+          "rhs_infinity_norm_numpy": 7.271960811294775e-14,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "0.17925086141076327250341037147883614582200933746162986950959209598545169657517383",
+            "forward_stable_dimension": 2,
+            "forward_unstable_dimension": 1,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "-0.17925086141076327250341037147883614582200933746162986950959209598545169657517383",
+            "reversed_stable_dimension": 1,
+            "reversed_unstable_dimension": 2,
+            "standard_one_dimensional_unstable_saddle_quantity": "0.17925086141076327250341037147883614582200933746162986950959209598545169657517383",
+            "standard_one_dimensional_unstable_time_direction": "forward",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "10.304855193115260360720744818963706913478564855503511946319195541338711932430100",
+            "-56.420562953936402782493273648042899474035249823915975624823485652010474020970266",
+            "56.420562953936402782493273648042899474035249823915975624823485652010474020970266"
+          ],
+          "state_numpy": [
+            10.304855193115262,
+            -56.42056295393642,
+            56.42056295393642
+          ]
+        }
+      ],
+      "id": "initial-homoclinic-candidate",
+      "parameters_decimal": {
+        "a": "0.182643608174",
+        "b": "0.2",
+        "c": "10.3084"
+      }
+    },
+    {
+      "equilibria": [
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "1.1883902E-71",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "19.850330515186050561162357679099064552938926825284044962940111357029676492407582",
+              "-1.9535296473280648492267736038287818933154103967137319254053173225653956569695200",
+              "19.997036030372101122324715358198129105877853650568089925880222714059352984815164"
+            ],
+            "complex_pair_imaginary_magnitude": "0.9972451322799287046458934469980739048813142128934045106178677375785881981016014",
+            "complex_pair_real": "0.0738443258055636732979579230024747037125827144298009396769495318388829170674805",
+            "maximum_characteristic_component_residual": "1.136772524E-69",
+            "quadratic_discriminant": "-3.9779914154240500004349045092151451101437946215802535746966859688170439883979428",
+            "real_eigenvalue": "-19.998019166797177907758273525104013960364092254143646842294010420707442326542543"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "1.1883902E-71",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "19.8503305151860504340621815799750038422644138336181640625",
+              "-1.9535296473280648244383832478763162323964459654468467299671258219362357522186358",
+              "19.997036030372100994785358384863664498129085304777462214934120123074567346339869"
+            ],
+            "complex_pair_imaginary_magnitude": "0.99724513227992870465329483823661381560931813364962341489432199609949796814751735",
+            "complex_pair_real": "0.0738443258055636731484358139123386930978811619094439401435723198425667469145355",
+            "maximum_characteristic_component_residual": "2.188582492E-69",
+            "quadratic_discriminant": "-3.9779914154240500004939525202930110191296011696538035678228895036148997450989814",
+            "real_eigenvalue": "-19.998019166797177780359053207799681228460176157437051942787144639685133493829071"
+          },
+          "equilibrium": "small",
+          "maximum_spectral_component_difference_numpy_analytic": "3.122744337247992951414678849526394982606178677375785881981016014E-16",
+          "maximum_spectral_component_difference_same_binary64_matrix": "3.1228183511603783505219588887339571716489432199609949796814751735E-16",
+          "maximum_state_difference_numpy_decimal80": "1.480265743603083003139501034427999875740879570845560471750871410E-18",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 0.9972451322799284,
+            "complex_pair_real": 0.07384432580556376,
+            "real_eigenvalue": -19.998019166797178
+          },
+          "quadratic_residual_decimal80": "1E-80",
+          "rhs_infinity_norm_decimal80": "0E-81",
+          "rhs_infinity_norm_numpy": 2.7755575615628914e-17,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "-19.924174840991614234460315602101539256651509539713845902617060888868559409475062",
+            "forward_stable_dimension": 1,
+            "forward_unstable_dimension": 2,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "19.924174840991614234460315602101539256651509539713845902617060888868559409475062",
+            "reversed_stable_dimension": 2,
+            "reversed_unstable_dimension": 1,
+            "standard_one_dimensional_unstable_saddle_quantity": "19.924174840991614234460315602101539256651509539713845902617060888868559409475062",
+            "standard_one_dimensional_unstable_time_direction": "reversed",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "0.0014819848139494388376423209009354470610731747159550370598886429703235075924177429",
+            "-0.010000741047318018305473274742710735123226822208047487540370429154439528249128590",
+            "0.010000741047318018305473274742710735123226822208047487540370429154439528249128590"
+          ],
+          "state_numpy": [
+            0.001481984813949439,
+            -0.01000074104731802,
+            0.01000074104731802
+          ]
+        },
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.0557170E-73",
+              "iterations": 248,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.146705515186050561162357679099064552938926825284044962940111357029676492407583",
+              "135.95392979494510407318291025503080635556762465230209126745508535293232944018336",
+              "-19.997036030372101122324715358198129105877853650568089925880222714059352984815166"
+            ],
+            "complex_pair_imaginary_magnitude": "11.659930781947468375608532126775042178549753423041981353935185124473425145531324",
+            "complex_pair_real": "-0.000190639834795822253450385500251922125709251234136618976124884244493708561834485",
+            "maximum_characteristic_component_residual": "3.736444E-72",
+            "quadratic_discriminant": "-543.81594335922440526184673210080675054577253404330388623448073902831491367328132",
+            "real_eigenvalue": "0.14708679485564220566925845009956839719034532775231820089236112551866390953125197"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.0557169E-73",
+              "iterations": 248,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.1467055151860504336180923701249412260949611663818359375",
+              "135.95392979494509510374233451575375343582049736944617534324837582193623575221864",
+              "-19.997036030372099638673566566955461297743807913322773894056628291027166710591700"
+            ],
+            "complex_pair_imaginary_magnitude": "11.659930781947467991777530214891328311178389107600699987749964169263482810074396",
+            "complex_pair_real": "-0.00019063983479588541104576830243352737415156971439098504163826292611224696890854",
+            "maximum_characteristic_component_residual": "3.2802752E-71",
+            "quadratic_discriminant": "-543.81594335922436945830341803592333261546245818845289284511098200473329110995486",
+            "real_eigenvalue": "0.14708679485564220444018390672980828084326430581061790758327652585222449393781708"
+          },
+          "equilibrium": "large",
+          "maximum_spectral_component_difference_numpy_analytic": "4.746209360989028557179055227045708018646064814875526574854468676E-15",
+          "maximum_spectral_component_difference_same_binary64_matrix": "5.130040362900912271046426591361149300012250035830736517189925604E-15",
+          "maximum_state_difference_numpy_decimal80": "8.95057334322542829642366219055838031185450939760121249425496471E-15",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 11.659930781947473,
+            "complex_pair_real": -0.00019063983479586843,
+            "real_eigenvalue": 0.14708679485564222
+          },
+          "quadratic_residual_decimal80": "1E-76",
+          "rhs_infinity_norm_decimal80": "1.0025E-76",
+          "rhs_infinity_norm_numpy": 1.715294573045867e-14,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "0.14689615502084638341580806459931647506463607651818158191623624127417020096941748",
+            "forward_stable_dimension": 2,
+            "forward_unstable_dimension": 1,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "-0.14689615502084638341580806459931647506463607651818158191623624127417020096941748",
+            "reversed_stable_dimension": 1,
+            "reversed_unstable_dimension": 2,
+            "standard_one_dimensional_unstable_saddle_quantity": "0.14689615502084638341580806459931647506463607651818158191623624127417020096941748",
+            "standard_one_dimensional_unstable_time_direction": "forward",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "19.998518015186050561162357679099064552938926825284044962940111357029676492407583",
+            "-134.95414940656972120565066337645931372712898743338031185450939760121249425496471",
+            "134.95414940656972120565066337645931372712898743338031185450939760121249425496471"
+          ],
+          "state_numpy": [
+            19.99851801518605,
+            -134.9541494065697,
+            134.9541494065697
+          ]
+        }
+      ],
+      "id": "classifier-two-branch-endpoint",
+      "parameters_decimal": {
+        "a": "0.1481875",
+        "b": "0.2",
+        "c": "20"
+      }
+    },
+    {
+      "equilibria": [
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "1.1883900E-71",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "19.850267390093393241574953029232473158954212320105587111790207630658647387085257",
+              "-1.9547794617214348672874532569545280342076251812150941782956310344232044217475780",
+              "19.997034780186786483149906058464946317908424640211174223580415261317294774170514"
+            ],
+            "complex_pair_imaginary_magnitude": "0.9972428021069639372813235867190027887936108821358957754136567107455773481240001",
+            "complex_pair_real": "0.0738755757880931562122842683622722042268573642126618682278745091053133489666045",
+            "maximum_characteristic_component_residual": "5.48602226E-70",
+            "quadratic_discriminant": "-3.9779728254165969482648003026216783255068131761956695151894227267801922969448207",
+            "real_eigenvalue": "-19.998018541669579553999521565957017567407927048530910848245956648869274085018466"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "1.1883900E-71",
+              "iterations": 241,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "19.85026739009339369346207604394294321537017822265625",
+              "-1.9547794617214347902939149996840222459820162275296599101257616348803480832430068",
+              "19.997034780186786927878959668429180010281567043060023203919842510662731316362084"
+            ],
+            "complex_pair_imaginary_magnitude": "0.9972428021069639375456361792745575862463837155980150433133910743273541730575003",
+            "complex_pair_real": "0.073875575788093152644279859657736499999379783198955591044123581443223053333456",
+            "maximum_characteristic_component_residual": "1.662022992E-69",
+            "quadratic_discriminant": "-3.9779728254165969503734709460797401053792340986794756358214413978517649547972812",
+            "real_eigenvalue": "-19.998018541669579998750635763258416215368937789054161182088247162886446106666912"
+          },
+          "equilibrium": "small",
+          "maximum_spectral_component_difference_numpy_analytic": "2.734313549852332122948419889939155910848245956648869274085018466E-15",
+          "maximum_spectral_component_difference_same_binary64_matrix": "3.179064664049633521596380900679679161182088247162886446106666912E-15",
+          "maximum_state_difference_numpy_decimal80": "8.34412063407998041610485518068156709285232753178059946612188623E-19",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 0.9972428021069635,
+            "complex_pair_real": 0.07387557578809302,
+            "real_eigenvalue": -19.998018541669577
+          },
+          "quadratic_residual_decimal80": "0E-80",
+          "rhs_infinity_norm_decimal80": "0E-81",
+          "rhs_infinity_norm_numpy": 0.0,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "-19.924142965881486397787237297594745363181069684318248980018082139763960736051862",
+            "forward_stable_dimension": 1,
+            "forward_unstable_dimension": 2,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "19.924142965881486397787237297594745363181069684318248980018082139763960736051862",
+            "reversed_stable_dimension": 2,
+            "reversed_unstable_dimension": 1,
+            "standard_one_dimensional_unstable_saddle_quantity": "19.924142965881486397787237297594745363181069684318248980018082139763960736051862",
+            "standard_one_dimensional_unstable_time_direction": "reversed",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "0.0014826099066067584250469707675268410457876798944128882097923693413526129147430366",
+            "-0.010000741359910680776033529629186111607336795240559111027267246821940053387811377",
+            "0.010000741359910680776033529629186111607336795240559111027267246821940053387811377"
+          ],
+          "state_numpy": [
+            0.0014826099066067584,
+            -0.010000741359910682,
+            0.010000741359910682
+          ]
+        },
+        {
+          "decimal80_analytic_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.0532011E-73",
+              "iterations": 248,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.146767390093393241574953029232473158954212320105587111790207630658647387085257",
+              "135.89703072647691547437008394835419076607946329251357647171890253526637474215230",
+              "-19.997034780186786483149906058464946317908424640211174223580415261317294774170514"
+            ],
+            "complex_pair_imaginary_magnitude": "11.657490585487603183947913938626637297045662817585968255676857193375345354415156",
+            "complex_pair_real": "-0.00019048984928525321888639465395258867895987687791937006753640594052207740557551",
+            "maximum_characteristic_component_residual": "3.2731330E-71",
+            "quadratic_discriminant": "-543.58834700292840510966166641942690975322678418592248963998455352024035343210068",
+            "real_eigenvalue": "0.14714836979196374801272581854037833631213207386142585192528044253969154189640802"
+          },
+          "decimal80_exact_binary64_jacobian_spectrum": {
+            "bisection": {
+              "converged": true,
+              "final_search_width": "6.0532011E-73",
+              "iterations": 248,
+              "maximum_iterations": 320,
+              "relative_width_target": "1E-72",
+              "rigorous_enclosure": false,
+              "termination": "declared relative search-width criterion"
+            },
+            "characteristic_coefficients": [
+              "-0.14676739009339367925122132874093949794769287109375",
+              "135.89703072647691571274096567312459394573914518146337573043826163488034808324301",
+              "-19.997034780186785994990468940133822437644127998742146897978577690935253485804424"
+            ],
+            "complex_pair_imaginary_magnitude": "11.657490585487603191389222977988900860278845574726730408016666548468980859832606",
+            "complex_pair_real": "-0.00019048984928503249080584695380793829595958269836752293346456525254290181048843",
+            "maximum_characteristic_component_residual": "1.6742855E-71",
+            "quadratic_discriminant": "-543.58834700292840580363758697998201295882160677918126506484029833804626822270596",
+            "real_eigenvalue": "0.14714836979196374423283302264855537453961203649048504586692913050508580362097686"
+          },
+          "equilibrium": "large",
+          "maximum_spectral_component_difference_numpy_analytic": "6.451658617871854463977444693627726531744323142806624654645584844E-15",
+          "maximum_spectral_component_difference_same_binary64_matrix": "6.444217308832492200414211510870585769591983333451531019140167394E-15",
+          "maximum_state_difference_numpy_decimal80": "4.44781695657109468197704723226769412888209792369341352612914743E-16",
+          "numpy_eigenvalues": {
+            "complex_pair_imaginary_magnitude": 11.65749058548761,
+            "complex_pair_real": -0.00019048984928490248,
+            "real_eigenvalue": 0.14714836979196375
+          },
+          "quadratic_residual_decimal80": "0E-76",
+          "rhs_infinity_norm_decimal80": "4.94E-78",
+          "rhs_infinity_norm_numpy": 6.000755448098971e-14,
+          "spectral_convention": {
+            "forward_signed_sum_real_plus_pair_real": "0.14695787994267849479383942388642574763317219698350648185774403659916946449083251",
+            "forward_stable_dimension": 2,
+            "forward_unstable_dimension": 1,
+            "homoclinic_existence_established": false,
+            "reversed_signed_sum_real_plus_pair_real": "-0.14695787994267849479383942388642574763317219698350648185774403659916946449083251",
+            "reversed_stable_dimension": 1,
+            "reversed_unstable_dimension": 2,
+            "standard_one_dimensional_unstable_saddle_quantity": "0.14695787994267849479383942388642574763317219698350648185774403659916946449083251",
+            "standard_one_dimensional_unstable_time_direction": "forward",
+            "standard_spectral_inequality_positive": true
+          },
+          "state_decimal80": [
+            "19.998517390093393241574953029232473158954212320105587111790207630658647387085257",
+            "-134.89725052339556992630659716177047662026450131605792318239600425402123026701691",
+            "134.89725052339556992630659716177047662026450131605792318239600425402123026701691"
+          ],
+          "state_numpy": [
+            19.998517390093394,
+            -134.89725052339557,
+            134.89725052339557
+          ]
+        }
+      ],
+      "id": "classifier-three-branch-endpoint",
+      "parameters_decimal": {
+        "a": "0.14825",
+        "b": "0.2",
+        "c": "20"
+      }
+    }
+  ],
+  "precision": {
+    "decimal_digits": 80,
+    "rounding": "ROUND_HALF_EVEN",
+    "validated_interval_arithmetic": false
+  },
+  "schema": "butterfly.review001-equilibrium-algebra.v1",
+  "scope": "equilibrium and local spectral algebra only; no trajectories, manifold calculation, or proof of a global connection",
+  "source_sha256": {
+    "models": "5b6a6842a9f0fc4d6073f017911f1042ce3fe11dd316b8ac4064cf4734b1fb21",
+    "script": "2849e01c5b023012ba8af379bca250df17b1fee445c550696c95f4d7fcf8e67c"
+  },
+  "spectral_quantity_definition": "lambda_real + Re(lambda_complex), one member of the conjugate pair, not the trace; reversing time negates the sum and swaps stable/unstable dimensions",
+  "standard_shilnikov_convention": "one positive real exponent and a stable conjugate pair; the spectral inequality is necessary context for the cited homoclinic theorem, not evidence that a homoclinic loop exists"
+}

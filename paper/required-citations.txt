@@ -16,3 +16,13 @@ malykh2020homoclinic
 gierzkiewicz2021periodic
 capinski2017homoclinics
 nitta2022verification
+# Targeted literature correction following the 2026 manuscript assessment.
+bonatto2008periodicity
+barrio2009qualitative
+vitolo2011global
+letellier1995unstable
+galias2025symbolic
+igra2025knots
+owen2025error
+xing2023period1
+docarmo2025measure
