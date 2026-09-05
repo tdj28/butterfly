@@ -46,3 +46,16 @@ collection receipt. No fitting, ranking, or symbolic interpretation was done.
 
 The ambiguous Runpod transaction still has no ID or matching task name in
 inventory. Its existing watchdog is alive; no further rental was attempted.
+
+## September 5 heartbeat (19:49 UTC)
+
+134 of 551 candidates have completed both profiles. All 268 checkpointed
+profiles pass the frozen validity checks, and every raw hash and byte count
+matches the metadata. The checked raw files total 534,737,992 bytes.
+
+The original local service is still running without restart, exit, or stderr
+diagnostics; approximately 46 GiB remains free. There is no terminal receipt,
+and no fitting, ranking, or symbolic interpretation has begun.
+
+No delayed task-owned Runpod worker appears in inventory. The unresolved
+transaction's watchdog remains alive; no new compute was rented.
