@@ -1,0 +1,535 @@
+{
+  "schema": "butterfly.projected-homoclinic-grid-summary.v1",
+  "experiment_id": "EXP-476",
+  "passed": false,
+  "technical_passed": false,
+  "discretization_passed": false,
+  "execution_finished": true,
+  "nine_case_qualification_complete": false,
+  "case_counts": {
+    "passed": 5,
+    "failed": 1,
+    "skipped": 3
+  },
+  "source_commit": "af90d04e6b484733bb2535a453157c4830691a34",
+  "source_dirty": false,
+  "protocol_tag": "exp-476-protocol",
+  "manifest_sha256": "8a3657cc921b798eec34af1199d3e53b26aa89cf629f6ab3bf3c6d5f8c6498e5",
+  "raw_receipt_bytes": 8649021,
+  "raw_receipt_sha256": "c9818275ed3c585934cdeaa85857b04a5e9a6e1a6400f426a5cbf6e06d5b95bc",
+  "elapsed_seconds": 11.135867833159864,
+  "environment": {
+    "numpy": "2.5.1",
+    "python": "3.12.14",
+    "scipy": "1.18.0"
+  },
+  "hardware": "local CPU only; no paid resources",
+  "fixed_parameters": {
+    "b": 0.2,
+    "c": 10.3084
+  },
+  "reference": {
+    "experiment_id": "EXP-342",
+    "a": 0.1826436081740286,
+    "raw_receipt_sha256": "efa36db56b9dc288b973627fc588296656942dd1404191517892470761fd87b1",
+    "role": "the same archived path independently reconstructs every initial guess; no grid-case warm starts or old matching residuals"
+  },
+  "budget": {
+    "maximum_total_seconds": 300,
+    "maximum_trial_seconds": 45,
+    "maximum_nodes": 48000,
+    "maximum_seed_step": 0.03,
+    "maximum_state_norm": 1000,
+    "stop_on_first_failed_case": true,
+    "deadline_scope": "cooperative callbacks/checks; each target case covers independent seed construction, collocation, and replay; controls and all cases share total deadline; no hard factorization preemption",
+    "hardware": "local CPU only; no paid resources"
+  },
+  "acceptance": {
+    "maximum_scaled_boundary_residual": 1e-8,
+    "minimum_parameter_box_margin": 0.0001,
+    "minimum_excursion": 5,
+    "maximum_source_a_difference": 0.00002,
+    "maximum_replay_state_defect": "case_tolerance"
+  },
+  "refinement": {
+    "radii": [
+      0.01,
+      0.005,
+      0.0025
+    ],
+    "tolerances": [
+      0.000001,
+      1e-7,
+      1e-8
+    ],
+    "maximum_finest_a_difference": 1e-9,
+    "maximum_contraction_ratio": 0.3,
+    "contraction_absolute_slack": 1e-10,
+    "endpoint_resolution_fraction": 0.25,
+    "empirical_resolution": 1e-9,
+    "endpoint_classification_order": "below_declared_empirical_resolution if radius difference and summed D2 are each <=1e-9; otherwise resolved if summed D2 <=0.25*radius difference; otherwise unresolved. Failed/missing cases are unavailable."
+  },
+  "controls": {
+    "complete": true,
+    "negative_control": {
+      "elapsed_seconds": 0.004043792374432087,
+      "endpoint_radii": [
+        0.05000000054145482,
+        0.05000000046731008
+      ],
+      "flight_time": 8.763424509601718,
+      "iterations": 1,
+      "maximum_collocation_relative_rms": 0.19142156893379864,
+      "maximum_excursion": 1.4142138126609058,
+      "maximum_scaled_boundary_residual": 0.007494180868266254,
+      "message": "A singular Jacobian encountered when solving the collocation system.",
+      "minimum_parameter_box_margin": 0,
+      "nodes": 201,
+      "parameter": 0.03,
+      "passed_numerical_gates": false,
+      "solver_status": 2,
+      "solver_success": false
+    },
+    "negative_control_rejection_qualified": true,
+    "passed": true,
+    "positive_controls": [
+      {
+        "elapsed_seconds": 0.008983958512544632,
+        "endpoint_radii": [
+          0.1,
+          0.1
+        ],
+        "flight_time": 7.375232163899801,
+        "iterations": 4,
+        "maximum_analytic_state_error": 0.00006266775468132805,
+        "maximum_collocation_relative_rms": 9.923346610752026e-9,
+        "maximum_excursion": 1.4142179817735752,
+        "maximum_scaled_boundary_residual": 1.1102230246251565e-16,
+        "message": "The algorithm converged to the desired accuracy.",
+        "minimum_parameter_box_margin": 0.4999926608704038,
+        "nodes": 1459,
+        "parameter": -1.0198014108036601e-17,
+        "passed": true,
+        "passed_numerical_gates": true,
+        "radius": 0.1,
+        "replay": {
+          "maximum_state_defect": 3.2575637671727383e-12,
+          "rms_state_defect": 1.5877965402003422e-12,
+          "segments": 16,
+          "success": true
+        },
+        "solver_status": 0,
+        "solver_success": true
+      },
+      {
+        "elapsed_seconds": 0.007847624830901623,
+        "endpoint_radii": [
+          0.05000000000000001,
+          0.05
+        ],
+        "flight_time": 8.763426190517855,
+        "iterations": 5,
+        "maximum_analytic_state_error": 0.000007817527799075348,
+        "maximum_collocation_relative_rms": 9.871869340106546e-9,
+        "maximum_excursion": 1.4142138385833563,
+        "maximum_scaled_boundary_residual": 1.1102230246251565e-16,
+        "message": "The algorithm converged to the desired accuracy.",
+        "minimum_parameter_box_margin": 0.4999994975673514,
+        "nodes": 1503,
+        "parameter": -9.444014522616884e-18,
+        "passed": true,
+        "passed_numerical_gates": true,
+        "radius": 0.05,
+        "replay": {
+          "maximum_state_defect": 5.5502396324768506e-12,
+          "rms_state_defect": 2.4191754724217447e-12,
+          "segments": 16,
+          "success": true
+        },
+        "solver_status": 0,
+        "solver_success": true
+      },
+      {
+        "elapsed_seconds": 0.007793665863573551,
+        "endpoint_radii": [
+          0.025000000000000005,
+          0.025000000000000005
+        ],
+        "flight_time": 10.150191225314655,
+        "iterations": 5,
+        "maximum_analytic_state_error": 9.767167479098228e-7,
+        "maximum_collocation_relative_rms": 9.998219115532647e-9,
+        "maximum_excursion": 1.4142135796324204,
+        "maximum_scaled_boundary_residual": 1.1102230246251565e-16,
+        "message": "The algorithm converged to the desired accuracy.",
+        "minimum_parameter_box_margin": 0.499999966672319,
+        "nodes": 1495,
+        "parameter": 1.0869040445517327e-17,
+        "passed": true,
+        "passed_numerical_gates": true,
+        "radius": 0.025,
+        "replay": {
+          "maximum_state_defect": 7.853693200787675e-12,
+          "rms_state_defect": 3.6513977426297374e-12,
+          "segments": 16,
+          "success": true
+        },
+        "solver_status": 0,
+        "solver_success": true
+      }
+    ],
+    "shrinking_truncation_error": true,
+    "collocation_tolerance": 1e-8,
+    "boundary_tolerance": 1e-9
+  },
+  "cases": [
+    {
+      "name": "r0.01-tol1e-6",
+      "radius": 0.01,
+      "tolerance": 0.000001,
+      "status": "passed",
+      "passed": true,
+      "replay_acceptance_limit": 0.000001,
+      "source_a_difference": 1.8161109366365835e-8,
+      "endpoint_radii": [
+        0.009999999999999998,
+        0.01
+      ],
+      "flight_time": 106.12269149894104,
+      "iterations": 6,
+      "maximum_collocation_relative_rms": 9.99968500864721e-7,
+      "maximum_excursion": 54.756439471671285,
+      "maximum_scaled_boundary_residual": 1.6653345369377348e-16,
+      "message": "The algorithm converged to the desired accuracy.",
+      "minimum_parameter_box_margin": 0.3294477964210074,
+      "nodes": 5963,
+      "passed_numerical_gates": true,
+      "solver_status": 0,
+      "solver_success": true,
+      "a": 0.18264359001291924,
+      "collocation_elapsed_seconds": 0.046015708707273006,
+      "elapsed_seconds": 0.6797320824116468,
+      "replay": {
+        "maximum_state_defect": 3.560564418854032e-8,
+        "rms_state_defect": 8.996219758829107e-9,
+        "segments": 128,
+        "success": true
+      }
+    },
+    {
+      "name": "r0.01-tol1e-7",
+      "radius": 0.01,
+      "tolerance": 1e-7,
+      "status": "passed",
+      "passed": true,
+      "replay_acceptance_limit": 1e-7,
+      "source_a_difference": 2.3047782821139506e-8,
+      "endpoint_radii": [
+        0.01,
+        0.01
+      ],
+      "flight_time": 106.12269240380209,
+      "iterations": 7,
+      "maximum_collocation_relative_rms": 9.993594820371426e-8,
+      "maximum_excursion": 54.756439488308445,
+      "maximum_scaled_boundary_residual": 1.7655249110344744e-16,
+      "message": "The algorithm converged to the desired accuracy.",
+      "minimum_parameter_box_margin": 0.32944780288430064,
+      "nodes": 12419,
+      "passed_numerical_gates": true,
+      "solver_status": 0,
+      "solver_success": true,
+      "a": 0.1826435851262458,
+      "collocation_elapsed_seconds": 0.0951100829988718,
+      "elapsed_seconds": 0.8205245407298207,
+      "replay": {
+        "maximum_state_defect": 1.034401962485302e-8,
+        "rms_state_defect": 9.652816872879435e-10,
+        "segments": 128,
+        "success": true
+      }
+    },
+    {
+      "name": "r0.01-tol1e-8",
+      "radius": 0.01,
+      "tolerance": 1e-8,
+      "status": "passed",
+      "passed": true,
+      "replay_acceptance_limit": 1e-8,
+      "source_a_difference": 2.3440393071005872e-8,
+      "endpoint_radii": [
+        0.01,
+        0.01
+      ],
+      "flight_time": 106.12269248070528,
+      "iterations": 9,
+      "maximum_collocation_relative_rms": 9.999813465511596e-9,
+      "maximum_excursion": 54.75643948879192,
+      "maximum_scaled_boundary_residual": 1.49544748283769e-16,
+      "message": "The algorithm converged to the desired accuracy.",
+      "minimum_parameter_box_margin": 0.3294478034336092,
+      "nodes": 26816,
+      "passed_numerical_gates": true,
+      "solver_status": 0,
+      "solver_success": true,
+      "a": 0.18264358473363554,
+      "collocation_elapsed_seconds": 0.7079404164105654,
+      "elapsed_seconds": 1.637445249594748,
+      "replay": {
+        "maximum_state_defect": 2.8362296152665725e-9,
+        "rms_state_defect": 2.5185743766747063e-10,
+        "segments": 128,
+        "success": true
+      }
+    },
+    {
+      "name": "r0.005-tol1e-6",
+      "radius": 0.005,
+      "tolerance": 0.000001,
+      "status": "passed",
+      "passed": true,
+      "replay_acceptance_limit": 0.000001,
+      "source_a_difference": 3.5889946570222264e-10,
+      "endpoint_radii": [
+        0.004999999999999999,
+        0.005000000000000002
+      ],
+      "flight_time": 114.62492457106057,
+      "iterations": 6,
+      "maximum_collocation_relative_rms": 9.995433082215486e-7,
+      "maximum_excursion": 54.75643927824024,
+      "maximum_scaled_boundary_residual": 4.440892098500626e-16,
+      "message": "The algorithm converged to the desired accuracy.",
+      "minimum_parameter_box_margin": 0.39017803265043266,
+      "nodes": 6269,
+      "passed_numerical_gates": true,
+      "solver_status": 0,
+      "solver_success": true,
+      "a": 0.18264360781512914,
+      "collocation_elapsed_seconds": 0.04621395841240883,
+      "elapsed_seconds": 1.1365696247667074,
+      "replay": {
+        "maximum_state_defect": 9.505561506108785e-8,
+        "rms_state_defect": 1.188072735627963e-8,
+        "segments": 128,
+        "success": true
+      }
+    },
+    {
+      "name": "r0.005-tol1e-7",
+      "radius": 0.005,
+      "tolerance": 1e-7,
+      "status": "passed",
+      "passed": true,
+      "replay_acceptance_limit": 1e-7,
+      "source_a_difference": 5.262970198538497e-9,
+      "endpoint_radii": [
+        0.005,
+        0.005
+      ],
+      "flight_time": 114.62492642684936,
+      "iterations": 7,
+      "maximum_collocation_relative_rms": 9.993679306626324e-8,
+      "maximum_excursion": 54.756439292891095,
+      "maximum_scaled_boundary_residual": 2.725197851387472e-16,
+      "message": "The algorithm converged to the desired accuracy.",
+      "minimum_parameter_box_margin": 0.3901780459060668,
+      "nodes": 12874,
+      "passed_numerical_gates": true,
+      "solver_status": 0,
+      "solver_success": true,
+      "a": 0.1826436029110584,
+      "collocation_elapsed_seconds": 0.09927804116159678,
+      "elapsed_seconds": 1.2955255005508661,
+      "replay": {
+        "maximum_state_defect": 7.074268377670754e-9,
+        "rms_state_defect": 7.660233962885889e-10,
+        "segments": 128,
+        "success": true
+      }
+    },
+    {
+      "name": "r0.005-tol1e-8",
+      "radius": 0.005,
+      "tolerance": 1e-8,
+      "status": "failed",
+      "passed": false,
+      "failure": "RuntimeError: case r0.005-tol1e-8 failed; later cases skipped under frozen stop rule",
+      "replay_acceptance_limit": 1e-8,
+      "source_a_difference": 5.655924645298072e-9,
+      "endpoint_radii": [
+        0.005,
+        0.005000000000000001
+      ],
+      "flight_time": 114.62492655333173,
+      "iterations": 20,
+      "maximum_collocation_relative_rms": 0.0013792806054126767,
+      "maximum_excursion": 54.75643929328214,
+      "maximum_scaled_boundary_residual": 3.0335976786144414e-16,
+      "message": "The maximum number of mesh nodes is exceeded.",
+      "minimum_parameter_box_margin": 0.3901780468095124,
+      "nodes": 43719,
+      "passed_numerical_gates": false,
+      "solver_status": 1,
+      "solver_success": false,
+      "a": 0.18264360251810396,
+      "collocation_elapsed_seconds": 2.5385704170912504,
+      "elapsed_seconds": 3.9634353751316667,
+      "replay": {
+        "maximum_state_defect": 2.378616647201396e-9,
+        "rms_state_defect": 2.126059122466239e-10,
+        "segments": 128,
+        "success": true
+      }
+    },
+    {
+      "name": "r0.0025-tol1e-6",
+      "radius": 0.0025,
+      "tolerance": 0.000001,
+      "status": "skipped",
+      "passed": false,
+      "reason": "earlier failure under the frozen stop rule"
+    },
+    {
+      "name": "r0.0025-tol1e-7",
+      "radius": 0.0025,
+      "tolerance": 1e-7,
+      "status": "skipped",
+      "passed": false,
+      "reason": "earlier failure under the frozen stop rule"
+    },
+    {
+      "name": "r0.0025-tol1e-8",
+      "radius": 0.0025,
+      "tolerance": 1e-8,
+      "status": "skipped",
+      "passed": false,
+      "reason": "earlier failure under the frozen stop rule"
+    }
+  ],
+  "sensitivity": {
+    "complete": true,
+    "discretization_passed": false,
+    "endpoint_comparisons": [
+      {
+        "a_difference": 1.77844684257078e-8,
+        "classification": "unavailable",
+        "inner_radius": 0.005,
+        "outer_radius": 0.01,
+        "resolution_limit": 4.44611710642695e-9,
+        "signed_a_shift": 1.77844684257078e-8,
+        "summed_D2": 7.8556469662594e-10,
+        "tolerance": 1e-8
+      },
+      {
+        "a_difference": null,
+        "classification": "unavailable",
+        "inner_radius": 0.0025,
+        "outer_radius": 0.005,
+        "resolution_limit": null,
+        "signed_a_shift": null,
+        "summed_D2": null,
+        "tolerance": 1e-8
+      }
+    ],
+    "evaluable": false,
+    "interpretation": "observed finite-radius/discretization sensitivity, not a rigorous parameter error bound; endpoint-effect resolution is separate from technical and discretization success",
+    "issues": [
+      "case r0.005-tol1e-8: technical gates did not pass",
+      "case r0.0025-tol1e-6: collocation parameter is missing or nonfinite",
+      "case r0.0025-tol1e-6: technical gates did not pass",
+      "case r0.0025-tol1e-7: collocation parameter is missing or nonfinite",
+      "case r0.0025-tol1e-7: technical gates did not pass",
+      "case r0.0025-tol1e-8: collocation parameter is missing or nonfinite",
+      "case r0.0025-tol1e-8: technical gates did not pass"
+    ],
+    "passed": false,
+    "radius_refinements": [
+      {
+        "D1": 4.886673454773671e-9,
+        "D2": 3.926102498663653e-10,
+        "absolute_gate_passed": true,
+        "contraction_gate_passed": true,
+        "contraction_limit": 1.5660020364321013e-9,
+        "parameters": [
+          0.18264359001291924,
+          0.1826435851262458,
+          0.18264358473363554
+        ],
+        "passed": true,
+        "radius": 0.01,
+        "signed_a_shifts": [
+          -4.886673454773671e-9,
+          -3.926102498663653e-10
+        ],
+        "technical_passed": true,
+        "tolerances": [
+          0.000001,
+          1e-7,
+          1e-8
+        ]
+      },
+      {
+        "D1": 4.904070732836274e-9,
+        "D2": 3.929544467595747e-10,
+        "absolute_gate_passed": true,
+        "contraction_gate_passed": true,
+        "contraction_limit": 1.5712212198508822e-9,
+        "parameters": [
+          0.18264360781512914,
+          0.1826436029110584,
+          0.18264360251810396
+        ],
+        "passed": false,
+        "radius": 0.005,
+        "signed_a_shifts": [
+          -4.904070732836274e-9,
+          -3.929544467595747e-10
+        ],
+        "technical_passed": false,
+        "tolerances": [
+          0.000001,
+          1e-7,
+          1e-8
+        ]
+      },
+      {
+        "D1": null,
+        "D2": null,
+        "absolute_gate_passed": false,
+        "contraction_gate_passed": false,
+        "contraction_limit": null,
+        "parameters": [
+          null,
+          null,
+          null
+        ],
+        "passed": false,
+        "radius": 0.0025,
+        "signed_a_shifts": [
+          null,
+          null
+        ],
+        "technical_passed": false,
+        "tolerances": [
+          0.000001,
+          1e-7,
+          1e-8
+        ]
+      }
+    ],
+    "schema": "butterfly.projected-homoclinic-grid-sensitivity.v1",
+    "technical_passed": false
+  },
+  "failure": "RuntimeError: case r0.005-tol1e-8 failed; later cases skipped under frozen stop rule",
+  "interpretation": "The frozen nine-case study failed and stopped: five target cases passed, the radius 0.005 / tolerance 1e-8 solve failed the collocation node-cap gate, and the three radius 0.0025 cases were skipped. Only radius 0.01 has a qualified three-tolerance refinement comparison. Its D2=3.926102498663653e-10 passes the declared empirical gates. No finest-tolerance endpoint-radius comparison is qualified. Passing short-arc replay does not rescue a failed collocation solve; the failed parameter estimate remains unqualified evidence.",
+  "limitations": [
+    "empirical sensitivity, not a rigorous parameter error bound",
+    "not a complete nine-case accuracy result",
+    "not a radius-to-zero homoclinic existence proof",
+    "not uniqueness or trajectory identity",
+    "not validation of Jones's printed coordinate",
+    "not qualification of the later continuation turn",
+    "no target retries or post-result resource/tolerance tuning"
+  ]
+}

@@ -52,7 +52,10 @@ interpretation, but the child's multiplier near 19 is far from its expected
 $+1$ limit at a local doubling. Its branch should be followed toward
 vanishing amplitude before local criticality is treated as settled.
 Similarly, the apparent homoclinic turn needs parameter-sensitive error
-control rather than additional points in the same formulation.
+control rather than additional points in the same formulation. The
+incomplete radius--tolerance grid shows why simply tightening a solver
+tolerance is not enough: rounding-sensitive mesh refinement must first
+be understood and controlled.
 
 Generality is a separate question. The current evidence concerns R{\"o}ssler;
 a reusable solver is not a successful replication on another flow.

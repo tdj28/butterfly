@@ -254,3 +254,43 @@ or a validation of the later turn.
   error bound.}
   \label{fig:independent-homoclinic}
 \end{figure}
+
+Does further refinement settle the accuracy? A prospectively fixed
+three-radius, three-tolerance study does not complete
+(Fig.~\ref{fig:homoclinic-refinement}). Five cases pass, but the sixth,
+at radius $0.005$ and tolerance $10^{-8}$, exceeds the permitted mesh
+refinement without satisfying the collocation criterion. The remaining
+three cases are skipped under the declared stop rule. At radius $0.01$,
+the one fully qualified tolerance sequence, successive changes in $a$
+decrease from $4.89\times10^{-9}$ to $3.93\times10^{-10}$.
+That encouraging contraction cannot establish the trend across radii,
+because the other sequences are incomplete.
+% Evidence: EXP-476, frozen source af90d04e6b484733bb2535a453157c4830691a34.
+
+The failure also exposes a practical precision limit. Inspection of the
+saved mesh, without solving another orbit, finds intervals on which the
+$z$ component changes by only a few floating-point increments. Dividing
+tiny state differences by these tiny time intervals makes a derivative
+residual sensitive to rounding. The failed case's short-arc replay defect
+is small, but that measures a different quantity and does not override
+the collocation failure. Reevaluation at 80-digit precision leaves the
+failed interval's residual essentially unchanged: the defect is already
+present in the interpolant through the saved nodes. A known-solution
+control demonstrates how rounding tiny-interval endpoint samples can
+produce this effect, without reconstructing the target solver's history.
+This is evidence of a numerical limitation, not
+evidence against the existence of the candidate. The full initial-point
+accuracy question and the later turn remain open.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig32-exp476-homoclinic-refinement.png}
+  \caption{The stricter homoclinic accuracy study remains incomplete.
+  Every planned case is shown, including the failed solve and the three
+  cases skipped by the frozen stop rule. Only radius $0.01$ supplies
+  three accepted tolerances; its two observed parameter shifts satisfy
+  the declared refinement criteria. Neither adjacent-radius comparison
+  is available. The shifts are empirical sensitivity, not rigorous error
+  bounds, and the failed parameter estimate is not treated as qualified.}
+  \label{fig:homoclinic-refinement}
+\end{figure}

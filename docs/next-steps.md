@@ -41,10 +41,15 @@ inputs; historical result reproduction is a separate requirement.
   formulation. EXP-475 passes analytic positive/negative controls and four
   eigenspace-endpoint collocation cases. AUTO/HomCont was not installed;
   this is a distinct SciPy formulation, not an AUTO validation or proof.
-- [ ] Implement and prospectively freeze the proposed
+- [x] Implement and prospectively freeze the proposed
   [radius-by-tolerance grid](plans/2026-09-04-homoclinic-refinement.md).
-  This is the next bounded initial-point accuracy study; no target run has
-  been performed for that proposal.
+  EXP-476 was executed once from pushed, tagged clean source. Five cases pass,
+  the sixth fails at the mesh-refinement cap, and three are skipped.
+- [ ] Complete the initial-point accuracy study. [EXP-476](experiments/EXP-476-homoclinic-radius-tolerance-grid.md)
+  qualifies tolerance contraction only at radius `0.01`; both endpoint
+  comparisons remain unavailable. Inspect and control the floating-point
+  sensitivity found on the failed saved mesh before freezing a new strategy.
+  Do not retry or retrospectively relax EXP-476.
 - [ ] Vary departure/arrival radii, truncation time, mesh, gauge, and precision
   at selected points before and near the apparent turn. Preserve failed solves.
 - [ ] Estimate errors in `a` and `c` specifically, rather than interpreting a

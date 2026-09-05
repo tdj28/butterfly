@@ -1,8 +1,12 @@
 # Next bounded homoclinic accuracy test
 
-Status: proposed implementation task after EXP-475, **not a frozen protocol or
-an executed experiment**. Commit a validated manifest and passing control tests
-before any new target run. Do not change acceptance gates after seeing results.
+Status: implemented, frozen, and executed as [EXP-476](../experiments/EXP-476-homoclinic-radius-tolerance-grid.md).
+**The study failed and the accuracy objective remains incomplete.** Five cases
+passed, one reached the mesh-refinement cap, and three were skipped. Source
+`af90d04e6b484733bb2535a453157c4830691a34` and tag `exp-476-protocol` were
+pushed before the single target invocation. The design text below records the
+pre-run proposal; the frozen manifest is authoritative. Do not change its
+acceptance gates after seeing results.
 
 ## Question
 
@@ -25,20 +29,21 @@ another grid result.
 | 0.005 | `1e-6`, `1e-7`, `1e-8` |
 | 0.0025 | `1e-6`, `1e-7`, `1e-8` |
 
-Within each radius, run loose to tight tolerance. Preserve all nine paths and
-diagnostics, including any unsuccessful solve.
+Within each radius, run loose to tight tolerance. Preserve every attempted
+path and diagnostic, including unsuccessful solves, and explicit skipped
+records for later cases if the stop rule fires.
 
 ## Implementation checklist
 
-- [ ] Add a v2 manifest/analysis path to the existing runner; preserve the
+- [x] Add a v2 manifest/analysis path to the existing runner; preserve the
   four-case EXP-475 v1 behavior and its frozen evidence.
-- [ ] Validate a complete Cartesian grid with unique radius/tolerance pairs.
+- [x] Validate a complete Cartesian grid with unique radius/tolerance pairs.
   Compute comparisons by metadata, not positional case indices.
-- [ ] Repeat analytic Duffing controls at tolerance `1e-8`, including the
+- [x] Repeat analytic Duffing controls at tolerance `1e-8`, including the
   positive-`mu` negative control (`H'=mu*y^2` implies energy injection).
-- [ ] Test missing/duplicate grid cases, failure propagation, comparison
+- [x] Test missing/duplicate grid cases, failure propagation, comparison
   grouping, nonfinite diagnostics, and deadline behavior before target use.
-- [ ] Freeze explicit numerical and resource gates, then commit and push
+- [x] Freeze explicit numerical and resource gates, then commit and push
   source and protocol before the target invocation.
 
 ## Proposed gates to freeze
@@ -74,3 +79,14 @@ this proposed local pilot.
 Only after this initial-point study should selected pre-turn and near-turn
 points be tested, with bound seed metadata, trajectory-identity checks, and
 separate sensitivity estimates for `a` and `c`.
+
+## Result-driven next step
+
+The first radius passes its empirical tolerance-contraction gates; neither
+adjacent-radius comparison is available. Post-result algebraic inspection
+finds floating-point-sensitive tiny intervals on the failed mesh. An 80-digit
+reevaluation and quadratic controls now show that the residual persists in
+the saved interpolant and can arise from rounded endpoint samples. Qualify a
+representation or mesh strategy on known solutions before proposing a
+separately frozen follow-up. No larger-cap or looser-gate
+rerun is authorized by this record, and the apparent-turn study stays deferred.

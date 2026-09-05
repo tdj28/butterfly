@@ -35,6 +35,16 @@ observed sensitivities, not error bounds. This closes the first independent
 initial-point formulation test, not the turn, printed-coordinate, or
 uniqueness claims. See [the experiment](experiments/EXP-475-independent-projected-homoclinic.md).
 
+**EXP-476 update to CLM-003:** the frozen nine-case accuracy study fails:
+five cases pass, the sixth cannot satisfy collocation within the mesh cap,
+and three are skipped. Only radius `0.01` has three qualified tolerances,
+with successive parameter shifts `4.89e-9` and `3.93e-10`. Both endpoint
+comparisons remain unavailable. Saved-mesh inspection identifies strong
+floating-point sensitivity on tiny intervals, but does not requalify the
+failed case. This is a limitation of the numerical study, not a disproof of
+Jones's homoclinic claim or a new parameter error bound. See
+[the failed study and diagnostics](experiments/EXP-476-homoclinic-radius-tolerance-grid.md).
+
 | ID | Claim | Current state | Recovered-code coverage | Required acceptance test |
 |---|---|---|---|---|
 | CLM-001 | A primary periodicity hub and nested spirals exist for the Rössler system at fixed `b = 0.2` in the `(a,c)` plane. | Original claim; reported as externally supported, source verification pending | Partial: an MPI period-map kernel exists | Reproduce the hub with two independent integrators; publish convergence, horizon, and basin tests |

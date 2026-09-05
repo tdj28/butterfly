@@ -17,9 +17,12 @@ see the [mathematical correction](findings/FND-060-floquet-zero-surface-does-not
 The [new checkpoint](updates/2026-09-04-reproducible-core-and-readable-paper.md)
 completes a readable main-paper rewrite and the first public core-data workflow.
 EXP-475 passes an independent initial-point homoclinic formulation test.
-Next, use that method for controlled truncation/discretization studies before
-approaching the fine turn; finite symbolic and manifold-contact tests remain
-separate open priorities.
+The subsequent [EXP-476 accuracy grid](experiments/EXP-476-homoclinic-radius-tolerance-grid.md)
+is preserved as failed: five cases pass, one reaches the mesh-refinement cap,
+and three are skipped. Only the largest-radius tolerance sequence is qualified.
+Next isolate the rounding-sensitive tiny-interval residual before freezing a
+new accuracy strategy; the fine turn, finite symbolic comparisons, and
+manifold-contact tests remain separate open priorities.
 
 ## P0 — trustworthy Rössler reproduction
 

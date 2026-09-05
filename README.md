@@ -22,7 +22,7 @@ prioritize independent validation and public reproducibility.
 
 For an accessible introduction, the [manuscript](paper/README.md) now puts a
 short illustrated article before the detailed technical supplement, preserving
-all earlier figures and adding an independent-validation comparison. The [core-data replay guide](docs/reproducibility.md) documents
+all earlier figures and adding independent-validation and accuracy comparisons. The [core-data replay guide](docs/reproducibility.md) documents
 the first downloadable-input workflow: one atlas panel and two numerical
 candidate checks, with explicit limits on what is reproduced.
 
@@ -44,6 +44,11 @@ candidate checks, with explicit limits on what is reproduced.
   candidate near `a ≈ 0.1826436`, after passing analytic controls. Its measured
   tolerance sensitivity is about `4.1e-8` in `a`; this is not a rigorous error
   bound or confirmation of the later turn. See [EXP-475](docs/experiments/EXP-475-independent-projected-homoclinic.md).
+- The stricter radius-by-tolerance grid remains incomplete: five cases pass,
+  one reaches the mesh-refinement cap, and three are skipped. The largest-radius
+  sequence shows tolerance contraction, but neither endpoint-radius comparison
+  is qualified. [EXP-476](docs/experiments/EXP-476-homoclinic-radius-tolerance-grid.md)
+  preserves the failure and documents rounding-sensitive tiny mesh intervals.
 - Eighty-one recorded homoclinic candidates—including 78 gauge-aligned
   pseudo-arclength points—trace the same computed branch. The sampled minimum
   is about `1.75e-5` above the historical fixed-`a` section. Its fine turn
@@ -89,7 +94,7 @@ and finite spacing ratios resolve the returning cascade through a stable
 period-768 child. Later high-precision work extends the connected finite chain
 while retaining the boundary between finite evidence and universality.
 
-All 32 manuscript figures and their regeneration commands are indexed in
+All 33 manuscript figures and their regeneration commands are indexed in
 [`paper/figures/README.md`](paper/figures/README.md). The animated multi-`b`
 atlas is documented under [`paper/supplement/`](paper/supplement/).
 
@@ -117,7 +122,8 @@ Most raw `artifacts/` inputs are currently local and are **not distributed in
 this repository**. Tests, the CPU smoke check, and manuscript compilation can
 run from a clean checkout; most historical figure-regeneration commands need
 those additional inputs. The [core bundle](docs/reproducibility.md) supplies
-an explicit seven-file subset for a first public replay; it is not the full
+an explicit nine-file data/protocol subset for a first public replay and
+independent-pilot inspection; it is not the full
 campaign archive. Hashes alone do not provide the remaining missing data.
 
 ## Quick start

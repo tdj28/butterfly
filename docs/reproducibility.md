@@ -164,3 +164,68 @@ revision and input bytes produces the same archive. Existing archives are
 refused. `--allow-dirty` exists solely for local draft review and explicitly
 records `dirty: true`; a release should be exported from the reviewed clean
 commit. Exporting does not upload or publish anything.
+
+## EXP-476: failed grid and post-result diagnostics
+
+The separate [research-exp476 checkpoint](https://github.com/tdj28/butterfly/releases/tag/research-exp476)
+publishes the complete failed accuracy study, two algebraic diagnostics, and
+the updated 33-figure manuscript. The earlier `research-core-v1` assets are
+unchanged. This is inspectable negative evidence, not a successful nine-case
+qualification or a full-campaign archive.
+
+| Asset | Purpose |
+| --- | --- |
+| `receipt.json` | All controls, six attempted paths, five passes, one failure, three skipped records |
+| `mesh-diagnostic.json` | Reconstructed residuals and prospective node-cap accounting from saved meshes |
+| `arithmetic-diagnostic.json` | 80-digit fixed-interval reevaluation and known-solution quantization controls |
+| `manuscript.pdf` | Current article and supplement; 61 pages, 33 figures |
+| `SHA256SUMS` | SHA-256 checksums for the four assets above |
+
+Download into a new directory and verify every asset before inspection:
+
+```sh
+exp476_download_dir=$(mktemp -d)
+gh release download research-exp476 --repo tdj28/butterfly \
+  --dir "$exp476_download_dir"
+(cd "$exp476_download_dir" && shasum -a 256 -c SHA256SUMS)
+```
+
+The raw receipt must hash to
+`c9818275ed3c585934cdeaa85857b04a5e9a6e1a6400f426a5cbf6e06d5b95bc`.
+It was produced once on clean source
+`af90d04e6b484733bb2535a453157c4830691a34`, preserved by the pushed
+`exp-476-protocol` tag. The diagnostic hashes are listed in the
+[experiment record](experiments/EXP-476-homoclinic-radius-tolerance-grid.md).
+
+From the source checkout accompanying `research-exp476`, reevaluate the saved
+arrays without integrating or solving another orbit:
+
+```sh
+uv sync --locked --extra dev
+.venv/bin/python scripts/inspect_homoclinic_grid_mesh.py \
+  --receipt "$exp476_download_dir/receipt.json" \
+  --output "$exp476_download_dir/mesh-recomputed.json"
+.venv/bin/python scripts/inspect_homoclinic_interval_arithmetic.py \
+  --receipt "$exp476_download_dir/receipt.json" \
+  --mesh-diagnostic "$exp476_download_dir/mesh-diagnostic.json" \
+  --output "$exp476_download_dir/arithmetic-recomputed.json"
+.venv/bin/python scripts/plot_homoclinic_refinement_grid.py
+```
+
+Both diagnostics refuse to overwrite output. The arithmetic check intentionally
+uses the original hash-bound mesh diagnostic, not a new environment's rewritten
+diagnostic. Mesh inspection uses internal SciPy polynomial-evaluation helpers
+and records their source hashes; environment metadata can change regenerated
+file hashes. Compare the numerical fields and recorded definitions, not only
+whole-file equality. The figure uses only the tracked compact summary.
+
+Preparing release checksums and notes is also scripted:
+
+```sh
+.venv/bin/python scripts/prepare_exp476_release.py
+```
+
+This checks the four explicit local assets, frozen input hashes, failed outcome,
+diagnostic links, and common credential patterns. It creates a new local
+release directory without overwriting files, copying assets, or publishing
+anything. It must not be used to replace the earlier core release.
