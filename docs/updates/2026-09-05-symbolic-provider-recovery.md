@@ -84,3 +84,19 @@ path with a provider-shaped response and pinned synthetic SSH; all production
 contract call sites were searched. Authorize one fresh successor within the
 same bounds after pushed source and CPU reference; no old authority or namespace
 is reused. Three attempts in this recovery turn are the current maximum.
+
+## Third recovery: ambiguous provider error; CPU fallback
+
+Source `27a9bfd6ba65c12dacd29f99d77e24319754fad0` passed both CI versions
+and its fresh CPU reference. The sole create returned HTTP 500 without an ID.
+Subsequent inventory checks found no exact task-name match, but a server error
+is not authoritative proof that creation was rejected. The local watchdog
+continues reconciliation; no duplicate create is permitted and no confirmed
+teardown is claimed for this unresolved transaction.
+
+To make progress without another rental, a target-free local benchmark uses
+the existing CPU sprinkler reference at 8192 seeds and both frozen steps on
+the known qualification anchor. It preserves raw event arrays and timing.
+No target candidates or desired words are opened. An extrapolation to 551
+cases is explicitly a planning estimate, not a measured campaign duration.
+This benchmark does not change or claim execution of EXP-477's CUDA protocol.
