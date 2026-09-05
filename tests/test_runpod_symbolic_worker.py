@@ -131,6 +131,36 @@ def test_direct_lookup_explicitly_requests_contract_details(store):
                       "/pods/created-owned?includeMachine=true&includeNetworkVolume=true")]
 
 
+@pytest.mark.parametrize("rental_type,passes", [("RESERVED", True),
+    ("INTERRUPTABLE", False), ("BID", False), ("BACKGROUND", False), (None, False)])
+def test_missing_rest_rental_status_needs_exact_graphql_confirmation(store, rental_type, passes):
+    provider = Provider(store)
+    pod = worker.provision_once(store, provider, lookup=lookup, now=100)
+    del pod["interruptible"]
+    def query(statement):
+        assert statement == 'query { pod(input: {podId: "created-owned"}) { id name podType } }'
+        return {"pod": {"id": pod["id"], "name": pod["name"], "podType": rental_type}}
+    if passes:
+        assert worker.observed_actual_contract(store, pod, query) == 0.25
+    else:
+        with pytest.raises(worker.LifecycleError, match="interruptible"):
+            worker.observed_actual_contract(store, pod, query)
+    assert "interruptible" not in store.read()["observed_contract"]
+    assert store.read()["observed_rental_contract"]["podType"] == rental_type
+
+
+def test_graphql_cannot_override_explicit_spot_or_wrong_identity(store):
+    provider = Provider(store)
+    pod = worker.provision_once(store, provider, lookup=lookup, now=100)
+    pod["interruptible"] = True
+    with pytest.raises(worker.LifecycleError, match="interruptible"):
+        worker.observed_actual_contract(store, pod, lambda _: pytest.fail("no override"))
+    del pod["interruptible"]
+    with pytest.raises(worker.OwnershipError):
+        worker.observed_actual_contract(store, pod, lambda _: {"pod": {
+            "id": "unrelated-a", "name": pod["name"], "podType": "RESERVED"}})
+
+
 @pytest.mark.parametrize("field,value", [("interruptible", True),
     ("containerDiskInGb", 50), ("volumeInGb", None),
     ("networkVolume", {"id": "synthetic"}), ("ports", ["22/tcp", "8888/http"])])

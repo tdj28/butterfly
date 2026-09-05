@@ -43,3 +43,27 @@ EXP-478 checked quadratic-map words, not Rössler itineraries. EXP-477 is an
 exploratory search for usable centers, not the final symbolic test. Actual flow
 cycles, a defensible partition, and continued chain connections remain the
 required evidence. Infrastructure progress is not counted as scientific success.
+
+## First recovery result and specific repair
+
+Source `4517f1388924bd4498c5c07787a41ee4a08a5508` passed both CI Python
+versions and a fresh CPU reference. Worker `fcz550glgfl8a0` returned the
+requested disk, zero volume, SSH ports, secure A40 and `costPerHr=0.49`, but
+omitted the `interruptible` field entirely. The contract rejected that omission
+before source upload. Direct absence, inventory absence and local watchdog
+retirement were verified; the [failure receipt](../experiments/receipts/EXP-477-recovery-4517f13-summary.json)
+preserves this closed attempt. The observed rate is not an invoice.
+
+The specific repair uses Runpod's [GraphQL schema](https://graphql-spec.runpod.io/):
+when REST omits the field, query only the exact owned pod's `id`, `name`, and
+`podType`, require matching ownership and explicit `RESERVED`. Missing, spot,
+bid, background, or conflicting status fails. An explicitly true REST value
+cannot be overridden. The query was rehearsed read-only against the deleted
+owned ID and returned null, confirming both schema acceptance and absence.
+Tests cover every enum, missing values, conflicting REST evidence and wrong ID.
+The watchdog repeats the same confirmation; teardown does not depend on it.
+
+Authorize one fresh operational successor under the same $3/$0.50/hour/3-hour
+bounds after the tested source is pushed and a fresh CPU reference passes.
+This is a diagnosed pre-outcome API-schema repair; no scientific review cycle
+or numerical change is introduced, and no prior attempt is reused.

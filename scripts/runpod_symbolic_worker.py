@@ -438,11 +438,16 @@ def contract_observation(pod):
     return observed
 
 
-def actual_contract(record, pod):
+def actual_contract(record, pod, *, rental_evidence=None):
     assert_owned(record, pod)
     rate = pod.get("adjustedCostPerHr", pod.get("costPerHr"))
     rate = finite_number(rate, "actual hourly rate", maximum=record["plan"]["maximum_hourly_usd"])
-    checks = {"interruptible": pod.get("interruptible") is False,
+    on_demand = pod.get("interruptible") is False
+    if "interruptible" not in pod and isinstance(rental_evidence, dict):
+        on_demand = (rental_evidence.get("id") == pod.get("id")
+                     and rental_evidence.get("name") == record["name"]
+                     and rental_evidence.get("podType") == "RESERVED")
+    checks = {"interruptible": on_demand,
               "containerDiskInGb": pod.get("containerDiskInGb") == 20,
               "volumeInGb": pod.get("volumeInGb") == 0,
               "networkVolume": not (pod.get("networkVolumeId") or pod.get("networkVolume")),
@@ -460,6 +465,27 @@ def actual_contract(record, pod):
     if (pod.get("machine") or {}).get("gpuTypeId", (pod.get("gpu") or {}).get("id")) != record["plan"]["gpu_type"]:
         raise LifecycleError("provider returned a different or unidentified GPU type")
     return rate
+
+
+def observed_actual_contract(store, pod, query=None):
+    """Confirm omitted REST rental status via an exact, read-only GraphQL query."""
+    record = owned_record(store)
+    assert_owned(record, pod)
+    store.update(observed_contract=contract_observation(pod))
+    rental = None
+    if "interruptible" not in pod:
+        if query is None:
+            query = runpodctl.graphql
+        identifier = provider_id(pod["id"])
+        response = query("query { pod(input: {podId: " + json.dumps(identifier)
+                         + "}) { id name podType } }")
+        rental = response.get("pod") if isinstance(response, dict) else None
+        if not isinstance(rental, dict):
+            raise LifecycleError("GraphQL did not confirm owned pod rental type")
+        assert_owned(record, rental)
+        rental = {key: rental.get(key) for key in ("id", "name", "podType")}
+        store.update(observed_rental_contract=rental)
+    return actual_contract(record, pod, rental_evidence=rental)
 
 
 def create_payload(record):
@@ -622,9 +648,7 @@ def provision_once(store, request=runpodctl.request_json, *, lookup=process_star
         current = direct_lookup(identifier, request)
         if current is None:
             raise LifecycleError("created pod vanished before contract qualification")
-        assert_owned(owned_record(store), current)
-        store.update(observed_contract=contract_observation(current))
-        rate = actual_contract(owned_record(store), current)
+        rate = observed_actual_contract(store, current)
         store.update(actual_hourly_usd=rate, contract_qualified=True)
         return current
     except (Exception, SystemExit):
@@ -845,7 +869,7 @@ def watchdog_loop(store):
                 if pod is None:
                     reason = "owned-pod-no-longer-present"
                 else:
-                    actual_contract(owned_record(store), pod)
+                    observed_actual_contract(store, pod)
             except LifecycleError:
                 reason = "actual-contract-or-ownership-check-failed"
         if reason is not None:

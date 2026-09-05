@@ -25,3 +25,10 @@ thresholds are unchanged. Local full suite: 1278 passed, one Linux-only process
 identity test skipped on macOS. Focused lifecycle suite: 80 passed, including
 forced contract failures with retained observations and verified teardown.
 Live successor qualification is pending; this is not flow-symbolics evidence.
+
+The first recovery isolated a missing REST `interruptible` field and verified
+teardown. A second repair obtains exact-owned `podType=RESERVED` evidence via
+GraphQL when REST omits the field; it never overrides explicit spot status.
+Full local suite after this repair: 1284 passed, one Linux-only skip; focused
+lifecycle suite: 86 passed. Live GraphQL query syntax/absence was rehearsed
+against the terminated owned ID. No target trajectories have run yet.
