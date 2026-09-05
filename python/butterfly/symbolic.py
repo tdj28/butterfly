@@ -107,8 +107,13 @@ def classify_partition_point(
 ) -> PartitionPoint:
     """Classify one scalar value without fitting or moving the partition."""
 
-    if maximum_abs_zero_slope_residual < 0.0:
-        raise ValueError("maximum_abs_zero_slope_residual must be nonnegative")
+    if (
+        not isfinite(maximum_abs_zero_slope_residual)
+        or maximum_abs_zero_slope_residual < 0.0
+    ):
+        raise ValueError(
+            "maximum_abs_zero_slope_residual must be finite and nonnegative"
+        )
     value = float(value)
     if not isfinite(value):
         raise ValueError("partition values must be finite")

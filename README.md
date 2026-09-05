@@ -39,6 +39,10 @@ candidate checks, with explicit limits on what is reproduced.
   words and their window-to-window connections remain unverified. Testing
   the predicted `p -> p+1` insertion is the central mechanism priority;
   deeper `p -> 2p` cascades do not establish it.
+  An [independent exact quadratic-map control](docs/experiments/EXP-478-quadratic-symbolic-control.md)
+  now reproduces the in-scope unimodal word list and its order under a
+  predeclared notation mapping. This is finite combinatorial support, not
+  verification of the Rössler centers, third-branch words, or connecting arrows.
 - The shrimp and periodic-window skeleton evolves coherently over eleven
   sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
   These are finite-time, single-initial-condition recurrence maps; unresolved

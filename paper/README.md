@@ -107,6 +107,7 @@ From the repository root:
 
 ```sh
 .venv/bin/python scripts/check_paper_references.py
+.venv/bin/python scripts/render_quadratic_control_table.py --verify
 latexmk -pdf -cd -interaction=nonstopmode -halt-on-error paper/manuscript.tex
 ```
 

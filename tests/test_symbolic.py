@@ -99,6 +99,109 @@ def test_critical_candidate_is_unresolved_without_a_passing_slope_gate(
     assert point.critical_index == 0
 
 
+@pytest.fixture
+def two_branch_partition() -> OperationalPartition:
+    return OperationalPartition(
+        coordinate_name="u",
+        domain=(0.0, 1.0),
+        critical_intervals=((0.49, 0.51),),
+        branch_symbols=("B0", "B1"),
+        critical_symbols=("K0",),
+        section_orientation=1,
+    )
+
+
+@pytest.mark.parametrize("threshold", [float("nan"), float("inf"), -float("inf"), -1e-4])
+@pytest.mark.parametrize("value", [0.5, 0.25, 1.1])
+def test_invalid_slope_threshold_is_rejected_before_any_point_classification(
+    two_branch_partition: OperationalPartition, threshold: float, value: float,
+) -> None:
+    with pytest.raises(ValueError, match="must be finite and nonnegative"):
+        classify_partition_point(
+            value,
+            two_branch_partition,
+            zero_slope_residual=0.0,
+            maximum_abs_zero_slope_residual=threshold,
+        )
+
+
+@pytest.mark.parametrize("threshold", [float("nan"), float("inf"), -float("inf"), -1e-4])
+def test_invalid_slope_threshold_never_resolves_a_critical_itinerary(
+    two_branch_partition: OperationalPartition, threshold: float,
+) -> None:
+    with pytest.raises(ValueError, match="must be finite and nonnegative"):
+        encode_periodic_itinerary(
+            (0.5, 0.9),
+            two_branch_partition,
+            zero_slope_residuals=(0.0, None),
+            maximum_abs_zero_slope_residual=threshold,
+        )
+
+
+@pytest.mark.parametrize("bad_value", [float("nan"), float("inf"), -float("inf")])
+@pytest.mark.parametrize("endpoint", [0, 1])
+def test_nonfinite_domain_endpoint_cannot_construct_a_partition(
+    bad_value: float, endpoint: int,
+) -> None:
+    domain = [0.0, 1.0]
+    domain[endpoint] = bad_value
+    with pytest.raises(ValueError, match="domain must be a finite increasing interval"):
+        OperationalPartition(
+            coordinate_name="u",
+            domain=tuple(domain),
+            critical_intervals=((0.49, 0.51),),
+            branch_symbols=("B0", "B1"),
+            critical_symbols=("K0",),
+            section_orientation=1,
+        )
+
+
+@pytest.mark.parametrize("bad_value", [float("nan"), float("inf"), -float("inf")])
+@pytest.mark.parametrize("endpoint", [0, 1])
+@pytest.mark.parametrize("critical_index", [0, 1])
+def test_nonfinite_critical_endpoint_cannot_construct_a_partition(
+    bad_value: float, endpoint: int, critical_index: int,
+) -> None:
+    intervals = [[0.24, 0.26], [0.74, 0.76]]
+    intervals[critical_index][endpoint] = bad_value
+    with pytest.raises(ValueError, match="critical intervals must be finite"):
+        OperationalPartition(
+            coordinate_name="u",
+            domain=(0.0, 1.0),
+            critical_intervals=tuple(tuple(interval) for interval in intervals),
+            branch_symbols=("B0", "B1", "B2"),
+            critical_symbols=("K0", "K1"),
+            section_orientation=1,
+        )
+
+
+@pytest.mark.parametrize("residual", [float("nan"), float("inf"), -float("inf")])
+def test_nonfinite_slope_residual_never_resolves_a_critical_itinerary(
+    two_branch_partition: OperationalPartition, residual: float,
+) -> None:
+    with pytest.raises(ValueError, match="zero-slope residuals must be finite"):
+        encode_periodic_itinerary(
+            (0.5,),
+            two_branch_partition,
+            zero_slope_residuals=(residual,),
+            maximum_abs_zero_slope_residual=1e-4,
+        )
+
+
+@pytest.mark.parametrize("threshold,residual", [(0.0, 0.0), (1e-4, 1e-4), (1e-4, -1e-4)])
+def test_finite_slope_gate_remains_inclusive(
+    two_branch_partition: OperationalPartition, threshold: float, residual: float,
+) -> None:
+    result = classify_partition_point(
+        0.5,
+        two_branch_partition,
+        zero_slope_residual=residual,
+        maximum_abs_zero_slope_residual=threshold,
+    )
+    assert result.resolved
+    assert result.symbol == "K0"
+
+
 def test_outside_domain_is_unresolved_not_extrapolated() -> None:
     partition = OperationalPartition(
         coordinate_name="u",

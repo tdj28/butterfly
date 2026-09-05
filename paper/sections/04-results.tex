@@ -4,6 +4,30 @@
 \subsection{The alphabet has local support; the chain is not yet reproduced}
 \label{sec:symbolic-results}
 
+\paragraph{An independent check of the finite word list.}
+We first separated the combinatorial claim from its proposed realization
+in the flow. For the scalar family $f_\mu(x)=1-\mu x^2$, $0\leq\mu\leq2$,
+an exact-arithmetic program enumerated every primitive critical cycle of
+periods two through seven. It constructed recurrence polynomials, removed
+proper-divisor cycles, isolated all real roots using Sturm sequences, and
+certified the sign of every noncritical iterate with rational intervals.
+The historical words were not inputs to that calculation.
+
+The source uses a second critical symbol that this unimodal model does not
+possess. We therefore froze a separate, explicitly conditional comparison:
+replace $C1s$ by $CDs$ at periods at least three, retain period-two $C1$,
+and exclude the third-branch words $C2$ and $C21$. Under that convention,
+the complete computed list agrees with the in-scope source words and with
+their original top-to-bottom column order when the roots are ordered by
+increasing $\mu$ (Table~\ref{tab:quadratic-symbolic-control}). No dictionary
+or ordering was selected after examining the output. This independently
+supports the finite combinatorial pattern. It does not show that a positive
+quadratic-map visit becomes a second critical visit, and verifies no
+R{\"o}ssler center or connecting arrow.
+\input{tables/quadratic-symbolic-control}
+% Exact certificates and separate source comparison: EXP-478.
+
+\paragraph{The flow reconstruction remains a separate test.}
 The local operational alphabet is now qualified, not merely guessed to
 fit the target words. Neutral branches $B_0,B_1,B_2$ were assigned in
 increasing coordinate order, and critical intervals $K_0,K_1$ were
@@ -11,17 +35,23 @@ tracked independently. The source-derived mapping
 \[
  (B_0,B_1,B_2)\mapsto(2,1,0),\qquad K_1\mapsto C,\quad K_0\mapsto D
 \]
-passes local tests with two solvers, disjoint data segments, and both
-scalar coordinates. That establishes an operational dictionary on the
+passes local tests at $(a,b,c)=(0.2,0.2,20)$ with two solvers, disjoint
+data segments, and both scalar coordinates. That establishes a local operational dictionary on the
 recovered section. It does not establish a generating partition or
 validate the 23 words and their connections.
 % Evidence: EXP-183 and EXP-185; FND-056 and FND-057.
 
-At one landmark's printed coordinates, the independently corrected period-six
-orbit gives $010011$ or $C10011$ as the empirical critical interval moves;
-neither matches the frozen source targets. The coordinates in the original
-figure are approximate and were not specified as exact word centers, so
-this failed test does not refute the whole chain. Later bounded searches
+At the distinct landmark $(a,b,c)=(0.21564,0.2,6.124)$, the independently
+corrected period-six orbit passes the orbit checks, but its partition does
+not pass the required cross-coordinate agreement: the $x$ projection resolves
+two branches and $z$ is monotone at both steps. The $x$ word changes from
+$010011$ to $C10011$ under step refinement as the empirical critical interval
+moves, and the $z$ word remains unresolved. Neither $x$ word matches the
+frozen source targets. This is a failed partition-and-word reconstruction,
+not a qualified counterexample to symbolic ordering. The coordinates in the
+original figure are approximate and were not specified as exact word centers;
+the successful $c=20$ alphabet control does not establish transport to this
+landmark. Later bounded searches
 also have not established the required two-critical center. The distinction
 is therefore precise: the alphabet has local support, while the critical
 itineraries and dynamical arrows remain reproduction targets.

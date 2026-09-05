@@ -1,0 +1,672 @@
+{
+  "all_source_nodes": [
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 2,
+      "source_word": "C1",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 0,
+      "period": 2,
+      "reason": "source third-branch node is outside this unimodal scalar model",
+      "source_word": "C2",
+      "status": "out_of_model"
+    },
+    {
+      "matching_scalar_cycle_count": 0,
+      "period": 3,
+      "reason": "source third-branch node is outside this unimodal scalar model",
+      "source_word": "C21",
+      "status": "out_of_model"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 3,
+      "source_word": "CD0",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 4,
+      "source_word": "CD01",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 4,
+      "source_word": "CD00",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 5,
+      "source_word": "CD011",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 5,
+      "source_word": "CD001",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 5,
+      "source_word": "CD000",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 6,
+      "source_word": "CD0111",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 6,
+      "source_word": "CD0010",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 6,
+      "source_word": "CD0011",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 6,
+      "source_word": "CD0001",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 6,
+      "source_word": "CD0000",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD01111",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD01101",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00101",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00111",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00110",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00010",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00011",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00001",
+      "status": "matched"
+    },
+    {
+      "matching_scalar_cycle_count": 1,
+      "period": 7,
+      "source_word": "CD00000",
+      "status": "matched"
+    }
+  ],
+  "claim_boundary": "Finite combinatorial comparison under a proposed dictionary only; not a coordinate map, conjugacy, generating partition, second critical visit, Rossler orbit or center verification, or parameter-plane arrow test.",
+  "comparison_completed": true,
+  "comparison_convention": {
+    "dictionary_search_performed": false,
+    "order": "increasing mu versus original source column top-to-bottom",
+    "order_direction_selected_from_outcome": false,
+    "period_2": "C1 retained unchanged; C2 outside model",
+    "periods_3_through_7": "C1s -> CDs; C21 outside model"
+  },
+  "comparison_script_sha256": "4d1312518874d7bdda724b45bcd75ed0bc8830d4c13a5f1652837ed65c7a2373",
+  "conditional_multiset_match": true,
+  "conditional_order_match": true,
+  "control_experiment_id": "EXP-478",
+  "created_utc": "2026-09-05T05:02:13.312628+00:00",
+  "input_hashes": {
+    "scalar_control": "6d46529e6ae6b53f6796848855f1c01d6cf936399da6455fe6ef12e6140b925e",
+    "source_paper_declared": "54b2a35bcfe50c5c2dc2f8ac1f3d3f98acbb2991dab7bc6e66cf61dc4b5ffb6f",
+    "source_transcription": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da"
+  },
+  "period_results": [
+    {
+      "conditional_multiset_match": true,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "cycles": [
+        {
+          "dictionary": "retain native C1",
+          "membership": "matched",
+          "parameter_interval": [
+            "1",
+            "1"
+          ],
+          "proposed_source_word": "C1",
+          "root_index_in_increasing_mu_order": 0,
+          "scalar_word": "C1"
+        }
+      ],
+      "duplicate_proposed_word_counts": {},
+      "extra_scalar_cycles": [],
+      "increasing_mu_proposed_words": [
+        "C1"
+      ],
+      "missing_source_words": [],
+      "ordered_positions": [
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 0,
+          "scalar_mapped_word": "C1",
+          "source_word": "C1"
+        }
+      ],
+      "period": 2,
+      "source_top_to_bottom_words": [
+        "C1"
+      ]
+    },
+    {
+      "conditional_multiset_match": true,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "cycles": [
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2121516920990690712699727/1208925819614629174706176",
+            "132594807561918169543733/75557863725914323419136"
+          ],
+          "proposed_source_word": "CD0",
+          "root_index_in_increasing_mu_order": 0,
+          "scalar_word": "C10"
+        }
+      ],
+      "duplicate_proposed_word_counts": {},
+      "extra_scalar_cycles": [],
+      "increasing_mu_proposed_words": [
+        "CD0"
+      ],
+      "missing_source_words": [],
+      "ordered_positions": [
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 0,
+          "scalar_mapped_word": "CD0",
+          "source_word": "CD0"
+        }
+      ],
+      "period": 3,
+      "source_top_to_bottom_words": [
+        "CD0"
+      ]
+    },
+    {
+      "conditional_multiset_match": true,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "cycles": [
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "396135566237297507839571/302231454903657293676544",
+            "1584542264949190031358285/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD01",
+          "root_index_in_increasing_mu_order": 0,
+          "scalar_word": "C101"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2346282996816571085097315/1208925819614629174706176",
+            "586570749204142771274329/302231454903657293676544"
+          ],
+          "proposed_source_word": "CD00",
+          "root_index_in_increasing_mu_order": 1,
+          "scalar_word": "C100"
+        }
+      ],
+      "duplicate_proposed_word_counts": {},
+      "extra_scalar_cycles": [],
+      "increasing_mu_proposed_words": [
+        "CD01",
+        "CD00"
+      ],
+      "missing_source_words": [],
+      "ordered_positions": [
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 0,
+          "scalar_mapped_word": "CD01",
+          "source_word": "CD01"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 1,
+          "scalar_mapped_word": "CD00",
+          "source_word": "CD00"
+        }
+      ],
+      "period": 4,
+      "source_top_to_bottom_words": [
+        "CD01",
+        "CD00"
+      ]
+    },
+    {
+      "conditional_multiset_match": true,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "cycles": [
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "1965004619857557543203163/1208925819614629174706176",
+            "491251154964389385800791/302231454903657293676544"
+          ],
+          "proposed_source_word": "CD011",
+          "root_index_in_increasing_mu_order": 0,
+          "scalar_word": "C1011"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "140596752236317567931939/75557863725914323419136",
+            "2249548035781081086911025/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD001",
+          "root_index_in_increasing_mu_order": 1,
+          "scalar_word": "C1001"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "1200115321203159038309687/604462909807314587353088",
+            "2400230642406318076619375/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD000",
+          "root_index_in_increasing_mu_order": 2,
+          "scalar_word": "C1000"
+        }
+      ],
+      "duplicate_proposed_word_counts": {},
+      "extra_scalar_cycles": [],
+      "increasing_mu_proposed_words": [
+        "CD011",
+        "CD001",
+        "CD000"
+      ],
+      "missing_source_words": [],
+      "ordered_positions": [
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 0,
+          "scalar_mapped_word": "CD011",
+          "source_word": "CD011"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 1,
+          "scalar_mapped_word": "CD001",
+          "source_word": "CD001"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 2,
+          "scalar_mapped_word": "CD000",
+          "source_word": "CD000"
+        }
+      ],
+      "period": 5,
+      "source_top_to_bottom_words": [
+        "CD011",
+        "CD001",
+        "CD000"
+      ]
+    },
+    {
+      "conditional_multiset_match": true,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "cycles": [
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "1784392211723661170154673/1208925819614629174706176",
+            "892196105861830585077337/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD0111",
+          "root_index_in_increasing_mu_order": 0,
+          "scalar_word": "C10111"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "1071648003154794561664339/604462909807314587353088",
+            "2143296006309589123328679/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD0010",
+          "root_index_in_increasing_mu_order": 1,
+          "scalar_word": "C10010"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2305760147325784752932765/1208925819614629174706176",
+            "1152880073662892376466383/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD0011",
+          "root_index_in_increasing_mu_order": 2,
+          "scalar_word": "C10011"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2377682922623921735967733/1208925819614629174706176",
+            "1188841461311960867983867/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD0001",
+          "root_index_in_increasing_mu_order": 3,
+          "scalar_word": "C10001"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2413470658541592708390577/1208925819614629174706176",
+            "1206735329270796354195289/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD0000",
+          "root_index_in_increasing_mu_order": 4,
+          "scalar_word": "C10000"
+        }
+      ],
+      "duplicate_proposed_word_counts": {},
+      "extra_scalar_cycles": [],
+      "increasing_mu_proposed_words": [
+        "CD0111",
+        "CD0010",
+        "CD0011",
+        "CD0001",
+        "CD0000"
+      ],
+      "missing_source_words": [],
+      "ordered_positions": [
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 0,
+          "scalar_mapped_word": "CD0111",
+          "source_word": "CD0111"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 1,
+          "scalar_mapped_word": "CD0010",
+          "source_word": "CD0010"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 2,
+          "scalar_mapped_word": "CD0011",
+          "source_word": "CD0011"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 3,
+          "scalar_mapped_word": "CD0001",
+          "source_word": "CD0001"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 4,
+          "scalar_mapped_word": "CD0000",
+          "source_word": "CD0000"
+        }
+      ],
+      "period": 6,
+      "source_top_to_bottom_words": [
+        "CD0111",
+        "CD0010",
+        "CD0011",
+        "CD0001",
+        "CD0000"
+      ]
+    },
+    {
+      "conditional_multiset_match": true,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "cycles": [
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "475981036019307179823443/302231454903657293676544",
+            "1903924144077228719293773/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD01111",
+          "root_index_in_increasing_mu_order": 0,
+          "scalar_word": "C101111"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "1011910860862608413291333/604462909807314587353088",
+            "2023821721725216826582667/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD01101",
+          "root_index_in_increasing_mu_order": 1,
+          "scalar_word": "C101101"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "1107566579139187592583255/604462909807314587353088",
+            "2215133158278375185166511/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD00101",
+          "root_index_in_increasing_mu_order": 2,
+          "scalar_word": "C100101"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2278587702593009678971877/1208925819614629174706176",
+            "1139293851296504839485939/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD00111",
+          "root_index_in_increasing_mu_order": 3,
+          "scalar_word": "C100111"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2329778624061268746263065/1208925819614629174706176",
+            "1164889312030634373131533/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD00110",
+          "root_index_in_increasing_mu_order": 4,
+          "scalar_word": "C100110"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2361885499533695791346723/1208925819614629174706176",
+            "590471374883423947836681/302231454903657293676544"
+          ],
+          "proposed_source_word": "CD00010",
+          "root_index_in_increasing_mu_order": 5,
+          "scalar_word": "C100010"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "597565863186713431982431/302231454903657293676544",
+            "2390263452746853727929725/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD00011",
+          "root_index_in_increasing_mu_order": 6,
+          "scalar_word": "C100011"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "300994447633622749178439/151115727451828646838272",
+            "2407955581068981993427513/1208925819614629174706176"
+          ],
+          "proposed_source_word": "CD00001",
+          "root_index_in_increasing_mu_order": 7,
+          "scalar_word": "C100001"
+        },
+        {
+          "dictionary": "C1s -> CDs",
+          "membership": "matched",
+          "parameter_interval": [
+            "2416758386245257162941625/1208925819614629174706176",
+            "1208379193122628581470813/604462909807314587353088"
+          ],
+          "proposed_source_word": "CD00000",
+          "root_index_in_increasing_mu_order": 8,
+          "scalar_word": "C100000"
+        }
+      ],
+      "duplicate_proposed_word_counts": {},
+      "extra_scalar_cycles": [],
+      "increasing_mu_proposed_words": [
+        "CD01111",
+        "CD01101",
+        "CD00101",
+        "CD00111",
+        "CD00110",
+        "CD00010",
+        "CD00011",
+        "CD00001",
+        "CD00000"
+      ],
+      "missing_source_words": [],
+      "ordered_positions": [
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 0,
+          "scalar_mapped_word": "CD01111",
+          "source_word": "CD01111"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 1,
+          "scalar_mapped_word": "CD01101",
+          "source_word": "CD01101"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 2,
+          "scalar_mapped_word": "CD00101",
+          "source_word": "CD00101"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 3,
+          "scalar_mapped_word": "CD00111",
+          "source_word": "CD00111"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 4,
+          "scalar_mapped_word": "CD00110",
+          "source_word": "CD00110"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 5,
+          "scalar_mapped_word": "CD00010",
+          "source_word": "CD00010"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 6,
+          "scalar_mapped_word": "CD00011",
+          "source_word": "CD00011"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 7,
+          "scalar_mapped_word": "CD00001",
+          "source_word": "CD00001"
+        },
+        {
+          "match": true,
+          "position_top_to_bottom_or_increasing_mu": 8,
+          "scalar_mapped_word": "CD00000",
+          "source_word": "CD00000"
+        }
+      ],
+      "period": 7,
+      "source_top_to_bottom_words": [
+        "CD01111",
+        "CD01101",
+        "CD00101",
+        "CD00111",
+        "CD00110",
+        "CD00010",
+        "CD00011",
+        "CD00001",
+        "CD00000"
+      ]
+    }
+  ],
+  "receipt_validation": "structural consistency and declared input hash; relies on the input enumerator for exact recurrence/Sturm certificates; no independent proof replay",
+  "rossler_nodes_verified": false,
+  "schema": "butterfly.quadratic-source-comparison.v1",
+  "source_arrows_tested": false,
+  "source_order_provenance": "visual top-to-bottom transcription of original Jones 1201.4343v1 PDF page 4 Figure 6, frozen before target enumeration; not JSON node-array order or modern redraw coordinates",
+  "source_targets_previously_known": true
+}

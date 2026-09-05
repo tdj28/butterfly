@@ -1,0 +1,102 @@
+{
+  "claim_boundary": "Finite combinatorial comparison under a proposed dictionary only; not a coordinate map, conjugacy, generating partition, second critical visit, Rossler orbit or center verification, or parameter-plane arrow test.",
+  "comparison_replayed_without_root_reordering": true,
+  "derived_rows": [
+    {
+      "comparable_source_node_count": 1,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "period": 2,
+      "scalar_cycle_count": 1
+    },
+    {
+      "comparable_source_node_count": 1,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "period": 3,
+      "scalar_cycle_count": 1
+    },
+    {
+      "comparable_source_node_count": 2,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "period": 4,
+      "scalar_cycle_count": 2
+    },
+    {
+      "comparable_source_node_count": 3,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "period": 5,
+      "scalar_cycle_count": 3
+    },
+    {
+      "comparable_source_node_count": 5,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "period": 6,
+      "scalar_cycle_count": 5
+    },
+    {
+      "comparable_source_node_count": 9,
+      "conditional_order_match": true,
+      "conditional_set_match": true,
+      "period": 7,
+      "scalar_cycle_count": 9
+    }
+  ],
+  "generator": {
+    "path": "scripts/render_quadratic_control_table.py",
+    "sha256": "e574f2380f55b5fadf6c6763d5e63a2333a435a0f8a429ec1b6f15f8fb2ebddf"
+  },
+  "input_sha256": {
+    "docs/experiments/receipts/EXP-478-quadratic-control.json": "6d46529e6ae6b53f6796848855f1c01d6cf936399da6455fe6ef12e6140b925e",
+    "docs/experiments/receipts/EXP-478-source-comparison.json": "90031254a6f0ede05f77ff6d5cc2f617046b159b118dcc9fcba1889d2ecf31ae",
+    "experiments/manifests/EXP-478-quadratic-symbolic-control.json": "afc851204f68b3e248bb9eb980332e42252e46a4991ac308340ce80ce5b75781",
+    "experiments/source-transcriptions/jones2012-figures-2-and-6.json": "6a5aba797473d40db9197d7a2ebe51195193f888613800584f406742376581da",
+    "scripts/compare_quadratic_source_words.py": "4d1312518874d7bdda724b45bcd75ed0bc8830d4c13a5f1652837ed65c7a2373",
+    "scripts/verify_quadratic_symbolic_control.py": "221dc4635b4b6a7fe27b202299e182ca2f785619fcaf27b0fc837e2d423789c4",
+    "uv.lock": "a1118c46febbce18e7172acfeaa804909792185d3c48fae258044b82e145eeff"
+  },
+  "out_of_model_source_words": [
+    "C2",
+    "C21"
+  ],
+  "output": {
+    "bytes": 1035,
+    "path": "paper/tables/quadratic-symbolic-control.tex",
+    "sha256": "aba5475a51cd921fda7577c6f464b9d34d5797044f7fabd3d3a41a9d60164aec"
+  },
+  "root_enumeration_rerun": false,
+  "root_proof_independently_replayed": false,
+  "rossler_nodes_verified": false,
+  "scalar_control_source_commit": "f4b2ea13c60395713911240b0fbf0ce469850cc4",
+  "scalar_control_source_tree": "983848a7559e06770b3d2796fd8c7bc4571ee06f",
+  "schema": "butterfly.quadratic-control-table-provenance.v1",
+  "source_arrows_tested": false,
+  "source_identity_check": "clean before/after receipt identity and frozen content hashes; publication of the declared commit is recorded by the experiment, not queried over the network here",
+  "total_comparable_source_nodes": 21,
+  "total_scalar_cycles": 21,
+  "word_csv": {
+    "bytes": 3070,
+    "columns": [
+      "period",
+      "root_index_zero_based",
+      "mu_midpoint_decimal_approx",
+      "mu_lower_exact",
+      "mu_upper_exact",
+      "native_word",
+      "mapped_source_word",
+      "conditional_membership_match"
+    ],
+    "conditional_membership_match_scope": "membership after the predeclared scalar-to-source dictionary, not Rossler verification",
+    "exact_bounds_retained_verbatim": true,
+    "midpoint_display_decimal_places": 16,
+    "midpoint_display_is_root_certificate": false,
+    "midpoint_display_rounding": "exact integer nearest/ties-to-even rounding of the rational enclosure midpoint",
+    "path": "paper/tables/quadratic-symbolic-words.csv",
+    "row_count": 21,
+    "row_order": "increasing period, then strictly increasing mu within period; zero-based root index resets each period",
+    "sha256": "d8a2aac1bf5539e3404a57badb5830bceb9dfb8d4779baaa413fe20f1205c7d5"
+  }
+}
