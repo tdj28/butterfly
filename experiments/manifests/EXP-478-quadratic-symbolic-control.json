@@ -1,0 +1,14 @@
+{
+  "schema": "butterfly.quadratic-symbolic-control-manifest.v1",
+  "experiment_id": "EXP-478",
+  "periods": [2, 3, 4, 5, 6, 7],
+  "parameter_domain": ["0", "2"],
+  "root_interval_bits": 80,
+  "maximum_sign_refinements": 128,
+  "limits": {
+    "maximum_operations": 200000000,
+    "maximum_coefficient_bits": 131072,
+    "maximum_interval_nodes": 200000,
+    "maximum_wall_seconds": 300
+  }
+}
