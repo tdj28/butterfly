@@ -325,6 +325,19 @@ The figure preserves five passed, one failed, and three skipped cases. Its
 parameter-shift panel uses only the fully qualified radius `0.01` sequence;
 neither endpoint-radius comparison is qualified.
 
+Regenerate the source-derived symbolic-chain diagram from the frozen public
+Jones Figure 6 transcription (no orbit computation or artifact download):
+
+    uv run --locked python scripts/plot_jones_symbolic_chain.py
+
+This produces `fig33-jones-symbolic-chain.png` and a generation receipt. All
+23 source words are shown, including those without a transcribed connection.
+The 14 relationships comprise ten source-matched period-increment arrows,
+one visual-only arrow, two lower-period third-branch connections, and one
+separate period doubling. The figure does not invent links from a period-double
+marker or associate words with the source's ambiguous coordinate boxes. It
+is an attributed source reconstruction, not a new dynamical qualification.
+
 ## Promoted experiment figures
 
 The remaining images are metadata-stripped publication copies of existing
