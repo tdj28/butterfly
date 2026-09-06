@@ -96,3 +96,12 @@ def test_remote_python_helpers_execute_against_local_fixture(tmp_path, monkeypat
     monkeypatch.setattr(archive.subprocess, "run", run)
     result = archive.upload(output, archive.pilot.sha256_file(output / "preparation.json"), remote)
     assert result["passed"] and result["remote_archive_verified"]
+
+
+def test_service_environment_only_passes_local_agent_not_credentials(monkeypatch):
+    monkeypatch.setenv("SSH_AUTH_SOCK", "/tmp/synthetic-local-agent")
+    monkeypatch.setenv("RUNPOD_API_KEY", "synthetic-not-a-real-key")
+    environment = archive.service_environment()
+    assert set(environment) == {"PATH", "PYTHONPATH", "SSH_AUTH_SOCK"}
+    assert environment["SSH_AUTH_SOCK"] == "/tmp/synthetic-local-agent"
+    assert "ForwardAgent=no" in archive.storage.ssh_options()

@@ -69,6 +69,12 @@ local originals and remote partials; no automatic retry is permitted. The
 CPU-specific 7,000-file bound accommodates serial batches and does not alter
 the GPU archive protocol's limits. Remote upload is pending at this checkpoint.
 
+A read-only preflight found that a background environment without the local
+SSH agent could not authenticate. Passing only its local socket fixed that
+check; agent forwarding stays explicitly disabled. The launcher now rehearses
+authentication with its exact isolated environment before creating a service.
+No transfer or remote child was created by the failed authentication check.
+
 The ambiguous Runpod create still has no assigned ID or matching task name;
 its watchdog remains alive. This is not a verified rejection. No new paid
 compute or unrelated-resource mutation occurred.

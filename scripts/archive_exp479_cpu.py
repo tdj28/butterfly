@@ -161,6 +161,14 @@ def remote_command(code, *args):
             shlex.join(["python3", "-c", code, *map(str, args)])]
 
 
+def service_environment():
+    # The local agent may authenticate SSH; its socket is never forwarded.
+    environment = {"PATH": os.defpath, "PYTHONPATH": ".:python"}
+    if os.environ.get("SSH_AUTH_SOCK"):
+        environment["SSH_AUTH_SOCK"] = os.environ["SSH_AUTH_SOCK"]
+    return environment
+
+
 def upload(output, receipt_sha, remote):
     if not re.fullmatch(re.escape(BASE) + r"/exp479-[a-z0-9-]+", remote):
         raise ValueError("fresh task-owned prax child required")
@@ -215,6 +223,9 @@ def main():
     if args.mode == "prepare":
         result = prepare(output)
     elif args.launch_state:
+        environment = service_environment()
+        subprocess.run(["ssh", *storage.ssh_options(), "ubuntu@prax", "true"],
+                       env=environment, check=True, timeout=60, capture_output=True)
         state = args.launch_state.resolve()
         state.mkdir(parents=True, exist_ok=False, mode=0o700)
         label = "io.butterfly.exp479.archive." + uuid.uuid4().hex
@@ -223,7 +234,7 @@ def main():
                    "--remote-dir", args.remote_dir]
         with (state / "job.plist").open("xb") as stream:
             plistlib.dump({"Label": label, "ProgramArguments": ["/usr/bin/caffeinate", "-i", *command],
-                "WorkingDirectory": str(ROOT), "EnvironmentVariables": {"PATH": os.defpath, "PYTHONPATH": ".:python"},
+                "WorkingDirectory": str(ROOT), "EnvironmentVariables": environment,
                 "RunAtLoad": True, "KeepAlive": False, "StandardOutPath": str(state / "stdout.log"),
                 "StandardErrorPath": str(state / "stderr.log")}, stream)
         result = {"service": f"gui/{os.getuid()}/{label}", "command": command,
