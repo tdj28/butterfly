@@ -122,3 +122,23 @@ result rather than assuming every section must exhibit two critical points.
 The ambiguous Runpod create still has no assigned ID or matching task name;
 its watchdog remains alive. This is not a verified rejection. No new paid
 compute or unrelated-resource mutation occurred.
+
+## Remote archival completed and independently verified
+
+At the September 6, 23:02 UTC follow-up, the upload receipt reported success
+and the original service reported exit code 0 after one launch. Its PID and
+matching archive child were absent. The completed upload service was unloaded,
+and subsequent lookup confirmed service absence. All logs remain preserved.
+
+A separate read-only SSH check of the final remote file returned the exact
+2,186,342,400-byte size and SHA-256
+`edee329dd0d56987d1874fdd1d96836e49c5c1bd1b83fc49f21ef3d22619fdc0`.
+The file is mode 0600 and its task-owned directory is mode 0700. The complete
+4,970-asset bundle is therefore byte-verified on prax as well as locally.
+It remains a tar archive; no archive contents were remotely executed or
+extracted. Do not rerun collection, analysis, or this upload.
+
+The next scientific design is tracked in
+[EXP-480](../experiments/EXP-480-historical-section-successor-design.md).
+That document is a design-stage work item, not a completed experiment or
+permission to assign historical words before partition qualification.
