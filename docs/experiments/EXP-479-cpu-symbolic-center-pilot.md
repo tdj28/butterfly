@@ -1,6 +1,6 @@
 # EXP-479: local CPU successor to the symbolic center scout
 
-Status: collection completed and audited; analysis preparation in progress.
+Status: collection completed and audited; frozen analysis running locally.
 
 Runpod's third recovery create returned an ambiguous HTTP 500. We do not
 assume rejection or rent a possible duplicate. Instead, use the existing
@@ -89,3 +89,24 @@ hash to the input binding. Audit and analysis use separate fresh directories;
 the durable analysis launcher does not restart. The inherited 7,200-second
 analysis limit and all numerical rules remain unchanged. Collection success
 does not establish an eligible center, Jones word, partition, or chain arrow.
+
+## Analysis launch
+
+The wrapper passed the full-data audit and the local suite (1,300 passed, one
+Linux-only skip); both Python CI versions passed before launch. Its SHA-256 is
+`6d5029b9dcc63b666f7214c6821f64664a4d9506ed2685020f9b580240afc713`.
+The audit receipt at `artifacts/EXP-479/audit-30f6c5b/audit.json` has SHA-256
+`94f7cd234fce93f0644f67d49b1d8d9887b6566266ab6df1b51610f00f2c18e4`.
+
+Analysis runs in service
+`gui/501/io.butterfly.exp479.analysis.567fc260c2744f70a7273c08192b6965`.
+The first independent inspection found one launch, PID 9976, no exit and no
+stderr diagnostics. Seven candidates completed both fit profiles at the next
+checkpoint. Outputs are in `artifacts/EXP-479/analysis-30f6c5b`; launch receipt
+and logs are in `artifacts/EXP-479/analysis-service-30f6c5b`. No intermediate
+fit ranking or nomination interpretation was performed.
+
+The heartbeat now follows this analysis service. Preserve the wrapper and
+frozen source until completion. The CPU evidence archive on prax is still
+pending; the existing GPU-only archiver must not be given invented GPU
+lifecycle records to admit this CPU run. Local raw originals remain intact.
