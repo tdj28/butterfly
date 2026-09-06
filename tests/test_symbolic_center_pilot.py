@@ -16,6 +16,47 @@ from scripts.analyze_symbolic_remote_collection import RemoteCollectionAssets
 COMMIT = "a" * 40
 
 
+def test_cpu_postcollection_audit_uses_real_preserved_layout(tmp_path, prepared, monkeypatch):
+    from types import SimpleNamespace
+    from scripts.analyze_frozen_symbolic_cpu import audit
+    directory = tmp_path / "cpu-collection"
+    receipt = pilot.collect(prepared, directory, integrator=fake_gpu,
+                            runtime_environment={"gpu_used": False}, duration_backend="cpu")
+    assert receipt["collection_passed"]
+    monkeypatch.setattr(pilot, "_profile_row", lambda *a: pytest.fail("audit cannot fit"))
+    result = audit(SimpleNamespace(pilot=pilot), prepared, directory, pilot.sha256_file(directory / "receipt.json"))
+    assert result["candidate_count"] == 3
+    assert result["profile_count"] == 4
+    assert result["failed_integrations"] == 0
+    assert result["fitting_performed"] is False
+    raw = directory / receipt["batches"][0]["profiles"][0]["raw"]["path"]
+    raw.write_bytes(b"corrupt")
+    with pytest.raises(ValueError, match="hash/size mismatch"):
+        audit(SimpleNamespace(pilot=pilot), prepared, directory, pilot.sha256_file(directory / "receipt.json"))
+
+
+@pytest.mark.parametrize("change", ["input", "source", "incomplete", "gpu", "profile"])
+def test_cpu_postcollection_rejects_wrong_binding(tmp_path, prepared, change):
+    from types import SimpleNamespace
+    from scripts.analyze_frozen_symbolic_cpu import audit
+    directory = tmp_path / "cpu-collection"
+    receipt = pilot.collect(prepared, directory, integrator=fake_gpu,
+                            runtime_environment={"gpu_used": False}, duration_backend="cpu")
+    if change == "input":
+        receipt["input_hashes"] = {"wrong": "f" * 64}
+    elif change == "source":
+        receipt["source"] = {"commit": "f" * 40}
+    elif change == "incomplete":
+        receipt["completed_candidate_ids"] = []
+    elif change == "gpu":
+        receipt["environment"]["gpu_used"] = True
+    else:
+        receipt["batches"][0]["profiles"] = []
+    (directory / "receipt.json").write_text(json.dumps(receipt))
+    with pytest.raises(ValueError):
+        audit(SimpleNamespace(pilot=pilot), prepared, directory, pilot.sha256_file(directory / "receipt.json"))
+
+
 @pytest.fixture
 def prepared():
     parent = {
