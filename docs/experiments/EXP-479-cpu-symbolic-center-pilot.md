@@ -1,6 +1,8 @@
 # EXP-479: local CPU successor to the symbolic center scout
 
-Status: collection completed and audited; frozen analysis running locally.
+Status: collection and analysis completed and audited; two exploratory nominations.
+
+See the [complete result and limitations](../updates/2026-09-06-symbolic-scout-results.md).
 
 Runpod's third recovery create returned an ambiguous HTTP 500. We do not
 assume rejection or rent a possible duplicate. Instead, use the existing
@@ -110,3 +112,13 @@ The heartbeat now follows this analysis service. Preserve the wrapper and
 frozen source until completion. The CPU evidence archive on prax is still
 pending; the existing GPU-only archiver must not be given invented GPU
 lifecycle records to admit this CPU run. Local raw originals remain intact.
+
+## Terminal analysis
+
+Analysis completed at 03:05:30 UTC on September 6, after 1,419.329 seconds.
+All 551 candidates and 1,653 fit/combined files were audited. There are 384
+eligible candidates and two direct nominations; no corner-range cells. The
+analysis receipt SHA-256 is
+`4147ff20adefb6adf536137cb0a92809446ce66d40c20b6c00f909fa6235755f`.
+The service exited with code 0 after one launch; its process/child absence and
+subsequent service removal were verified. No Jones itinerary or arrow is verified.
