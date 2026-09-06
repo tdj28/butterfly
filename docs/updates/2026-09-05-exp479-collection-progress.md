@@ -224,3 +224,21 @@ receipt; no fitting, ranking, or symbolic interpretation was performed.
 The ambiguous provider transaction still has no assigned ID or matching task
 name in inventory. Its watchdog identity matches and its heartbeat was under
 four seconds old. No additional rental or unrelated-resource mutation occurred.
+
+## September 6 heartbeat (02:33 UTC): collection complete
+
+All 551 candidates completed both profiles at 02:24:12 UTC. The full audit
+verified 1,102 profiles, metadata/raw hashes and sizes, candidate/profile order,
+ragged event records, validity gates, and zero recorded integration failures.
+The raw files total 2,145,769,191 bytes. Terminal receipt SHA-256:
+`845e3cd783a8aee9a49a7db9b377515c45fe6bb6974ad9f0a857132e0b0b86da`.
+
+The service exited normally with code 0 after its sole launch. Its process and
+collection child were absent before the completed service was unloaded; service
+absence was confirmed afterward. All logs and raw data remain preserved.
+An operational wrapper is being tested to run the unchanged frozen analysis.
+No fitting or symbolic conclusions are included in this collection checkpoint.
+
+The ambiguous provider transaction still has no assigned ID or matching task
+name in inventory. Its watchdog identity matches and its heartbeat was under
+five seconds old. No additional rental or unrelated-resource mutation occurred.

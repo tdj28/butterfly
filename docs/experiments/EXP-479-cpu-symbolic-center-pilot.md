@@ -1,6 +1,6 @@
 # EXP-479: local CPU successor to the symbolic center scout
 
-Status: collecting locally from frozen source `30f6c5b`.
+Status: collection completed and audited; analysis preparation in progress.
 
 Runpod's third recovery create returned an ambiguous HTTP 500. We do not
 assume rejection or rent a possible duplicate. Instead, use the existing
@@ -65,3 +65,27 @@ and checkpoints. No partition fitting or word comparison has been performed.
 Collection lives at `artifacts/EXP-479/collection-30f6c5b`; service records
 are in `artifacts/EXP-479/local-service-30f6c5b`. A thread heartbeat checks
 progress every 30 minutes and continues the audit/analysis after completion.
+
+## Completed collection (2026-09-06)
+
+All 551 candidates completed both profiles at 02:24:12 UTC, after
+29,940.478 seconds of collection. The terminal receipt has SHA-256
+`845e3cd783a8aee9a49a7db9b377515c45fe6bb6974ad9f0a857132e0b0b86da`.
+The audit verified all 1,102 raw profiles and metadata against their hashes,
+sizes, ordered candidate/profile bindings, ragged records, finite event data,
+saturation and transversality checks. Raw arrays total 2,145,769,191 bytes;
+their failed-integration counters sum to zero.
+
+The original launchd service reported one launch and exit code 0. Its PID and
+matching collection child were absent before unloading; subsequent lookup
+confirmed that only this completed service was removed. Logs and raw originals
+remain intact. The unresolved Runpod transaction and its live watchdog are
+separate and unchanged.
+
+`scripts/analyze_frozen_symbolic_cpu.py` is an operational wrapper: it imports
+the unchanged analysis and CPU preparation from the frozen checkout, validates
+the original source/producer-bound qualification, and restores that qualification
+hash to the input binding. Audit and analysis use separate fresh directories;
+the durable analysis launcher does not restart. The inherited 7,200-second
+analysis limit and all numerical rules remain unchanged. Collection success
+does not establish an eligible center, Jones word, partition, or chain arrow.
