@@ -75,6 +75,24 @@ check; agent forwarding stays explicitly disabled. The launcher now rehearses
 authentication with its exact isolated environment before creating a service.
 No transfer or remote child was created by the failed authentication check.
 
+## Upload authorization boundary
+
+The final wrapper passed 1,311 local tests (one Linux-only skip) and both CI
+Python versions, and was merged into main. The subsequent launch request was
+rejected by the execution approval system **before the command ran**. It
+requires explicit authorization for this complete source/research/analysis
+payload to prax; general remote-storage authorization was not accepted for
+this bundle. No upload service or remote destination was created by that
+request. Do not retry via another transport or indirect execution.
+
+The pending destination is
+`ubuntu@prax:/home/ubuntu/butterfly-research/exp479-complete-20260906-30f6c5b/evidence.tar`.
+The exact payload is the 2,186,342,400-byte bundle with SHA-256
+`edee329dd0d56987d1874fdd1d96836e49c5c1bd1b83fc49f21ef3d22619fdc0`.
+It contains frozen source and unpublished research evidence, but no credentials
+or private provider lifecycle records. Originals and the verified local bundle
+remain intact. Obtain explicit owner authorization before this upload.
+
 The ambiguous Runpod create still has no assigned ID or matching task name;
 its watchdog remains alive. This is not a verified rejection. No new paid
 compute or unrelated-resource mutation occurred.
