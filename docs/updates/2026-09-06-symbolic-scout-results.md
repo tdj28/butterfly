@@ -93,6 +93,32 @@ It contains frozen source and unpublished research evidence, but no credentials
 or private provider lifecycle records. Originals and the verified local bundle
 remain intact. Obtain explicit owner authorization before this upload.
 
+## Owner approval and active upload
+
+The owner explicitly approved the complete payload/destination after the
+boundary above and requested continued work. The same verified upload was
+then launched successfully, with no payload or destination change.
+Service: `gui/501/io.butterfly.exp479.archive.91d43fc9eaea4952b01ee571f41916a6`;
+initial PID 94605, one launch, no exit at inspection. Its code SHA-256 is
+`946cc7b94c767de97488b68f09f9007f3a58d3fdc0e3dda95c341e69ec6b7421`.
+Launch/log records are in `artifacts/EXP-479/archive-service-30f6c5b`.
+
+The remote partial reached 466,099,200 bytes with mode 0600 at the first
+progress check. This is transfer progress, **not a verified remote archive**.
+Completion requires the full 2,186,342,400 bytes, matching SHA-256, the
+terminal upload receipt, and verified process/service exit. Do not launch a
+duplicate transfer. Scheduled research follow-ups have resumed, and the
+separate Runpod watchdog remains live.
+
+The next design must preserve a distinction already present in the input
+evidence: these flow cycles have six historical-section crossings and eight
+Barrio-section crossings. EXP-185's operational alphabet qualification at
+`(0.2,0.2,20)` does not transport itself to these points. The next test must
+track the return events and partition geometry explicitly, without matching
+the known words to choose labels. EXP-190 also documented a two-branch
+historical x map in a different searched neighborhood; retain that negative
+result rather than assuming every section must exhibit two critical points.
+
 The ambiguous Runpod create still has no assigned ID or matching task name;
 its watchdog remains alive. This is not a verified rejection. No new paid
 compute or unrelated-resource mutation occurred.
