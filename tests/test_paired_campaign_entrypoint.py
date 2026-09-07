@@ -154,3 +154,25 @@ def test_host_setup_refuses_already_imported_numerics(tmp_path):
     from scripts.run_paired_campaign import select_host_runtime
     with pytest.raises(ValueError, match="preceded source/runtime"):
         select_host_runtime(tmp_path)
+
+
+def test_preimport_guard_preserves_parent_pipe_across_stdin_redirection():
+    # pytest's FD capture replaces fd0 with /dev/null after the guard starts.
+    # That must not be mistaken for parent death; the original pipe stays live.
+    program = ("import os,runpy,sys,time; "
+        "guard=runpy.run_path(sys.argv[1])['install_parent_guard'](5.); "
+        "fd=os.open(os.devnull,os.O_RDONLY); os.dup2(fd,0); os.close(fd); "
+        "time.sleep(.3); assert guard.is_alive(); print('original-pipe-live',flush=True)")
+    process = subprocess.Popen([sys.executable, "-I", "-S", "-B", "-c", program,
+        str(ROOT/"python/butterfly/_process_guard.py")], stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
+    try:
+        assert process.wait(timeout=10) == 0, process.stderr.read().decode()
+        assert process.stdout.read() == b"original-pipe-live\n"
+    finally:
+        if process.poll() is None:
+            process.kill()
+            process.wait(timeout=5)
+        process.stdin.close()
+        process.stdout.close()
+        process.stderr.close()

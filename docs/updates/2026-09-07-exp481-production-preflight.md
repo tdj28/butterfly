@@ -64,6 +64,15 @@ covered these files.
   minimal package, while leaving the child's isolated import policy unchanged.
   Two regression tests distinguish those paths. This is a pre-outcome setup
   incident, not a relaxed numerical or child-startup gate.
+- The second attempt (`production-preflight-02`, source
+  `178ec9352896928e80d0d78c4c9e8d939b6624a5`) exposed another real startup bug:
+  pytest's descriptor capture replaces stdin with `/dev/null`. The guard watched
+  numeric FD0 and interpreted that replacement as parent loss, killing the test
+  stage before test output. Cleanup was verified; this attempt remains failed.
+  The guard now duplicates the original supervisor pipe before starting its
+  thread and marks the duplicate non-inheritable. A real-process regression
+  checks stdin replacement while that original pipe stays live. The same
+  parent-loss/deadline policy remains in force; this is not an EOF exemption.
 - The repaired actual pushed-source command on preserved research inputs is
   pending a new source commit. No target launch or paid review has occurred.
 
