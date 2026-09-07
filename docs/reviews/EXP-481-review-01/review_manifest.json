@@ -1,0 +1,123 @@
+{
+  "actual_input_characters": 17261,
+  "api_url": "https://api.openai.com/v1/responses",
+  "artifacts": [
+    {
+      "bytes": 2855,
+      "characters": 2850,
+      "path": "/Users/d7082791602/PROJECTS/butterfly/docs/reviews/EXP-481-review-brief.md",
+      "role": "compact research-director plan brief",
+      "sha256": "341f4bea6391c2ef6423924edafedbe3f08c910214b5e068bb5b3f263c053166"
+    },
+    {
+      "bytes": 9239,
+      "characters": 9239,
+      "path": "/Users/d7082791602/PROJECTS/butterfly/docs/reviews/EXP-481-decision-context.md",
+      "role": "synthesized context 1",
+      "sha256": "f866b06795e8fe6569f5065ac4ac4820ac73f13b1895420b601a350a04d06445"
+    },
+    {
+      "bytes": 850,
+      "characters": 850,
+      "path": "/Users/d7082791602/PROJECTS/butterfly/docs/reviews/EXP-481-evidence-context.md",
+      "role": "synthesized context 2",
+      "sha256": "d0fdf133d813614be9db16515be13bcc9ed2a489b282ea4a94f4eb408ec07f80"
+    }
+  ],
+  "background": false,
+  "budget_authorization_usd": 1.25,
+  "budget_notice": "This is a preflight authorization guard, not a provider billing hard stop. Pro-mode aggregate model-work usage can exceed the request's max_output_tokens. A costly estimate means the director packet should be compacted, not that its budget should be raised.",
+  "cache_write_rate_usd_per_million": 12.5,
+  "chars_per_token_assumption": 3.0,
+  "completed_at_utc": "2026-09-07T12:40:54.188445Z",
+  "completed_response_cost_exceeded_budget_authorization": false,
+  "completed_response_cost_usd_conservative": 0.5888,
+  "created_at_utc": "2026-09-07T12:38:45.889421Z",
+  "estimated_budget_reserve_usd": 1.247325,
+  "estimated_input_tokens_conservative": 5754,
+  "exact_budget_reserve_usd_after_preflight": 1.1007375,
+  "global_uniqueness_attested": false,
+  "input_rate_usd_per_million": 10.0,
+  "input_tokens_preflight": 4451,
+  "input_tokens_preflight_at_utc": "2026-09-07T12:38:46.971295Z",
+  "input_tokens_url": "https://api.openai.com/v1/responses/input_tokens",
+  "latest_model_document_sha256": "2a59b26078e001a4e4e3da10693e80ad5ee1c02cbe472afa6b682308f27b8b22",
+  "latest_model_source": "https://developers.openai.com/api/docs/guides/latest-model.md",
+  "max_input_characters": 36000,
+  "max_input_tokens": 12000,
+  "max_output_tokens": 6000,
+  "model": "gpt-6-astra",
+  "official_latest_model": "gpt-6-astra",
+  "output_rate_usd_per_million": 50.0,
+  "pricing_source": "https://developers.openai.com/api/docs/pricing",
+  "pro_input_reserve_multiplier": 5.0,
+  "pro_output_reserve_multiplier": 2.0,
+  "provider_response_cost_exceeded_budget_authorization": false,
+  "provider_response_cost_usd_conservative": 0.5888,
+  "provider_response_recorded_at_utc": "2026-09-07T12:40:54.187423Z",
+  "provider_terminal_status": "completed",
+  "provider_usage": {
+    "input_tokens": 21990,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 7378,
+    "output_tokens_details": {
+      "reasoning_tokens": 2782
+    },
+    "total_tokens": 29368
+  },
+  "reasoning": {
+    "effort": "medium",
+    "mode": "pro"
+  },
+  "reported_output_tokens_exceeded_requested_max_output_tokens": true,
+  "request_payload_sha256": "9c645a019295d46165e53d593394e6c8fd8fc498aebe786893acaf8e83c4bf20",
+  "researcher_emphasis": {
+    "present": false,
+    "sha256": null,
+    "text": null
+  },
+  "reserved_billable_input_tokens": 28770,
+  "reserved_billable_output_tokens": 12000,
+  "response_id": "resp_01f094dd1b7d287b016a9eb0572ef887d0bb58ad4593b41997",
+  "response_metadata": {
+    "plan_sha256": "341f4bea6391c2ef6423924edafedbe3f08c910214b5e068bb5b3f263c053166",
+    "researcher_emphasis_present": "false",
+    "researcher_emphasis_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "review_input_sha256": "17636885ce91d6948321dbc771af90597da2b542a25d292c42961527e7ca91ff",
+    "review_instructions_sha256": "bfe68700d789a83062af44eecd4e1a9f6d45cad156132ed97c4716d77d5bfb4c",
+    "review_scope": "director_level_plan_review",
+    "reviewed_packet_git_head_commit": "c8f4bc322f4e81aa94821bd1c2bc0435cc403542",
+    "single_call_policy": "trusted_procedural_rule",
+    "workflow": "experiment_plan_review"
+  },
+  "response_metadata_sha256": "0a8e2fa4bd8930d2afaeb6d88b60dd6f475b3b83a4f3a554a802994165f64ec4",
+  "response_model": "gpt-6-astra",
+  "response_sha256": "eb0b7972800567e67a1c83f26f00ac7d9d34a6930f2bfde51bbf3f019870aaf2",
+  "review_input_sha256": "17636885ce91d6948321dbc771af90597da2b542a25d292c42961527e7ca91ff",
+  "review_instructions_sha256": "bfe68700d789a83062af44eecd4e1a9f6d45cad156132ed97c4716d77d5bfb4c",
+  "review_kind": "experiment-plan",
+  "review_request_sha256": "3fe675fe6053d4be41eeef042f0729bfe24ca4a9a9c84011fa7e4a97bef7e703",
+  "review_scope": "director_level_plan_review",
+  "review_sha256": "28ee5ad3cb9784693139b2b335b3a534b934afed353858e9d077828f8d19c6f9",
+  "reviewed_packet_git_head_commit": "c8f4bc322f4e81aa94821bd1c2bc0435cc403542",
+  "schema_version": 1,
+  "service_tier": "default",
+  "single_call_policy": "trusted_procedural_rule",
+  "status": "completed",
+  "store": false,
+  "usage": {
+    "input_tokens": 21990,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 7378,
+    "output_tokens_details": {
+      "reasoning_tokens": 2782
+    },
+    "total_tokens": 29368
+  }
+}

@@ -96,3 +96,21 @@ def test_stationary_inflection_is_not_a_turning_branch_boundary():
     result = audit(blocks(fn, 16, 512), blocks(fn, 17, 512))
     assert result["resolved"], result
     assert result["branch_count"] == 1 and result["critical_intervals"] == []
+
+
+def test_failed_bootstrap_replicates_remain_in_consensus_denominator(monkeypatch):
+    from butterfly import seed_return_map as module
+    original = module._fit
+    def failed_resample(blocks, ids, *args):
+        result = original(blocks, ids, *args)
+        if len(np.unique(ids)) < len(ids):
+            return {**result, "resolved": False, "reason": "controlled failed bootstrap"}
+        return result
+    monkeypatch.setattr(module, "_fit", failed_resample)
+    fn = lambda x: .5+4*(x-.5)**3-.75*(x-.5)
+    result = audit(blocks(fn, 3, 256), blocks(fn, 4, 256))
+    assert not result["resolved"]
+    for variant in result["variants"]:
+        assert variant["bootstrap_critical_counts"] == [None]*OPTIONS.bootstrap_samples
+        assert variant["bootstrap_consensus"] == 0.
+        assert variant["reason"] == "seed-block branch stability failed"

@@ -190,4 +190,12 @@ def analyze_campaign(profiles_by_case, initial_states_by_case, reference_states_
         "source_commit": source_commit, "plan_sha256": plan_sha256,
         "all_cases_primary_resolved": all(results[c]["analysis"]["joint_primary"]["resolved"] for c in cases),
         "historical_symbols_verified": False,
-        "claim_scope": "Both conditional finite-time map assessments; not an alphabet, arrows or topological proof"}
+        "reporting_thresholds": {
+            "supported_error_quantile": .9,
+            "maximum_supported_q90_error": options.maximum_heldout_q90_error,
+            "maximum_unsupported_fraction": options.maximum_heldout_unsupported_fraction,
+            "minimum_coverage": options.minimum_coverage},
+        "claim_scope": "Operational historical-x adequacy on supported observations from reference-conditioned "
+            "retained finite-time cohorts; turns estimated from separate fresh trajectories. Report supported-row "
+            "q90 error, unsupported fraction and covered domain. No exclusion of rare sheets, extrapolation through "
+            "support gaps, alphabet, arrows or topological proof."}
