@@ -69,8 +69,11 @@ inputs; historical result reproduction is a separate requirement.
 - [x] Add durable adaptive snapshots, stage supervision and a pre-import worker
   guard. [Synthetic interruption controls](updates/2026-09-06-exp481-durable-supervisor.md)
   preserve both sections' accepted events/capture labels without false completion.
+- [x] Compose the fixed trial grid and both-case analysis, with no best-case
+  selection. [Campaign controls](updates/2026-09-06-exp481-campaign-aggregation.md)
+  retain all six historical reference rows and unresolved cases.
 - [ ] Finish EXP-481's production CLI, canonical environment/import closure,
-  full startup/source/review preflight and both-case aggregation;
+  full startup/source/review preflight and authenticated campaign wiring;
   adjudicate the compact review and push the exact
   freeze before generating new target trajectories. Then test both nominated
   maps without selecting branch counts to match source words.

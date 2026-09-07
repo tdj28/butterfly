@@ -160,9 +160,12 @@ critical regions together span no more than 0.04 of the combined calibration
 domain. Ordered regions must be disjoint both within each map and in the
 combined envelope; otherwise matching is unresolved. This is an explicit
 pre-review clarification, not a gate chosen after target results.
-Cases are reported individually; the future production wrapper must require
-both for overall support. The per-case joint decision and following comparison
-are implemented and [synthetically tested](../updates/2026-09-06-exp481-replay-decisions.md).
+Cases are reported individually; the implemented
+[campaign composition](../updates/2026-09-06-exp481-campaign-aggregation.md)
+requires both for overall primary support and retains an unresolved case.
+It validates the full ordered trial grid before fitting. The per-case joint
+decision and following comparison are implemented and
+[synthetically tested](../updates/2026-09-06-exp481-replay-decisions.md).
 
 Only after that gate, compare **all six** historical reference-orbit points
 with every ordered critical region. Require proximity within the inferred
@@ -226,8 +229,9 @@ pipe loss or deadline. Generic argv supervision does not attest that startup.
 
 Remaining before any target data generation:
 
-- Bind the implemented recording/supervision components into the authentic
-  production CLI, including every fixed trial and complete two-case aggregation.
+- Bind the implemented recording/supervision and campaign-composition components
+  into the authentic production CLI, including externally bound journal replay
+  for every fixed trial and complete two-case aggregation.
 - Canonical runtime environment, isolated import closure and genuine startup
   attestation. The Mac synthetic worker adds `LC_CTYPE` and
   `__CF_USER_TEXT_ENCODING`; specify/verify allowed derived values rather than
