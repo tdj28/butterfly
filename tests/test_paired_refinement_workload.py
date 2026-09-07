@@ -31,10 +31,11 @@ def test_exact_circle_and_event_order_control():
     assert check_circle(result, initial)["passed"]
 
 
-@pytest.mark.parametrize("fault",["state","times","accepted","capture","ambiguity","failed","status"])
+@pytest.mark.parametrize("fault",["state","nan-state","times","accepted","capture","ambiguity","failed","status"])
 def test_corrupted_analytic_expectations_fail(fault):
     result, initial = exact_result()
     if fault == "state": result.final_states[0,0] += .01
+    elif fault == "nan-state": result.final_states[0,0] = np.nan
     elif fault == "times": result.events["historical"]["times"][0] += .01
     elif fault == "accepted": result.events["historical"]["accepted"][0] = True
     elif fault == "capture": result.capture_times[0,0] = 1.
@@ -65,3 +66,19 @@ def test_estimate_counts_all_cases_profiles_and_headroom():
     saturated = estimates(collection,q,analysis,dict(seconds=1.,files=20))
     assert saturated["collection_seconds"] is None
     assert not saturated["fits_limits"]
+
+
+def test_polling_scenario_preserves_original_failure_and_other_limits():
+    from scripts.summarize_exp482_workload import polling_scenario
+    receipt = dict(collection=[dict(seconds=40.)]*2,protocol=dict(limits={
+        "collection_seconds":14400.,"rss_bytes":100}),estimates=dict(
+        projected_full_tree_scan_seconds=.11,collection_seconds=42666.,rss_bytes=99,
+        fits_limits=False,scan_cpu_fraction_with_headroom=.88))
+    result = polling_scenario(receipt,1.)
+    assert result["estimates"]["fits_limits"]
+    assert not receipt["estimates"]["fits_limits"]
+    assert result["estimates"]["rss_bytes"] == 99
+    receipt["estimates"]["rss_bytes"] = 101
+    assert not polling_scenario(receipt,1.)["estimates"]["fits_limits"]
+    for value in (0.,2.,float("nan")):
+        with pytest.raises(ValueError): polling_scenario(receipt,value)

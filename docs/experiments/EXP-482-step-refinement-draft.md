@@ -82,6 +82,15 @@ parent/worker guard, sampled 2 GiB RSS/disk bounds and 16 GiB free-space reserve
 Verification status before measurement: protocol and analytic/projection unit
 controls only. Full-workload live outcome remains unobserved.
 
+**Subsequent result:** the once-only measurement is now complete; preserve the
+preceding paragraph as the prospective status, not the current result. All
+analytic/map controls passed, but the frozen .25-second polling feasibility
+estimate failed. The separately labeled one-second polling calculation fits
+projected limits. See the [complete update](../updates/2026-09-07-exp482-full-workload.md)
+and [receipt](receipts/EXP-482-full-workload.json). Neither result authorizes
+target work or changes EXP-481. Select the new seed/bootstrap draws 482001/482002
+for the successor, with prior-outcome dependence explicitly disclosed.
+
 The prax backup affects storage only. The upload guard rejected the renewed
 request after the user's general go-ahead; no upload occurred and no bypass
 will be attempted. The audited 37.7 MB EXP-481 archive remains safely local.

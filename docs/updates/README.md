@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp482-full-workload.md`](2026-09-07-exp482-full-workload.md)
+  — full-size analytic and map controls pass; original scan-overhead estimate
+  fails; explicitly labeled one-second polling redesign fits projected limits.
+
 - [`2026-09-07-exp482-finer-step-throughput.md`](2026-09-07-exp482-finer-step-throughput.md)
   — finer-step synthetic controls pass; larger CPU batches improve throughput;
   target accuracy and complete successor feasibility remain to be qualified.

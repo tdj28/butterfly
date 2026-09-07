@@ -51,7 +51,7 @@ def check_circle(result, initial):
     expected[:, 1] = initial[:, 0]*np.sin(angle)
     error = float(np.max(np.abs(result.final_states-expected)))
     if (result.status != "completed" or result.failed.any() or result.ambiguous.any()
-            or np.isfinite(result.capture_times).any() or error >= 1e-5):
+            or np.isfinite(result.capture_times).any() or not np.isfinite(error) or error >= 1e-5):
         raise ValueError("analytic circle state/capture expectation failed")
     rows = {}
     for index, (name, events) in enumerate(result.events.items()):
