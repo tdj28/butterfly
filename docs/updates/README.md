@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp482-finer-step-throughput.md`](2026-09-07-exp482-finer-step-throughput.md)
+  — finer-step synthetic controls pass; larger CPU batches improve throughput;
+  target accuracy and complete successor feasibility remain to be qualified.
+
 - [`2026-09-07-exp481-live-run.md`](2026-09-07-exp481-live-run.md)
   — actual qualification completed: adaptive solvers agree, RK4 steps fail the
   state-accuracy bound; collection prevented, raw replay exact, refinement next.
