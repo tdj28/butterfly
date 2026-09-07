@@ -97,10 +97,10 @@ criticality, homoclinic existence or the entire parameter plane.
 | Surface | Current evidence |
 | --- | --- |
 | Both release identities, Git/provider tamper controls, isolated setup | 132 focused tests passed before final closure/control additions |
-| Actual successor controller and source-qualified full configuration | Pending live source preflight at the committed candidate |
+| Actual successor controller and source-qualified full configuration | Verified live at ba85d90: 426 tests/no skips, both raw audits, all 192 configurations; source preflight receipt retained |
 | Prospective review and target numerical qualification | Not performed; no new target trajectories |
 
-The next operation is the real `--mode source --experiment-id EXP-482`
-preflight on pushed source. It runs all bound tests and reconstructs inputs and
-every configuration without integrating a target trajectory. Then assemble the
-compact review packet; no completed historical review is rerun or relabeled.
+The real `--mode source --experiment-id EXP-482` preflight on pushed source has
+now passed. It ran all bound tests and reconstructed inputs and every
+configuration without integrating a target trajectory. Next is the compact
+cumulative review; no completed historical review is rerun or relabeled.
