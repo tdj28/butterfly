@@ -1,0 +1,74 @@
+{
+  "correspondence": {
+    "barrio": {
+      "maximum_event_state_error": 2.764581896743245e-08,
+      "maximum_event_time_error": 1.4453810237569087e-07,
+      "passed": true,
+      "same_ordered_membership": true
+    },
+    "historical": {
+      "maximum_event_state_error": 2.910085949993505e-08,
+      "maximum_event_time_error": 1.5214537896213187e-07,
+      "passed": true,
+      "same_ordered_membership": true
+    }
+  },
+  "kind": "analytic-circle-engineering-control",
+  "no_rossler_performance_extrapolation": true,
+  "passed": true,
+  "profiles": [
+    {
+      "completed_steps": 1025,
+      "contingency": {
+        "ambiguous_nonfailed": 0,
+        "both": 0,
+        "failed": 0,
+        "first_only": 1,
+        "neither": 127,
+        "second_only": 0
+      },
+      "dt": 0.02,
+      "elapsed_seconds": 0.10369683336466551,
+      "events": {
+        "barrio": 1280,
+        "historical": 1280
+      },
+      "failure": null,
+      "maximum_final_state_error": 1.1762516142530243e-06,
+      "passed": true,
+      "raw": {
+        "bytes": 71007,
+        "path": "profile-0.npz",
+        "sha256": "7e6bfc44d70f88ea52f132c3888fcfc318f7f8b88217a1eca92deb83d57b704b"
+      },
+      "status": "completed"
+    },
+    {
+      "completed_steps": 2050,
+      "contingency": {
+        "ambiguous_nonfailed": 0,
+        "both": 0,
+        "failed": 0,
+        "first_only": 1,
+        "neither": 127,
+        "second_only": 0
+      },
+      "dt": 0.01,
+      "elapsed_seconds": 0.19640366546809673,
+      "events": {
+        "barrio": 1280,
+        "historical": 1280
+      },
+      "failure": null,
+      "maximum_final_state_error": 7.351624469742647e-08,
+      "passed": true,
+      "raw": {
+        "bytes": 68569,
+        "path": "profile-1.npz",
+        "sha256": "acc5cac13fce461b5fd84ab774fc7a797fa067bf3e3565a68d13ef9118ce6eb6"
+      },
+      "status": "completed"
+    }
+  ],
+  "target_trajectories": 0
+}

@@ -1,0 +1,102 @@
+{
+  "config": {
+    "angle_margin": 0.0001,
+    "checkpoint_times": [
+      10.0,
+      20.5
+    ],
+    "escape_radius": 100.0,
+    "gate_margin": 0.0001,
+    "horizon": 20.5,
+    "maximum_events": 4096,
+    "maximum_steps": 3000,
+    "state_scales": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "initial_radii": [
+    0.5,
+    4.5
+  ],
+  "kind": "analytic-circle-engineering-control",
+  "numpy": "2.5.1",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "profiles": [
+    0.02,
+    0.01
+  ],
+  "python": "3.13.11",
+  "sections": {
+    "barrio": {
+      "axes": [
+        0,
+        1
+      ],
+      "cycle_states": [
+        [
+          0.0,
+          -2.0,
+          0.0
+        ]
+      ],
+      "radius": 0.01,
+      "required_crossings": 2,
+      "scales": [
+        1.0,
+        1.0
+      ],
+      "section": {
+        "direction": 1,
+        "gate_axis": null,
+        "gate_upper": null,
+        "name": "plane",
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "offset": 0
+      }
+    },
+    "historical": {
+      "axes": [
+        0,
+        1
+      ],
+      "cycle_states": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "radius": 0.01,
+      "required_crossings": 2,
+      "scales": [
+        1.0,
+        1.0
+      ],
+      "section": {
+        "direction": -1,
+        "gate_axis": 0,
+        "gate_upper": 0,
+        "name": "plane",
+        "normal": [
+          0,
+          1,
+          0
+        ],
+        "offset": 0
+      }
+    }
+  },
+  "seed_count": 128,
+  "source_sha256": {
+    "python/butterfly/paired_sections.py": "256075ac12ef9bf236eb18005d7cad0b3fed821754172e3607c19897dffa01b6",
+    "python/butterfly/saddle.py": "98712fee12a5df17bad81ff2bbd42af627c06bcbef8ec8b387a20b80c9561a07",
+    "scripts/benchmark_paired_sections.py": "14ad211941dbaf575c2a34a7397f0685f3ec3bd5d012b693c7e8c52eaedab242"
+  },
+  "target_trajectories": 0
+}
