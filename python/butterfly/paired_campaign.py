@@ -83,6 +83,40 @@ def trial_grid(plan):
     return tuple(result)
 
 
+def validate_analysis_plan(plan):
+    """Validate the analysis design without opening or fitting observations."""
+    windows = np.asarray(plan["sample"]["observation_windows"], float)
+    strata = plan["sample"]["strata_per_window"]
+    if (windows.shape != (2, 2) or not np.isfinite(windows).all()
+            or np.any(windows[:, 0] >= windows[:, 1]) or windows[0, 0] < 0
+            or windows[1, 0] < windows[0, 1] or windows[-1, 1] > plan["collection"]["horizon"]
+            or type(strata) is not int or strata < 1):
+        raise ValueError("two valid physical windows and positive pair strata required")
+    analysis = plan["analysis"]
+    options = MapOptions(**analysis["options"])
+    _validate_options(options)
+    if (analysis["primary"]["section"] != SECTIONS[0] or analysis["primary"]["axis"] != 0
+            or analysis["fit_each_window_separately"] is not True
+            or options.minimum_seeds != plan["sample"]["minimum_seeds_per_split"]
+            or plan["critical_membership"]["enabled_only_after_joint_primary_gate"] is not True
+            or plan["critical_membership"]["require_every_primary_window_profile_variant"] is not True
+            or analysis["historical_z_or_barrio_z_can_rescue_primary"] is not False
+            or [(p["section"], p["axis"]) for p in analysis["diagnostics"]] != [(SECTIONS[0], 2), (SECTIONS[1], 2)]):
+        raise ValueError("historical x primary and fixed non-rescuing diagnostics required")
+    variants = analysis["variants"]
+    if (not variants or any(len(v) != 2 or type(v[0]) is not int or v[0] < 6
+                           or not np.isfinite(v[1]) or v[1] <= 0 for v in variants)
+            or len(set(tuple(v) for v in variants)) != len(variants)):
+        raise ValueError("distinct valid frozen spline variants required")
+    proximity = plan["critical_membership"]
+    disagreement = plan["sample"]["maximum_profile_retention_disagreement_fraction"]
+    if (not np.isfinite(disagreement) or not 0 <= disagreement <= 1
+            or any(not np.isfinite(proximity[k]) or proximity[k] < 0 for k in
+                   ("normalized_interval_padding", "maximum_absolute_normalized_spline_slope"))):
+        raise ValueError("finite valid cohort/proximity thresholds required")
+    return windows, strata, options
+
+
 def analyze_campaign(profiles_by_case, initial_states_by_case, reference_states_by_case, plan,
                      *, source_commit, plan_sha256):
     """Analyze both complete cases; unresolved science is not missing evidence.
@@ -103,24 +137,8 @@ def analyze_campaign(profiles_by_case, initial_states_by_case, reference_states_
         if set(mapping) != set(cases):
             raise ValueError("exact both-case inputs required")
     ids = table["global_seed_ids"]
-    windows = np.asarray(plan["sample"]["observation_windows"], float)
-    strata = plan["sample"]["strata_per_window"]
-    if (windows.shape != (2, 2) or not np.isfinite(windows).all()
-            or np.any(windows[:, 0] >= windows[:, 1]) or windows[0, 0] < 0
-            or windows[1, 0] < windows[0, 1] or windows[-1, 1] > plan["collection"]["horizon"]
-            or type(strata) is not int or strata < 1):
-        raise ValueError("two valid physical windows and positive pair strata required")
+    windows, strata, options = validate_analysis_plan(plan)
     analysis = plan["analysis"]
-    options = MapOptions(**analysis["options"])
-    _validate_options(options)
-    if (analysis["primary"]["section"] != SECTIONS[0] or analysis["primary"]["axis"] != 0
-            or analysis["fit_each_window_separately"] is not True
-            or options.minimum_seeds != plan["sample"]["minimum_seeds_per_split"]
-            or plan["critical_membership"]["enabled_only_after_joint_primary_gate"] is not True
-            or plan["critical_membership"]["require_every_primary_window_profile_variant"] is not True
-            or analysis["historical_z_or_barrio_z_can_rescue_primary"] is not False
-            or [(p["section"], p["axis"]) for p in analysis["diagnostics"]] != [(SECTIONS[0], 2), (SECTIONS[1], 2)]):
-        raise ValueError("historical x primary and fixed non-rescuing diagnostics required")
     # Validate the entire case grid before fitting either case. Missing second-
     # case data must not leave a first-case-only scientific aggregate.
     cohorts = {}

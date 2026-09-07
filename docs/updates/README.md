@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-fixed-phases.md`](2026-09-07-exp481-fixed-phases.md)
+  — complete qualification/collection/replay/analysis path passes in isolated
+  circle controls; both cases and every reference row retained; target gate next.
+
 - [`2026-09-07-exp481-sealed-input-audit.md`](2026-09-07-exp481-sealed-input-audit.md)
   — real isolated worker reproduces preserved reference audit exactly; nine-file
   input package and six success/failure controls; no new trajectories.

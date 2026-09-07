@@ -240,15 +240,21 @@ startup controls pass. This read-only result does not authorize a target phase.
 
 Remaining before any target data generation:
 
-- Bind the implemented recording/supervision and campaign-composition components
-  into the authentic production CLI, including externally bound journal replay
-  for every fixed trial and complete two-case aggregation.
-- Extend the qualified canonical environment and isolated input-audit/numerical
-  import closure to phase dispatch; requalify its genuine startup boundary and
-  complete phase resource limits. The environment now
-  explicitly sets and verifies `LC_CTYPE` and `__CF_USER_TEXT_ENCODING` on Mac.
-- Authentic source/input/review-bound production preflight, invoking the raw
-  capture-reference audit and the exact worker guard before target access.
+- The [fixed numerical phases](../updates/2026-09-07-exp481-fixed-phases.md) now
+  compose durable qualification, collection, full-grid raw replay and both-case
+  analysis. A 24-file isolated runtime executes all three phases on an analytic
+  circle, with all 24 comparisons passing and both primary identity maps resolved.
+  The Rössler trial design is validated without integration. These primitives
+  do not authenticate their own source, review or controller.
+- Connect the qualified phases and preserved-input audit to the authentic
+  source/input/review-bound production controller. It must derive all three
+  resource budgets from the plan, arm the matching parent-loss/deadline guard
+  before scientific imports, and supply authenticated predecessor receipts.
+  The synthetic command uses 60-second supervised phases and a 120-second guard;
+  neither is the target campaign's execution budget or authorization.
+- Qualify that final controller's genuine setup/authorization boundary under the
+  exact sealed source and canonical environment. The environment explicitly
+  sets and verifies `LC_CTYPE` and `__CF_USER_TEXT_ENCODING` on Mac.
 - One compact design review, adjudication of all findings and exact pushed
   executable freeze. The journal/analysis primitives do not supply that authority.
 

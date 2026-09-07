@@ -14,15 +14,27 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--contract-sha256", required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--mode", choices=("startup", "audit-inputs", "execute"), default="startup")
+    parser.add_argument("--mode", choices=("startup", "audit-inputs", "synthetic-phase", "execute"), default="startup")
     parser.add_argument("--input-root", type=Path)
     parser.add_argument("--input-contract-sha256")
+    parser.add_argument("--phase", choices=("qualification", "collection", "analysis"))
+    parser.add_argument("--previous-root", type=Path)
+    parser.add_argument("--previous-sha256")
     args = parser.parse_args()
     if args.mode == "audit-inputs":
         if args.input_root is None or args.input_contract_sha256 is None:
             parser.error("audit-inputs requires an explicit input package and external digest")
     elif args.input_root is not None or args.input_contract_sha256 is not None:
         parser.error("input arguments are only valid for audit-inputs")
+    if args.mode == "synthetic-phase":
+        if args.phase is None:
+            parser.error("synthetic-phase requires the fixed phase name")
+        if (args.phase != "qualification") != (args.previous_root is not None and args.previous_sha256 is not None):
+            parser.error("collection/analysis require an external preceding phase digest")
+        if args.phase == "qualification" and (args.previous_root is not None or args.previous_sha256 is not None):
+            parser.error("qualification has no preceding numerical phase")
+    elif args.phase is not None or args.previous_root is not None or args.previous_sha256 is not None:
+        parser.error("phase arguments are only valid for synthetic-phase")
     root = Path(__file__).resolve().parent
     startup = runpy.run_path(str(root/"startup.py"))
     contract = startup["load_contract"](root, args.contract_sha256)
@@ -62,6 +74,28 @@ def main():
             "target_execution_authorized": False, "scope": "sealed import and setup handshake only"})
         if args.mode == "execute":
             raise ValueError("review-bound production phase dispatch is not implemented; target execution refused")
+        if args.mode == "synthetic-phase":
+            from butterfly.paired_phase_control import make_control
+            from butterfly.paired_phases import run_phase
+            design, fields = make_control()
+            previous = None
+            if args.previous_root is not None:
+                previous = {"path": "terminal.json", "sha256": args.previous_sha256}
+                prior = args.previous_root.resolve(strict=True)
+                if prior == output or prior.is_relative_to(output) or output.is_relative_to(prior):
+                    raise ValueError("previous phase and current evidence must be disjoint")
+            receipt = run_phase(design, args.phase, output/"phase",
+                fields=None if args.phase == "analysis" else fields,
+                previous_directory=args.previous_root, previous_receipt=previous)
+            startup["validate_environment"](contract)
+            startup["verify_runtime"](root, contract)
+            imported = finder.check_loaded()
+            if not guard.is_alive():
+                raise ValueError("parent guard stopped during synthetic phase")
+            startup["write_json"](output/"synthetic-phase.json", {"status": "completed", "phase": args.phase,
+                "runtime_contract_sha256": args.contract_sha256, "phase_receipt": receipt,
+                "loaded_modules": imported, "target_execution_authorized": False,
+                "target_trajectories_generated": 0, "scope": "analytic-circle plumbing control only"})
         if args.mode == "audit-inputs":
             inputs = args.input_root.resolve(strict=True)
             if output == inputs or output.is_relative_to(inputs) or inputs.is_relative_to(output):
