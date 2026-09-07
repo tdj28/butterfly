@@ -212,12 +212,28 @@ storage at 8 GiB, and requires 16 GiB free before starting. These are stopping
 bounds, not completion-time estimates. The wrapper must enforce them, preserve
 partial evidence and stop on technical invalidity; no automatic retry/resume.
 
+The adaptive journal and POSIX stage supervisor now pass
+[synthetic process-loss controls](../updates/2026-09-06-exp481-durable-supervisor.md).
+Adaptive full-prefix snapshots are exclusive, fsynced and hash-chained, capped
+at 8 MiB each. Missing terminal receipts remain incomplete, even at the full
+horizon. The supervisor samples process-group RSS and evidence-directory bytes
+every 0.25 seconds, with a five-second termination grace period. These are
+operational stop thresholds, not kernel-enforced peak quotas: queries, writes
+and cleanup can exceed a threshold before termination. This pre-review
+clarification must remain explicit. An independently running worker guard
+must be armed before scientific imports and stop its own session on supervisor
+pipe loss or deadline. Generic argv supervision does not attest that startup.
+
 Remaining before any target data generation:
 
-- Bounded CPU process supervisor, durable adaptive snapshots and complete
-  two-case aggregation through the authentic production entry point.
-- Authentic source/input/review-bound production preflight, invoking the
-  implemented raw capture-reference audit rather than trusting copied summaries.
+- Bind the implemented recording/supervision components into the authentic
+  production CLI, including every fixed trial and complete two-case aggregation.
+- Canonical runtime environment, isolated import closure and genuine startup
+  attestation. The Mac synthetic worker adds `LC_CTYPE` and
+  `__CF_USER_TEXT_ENCODING`; specify/verify allowed derived values rather than
+  assuming the requested environment exactly survives imports.
+- Authentic source/input/review-bound production preflight, invoking the raw
+  capture-reference audit and the exact worker guard before target access.
 - One compact design review, adjudication of all findings and exact pushed
   executable freeze. The journal/analysis primitives do not supply that authority.
 

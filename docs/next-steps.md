@@ -66,8 +66,12 @@ inputs; historical result reproduction is a separate requirement.
   against preserved EXP-480 raw events. The
   [synthetic cross-check](updates/2026-09-06-exp481-adaptive-qualification.md)
   passes; qualification of new nominated trajectories has not run.
-- [ ] Finish EXP-481's bounded source-bound runner, durable adaptive recording
-  and full preflight; adjudicate the compact review and push the exact
+- [x] Add durable adaptive snapshots, stage supervision and a pre-import worker
+  guard. [Synthetic interruption controls](updates/2026-09-06-exp481-durable-supervisor.md)
+  preserve both sections' accepted events/capture labels without false completion.
+- [ ] Finish EXP-481's production CLI, canonical environment/import closure,
+  full startup/source/review preflight and both-case aggregation;
+  adjudicate the compact review and push the exact
   freeze before generating new target trajectories. Then test both nominated
   maps without selecting branch counts to match source words.
 - [ ] Before the next manuscript release, complete the documented
