@@ -45,5 +45,43 @@ Do not turn a fastest-case microbenchmark into a hard runtime promise.
   failure. Map accepted repairs and freeze source, plan and gates before new
   target work. No placeholder approval or deletion of EXP-481's attempt marker.
 
-The prax backup approval affects storage only; local numerical engineering
-can continue while the audited 37.7 MB EXP-481 archive remains safely local.
+## Full-workload engineering measurement (frozen before observation)
+
+The next measurement is `scripts/benchmark_paired_refinement.py`. Its default
+only prints the protocol; explicit `--execute` runs once in a fresh directory.
+It does not change EXP-481 or authorize target integration.
+
+Use batch 512 (selected from the disclosed first timing comparison), steps
+.0025/.00125, the complete t=300 horizon, checkpoints every 50 time units,
+1,000-step journals, 240,000 maximum steps, 262,144 maximum raw events per batch
+and 8 MiB snapshots. The analytic circle has period 4.1 to avoid an endpoint
+root; each seed must produce exactly 146 raw and 73 accepted events on each
+section, no failure/ambiguity/capture, and final-state/event-time error <1e-5.
+The same six/eight distant synthetic capture references are used, with a
+discarded Rössler RHS evaluation at every circle RHS call. That extra arithmetic
+does not create Rössler trajectories or qualify actual reference conditioning.
+
+Measure complete journal writes/audits, independent raw replay using the real
+80–140/180–240 windows and four strata, full file inventories, all four solver
+qualification paths on two synthetic seeds, and actual both-case cubic analysis
+with 8,192 seeds and all 200 bootstrap resamples. Require three branches and
+the complete near/far reference matrix; the existing two-sheet adverse fixture
+must remain unresolved. Preserve every outcome; no automatic retry.
+
+Project collection/replay over all 32 batches **per profile** (two cases),
+qualification over all 128 trials, and double time/disk/memory estimates.
+Use the slowest of three supervisor-style filesystem scans to estimate a
+full-tree scan. Conservatively charge twice that extrapolation at every .25 s
+poll, including the small-tree startup period; report infeasible if its implied
+occupancy reaches one. This is a pessimistic engineering estimate, not a
+guarantee: unknown target event frequency, ambiguous roots, retained populations
+and OS load remain limitations. Compare against existing 1,800/14,400/7,200 s
+phase budgets, 8 GiB disk and 2 GiB RSS. The benchmark itself has a 900 s
+parent/worker guard, sampled 2 GiB RSS/disk bounds and 16 GiB free-space reserve.
+
+Verification status before measurement: protocol and analytic/projection unit
+controls only. Full-workload live outcome remains unobserved.
+
+The prax backup affects storage only. The upload guard rejected the renewed
+request after the user's general go-ahead; no upload occurred and no bypass
+will be attempted. The audited 37.7 MB EXP-481 archive remains safely local.
