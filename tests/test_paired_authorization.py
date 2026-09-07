@@ -121,10 +121,11 @@ def test_issuer_consumes_failed_attempt_too():
         right.close()
 
 
-@pytest.fixture(scope="module")
-def actual_control(tmp_path_factory):
+@pytest.fixture(scope="module", params=["EXP-481", "EXP-482"])
+def actual_control(tmp_path_factory, request):
     output = tmp_path_factory.mktemp("authorized-phases")/"run"
     command = [sys.executable, "-B", str(ROOT/"scripts/run_paired_campaign.py"), "--mode", "control", "--output-dir", str(output)]
+    if request.param == "EXP-482": command += ["--experiment-id", request.param]
     result = subprocess.run(command, capture_output=True, text=True, timeout=100)
     assert result.returncode == 0, result.stdout+result.stderr
     return output, command

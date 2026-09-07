@@ -37,7 +37,7 @@ def completed_worker(root, expected, design, phase, grant_sha256, runtime_sha256
     return require_phase(design, root/"phase", witness["phase_receipt"], phase), witness["phase_receipt"]
 
 
-def dispatch(root, output, *, setup=None, control=False, fault=None):
+def dispatch(root, output, *, setup=None, control=False, fault=None, experiment_id="EXP-481"):
     """All three phases or one preserved failure; no retry/resume parameter.
 
     fault is an analytic-control-only negative-test surface, never a target
@@ -53,8 +53,9 @@ def dispatch(root, output, *, setup=None, control=False, fault=None):
     if fault not in (None, "wrong-grant", "wrong-parent-argv", "wrong-predecessor", "missing-grant") or (fault and not control):
         raise ValueError("fault injection is limited to analytic controls")
     root, output = Path(root).resolve(strict=True), Path(output).absolute()
+    paths = runpy.run_path(str(root/"python/butterfly/paired_release.py"))["experiment_paths"](experiment_id)
     output.mkdir(parents=True, exist_ok=False, mode=0o700)
-    target_slot = root/"artifacts/EXP-481/target-once.json"
+    target_slot = root/paths["slot"]
     target_may_have_started, slot_consumed = False, False
     try:
         if setup is not None:
@@ -86,6 +87,8 @@ def dispatch(root, output, *, setup=None, control=False, fault=None):
             review_sha = source["release_sha256"]
             inputs, input_sha = setup/"inputs", preflight["inputs"]["sha256"]
             plan = load_package(inputs, input_sha)
+            if plan.get("experiment_id") != experiment_id:
+                raise ValueError("setup cannot be relabeled as a different experiment")
             if sha256(inputs/"plan.json") != preflight["plan_sha256"]:
                 raise ValueError("setup plan bytes changed before dispatch")
             design, _ = from_reference_audit(plan, load_references(plan, inputs),

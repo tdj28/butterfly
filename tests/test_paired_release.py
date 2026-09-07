@@ -222,12 +222,13 @@ def test_coherently_rehashed_review_artifact_cannot_replace_provider_packet(tmp_
         gate.validate_review_bundle(tmp_path, declaration)
 
 
-@pytest.mark.parametrize("change", [None, "wrong-plan-context", "unmapped-code", "false-reviewed-inventory", "different-packet-commit"])
-def test_complete_source_and_review_consumer_with_real_git_and_mock_provider(repository, monkeypatch, change):
+@pytest.mark.parametrize("experiment_id", ["EXP-481", "EXP-482"])
+@pytest.mark.parametrize("change", [None, "wrong-plan-context", "unmapped-code", "false-reviewed-inventory", "different-packet-commit", "wrong-experiment"])
+def test_complete_source_and_review_consumer_with_real_git_and_mock_provider(repository, monkeypatch, change, experiment_id):
     root, remote, _, code_files = repository
     helper_raw = (ROOT/gate.CANONICAL_REVIEW_HELPER).read_bytes()
     source_files = {**code_files, gate.CANONICAL_REVIEW_HELPER: dict(bytes=len(helper_raw), sha256=gate.digest(helper_raw))}
-    plan_raw = b'{"kind": "synthetic design", "seed_count": 16}\n'
+    plan_raw = (json.dumps(dict(kind="synthetic design",seed_count=16,experiment_id=experiment_id))+"\n").encode()
     (root/"plan.json").write_bytes(plan_raw)
     before = {**source_files, "plan.json": dict(bytes=len(plan_raw), sha256=gate.digest(plan_raw))}
     context = gate.decision_context(json.loads(plan_raw), gate.digest(gate.canonical(before)))
@@ -249,7 +250,7 @@ def test_complete_source_and_review_consumer_with_real_git_and_mock_provider(rep
         reviewed_inventory_sha256=gate.digest(gate.canonical(before)), final_inventory_sha256=gate.digest(gate.canonical(after)),
         findings=[], changes=[]))
     (root/"adjudication.json").write_bytes(gate.canonical(a))
-    release = dict(schema="butterfly.paired-reviewed-release.v1", experiment_id="EXP-481", approved_for_execution=True,
+    release = dict(schema="butterfly.paired-reviewed-release.v1", experiment_id=experiment_id, approved_for_execution=True,
         code_freeze_commit=code_commit, source_files=source_files, plan=dict(path="plan.json", **after["plan.json"]),
         review=review, adjudication=dict(path="adjudication.json", sha256=gate.digest(gate.canonical(a))),
         reviewed_inventory=before, final_inventory=after)
@@ -259,6 +260,7 @@ def test_complete_source_and_review_consumer_with_real_git_and_mock_provider(rep
         (root/"adjudication.json").write_bytes(gate.canonical(self_hash(a)))
         release["adjudication"]["sha256"] = gate.digest(gate.canonical(a))
     elif change == "different-packet-commit": release["review"]["reviewed_packet_commit"] = code_commit+"0"
+    elif change == "wrong-experiment": release["experiment_id"] = "EXP-482" if experiment_id == "EXP-481" else "EXP-481"
     (root/"release.json").write_bytes(gate.canonical(release))
     command("git", "add", "release.json", "adjudication.json", "review/review_manifest.json", "review/request_payload.json",
         "review/review_request.md", "review/response.json", "review/review.md", cwd=root)
@@ -271,7 +273,7 @@ def test_complete_source_and_review_consumer_with_real_git_and_mock_provider(rep
     monkeypatch.setattr(gate, "verify_pushed_source", lambda r, c, ref: real(r, c, ref, expected_remote=str(remote)))
     def run():
         return gate.verify_reviewed_release(root, "release.json", freeze, "refs/heads/main",
-            required_source_paths=set(source_files), plan_path="plan.json")
+            required_source_paths=set(source_files), plan_path="plan.json", experiment_id=experiment_id)
     if change is None:
         result = run()
         assert result["status"] == "source-and-review-verified" and not result["target_execution_authorized"]

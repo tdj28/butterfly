@@ -247,6 +247,19 @@ def validate_review_bundle(root, declaration):
     return {**result, "verdict": verdict, "finding_ids": list(findings), "target_execution_authorized": False}
 
 
+def experiment_paths(experiment_id):
+    """Only these two separately reviewed studies have execution path roles.
+
+    A caller cannot turn a failed attempt into a new slot by inventing an ID.
+    Selecting EXP-482 still requires its own committed design and exact review.
+    """
+    if experiment_id not in ("EXP-481", "EXP-482"):
+        raise ValueError("unknown fixed paired experiment")
+    return dict(plan=f"experiments/manifests/{experiment_id}-paired-design.json",
+        release=f"experiments/manifests/{experiment_id}-reviewed-release.json",
+        slot=f"artifacts/{experiment_id}/target-once.json")
+
+
 def decision_context(plan, inventory_sha256):
     """Exact compact context submitted to Pro, independently rebuilt by the gate.
 
@@ -255,26 +268,30 @@ def decision_context(plan, inventory_sha256):
     self-referential hash. Their exact bytes are bound by the producer bundle.
     """
     hex_value(inventory_sha256, 64)
-    return ("# EXP-481 decision context\n\nThe following is the complete machine design. "
+    experiment_id = plan.get("experiment_id", "EXP-481")
+    experiment_paths(experiment_id)
+    return (f"# {experiment_id} decision context\n\nThe following is the complete machine design. "
         "The source/test inventory is verified locally, not inspected by the reviewer.\n\n"
         f"Source/design inventory SHA-256: `{inventory_sha256}`\n\n```json\n"
         +json.dumps(plan, sort_keys=True, indent=2, allow_nan=False)+"\n```\n")
 
 
-def verify_reviewed_release(root, release_path, freeze_commit, remote_ref, *, required_source_paths, plan_path):
+def verify_reviewed_release(root, release_path, freeze_commit, remote_ref, *, required_source_paths, plan_path,
+                            experiment_id="EXP-481"):
     """Compose source and review checks; runtime handshake/one-shot gate is separate.
 
     The production caller fixes the complete closure and plan role in source;
     never obtain those roles from the release being validated. This read-only
-    check does not claim the as-yet-unimplemented launch gate has passed.
+    check does not claim the separate runtime authorization has passed.
     """
+    experiment_paths(experiment_id)
     source = verify_pushed_source(root, freeze_commit, remote_ref)
     raw = committed_file(root, freeze_commit, release_path)
     if read_bound(root, dict(path=release_path, bytes=len(raw), sha256=digest(raw))) != raw:
         raise ValueError("release differs from pushed Git object")
     release = json.loads(raw)
     if (release.get("schema") != "butterfly.paired-reviewed-release.v1"
-            or release.get("experiment_id") != "EXP-481" or release.get("approved_for_execution") is not True
+            or release.get("experiment_id") != experiment_id or release.get("approved_for_execution") is not True
             or release["plan"]["path"] != plan_path):
         raise ValueError("exact approved paired release and fixed plan role required")
     code_commit = hex_value(release["code_freeze_commit"], 40)
@@ -296,6 +313,9 @@ def verify_reviewed_release(root, release_path, freeze_commit, remote_ref, *, re
         if committed_file(root, freeze_commit, row["path"]) != read_bound(root, row):
             raise ValueError("review/release role differs from pushed bytes")
     old_plan = json.loads(committed_file(root, reviewed_commit, plan_path))
+    final_plan = json.loads(read_bound(root, release["plan"]))
+    if any(p.get("experiment_id", experiment_id) != experiment_id for p in (old_plan, final_plan)):
+        raise ValueError("reviewed/final design cannot be relabeled as another experiment")
     expected_context = decision_context(old_plan, digest(canonical(before)))
     if read_bound(root, artifacts["contexts"][0]).decode() != expected_context:
         raise ValueError("review packet does not contain the exact committed design/inventory")

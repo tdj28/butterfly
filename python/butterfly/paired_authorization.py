@@ -23,7 +23,7 @@ HANDSHAKE_SECONDS = 10.
 STAGES = ("qualification", "collection", "analysis")
 # Independent anchor in frozen worker source, not chosen by the received JSON.
 # The controller computes runtime hashes dynamically, so this is not a cycle.
-CONTROLLER_SOURCE_SHA256 = "0ec482d73867e91c314e2c3ef9318c64a88300bda164967ffd755ce22f8b42ac"
+CONTROLLER_SOURCE_SHA256 = "2641f321defa5034a6789502684b21f7b45dcbce97e7e22f4055c6bc7c6d20ea"
 
 
 def canonical(value):
