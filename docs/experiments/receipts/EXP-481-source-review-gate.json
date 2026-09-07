@@ -1,0 +1,253 @@
+{
+  "experiment_id": "EXP-481",
+  "kind": "source-review-gate-component-qualification",
+  "local_source_run": "artifacts/EXP-481/release-source-01",
+  "source_receipt_bytes": 8985,
+  "source_receipt_sha256": "170062f7bd14cf642eec5dba307253e3ea35143106af3d3274a6545300c1c783",
+  "actual_source_preflight": {
+    "observed_at_utc": "2026-09-07T10:14:59.763066+00:00",
+    "scope": "live pushed source/test closure only; no review approval, input audit or runtime authorization",
+    "source": {
+      "commit": "9f942987f04369e1577094b19db0592e8e7d5cbc",
+      "live_remote_matches": true,
+      "remote": "git@github.com:tdj28/butterfly.git",
+      "remote_ref": "refs/heads/codex/exp481-release-gate"
+    },
+    "source_files": {
+      "pyproject.toml": {
+        "bytes": 626,
+        "sha256": "8d69b0cde60eff5aff790d2e7d11b475b50bde373b6d4b91a288dc5e28de950a"
+      },
+      "python/butterfly/_paired_startup.py": {
+        "bytes": 10038,
+        "sha256": "f75718cd86533eca5f97e671ca51f78fb62126490f4baf39f8ff4ada5cc33351"
+      },
+      "python/butterfly/_process_guard.py": {
+        "bytes": 1538,
+        "sha256": "1d03db9d9c4e200e949a308227386024c436e15fdcf49b7032359a33840c9c4b"
+      },
+      "python/butterfly/integrate.py": {
+        "bytes": 2087,
+        "sha256": "727e47f575fe330e668ea3ef408c8f76f3c6698d0ec4e935652c7a1fc5326433"
+      },
+      "python/butterfly/models.py": {
+        "bytes": 3183,
+        "sha256": "5b6a6842a9f0fc4d6073f017911f1042ce3fe11dd316b8ac4064cf4734b1fb21"
+      },
+      "python/butterfly/paired_adaptive.py": {
+        "bytes": 15384,
+        "sha256": "4ab0974f57da6e8eb5ff939309813a61169eef85efc2e065cf24f98194a36796"
+      },
+      "python/butterfly/paired_adaptive_journal.py": {
+        "bytes": 14808,
+        "sha256": "1a54c35db2449028e2bdab9ac905fb50ca906aad1bcf83e5ec3e0bce0abd722f"
+      },
+      "python/butterfly/paired_campaign.py": {
+        "bytes": 11306,
+        "sha256": "44d8d624d02ff40ee9c1a9bc8ce06d202335994863e24981d64b05fde8df2ae8"
+      },
+      "python/butterfly/paired_decisions.py": {
+        "bytes": 10394,
+        "sha256": "8587bc41c627f8a542d982d69d250b47db4b0a08c1cebda97e510316a111f65f"
+      },
+      "python/butterfly/paired_input_io.py": {
+        "bytes": 1965,
+        "sha256": "788d92f82b5865d0ed404e138b42ae4c43da2e1bfdf0e129ebefae918de17356"
+      },
+      "python/butterfly/paired_input_package.py": {
+        "bytes": 4748,
+        "sha256": "124dd41b1e20e89fb76fa7f0a04bdf92d23fcd0beec1abf8d0f44dc26d55055a"
+      },
+      "python/butterfly/paired_inputs.py": {
+        "bytes": 7547,
+        "sha256": "3d9ee239a877806fec508b890c39cd2e8d9604de3b05fea9dd7fcc3e354f6699"
+      },
+      "python/butterfly/paired_journal.py": {
+        "bytes": 20920,
+        "sha256": "187ce01c4b94f447184afda2355a88b627ead8e6a99c6beda687a7d3b107e951"
+      },
+      "python/butterfly/paired_phase_control.py": {
+        "bytes": 4337,
+        "sha256": "c78a2105e679a1ec3d90bf8346a58c3d3877349d234ba0fc6c9a0d4c11d8273d"
+      },
+      "python/butterfly/paired_phases.py": {
+        "bytes": 20694,
+        "sha256": "756c7ebbebfb5e50ff9c86996fbb50a8ecf72b340b18eecf3388dded3d45ca48"
+      },
+      "python/butterfly/paired_release.py": {
+        "bytes": 18548,
+        "sha256": "e22924a054940536b6a8fadf311508455092f282fac1608fbe0b20e0e8384a2d"
+      },
+      "python/butterfly/paired_replay.py": {
+        "bytes": 13455,
+        "sha256": "4e4f87d58b9b71d4982a837b511e38328350cd8b18873f6c9f6217380f3b36fd"
+      },
+      "python/butterfly/paired_sampling.py": {
+        "bytes": 8800,
+        "sha256": "9b17146663bfa340b662f049baf2fdadfff564290686883d3b89673ee7a3c08d"
+      },
+      "python/butterfly/paired_sections.py": {
+        "bytes": 16908,
+        "sha256": "688257ecc66190032c07d4f6f2b979cb836365a3212c363b0d97f4bdeeead9b7"
+      },
+      "python/butterfly/paired_supervisor.py": {
+        "bytes": 10307,
+        "sha256": "b659829dba997003417bbabbae5fc17f655aa8bf9efd4a98cf5bf990e1fa617b"
+      },
+      "python/butterfly/poincare.py": {
+        "bytes": 6355,
+        "sha256": "b3dde788a7d7b02766682abe2d007d2d9baab6a44a471aaddd44bd35544a298c"
+      },
+      "python/butterfly/saddle.py": {
+        "bytes": 40485,
+        "sha256": "98712fee12a5df17bad81ff2bbd42af627c06bcbef8ec8b387a20b80c9561a07"
+      },
+      "python/butterfly/seed_return_map.py": {
+        "bytes": 11866,
+        "sha256": "6c6825282f5a290e8816ef8d38856978dfe1386b3d14961c2337446414e78715"
+      },
+      "runtime/paired/butterfly/__init__.py": {
+        "bytes": 216,
+        "sha256": "f28f62edd303118d47644c85cd00857cd06ce8303eba217410d342c75ab5e3e2"
+      },
+      "scripts/build_paired_inputs.py": {
+        "bytes": 614,
+        "sha256": "7be9ed543b2e4b154071c4685c8705175dfd91f4a73a37f8d3192c897e9aa3c1"
+      },
+      "scripts/build_paired_runtime.py": {
+        "bytes": 4019,
+        "sha256": "2c7045814a927d74dc850a2f9023afcd2ae462207e50d5d77066471f1e376597"
+      },
+      "scripts/check_paired_release.py": {
+        "bytes": 4341,
+        "sha256": "c5615ab3fbcbe2d7b195a2551a0edec8edbe6a5a3d1d8d5b9361a8c5719367f5"
+      },
+      "scripts/paired_worker.py": {
+        "bytes": 7931,
+        "sha256": "6e2f7c95017bded4a565d028674d93f31f2af43c7e790f851b4f4302fd4ad22e"
+      },
+      "scripts/qualify_paired_adaptive.py": {
+        "bytes": 5314,
+        "sha256": "a1582fe4916f627aab64a277d896669dac38b2da03f200d15c05697469389a39"
+      },
+      "scripts/qualify_paired_input_dispatch.py": {
+        "bytes": 5459,
+        "sha256": "3ab57e8d783e90add2034efeb443cc99b42803277832789aa9500e7b12a91fe0"
+      },
+      "scripts/qualify_paired_phases.py": {
+        "bytes": 6356,
+        "sha256": "68cb44b072a6a131c953b51f19a59c17806ab8e6dcdb3a276003ec56bcfec672"
+      },
+      "scripts/qualify_paired_runtime.py": {
+        "bytes": 8357,
+        "sha256": "29a8bdff7d3d95fae628fd77990562836c667628c8f3bd1fe643d5c04f634f56"
+      },
+      "scripts/qualify_paired_sampling.py": {
+        "bytes": 6488,
+        "sha256": "f496b9eb8a66902f44bf69ebfc72e0bc964fea1e108372fb7830fca2502956a7"
+      },
+      "scripts/qualify_paired_startup.py": {
+        "bytes": 6131,
+        "sha256": "eb510e0da5b5a23646cc15a1e35f1ae40a65d1ad913e66ef45234ccd0f151345"
+      },
+      "tests/test_models.py": {
+        "bytes": 2066,
+        "sha256": "3f940831b720eb0683dda1924df4a059e06b4fda6f29669edaec82ff05b275ab"
+      },
+      "tests/test_paired_adaptive.py": {
+        "bytes": 6938,
+        "sha256": "8db5f5c364a7a07c73775566ab5e06d4335fab79af0b6bba0b87b37de83408c1"
+      },
+      "tests/test_paired_adaptive_journal.py": {
+        "bytes": 7244,
+        "sha256": "d18acc276eb2e5b1fed936ebef27560b1c210a40ccbc7619ccd6930bfb6ff311"
+      },
+      "tests/test_paired_campaign.py": {
+        "bytes": 7866,
+        "sha256": "3c716d445c038a1e7adcea85afdcb0c954d52472cc3db8cf3da9fd79dbb956ec"
+      },
+      "tests/test_paired_capture_inputs.py": {
+        "bytes": 3062,
+        "sha256": "9ea21da9afeac436bc86d2046fe759dbf9103b7d7f3a3774b254e5dc167104e0"
+      },
+      "tests/test_paired_decisions.py": {
+        "bytes": 7122,
+        "sha256": "3bd1f40e43574ddc446a0ddf98276a11fb95ca3a8757f943755a1f3c0a2dee2b"
+      },
+      "tests/test_paired_input_package.py": {
+        "bytes": 8440,
+        "sha256": "e336d4f73d37715e98b21e4c0d33da9777d921ae44a535eefb9d90bebff6d0fa"
+      },
+      "tests/test_paired_journal.py": {
+        "bytes": 8880,
+        "sha256": "15ad0af20382981d010e18f1082515f4e4ab5100a3a277af70165996235ffeef"
+      },
+      "tests/test_paired_phases.py": {
+        "bytes": 10338,
+        "sha256": "205004155a40b2a84b4bad86a346bff6f3a66d1053348b85af43eb0a33cb32c9"
+      },
+      "tests/test_paired_release.py": {
+        "bytes": 17734,
+        "sha256": "29c344c62bd0e5a5d400eeca7c789bb1645551878eac2585deebab6014914bdc"
+      },
+      "tests/test_paired_replay.py": {
+        "bytes": 8591,
+        "sha256": "587a2b22d4f10a3f7a9f778de938dba07d7109a8e1ea08ecd02d6f771d03a5a2"
+      },
+      "tests/test_paired_sampling.py": {
+        "bytes": 5352,
+        "sha256": "e53894235f5847d3bca47a3e4e0ab91d920160f902de054528305675567c32ef"
+      },
+      "tests/test_paired_sampling_plan.py": {
+        "bytes": 1570,
+        "sha256": "4233846b2e5301cb9d9df81b2ef3c41bbfc217b582aaff7fc13298a78b6c22c7"
+      },
+      "tests/test_paired_sampling_preflight.py": {
+        "bytes": 1341,
+        "sha256": "8e98eaa931b9de5302ae943b1a5b710798cdbb37838787b4679c3819965b6394"
+      },
+      "tests/test_paired_sections.py": {
+        "bytes": 10724,
+        "sha256": "1df4a323a26470b7b4662ee9e74f410a5d5e3842289ed17a65c899c8939b3a07"
+      },
+      "tests/test_paired_startup.py": {
+        "bytes": 8443,
+        "sha256": "574f95d159e2c5a9a2d48c3304de8ef39e1cff3df49fd4eb5e37b63ee5e40dd8"
+      },
+      "tests/test_paired_supervisor.py": {
+        "bytes": 6362,
+        "sha256": "dc50e8c6de70b563916351a25940f41b65406cfddf63976b99adebb39fb43ad9"
+      },
+      "tests/test_poincare.py": {
+        "bytes": 3459,
+        "sha256": "38aad9ac01f780e7fda6a27b2eb00728d25d8951d7d69a52f179eecd3fb84029"
+      },
+      "tests/test_seed_return_map.py": {
+        "bytes": 4066,
+        "sha256": "ea8f3e99a094187b952d6dcb38e13cad3425930ddf8eaf6ef6ebe4d2b2a0db5b"
+      },
+      "tools/review_experiment_plan.py": {
+        "bytes": 73728,
+        "sha256": "7ebe3185868e0f4ebe07c162a95c7c2195669e02ce5dde088aad0456859b6dff"
+      },
+      "uv.lock": {
+        "bytes": 122068,
+        "sha256": "a1118c46febbce18e7172acfeaa804909792185d3c48fae258044b82e145eeff"
+      }
+    },
+    "source_inventory_sha256": "243af20e5ff755d0f56cf319f375f09e3aa46d127219c64ce47a24b435687efa",
+    "status": "source-preflight-passed",
+    "target_execution_authorized": false
+  },
+  "tests": {
+    "local_passed": 1658,
+    "local_skipped": 1,
+    "new_gate_tests": 56,
+    "skip_reason": "older production process identity/group check requires Linux /proc"
+  },
+  "review_controls": "Synthetic provider responses only; canonical offline validator with network disabled; no new real advisory response.",
+  "canonical_helper_sha256": "7ebe3185868e0f4ebe07c162a95c7c2195669e02ce5dde088aad0456859b6dff",
+  "target_trajectories_generated": 0,
+  "target_execution_authorized": false,
+  "scope": "Source/review prerequisite only. Runtime/input handshake, source-bound qualification receipts and one-shot worker issuance remain required."
+}

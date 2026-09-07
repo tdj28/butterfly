@@ -70,6 +70,16 @@ change, wrong packet commit, malformed verdicts and incomplete dispositions.
 All recalculated local self-hashes are kept consistent in the semantic-tampering
 controls so a broken checksum is not the reason those cases fail.
 
+The actual source-preflight command also passed under `-I -S -B -X utf8`
+against pushed implementation commit `9f942987f04369e1577094b19db0592e8e7d5cbc`.
+It observed the matching live task-branch ref and checked 55 source/test files.
+The [public receipt](../experiments/receipts/EXP-481-source-review-gate.json)
+includes that complete observed source inventory. The local receipt is preserved
+at `artifacts/EXP-481/release-source-01/receipt.json`: 8,985 bytes, SHA-256
+`170062f7bd14cf642eec5dba307253e3ea35143106af3d3274a6545300c1c783`.
+This was a source-only check, not a real reviewed-release approval. No source
+file changed when this evidence was added afterward.
+
 The checks assume trusted host Git/SSH, filesystem and preservation of the
 provider response. Saved metadata is not a provider digital signature or proof
 that no other review was requested. The reviewer sees the compact packet, not
