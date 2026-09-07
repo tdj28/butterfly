@@ -51,10 +51,19 @@ at a reconstructed cost of **$0.5888**. Its exact promoted bundle passes the
 canonical offline validator. The two blockers ask for workload/headroom
 estimates and full positive-turn/adverse-path controls; three important findings
 clarify reference conditioning, legacy-input dependencies and outcome reporting.
-The [adjudication in progress](../reviews/EXP-481-adjudication.md) records the
-accepted fixes and frozen synthetic benchmark. No second paid review is needed
-for these finding-mapped repairs. Target execution remains unapproved until
-the blocking evidence passes.
+The [completed adjudication](../reviews/EXP-481-adjudication.md) records the
+accepted fixes and frozen synthetic benchmark. No second paid review was made.
+Both blocking evidence gates now pass; the final source qualification passed
+**381 tests with no skips** and all three analytic phases. The benchmark's
+doubled estimates fit the unchanged limits, with collection estimated at
+5,647 seconds against its 14,400-second bound. This is a workload extrapolation,
+not a promise about actual target completion time.
+
+The [machine release](../../experiments/manifests/EXP-481-reviewed-release.json)
+binds the complete reviewed and final inventories, exact response, every
+finding/change mapping and final code freeze
+`68585e2bf853fcd2778b6efdf4b2e652bb6749db`. It must pass the actual pushed-release
+gate and fresh production setup before the single target attempt can begin.
 
 ## Scientific boundary
 
@@ -65,6 +74,6 @@ would not yet verify Jones's alphabet, chain arrows, exact criticality or
 homoclinic assertion. The separate legacy stationary-inflection impact audit
 also remains open; no old claim is cleared by the new analyzer's controls.
 
-Next: adjudicate the actual review, qualify any accepted scientific fixes,
-publish the exact release, and execute the bounded experiment without another
-routine permission request.
+Next: publish and verify the exact release, then execute the bounded experiment
+without another routine permission request. Preserve this execution branch
+until its ancestry-dependent release checks and campaign are complete.

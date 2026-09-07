@@ -1,4 +1,4 @@
-# EXP-481 review adjudication — implementation in progress
+# EXP-481 review adjudication
 
 The preserved Pro review returned **READY AFTER SPECIFIED FIXES**, not an
 unconditional approval. Its exact promoted bundle passes the canonical offline
@@ -7,8 +7,9 @@ output was 7,378 tokens despite the 6,000 requested limit, within the reserved
 12,000 output-work allowance. This is a correlated advisory review, not an
 independent source audit or scientific validation.
 
-No target execution is approved yet. The structured adjudication and reviewed
-release will be written only after the blocking evidence below passes.
+All five findings are now locally resolved before target outcomes. The
+structured adjudication approves the finding-mapped final release; the actual
+controller must still verify the pushed release, fresh setup and unused attempt.
 
 | Finding | Decision and specific implementation |
 | --- | --- |
@@ -110,3 +111,35 @@ thresholds are q90 <=.08, unsupported fraction <=.05, coverage >=.7; include
 **observed** values and covered domain with any positive summary. No familywise
 confidence statement or inference across unsupported gaps. Mixed cases stay
 separate; neither diagnostic coordinates nor the better case rescue the other.
+
+## Completed qualification
+
+At pushed code freeze `68585e2bf853fcd2778b6efdf4b2e652bb6749db`, the fixed
+benchmark completed with verified process cleanup in 7.044 seconds. Its worker
+receipt is 21,367 bytes, SHA-256
+`d6cc4641dd10b9f191848b645e127e559f35a13a62b50b1d06e9d30d124301e8`.
+Both full-population positive cases and the adverse fixture passed their exact
+expectations. This qualifies the declared control paths, not actual target
+retention, precision or runtime.
+
+| Doubled, reserve-inclusive estimate | Estimated | Existing limit |
+| --- | ---: | ---: |
+| Qualification | 59.82 s | 1,800 s |
+| Collection | 5,647.04 s | 14,400 s |
+| Analysis including replay | 502.18 s | 7,200 s |
+| Evidence storage | 1,563,917,120 bytes | 8,589,934,592 bytes |
+| Peak memory | 558,923,776 bytes | 2,147,483,648 bytes |
+
+The unchanged limits have headroom under this synthetic extrapolation. No
+resource or sample-size amendment was needed. Both raw measurements and the
+conservative formulas are retained; none is a runtime guarantee.
+
+The final source-bound production control also passed at the same freeze:
+**381 tests, zero skips**, both raw reference audits, all 640 configurations
+and all three analytic phases. Its complete 364-file source closure matches
+the reviewed inventory except for the four explicitly mapped source/test
+repairs. The [public evidence summary](../experiments/receipts/EXP-481-review-fixes.json)
+binds the actual source qualification and benchmark receipts. The first focused
+test run was denied `/bin/ps` by the sandbox; the preserved incomplete receipt
+is not a scientific failure. The actual OS-enabled run passed all 86 focused
+tests. No research trajectory or target attempt was used for these checks.

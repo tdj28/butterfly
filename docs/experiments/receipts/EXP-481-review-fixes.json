@@ -1,0 +1,106 @@
+{
+  "analytic_campaign": {
+    "bytes": 102976,
+    "path": "artifacts/EXP-481/review-fixes-source-control-01/campaign/receipt.json",
+    "sha256": "d96e0964e657c95f0c7b4088d98ba175139f7ea4392cca2669079c2fca2d6007"
+  },
+  "benchmark": {
+    "analysis_seconds": 2.8753882916644216,
+    "collection": [
+      {
+        "batch_seeds": 64,
+        "bytes": 61674,
+        "dt": 0.01,
+        "elapsed_seconds": 0.24788087513297796,
+        "event_counts": {
+          "barrio-positive": 640,
+          "historical-negative": 576
+        },
+        "horizon": 20.0,
+        "records": 2,
+        "replay_seconds": 0.016923166811466217
+      },
+      {
+        "batch_seeds": 64,
+        "bytes": 92085,
+        "dt": 0.005,
+        "elapsed_seconds": 0.48741037491708994,
+        "event_counts": {
+          "barrio-positive": 640,
+          "historical-negative": 576
+        },
+        "horizon": 20.0,
+        "records": 4,
+        "replay_seconds": 0.029745458625257015
+      }
+    ],
+    "elapsed_seconds": 6.5095433332026005,
+    "estimates": {
+      "analysis_seconds": 502.1844579372555,
+      "collection_bytes": 1563917120.0,
+      "collection_seconds": 5647.0368003845215,
+      "peak_rss_bytes": 558923776,
+      "qualification_seconds": 59.816081285476685
+    },
+    "fits_phase_limits": true,
+    "headroom_factor": 2,
+    "kind": "EXP-481-review-benchmark",
+    "limits": {
+      "analysis_seconds": 7200,
+      "collection_bytes": 8589934592,
+      "collection_seconds": 14400,
+      "peak_rss_bytes": 2147483648,
+      "qualification_seconds": 1800
+    },
+    "measured_peak_rss_bytes": 145244160,
+    "positive_and_adverse_expectations_passed": true,
+    "qualification_seconds": 1.8692525401711464,
+    "scope": "synthetic workload extrapolation; no target runtime, memory or retention guarantee",
+    "target_execution_authorized": false,
+    "target_trajectories_generated": 0,
+    "total_phase_seconds": 23400
+  },
+  "benchmark_receipt": {
+    "bytes": 21367,
+    "path": "artifacts/EXP-481/review-benchmark-01/worker/receipt.json",
+    "sha256": "d6cc4641dd10b9f191848b645e127e559f35a13a62b50b1d06e9d30d124301e8"
+  },
+  "benchmark_supervisor": {
+    "automatic_retry": false,
+    "binding": {
+      "kind": "review-B01-B02-synthetic-benchmark",
+      "source_commit": "68585e2bf853fcd2778b6efdf4b2e652bb6749db"
+    },
+    "elapsed_seconds": 7.044390957802534,
+    "maximum_sampled_disk_bytes": 2714141,
+    "maximum_sampled_rss_bytes": 145211392,
+    "owned_group_cleanup_verified": true,
+    "reason": null,
+    "returncode": 0,
+    "samples": 26,
+    "scientific_qualification": false,
+    "status": "completed"
+  },
+  "experiment_id": "EXP-481",
+  "historical_symbols_verified": false,
+  "kind": "post-review-source-and-synthetic-qualification",
+  "source_bound_tests": {
+    "passed": 381,
+    "skipped": 0,
+    "stdout": {
+      "bytes": 511,
+      "path": "artifacts/EXP-481/review-fixes-source-control-01/preflight/tests/stdout.log",
+      "sha256": "8d88fa4605b154133657d6aa584af194081cd779a9e1b724cb72f374850be061"
+    }
+  },
+  "source_commit": "68585e2bf853fcd2778b6efdf4b2e652bb6749db",
+  "source_file_count": 364,
+  "source_inventory_sha256": "366bcfb2ee385af4efa4f5e5b5aa647bb802ff63ffa0b0002ddafe43d68df89e",
+  "source_preflight": {
+    "bytes": 10893,
+    "path": "artifacts/EXP-481/review-fixes-source-control-01/preflight/receipt.json",
+    "sha256": "28c03f8b2c04d24732801ed7d911c4918f4966a4f3f2b882707f384cca901d0b"
+  },
+  "target_slot_consumed": false,
+  "target_trajectories_generated": 0
+}
