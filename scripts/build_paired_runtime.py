@@ -16,7 +16,8 @@ import sysconfig
 ROOT = Path(__file__).resolve().parents[1]
 MODULES = ("_process_guard", "models", "integrate", "poincare", "saddle", "paired_sections",
     "paired_journal", "paired_sampling", "seed_return_map", "paired_replay", "paired_decisions",
-    "paired_campaign", "paired_adaptive", "paired_adaptive_journal", "paired_supervisor")
+    "paired_campaign", "paired_adaptive", "paired_adaptive_journal", "paired_supervisor",
+    "_paired_startup", "paired_input_io", "paired_inputs", "paired_input_package")
 SOURCE_MAP = {"worker.py": "scripts/paired_worker.py", "startup.py": "python/butterfly/_paired_startup.py",
     "python/butterfly/__init__.py": "runtime/paired/butterfly/__init__.py",
     **{f"python/butterfly/{name}.py": f"python/butterfly/{name}.py" for name in MODULES}}

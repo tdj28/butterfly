@@ -2,6 +2,7 @@
 
 | Change | Status | Evidence | Limit |
 |---|---|---|---|
+| EXP-481 isolated input consumer (2026-09-07) | Six actual input-consumer controls and nine startup controls passed | [Input-audit update and hashes](../updates/2026-09-07-exp481-sealed-input-audit.md); 25 new tests | Same preserved reference audit, not new numerical evidence. No target execution authority, provider mutation or public raw-data release. |
 | EXP-481 sealed worker startup (2026-09-07) | Nine actual isolated startup/failure controls passed | [Startup update and hashes](../updates/2026-09-07-exp481-sealed-startup.md); 28 new tests | Startup-only, not reviewed target dispatch. Source/scientific-package integrity checks are not OS confinement or native system-library attestation. No target trajectories. |
 | EXP-481 adaptive durability and supervision (2026-09-06) | Synthetic component CLI and real process-loss controls passed | [Runtime update and hashes](../updates/2026-09-06-exp481-durable-supervisor.md); 25 new tests | Full production authorization/environment/import closure is not qualified. RSS/disk bounds are sampled thresholds, not hard kernel quotas. No target computation or provider mutation. |
 | EXP-481 adaptive and capture-input checks (2026-09-06) | Synthetic numerical control and read-only old-input audit passed | [Update and hashes](../updates/2026-09-06-exp481-adaptive-qualification.md); 30 new tests; 24 pairwise comparisons | No new Rössler trajectory. Adaptive callback durability and full production supervisor/preflight still need end-to-end qualification. |
