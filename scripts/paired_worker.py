@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--contract-sha256", required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--mode", choices=("startup", "audit-inputs", "design-preflight", "synthetic-phase", "execute"), default="startup")
+    parser.add_argument("--mode", choices=("startup", "audit-inputs", "design-preflight", "synthetic-phase", "authorized-phase", "execute"), default="startup")
     parser.add_argument("--input-root", type=Path)
     parser.add_argument("--input-contract-sha256")
     parser.add_argument("--phase", choices=("qualification", "collection", "analysis"))
@@ -22,6 +22,8 @@ def main():
     parser.add_argument("--previous-sha256")
     parser.add_argument("--source-commit")
     parser.add_argument("--plan-sha256")
+    parser.add_argument("--grant-fd", type=int)
+    parser.add_argument("--grant-sha256")
     args = parser.parse_args()
     if args.mode in ("audit-inputs", "design-preflight"):
         if args.input_root is None or args.input_contract_sha256 is None:
@@ -33,6 +35,13 @@ def main():
             parser.error("design-preflight requires external source and plan bindings")
     elif args.source_commit is not None or args.plan_sha256 is not None:
         parser.error("design bindings are only valid for design-preflight")
+    if args.mode == "authorized-phase":
+        if args.phase is None or args.grant_fd is None or args.grant_sha256 is None:
+            parser.error("authorized-phase requires the actual parent channel, digest and phase")
+        if args.previous_root is not None or args.previous_sha256 is not None:
+            parser.error("authorized predecessors come only from the actual parent grant")
+    elif args.grant_fd is not None or args.grant_sha256 is not None:
+        parser.error("grant arguments require authorized-phase")
     if args.mode == "synthetic-phase":
         if args.phase is None:
             parser.error("synthetic-phase requires the fixed phase name")
@@ -40,7 +49,7 @@ def main():
             parser.error("collection/analysis require an external preceding phase digest")
         if args.phase == "qualification" and (args.previous_root is not None or args.previous_sha256 is not None):
             parser.error("qualification has no preceding numerical phase")
-    elif args.phase is not None or args.previous_root is not None or args.previous_sha256 is not None:
+    elif args.mode != "authorized-phase" and (args.phase is not None or args.previous_root is not None or args.previous_sha256 is not None):
         parser.error("phase arguments are only valid for synthetic-phase")
     root = Path(__file__).resolve().parent
     startup = runpy.run_path(str(root/"startup.py"))
@@ -50,11 +59,23 @@ def main():
     guard_path = startup["safe_file"](root, "python/butterfly/_process_guard.py")
     if startup["sha256"](guard_path) != contract["source_files"]["python/butterfly/_process_guard.py"]["sha256"]:
         raise ValueError("startup guard differs from contract")
-    guard = runpy.run_path(str(guard_path))["install_parent_guard"](contract["startup_guard_seconds"])
     output = args.output_dir.resolve(strict=True)
     if output == root or output.is_relative_to(root):
         raise ValueError("evidence must be outside immutable runtime bundle")
+    target_phase_started, target_count = False, 0
     try:
+        grant = None
+        guard_seconds = contract["startup_guard_seconds"]
+        if args.mode == "authorized-phase":
+            auth_path = startup["safe_file"](root, "python/butterfly/paired_authorization.py")
+            if startup["sha256"](auth_path) != contract["source_files"]["python/butterfly/paired_authorization.py"]["sha256"]:
+                raise ValueError("authorization bootstrap differs from bound source")
+            auth = runpy.run_path(str(auth_path))
+            grant = auth["consume"](args.grant_fd, args.grant_sha256, contract, args.contract_sha256, args.phase)
+            guard_seconds = auth["validate_grant"](grant, args.phase, args.contract_sha256)
+        # The bounded stdlib parent handshake precedes this; all scientific
+        # imports and dependency verification follow the actual phase deadline.
+        guard = runpy.run_path(str(guard_path))["install_parent_guard"](guard_seconds)
         startup["validate_environment"](contract)
         startup["verify_runtime"](root, contract)
         finder = startup["install_import_gate"](root, contract)
@@ -79,6 +100,54 @@ def main():
             "numpy": numpy.__version__, "scipy": scipy.__version__, "loaded_modules": loaded,
             "seed_commitment": seed_hash, "target_trajectories_generated": 0,
             "target_execution_authorized": False, "scope": "sealed import and setup handshake only"})
+        if args.mode == "authorized-phase":
+            from dataclasses import asdict
+            from butterfly.paired_phases import from_reference_audit, phase_limits, run_phase
+            if grant["kind"] == "target":
+                inputs = Path(grant["input_root"]).resolve(strict=True)
+                if output == inputs or output.is_relative_to(inputs) or inputs.is_relative_to(output):
+                    raise ValueError("target inputs and evidence must be disjoint")
+                plan = paired_input_package.load_package(inputs, grant["input_contract_sha256"])
+                if startup["sha256"](inputs/"plan.json") != grant["plan_sha256"]:
+                    raise ValueError("authorized input plan hash differs")
+                audit = paired_inputs.load_references(plan, inputs)
+                design, fields = from_reference_audit(plan, audit, source_commit=grant["source_commit"],
+                    plan_sha256=grant["plan_sha256"])
+            else:
+                from butterfly.paired_phase_control import make_control
+                design, fields = make_control()
+            if (design.identity() != grant["design_sha256"] or design.plan_sha256 != grant["plan_sha256"]
+                    or design.source_commit != grant["source_commit"]
+                    or asdict(phase_limits(design.plan, args.phase)) != grant["limits"]):
+                raise ValueError("authorized phase differs from independently reconstructed design")
+            previous = grant["previous"]
+            if previous is not None:
+                prior = Path(previous["root"]).resolve(strict=True)
+                if prior == output or prior.is_relative_to(output) or output.is_relative_to(prior):
+                    raise ValueError("authorized predecessor and current evidence must be disjoint")
+            startup["write_json"](output/"authorization.json", dict(grant=grant,
+                grant_sha256=args.grant_sha256, actual_parent_verified=True,
+                guard_alive=guard.is_alive(), guard_deadline_monotonic=grant["deadline_monotonic"],
+                scientific_imports_before_guard=False))
+            target_phase_started = grant["kind"] == "target"
+            target_count = None if target_phase_started and args.phase != "analysis" else 0
+            receipt = run_phase(design, args.phase, output/"phase",
+                fields=None if args.phase == "analysis" else fields,
+                previous_directory=None if previous is None else previous["root"],
+                previous_receipt=None if previous is None else previous["receipt"])
+            if grant["kind"] == "target" and paired_input_package.load_package(inputs, grant["input_contract_sha256"]) != plan:
+                raise ValueError("target input package changed during phase")
+            startup["validate_environment"](contract)
+            startup["verify_runtime"](root, contract)
+            imported = finder.check_loaded()
+            if not guard.is_alive():
+                raise ValueError("parent/deadline guard stopped during authorized phase")
+            startup["write_json"](output/"phase-witness.json", dict(status="completed", phase=args.phase,
+                kind=grant["kind"], grant_sha256=args.grant_sha256, phase_receipt=receipt,
+                runtime_contract_sha256=args.contract_sha256, loaded_modules=imported,
+                target_execution_authorized=grant["kind"] == "target", target_phase_started=target_phase_started,
+                target_trajectories_generated=target_count,
+                trajectory_count_scope="see complete trial journals; null never means zero"))
         if args.mode == "execute":
             raise ValueError("review-bound production phase dispatch is not implemented; target execution refused")
         if args.mode == "synthetic-phase":
@@ -142,7 +211,8 @@ def main():
         return 0
     except (Exception, KeyboardInterrupt) as error:
         startup["write_json"](output/"failure.json", {"status": "failed", "type": type(error).__name__,
-            "message": str(error), "contract_sha256": args.contract_sha256, "target_trajectories_generated": 0})
+            "message": str(error), "contract_sha256": args.contract_sha256,
+            "target_phase_started": target_phase_started, "target_trajectories_generated": target_count})
         raise
 
 

@@ -71,7 +71,8 @@ def _group_rows(rows, pid):
     return [r for r in rows.values() if r["group"] == pid]
 
 
-def supervise(argv, *, cwd, evidence_directory, state_directory, environment, binding, limits):
+def supervise(argv, *, cwd, evidence_directory, state_directory, environment, binding, limits,
+              pass_fds=(), on_spawn=None):
     """Run one explicit local child; append logs, preserve every failure.
 
     RSS and disk are sampled stop thresholds, not kernel-enforced peak quotas.
@@ -81,6 +82,9 @@ def supervise(argv, *, cwd, evidence_directory, state_directory, environment, bi
     members are cleaned up before reaping the reserved session leader.
     """
     limits.validate()
+    if (not isinstance(pass_fds, tuple) or any(type(fd) is not int or fd < 3 for fd in pass_fds)
+            or len(set(pass_fds)) != len(pass_fds) or (on_spawn is not None and not callable(on_spawn))):
+        raise ValueError("explicit distinct extra descriptors and optional spawn callback required")
     if os.name != "posix" or signal.getsignal(signal.SIGCHLD) != signal.SIG_DFL:
         raise ValueError("POSIX with normal child reaping required")
     if (not argv or any(type(x) is not str or not x or "\0" in x for x in argv)
@@ -142,9 +146,11 @@ def supervise(argv, *, cwd, evidence_directory, state_directory, environment, bi
             (state_dir/path).chmod(0o600)
         try:
             process = subprocess.Popen(argv, cwd=work, env=environment, stdin=subprocess.PIPE,
-                stdout=stdout, stderr=stderr, start_new_session=True)
+                stdout=stdout, stderr=stderr, start_new_session=True, pass_fds=pass_fds)
             io._json(state_dir/"ownership.json", {"pid": process.pid, "process_group": process.pid,
                 "leader_reaped_only_after_cleanup": True})
+            if on_spawn is not None:
+                on_spawn(process)
             while True:
                 rows = process_table()
                 if process.pid not in rows or rows[process.pid]["group"] != process.pid:

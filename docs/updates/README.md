@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-phase-authorization.md`](2026-09-07-exp481-phase-authorization.md)
+  — real-parent one-use grants, complete three-phase dispatch and fixed target
+  attempt marker; analytic control and failure boundaries pass; review next.
+
 - [`2026-09-07-exp481-production-preflight.md`](2026-09-07-exp481-production-preflight.md)
   — actual source-bound test and isolated full-design setup; unchanged numeric
   design separated from release administration; target authorization remains.

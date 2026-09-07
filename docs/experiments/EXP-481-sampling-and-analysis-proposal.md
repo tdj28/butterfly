@@ -243,6 +243,13 @@ startup controls pass. This read-only result does not authorize a target phase.
 
 Remaining before any target data generation:
 
+The [one-use controller dispatch](../updates/2026-09-07-exp481-phase-authorization.md)
+is now implemented around the existing setup and phases, with actual-parent
+verification and complete predecessor checks. The older component-by-component
+notes below describe why those checks are required. The remaining release gates
+are the source-qualified final command, real review/adjudication and pushed
+executable freeze, not a new numerical implementation.
+
 - The [fixed numerical phases](../updates/2026-09-07-exp481-fixed-phases.md) now
   compose durable qualification, collection, full-grid raw replay and both-case
   analysis. A 24-file isolated runtime executes all three phases on an analytic
