@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-durable-recording.md`](2026-09-06-exp481-durable-recording.md)
+  — write-once paired-section journals, forced process-loss control and
+  outcome-free input preflight; numeric sampling and analysis design next.
+
 - [`2026-09-06-exp481-dual-section-collector.md`](2026-09-06-exp481-dual-section-collector.md)
   — shared-trajectory collector and synthetic controls, including unequal
   section counts and capture/interrupt handling; no new research trajectories.

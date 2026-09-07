@@ -2,8 +2,8 @@
 """Bounded analytic-circle benchmark only: no Rössler target entry point.
 
 Retains both unfiltered section event arrays and capture diagnostics. This is
-engineering qualification, not a prospective EXP-481 numerical plan or a
-durable production collector. Partial process loss still needs a future wrapper.
+engineering qualification, not a prospective EXP-481 numerical plan. Optional
+write-once journaling exercises durable recording on this synthetic field only.
 """
 import argparse
 from dataclasses import asdict
@@ -16,6 +16,7 @@ import time
 import numpy as np
 
 from butterfly.paired_sections import CaptureSection, collect_paired_sections
+from butterfly.paired_journal import record_collection
 from butterfly.poincare import PoincareSection
 
 
@@ -33,7 +34,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--seed-count", type=int, choices=(32, 128, 512), default=128)
+    parser.add_argument("--journal-interval-steps", type=int, default=None)
     args = parser.parse_args()
+    if args.journal_interval_steps is not None and args.journal_interval_steps < 1:
+        parser.error("journal interval must be positive")
     output = args.output_dir
     output.mkdir(parents=True, exist_ok=False)
     initial = np.column_stack((np.linspace(.5, 4.5, args.seed_count), np.zeros((args.seed_count, 2))))
@@ -45,18 +49,26 @@ def main():
               "gate_margin": 1e-4, "angle_margin": 1e-4, "escape_radius": 100.,
               "maximum_events": args.seed_count*32, "maximum_steps": 3000}
     root = Path(__file__).resolve().parents[1]
-    files = [Path(__file__), root / "python/butterfly/paired_sections.py", root / "python/butterfly/saddle.py"]
+    files = [Path(__file__), root / "python/butterfly/paired_sections.py", root / "python/butterfly/saddle.py",
+             root / "python/butterfly/paired_journal.py", root / "python/butterfly/poincare.py"]
     started = {"kind": "analytic-circle-engineering-control", "seed_count": args.seed_count,
         "initial_radii": [.5, 4.5], "profiles": [.02, .01], "config": config,
         "source_sha256": {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         "python": platform.python_version(), "numpy": np.__version__, "platform": platform.platform(),
         "sections": {name: {**asdict(s), "cycle_states": s.cycle_states.tolist()} for name, s in sections.items()},
-        "target_trajectories": 0}
+        "target_trajectories": 0, "journal_interval_steps": args.journal_interval_steps}
     write_json(output / "started.json", started)
     profiles, runs = [], []
     for index, dt in enumerate(started["profiles"]):
         before = time.perf_counter()
-        result = collect_paired_sections(circle, initial, sections, dt=dt, **config)
+        journal_audit = None
+        if args.journal_interval_steps is None:
+            result = collect_paired_sections(circle, initial, sections, dt=dt, **config)
+        else:
+            result, journal_audit = record_collection(circle, initial, np.arange(args.seed_count), sections,
+                {**config, "dt": dt}, directory=output / f"profile-{index}-journal",
+                binding={"kind": started["kind"], "source_sha256": started["source_sha256"]},
+                journal_interval_steps=args.journal_interval_steps)
         elapsed = time.perf_counter()-before
         arrays = {k: getattr(result, k) for k in ("initial_states", "final_states", "failed", "failure_steps",
             "failure_states", "capture_times", "capture_streaks", "ambiguous", "initial_on_plane")}
@@ -76,6 +88,10 @@ def main():
             "passed": result.status == "completed" and not result.failed.any() and not result.ambiguous.any() and error < 1e-5,
             "raw": {"path": raw.name, "bytes": raw.stat().st_size, "sha256": hashlib.sha256(raw.read_bytes()).hexdigest()}}
         record["passed"] = bool(record["passed"])
+        if journal_audit is not None:
+            record["journal"] = journal_audit
+            record["passed"] = (record["passed"] and journal_audit["status"] == "completed"
+                                and journal_audit["event_counts"] == record["events"])
         write_json(output / f"profile-{index}.json", record)
         profiles.append(record)
         runs.append(result)

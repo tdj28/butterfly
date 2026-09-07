@@ -7,8 +7,11 @@ partition or word has been generated for this successor.
 Implementation checkpoint: the separate dual-section in-memory kernel and
 analytic-only benchmark now exist and pass their synthetic controls. See
 [the collector update](../updates/2026-09-06-exp481-dual-section-collector.md).
-Do not rebuild it from scratch. The durable writer, numeric sampling and
-analysis manifest, execution preflight and adjudicated review remain pending.
+Do not rebuild it from scratch. The write-once durable journal and draft-only
+integrity preflight now also pass their outcome-free controls; see
+[the recording update](../updates/2026-09-06-exp481-durable-recording.md).
+The numeric sampling/analysis manifest, target runner and adjudicated review
+remain pending. The draft preflight cannot authorize target execution.
 
 ## Question
 
@@ -62,11 +65,12 @@ undersupported or unstable projection is an informative outcome.
 
 ## Economical first action
 
-Audit the existing batched CPU collector's event-retention and capture
-interfaces, then implement the dual-section raw collector and synthetic tests.
-This can proceed locally without a new Runpod worker. Benchmark a synthetic
-workload before choosing compute; the ambiguous previous provider transaction
-remains separately guarded and must not trigger a duplicate worker create.
+Complete the numeric sampling and analysis decisions in steps 2–6, with explicit
+support/power rationale and bounded processing. The kernel, durable journal and
+synthetic benchmark are implemented; do not rebuild them. Add the source/review
+bound target wrapper only when the scientific design is complete. The ambiguous
+previous provider transaction remains separately guarded and must not trigger
+a duplicate worker create.
 
 The proposed retention/weighting ideas above are design candidates, not
 silently frozen choices. No new survivor outcomes should be generated until
