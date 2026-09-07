@@ -14,18 +14,25 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--contract-sha256", required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--mode", choices=("startup", "audit-inputs", "synthetic-phase", "execute"), default="startup")
+    parser.add_argument("--mode", choices=("startup", "audit-inputs", "design-preflight", "synthetic-phase", "execute"), default="startup")
     parser.add_argument("--input-root", type=Path)
     parser.add_argument("--input-contract-sha256")
     parser.add_argument("--phase", choices=("qualification", "collection", "analysis"))
     parser.add_argument("--previous-root", type=Path)
     parser.add_argument("--previous-sha256")
+    parser.add_argument("--source-commit")
+    parser.add_argument("--plan-sha256")
     args = parser.parse_args()
-    if args.mode == "audit-inputs":
+    if args.mode in ("audit-inputs", "design-preflight"):
         if args.input_root is None or args.input_contract_sha256 is None:
-            parser.error("audit-inputs requires an explicit input package and external digest")
+            parser.error(f"{args.mode} requires an explicit input package and external digest")
     elif args.input_root is not None or args.input_contract_sha256 is not None:
-        parser.error("input arguments are only valid for audit-inputs")
+        parser.error("input arguments are only valid for audit-inputs or design-preflight")
+    if args.mode == "design-preflight":
+        if args.source_commit is None or args.plan_sha256 is None:
+            parser.error("design-preflight requires external source and plan bindings")
+    elif args.source_commit is not None or args.plan_sha256 is not None:
+        parser.error("design bindings are only valid for design-preflight")
     if args.mode == "synthetic-phase":
         if args.phase is None:
             parser.error("synthetic-phase requires the fixed phase name")
@@ -96,12 +103,27 @@ def main():
                 "runtime_contract_sha256": args.contract_sha256, "phase_receipt": receipt,
                 "loaded_modules": imported, "target_execution_authorized": False,
                 "target_trajectories_generated": 0, "scope": "analytic-circle plumbing control only"})
-        if args.mode == "audit-inputs":
+        if args.mode in ("audit-inputs", "design-preflight"):
             inputs = args.input_root.resolve(strict=True)
             if output == inputs or output.is_relative_to(inputs) or inputs.is_relative_to(output):
                 raise ValueError("input package and writable evidence must be disjoint")
             plan = paired_input_package.load_package(inputs, args.input_contract_sha256)
             audit = paired_inputs.load_references(plan, inputs)
+            design_receipt = None
+            if args.mode == "design-preflight":
+                if startup["sha256"](inputs/"plan.json") != args.plan_sha256:
+                    raise ValueError("input plan differs from external design hash")
+                from butterfly.paired_phases import from_reference_audit, phase_limits
+                from dataclasses import asdict
+                design, _ = from_reference_audit(plan, audit, source_commit=args.source_commit,
+                    plan_sha256=args.plan_sha256)
+                grid = design.validate()
+                design_receipt = dict(source_commit=args.source_commit, plan_sha256=args.plan_sha256,
+                    design_sha256=design.identity(), trial_counts={s: sum(t.stage == s for t in grid)
+                        for s in ("qualification", "collection")},
+                    phase_limits={s: asdict(phase_limits(plan, s)) for s in ("qualification", "collection", "analysis")},
+                    guard_seconds=contract["startup_guard_seconds"],
+                    scope="all fixed configurations validated without calling a field, integrator or map fit")
             # Recheck bytes and imports after the actual read-only consumer.
             if paired_input_package.load_package(inputs, args.input_contract_sha256) != plan:
                 raise ValueError("input plan changed during reference audit")
@@ -110,10 +132,13 @@ def main():
             imported = finder.check_loaded()
             if not guard.is_alive():
                 raise ValueError("parent guard stopped during input audit")
-            startup["write_json"](output/"input-audit.json", {"status": "passed", "audit": audit,
+            witness = {"status": "passed", "audit": audit,
                 "runtime_contract_sha256": args.contract_sha256, "input_contract_sha256": args.input_contract_sha256,
                 "loaded_modules": imported, "target_execution_authorized": False,
-                "target_trajectories_generated": 0})
+                "target_trajectories_generated": 0}
+            if design_receipt is not None:
+                witness["design"] = design_receipt
+            startup["write_json"](output/("design-preflight.json" if design_receipt else "input-audit.json"), witness)
         return 0
     except (Exception, KeyboardInterrupt) as error:
         startup["write_json"](output/"failure.json", {"status": "failed", "type": type(error).__name__,

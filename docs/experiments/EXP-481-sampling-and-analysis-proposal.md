@@ -6,6 +6,9 @@ implemented. The remaining execution/review work is listed at the end.
 The machine-readable choices are in
 [`EXP-481-paired-sampling-proposal.json`](../../experiments/manifests/EXP-481-paired-sampling-proposal.json).
 The earlier locked draft remains intact as historical design evidence.
+The [numeric-only design](../../experiments/manifests/EXP-481-paired-design.json)
+now separates these unchanged scientific choices from future release/review
+administration. Neither file authorizes execution.
 
 ## The question in plain language
 
@@ -259,6 +262,9 @@ Remaining before any target data generation:
 - Qualify that final controller's genuine setup/authorization boundary under the
   exact sealed source and canonical environment. The environment explicitly
   sets and verifies `LC_CTYPE` and `__CF_USER_TEXT_ENCODING` on Mac.
+  The [production setup command](../updates/2026-09-07-exp481-production-preflight.md)
+  now connects the actual source gate, source-bound tests and isolated full-design
+  audit; one-use phase authorization is still separate remaining work.
 - One compact design review, adjudication of all findings and exact pushed
   executable freeze. The journal/analysis primitives do not supply that authority.
 
