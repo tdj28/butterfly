@@ -91,6 +91,50 @@ EVENT_DTYPES = {"seed_ids": np.int64, "steps": np.int64, "times": float, "states
     "capture_distance": float}
 
 
+def classify_crossings(states, fields, directions, spec, state_scales, gate_margin, angle_margin):
+    """Shared geometry only: root location is owned by the chosen integrator."""
+    section = spec.section
+    normal = np.asarray(section.normal)
+    if fields.shape != states.shape or not np.isfinite(fields).all() or not np.isfinite(states).all():
+        raise ValueError("nonfinite or malformed interpolated event field")
+    velocity = fields @ normal
+    denominator = np.linalg.norm(fields, axis=1)*np.linalg.norm(normal)
+    angles = np.divide(np.abs(velocity), denominator, out=np.zeros(len(states)), where=denominator > 0)
+    uncertain_orientation = (angles < angle_margin) | (velocity*directions <= 0)
+    if section.gate_axis is None:
+        gate_distance = np.zeros(len(states))
+        gate_ok, uncertain_gate = np.ones(len(states), dtype=bool), np.zeros(len(states), dtype=bool)
+    else:
+        gate_distance = (states[:, section.gate_axis]-section.gate_upper)/state_scales[section.gate_axis]
+        gate_ok = gate_distance < 0
+        uncertain_gate = (np.abs(gate_distance) <= gate_margin) & (directions == section.direction)
+    return {"orientation": np.broadcast_to(directions, (len(states),)).copy(),
+        "accepted": gate_ok & (directions == section.direction),
+        "signed_scaled_gate_distance": gate_distance, "normalized_angle": angles,
+        "gate_unresolved": uncertain_gate, "orientation_unresolved": uncertain_orientation,
+        "capture_distance": cycle_crossing_distances(states, spec.cycle_states,
+            coordinate_axes=spec.axes, coordinate_scales=spec.scales)}
+
+
+def update_capture(event, spec, index, capture_times, streaks, ambiguous):
+    """Update one step's labels, with at most one event per seed/section.
+
+    Call in time order. Ambiguity is sticky; no capture label stops a solver.
+    """
+    event_ids = event["seed_ids"]
+    if len(np.unique(event_ids)) != len(event_ids):
+        raise ValueError("capture updates require unique seed IDs per event step")
+    unresolved = event["gate_unresolved"] | event["orientation_unresolved"]
+    ambiguous[event_ids[unresolved], index] = True
+    streaks[event_ids[unresolved], index] = 0
+    selected = event["accepted"] & ~unresolved & ~ambiguous[event_ids, index]
+    selected_ids = event_ids[selected]
+    close = event["capture_distance"][selected] <= spec.radius
+    streaks[selected_ids, index] = np.where(close, streaks[selected_ids, index]+1, 0)
+    newly = (streaks[selected_ids, index] >= spec.required_crossings) & ~np.isfinite(capture_times[selected_ids, index])
+    capture_times[selected_ids[newly], index] = event["times"][selected][newly]
+
+
 def _events(previous, current, ids, left_field, right_field, rhs, spec, step, dt,
             state_scales, gate_margin, angle_margin):
     section = spec.section
@@ -106,29 +150,11 @@ def _events(previous, current, ids, left_field, right_field, rhs, spec, step, dt
             left_field[indices], right_field[indices], dt=dt, normal=normal,
             offset=section.offset, direction=direction)
         fields = np.asarray(rhs(states))
-        if fields.shape != states.shape or not np.isfinite(fields).all() or not np.isfinite(states).all():
-            raise ValueError("nonfinite or malformed interpolated event field")
-        velocity = fields @ normal
-        denominator = np.linalg.norm(fields, axis=1)*np.linalg.norm(normal)
-        angles = np.divide(np.abs(velocity), denominator, out=np.zeros(len(states)), where=denominator > 0)
-        uncertain_orientation = (angles < angle_margin) | (velocity*direction <= 0)
-        if section.gate_axis is None:
-            gate_distance = np.zeros(len(states))
-            gate_ok, uncertain_gate = np.ones(len(states), dtype=bool), np.zeros(len(states), dtype=bool)
-        else:
-            gate_distance = (states[:, section.gate_axis]-section.gate_upper)/state_scales[section.gate_axis]
-            gate_ok = gate_distance < 0
-            uncertain_gate = (np.abs(gate_distance) <= gate_margin) & (direction == section.direction)
         # accepted is nominal geometric membership; ambiguous flags are retained
         # separately and are never allowed to increment capture streaks.
-        accepted = gate_ok & (direction == section.direction)
         groups.append({"seed_ids": ids[indices], "steps": np.full(len(states), step),
             "times": (step-1+alpha)*dt, "states": states,
-            "orientation": np.full(len(states), direction), "accepted": accepted,
-            "signed_scaled_gate_distance": gate_distance, "normalized_angle": angles,
-            "gate_unresolved": uncertain_gate, "orientation_unresolved": uncertain_orientation,
-            "capture_distance": cycle_crossing_distances(states, spec.cycle_states,
-                coordinate_axes=spec.axes, coordinate_scales=spec.scales)})
+            **classify_crossings(states, fields, direction, spec, state_scales, gate_margin, angle_margin)})
     if not groups:
         return {k: np.empty((0, 3) if k == "states" else (0,), dtype=v) for k, v in EVENT_DTYPES.items()}
     combined = {k: np.concatenate([g[k] for g in groups]).astype(v) for k, v in EVENT_DTYPES.items()}
@@ -252,21 +278,12 @@ def collect_paired_sections(
                 event = pending[name]
                 if len(event["times"]):
                     chunks[name].append(event)
-                event_ids = event["seed_ids"]
-                unresolved = event["gate_unresolved"] | event["orientation_unresolved"]
-                ambiguous[event_ids[unresolved], index] = True
                 # A segment lying in a plane has no endpoint sign change. Keep
                 # its ambiguity explicit instead of silently declaring no returns.
                 sliding = ((previous[valid] @ spec.section.normal == spec.section.offset)
                            & (current[valid] @ spec.section.normal == spec.section.offset))
                 ambiguous[good_ids[sliding], index] = True
-                streaks[event_ids[unresolved], index] = 0
-                selected = event["accepted"] & ~unresolved & ~ambiguous[event_ids, index]
-                selected_ids = event_ids[selected]
-                close = event["capture_distance"][selected] <= spec.radius
-                streaks[selected_ids, index] = np.where(close, streaks[selected_ids, index]+1, 0)
-                newly = (streaks[selected_ids, index] >= spec.required_crossings) & ~np.isfinite(capture_times[selected_ids, index])
-                capture_times[selected_ids[newly], index] = event["times"][selected][newly]
+                update_capture(event, spec, index, capture_times, streaks, ambiguous)
             if step in checkpoint_steps:
                 snapshots.append({"step": step, "time": step*dt, "failed": failed.copy(),
                                   "captured": np.isfinite(capture_times).copy(), "ambiguous": ambiguous.copy()})

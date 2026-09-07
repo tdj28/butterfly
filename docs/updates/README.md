@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-adaptive-qualification.md`](2026-09-06-exp481-adaptive-qualification.md)
+  — adaptive cross-check passes all 24 synthetic comparisons, raw capture
+  references verified, and shared-policy RK4 arrays preserved exactly.
+
 - [`2026-09-06-exp481-replay-decisions.md`](2026-09-06-exp481-replay-decisions.md)
   — audited raw-to-cohort replay, complete-grid map/proximity decisions and
   a 2,048-seed synthetic integration-to-analysis control; no new Rössler result.

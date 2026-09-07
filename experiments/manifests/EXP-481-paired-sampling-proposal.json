@@ -90,12 +90,21 @@
     "maximum_scaled_event_state_difference": 0.0001,
     "maximum_event_time_difference": 0.0001,
     "require_ordered_accepted_counts_and_membership": true,
+    "require_ordered_raw_counts_and_membership": true,
+    "compare_all_six_profile_pairs": true,
+    "require_capture_membership_agreement": true,
+    "maximum_capture_time_difference": 0.0001,
+    "maximum_steps_per_seed": 60000,
+    "maximum_field_evaluations_per_adaptive_seed": 1000000,
+    "maximum_raw_events_per_seed": 2048,
+    "adaptive_recording_interval_steps": 1000,
     "scope": "early transient event-detection/numerical diagnostic only; no long-time shadowing or all-root guarantee"
   },
   "resources": {
     "backend": "local CPU Float64, serial fixed batches",
     "maximum_wall_seconds": 14400,
     "maximum_analysis_seconds": 7200,
+    "maximum_qualification_seconds": 1800,
     "maximum_process_rss_bytes": 2147483648,
     "maximum_collection_disk_bytes": 8589934592,
     "minimum_start_free_bytes": 17179869184,
@@ -103,6 +112,6 @@
     "compute_cost_usd": 0
   },
   "review_paths": {"brief": "docs/reviews/EXP-481-review-brief.md", "adjudication": "docs/reviews/EXP-481-adjudication.json"},
-  "not_yet_implemented": ["adaptive early-transient qualification adapter", "source/input/review-bound target runner and resource supervisor including both-case aggregation", "full production preflight and compact adjudicated review"],
+  "not_yet_implemented": ["source/input/review-bound target runner and resource supervisor including durable adaptive snapshots and both-case aggregation", "full production preflight and compact adjudicated review"],
   "claim_scope": "Unreviewed numeric proposal only. New deterministic seed coordinates are inputs, not trajectories. No target computation or manuscript claim is authorized."
 }

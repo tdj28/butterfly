@@ -62,8 +62,12 @@ inputs; historical result reproduction is a separate requirement.
   analysis, including complete critical-proximity matrices. The
   [EXP-481 synthetic checkpoint](updates/2026-09-06-exp481-replay-decisions.md)
   validates software plumbing, not the nominated Rössler maps.
-- [ ] Finish EXP-481's adaptive qualification adapter, bounded source-bound
-  runner and full preflight; adjudicate the compact review and push the exact
+- [x] Add the adaptive qualification adapter and verify capture-reference rows
+  against preserved EXP-480 raw events. The
+  [synthetic cross-check](updates/2026-09-06-exp481-adaptive-qualification.md)
+  passes; qualification of new nominated trajectories has not run.
+- [ ] Finish EXP-481's bounded source-bound runner, durable adaptive recording
+  and full preflight; adjudicate the compact review and push the exact
   freeze before generating new target trajectories. Then test both nominated
   maps without selecting branch counts to match source words.
 - [ ] Before the next manuscript release, complete the documented

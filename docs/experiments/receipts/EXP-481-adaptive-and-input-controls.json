@@ -1,0 +1,47 @@
+{
+  "kind": "EXP-481-adaptive-and-input-control-public-summary",
+  "target_trajectories_generated": 0,
+  "synthetic_adaptive": {
+    "directory": "artifacts/EXP-481/synthetic-adaptive-01",
+    "passed": true,
+    "seed_count": 4,
+    "profile_count": 4,
+    "pairwise_comparisons": 24,
+    "maximum_scaled_state_difference": 4.005199146378806e-11,
+    "maximum_time_difference": 1.6299956939747062e-09,
+    "maximum_capture_time_difference": 9.16310582965707e-10,
+    "configuration": {"bytes": 2621, "sha256": "dbed449c1e8f6c239fb0e87234a9a52c5af75545484cc868d402c63b23aff40d"},
+    "receipt": {"bytes": 29401, "sha256": "f5638a7af27b28f1c7036bd70cb48eb05e86af31b66fbaef051dfb018c75280c"},
+    "files_excluding_receipt": 33,
+    "bytes_excluding_receipt": 555464,
+    "source_sha256": {
+      "python/butterfly/paired_adaptive.py": "ffebec88e1bdee3d3089e702b4828b53cb17adff6051523c7abcc68a77fe809e",
+      "python/butterfly/paired_sections.py": "688257ecc66190032c07d4f6f2b979cb836365a3212c363b0d97f4bdeeead9b7",
+      "python/butterfly/poincare.py": "b3dde788a7d7b02766682abe2d007d2d9baab6a44a471aaddd44bd35544a298c",
+      "python/butterfly/saddle.py": "98712fee12a5df17bad81ff2bbd42af627c06bcbef8ec8b387a20b80c9561a07",
+      "scripts/qualify_paired_adaptive.py": "a1582fe4916f627aab64a277d896669dac38b2da03f200d15c05697469389a39",
+      "scripts/qualify_paired_sampling.py": "f496b9eb8a66902f44bf69ebfc72e0bc964fea1e108372fb7830fca2502956a7"
+    }
+  },
+  "capture_input_audit": {
+    "directory": "artifacts/EXP-481/capture-input-audit-02",
+    "passed": true,
+    "candidate_ids": ["local-a025-c083", "local-a027-c083"],
+    "historical_points_per_case": 6,
+    "barrio_points_per_case": 8,
+    "receipt": {"bytes": 8707, "sha256": "a0bf343c4dc11a8e05b5359add8cbebff8e4d8c33fe0a7ee4cc196154d799e68"},
+    "configuration_sha256": "ef311acc20da6c2bf4052588ebe70543217b2728dada06b92a701a7981c33fad",
+    "script_sha256": "176835378739d0301ff9a2547d5ff269884010e844ace9d30f6432449c49f08d",
+    "preserved_first_attempt": "capture-input-audit-01 stopped because the newer journal reader rejects old hyphenated NPZ keys; exact legacy-schema reader added without changing raw data or weakening the newer journal schema"
+  },
+  "rk4_refactor_regression": {
+    "baseline": "artifacts/EXP-481/synthetic-replay-01",
+    "new": "artifacts/EXP-481/synthetic-replay-02",
+    "npz_files_compared": 67,
+    "arrays_exactly_equal_including_dtype_and_nan_locations": 2049,
+    "new_replay_passed": true,
+    "new_receipt_sha256": "fe258dab2735ad7d9fc928590a673f89c1aa5870ab70e31f8354d8ca3100993f",
+    "new_configuration_sha256": "514978ed43abafcd4ec9f323fcf8acc52302e2485313237b82483bca9148eaaf"
+  },
+  "scope": "Synthetic numerical tests and old-input raw-row concordance only. Local artifacts are retained, not a public raw-data release. No new partition, criticality, Jones-symbol or homoclinic claim."
+}

@@ -14,7 +14,9 @@ An explicit [numeric sampling/analysis proposal](EXP-481-sampling-and-analysis-p
 and tested seed selection/held-out map primitives now exist. They are unreviewed,
 not a frozen target plan. Journal replay, fixed-ID cohort intersection and joint
 map/proximity decisions now pass [end-to-end synthetic controls](../updates/2026-09-06-exp481-replay-decisions.md).
-The adaptive adapter, target runner and adjudicated review remain pending. The draft preflight cannot
+The adaptive adapter and raw capture-reference audit also pass their
+[controls](../updates/2026-09-06-exp481-adaptive-qualification.md). The bounded
+target runner and adjudicated review remain pending. The draft preflight cannot
 authorize target execution.
 
 ## Question
@@ -69,8 +71,8 @@ undersupported or unstable projection is an informative outcome.
 
 ## Economical first action
 
-Complete adaptive qualification and the source/review-bound bounded target
-wrapper, including both-case aggregation, in the numeric proposal.
+Complete the source/review-bound bounded target wrapper, including durable
+adaptive snapshots and both-case aggregation, in the numeric proposal.
 The kernel, durable journal, deterministic seed/pair selection and held-out
 seed-bootstrap analyzer, replay and joint decisions are implemented; do not rebuild them. The ambiguous
 previous provider transaction remains separately guarded and must not trigger
