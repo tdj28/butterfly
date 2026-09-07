@@ -26,7 +26,7 @@ def sealed(tmp_path_factory):
 def test_build_is_exact_and_cannot_overwrite(sealed):
     root, built, contract = sealed
     assert set(contract["source_files"]) == set(SOURCE_MAP)
-    assert built["source_files"] == len(SOURCE_MAP) == 22 and not built["target_execution_authorized"]
+    assert built["source_files"] == len(SOURCE_MAP) == 24 and not built["target_execution_authorized"]
     assert API["verify_runtime"](root, contract) == root
     assert not (root/"python/butterfly/return_map.py").exists()
     with pytest.raises(FileExistsError):

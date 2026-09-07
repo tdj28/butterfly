@@ -32,12 +32,11 @@ def _canonical(value):
     return json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
 
 
-def replay_batch(directory, expected: BatchExpectation, windows, *, strata_per_window=4):
-    """Read one externally bound, complete batch and retain all pair selections.
+def read_batch(directory, expected: BatchExpectation):
+    """Reconstruct every raw event of an externally bound complete RK4 batch.
 
-    No mutable survivor reindexing: raw pair indices refer to concatenated
-    per-section journal deltas in commit order. NaN/-1 denote missing pairs.
-    All initial seeds and their capture/failure masks remain in the result.
+    Shared by qualification comparisons and sampling; no event filtering here.
+    Expected hashes must be supplied by the authenticated producing phase.
     """
     root = journal._safe_path(Path(directory))
     ids = _ids(expected.global_seed_ids)
@@ -92,28 +91,36 @@ def replay_batch(directory, expected: BatchExpectation, windows, *, strata_per_w
                     for k in (*EVENT_DTYPES, "global_seed_ids")} for name in SECTIONS}
     if any(len(events[n]["times"]) != audit["event_counts"][n] for n in SECTIONS):
         raise ValueError("replayed event counts differ from journal audit")
-    sample = common_sample(ids, final, events, windows, horizon=metadata["config"]["horizon"],
-                           strata_per_window=strata_per_window)
-    pair_states, pair_times = {}, {}
-    for name in SECTIONS:
-        indices = sample["section_pair_indices"][name]
-        valid = indices >= 0
-        states = np.full((*indices.shape, 3), np.nan)
-        times = np.full(indices.shape, np.nan)
-        states[valid] = events[name]["states"][indices[valid]]
-        times[valid] = events[name]["times"][indices[valid]]
-        pair_states[name], pair_times[name] = states, times
     # Recheck committed metadata and audit after all reads. This is a read-only
     # offline integrity check, not a filesystem lock against a hostile writer.
     if (journal.sha256(root/"started.json") != expected.started_sha256
             or journal.sha256(root/"terminal.json") != expected.terminal_sha256
             or journal.audit_journal(root) != audit):
         raise ValueError("journal changed while replaying")
-    return {**sample, "initial_states": seed_data["initial_states"], "state": final,
-            "pair_states": pair_states, "pair_times": pair_times,
-            "windows": np.asarray(windows, float), "horizon": metadata["config"]["horizon"],
-            "binding": metadata["binding"], "source": {"started_sha256": expected.started_sha256,
+    return {"global_seed_ids": ids, "initial_states": seed_data["initial_states"], "state": final,
+            "events": events, "horizon": metadata["config"]["horizon"], "binding": metadata["binding"],
+            "source": {"started_sha256": expected.started_sha256,
             "terminal_sha256": expected.terminal_sha256, "records": rows}}
+
+
+def replay_batch(directory, expected: BatchExpectation, windows, *, strata_per_window=4):
+    """Select fixed pairs from all raw events; preserve original IDs and indices."""
+    raw = read_batch(directory, expected)
+    sample = common_sample(raw["global_seed_ids"], raw["state"], raw["events"], windows,
+        horizon=raw["horizon"], strata_per_window=strata_per_window)
+    pair_states, pair_times = {}, {}
+    for name in SECTIONS:
+        indices = sample["section_pair_indices"][name]
+        valid = indices >= 0
+        states = np.full((*indices.shape, 3), np.nan)
+        times = np.full(indices.shape, np.nan)
+        states[valid] = raw["events"][name]["states"][indices[valid]]
+        times[valid] = raw["events"][name]["times"][indices[valid]]
+        pair_states[name], pair_times[name] = states, times
+    return {**sample, "initial_states": raw["initial_states"], "state": raw["state"],
+            "pair_states": pair_states, "pair_times": pair_times,
+            "windows": np.asarray(windows, float), "horizon": raw["horizon"],
+            "binding": raw["binding"], "source": raw["source"]}
 
 
 def assemble_profile(batches, expected_batch_ids, global_seed_ids, initial_states):
