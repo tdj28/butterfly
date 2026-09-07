@@ -1,0 +1,32 @@
+{
+  "kind": "EXP-481-synthetic-journal-to-joint-map-public-summary",
+  "passed": true,
+  "target_trajectories": 0,
+  "local_artifact_directory": "artifacts/EXP-481/synthetic-replay-01",
+  "configuration": {"path": "started.json", "bytes": 3825, "sha256": "657cb775574512a72c324b112c30f2fc802fa5519f9ab9d2c73c5098c99eb83a"},
+  "full_receipt": {"path": "receipt.json", "bytes": 29042, "sha256": "4d31d260c3f518e512c86af66f3882d4d57d77e4a1874f3ad59d5a96c0041ce7"},
+  "analysis": {"path": "analysis.json", "bytes": 255374, "sha256": "2653b95f16d595e216afde6fab24459f3f745406913dad5c2fa98d6e2c808cba"},
+  "source_sha256": {
+    "python/butterfly/paired_decisions.py": "8587bc41c627f8a542d982d69d250b47db4b0a08c1cebda97e510316a111f65f",
+    "python/butterfly/paired_journal.py": "187ce01c4b94f447184afda2355a88b627ead8e6a99c6beda687a7d3b107e951",
+    "python/butterfly/paired_replay.py": "c1dfe2042ba6412e16fa4896940dda35e2a445424dbe67a01b3439a44f182075",
+    "python/butterfly/paired_sampling.py": "9b17146663bfa340b662f049baf2fdadfff564290686883d3b89673ee7a3c08d",
+    "python/butterfly/paired_sections.py": "2724406a4c2c0ecb2d6e9f4ee497f625189fe3d94a7a9a9d6a3becbad8ebea52",
+    "python/butterfly/poincare.py": "b3dde788a7d7b02766682abe2d007d2d9baab6a44a471aaddd44bd35544a298c",
+    "python/butterfly/seed_return_map.py": "6c6825282f5a290e8816ef8d38856978dfe1386b3d14961c2337446414e78715",
+    "scripts/qualify_paired_replay.py": "dbf832eba935e417a6ed95d32b47cfb6b36f7559a7fe12db06bdb4127db5954d",
+    "scripts/qualify_paired_sampling.py": "f496b9eb8a66902f44bf69ebfc72e0bc964fea1e108372fb7830fca2502956a7"
+  },
+  "retained_seeds": 2048,
+  "calibration_seeds": 1024,
+  "validation_seeds": 1024,
+  "primary_map_count": 4,
+  "variants_per_map": 5,
+  "bootstrap_replicates_per_variant": 200,
+  "joint_primary_resolved": true,
+  "branch_count": 1,
+  "critical_matrix_status": "no-turning-regions",
+  "raw_file_count_excluding_receipt": 168,
+  "raw_bytes_excluding_receipt": 3580752,
+  "scope": "Synthetic circle and shorter windows/one pair per window only. No production numerical qualification or historical symbol verification. Raw journals remain local and regenerable with the checked-in synthetic-only script; this summary is not a public raw-data release."
+}
