@@ -30,12 +30,23 @@ def circle(states):
     return np.column_stack((-np.pi/2*states[:, 1], np.pi/2*states[:, 0], np.zeros(len(states))))
 
 
+def step_profile(name):
+    """Explicit synthetic-only profiles; preserve the original default."""
+    if name == "original":
+        return [.02, .01], 3000
+    if name == "refined":
+        return [.0025, .00125], 20000
+    raise ValueError("unknown synthetic step profile")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--seed-count", type=int, choices=(32, 128, 512), default=128)
+    parser.add_argument("--seed-count", type=int, choices=(32, 128, 256, 512), default=128)
+    parser.add_argument("--step-profile", choices=("original", "refined"), default="original")
     parser.add_argument("--journal-interval-steps", type=int, default=None)
     args = parser.parse_args()
+    steps, maximum_steps = step_profile(args.step_profile)
     if args.journal_interval_steps is not None and args.journal_interval_steps < 1:
         parser.error("journal interval must be positive")
     output = args.output_dir
@@ -47,12 +58,12 @@ def main():
                     np.array([[0, -2., 0]]), (0, 1), (1., 1.), .01, 2)}
     config = {"horizon": 20.5, "checkpoint_times": [10., 20.5], "state_scales": [1., 1., 1.],
               "gate_margin": 1e-4, "angle_margin": 1e-4, "escape_radius": 100.,
-              "maximum_events": args.seed_count*32, "maximum_steps": 3000}
+              "maximum_events": args.seed_count*32, "maximum_steps": maximum_steps}
     root = Path(__file__).resolve().parents[1]
     files = [Path(__file__), root / "python/butterfly/paired_sections.py", root / "python/butterfly/saddle.py",
              root / "python/butterfly/paired_journal.py", root / "python/butterfly/poincare.py"]
     started = {"kind": "analytic-circle-engineering-control", "seed_count": args.seed_count,
-        "initial_radii": [.5, 4.5], "profiles": [.02, .01], "config": config,
+        "initial_radii": [.5, 4.5], "profiles": steps, "config": config,
         "source_sha256": {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         "python": platform.python_version(), "numpy": np.__version__, "platform": platform.platform(),
         "sections": {name: {**asdict(s), "cycle_states": s.cycle_states.tolist()} for name, s in sections.items()},
