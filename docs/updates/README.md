@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-durable-supervisor.md`](2026-09-06-exp481-durable-supervisor.md)
+  — adaptive write-once evidence, sampled-resource supervision and actual
+  worker/supervisor-loss controls; accepted events and capture labels survive.
+
 - [`2026-09-06-exp481-adaptive-qualification.md`](2026-09-06-exp481-adaptive-qualification.md)
   — adaptive cross-check passes all 24 synthetic comparisons, raw capture
   references verified, and shared-policy RK4 arrays preserved exactly.

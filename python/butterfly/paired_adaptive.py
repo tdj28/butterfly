@@ -15,6 +15,27 @@ from .paired_sampling import SECTIONS
 from .paired_sections import CaptureSection, EVENT_DTYPES, classify_crossings, update_capture
 
 
+def validate_adaptive(initial_state, global_seed_id, sections, *, method, horizon,
+        rtol, atol, max_step, state_scales, gate_margin, angle_margin, escape_radius,
+        maximum_steps, maximum_field_evaluations, maximum_events, recording_interval=1000):
+    """Validate declarations without invoking a field or solver."""
+    initial, scales = np.asarray(initial_state, float), np.asarray(state_scales, float)
+    if (initial.shape != (3,) or not np.isfinite(initial).all() or scales.shape != (3,)
+            or not np.isfinite(scales).all() or np.any(scales <= 0)
+            or type(global_seed_id) is not int or not 0 <= global_seed_id <= np.iinfo(np.int64).max
+            or method not in ("DOP853", "Radau") or list(sections) != list(SECTIONS)
+            or not all(isinstance(s, CaptureSection) for s in sections.values())
+            or not all(np.isfinite(x) and x > 0 for x in
+                       (horizon, rtol, atol, max_step, gate_margin, angle_margin, escape_radius))
+            or rtol < 100*np.finfo(float).eps or angle_margin > 1
+            or any(type(x) is not int or x < 1 for x in
+                   (maximum_steps, maximum_field_evaluations, maximum_events, recording_interval))):
+        raise ValueError("invalid bounded adaptive design")
+    for spec in sections.values():
+        spec.validate()
+    return initial, scales
+
+
 def collect_adaptive_sections(rhs, initial_state, global_seed_id, sections, *, method, horizon,
         rtol, atol, max_step, state_scales, gate_margin, angle_margin, escape_radius,
         maximum_steps, maximum_field_evaluations, maximum_events, progress=None, recording_interval=1000):
@@ -26,21 +47,13 @@ def collect_adaptive_sections(rhs, initial_state, global_seed_id, sections, *, m
     Callback failure stops without retry. A process kill cannot return a final
     snapshot; callers must never infer completion from the last progress file.
     """
-    initial, scales = np.asarray(initial_state, float), np.asarray(state_scales, float)
-    if (initial.shape != (3,) or not np.isfinite(initial).all() or scales.shape != (3,)
-            or not np.isfinite(scales).all() or np.any(scales <= 0)
-            or type(global_seed_id) is not int or not 0 <= global_seed_id <= np.iinfo(np.int64).max
-            or method not in ("DOP853", "Radau") or list(sections) != list(SECTIONS)
-            or not all(isinstance(s, CaptureSection) for s in sections.values())
-            or not all(np.isfinite(x) and x > 0 for x in
-                       (horizon, rtol, atol, max_step, gate_margin, angle_margin, escape_radius))
-            or rtol < 100*np.finfo(float).eps or angle_margin > 1
-            or any(type(x) is not int or x < 1 for x in
-                   (maximum_steps, maximum_field_evaluations, maximum_events, recording_interval))
-            or (progress is not None and not callable(progress))):
-        raise ValueError("invalid bounded adaptive design")
-    for spec in sections.values():
-        spec.validate()
+    if progress is not None and not callable(progress):
+        raise ValueError("invalid adaptive progress callback")
+    initial, scales = validate_adaptive(initial_state, global_seed_id, sections, method=method, horizon=horizon,
+        rtol=rtol, atol=atol, max_step=max_step, state_scales=state_scales, gate_margin=gate_margin,
+        angle_margin=angle_margin, escape_radius=escape_radius, maximum_steps=maximum_steps,
+        maximum_field_evaluations=maximum_field_evaluations, maximum_events=maximum_events,
+        recording_interval=recording_interval)
     on_plane = np.array([[initial @ s.section.normal == s.section.offset for s in sections.values()]])
     # Each appended row is an atomic state/event commit; unfinished steps never
     # leak a new horizon paired with an old event prefix.

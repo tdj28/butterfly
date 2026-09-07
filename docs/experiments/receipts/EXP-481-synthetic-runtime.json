@@ -1,0 +1,32 @@
+{
+  "kind": "EXP-481-synthetic-runtime-public-summary",
+  "target_trajectories": 0,
+  "passed": true,
+  "local_directory": "artifacts/EXP-481/synthetic-runtime-02",
+  "receipt": {"bytes": 11096, "sha256": "217be0480c5e55b08e6c41faf8d53e34c80f8c1c3ce211080063b2e89de02125"},
+  "configuration": {"bytes": 1289, "sha256": "dc7b9ff1c8f7f63c48ccd6f626734c326050aa489b358386f44b9d19695acbad"},
+  "source_sha256": {
+    "python/butterfly/_process_guard.py": "1d03db9d9c4e200e949a308227386024c436e15fdcf49b7032359a33840c9c4b",
+    "python/butterfly/paired_adaptive.py": "4ab0974f57da6e8eb5ff939309813a61169eef85efc2e065cf24f98194a36796",
+    "python/butterfly/paired_adaptive_journal.py": "1a54c35db2449028e2bdab9ac905fb50ca906aad1bcf83e5ec3e0bce0abd722f",
+    "python/butterfly/paired_journal.py": "187ce01c4b94f447184afda2355a88b627ead8e6a99c6beda687a7d3b107e951",
+    "python/butterfly/paired_sections.py": "688257ecc66190032c07d4f6f2b979cb836365a3212c363b0d97f4bdeeead9b7",
+    "python/butterfly/paired_supervisor.py": "b659829dba997003417bbabbae5fc17f655aa8bf9efd4a98cf5bf990e1fa617b",
+    "scripts/qualify_paired_runtime.py": "29a8bdff7d3d95fae628fd77990562836c667628c8f3bd1fe643d5c04f634f56"
+  },
+  "cases": [
+    {"case": "complete-dop853", "passed": true, "journal_status": "completed", "durable_time": 7.0, "records": 2},
+    {"case": "complete-radau", "passed": true, "journal_status": "completed", "durable_time": 7.0, "records": 2},
+    {"case": "wall-loss", "passed": true, "journal_status": "incomplete", "durable_time": 4.988194546366794, "records": 1, "supervisor_terminal_exists": true},
+    {"case": "parent-loss", "passed": true, "journal_status": "incomplete", "durable_time": 4.988194546366794, "records": 1, "supervisor_terminal_exists": false}
+  ],
+  "every_case_has_accepted_events_on_both_sections": true,
+  "every_case_preserves_both_capture_labels": true,
+  "every_worker_stopped": true,
+  "workers_isolated_and_no_bytecode": true,
+  "parent_guard_armed_before_scientific_imports": true,
+  "files_excluding_receipt": 54,
+  "bytes_excluding_receipt": 145643,
+  "prior_control_preserved": "synthetic-runtime-01 also passed with an earlier, pre-crossing checkpoint; 02 extends loss coverage to accepted events and capture labels",
+  "scope": "Synthetic component wiring only. Full production startup/authorization remains unqualified. Local artifacts are not a public raw-data release. Sampled resource thresholds are not kernel-enforced peak quotas."
+}
