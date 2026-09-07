@@ -55,6 +55,21 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
+- [x] Qualify observation of both fixed EXP-479 cycles on both sections:
+  [EXP-480](updates/2026-09-06-exp480-both-cycles-qualified.md) passes; six
+  historical and eight Barrio events are not a one-to-one alphabet transport.
+- [x] Implement raw-retaining common-population selection and joint scalar-map
+  analysis, including complete critical-proximity matrices. The
+  [EXP-481 synthetic checkpoint](updates/2026-09-06-exp481-replay-decisions.md)
+  validates software plumbing, not the nominated Rössler maps.
+- [ ] Finish EXP-481's adaptive qualification adapter, bounded source-bound
+  runner and full preflight; adjudicate the compact review and push the exact
+  freeze before generating new target trajectories. Then test both nominated
+  maps without selecting branch counts to match source words.
+- [ ] Before the next manuscript release, complete the documented
+  [legacy turning-point impact audit](experiments/EXP-481-legacy-turning-point-incident.md)
+  against preserved historical raw evidence. Its analytic stationary-inflection
+  defect is confirmed; impact on earlier Rössler conclusions remains unmeasured.
 - [x] Independently enumerate the finite quadratic-map control and compare
   its words/order with the in-scope unimodal source subset under a predeclared
   dictionary. [EXP-478](experiments/EXP-478-quadratic-symbolic-control.md)

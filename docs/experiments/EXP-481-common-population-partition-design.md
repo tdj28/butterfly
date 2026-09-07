@@ -12,8 +12,9 @@ integrity preflight now also pass their outcome-free controls; see
 [the recording update](../updates/2026-09-06-exp481-durable-recording.md).
 An explicit [numeric sampling/analysis proposal](EXP-481-sampling-and-analysis-proposal.md)
 and tested seed selection/held-out map primitives now exist. They are unreviewed,
-not a frozen target plan. Journal replay/joint decisions, the adaptive adapter,
-target runner and adjudicated review remain pending. The draft preflight cannot
+not a frozen target plan. Journal replay, fixed-ID cohort intersection and joint
+map/proximity decisions now pass [end-to-end synthetic controls](../updates/2026-09-06-exp481-replay-decisions.md).
+The adaptive adapter, target runner and adjudicated review remain pending. The draft preflight cannot
 authorize target execution.
 
 ## Question
@@ -68,11 +69,10 @@ undersupported or unstable projection is an informative outcome.
 
 ## Economical first action
 
-Complete the remaining integration in the numeric proposal: audited journal
-replay, cross-profile cohort intersection, joint map/critical-membership decisions,
-adaptive qualification and the source/review-bound bounded target wrapper.
+Complete adaptive qualification and the source/review-bound bounded target
+wrapper, including both-case aggregation, in the numeric proposal.
 The kernel, durable journal, deterministic seed/pair selection and held-out
-seed-bootstrap analyzer are implemented; do not rebuild them. The ambiguous
+seed-bootstrap analyzer, replay and joint decisions are implemented; do not rebuild them. The ambiguous
 previous provider transaction remains separately guarded and must not trigger
 a duplicate worker create.
 

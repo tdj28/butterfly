@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-replay-decisions.md`](2026-09-06-exp481-replay-decisions.md)
+  — audited raw-to-cohort replay, complete-grid map/proximity decisions and
+  a 2,048-seed synthetic integration-to-analysis control; no new Rössler result.
+
 - [`2026-09-06-exp481-sampling-design.md`](2026-09-06-exp481-sampling-design.md)
   — explicit numeric sampling proposal, fixed seed/pair selection and held-out
   seed-bootstrap map analysis; synthetic monotone/cubic/multivalued controls pass.

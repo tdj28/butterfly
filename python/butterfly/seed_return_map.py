@@ -120,7 +120,8 @@ def _fit(pairs, seed_ids, bounds, bins, smoothing, options):
             "critical_points": critical, "spline": spline, "domain": (lo, hi), "occupied": occupied}
 
 
-def audit_map(calibration, validation, *, calibration_ids, validation_ids, options=MapOptions(), variants=VARIANTS):
+def audit_map(calibration, validation, *, calibration_ids, validation_ids, options=MapOptions(), variants=VARIANTS,
+              retain_models=False):
     """Fit only calibration; freeze its normalization for held-out predictions.
 
     Input shape is [seed, equal number of selected consecutive pairs, 2].
@@ -128,6 +129,8 @@ def audit_map(calibration, validation, *, calibration_ids, validation_ids, optio
     No coordinate, hyperparameter or branch count is selected by an orbit word.
     """
     _validate_options(options)
+    if type(retain_models) is not bool:
+        raise ValueError("retain_models must be Boolean")
     cal, val = np.asarray(calibration, float), np.asarray(validation, float)
     cids, vids = np.asarray(calibration_ids), np.asarray(validation_ids)
     for array, ids in ((cal, cids), (val, vids)):
@@ -173,6 +176,11 @@ def audit_map(calibration, validation, *, calibration_ids, validation_ids, optio
             normalized_critical_points=fit["critical_points"], normalized_domain=[lo, hi],
             heldout_unsupported_fraction=unsupported, heldout_q90_error=error,
             heldout_affine_q90_error=affine_error)
+        if retain_models:
+            knots = fit["spline"].get_knots()
+            record["model"] = {"knots": np.r_[np.repeat(knots[0], 3), knots, np.repeat(knots[-1], 3)].tolist(),
+                               "coefficients": fit["spline"].get_coeffs().tolist(), "degree": 3,
+                               "occupied_bins": fit["occupied"].tolist()}
         if unsupported > options.maximum_heldout_unsupported_fraction or error is None or error > options.maximum_heldout_q90_error:
             record["reason"] = "held-out graph/support gate failed"
             continue
@@ -190,6 +198,10 @@ def audit_map(calibration, validation, *, calibration_ids, validation_ids, optio
             record["reason"] = "seed-block branch stability failed"
             continue
         nominal_counts.append(len(fit["critical_points"]))
+        if retain_models:
+            local_points = np.asarray([fit["critical_points"], *points])
+            record["critical_intervals"] = (lower+span*np.column_stack((local_points.min(axis=0),
+                local_points.max(axis=0)))).tolist() if len(fit["critical_points"]) else []
         all_points.extend([fit["critical_points"], *points])
         record.update(resolved=True, reason="resolved finite-resolution scalar map")
     if len(nominal_counts) != len(variants) or len(set(nominal_counts)) != 1:

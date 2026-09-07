@@ -154,11 +154,15 @@ independence for correlated returns in this experiment.
 
 ## Joint stability and cycle comparison
 
-The final primary gate will require agreement across both windows and steps
+The implemented primary gate requires agreement across both windows and steps
 within each case: all resolve, critical counts agree, and matched ordered
 critical regions together span no more than 0.04 of the combined calibration
-domain. Cases are reported individually; overall support requires both.
-That joint decision and the following comparison still need implementation.
+domain. Ordered regions must be disjoint both within each map and in the
+combined envelope; otherwise matching is unresolved. This is an explicit
+pre-review clarification, not a gate chosen after target results.
+Cases are reported individually; the future production wrapper must require
+both for overall support. The per-case joint decision and following comparison
+are implemented and [synthetically tested](../updates/2026-09-06-exp481-replay-decisions.md).
 
 Only after that gate, compare **all six** historical reference-orbit points
 with every ordered critical region. Require proximity within the inferred
@@ -189,11 +193,8 @@ partial evidence and stop on technical invalidity; no automatic retry/resume.
 
 Remaining before any target data generation:
 
-- Audited journal-to-pairs replay, fixed global-ID join and cross-profile cohort
-  intersection, with end-to-end synthetic integration tests.
-- Joint window/profile stability and the full critical-membership matrix.
 - Adaptive early-transient qualification adapter, shared event/capture semantics,
-  and bounded CPU process supervisor.
+  and bounded CPU process supervisor, including complete two-case aggregation.
 - Authentic source/input/review-bound production preflight; verify capture
   reference rows against EXP-480 raw events, not only copied result summaries.
 - One compact design review, adjudication of all findings and exact pushed

@@ -68,7 +68,7 @@
     "normalization": "min and max of all calibration pair endpoints only, same affine transform for source and target; no holdout refit",
     "variants": [[40, 0.00001], [30, 0.00001], [50, 0.00001], [40, 0.000001], [40, 0.0001]],
     "options": {"minimum_seeds": 256, "minimum_bin_seeds": 8, "minimum_coverage": 0.7, "maximum_empty_run": 2, "maximum_heldout_unsupported_fraction": 0.05, "maximum_heldout_q90_error": 0.08, "minimum_prominence": 0.03, "grid_size": 4097, "bootstrap_samples": 200, "minimum_bootstrap_consensus": 0.8, "maximum_critical_span": 0.04, "random_seed": 481002},
-    "joint_primary_gate": "all five variants, both windows and both step profiles resolve in each case; branch count agrees; matched ordered critical intervals across windows/profiles span at most 0.04 of their combined calibration domain",
+    "joint_primary_gate": "all five variants, both windows and both step profiles resolve in each case; branch count agrees; ordered critical regions must be disjoint within and across maps, and matched intervals across windows/profiles span at most 0.04 of their combined calibration domain",
     "across_cases": "report both cases separately; do not pool or select the better case; overall support requires both",
     "uncertainty": "whole calibration-seed bootstrap; failed replicates retained; envelope over nominal and count-matched bootstrap extrema and all variants; descriptive, not a simultaneous confidence interval",
     "historical_z_or_barrio_z_can_rescue_primary": false
@@ -103,6 +103,6 @@
     "compute_cost_usd": 0
   },
   "review_paths": {"brief": "docs/reviews/EXP-481-review-brief.md", "adjudication": "docs/reviews/EXP-481-adjudication.json"},
-  "not_yet_implemented": ["audited journal-to-pairs replay and cross-profile intersection", "joint window/profile decision and critical-membership matrix", "adaptive early-transient qualification adapter", "source/input/review-bound target runner and resource supervisor", "full production preflight and compact adjudicated review"],
+  "not_yet_implemented": ["adaptive early-transient qualification adapter", "source/input/review-bound target runner and resource supervisor including both-case aggregation", "full production preflight and compact adjudicated review"],
   "claim_scope": "Unreviewed numeric proposal only. New deterministic seed coordinates are inputs, not trajectories. No target computation or manuscript claim is authorized."
 }
