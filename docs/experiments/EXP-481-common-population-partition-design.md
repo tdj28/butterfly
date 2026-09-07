@@ -1,0 +1,67 @@
+# EXP-481 — Common-population historical partition: implementation worklist
+
+Status: outcome-free successor design; **not an execution authorization**.
+EXP-480 qualified observation of both fixed cycles, but no transient cloud,
+partition or word has been generated for this successor.
+
+## Question
+
+Do independently sampled finite-time noncaptured trajectories at both
+EXP-479 nominations support a stable, adequately resolved historical-section
+scalar return map, and is the nominated cycle near its neutral critical set?
+Answer that before attaching Jones's letters. A monotone, multivalued,
+undersupported or unstable projection is an informative outcome.
+
+## Implementation sequence
+
+1. Reuse the existing Float64 batched integration and capture code only after
+   separating its single-section survivor filter from raw collection. Observe
+   both sections on each same trajectory, retaining seed IDs, event times,
+   states, capture flags and numerical failures. Do not stop a trajectory's
+   integration merely because one section has marked it captured.
+2. Define a common retention rule prospectively. One candidate is uncaptured
+   under both section-specific tests at the same physical horizon. Report the
+   full contingency table (neither, historical-only, Barrio-only, both),
+   integration failures and insufficient-event exclusions. This estimates a
+   finite-time conditional population; it does not prove a chaotic saddle.
+3. Make trajectory/seed the independent sampling unit. Freeze whether the
+   primary map estimate weights trajectories equally or events equally.
+   Unequal numbers of returns make those different estimands. A bounded equal
+   number of temporally stratified pairs per retained seed is a possible
+   implementation; disclose every resulting coverage exclusion. Bootstrap and
+   train/validation splits must be by seed, never by treating correlated
+   successive returns as independent observations.
+4. Before collecting new outcomes, compile a complete numeric manifest:
+   deterministic seed distribution, both original candidate IDs and hashes,
+   physical horizons/checkpoints, step/refinement profiles, two capture rules,
+   root and boundary exclusions, storage caps, per-seed pair selection,
+   trajectory weights, calibration/holdout split, and failed/censored cases.
+   Qualify the collector on synthetic dual-section trajectories and the
+   existing non-target controls. Do not tune these choices on source words.
+5. Freeze scalar-map adequacy as the primary endpoint: held-out conditional
+   spread, domain coverage and support, reproducibility of branch/critical
+   structure under fixed reconstruction variants, and trajectory-block
+   uncertainty. x is the historically motivated primary coordinate; z may be
+   a declared diagnostic, not required to inherit the distant control's
+   branch count. Reuse thresholds only with an explicit rationale under the
+   new sampling/weighting convention.
+6. Only an adequate neutral map may be used to assess the orbit's critical
+   membership, with independently inferred intervals and slope residuals.
+   Use both nominated cases; an overall claim cannot select only the better
+   one after observing results. Freeze support/sample-size justification for
+   map resolution, not the probability of obtaining a desired word.
+7. Obtain/adjudicate the compact design review, pass controls, and push the
+   exact executable freeze before target sampling. Alphabet transport and
+   continuation-arrow tests remain later, separate gates.
+
+## Economical first action
+
+Audit the existing batched CPU collector's event-retention and capture
+interfaces, then implement the dual-section raw collector and synthetic tests.
+This can proceed locally without a new Runpod worker. Benchmark a synthetic
+workload before choosing compute; the ambiguous previous provider transaction
+remains separately guarded and must not trigger a duplicate worker create.
+
+The proposed retention/weighting ideas above are design candidates, not
+silently frozen choices. No new survivor outcomes should be generated until
+the numerical choices, executable plan, controls and review are complete.

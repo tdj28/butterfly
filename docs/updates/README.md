@@ -22,6 +22,14 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp480-both-cycles-qualified.md`](2026-09-06-exp480-both-cycles-qualified.md)
+  — both fixed cycles pass paired-section qualification; figure, audited raw
+  evidence and prax backup retained; common-population partition work is next.
+
+- [`2026-09-06-exp480-review-and-repairs.md`](2026-09-06-exp480-review-and-repairs.md)
+  — real adversarial review, gate-edge repair and anisotropic analytic controls
+  completed before target execution.
+
 - [`2026-09-04-review-001-manuscript.md`](2026-09-04-review-001-manuscript.md)
   - responds to the external review with sharper mathematical objects,
   both-equilibrium spectral checks, corrected Sobol uncertainty language,
