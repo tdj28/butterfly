@@ -138,3 +138,19 @@ def test_setup_refusal_is_preserved_and_never_consumes_slot(tmp_path, monkeypatc
     assert not (tmp_path/"attempt/receipt.json").exists()
     with pytest.raises(FileExistsError):
         controller.preflight(tmp_path/"attempt", "a"*40, "refs/heads/synthetic")
+
+
+def test_host_setup_is_not_a_forged_sealed_worker_receipt(tmp_path):
+    command = [sys.executable, "-I", "-B", "-c",
+        "import runpy,sys; api=runpy.run_path(sys.argv[1]); "
+        "api['select_host_runtime'](sys.argv[2]); "
+        "assert sys.path[0] == sys.argv[2]+'/python'; "
+        "assert not any(type(f).__name__ == 'BoundImports' for f in sys.meta_path)",
+        str(ROOT/"scripts/run_paired_campaign.py"), str(tmp_path)]
+    subprocess.run(command, check=True, capture_output=True, timeout=10)
+
+
+def test_host_setup_refuses_already_imported_numerics(tmp_path):
+    from scripts.run_paired_campaign import select_host_runtime
+    with pytest.raises(ValueError, match="preceded source/runtime"):
+        select_host_runtime(tmp_path)

@@ -55,9 +55,17 @@ covered these files.
 - An initial test assertion expected the word `positive`, while the correctly
   refused invalid configuration reports `invalid bounded adaptive design`.
   The assertion was corrected; neither validator nor numerical rule changed.
-- Actual pushed-source command on preserved research inputs: pending the
-  implementation commit and live source-bound run. No target launch or paid
-  review has been performed for this checkpoint.
+- The first actual pushed-source command (`production-preflight-01`, source
+  `e5fc0084baf0f7a4d370a7d091e6bbd916fb9146`) correctly stopped before tests or
+  target outcomes: the host controller tried to use the worker-only import
+  closure despite having normal virtualenv startup and a controller path outside
+  that closure. Its failure and full checked source/runtime inventory are
+  preserved. The repair keeps the host explicitly trusted and uses its verified
+  minimal package, while leaving the child's isolated import policy unchanged.
+  Two regression tests distinguish those paths. This is a pre-outcome setup
+  incident, not a relaxed numerical or child-startup gate.
+- The repaired actual pushed-source command on preserved research inputs is
+  pending a new source commit. No target launch or paid review has occurred.
 
 Tests establish trusted-host reproducibility checks, not protection against a
 hostile operator or hermetic OS/native-library attestation. Hashes identify the

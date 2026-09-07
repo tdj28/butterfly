@@ -61,6 +61,18 @@ def require_preflight(witness, *, source_commit, plan_sha256, runtime_sha256, in
         raise ValueError("actual child preflight differs from independently reconstructed setup")
 
 
+def select_host_runtime(runtime):
+    """Use the bound minimal package; do not impersonate the sealed child.
+
+    This host process already ran Git and normal virtualenv startup. Its
+    interpreter hooks remain host trust. Only the child uses the full isolated
+    import gate, with its own actual pre-import guard and startup observations.
+    """
+    if any(n.split(".")[0] in ("numpy", "scipy", "butterfly") for n in sys.modules):
+        raise ValueError("host scientific imports preceded source/runtime binding")
+    sys.path.insert(0, str(Path(runtime)/"python"))
+
+
 def preflight(output, source_commit, remote_ref, *, mode="source",
               release="experiments/manifests/EXP-481-reviewed-release.json"):
     output = Path(output).absolute()
@@ -80,7 +92,7 @@ def preflight(output, source_commit, remote_ref, *, mode="source",
         api["verify_runtime"](output/"runtime", contract)
         # Host-side orchestration also uses the just-bound bundle. It is not the
         # child's isolated startup receipt; the child observes its own flags/env.
-        api["install_import_gate"](output/"runtime", contract)
+        select_host_runtime(output/"runtime")
         from butterfly.paired_input_package import build_package, load_package
         from butterfly.paired_inputs import load_references
         from butterfly.paired_phases import from_reference_audit
