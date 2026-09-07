@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-live-run.md`](2026-09-07-exp481-live-run.md)
+  — actual qualification completed: adaptive solvers agree, RK4 steps fail the
+  state-accuracy bound; collection prevented, raw replay exact, refinement next.
+
 - [`2026-09-07-exp481-prospective-review.md`](2026-09-07-exp481-prospective-review.md)
   — PR47 merged; prospective review fixes and workload/turning controls passed;
   381 final source-bound tests pass; exact reviewed release ready for execution.

@@ -1,0 +1,121 @@
+{
+  "comparison_count": 192,
+  "comparisons_passed": 92,
+  "experiment_id": "EXP-481",
+  "groups": [
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-001",
+      "maximum_scaled_state_difference": 0.005606660136316377,
+      "maximum_time_difference": 1.8368618022179817e-06,
+      "passed": 4,
+      "right": "rk4-0005",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-001",
+      "maximum_scaled_state_difference": 0.005996314893201703,
+      "maximum_time_difference": 1.9608719448171996e-06,
+      "passed": 4,
+      "right": "DOP853",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-001",
+      "maximum_scaled_state_difference": 0.005996290818237312,
+      "maximum_time_difference": 1.9608709145302328e-06,
+      "passed": 4,
+      "right": "Radau",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-0005",
+      "maximum_scaled_state_difference": 0.00038965475688561383,
+      "maximum_time_difference": 1.2401014259921794e-07,
+      "passed": 24,
+      "right": "DOP853",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-0005",
+      "maximum_scaled_state_difference": 0.0003896306819212221,
+      "maximum_time_difference": 1.240091123122511e-07,
+      "passed": 24,
+      "right": "Radau",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "DOP853",
+      "maximum_scaled_state_difference": 3.199005513310006e-08,
+      "maximum_time_difference": 3.247180302423658e-12,
+      "passed": 32,
+      "right": "Radau",
+      "total": 32
+    }
+  ],
+  "historical_symbols_verified": false,
+  "qualification_trials": 128,
+  "raw_comparison_replay_exact": true,
+  "run_anchors": {
+    "campaign/failure.json": {
+      "bytes": 288,
+      "path": "campaign/failure.json",
+      "sha256": "3d3445cb72cc0c216ca000317bd3072aba52146e16e270cd5cc353fdaa5f01c1"
+    },
+    "campaign/qualification/phase-witness.json": {
+      "bytes": 215565,
+      "path": "campaign/qualification/phase-witness.json",
+      "sha256": "7286577ced87f3e33b6329bc64a6c09a8a09fab1a0abee1c3a5fd5859c6da8ad"
+    },
+    "campaign/qualification/phase/terminal.json": {
+      "bytes": 277704,
+      "path": "campaign/qualification/phase/terminal.json",
+      "sha256": "51e4cf10dc4c3c2a4706a321fec6314251e9ca59ff2e234c275ed32452ecf2d9"
+    },
+    "campaign/qualification/supervisor/terminal.json": {
+      "bytes": 545,
+      "path": "campaign/qualification/supervisor/terminal.json",
+      "sha256": "7a2d389991a2036f2874cb9edab131e76ea519445a86621b410de832c68fd8dd"
+    },
+    "preflight/receipt.json": {
+      "bytes": 10862,
+      "path": "preflight/receipt.json",
+      "sha256": "f020f833d467b450e56834c55d5501b40e8c8facfbc6959d5664899d7e75d756"
+    }
+  },
+  "scope": "RK4 step settings fail frozen early event-state accuracy; not a refutation of Jones or a map result",
+  "source_commit": "83a737a74d64cacc4028c1bb624a9817f395dbbd",
+  "status": "numerically-not-qualified",
+  "supervisor": {
+    "automatic_retry": false,
+    "binding": {
+      "campaign_slot_sha256": "9aabebf572978d3374641d59e31ad3923d94f98187133a176cf4f3326c4ec3db",
+      "grant_sha256": "c33bfd3e32f47163c513a2564b142cab6c1ebf95a6ce91701e15a8ece75ed166",
+      "phase": "qualification"
+    },
+    "elapsed_seconds": 41.72578504215926,
+    "maximum_sampled_disk_bytes": 27304747,
+    "maximum_sampled_rss_bytes": 125616128,
+    "owned_group_cleanup_verified": true,
+    "reason": null,
+    "returncode": 0,
+    "samples": 147,
+    "scientific_qualification": false,
+    "status": "completed"
+  },
+  "target_analysis_performed": false,
+  "target_attempt_consumed": true,
+  "target_collection_batches": 0,
+  "threshold": 0.0001
+}
