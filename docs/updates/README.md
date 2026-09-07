@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-sealed-startup.md`](2026-09-07-exp481-sealed-startup.md)
+  — isolated exact-file worker, canonical observed environment and nine real
+  startup/failure controls; review-bound target dispatch remains disabled.
+
 - [`2026-09-06-exp481-campaign-aggregation.md`](2026-09-06-exp481-campaign-aggregation.md)
   — fixed 512-batch/128-qualification trial grid and both-case analysis wiring;
   unresolved cases and all six historical reference rows remain explicit.

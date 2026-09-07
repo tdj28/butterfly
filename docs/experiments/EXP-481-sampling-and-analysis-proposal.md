@@ -227,15 +227,21 @@ clarification must remain explicit. An independently running worker guard
 must be armed before scientific imports and stop its own session on supervisor
 pipe loss or deadline. Generic argv supervision does not attest that startup.
 
+The isolated numerical-worker bootstrap now passes
+[nine actual startup controls](../updates/2026-09-07-exp481-sealed-startup.md),
+including observed environment validation and exact-file imports without the
+development checkout. Its minimal package initializer leaves numerical modules
+unchanged. This is a startup-only path, not a complete reviewed target runner.
+
 Remaining before any target data generation:
 
 - Bind the implemented recording/supervision and campaign-composition components
   into the authentic production CLI, including externally bound journal replay
   for every fixed trial and complete two-case aggregation.
-- Canonical runtime environment, isolated import closure and genuine startup
-  attestation. The Mac synthetic worker adds `LC_CTYPE` and
-  `__CF_USER_TEXT_ENCODING`; specify/verify allowed derived values rather than
-  assuming the requested environment exactly survives imports.
+- Extend the qualified canonical environment and isolated numerical import
+  closure to the actual input-audit/phase-dispatch path; requalify its genuine
+  startup boundary and complete phase resource limits. The environment now
+  explicitly sets and verifies `LC_CTYPE` and `__CF_USER_TEXT_ENCODING` on Mac.
 - Authentic source/input/review-bound production preflight, invoking the raw
   capture-reference audit and the exact worker guard before target access.
 - One compact design review, adjudication of all findings and exact pushed

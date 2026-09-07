@@ -1,0 +1,25 @@
+{
+  "experiment_id": "EXP-481",
+  "kind": "sealed-startup-software-controls",
+  "passed": true,
+  "target_trajectories_generated": 0,
+  "target_execution_authorized": false,
+  "local_run": "artifacts/EXP-481/sealed-startup-05",
+  "receipt_bytes": 48439,
+  "receipt_sha256": "fbf8e1480167bbfa6d021db1c5162df45d85342685c75d84686d15643853fa99",
+  "runtime_contract_sha256": "862aa66366b6963685d535401cbadc9ffff2b6660bb9828f7dc5da21b4352766",
+  "raw_file_count_excluding_receipt": 273,
+  "raw_bytes_excluding_receipt": 7455417,
+  "sealed_source_files": 18,
+  "bound_scientific_dependency_files": 2872,
+  "observed_import_records": 776,
+  "passing_cases": ["correct", "missing-env", "wrong-env", "extra-env", "missing-source", "extra-source", "changed-source", "wrong-contract", "execute-refused"],
+  "source_sha256": {
+    "python/butterfly/_paired_startup.py": "f75718cd86533eca5f97e671ca51f78fb62126490f4baf39f8ff4ada5cc33351",
+    "scripts/paired_worker.py": "bcb91e027decbe9052051c1b03febf652abc06d01206ad8c728d2c621e867d25",
+    "scripts/build_paired_runtime.py": "bb19de13bb2f5b4233167ee05b745afe965cae82cf003a8eb867074e9f458926",
+    "scripts/qualify_paired_startup.py": "eb510e0da5b5a23646cc15a1e35f1ae40a65d1ad913e66ef45234ccd0f151345",
+    "runtime/paired/butterfly/__init__.py": "f28f62edd303118d47644c85cd00857cd06ce8303eba217410d342c75ab5e3e2"
+  },
+  "scope": "Actual isolated bootstrap/import/environment checks only. Host standard library and native system loader remain trusted. Complete input/review-bound phase dispatch, final deployment qualification and pushed authorization freeze remain pending. Hashes are not a public data release."
+}
