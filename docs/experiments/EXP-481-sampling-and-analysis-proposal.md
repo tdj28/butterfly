@@ -176,13 +176,34 @@ estimated turning regions, not exact criticality or Jones-symbol verification.
 
 ## Numerical qualification, bounds and next implementation
 
-Before full collection, an adaptive adapter must compare both RK4 profiles
+Before full collection, the adaptive adapter must compare both RK4 profiles
 with DOP853 and Radau on the same preselected 16 global seed IDs per case,
 through time 20. The manifest fixes tolerances, maximum steps and accepted
 event-state/time agreement at `1e-4`. These early-transient diagnostics are
 new target computations and must wait for the reviewed freeze. They cannot
 certify long-time shadowing or exclude every missed tangency. Later ensemble
 agreement is a separate check, not a substitute for that limitation.
+
+The [implemented adapter](../updates/2026-09-06-exp481-adaptive-qualification.md)
+uses the public DOP853/Radau step and dense-output interfaces and Brent roots.
+It shares geometric membership and capture policy, not root interpolation,
+with RK4. All six profile pairs must agree on ordered raw as well as accepted
+counts, orientations and membership, with no ambiguous roots. Capture-label
+membership must agree and first-capture times differ by at most `1e-4`.
+These stricter explicit comparisons and resource bounds are pre-review design
+clarifications, made without new target trajectories. They can fail on rejected
+plane roots even when accepted counts agree; no such mismatch is silently ignored.
+Each qualification seed has a 60,000-step, 2,048-raw-event cap; each adaptive
+seed additionally has a 1,000,000-field-evaluation cap. The adaptive callback
+interval is 1,000 committed steps. The supervisor must enforce a 1,800-second
+qualification wall limit and persist partial snapshots and final status.
+These bounds are not runtime estimates. Only synthetic qualification has run.
+
+The two saved capture references have now been checked against the hash-bound
+EXP-480 raw event files, including independently recomputed vector-field normal
+velocity and section membership and exact ordered first-window rows. The
+future production preflight must repeat this read-only check on its bound
+inputs; a previous successful audit is not an authorization token.
 
 The result-free batch table has 512 rows: two cases × two profiles × 128
 64-seed batches. CPU only; no new paid worker. The proposal caps collection
@@ -193,10 +214,10 @@ partial evidence and stop on technical invalidity; no automatic retry/resume.
 
 Remaining before any target data generation:
 
-- Adaptive early-transient qualification adapter, shared event/capture semantics,
-  and bounded CPU process supervisor, including complete two-case aggregation.
-- Authentic source/input/review-bound production preflight; verify capture
-  reference rows against EXP-480 raw events, not only copied result summaries.
+- Bounded CPU process supervisor, durable adaptive snapshots and complete
+  two-case aggregation through the authentic production entry point.
+- Authentic source/input/review-bound production preflight, invoking the
+  implemented raw capture-reference audit rather than trusting copied summaries.
 - One compact design review, adjudication of all findings and exact pushed
   executable freeze. The journal/analysis primitives do not supply that authority.
 
