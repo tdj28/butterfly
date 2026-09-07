@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-sampling-design.md`](2026-09-06-exp481-sampling-design.md)
+  — explicit numeric sampling proposal, fixed seed/pair selection and held-out
+  seed-bootstrap map analysis; synthetic monotone/cubic/multivalued controls pass.
+
 - [`2026-09-06-exp481-durable-recording.md`](2026-09-06-exp481-durable-recording.md)
   — write-once paired-section journals, forced process-loss control and
   outcome-free input preflight; numeric sampling and analysis design next.

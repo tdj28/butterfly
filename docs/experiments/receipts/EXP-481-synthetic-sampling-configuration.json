@@ -1,0 +1,54 @@
+{
+  "batch_count": 512,
+  "calibration_rng_seed": 481101,
+  "kind": "EXP-481-outcome-free-sampling-qualification",
+  "map_options": {
+    "bootstrap_samples": 200,
+    "grid_size": 4097,
+    "maximum_critical_span": 0.04,
+    "maximum_empty_run": 2,
+    "maximum_heldout_q90_error": 0.08,
+    "maximum_heldout_unsupported_fraction": 0.05,
+    "minimum_bin_seeds": 8,
+    "minimum_bootstrap_consensus": 0.8,
+    "minimum_coverage": 0.7,
+    "minimum_prominence": 0.03,
+    "minimum_seeds": 256,
+    "random_seed": 481002
+  },
+  "numpy": "2.5.1",
+  "pairs_per_seed": 4,
+  "python": "3.13.11",
+  "seed_commitment": "84400ee6a80d4e83fcea0355f37a1f1e86b1ea1468c33821292bce784cb49ebc",
+  "source_sha256": {
+    "experiments/manifests/EXP-481-paired-sampling-proposal.json": "db5c0698b780c0c9c776c3b1401390191851350ef93c2020b75f5750f7d53eda",
+    "python/butterfly/paired_sampling.py": "9b17146663bfa340b662f049baf2fdadfff564290686883d3b89673ee7a3c08d",
+    "python/butterfly/seed_return_map.py": "845154a9ee4526fb5fe7817780cdc7f7c3c62decfd19ebc02941355c2c8ee522",
+    "scripts/qualify_paired_sampling.py": "f496b9eb8a66902f44bf69ebfc72e0bc964fea1e108372fb7830fca2502956a7"
+  },
+  "synthetic_seeds_per_split": 512,
+  "target_trajectories": 0,
+  "validation_rng_seed": 481102,
+  "variants": [
+    [
+      40,
+      1e-05
+    ],
+    [
+      30,
+      1e-05
+    ],
+    [
+      50,
+      1e-05
+    ],
+    [
+      40,
+      1e-06
+    ],
+    [
+      40,
+      0.0001
+    ]
+  ]
+}
