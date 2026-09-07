@@ -1,0 +1,173 @@
+{
+  "all_passed": true,
+  "experiment_id": "EXP-482",
+  "kind": "synthetic-refined-step-engineering-benchmark",
+  "rows": [
+    {
+      "batch_size": 128,
+      "both_profiles_seconds": 2.5017140405252576,
+      "passed": true,
+      "profiles": [
+        {
+          "completed_steps": 8200,
+          "dt": 0.0025,
+          "elapsed_seconds": 0.8380568325519562,
+          "events": {
+            "barrio": 1280,
+            "historical": 1280
+          },
+          "maximum_final_state_error": 2.87156354369779e-10,
+          "passed": true
+        },
+        {
+          "completed_steps": 16400,
+          "dt": 0.00125,
+          "elapsed_seconds": 1.6636572079733014,
+          "events": {
+            "barrio": 1280,
+            "historical": 1280
+          },
+          "maximum_final_state_error": 1.7913533404771504e-11,
+          "passed": true
+        }
+      ],
+      "seconds_per_seed": 0.019544640941603575,
+      "supervisor": {
+        "automatic_retry": false,
+        "binding": {
+          "batch_size": 128,
+          "kind": "EXP-482-synthetic-refined-throughput",
+          "source_commit": "8cddf0d8d69465d230036f72dd5542dbff76d918"
+        },
+        "elapsed_seconds": 3.1508978344500065,
+        "maximum_sampled_disk_bytes": 587766,
+        "maximum_sampled_rss_bytes": 99500032,
+        "owned_group_cleanup_verified": true,
+        "reason": null,
+        "returncode": 0,
+        "samples": 12,
+        "scientific_qualification": false,
+        "status": "completed"
+      },
+      "worker_bytes": 578357,
+      "worker_files": 64,
+      "worker_receipt": {
+        "bytes": 6365,
+        "path": "artifacts/EXP-482/synthetic-throughput-01/batch-128/worker/receipt.json",
+        "sha256": "a70e28c119e636f60a784b7c6fb65f33256141caae80a8b5a91d7040da8f89a4"
+      }
+    },
+    {
+      "batch_size": 256,
+      "both_profiles_seconds": 3.0336396247148514,
+      "passed": true,
+      "profiles": [
+        {
+          "completed_steps": 8200,
+          "dt": 0.0025,
+          "elapsed_seconds": 1.0038261665031314,
+          "events": {
+            "barrio": 2560,
+            "historical": 2560
+          },
+          "maximum_final_state_error": 2.87156354369779e-10,
+          "passed": true
+        },
+        {
+          "completed_steps": 16400,
+          "dt": 0.00125,
+          "elapsed_seconds": 2.02981345821172,
+          "events": {
+            "barrio": 2560,
+            "historical": 2560
+          },
+          "maximum_final_state_error": 1.7913533404771504e-11,
+          "passed": true
+        }
+      ],
+      "seconds_per_seed": 0.011850154784042388,
+      "supervisor": {
+        "automatic_retry": false,
+        "binding": {
+          "batch_size": 256,
+          "kind": "EXP-482-synthetic-refined-throughput",
+          "source_commit": "8cddf0d8d69465d230036f72dd5542dbff76d918"
+        },
+        "elapsed_seconds": 3.6963169993832707,
+        "maximum_sampled_disk_bytes": 857122,
+        "maximum_sampled_rss_bytes": 100057088,
+        "owned_group_cleanup_verified": true,
+        "reason": null,
+        "returncode": 0,
+        "samples": 14,
+        "scientific_qualification": false,
+        "status": "completed"
+      },
+      "worker_bytes": 843619,
+      "worker_files": 64,
+      "worker_receipt": {
+        "bytes": 10206,
+        "path": "artifacts/EXP-482/synthetic-throughput-01/batch-256/worker/receipt.json",
+        "sha256": "39c73e6455565b2b07a5cba929e88f4e40cf180eb9da50d8290bafe1c0f6808c"
+      }
+    },
+    {
+      "batch_size": 512,
+      "both_profiles_seconds": 4.869115959852934,
+      "passed": true,
+      "profiles": [
+        {
+          "completed_steps": 8200,
+          "dt": 0.0025,
+          "elapsed_seconds": 1.6346835419535637,
+          "events": {
+            "barrio": 5120,
+            "historical": 5120
+          },
+          "maximum_final_state_error": 2.87156354369779e-10,
+          "passed": true
+        },
+        {
+          "completed_steps": 16400,
+          "dt": 0.00125,
+          "elapsed_seconds": 3.23443241789937,
+          "events": {
+            "barrio": 5120,
+            "historical": 5120
+          },
+          "maximum_final_state_error": 1.7917271955598845e-11,
+          "passed": true
+        }
+      ],
+      "seconds_per_seed": 0.009509992109087761,
+      "supervisor": {
+        "automatic_retry": false,
+        "binding": {
+          "batch_size": 512,
+          "kind": "EXP-482-synthetic-refined-throughput",
+          "source_commit": "8cddf0d8d69465d230036f72dd5542dbff76d918"
+        },
+        "elapsed_seconds": 5.3831527922302485,
+        "maximum_sampled_disk_bytes": 1533146,
+        "maximum_sampled_rss_bytes": 100253696,
+        "owned_group_cleanup_verified": true,
+        "reason": null,
+        "returncode": 0,
+        "samples": 20,
+        "scientific_qualification": false,
+        "status": "completed"
+      },
+      "worker_bytes": 1511189,
+      "worker_files": 64,
+      "worker_receipt": {
+        "bytes": 17886,
+        "path": "artifacts/EXP-482/synthetic-throughput-01/batch-512/worker/receipt.json",
+        "sha256": "16357b35479882d45388549e810e443807937f543c0f4e4941bf59e01945af37"
+      }
+    }
+  ],
+  "scope": "analytic circles only; no target accuracy or full R\u00f6ssler runtime qualification",
+  "source_commit": "8cddf0d8d69465d230036f72dd5542dbff76d918",
+  "speedup_512_vs_128_per_seed": 2.055168996715222,
+  "target_trajectories_generated": 0
+}
