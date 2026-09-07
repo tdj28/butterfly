@@ -1,0 +1,38 @@
+{
+  "self_sha256": "7d26e5744a465c32e7d958a6c62a5c028a0f03e320a3248b2312576f4e3dfb7b",
+  "schema": "butterfly.design-review-adjudication.v1",
+  "design_sha256": "2acb4ac0b29557d2181af720a58034b51c27607f240a9280755bb7dd8b05ee49",
+  "approved_for_execution": true,
+  "reviewed_packet_commit": "82d5915da16e61342bb4bcf42b5390b854b972e0",
+  "reviewed_design_sha256": "c7915accbf4dc63d5fba84434ad98aa95163a466d4119390aa21d350daca9fe4",
+  "review_input_sha256": "57b1d5f410ef461d76e2d3a7e4002bc8b6adda03e88622cbb126906b3d2f771c",
+  "review_verdict": "READY AFTER SPECIFIED FIXES",
+  "review_receipt": {"path": "docs/reviews/EXP-480-review-01/response.json", "sha256": "35182db9c0fa36438b47059c1443f2eba4b463e6ec6b6d01df22579f6ad90399"},
+  "adjudication_document": {"path": "docs/reviews/EXP-480-adjudication.md", "sha256": "0a9c1d4c6a7c3a221b8273b5f39a8d81835dac2a5c9638d120b2d040503d4b64"},
+  "adjudication": [
+    {"finding": "B01", "decision": "accepted_modified", "resolution": "Signed gate distances for all roots; exclusion includes rejected oriented roots; low-angle roots unresolved. Exact historical plane relates gate edge and zero normal velocity, but the scaled margin is still useful."},
+    {"finding": "B02", "decision": "accept", "resolution": "Explicit gate budget and full anisotropic analytic shooting-to-events control; all 23 focused tests pass, including adverse cases."},
+    {"finding": "I01", "decision": "accept", "resolution": "Claim narrowed to paired-section event reproducibility; no merged interleaving or bijection."},
+    {"finding": "I02", "decision": "accept", "resolution": "Casewise and overall outcomes; mixed or missing profiles cannot count as overall qualification."},
+    {"finding": "I03", "decision": "accepted_modified", "resolution": "Local CPU; explicit monitored operator interruption at 2100 seconds, 60-second grace; storage expectation and dependency qualification documented."},
+    {"finding": "I04", "decision": "defer", "resolution": "Mandatory trajectory-versus-event weighting and common-population estimand in separately frozen survivor study; no survivor outcomes authorized here."}
+  ],
+  "runtime_files": {
+    "scripts/check_historical_event_transport.py": "45c0ad80128d795f55f2fa9605d0f4d2d3d6c31cc6f1fd5e57aab4d9d1c97845",
+    "scripts/run_symbolic_center_pilot.py": "fb5c3c6e921bd72e2dd9ef191fee342b66b37007fbe60701d68fce3aac10923d",
+    "python/butterfly/periodic.py": "96ca52f2daebe4e76096f4d66aa94cf5d768e7ae6a508bb7bd67d8491a24c9ee",
+    "python/butterfly/poincare.py": "b3dde788a7d7b02766682abe2d007d2d9baab6a44a471aaddd44bd35544a298c",
+    "python/butterfly/models.py": "5b6a6842a9f0fc4d6073f017911f1042ce3fe11dd316b8ac4064cf4734b1fb21",
+    "python/butterfly/integrate.py": "727e47f575fe330e668ea3ef408c8f76f3c6698d0ec4e935652c7a1fc5326433",
+    "pyproject.toml": "8d69b0cde60eff5aff790d2e7d11b475b50bde373b6d4b91a288dc5e28de950a",
+    "uv.lock": "a1118c46febbce18e7172acfeaa804909792185d3c48fae258044b82e145eeff"
+  },
+  "change_inventory": [
+    {"path": "scripts/check_historical_event_transport.py", "before_sha256": "9ddb1b3587ffb6a54c454cd0f7f67097410f45afb4575d287016b7292409c987", "after_sha256": "45c0ad80128d795f55f2fa9605d0f4d2d3d6c31cc6f1fd5e57aab4d9d1c97845", "findings": ["B01", "I02"]},
+    {"path": "tests/test_historical_event_transport.py", "before_sha256": "54bf719be43f73936f21fdb3e30e2b912694f6414102440e794fa057180d0a04", "after_sha256": "4560e8efbc96c8e969fbfb6973856e0a9cb88129bd1ab902d4564b5e6fcb1edc", "findings": ["B01", "B02"]},
+    {"path": "experiments/manifests/EXP-480-event-transport.json", "design_before_sha256": "c7915accbf4dc63d5fba84434ad98aa95163a466d4119390aa21d350daca9fe4", "design_after_sha256": "2acb4ac0b29557d2181af720a58034b51c27607f240a9280755bb7dd8b05ee49", "findings": ["B01", "I01"], "administrative_changes": "Bind this adjudication and authorize only the reviewed amended design."}
+  ],
+  "controls": {"path": "docs/reviews/EXP-480-review-01/analytic-controls-final.xml", "sha256": "9541486b43cd209e5324688959866ab4572ee43c3f9b434bcd962eb4d52079de", "tests_passed": 23, "target_trajectories_generated": 0},
+  "completed_bundle_validation": {"status": "completed_review_bundle_valid", "response_id": "resp_0dfe02c99ee9224e016a9e056a54f887d08ecc77e3394c03bc", "model": "gpt-6-astra", "cost_usd_conservative": 0.58094},
+  "claim_boundary": "Locally verified changes adjudicate the pre-fix advisory review; they were not inspected by the API reviewer. This is not independent scientific replication."
+}
