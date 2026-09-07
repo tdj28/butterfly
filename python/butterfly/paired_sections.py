@@ -58,6 +58,7 @@ class PairedCollection:
     events: dict[str, dict[str, np.ndarray]]
     checkpoints: list[dict]
     failure: dict | None
+    event_range_start_step: int = 0
 
     def contingency(self):
         """Mutually exclusive valid-seed capture labels, plus numerical exclusions.
@@ -135,20 +136,12 @@ def _events(previous, current, ids, left_field, right_field, rhs, spec, step, dt
     return {k: v[order] for k, v in combined.items()}
 
 
-def collect_paired_sections(
-    rhs: Callable, initial_states, sections: dict[str, CaptureSection], *, dt: float,
+def validate_collection(
+    initial_states, sections: dict[str, CaptureSection], *, dt: float,
     horizon: float, checkpoint_times, state_scales, gate_margin: float,
     angle_margin: float, escape_radius: float, maximum_events: int, maximum_steps: int,
-) -> PairedCollection:
-    """Observe exactly two planes on a shared batch, without capture censoring.
-
-    Sections retain insertion order. Initial plane roots at t=0 are excluded
-    and flagged; subsequent roots are owned by the step ending at their time.
-    Record caps abort before committing the overflowing step, never returning
-    truncated evidence as completed. Returned arrays include all previously
-    completed steps after exceptions/interruption, and no automatic retries.
-    This in-memory kernel must receive a durable wrapper before target use.
-    """
+):
+    """Validate numerical declarations without calling a field or a solver."""
     initial = np.asarray(initial_states, dtype=float)
     scales = np.asarray(state_scales, dtype=float)
     checkpoints = np.asarray(checkpoint_times, dtype=float)
@@ -170,6 +163,32 @@ def collect_paired_sections(
     checkpoint_steps = np.rint(checkpoints/dt).astype(int)
     if not np.allclose(checkpoint_steps*dt, checkpoints, rtol=0, atol=1e-12):
         raise ValueError("checkpoints must be step aligned")
+    return initial, scales, steps, checkpoint_steps
+
+
+def collect_paired_sections(
+    rhs: Callable, initial_states, sections: dict[str, CaptureSection], *, dt: float,
+    horizon: float, checkpoint_times, state_scales, gate_margin: float,
+    angle_margin: float, escape_radius: float, maximum_events: int, maximum_steps: int,
+    progress: Callable | None = None, journal_interval_steps: int | None = None,
+) -> PairedCollection:
+    """Observe two planes on a shared batch, without capture censoring.
+
+    Optional progress callbacks receive detached state snapshots and raw event
+    deltas after committed steps. The final return still contains all events.
+    A failed callback stops collection without retry. A callback alone does
+    not authorize targets or guarantee persistence; the supplied sink owns IO.
+    Initial t=0 roots are excluded and flagged; later roots belong to their
+    ending step. Caps/interruption never return a truncated prefix as complete.
+    """
+    if ((progress is None) != (journal_interval_steps is None)
+            or (progress is not None and (not callable(progress) or type(journal_interval_steps) is not int
+                                         or journal_interval_steps < 1))):
+        raise ValueError("progress requires a callable and a positive integer interval")
+    initial, scales, steps, checkpoint_steps = validate_collection(initial_states, sections, dt=dt,
+        horizon=horizon, checkpoint_times=checkpoint_times, state_scales=state_scales,
+        gate_margin=gate_margin, angle_margin=angle_margin, escape_radius=escape_radius,
+        maximum_events=maximum_events, maximum_steps=maximum_steps)
     count = len(initial)
     state = initial.copy()
     failed = np.linalg.norm(initial, axis=1) > escape_radius
@@ -186,8 +205,23 @@ def collect_paired_sections(
     # One tuple assignment publishes a whole step. Interruptions during array
     # updates must not pair a new state/capture label with an old horizon.
     committed = (state, failed, failure_steps, failure_states, capture_times, streaks, ambiguous, completed, event_count)
+    last_emitted_step = 0
+
+    def snapshot(snapshot_status, snapshot_failure, start=0):
+        st, bad, fsteps, fstates, ct, streak, amb, end, _ = committed
+        events = {}
+        for name, items in chunks.items():
+            selected = [item for item in items if start < item["steps"][0] <= end]
+            events[name] = {k: np.concatenate([item[k] for item in selected]) if selected else
+                           np.empty((0, 3) if k == "states" else (0,), dtype=v) for k, v in EVENT_DTYPES.items()}
+        checkpoints_copy = [{k: v.copy() if isinstance(v, np.ndarray) else v for k, v in item.items()}
+                            for item in snapshots if item["step"] <= end]
+        return PairedCollection(snapshot_status, end, steps, dt, initial.copy(), st.copy(), bad.copy(), fsteps.copy(),
+            fstates.copy(), ct.copy(), streak.copy(), amb.copy(), on_plane.copy(), events, checkpoints_copy,
+            snapshot_failure, start)
     try:
         for step in range(1, steps+1):
+            failure_phase = "integration"
             ids = np.flatnonzero(~failed)
             previous = state[ids]
             current = rk4_step(rhs, previous, dt) if len(ids) else previous.copy()
@@ -238,15 +272,12 @@ def collect_paired_sections(
                                   "captured": np.isfinite(capture_times).copy(), "ambiguous": ambiguous.copy()})
             committed = (state, failed, failure_steps, failure_states, capture_times, streaks, ambiguous, step, event_count+added)
             completed, event_count = committed[-2:]
+            if progress is not None and (step % journal_interval_steps == 0 or step == steps):
+                failure_phase = "journal"
+                progress(snapshot("running", None, last_emitted_step))
+                last_emitted_step = step
     except (Exception, KeyboardInterrupt) as error:
         status = "interrupted" if isinstance(error, KeyboardInterrupt) else "failed"
-        failure = {"type": type(error).__name__, "message": str(error), "attempted_step": completed+1}
-    state, failed, failure_steps, failure_states, capture_times, streaks, ambiguous, completed, event_count = committed
-    snapshots = [snapshot for snapshot in snapshots if snapshot["step"] <= completed]
-    events = {}
-    for name, items in chunks.items():
-        items = [item for item in items if item["steps"][0] <= completed]
-        events[name] = {k: np.concatenate([item[k] for item in items]) if items else
-                       np.empty((0, 3) if k == "states" else (0,), dtype=v) for k, v in EVENT_DTYPES.items()}
-    return PairedCollection(status, completed, steps, dt, initial.copy(), state, failed, failure_steps,
-        failure_states, capture_times, streaks, ambiguous, on_plane, events, snapshots, failure)
+        failure = {"type": type(error).__name__, "message": str(error), "attempted_step": step,
+                   "phase": failure_phase}
+    return snapshot(status, failure)

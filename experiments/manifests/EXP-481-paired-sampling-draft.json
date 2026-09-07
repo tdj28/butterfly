@@ -1,0 +1,15 @@
+{
+  "schema": "butterfly.paired-sampling-draft.v1",
+  "experiment_id": "EXP-481",
+  "status": "design-incomplete",
+  "execution_authorized": false,
+  "review": null,
+  "candidate_ids": ["local-a025-c083", "local-a027-c083"],
+  "inputs": {
+    "candidates": {"path": "artifacts/EXP-204/candidates.json", "sha256": "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"},
+    "nominations": {"path": "artifacts/EXP-479/analysis-30f6c5b/receipt.json", "sha256": "4147ff20adefb6adf536137cb0a92809446ce66d40c20b6c00f909fa6235755f"},
+    "event_qualification": {"path": "docs/experiments/receipts/EXP-480.json", "sha256": "05454ac4ed6a7c7618809303bf99aca6fd73e94a6575ecf2ee9bdb3cae55a557"}
+  },
+  "decisions": {},
+  "claim_scope": "Outcome-free infrastructure and exact old-input checks only. No target sampling, map adequacy, critical membership, historical letters, words or arrows authorized."
+}
