@@ -89,8 +89,9 @@ inputs; historical result reproduction is a separate requirement.
 - [x] Complete the separately declared CPU scout and full evidence audit.
   [EXP-479 results](updates/2026-09-06-symbolic-scout-results.md): 551 cases,
   384 eligible, two direct nominations, zero corner-range nomination cells.
-  Both nominations remain exploratory; historical-section qualification and
-  the symbolic comparison above are still incomplete. EXP-477 CUDA did not run.
+  Both center nominations remain exploratory. EXP-480 subsequently qualified
+  their section-event observations, but partition/criticality and symbolic
+  comparison remain incomplete. EXP-477 CUDA did not run.
 - [ ] Define the two-dimensional first-return map and the precise scalar
   projection or quotient used for critical-point claims. Quantify when a scalar
   coordinate is not a single-valued map; report conditional spread/support.
