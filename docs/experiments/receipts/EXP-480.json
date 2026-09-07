@@ -1,0 +1,25 @@
+{
+  "audited_bytes": 6684261,
+  "audited_files": 24,
+  "case_outcomes": [
+    {
+      "candidate_id": "local-a025-c083",
+      "outcome": "qualified"
+    },
+    {
+      "candidate_id": "local-a027-c083",
+      "outcome": "qualified"
+    }
+  ],
+  "claim_scope": "Paired-section event reproducibility on the same corrected trajectory for two previously known nominated cycles only. No cross-section bijection or robust merged interleaving; no partition, critical membership, historical symbols, chain arrows, independent continuation, or rigorous all-event/primitive-period proof. Selection is conditional on EXP-479 and already-known crossing counts.",
+  "elapsed_seconds": 32.279545166529715,
+  "experiment_id": "EXP-480",
+  "maximum_cross_profile_phase_error": 1.5765166949677223e-14,
+  "maximum_cross_profile_scaled_state_error": 2.5608706328895075e-11,
+  "outcome": "qualified",
+  "passed": true,
+  "profile_count": 8,
+  "raw_receipt_sha256": "aa4556cdfbca2fa277c8e77daec00f01190e0a8bfde33d9977e5a594c58127b9",
+  "source_commit": "5b584f4a0cf2fe4544e22d5288878300efd35469",
+  "status": "completed"
+}

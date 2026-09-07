@@ -1,9 +1,9 @@
 {
   "schema": "butterfly.event-transport-plan.v1",
   "experiment_id": "EXP-480",
-  "status": "draft-awaiting-review",
-  "execution_authorized": false,
-  "review": null,
+  "status": "reviewed-frozen",
+  "execution_authorized": true,
+  "review": {"path": "docs/reviews/EXP-480-adjudication.json", "sha256": "ef50a8700a83b461deace3ddae81917e03b93bdf46bb67268a18270875251430"},
   "design": {
     "candidate_input": {"path": "artifacts/EXP-204/candidates.json", "sha256": "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"},
     "nomination_receipt": {"path": "artifacts/EXP-479/analysis-30f6c5b/receipt.json", "sha256": "4147ff20adefb6adf536137cb0a92809446ce66d40c20b6c00f909fa6235755f"},
@@ -29,12 +29,13 @@
       "maximum_scaled_event_state_difference": 1e-6,
       "maximum_event_phase_difference": 1e-7,
       "minimum_normalized_crossing_angle": 1e-6,
+      "minimum_scaled_gate_distance": 1e-5,
       "minimum_distinct_event_scaled_separation": 1e-5,
       "minimum_window_boundary_phase_distance": 1e-7,
       "minimum_normalized_extremum_plane_distance": 1e-8
     },
     "maximum_wall_seconds": 1800,
     "automatic_retry": false,
-    "claim_scope": "Numerical revalidation and ordered event transport of two previously known nominated cycles only. No partition, critical membership, historical symbols, chain arrows, independent continuation, or rigorous all-event/primitive-period proof. Selection is conditional on EXP-479 and already-known crossing counts."
+    "claim_scope": "Paired-section event reproducibility on the same corrected trajectory for two previously known nominated cycles only. No cross-section bijection or robust merged interleaving; no partition, critical membership, historical symbols, chain arrows, independent continuation, or rigorous all-event/primitive-period proof. Selection is conditional on EXP-479 and already-known crossing counts."
   }
 }

@@ -128,13 +128,22 @@ def collect_events(rhs, initial, period, section_map, config, design):
         velocity = fields @ normal
         denominator = np.linalg.norm(fields, axis=1) * np.linalg.norm(normal)
         angles = np.divide(np.abs(velocity), denominator, out=np.zeros_like(velocity), where=denominator > 0)
-        accepted = np.asarray([section.accepts(y) for y in states], dtype=bool) & (section.direction * velocity > 0)
+        oriented = section.direction * velocity > 0
+        accepted = np.asarray([section.accepts(y) for y in states], dtype=bool) & oriented
+        # Preserve signed distances even for rejected roots. Positive is outside.
+        gate_distance = (np.zeros(len(states)) if section.gate_axis is None else
+                         (states[:, section.gate_axis] - section.gate_upper) / scales[section.gate_axis])
+        gate_unresolved = (np.zeros(len(states), dtype=bool) if section.gate_axis is None else
+                           oriented & (np.abs(gate_distance) <= design["acceptance"]["minimum_scaled_gate_distance"]))
+        orientation_unresolved = angles < design["acceptance"]["minimum_normalized_crossing_angle"]
         etimes = np.asarray(result.t_events[2 * index + 1])
         estates = np.asarray(result.y_events[2 * index + 1]).reshape(-1, 3)
         distances = np.asarray([abs(section.value(y)) / np.linalg.norm(normal * scales) for y in estates])
         relevant = np.asarray([section.accepts(y) for y in estates], dtype=bool)
         for key, value in {"times": times, "states": states, "normal_velocity": velocity, "angles": angles,
-                           "accepted": accepted, "extremum_times": etimes, "extremum_states": estates,
+                           "accepted": accepted, "signed_scaled_gate_distance": gate_distance,
+                           "gate_unresolved": gate_unresolved, "orientation_unresolved": orientation_unresolved,
+                           "extremum_times": etimes, "extremum_states": estates,
                            "extremum_plane_distance": distances, "extremum_gate_accepted": relevant}.items():
             raw[name + "_" + key] = value
         diagnostics["sections"][name] = {"plane_roots": len(times), "accepted_roots": int(accepted.sum()),
@@ -172,8 +181,12 @@ def summarize_events(raw, period, design):
         # No extrema is not automatically an error; all raw root data is retained.
         extremum_margin = float(np.min(distances)) if len(distances) else None
         pair = compare_windows(windows[0], windows[1], design)
+        gate_unresolved = int(raw[name + "_gate_unresolved"].sum())
+        orientation_unresolved = int(raw[name + "_orientation_unresolved"].sum())
         summary[name] = {"windows": windows, "repeat_comparison": pair, "minimum_extremum_distance": extremum_margin,
-            "passed": bool(all(w["passed"] for w in windows) and pair["passed"]
+            "gate_unresolved_roots": gate_unresolved, "orientation_unresolved_roots": orientation_unresolved,
+            "passed": bool(not gate_unresolved and not orientation_unresolved
+                           and all(w["passed"] for w in windows) and pair["passed"]
                            and (extremum_margin is None or extremum_margin >= gate["minimum_normalized_extremum_plane_distance"]))}
     return summary
 
@@ -273,6 +286,18 @@ def execute(plan, candidates, output, source, *, source_recheck=None):
     except Exception as error:
         result.update(status="failed", passed=False, final_audit_failure={"type": type(error).__name__, "message": str(error)})
     result.update(elapsed_seconds=time.monotonic()-started, finished_utc=evidence.utc_now())
+    invalid = "final_audit_failure" in result
+    case_outcomes = []
+    for candidate in candidates:
+        rows = [r for r in result["profiles"] if r["candidate_id"] == candidate["id"]]
+        pairs = [r for r in comparisons if r["candidate_id"] == candidate["id"]]
+        qualified = (len(rows) == len(design["profiles"]) and all(r["passed"] for r in rows)
+                     and len(pairs) == len(design["profiles"])-1 and all(r["passed"] for r in pairs))
+        case_outcomes.append({"candidate_id": candidate["id"], "outcome": "invalid-execution" if invalid else
+                              "qualified" if qualified else "numerically-unresolved-or-not-qualified"})
+    result["case_outcomes"] = case_outcomes
+    result["outcome"] = ("invalid-execution" if invalid else "qualified" if result["passed"] else
+                         "numerically-unresolved-or-not-qualified")
     evidence.write_new_json(output / "receipt.json", result)
     return result
 

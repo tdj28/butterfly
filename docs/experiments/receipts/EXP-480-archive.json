@@ -1,0 +1,13 @@
+{
+  "archive": {
+    "bytes": 12349440,
+    "directory_mode": 448,
+    "file_mode": 384,
+    "sha256": "d2070e1d676b30f5dcbf5ecddf8814d3cee76fb8c12a2284084bb34e5f2d9cd5"
+  },
+  "finished_utc": "2026-09-07T00:45:20.625705+00:00",
+  "local_originals_retained": true,
+  "passed": true,
+  "remote": "/home/ubuntu/butterfly-research/exp480-complete-20260907-5b584f4",
+  "remote_archive_verified": true
+}

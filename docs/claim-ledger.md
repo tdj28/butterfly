@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last reviewed: 2026-09-04
+Last updated: 2026-09-06 (EXP-479/480 symbolic follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -31,6 +31,17 @@ in [next-steps.md](next-steps.md).
 proposal. This closes a presentation omission, not CLM-010/011's scientific
 acceptance tests. The locally qualified operational alphabet remains distinct
 from a generating partition and from independently validated word/arrow claims.
+
+**EXP-479/480 update to CLM-010/011:** the complete 551-candidate CPU scout
+produced two exploratory nominations and no corner-range cells. Neither is
+an exact critical-center certificate. After an adjudicated numerical review,
+EXP-480 independently recorrected both nominated cycles under four solver
+profiles; all passed paired-section event reproducibility, retaining the
+already-known six historical/eight Barrio returns. It performs no partition
+fit, critical-letter assignment, word comparison or arrow continuation, and
+does not establish a cross-section bijection. Thus word/arrow verification
+remains open. See the [illustrated result](experiments/EXP-480-paired-section-reproducibility.md)
+and the [common-population successor worklist](experiments/EXP-481-common-population-partition-design.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

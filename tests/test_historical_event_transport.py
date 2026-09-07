@@ -12,7 +12,9 @@ from scripts import check_historical_event_transport as run
 
 @pytest.fixture
 def plan():
-    return json.loads(run.PLAN.read_bytes())
+    value = json.loads(run.PLAN.read_bytes())
+    value.update(status="draft-awaiting-review", execution_authorized=False, review=None)
+    return value
 
 
 def harmonic_rhs(t, y):
@@ -35,7 +37,10 @@ def test_draft_execution_is_locked_before_input_or_solver_calls(plan):
         run.execution_gate(plan)
 
 
-def test_real_execute_cli_refuses_draft_before_reading_targets(monkeypatch):
+def test_real_execute_cli_refuses_draft_before_reading_targets(monkeypatch, tmp_path, plan):
+    draft = tmp_path / "draft.json"
+    draft.write_text(json.dumps(plan))
+    monkeypatch.setattr(run, "PLAN", draft)
     monkeypatch.setattr("sys.argv", ["check", "--mode", "execute", "--source-commit", "a" * 40])
     monkeypatch.setattr(run, "prepare", lambda p: pytest.fail("must not open target inputs"))
     with pytest.raises(ValueError, match="no target execution"):
@@ -176,3 +181,82 @@ def test_interrupt_records_receipt_without_starting_another_profile(plan, tmp_pa
     result = run.execute(plan, candidates, tmp_path / "output", {})
     assert result["status"] == "interrupted" and len(result["profiles"]) == 1
     assert not result["passed"]
+
+
+@pytest.mark.parametrize("signed_distance,unresolved", [(-2e-5, False), (-5e-6, True), (5e-6, True), (2e-5, False)])
+def test_gate_margin_includes_rejected_downward_roots(plan, signed_distance, unresolved):
+    from dataclasses import replace
+    design = harmonic_design(plan)
+    section_map = harmonic_sections()
+    section_map["historical-negative"] = replace(section_map["historical-negative"],
+        gate_upper=-1 - 15*signed_distance)
+    raw, _ = run.collect_events(harmonic_rhs, [1, 0, 0], 2*np.pi, section_map, SolverConfig(), design)
+    downward = raw["historical-negative_normal_velocity"] < 0
+    assert np.all(raw["historical-negative_gate_unresolved"][downward] == unresolved)
+    assert raw["historical-negative_signed_scaled_gate_distance"][downward] == pytest.approx(signed_distance, abs=1e-10)
+    if signed_distance > 0:
+        assert not raw["historical-negative_accepted"].any()
+    if unresolved:
+        assert not run.summarize_events(raw, 2*np.pi, design)["historical-negative"]["passed"]
+
+
+def test_weak_orientation_on_rejected_roots_is_unresolved(plan):
+    design = harmonic_design(plan)
+    def weak_rhs(t, y):
+        return np.asarray([-1e-10*y[1], y[0]/1e-10, -y[1]])
+    raw, _ = run.collect_events(weak_rhs, [1e-10, 0, 1], 2*np.pi,
+        harmonic_sections(), SolverConfig(), design)
+    assert raw["barrio-positive_orientation_unresolved"].all()
+    assert not run.summarize_events(raw, 2*np.pi, design)["barrio-positive"]["passed"]
+
+
+def test_distinctness_rejects_closely_spaced_synthetic_events(plan):
+    design = harmonic_design(plan)
+    raw, _ = run.collect_events(harmonic_rhs, [1, 0, 0], 2*np.pi,
+        harmonic_sections(), SolverConfig(), design)
+    name = "historical-negative"
+    design["expected_counts"][name] = 2
+    raw[name + "_times"] = 2*np.pi*np.array([.5, .500001, 1.5, 1.500001])
+    raw[name + "_states"] = np.tile([-1., 0, 0], (4, 1))
+    raw[name + "_angles"] = np.ones(4)
+    raw[name + "_accepted"] = np.ones(4, dtype=bool)
+    assert not run.summarize_events(raw, 2*np.pi, design)[name]["passed"]
+
+
+def test_real_shooting_to_event_pipeline_anisotropic_analytic_cycle(plan, tmp_path, monkeypatch):
+    """Only the model changes: real shooting, variational Jacobian and all profiles.
+
+    X'=X(1-r²)-Y, Y'=Y(1-r²)+X, q'=X'-(q-1-X).
+    Exact attracting cycle: (15 cos t,15 sin t,.01(1+cos t)).
+    """
+    from butterfly import periodic
+    def field(t, y, parameters):
+        x, v, q = y / np.asarray([15., 15., .01])
+        fx = x*(1-x*x-v*v)-v
+        return np.asarray([15*fx, 15*(v*(1-x*x-v*v)+x), .01*(fx-q+1+x)])
+    def jacobian(y, parameters):
+        x, v, _ = y / np.asarray([15., 15., .01])
+        a, b = 1-3*x*x-v*v, -2*x*v-1
+        return np.asarray([[a, b, 0], [1-2*x*v, 1-x*x-3*v*v, 0],
+                           [.01*(a+1)/15, .01*b/15, -1]])
+    monkeypatch.setattr(periodic, "rossler_rhs", field)
+    monkeypatch.setattr(periodic, "rossler_jacobian", jacobian)
+    monkeypatch.setattr(run, "rossler_rhs", field)
+    monkeypatch.setattr(run, "sections", lambda p: harmonic_sections())
+    plan["design"] = harmonic_design(plan)
+    candidates = [{"id": "analytic-anisotropic", "parameters": {"a": .2, "b": .2, "c": 7},
+        "correction": {"initial_state": [15*(1+2e-7), 0, .02], "period_time": 2*np.pi*(1+1e-7)}}]
+    result = run.execute(plan, candidates, tmp_path / "analytic", {"kind": "analytic-control"})
+    assert result["passed"], result
+    assert result["outcome"] == "qualified" and len(result["profiles"]) == 4
+    for profile in result["profiles"]:
+        correction = profile["correction"]
+        assert correction["period_time"] == pytest.approx(2*np.pi, abs=1e-9)
+        assert correction["evaluations"] > 1  # actually corrected a perturbed seed
+        assert correction["closure_error"] <= 1e-9 and correction["phase_residual"] <= 1e-10
+        for name, expected_phase, expected_state in [
+            ("historical-negative", .25, [-15, 0, 0]),
+            ("barrio-positive", .5, [0, -15, .01])]:
+            window = profile["sections"][name]["windows"][0]
+            assert window["phases"] == pytest.approx([expected_phase], abs=1e-7)
+            assert np.linalg.norm((np.asarray(window["states"])[0]-expected_state)/[15,15,.01]) <= 1e-6
