@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-source-review-gate.md`](2026-09-07-exp481-source-review-gate.md)
+  — live Git/source checks, exact canonical review reconstruction and mandatory
+  finding/change accounting; runtime authorization remains the next step.
+
 - [`2026-09-07-exp481-fixed-phases.md`](2026-09-07-exp481-fixed-phases.md)
   — complete qualification/collection/replay/analysis path passes in isolated
   circle controls; both cases and every reference row retained; target gate next.

@@ -252,6 +252,10 @@ Remaining before any target data generation:
   before scientific imports, and supply authenticated predecessor receipts.
   The synthetic command uses 60-second supervised phases and a 120-second guard;
   neither is the target campaign's execution budget or authorization.
+- The [source/review prerequisite](../updates/2026-09-07-exp481-source-review-gate.md)
+  now verifies live pushed Git source, the canonical review packet and complete
+  adjudicated change inventory. Its successful return explicitly denies target
+  launch authority: runtime/input handshake and one-shot issuance remain separate.
 - Qualify that final controller's genuine setup/authorization boundary under the
   exact sealed source and canonical environment. The environment explicitly
   sets and verifies `LC_CTYPE` and `__CF_USER_TEXT_ENCODING` on Mac.
