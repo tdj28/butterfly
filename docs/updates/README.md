@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-campaign-aggregation.md`](2026-09-06-exp481-campaign-aggregation.md)
+  — fixed 512-batch/128-qualification trial grid and both-case analysis wiring;
+  unresolved cases and all six historical reference rows remain explicit.
+
 - [`2026-09-06-exp481-durable-supervisor.md`](2026-09-06-exp481-durable-supervisor.md)
   — adaptive write-once evidence, sampled-resource supervision and actual
   worker/supervisor-loss controls; accepted events and capture labels survive.
