@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-production-preflight.md`](2026-09-07-exp481-production-preflight.md)
+  — actual source-bound test and isolated full-design setup; unchanged numeric
+  design separated from release administration; target authorization remains.
+
 - [`2026-09-07-exp481-source-review-gate.md`](2026-09-07-exp481-source-review-gate.md)
   — live Git/source checks, exact canonical review reconstruction and mandatory
   finding/change accounting; runtime authorization remains the next step.

@@ -1,0 +1,283 @@
+{
+  "schema": "butterfly.paired-design.v1",
+  "experiment_id": "EXP-481",
+  "candidate_ids": [
+    "local-a025-c083",
+    "local-a027-c083"
+  ],
+  "inputs": {
+    "candidates": {
+      "path": "artifacts/EXP-204/candidates.json",
+      "sha256": "71aab52016abc8163887b2bdfd4e8124bde0e436be2239751f19d29bed490012"
+    },
+    "nominations": {
+      "path": "artifacts/EXP-479/analysis-30f6c5b/receipt.json",
+      "sha256": "4147ff20adefb6adf536137cb0a92809446ce66d40c20b6c00f909fa6235755f"
+    },
+    "event_qualification": {
+      "path": "docs/experiments/receipts/EXP-480.json",
+      "sha256": "05454ac4ed6a7c7618809303bf99aca6fd73e94a6575ecf2ee9bdb3cae55a557"
+    },
+    "capture_source_receipt": {
+      "path": "artifacts/EXP-480/run-5b584f4/receipt.json",
+      "sha256": "aa4556cdfbca2fa277c8e77daec00f01190e0a8bfde33d9977e5a594c58127b9"
+    },
+    "capture_local-a025-c083": {
+      "path": "artifacts/EXP-480/run-5b584f4/local-a025-c083-dop853-refined-result.json",
+      "sha256": "7d0236db6a6f2138873a1c41b2b78c3a59ea1a378c4a6df2d2125d792d102535"
+    },
+    "capture_local-a027-c083": {
+      "path": "artifacts/EXP-480/run-5b584f4/local-a027-c083-dop853-refined-result.json",
+      "sha256": "a957b04d77655b3b644d05b95bad23ddbe3c783585d14b351e20a97c5c3e29ca"
+    }
+  },
+  "seeds": {
+    "count_per_case": 8192,
+    "generator": "PCG64",
+    "random_seed": 481001,
+    "xz_ranges": [
+      [
+        -14,
+        -0.2
+      ],
+      [
+        0.008,
+        0.55
+      ]
+    ],
+    "y_rule": "candidate historical-section offset",
+    "same_xz_across_cases_and_profiles": true,
+    "global_seed_ids": [
+      0,
+      8191
+    ],
+    "holdout_ids": [
+      4096,
+      8191
+    ],
+    "ordered_table_sha256": "84400ee6a80d4e83fcea0355f37a1f1e86b1ea1468c33821292bce784cb49ebc"
+  },
+  "collection": {
+    "profiles": [
+      {
+        "name": "rk4-001",
+        "dt": 0.01
+      },
+      {
+        "name": "rk4-0005",
+        "dt": 0.005
+      }
+    ],
+    "horizon": 300,
+    "checkpoint_times": [
+      50,
+      100,
+      150,
+      200,
+      250,
+      300
+    ],
+    "state_scales": [
+      15,
+      15,
+      0.01
+    ],
+    "gate_margin": 0.00001,
+    "angle_margin": 0.000001,
+    "escape_radius": 1000000,
+    "batch_size": 64,
+    "maximum_events_per_batch": 32768,
+    "maximum_steps_per_batch": 60000,
+    "journal_interval_steps": 1000,
+    "maximum_snapshot_bytes": 8388608,
+    "automatic_retry": false,
+    "resume": false
+  },
+  "capture": {
+    "reference": "each section's windows[0].states from the hash-bound EXP-480 dop853-refined result",
+    "historical-negative": {
+      "axes": [
+        0,
+        2
+      ],
+      "scales": [
+        15,
+        0.01
+      ]
+    },
+    "barrio-positive": {
+      "axes": [
+        1,
+        2
+      ],
+      "scales": [
+        15,
+        0.01
+      ]
+    },
+    "radius": 0.0002,
+    "required_crossings": 5,
+    "integration_continues_after_capture": true,
+    "initial_on_plane": "flag t=0, exclude its root only, do not exclude seed"
+  },
+  "sample": {
+    "observation_windows": [
+      [
+        80,
+        140
+      ],
+      [
+        180,
+        240
+      ]
+    ],
+    "strata_per_window": 4,
+    "pair_rule": "first true consecutive accepted-return pair whose source is in each half-open physical-time stratum and target is at or before the window end",
+    "unresolved_rule": "exclude seed with any unresolved root or sliding-plane ambiguity; never bridge unresolved events",
+    "population": "valid and unambiguous through t=300, uncaptured on both sections, sufficient pairs in every section/window/stratum, then intersect retained global IDs across both RK4 profiles",
+    "weights": "exactly four pairs per seed per window per section; equal seed weights; no interpolation, duplication or refill",
+    "minimum_seeds_per_split": 256,
+    "maximum_profile_retention_disagreement_fraction": 0.03,
+    "all_original_ids_reported": true
+  },
+  "analysis": {
+    "primary": {
+      "section": "historical-negative",
+      "axis": 0,
+      "name": "x"
+    },
+    "diagnostics": [
+      {
+        "section": "historical-negative",
+        "axis": 2,
+        "name": "z"
+      },
+      {
+        "section": "barrio-positive",
+        "axis": 2,
+        "name": "z"
+      }
+    ],
+    "fit_each_window_separately": true,
+    "baseline": "calibration-only least-squares affine map; report heldout q90 error beside spline on identical supported rows; no additional gate",
+    "normalization": "min and max of all calibration pair endpoints only, same affine transform for source and target; no holdout refit",
+    "variants": [
+      [
+        40,
+        0.00001
+      ],
+      [
+        30,
+        0.00001
+      ],
+      [
+        50,
+        0.00001
+      ],
+      [
+        40,
+        0.000001
+      ],
+      [
+        40,
+        0.0001
+      ]
+    ],
+    "options": {
+      "minimum_seeds": 256,
+      "minimum_bin_seeds": 8,
+      "minimum_coverage": 0.7,
+      "maximum_empty_run": 2,
+      "maximum_heldout_unsupported_fraction": 0.05,
+      "maximum_heldout_q90_error": 0.08,
+      "minimum_prominence": 0.03,
+      "grid_size": 4097,
+      "bootstrap_samples": 200,
+      "minimum_bootstrap_consensus": 0.8,
+      "maximum_critical_span": 0.04,
+      "random_seed": 481002
+    },
+    "joint_primary_gate": "all five variants, both windows and both step profiles resolve in each case; branch count agrees; ordered critical regions must be disjoint within and across maps, and matched intervals across windows/profiles span at most 0.04 of their combined calibration domain",
+    "across_cases": "report both cases separately; do not pool or select the better case; overall support requires both",
+    "uncertainty": "whole calibration-seed bootstrap; failed replicates retained; envelope over nominal and count-matched bootstrap extrema and all variants; descriptive, not a simultaneous confidence interval",
+    "historical_z_or_barrio_z_can_rescue_primary": false
+  },
+  "critical_membership": {
+    "enabled_only_after_joint_primary_gate": true,
+    "reference_orbit": "all six historical events from the same hash-bound EXP-480 window; no chosen phase",
+    "normalized_interval_padding": 0.01,
+    "maximum_absolute_normalized_spline_slope": 0.02,
+    "require_every_primary_window_profile_variant": true,
+    "report": "full orbit-event by ordered critical-region distance/slope matrix; zero, one or multiple near-critical events; no rounding to criticality",
+    "permitted_claim": "finite-resolution proximity to independently estimated turning regions, conditional on nominated cases and retained finite-time population",
+    "forbidden_claims": [
+      "exact zero derivative",
+      "homoclinic existence",
+      "Jones alphabet verified",
+      "symbolic arrows verified",
+      "whole parameter-plane explanation"
+    ]
+  },
+  "adaptive_qualification": {
+    "global_seed_ids": [
+      0,
+      512,
+      1024,
+      1536,
+      2048,
+      2560,
+      3072,
+      3584,
+      4096,
+      4608,
+      5120,
+      5632,
+      6144,
+      6656,
+      7168,
+      7680
+    ],
+    "horizon": 20,
+    "profiles": [
+      {
+        "method": "DOP853",
+        "rtol": 1e-10,
+        "atol": 1e-12,
+        "max_step": 0.01
+      },
+      {
+        "method": "Radau",
+        "rtol": 1e-10,
+        "atol": 1e-12,
+        "max_step": 0.01
+      }
+    ],
+    "maximum_scaled_event_state_difference": 0.0001,
+    "maximum_event_time_difference": 0.0001,
+    "require_ordered_accepted_counts_and_membership": true,
+    "require_ordered_raw_counts_and_membership": true,
+    "compare_all_six_profile_pairs": true,
+    "require_capture_membership_agreement": true,
+    "maximum_capture_time_difference": 0.0001,
+    "maximum_steps_per_seed": 60000,
+    "maximum_field_evaluations_per_adaptive_seed": 1000000,
+    "maximum_raw_events_per_seed": 2048,
+    "adaptive_recording_interval_steps": 1000,
+    "maximum_adaptive_snapshot_bytes": 8388608,
+    "scope": "early transient event-detection/numerical diagnostic only; no long-time shadowing or all-root guarantee"
+  },
+  "resources": {
+    "backend": "local CPU Float64, serial fixed batches",
+    "maximum_wall_seconds": 14400,
+    "maximum_analysis_seconds": 7200,
+    "maximum_qualification_seconds": 1800,
+    "maximum_process_rss_bytes": 2147483648,
+    "maximum_collection_disk_bytes": 8589934592,
+    "minimum_start_free_bytes": 17179869184,
+    "supervisor_poll_seconds": 0.25,
+    "supervisor_termination_grace_seconds": 5,
+    "resource_bound_semantics": "RSS and disk are sampled operational stop thresholds, not kernel-enforced peak quotas; queries and writes may overshoot between samples. Per-snapshot and per-batch bounds also apply. Worker parent-loss/deadline guard must be installed and attested before scientific imports.",
+    "failure_policy": "retain raw and partial evidence, stop campaign on technical invalidity or cap; do not retry or analyze an incomplete campaign as completed",
+    "compute_cost_usd": 0
+  }
+}
