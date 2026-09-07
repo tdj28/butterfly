@@ -1,0 +1,195 @@
+{
+  "batch_plan": {
+    "bytes": 132264,
+    "path": "batch-plan.json",
+    "sha256": "08f8eeec9f727ac8fced592f86d7c08b2c6339127105fd076f9dae43c05d7908"
+  },
+  "configuration": {
+    "bytes": 1466,
+    "path": "started.json",
+    "sha256": "2d7fd396f5c94333640d06ac04eb55b05c8f3d70cbdc878801aa48cb9e1a3acb"
+  },
+  "controls": [
+    {
+      "audit": {
+        "bytes": 14766,
+        "path": "monotone.json",
+        "sha256": "44bbf408ae86f1e5b3ef813a1b7f59d74b066f406019fdeeab6326255c89b233"
+      },
+      "branch_count": 1,
+      "control": "monotone",
+      "critical_intervals": [],
+      "expected_branch_count": 1,
+      "expected_resolved": true,
+      "passed": true,
+      "raw": {
+        "bytes": 64240,
+        "path": "monotone.npz",
+        "sha256": "23a93ee6db4404f3d49fb9515d233d080c858bb7718ac2782bf2fd40fb749f24"
+      },
+      "reason": "resolved finite-resolution scalar map",
+      "resolved": true,
+      "variant_bootstrap_consensus": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "variant_heldout_affine_q90_errors": [
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16
+      ],
+      "variant_heldout_q90_errors": [
+        3.580469254416155e-16,
+        2.7755575615628914e-16,
+        3.3306690738754696e-16,
+        3.580469254416155e-16,
+        3.580469254416155e-16
+      ]
+    },
+    {
+      "audit": {
+        "bytes": 15652,
+        "path": "cubic.json",
+        "sha256": "1516be254a95068ef3119d773ac853e6e0b58684f0cc562b85100645f36100b6"
+      },
+      "branch_count": 3,
+      "control": "cubic",
+      "critical_intervals": [
+        [
+          0.24999920449929988,
+          0.250004824992051
+        ],
+        [
+          0.7499942318266553,
+          0.7500009547567441
+        ]
+      ],
+      "expected_branch_count": 3,
+      "expected_resolved": true,
+      "passed": true,
+      "raw": {
+        "bytes": 64107,
+        "path": "cubic.npz",
+        "sha256": "6244948ff451e59d8864454f56908c8c0d6a1ee4252cebc7061efd606c6eb932"
+      },
+      "reason": "resolved finite-resolution scalar map",
+      "resolved": true,
+      "variant_bootstrap_consensus": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "variant_heldout_affine_q90_errors": [
+        0.0914374943032518,
+        0.09129072552258302,
+        0.09170654615869123,
+        0.0914374943032518,
+        0.0914374943032518
+      ],
+      "variant_heldout_q90_errors": [
+        2.452341265279934e-07,
+        3.101184830980319e-05,
+        6.02524874909749e-06,
+        2.452341265279934e-07,
+        2.452341265279934e-07
+      ]
+    },
+    {
+      "audit": {
+        "bytes": 14765,
+        "path": "stationary-inflection.json",
+        "sha256": "2fe3fa32fac111f4b9b674dedef1012cb878eb30e3d38e3ef03d6cb8c306de6c"
+      },
+      "branch_count": 1,
+      "control": "stationary-inflection",
+      "critical_intervals": [],
+      "expected_branch_count": 1,
+      "expected_resolved": true,
+      "passed": true,
+      "raw": {
+        "bytes": 64207,
+        "path": "stationary-inflection.npz",
+        "sha256": "b4e877e65e967f11b642c0d5ba6dc80fd52fb9dc43008798b7f12b38f676e47a"
+      },
+      "reason": "resolved finite-resolution scalar map",
+      "resolved": true,
+      "variant_bootstrap_consensus": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "variant_heldout_affine_q90_errors": [
+        0.0914374943032517,
+        0.09129072552258297,
+        0.09170654615869102,
+        0.0914374943032517,
+        0.0914374943032517
+      ],
+      "variant_heldout_q90_errors": [
+        2.4523412636423546e-07,
+        2.026867505056096e-07,
+        4.2634361164251013e-07,
+        2.4523412636423546e-07,
+        2.4523412636423546e-07
+      ]
+    },
+    {
+      "audit": {
+        "bytes": 3317,
+        "path": "multivalued-holdout.json",
+        "sha256": "529f27d7e0618cee44e2914eb8f5fd468bad1d61af6c0c36aa8e8b6727a0e109"
+      },
+      "branch_count": null,
+      "control": "multivalued-holdout",
+      "critical_intervals": [],
+      "expected_branch_count": null,
+      "expected_resolved": false,
+      "passed": true,
+      "raw": {
+        "bytes": 64333,
+        "path": "multivalued-holdout.npz",
+        "sha256": "ac0a22279e68a6f8f07f362da43920840abda418d96b54d32efe6c21e0b554f4"
+      },
+      "reason": "not all declared variants resolve with the same branch count",
+      "resolved": false,
+      "variant_bootstrap_consensus": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "variant_heldout_affine_q90_errors": [
+        0.25009707631720673,
+        0.25009707631720673,
+        0.25009707631720673,
+        0.25009707631720673,
+        0.25009707631720673
+      ],
+      "variant_heldout_q90_errors": [
+        0.2500970763172069,
+        0.2500970763172068,
+        0.2500970763172069,
+        0.2500970763172069,
+        0.2500970763172069
+      ]
+    }
+  ],
+  "kind": "EXP-481-outcome-free-sampling-qualification",
+  "passed": true,
+  "seed_table": {
+    "bytes": 138978,
+    "path": "seeds.npz",
+    "sha256": "bcc24235a3466f85595dffcfb8f0b568492d7de144e00de208b7c53903a0c268"
+  },
+  "target_trajectories": 0
+}

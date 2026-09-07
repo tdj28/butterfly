@@ -10,8 +10,11 @@ analytic-only benchmark now exist and pass their synthetic controls. See
 Do not rebuild it from scratch. The write-once durable journal and draft-only
 integrity preflight now also pass their outcome-free controls; see
 [the recording update](../updates/2026-09-06-exp481-durable-recording.md).
-The numeric sampling/analysis manifest, target runner and adjudicated review
-remain pending. The draft preflight cannot authorize target execution.
+An explicit [numeric sampling/analysis proposal](EXP-481-sampling-and-analysis-proposal.md)
+and tested seed selection/held-out map primitives now exist. They are unreviewed,
+not a frozen target plan. Journal replay/joint decisions, the adaptive adapter,
+target runner and adjudicated review remain pending. The draft preflight cannot
+authorize target execution.
 
 ## Question
 
@@ -65,10 +68,11 @@ undersupported or unstable projection is an informative outcome.
 
 ## Economical first action
 
-Complete the numeric sampling and analysis decisions in steps 2–6, with explicit
-support/power rationale and bounded processing. The kernel, durable journal and
-synthetic benchmark are implemented; do not rebuild them. Add the source/review
-bound target wrapper only when the scientific design is complete. The ambiguous
+Complete the remaining integration in the numeric proposal: audited journal
+replay, cross-profile cohort intersection, joint map/critical-membership decisions,
+adaptive qualification and the source/review-bound bounded target wrapper.
+The kernel, durable journal, deterministic seed/pair selection and held-out
+seed-bootstrap analyzer are implemented; do not rebuild them. The ambiguous
 previous provider transaction remains separately guarded and must not trigger
 a duplicate worker create.
 

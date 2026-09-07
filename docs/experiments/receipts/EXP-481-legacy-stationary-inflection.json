@@ -1,0 +1,19 @@
+{
+  "derivative": "3*(x-0.5)^2",
+  "domain": [
+    0.0,
+    1.0
+  ],
+  "function": "(x-0.5)^3",
+  "grid_size": 4097,
+  "historical_rossler_impact": "not evaluated",
+  "kind": "analytic-legacy-stationary-inflection-reproducer",
+  "legacy_defect_reproduced": true,
+  "legacy_reported_points": [
+    0.5
+  ],
+  "legacy_source_sha256": "d6d74c1cf34dd21a1e99a5e431f1d4451d228449e33cfbe1e0046488aabfc58b",
+  "minimum_prominence": 0.03,
+  "target_trajectories": 0,
+  "true_turning_points": []
+}
