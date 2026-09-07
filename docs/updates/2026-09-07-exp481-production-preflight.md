@@ -48,8 +48,8 @@ covered these files.
 
 ## Verification ledger
 
-- Full local suite: **1,676 passed, one older Linux-only skip**, 57.34 seconds.
-- New tests: **18 passed**, including real isolated workers on a synthetic
+- Full final local suite: **1,679 passed, one older Linux-only skip**, 60.31 seconds.
+- New tests: **21 passed**, including real isolated workers on a synthetic
   reference package, full-grid setup, wrong bindings, missing source, invalid
   final adaptive configuration and independently reconstructed receipt checks.
 - An initial test assertion expected the word `positive`, while the correctly
@@ -73,8 +73,31 @@ covered these files.
   thread and marks the duplicate non-inheritable. A real-process regression
   checks stdin replacement while that original pipe stays live. The same
   parent-loss/deadline policy remains in force; this is not an EOF exemption.
-- The repaired actual pushed-source command on preserved research inputs is
-  pending a new source commit. No target launch or paid review has occurred.
+- The third actual command passed against pushed source
+  `59c2e49940ee3b3a1cbe97d71e400ecc2ccfb8b8`: **361 source/test-support files**
+  checked, **350 source-bound tests passed with no skips**, both actual reference
+  audits reproduced, and all **128 qualification / 512 collection** configurations
+  validated in the isolated child. The preserved receipt at
+  `artifacts/EXP-481/production-preflight-03/receipt.json` is 10,689 bytes, SHA-256
+  `65837bc76271d16b9f2212283788cbebbe12aa97d4b70778d28546cea2d9b0cc`.
+  Its 52 evidence files total 7,654,684 bytes, excluding the aggregate receipt.
+  The [public evidence summary](../experiments/receipts/EXP-481-production-preflight.json)
+  includes the complete source inventory and the runtime, input, test-runner and
+  actual child witness hashes. No target slot, trajectory or paid review was used.
+
+The verified command was:
+
+```sh
+.venv/bin/python -B scripts/run_paired_campaign.py \
+  --source-commit 59c2e49940ee3b3a1cbe97d71e400ecc2ccfb8b8 \
+  --remote-ref refs/heads/codex/exp481-production-preflight \
+  --output-dir artifacts/EXP-481/production-preflight-03
+```
+
+The command requires current HEAD and the live ref to equal the requested
+commit. The later evidence-only commit and eventual squash merge do not change
+the preserved observation into a test of those later Git identities. A new
+execution freeze must run its own preflight; do not overwrite this attempt.
 
 Tests establish trusted-host reproducibility checks, not protection against a
 hostile operator or hermetic OS/native-library attestation. Hashes identify the
