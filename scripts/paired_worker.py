@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sealed paired-section worker bootstrap; startup-only until reviewed wiring.
+"""Sealed paired-section worker: startup and read-only reference audit.
 
 The controller must independently bind this launcher and contract digest before
 spawn. This executable never treats its own receipt as target authorization.
@@ -14,8 +14,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--contract-sha256", required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--mode", choices=("startup", "execute"), default="startup")
+    parser.add_argument("--mode", choices=("startup", "audit-inputs", "execute"), default="startup")
+    parser.add_argument("--input-root", type=Path)
+    parser.add_argument("--input-contract-sha256")
     args = parser.parse_args()
+    if args.mode == "audit-inputs":
+        if args.input_root is None or args.input_contract_sha256 is None:
+            parser.error("audit-inputs requires an explicit input package and external digest")
+    elif args.input_root is not None or args.input_contract_sha256 is not None:
+        parser.error("input arguments are only valid for audit-inputs")
     root = Path(__file__).resolve().parent
     startup = runpy.run_path(str(root/"startup.py"))
     contract = startup["load_contract"](root, args.contract_sha256)
@@ -34,7 +41,7 @@ def main():
         finder = startup["install_import_gate"](root, contract)
         import numpy
         import scipy
-        from butterfly import paired_adaptive_journal, paired_campaign, paired_supervisor
+        from butterfly import paired_adaptive_journal, paired_campaign, paired_supervisor, paired_inputs, paired_input_package
         # Reach actual analysis option validation and deterministic seed inputs
         # without candidate files, solver calls, reference reading or map fits.
         from butterfly.paired_sampling import seed_table, seed_commitment
@@ -55,6 +62,24 @@ def main():
             "target_execution_authorized": False, "scope": "sealed import and setup handshake only"})
         if args.mode == "execute":
             raise ValueError("review-bound production phase dispatch is not implemented; target execution refused")
+        if args.mode == "audit-inputs":
+            inputs = args.input_root.resolve(strict=True)
+            if output == inputs or output.is_relative_to(inputs) or inputs.is_relative_to(output):
+                raise ValueError("input package and writable evidence must be disjoint")
+            plan = paired_input_package.load_package(inputs, args.input_contract_sha256)
+            audit = paired_inputs.load_references(plan, inputs)
+            # Recheck bytes and imports after the actual read-only consumer.
+            if paired_input_package.load_package(inputs, args.input_contract_sha256) != plan:
+                raise ValueError("input plan changed during reference audit")
+            startup["validate_environment"](contract)
+            startup["verify_runtime"](root, contract)
+            imported = finder.check_loaded()
+            if not guard.is_alive():
+                raise ValueError("parent guard stopped during input audit")
+            startup["write_json"](output/"input-audit.json", {"status": "passed", "audit": audit,
+                "runtime_contract_sha256": args.contract_sha256, "input_contract_sha256": args.input_contract_sha256,
+                "loaded_modules": imported, "target_execution_authorized": False,
+                "target_trajectories_generated": 0})
         return 0
     except (Exception, KeyboardInterrupt) as error:
         startup["write_json"](output/"failure.json", {"status": "failed", "type": type(error).__name__,

@@ -75,8 +75,11 @@ inputs; historical result reproduction is a separate requirement.
 - [x] Qualify the isolated numerical-worker startup and canonical environment.
   [Nine controls](updates/2026-09-07-exp481-sealed-startup.md) pass; the complete
   source/input/review-bound target dispatcher is not implemented yet.
-- [ ] Finish EXP-481's production controller, input-audit/dispatcher import
-  closure, full source/review preflight and authenticated campaign wiring;
+- [x] Connect the actual isolated input consumer and exact nine-file package.
+  [Preserved-reference checks](updates/2026-09-07-exp481-sealed-input-audit.md)
+  reproduce the prior result without importing the GPU scout.
+- [ ] Finish EXP-481's production controller and numerical phase dispatcher,
+  full source/review preflight and authenticated campaign wiring;
   adjudicate the compact review and push the exact
   freeze before generating new target trajectories. Then test both nominated
   maps without selecting branch counts to match source words.

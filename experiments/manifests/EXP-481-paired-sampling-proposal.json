@@ -116,6 +116,6 @@
     "compute_cost_usd": 0
   },
   "review_paths": {"brief": "docs/reviews/EXP-481-review-brief.md", "adjudication": "docs/reviews/EXP-481-adjudication.json"},
-  "not_yet_implemented": ["source/input/review-bound production controller and phase dispatcher, extend qualified numerical bootstrap/import closure to input audit and complete phase execution, authenticated wiring of fixed trial grid and both-case aggregation", "full final production startup preflight and compact adjudicated review"],
+  "not_yet_implemented": ["source/input/review-bound production controller and numerical phase dispatcher, connect qualified sealed input audit to fixed qualification/collection/replay/analysis with complete phase resource limits", "full final production preflight, compact adjudicated review and pushed executable authorization freeze"],
   "claim_scope": "Unreviewed numeric proposal only. New deterministic seed coordinates are inputs, not trajectories. No target computation or manuscript claim is authorized."
 }

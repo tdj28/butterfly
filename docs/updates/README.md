@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-sealed-input-audit.md`](2026-09-07-exp481-sealed-input-audit.md)
+  — real isolated worker reproduces preserved reference audit exactly; nine-file
+  input package and six success/failure controls; no new trajectories.
+
 - [`2026-09-07-exp481-sealed-startup.md`](2026-09-07-exp481-sealed-startup.md)
   — isolated exact-file worker, canonical observed environment and nine real
   startup/failure controls; review-bound target dispatch remains disabled.

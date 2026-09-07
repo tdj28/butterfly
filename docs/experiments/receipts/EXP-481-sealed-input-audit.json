@@ -1,0 +1,38 @@
+{
+  "experiment_id": "EXP-481",
+  "kind": "isolated-read-only-reference-audit",
+  "passed": true,
+  "target_trajectories_generated": 0,
+  "target_execution_authorized": false,
+  "local_run": "artifacts/EXP-481/sealed-input-audit-03",
+  "receipt_bytes": 26189,
+  "receipt_sha256": "e85e73d55141be7ff526fed96bc6c486f1375e7f140fe8609566559aa7d57206",
+  "raw_file_count_excluding_receipt": 141,
+  "raw_bytes_excluding_receipt": 46066324,
+  "runtime_contract_sha256": "33d6b281b461e936008299d1bc4cf49756e45a99103e04fb8b622e61c1ceef0c",
+  "input_contract_sha256": "ff3fb76e2e53fc832faa457977951c1f609fd81941eca8b9e860d4730d93f767",
+  "plan_sha256": "5afdc26e1c17b22b8283e743368d78886982cd249febfdf4a8ab8c4ba61f862c",
+  "input_files": 9,
+  "input_bytes": 6285537,
+  "sealed_source_files": 22,
+  "passing_cases": ["correct", "wrong-input-digest", "changed-input", "extra-input", "missing-input", "missing-argument"],
+  "reference_audit_equal_to_prior": true,
+  "prior_audit_sha256": "a0bf343c4dc11a8e05b5359add8cbebff8e4d8c33fe0a7ee4cc196154d799e68",
+  "startup_requalification": {
+    "local_run": "artifacts/EXP-481/sealed-startup-06",
+    "passed_cases": 9,
+    "receipt_bytes": 55455,
+    "receipt_sha256": "5e7968048f49e1eb6985a9e852afa0e14dcb8c7e490dcf893c6b46a95511858c"
+  },
+  "source_sha256": {
+    "python/butterfly/paired_input_io.py": "788d92f82b5865d0ed404e138b42ae4c43da2e1bfdf0e129ebefae918de17356",
+    "python/butterfly/paired_input_package.py": "124dd41b1e20e89fb76fa7f0a04bdf92d23fcd0beec1abf8d0f44dc26d55055a",
+    "python/butterfly/paired_inputs.py": "3d9ee239a877806fec508b890c39cd2e8d9604de3b05fea9dd7fcc3e354f6699",
+    "scripts/build_paired_runtime.py": "88a394b26c28672b0fa25586f2150b82146986e7e777b72289436249516bb566",
+    "scripts/build_paired_inputs.py": "7be9ed543b2e4b154071c4685c8705175dfd91f4a73a37f8d3192c897e9aa3c1",
+    "scripts/paired_worker.py": "c91b57ceceb8da5b6356382af2bb0081a10d8672dce7ff0270044bdf0d9f45f5",
+    "scripts/verify_paired_capture_inputs.py": "9db4ca7b8aa0b71a1a3e0f463b0cdcf392a89858c36a057fffd2ca91cc48a83c",
+    "scripts/qualify_paired_input_dispatch.py": "3ab57e8d783e90add2034efeb443cc99b42803277832789aa9500e7b12a91fe0"
+  },
+  "scope": "Preserved input concordance and actual sealed consumer only. Not independent new orbit evidence, symbolic verification, reviewed execution authority or a public raw-data release."
+}

@@ -233,14 +233,19 @@ including observed environment validation and exact-file imports without the
 development checkout. Its minimal package initializer leaves numerical modules
 unchanged. This is a startup-only path, not a complete reviewed target runner.
 
+The [isolated input consumer](../updates/2026-09-07-exp481-sealed-input-audit.md)
+now verifies the actual nine-file preserved-input package and reproduces both
+reference audits exactly. Six consumer controls and the expanded runtime's nine
+startup controls pass. This read-only result does not authorize a target phase.
+
 Remaining before any target data generation:
 
 - Bind the implemented recording/supervision and campaign-composition components
   into the authentic production CLI, including externally bound journal replay
   for every fixed trial and complete two-case aggregation.
-- Extend the qualified canonical environment and isolated numerical import
-  closure to the actual input-audit/phase-dispatch path; requalify its genuine
-  startup boundary and complete phase resource limits. The environment now
+- Extend the qualified canonical environment and isolated input-audit/numerical
+  import closure to phase dispatch; requalify its genuine startup boundary and
+  complete phase resource limits. The environment now
   explicitly sets and verifies `LC_CTYPE` and `__CF_USER_TEXT_ENCODING` on Mac.
 - Authentic source/input/review-bound production preflight, invoking the raw
   capture-reference audit and the exact worker guard before target access.
