@@ -81,8 +81,33 @@ rules, sampling, fits and inference thresholds are unchanged.
   analytic collection writes a raw prefix. The worker stops; the prefix remains;
   no phase terminal, next analysis or completed campaign receipt is invented.
 - The earlier full local suite passed **1,705 tests with one older Linux-only
-  skip** in 84.29 seconds. Final independent-parent-anchor checks, source-bound
-  verification and CI are pending the implementation freeze.
+  skip** in 84.29 seconds. All **29 final authorization tests** and the combined
+  **78 authorization/startup/entrypoint regressions** pass after adding the
+  independent controller and OS-executable anchors.
+- The actual source-bound command passed at pushed implementation
+  `a4153ad5b90de3248b3082befbd5128ca5fde35a`, preserving
+  `artifacts/EXP-481/authorized-source-control-01`. It checked **364 source and
+  test-support files**, passed **379 source-bound tests with no skips**, repeated
+  both raw reference audits and all 640 design configurations, then completed
+  all three phases through verified live-parent grants. The analytic control
+  has 16 qualification trials, 24 profile comparisons and 16 collection batches;
+  both primary identity maps resolve. The
+  [public evidence summary](../experiments/receipts/EXP-481-phase-authorization.json)
+  binds the exact source inventory, setup, contracts, worker witnesses, complete
+  phase receipts and supervisor observations. No target slot was consumed.
+
+The source-qualified command was:
+
+```sh
+.venv/bin/python -B scripts/run_paired_campaign.py --mode control \
+  --source-commit a4153ad5b90de3248b3082befbd5128ca5fde35a \
+  --remote-ref refs/heads/codex/exp481-phase-authorization \
+  --output-dir artifacts/EXP-481/authorized-source-control-01
+```
+
+Later evidence-only commits do not change its source bytes or relabel its Git
+identity. The final execution branch must preserve the ancestry required by its
+reviewed release and qualify that branch's own source freeze.
 
 This is a trusted-host integrity boundary, not a security sandbox against a
 same-user debugger, modified interpreter, malicious startup hook or concurrent
@@ -96,8 +121,7 @@ the Mac run alone.
 
 ## Next
 
-Run the actual source-bound setup plus authorized control against the pushed
-implementation, preserve its receipt, and merge only on passing CI. Then obtain
+Merge the qualified implementation only on passing CI. Then obtain
 the one compact research-director review, adjudicate it, and publish the exact
 executable release before target outcomes. The experiment-integrity playbook
 requires these prospective checks; it does not require another routine user
