@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp481-prospective-review.md`](2026-09-07-exp481-prospective-review.md)
+  — PR47 merged; prospective review fixes and workload/turning controls passed;
+  381 final source-bound tests pass; exact reviewed release ready for execution.
+
 - [`2026-09-07-exp481-phase-authorization.md`](2026-09-07-exp481-phase-authorization.md)
   — real-parent one-use grants, complete three-phase dispatch and fixed target
   attempt marker; analytic control and failure boundaries pass; review next.

@@ -49,26 +49,26 @@ def test_changed_grid_inputs_rejected(change):
         campaign.trial_grid(p)
 
 
-def synthetic():
+def synthetic(*, count=1024, bootstrap_samples=8, batch_size=256):
     p = plan()
-    table = seed_table(1024)
-    p["seeds"].update(count_per_case=1024, global_seed_ids=[0, 1023], holdout_ids=[512, 1023],
+    table = seed_table(count)
+    p["seeds"].update(count_per_case=count, global_seed_ids=[0, count-1], holdout_ids=[count//2, count-1],
         ordered_table_sha256=seed_commitment(table))
-    p["adaptive_qualification"]["global_seed_ids"] = [0, 512]
-    p["analysis"]["options"]["bootstrap_samples"] = 8
-    p["collection"]["batch_size"] = 256
+    p["adaptive_qualification"]["global_seed_ids"] = [0, count//2]
+    p["analysis"]["options"]["bootstrap_samples"] = bootstrap_samples
+    p["collection"]["batch_size"] = batch_size
     grid = campaign.trial_grid(p)
     ids = table["global_seed_ids"]
     # Known cubic map with turning points at .25 and .75, independent draws
     # for calibration and holdout. These are NOT Rössler return observations.
-    x = np.random.Generator(np.random.PCG64(812)).random((1024, 4))
+    x = np.random.Generator(np.random.PCG64(812)).random((count, 4))
     pairs = np.stack((x, .5+4*(x-.5)**3-.75*(x-.5)), axis=-1)
-    states = np.zeros((1024, 2, 4, 2, 3))
+    states = np.zeros((count, 2, 4, 2, 3))
     states[..., 0] = pairs[:, None]
     states[..., 2] = pairs[:, None]
     by_case, initials, references = {}, {}, {}
     for index, case in enumerate(p["candidate_ids"]):
-        initial = np.column_stack((table["xz"][:, 0], np.full(1024, index), table["xz"][:, 1]))
+        initial = np.column_stack((table["xz"][:, 0], np.full(count, index), table["xz"][:, 1]))
         initials[case] = initial
         references[case] = np.column_stack(([.25, .75, .5, -1, 2, .1], np.zeros((6, 2))))
         by_case[case] = {}
@@ -78,11 +78,11 @@ def synthetic():
                 windows=np.array(p["sample"]["observation_windows"]), horizon=p["collection"]["horizon"],
                 binding=dict(candidate_id=case, profile=name, source_commit=SOURCE, plan_sha256=DIGEST),
                 batch_ids=[t.trial_id for t in trials], sources=[{} for _ in trials],
-                seed_batch_index=np.repeat(np.arange(4), 256), retained=np.ones(1024, bool),
-                counts=dict(total=1024, retained=1024, failed=0, ambiguous_nonfailed=0,
+                seed_batch_index=np.repeat(np.arange(count//batch_size), batch_size), retained=np.ones(count, bool),
+                counts=dict(total=count, retained=count, failed=0, ambiguous_nonfailed=0,
                     historical_only=0, barrio_only=0, both=0, neither_insufficient=0),
                 pair_states={s: states.copy() for s in SECTIONS},
-                pair_times={s: np.zeros((1024, 2, 4, 2)) for s in SECTIONS})
+                pair_times={s: np.zeros((count, 2, 4, 2)) for s in SECTIONS})
     return p, by_case, initials, references
 
 
@@ -95,13 +95,18 @@ def test_real_both_case_analysis_reports_every_reference_row_and_model():
     result = run(synthetic())
     assert result["status"] == "analyzed" and result["all_cases_primary_resolved"]
     assert not result["historical_symbols_verified"]
+    assert "reference-conditioned" in result["claim_scope"]
+    assert result["reporting_thresholds"] == dict(supported_error_quantile=.9,
+        maximum_supported_q90_error=.08, maximum_unsupported_fraction=.05, minimum_coverage=.7)
     for row in result["cases"].values():
         assert row["cohort"]["global_seed_ids"] == list(range(1024))
         assert row["cohort"]["calibration_seeds"] == row["cohort"]["validation_seeds"] == 512
         assert row["reference_row_indices"] == list(range(6))
         matrix = row["analysis"]["critical_matrix"]
         assert len(matrix["orbit_values"]) == 6 and len(matrix["models"]) == 20
-        assert matrix["near_every_primary_model"][:2] == [[True, False], [False, True]]
+        assert row["analysis"]["joint_primary"]["branch_count"] == 3
+        assert matrix["near_every_primary_model"] == [[True, False], [False, True],
+            [False, False], [False, False], [False, False], [False, False]]
         assert len(row["analysis"]["projections"]) == 3
     json.dumps(result, allow_nan=False)
 
@@ -144,3 +149,19 @@ def test_unresolved_second_case_is_retained_and_diagnostics_do_not_rescue():
     failed = result["cases"][second]["analysis"]
     assert not failed["joint_primary"]["resolved"] and failed["critical_matrix"]["status"] == "not-evaluated"
     assert all(a["resolved"] for proj in failed["projections"][1:] for a in proj["audits"].values())
+
+
+def test_multivalued_primary_cannot_receive_positive_turn_support():
+    data = synthetic()
+    p, profiles, _, _ = data
+    # A known two-sheet response, with whole-seed sheet membership. Keep the
+    # cubic diagnostic and identical original IDs; no coordinate may rescue x.
+    signs = np.where(np.arange(1024) % 2, .35, -.35)
+    for by_name in profiles.values():
+        for profile in by_name.values():
+            profile["pair_states"][SECTIONS[0]][..., 1, 0] += signs[:, None, None]
+    result = run(data)
+    assert not result["all_cases_primary_resolved"]
+    for row in result["cases"].values():
+        assert not row["analysis"]["joint_primary"]["resolved"]
+        assert row["analysis"]["critical_matrix"]["status"] == "not-evaluated"

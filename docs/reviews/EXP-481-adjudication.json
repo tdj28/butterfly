@@ -1,0 +1,120 @@
+{
+  "approved_for_execution": true,
+  "changes": [
+    {
+      "after": {
+        "bytes": 11909,
+        "sha256": "25534382c79c1b612a4f0e088fa21124eead187217010f6c9eb9201fe6ca1756"
+      },
+      "before": {
+        "bytes": 11306,
+        "sha256": "44d8d624d02ff40ee9c1a9bc8ce06d202335994863e24981d64b05fde8df2ae8"
+      },
+      "findings": [
+        "I01"
+      ],
+      "path": "python/butterfly/paired_campaign.py"
+    },
+    {
+      "after": {
+        "bytes": 14311,
+        "sha256": "6b9f84a9cd4b6c5b1df074f41dab2953d470e7f70242f91495e0aebfc70b361f"
+      },
+      "before": {
+        "bytes": 6356,
+        "sha256": "68cb44b072a6a131c953b51f19a59c17806ab8e6dcdb3a276003ec56bcfec672"
+      },
+      "findings": [
+        "B01",
+        "B02"
+      ],
+      "path": "scripts/qualify_paired_phases.py"
+    },
+    {
+      "after": {
+        "bytes": 9116,
+        "sha256": "84cefc0adbc74a365b08ce43b490b505720875e6063e827bdd786b8479574808"
+      },
+      "before": {
+        "bytes": 7866,
+        "sha256": "3c716d445c038a1e7adcea85afdcb0c954d52472cc3db8cf3da9fd79dbb956ec"
+      },
+      "findings": [
+        "B01",
+        "B02",
+        "I01"
+      ],
+      "path": "tests/test_paired_campaign.py"
+    },
+    {
+      "after": {
+        "bytes": 4923,
+        "sha256": "c5f0efe86cdc52d3a6d440213aaaf70c081b135a691c66874c79a4ecd6320b7f"
+      },
+      "before": {
+        "bytes": 4066,
+        "sha256": "ea8f3e99a094187b952d6dcb38e13cad3425930ddf8eaf6ef6ebe4d2b2a0db5b"
+      },
+      "findings": [
+        "B02"
+      ],
+      "path": "tests/test_seed_return_map.py"
+    }
+  ],
+  "code_freeze_commit": "68585e2bf853fcd2778b6efdf4b2e652bb6749db",
+  "experiment_id": "EXP-481",
+  "explanation": {
+    "bytes": 10585,
+    "path": "docs/reviews/EXP-481-adjudication.md",
+    "sha256": "341d594526d3f60bdf653207196383b20e64d1de499b03b8809af8eb3813c3aa"
+  },
+  "final_inventory_sha256": "97b4867426f502d9b6efb4fc573f1616bd25c04b3a87cc01bba2fa9b8e5de7ff",
+  "findings": [
+    {
+      "authorizes_change": true,
+      "decision": "accept",
+      "id": "B01",
+      "rationale": "Caps alone did not demonstrate feasible completion.",
+      "resolution": "Frozen guarded synthetic journal/replay, all-profile qualification and full-population analysis benchmark passes all doubled resource estimates; no target limits or sampling changed."
+    },
+    {
+      "authorizes_change": true,
+      "decision": "accepted_modified",
+      "id": "B02",
+      "rationale": "Existing campaign cubic tests already covered the combined path, but disclosure and adverse coverage needed strengthening.",
+      "resolution": "Full all-six-row matrix asserted; two-sheet campaign rejects positive support; failed bootstrap draws stay in denominator. 86 focused tests and full-population synthetic benchmark pass."
+    },
+    {
+      "authorizes_change": true,
+      "decision": "accept",
+      "id": "I01",
+      "rationale": "Fresh trajectories are separate fitting observations but capture-conditioned on the reference cycle.",
+      "resolution": "Machine result explicitly states reference-conditioned retained finite-time scope and reports q90, unsupported and coverage thresholds alongside all observed per-variant metrics; no rare-sheet or support-gap inference."
+    },
+    {
+      "authorizes_change": false,
+      "decision": "accept",
+      "id": "I02",
+      "rationale": "The known defect can affect nomination or interpretation, not the current raw event-construction path.",
+      "resolution": "EXP480 producer source matches its frozen execution version; variational correction and geometric raw roots do not call the old helper. Both raw six/eight-event audits pass again. Keep both conditional nominations; broader historical impact remains separately open."
+    },
+    {
+      "authorizes_change": false,
+      "decision": "accept",
+      "id": "I03",
+      "rationale": "Different failure mechanisms require different scientific interpretations.",
+      "resolution": "The bound adjudication document freezes a casewise five-category outcome table and full reporting template. Existing complete result preserves component reasons and all metrics; no new gate or outcome-selected threshold."
+    }
+  ],
+  "qualification": {
+    "bytes": 3530,
+    "path": "docs/experiments/receipts/EXP-481-review-fixes.json",
+    "sha256": "4e2ba5aa6475cc7f3f14906c772c53c5d8acb0d75f4da51a33bac3df317e946b"
+  },
+  "review_sha256": "28ee5ad3cb9784693139b2b335b3a534b934afed353858e9d077828f8d19c6f9",
+  "reviewed_inventory_sha256": "3fe22cbe673dab7bf07ee2f49b3950101aaf879cab23832dd7360ccd471299e6",
+  "reviewed_packet_commit": "c8f4bc322f4e81aa94821bd1c2bc0435cc403542",
+  "schema": "butterfly.paired-review-adjudication.v1",
+  "self_sha256": "c2121c4338fa4ed9faa23ceec391a30fb8b8022a74f37e727cee3e3bbff66d40",
+  "verdict": "READY AFTER SPECIFIED FIXES"
+}
