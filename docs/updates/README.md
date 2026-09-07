@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-06-exp481-dual-section-collector.md`](2026-09-06-exp481-dual-section-collector.md)
+  — shared-trajectory collector and synthetic controls, including unequal
+  section counts and capture/interrupt handling; no new research trajectories.
+
 - [`2026-09-06-exp480-both-cycles-qualified.md`](2026-09-06-exp480-both-cycles-qualified.md)
   — both fixed cycles pass paired-section qualification; figure, audited raw
   evidence and prax backup retained; common-population partition work is next.

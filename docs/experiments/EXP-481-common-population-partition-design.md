@@ -4,6 +4,12 @@ Status: outcome-free successor design; **not an execution authorization**.
 EXP-480 qualified observation of both fixed cycles, but no transient cloud,
 partition or word has been generated for this successor.
 
+Implementation checkpoint: the separate dual-section in-memory kernel and
+analytic-only benchmark now exist and pass their synthetic controls. See
+[the collector update](../updates/2026-09-06-exp481-dual-section-collector.md).
+Do not rebuild it from scratch. The durable writer, numeric sampling and
+analysis manifest, execution preflight and adjudicated review remain pending.
+
 ## Question
 
 Do independently sampled finite-time noncaptured trajectories at both
