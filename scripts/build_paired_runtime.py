@@ -17,7 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MODULES = ("_process_guard", "models", "integrate", "poincare", "saddle", "paired_sections",
     "paired_journal", "paired_sampling", "seed_return_map", "paired_replay", "paired_decisions",
     "paired_campaign", "paired_adaptive", "paired_adaptive_journal", "paired_supervisor",
-    "_paired_startup", "paired_input_io", "paired_inputs", "paired_input_package", "paired_phases", "paired_phase_control")
+    "_paired_startup", "paired_input_io", "paired_inputs", "paired_input_package", "paired_phases", "paired_phase_control",
+    "paired_authorization")
 SOURCE_MAP = {"worker.py": "scripts/paired_worker.py", "startup.py": "python/butterfly/_paired_startup.py",
     "python/butterfly/__init__.py": "runtime/paired/butterfly/__init__.py",
     **{f"python/butterfly/{name}.py": f"python/butterfly/{name}.py" for name in MODULES}}
@@ -51,6 +52,8 @@ def build(output, *, root=ROOT, site_packages=None, startup_guard_seconds=120.):
     contract = {"schema": api["SCHEMA"], "target_execution_authorized": False,
         "source_map": source_map, "source_files": api["inventory"](output),
         "builder_sha256": api["sha256"](Path(__file__)),
+        "controller": {"path": str(root/"scripts/run_paired_campaign.py"),
+            "sha256": api["sha256"](api["safe_file"](root, "scripts/run_paired_campaign.py"))},
         "environment": api["canonical_environment"](), "site_packages": str(site),
         "stdlib": str(Path(sysconfig.get_path("stdlib")).resolve(strict=True)),
         "interpreter": {"path": str(executable), "sha256": api["sha256"](executable), "version": sys.version},

@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""EXP-481 outcome-free production setup, using the actual source/review gate.
+"""EXP-481 setup and one-shot campaign, using the actual source/review gate.
 
-Preflight is the only current mode. It cannot consume a target execution slot,
-issue a worker grant, invoke a target phase, or call a paid provider. Scientific
-dispatch will be added around this same setup after its failure paths qualify.
+Default source preflight never executes target phases. Execute requires fresh
+reviewed setup and the fixed unused experiment slot. Control runs only the
+fixed analytic circle, never target fields or user-selected scientific inputs.
 """
 import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import runpy
 import sys
@@ -177,13 +178,45 @@ def preflight(output, source_commit, remote_ref, *, mode="source",
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--source-commit", required=True)
-    parser.add_argument("--remote-ref", required=True)
-    parser.add_argument("--mode", choices=("source", "reviewed"), default="source")
+    parser.add_argument("--source-commit")
+    parser.add_argument("--remote-ref")
+    parser.add_argument("--mode", choices=("source", "reviewed", "control", "execute"), default="source")
     parser.add_argument("--release", default="experiments/manifests/EXP-481-reviewed-release.json")
+    parser.add_argument("--control-fault", choices=("wrong-grant", "wrong-parent-argv", "wrong-predecessor", "missing-grant"))
     args = parser.parse_args()
-    result = preflight(args.output_dir, args.source_commit, args.remote_ref, mode=args.mode, release=args.release)
-    print(json.dumps({k: result[k] for k in ("status", "source_commit", "plan_sha256", "target_execution_authorized")}))
+    if (args.source_commit is None) != (args.remote_ref is None) or (args.mode != "control" and args.source_commit is None):
+        parser.error("source commit and remote ref are required except for an explicitly local analytic control")
+    if args.control_fault is not None and args.mode != "control":
+        parser.error("fault injection is allowed only in analytic control mode")
+    # A strict ordinary Python invocation gives the worker an OS-observable
+    # parent grammar. No -c/runpy surrogate, relative executable or argv fiction.
+    prefix = [sys.executable, "-B", str(Path(__file__).resolve())]
+    if sys.orig_argv[:3] != prefix:
+        os.execv(sys.executable, [*prefix, *sys.argv[1:]])
+    if args.mode in ("source", "reviewed"):
+        result = preflight(args.output_dir, args.source_commit, args.remote_ref, mode=args.mode, release=args.release)
+        print(json.dumps({k: result[k] for k in ("status", "source_commit", "plan_sha256", "target_execution_authorized")}))
+        return
+    if any(any(c.isspace() for c in a) for a in sys.orig_argv):
+        parser.error("authorized controller paths/arguments must not contain whitespace")
+    if args.mode == "execute" and (ROOT/"artifacts/EXP-481/target-once.json").exists():
+        raise ValueError("target attempt already claimed; inspect preserved evidence, no retry or resume")
+    output = args.output_dir.absolute()
+    output.mkdir(parents=True, exist_ok=False, mode=0o700)
+    setup = None
+    if args.source_commit is not None:
+        setup = output/"preflight"
+        preflight(setup, args.source_commit, args.remote_ref,
+            mode="reviewed" if args.mode == "execute" else "source", release=args.release)
+    else:
+        builder = runpy.run_path(str(ROOT/"scripts/build_paired_runtime.py"))
+        built = builder["build"](output/"runtime")
+        api = runpy.run_path(str(ROOT/"python/butterfly/_paired_startup.py"))
+        api["verify_runtime"](output/"runtime", api["load_contract"](output/"runtime", built["sha256"]))
+        select_host_runtime(output/"runtime")
+    dispatch = runpy.run_path(str(ROOT/"scripts/dispatch_paired_phases.py"))["dispatch"]
+    result = dispatch(ROOT, output/"campaign", setup=setup, control=args.mode == "control", fault=args.control_fault)
+    print(json.dumps({k: result[k] for k in ("status", "kind", "all_cases_primary_resolved", "historical_symbols_verified")}))
 
 
 if __name__ == "__main__":
