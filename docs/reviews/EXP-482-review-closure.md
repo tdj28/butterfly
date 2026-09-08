@@ -71,3 +71,12 @@ Current official model/rate pages were fetched again: gpt-6-astra and the
 standard 10/12.5/50 USD-per-million rates remain unchanged. A short context
 addition discloses that the subsequent historical nominal-root audit did not
 clear the missing bootstrap/array evidence; it changes no EXP-482 decision.
+
+The packet was pushed at `2415d0e32c792c2a7549d15d20d781f28f74de50`.
+The exact live source check passed and the final dry-run reserved $1.9883.
+The subsequent non-generating API token-count request failed with HTTP 429
+`credit_balance_exhausted`, before review generation. Preserve
+`artifacts/EXP-482/review-01/`; no review verdict exists. The
+[quota checkpoint](../updates/2026-09-07-exp482-review-quota-block.md) records
+the exact hashes and continuation boundary. Publication approval is resolved;
+API account credit, not another publication permission request, is now needed.
