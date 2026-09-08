@@ -87,10 +87,12 @@ inputs; historical result reproduction is a separate requirement.
 - [x] Diagnose the support failure from saved data. [EXP-483](updates/2026-09-08-exp483-support-diagnosis.md)
   identifies substantial early pair-selector loss and fitted-endpoint exclusion;
   late coverage remains sparse. It does not produce a replacement map verdict.
-- [ ] Execute and audit the frozen [EXP-484 direct-return pilot](experiments/EXP-484-return-geometry-pilot.md):
+- [x] Execute and audit the frozen [EXP-484 direct-return pilot](experiments/EXP-484-return-geometry-pilot.md):
   actual early calibration states, two solvers, event-time-corrected section
   derivatives and fixed finite-difference controls. No critical symbols may be
   assigned from coordinate partial derivatives alone.
+  All 80 points passed; the entire 240-integration matrix and its decisions
+  were audited. See [the completed result](updates/2026-09-08-exp484-direct-geometry.md).
 - [ ] Establish the relevant return curve or quotient and its critical geometry
   before assigning target words or continuing a chain arrow. No automatic paid
   review gate applies: major-milestone reviews require human approval per call.

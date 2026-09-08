@@ -34,12 +34,12 @@ record, including failed experiments and corrected interpretations.
   explains which external criticisms were accepted, qualified, or require new
   research; it does not reproduce the private review.
 
-The main article now includes ten central figures. It uses
+The main article now includes eleven central figures. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
 The current draft's title-page author and PDF author metadata are deliberately
 blank. Historical citations still credit Jones and the other original authors.
-The current build is 69 pages: 19 pages of main article, followed by the
+The current build is 72 pages: 21 pages of main article, followed by the
 technical supplement and references. The chain is Figure 2 on page 7;
 its explanation starts in Section 3 on page 5, before methods and results.
 The title, abstract, opening results, claims table, and conclusion all frame
@@ -54,7 +54,8 @@ links to the following appendices and their PDF page numbers:
 - [`sections/s01-numerical-methods.tex`](sections/s01-numerical-methods.tex):
   shooting, continuation, orbit identity, Floquet calculations, and saddle methods.
 - [`sections/s02-experiment-record.tex`](sections/s02-experiment-record.tex):
-  the full experimental sequence and the remaining 24 figures.
+  the full experimental sequence and its historical figures; the symbolic
+  supplement adds the EXP-483 support diagnosis.
 - [`sections/s03-symbolic-tests.tex`](sections/s03-symbolic-tests.tex): source
   transcription, operational symbols, failed center searches, and remaining tests.
 - [`sections/s04-interpretation-record.tex`](sections/s04-interpretation-record.tex):
@@ -78,8 +79,9 @@ without requiring a reader to reconstruct the whole chronology first.
 
 ## Figures and references
 
-All **31 earlier scientific figures** remain, with independent-homoclinic,
-accuracy-grid, and symbolic-chain figures bringing the total to **34**: ten in the main article and 24 in
+All **31 earlier scientific figures** remain. Independent-homoclinic,
+accuracy-grid, symbolic-chain, support-diagnostic and direct-return-geometry
+figures bring the total to **36**: eleven in the main article and 25 in
 the supplement. Supplementary figures use S-prefixed
 numbers, while asset filenames and generation receipts keep their stable
 historical identifiers. No scientific image or figure receipt was changed by
@@ -87,6 +89,14 @@ the narrative reorganization; EXP-475 and EXP-476 add separate new figures.
 The symbolic-chain redraw uses all 23 words and 14 attributed relationships
 from the frozen Jones Figure 6 transcription. Its styles preserve the original
 evidence categories; it is not a new numerical validation of those arrows.
+
+The EXP-483/484 additions distinguish a sampling bottleneck from local
+flow-geometry accuracy. All 80 declared points pass the direct-return checks;
+no invariant curve, critical letter or chain arrow is thereby verified. The
+new Figure 3 is on page 11; the full support comparison is Figure S25 on page
+58. These figures regenerate from their public compact receipts without raw
+target integrations. The PDF author remains blank, and public PDF publication
+still requires separate approval.
 
 [figures/README.md](figures/README.md) lists regeneration commands and source
 hashes. [supplement/](supplement/) contains the existing animation materials.

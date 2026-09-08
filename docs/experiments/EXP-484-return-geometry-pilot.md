@@ -1,6 +1,8 @@
 # EXP-484: direct, two-dimensional first-return geometry
 
-Status: prospective local exploratory pilot; no symbolic verdict is promised.
+Status: completed and audited; all 80 points pass the fixed numerical checks.
+See the [illustrated result](../updates/2026-09-08-exp484-direct-geometry.md).
+The prospective local exploratory design below remains unchanged.
 Routine local audit under the human-controlled review policy; no paid review.
 
 EXP-483 found that the four-pair selector discards much of the available early

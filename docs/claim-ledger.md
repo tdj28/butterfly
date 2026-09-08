@@ -55,6 +55,12 @@ descriptive method findings, not a revised primary verdict, verified branch
 count or symbolic-chain conclusion. See [the support diagnosis](updates/2026-09-08-exp483-support-diagnosis.md)
 and [the direct-return geometry pilot](experiments/EXP-484-return-geometry-pilot.md).
 
+**EXP-484 update:** all 80 selected section points pass dual-solver next-return
+and event-time-corrected derivative comparisons; all prescribed finite
+differences at ten points pass as well. The 240-integration grid was audited
+without rerunning the flow. This qualifies a local numerical geometry tool,
+not an invariant curve or critical symbol. [Result and figure](updates/2026-09-08-exp484-direct-geometry.md).
+
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate
 near `a≈0.1826436`, after analytic positive/negative controls. All four
