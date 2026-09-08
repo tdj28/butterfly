@@ -78,8 +78,9 @@ Reserve these roles before the prospective review:
 - `docs/reviews/EXP-482-review-brief.md` — compact director brief;
 - `docs/reviews/EXP-482-decision-context.md` — mechanically reconstructed complete
   numeric design and source/design inventory hash;
-- `docs/reviews/EXP-482-evidence-context.md` — prior substantive review,
-  structured finding dispositions, numerical failure and bounded workload facts;
+- `docs/reviews/EXP-482-evidence-context.md` — structured prior finding
+  dispositions, numerical failure and bounded workload facts;
+- `docs/reviews/EXP-482-prior-review.md` — complete unchanged prior review;
 - `docs/reviews/EXP-482-review-01/` — exact canonical request/response bundle;
 - `docs/reviews/EXP-482-adjudication.json` and `.md` — every finding and authorized
   before/after change;

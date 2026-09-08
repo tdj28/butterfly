@@ -37,3 +37,37 @@ required by the integrity playbook; no raw arrays or large source inventories
 are submitted. Dry-run and non-generating exact token count must both fit the
 declared bounds before generation. This guard is not a provider hard billing
 cap. Do not retry a paid failure or submit another review for a better verdict.
+
+The first local dry-run refused a combined historical/evidence context above
+the canonical client's 12,000-character **per-context** cap, before any key or
+API call. Keep the complete prior review in a separate byte-identical context
+and the full structured adjudication with the new evidence; three contexts in
+total, each within its own cap. No finding was dropped and no guard was raised.
+Use 38,000 total input characters and 13,000 counted tokens with the same $2
+reserve. The compact new brief is 3.2 KB; the additional historical material
+is required cumulative-review context, not a raw-data or source dump.
+
+The three-context dry-run passed: 36,699 complete input characters and $1.9762
+reserved estimate under the $2 authorization (`artifacts/EXP-482/review-dry-03`).
+It read official model documentation but did not load an API key, submit the
+packet, count tokens remotely or generate a review. A sandbox-only attempt to
+read that documentation failed DNS first; the allowed read-only network run
+then succeeded. No paid review attempt occurred.
+
+The final packet commit is blocked by the environment's public-disclosure guard.
+It rejected publishing the separate prior-review context, then rejected again
+after a read-only check established that its Git blob
+`957524231ae2d14b06afafe90199e36a0a56be3a` equals the already-public
+`origin/main:docs/reviews/EXP-481-review-01/review.md`. The file is our earlier
+AI-generated advisory, not the professor's private review. Do not bypass the
+guard or submit a review bound to a commit that lacks the final contexts.
+Explicit approval of this public review-packet publication is now required.
+
+The user subsequently explicitly authorized publishing this EXP-482 packet,
+including the prior AI review, and instructed execution to continue. This
+resolves the publication permission request, not the review/scientific gates.
+The separate backup and heartbeat permissions are not prerequisites here.
+Current official model/rate pages were fetched again: gpt-6-astra and the
+standard 10/12.5/50 USD-per-million rates remain unchanged. A short context
+addition discloses that the subsequent historical nominal-root audit did not
+clear the missing bootstrap/array evidence; it changes no EXP-482 decision.
