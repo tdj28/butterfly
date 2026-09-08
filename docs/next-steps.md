@@ -1,6 +1,7 @@
 # Research priorities after the public audit
 
-Reviewed 2026-09-04. This is the current execution order; the long
+Symbolic execution updated 2026-09-08; other priorities reviewed 2026-09-04.
+This is the current execution order; the long
 [backlog](TODO.md) and frozen manifests retain the historical record.
 The [audit](reviews/2026-09-04-public-research-audit.md) explains the corrections
 that motivate this sequence. No new GPU jobs were launched for the audit.
@@ -78,11 +79,23 @@ inputs; historical result reproduction is a separate requirement.
 - [x] Connect the actual isolated input consumer and exact nine-file package.
   [Preserved-reference checks](updates/2026-09-07-exp481-sealed-input-audit.md)
   reproduce the prior result without importing the GPU scout.
-- [ ] Finish EXP-481's production controller and numerical phase dispatcher,
-  full source/review preflight and authenticated campaign wiring;
-  adjudicate the compact review and push the exact
-  freeze before generating new target trajectories. Then test both nominated
-  maps without selecting branch counts to match source words.
+- [x] Finish the production controller and numerical phase dispatcher with
+  authenticated campaign wiring. EXP-481 failed its numerical qualification;
+  the separate finer-step EXP-482 passed all 192 comparisons and completed
+  collection, but neither nominated map passed its support gates. Both
+  consumed experiments retain their original decisions.
+- [x] Diagnose the support failure from saved data. [EXP-483](updates/2026-09-08-exp483-support-diagnosis.md)
+  identifies substantial early pair-selector loss and fitted-endpoint exclusion;
+  late coverage remains sparse. It does not produce a replacement map verdict.
+- [x] Execute and audit the frozen [EXP-484 direct-return pilot](experiments/EXP-484-return-geometry-pilot.md):
+  actual early calibration states, two solvers, event-time-corrected section
+  derivatives and fixed finite-difference controls. No critical symbols may be
+  assigned from coordinate partial derivatives alone.
+  All 80 points passed; the entire 240-integration matrix and its decisions
+  were audited. See [the completed result](updates/2026-09-08-exp484-direct-geometry.md).
+- [ ] Establish the relevant return curve or quotient and its critical geometry
+  before assigning target words or continuing a chain arrow. No automatic paid
+  review gate applies: major-milestone reviews require human approval per call.
 - [ ] Before the next manuscript release, complete the documented
   [legacy turning-point impact audit](experiments/EXP-481-legacy-turning-point-incident.md)
   against preserved historical raw evidence. Its analytic stationary-inflection

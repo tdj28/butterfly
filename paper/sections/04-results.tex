@@ -57,6 +57,54 @@ is therefore precise: the alphabet has local support, while the critical
 itineraries and dynamical arrows remain reproduction targets.
 % Evidence: EXP-186 and EXP-202; FND-058 and FND-072.
 
+\paragraph{Separating a sampling failure from a flow-geometry failure.}
+Two later nominations at $a=0.21575$ and $0.21577$, with $b=0.2$ and
+$c=7.212$, passed a finer-step trajectory qualification but not the full
+scalar-map support test. A saved-data diagnosis found that keeping all
+consecutive early returns, rather than four selected pairs per trajectory,
+raised distinct-seed bin coverage from 70--90\% to 96--100\% across the fixed
+bin and step comparisons. Late-window coverage remained only 54--57.5\%.
+About 97\% of the held-out rejections in the four evaluated fits lay outside
+their median-endpoint fitted intervals, not in internal unsupported bins.
+These findings diagnose limitations of our sampling and fitting procedure;
+they neither rescue its failed test nor count against Jones's mechanism.
+% Evidence: EXP-482/483; full fixed-bin comparison in the symbolic supplement.
+
+We therefore checked the flow directly at 40 actual early calibration
+crossings per case, chosen to span the observed input domain
+(Figure~\ref{fig:direct-return-geometry}). DOP853 and Radau agreed on the
+next return and the event-time-corrected two-dimensional derivative at all
+80 points. Centered finite differences at ten prespecified points also
+passed at both perturbation sizes. Across 240 integrations, the largest
+relative scaled derivative disagreement was $2.04\times10^{-10}$ between
+solvers and $1.77\times10^{-8}$ against finite differences. These are
+observed discrepancies, not rigorous error bounds.
+
+This qualifies a local numerical measurement, not a symbolic partition.
+The plotted partial derivative holds $z$ fixed; the derivative along a
+return curve $z=h(x)$ would also contain
+$(\partial P_x/\partial z)h'(x)$. That curve and its tangent must be
+established before a projected fold can be assigned $C$ or $D$. The new
+calculation advances the geometry test without deciding the letters by
+comparison with the historical words.
+% Evidence: EXP-484; 80 states from 27/26 original seeds, not 80 independent seeds.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig35-exp484-return-geometry.png}
+  \caption{Direct flow geometry at the two nominated parameter points.
+  Left: all selected input section states. Middle: their independently
+  integrated next returns. Right: coordinate partial derivatives of the
+  two-dimensional return map, including the change in event time.
+  DOP853 and Radau overlap at this resolution. All 80 points passed the
+  frozen numerical comparisons; ten also received the prescribed
+  finite-difference checks. The points come from 27 and 26 original
+  trajectories, respectively. They do not define a continued invariant
+  curve, and a zero of the displayed partial is not an assigned critical
+  symbol.}
+  \label{fig:direct-return-geometry}
+\end{figure}
+
 The remaining results test ingredients needed to close that gap: where the
 windows lie, how return branches change, which orbit families connect, and
 whether a candidate global return exists near the hub. They concern separate

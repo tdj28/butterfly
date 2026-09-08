@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-06 (EXP-479/480 symbolic follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (EXP-482/483 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -42,6 +42,24 @@ fit, critical-letter assignment, word comparison or arrow continuation, and
 does not establish a cross-section bijection. Thus word/arrow verification
 remains open. See the [illustrated result](experiments/EXP-480-paired-section-reproducibility.md)
 and the [common-population successor worklist](experiments/EXP-481-common-population-partition-design.md).
+
+**EXP-482/483 update to CLM-010/011:** finer integration passed all 192 early
+numerical comparisons and completed the paired collection, but neither
+nomination passed the full map-support gate. The saved-data diagnostic then
+showed that all consecutive early returns provide 96–100% distinct-seed bin
+coverage across the fixed 30/40/50-bin comparisons, versus 70–90% under the
+original four-pair selector. Late support remains 54–57.5% even with all pairs.
+About 97% of held-out rejections in the four evaluated fits lie outside their
+median-endpoint fitted intervals, not in internal unsupported bins. These are
+descriptive method findings, not a revised primary verdict, verified branch
+count or symbolic-chain conclusion. See [the support diagnosis](updates/2026-09-08-exp483-support-diagnosis.md)
+and [the direct-return geometry pilot](experiments/EXP-484-return-geometry-pilot.md).
+
+**EXP-484 update:** all 80 selected section points pass dual-solver next-return
+and event-time-corrected derivative comparisons; all prescribed finite
+differences at ten points pass as well. The 240-integration grid was audited
+without rerunning the flow. This qualifies a local numerical geometry tool,
+not an invariant curve or critical symbol. [Result and figure](updates/2026-09-08-exp484-direct-geometry.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

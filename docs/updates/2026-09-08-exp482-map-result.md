@@ -1,5 +1,9 @@
 # EXP-482: the run completes, but return-map support is insufficient
 
+Follow-up: [EXP-483 identifies strong early pair-selector loss and fitted-endpoint
+exclusion](2026-09-08-exp483-support-diagnosis.md). That diagnosis does not change
+the completed experiment's failed support gates below.
+
 **Bottom line:** the finer steps passed all numerical checks and the entire
 experiment completed. The sampled points show a clear curved return relation,
 especially in the earlier window. Nevertheless, neither case satisfies the

@@ -1,6 +1,7 @@
 # EXP-483 draft: diagnose the support bottleneck using preserved EXP-482 data
 
-Status: descriptive, outcome-informed analysis plan; **no new target integration
+Status: completed; see the [illustrated result](../updates/2026-09-08-exp483-support-diagnosis.md).
+Descriptive, outcome-informed analysis; **no new target integration
 or changed EXP-482 result**. No paid review is requested or required for this
 routine local diagnostic. This is not a new confirmatory sample.
 
@@ -20,32 +21,41 @@ First verify those anchors and the complete relevant journal inventories.
 
 ## Execution list
 
-- [ ] Implement/test a bounded read-only diagnostic and commit it before the
+- [x] Implement/test a bounded read-only diagnostic and commit it before the
   new diagnostic execution. No calls to a field, integrator or paid API.
-- [ ] Reproduce the original common cohort and four-pairs-per-window selection
+  `scripts/diagnose_exp483_support.py` has a 600-second wall limit, requires a
+  clean committed source and fresh output below `artifacts/EXP-483`, streams
+  authenticated raw batches, and retains a failure receipt if it fails. The
+  original analysis is replayed unchanged for integrity, not refitted under
+  alternative settings. Twelve new synthetic tests and four existing summary
+  tests passed before execution. The inherited raw bound is 262,144 events per
+  batch. Outputs contain aggregate counts, not a new raw-data copy.
+- [x] Reproduce the original common cohort and four-pairs-per-window selection
   exactly before comparing alternative descriptive populations.
-- [ ] For both cases, both step profiles and both original windows, tabulate
+- [x] For both cases, both step profiles and both original windows, tabulate
   distinct-seed occupancy on all declared 30/40/50-bin partitions using the
   original calibration normalization. Include calibration and held-out counts
   separately; do not use holdout data to refit, normalize or select a model.
-- [ ] Partition missing support into zero observed seeds versus one to seven
+- [x] Partition missing support into zero observed seeds versus one to seven
   observed calibration seeds; separately count held-out observations outside
   the fitted interval and inside under-supported bins. Overlapping reasons must
   be disjointly tabulated or explicitly marked nonadditive.
-- [ ] Compare the original selector with **all available true consecutive
+- [x] Compare the original selector with **all available true consecutive
   accepted event pairs** in those same windows as a descriptive sensitivity
   check. Count distinct seeds, not pair abundance, and never bridge an ambiguous
   event or interpolate an unobserved crossing. Keep unequal pair counts visible.
-- [ ] Describe reference-conditioning effects with mutually explicit groups
+- [x] Describe reference-conditioning effects with mutually explicit groups
   from existing capture/failure/ambiguity records. Never call an uncaptured
   finite-time path a proven chaotic invariant orbit or treat post-capture pairs
   as independent transient evidence.
-- [ ] Report every case/window/profile and the fixed-bin sensitivity, including
+- [x] Report every case/window/profile and the fixed-bin sensitivity, including
   negative or mixed evidence. Do not infer physical absence of a return map from
   an empty observed bin or a missing bootstrap/turning result.
-- [ ] Propose the smallest new geometry-directed flow experiment justified by
+- [x] Propose the smallest new geometry-directed flow experiment justified by
   these diagnostics. New initial states or integration require a separate
   prospective source/design freeze and unchanged evidence-preservation rules.
+  The separate EXP-484 pilot targets actual early calibration states and their
+  two-dimensional first-return derivatives. It does not refit or rescue EXP-482.
 
 ## Boundaries and stopping
 

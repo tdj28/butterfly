@@ -7,6 +7,28 @@ topology claims.
 
 ## Generated composites
 
+### EXP-483/484: support diagnosis and direct return geometry
+
+`fig34-exp483-support-diagnosis.png` shows every fixed-bin sampling comparison
+from the public EXP-483 receipt. `fig35-exp484-return-geometry.png` shows all
+80 direct-return points, both solvers and coordinate partial derivatives.
+Neither is a newly verified symbolic chain or invariant-curve reconstruction.
+Both are identical copies of the corresponding images under `docs/figures`.
+To regenerate to fresh destinations from the repository root:
+
+```sh
+.venv/bin/python scripts/plot_exp483_support.py \
+  --receipt docs/experiments/receipts/EXP-483-support-diagnostic.json \
+  --output /tmp/exp483-support-regenerated.png
+.venv/bin/python scripts/plot_exp484_return_geometry.py \
+  --receipt docs/experiments/receipts/EXP-484-return-geometry-result.json \
+  --output /tmp/exp484-geometry-regenerated.png
+```
+
+The scripts authenticate their public input receipts by SHA-256 and refuse
+to overwrite existing outputs. Full run audits use the preserved local raw
+data and are separate from these public receipt-backed figure redraws.
+
 - fig01-multib-superstructure.png: eleven EXP-021 fixed-\(b\) atlas frames.
 - fig02-global-and-period6-zoom.png: EXP-021 global \(b=0.2\) atlas,
   EXP-192 two-landmark refinement, and the hash-bound period-6 component.

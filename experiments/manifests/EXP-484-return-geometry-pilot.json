@@ -1,0 +1,48 @@
+{
+  "experiment_id": "EXP-484",
+  "status": "prospective-local-exploratory-pilot",
+  "source_experiment": "EXP-482",
+  "campaign_sha256": "c4ab5fb1fdd07273e5e5f4b2c7548b1d073e3645e1cc63f24738a2bf2418c27e",
+  "analysis_sha256": "d43f996f0a9e24d959689fba975cb3f851505a5192a26e4dca006dcf2af2a27d",
+  "diagnostic_sha256": "bb14f469fb09a50ac2802a8af9dd28bb1d1570affa02da4553a7f0d2267cbddd",
+  "cases": [
+    {"id": "local-a025-c083", "a": 0.21575, "b": 0.2, "c": 7.212},
+    {"id": "local-a027-c083", "a": 0.21577, "b": 0.2, "c": 7.212}
+  ],
+  "selection": {
+    "profile": "rk4-000125",
+    "window": 0,
+    "bins": 40,
+    "section": "historical-negative",
+    "axis": 0,
+    "population": "original joint calibration only",
+    "rule": "For each original-normalization input bin, select the lowest global seed ID then lowest original stratum with a recorded pair; fail preparation if any bin is empty. Keep the actual 3D source state, not a median or interpolated state.",
+    "points_per_case": 40
+  },
+  "solvers": ["DOP853", "Radau"],
+  "rtol": 1e-10,
+  "atol": 1e-12,
+  "max_step": 0.02,
+  "horizon": 20.0,
+  "minimum_angle": 1e-7,
+  "initial_root_guard": 1e-8,
+  "section_coordinate_scales": [15.0, 0.01],
+  "finite_difference": {
+    "bins": [0, 10, 20, 30, 39],
+    "normalized_steps": [1e-5, 1e-6],
+    "axes": [0, 2],
+    "signs": [-1, 1],
+    "solver": "DOP853"
+  },
+  "limits": {"wall_seconds": 1800, "maximum_target_integrations": 240, "maximum_output_bytes": 33554432},
+  "thresholds": {
+    "solver_scaled_state_error": 1e-6,
+    "solver_return_time_error": 1e-7,
+    "solver_relative_scaled_jacobian_error": 1e-4,
+    "finite_difference_relative_scaled_jacobian_error": 1e-3,
+    "saved_pair_scaled_state_error": 1e-4,
+    "saved_pair_return_time_error": 1e-4
+  },
+  "paid_review": "not requested; routine local audit under AGENTS.md",
+  "claim_boundary": "Qualify direct first-return state/time and event-corrected 2D derivatives at the declared observed states. This is not an invariant-curve or scalar critical-point test, branch-count certificate, symbolic-letter assignment, chain-arrow verification or homoclinic claim. No endpoint extrapolation or changed EXP-482 verdict. All cases, bins, missing returns and failed comparisons must be reported."
+}
