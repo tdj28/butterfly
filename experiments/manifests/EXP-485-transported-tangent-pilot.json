@@ -1,0 +1,30 @@
+{
+  "experiment_id": "EXP-485",
+  "status": "prospective-local-exploratory-pilot",
+  "exp484_summary_sha256": "93b2ce9207a9ffdfd75c322aeb94b77d6fe9160a99fbdbb7693ce1567a2a32a3",
+  "exp484_audit_sha256": "54c2b90a092e5fd1b97e6609f1e80dfb1f571924f31e5445c125bb0be5a0b97c",
+  "preflight482_sha256": "d74ae87ec66cb9ee52204c31f3f3ca78ea173231206db0847f040735177aeeb7",
+  "depths": [1, 2, 4, 8],
+  "selection": "All 80 EXP-484 calibration points, unchanged. Exactly the eight preceding accepted historical-negative returns of each same seed. No replacement for missing history or ambiguity. No deduplication: fixed 80 x 8 x 2 integration grid.",
+  "solvers": ["DOP853", "Radau"],
+  "rtol": 1e-10,
+  "atol": 1e-12,
+  "max_step": 0.02,
+  "horizon": 20.0,
+  "minimum_angle": 1e-7,
+  "initial_root_guard": 1e-8,
+  "section_coordinate_scales": [15.0, 0.01],
+  "thresholds": {
+    "solver_scaled_state_error": 1e-6,
+    "solver_return_time_error": 1e-7,
+    "solver_relative_scaled_jacobian_error": 1e-4,
+    "saved_pair_scaled_state_error": 1e-4,
+    "saved_pair_return_time_error": 1e-4,
+    "maximum_ratio": 1e-4,
+    "maximum_angle": 0.001,
+    "minimum_x_component": 0.001
+  },
+  "limits": {"wall_seconds": 1800, "maximum_target_integrations": 1280, "maximum_output_bytes": 67108864},
+  "paid_review": "not requested; local audit under AGENTS.md",
+  "claim_boundary": "Exploratory finite-history transported directions along recorded transient returns in the declared scaled metric. Each segment restarts at its recorded state; measured state/time residuals bound numerical mismatch but are not rigorous shadowing bounds. Depth and solver consistency do not establish an invariant curve, unique foliation, generating partition, exact critical points, symbolic chains or homoclinic existence. All 80 point outcomes reported; no missing-history replacement, endpoint extrapolation, target-word selection, or change to earlier verdicts."
+}
