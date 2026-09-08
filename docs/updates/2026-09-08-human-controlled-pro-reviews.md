@@ -1,5 +1,10 @@
 # Paid Pro reviews: major milestones and human approval only
 
+**Subsequent status:** the executable migration and real locally audited release
+are now complete. EXP-482 passed all 192 numerical comparisons and advanced to
+full collection; see the [live-run update](2026-09-08-exp482-live-run.md).
+The transition account below records the earlier policy-change checkpoint.
+
 The human reported $50 total API spend yesterday, confirmed an account refill,
 and explicitly changed the review policy. The $50 is a human-reported total,
 not a figure reconciled from provider billing here. The previously quoted
