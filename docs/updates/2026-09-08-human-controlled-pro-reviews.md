@@ -1,8 +1,9 @@
 # Paid Pro reviews: major milestones and human approval only
 
 **Subsequent status:** the executable migration and real locally audited release
-are now complete. EXP-482 passed all 192 numerical comparisons and advanced to
-full collection; see the [live-run update](2026-09-08-exp482-live-run.md).
+are now complete. EXP-482 passed all 192 numerical comparisons, then completed
+collection/analysis with both primary maps support-limited; see the
+[completed-run result](2026-09-08-exp482-map-result.md).
 The transition account below records the earlier policy-change checkpoint.
 
 The human reported $50 total API spend yesterday, confirmed an account refill,
