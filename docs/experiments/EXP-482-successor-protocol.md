@@ -1,7 +1,8 @@
-# EXP-482: a separately reviewed finer-step successor
+# EXP-482: a separately frozen finer-step successor
 
-Status: implementation and outcome-free qualification; **not yet reviewed or
-authorized for target execution**. The numeric design is
+Status (2026-09-08): the human-policy amendment removes mandatory paid review.
+The explicit local-audit release path is being tested prospectively; **no target
+execution yet**. The numeric design is
 `experiments/manifests/EXP-482-paired-design.json`. It contains no fabricated
 approval. Selecting a new experiment name does not authorize its execution.
 
@@ -73,7 +74,9 @@ all previously required source paths. The worker's independent controller-byte
 anchor changes with the controller and is regression-tested. Historical frozen
 releases continue to refer to their original Git objects, not these new bytes.
 
-Reserve these roles before the prospective review:
+The original review packet roles below are retained as history. The attempted
+review failed before generation; no response or EXP-482 provider verdict exists.
+Do not retry it under the human-controlled policy:
 
 - `docs/reviews/EXP-482-review-brief.md` — compact director brief;
 - `docs/reviews/EXP-482-decision-context.md` — mechanically reconstructed complete
@@ -84,8 +87,27 @@ Reserve these roles before the prospective review:
 - `docs/reviews/EXP-482-review-01/` — exact canonical request/response bundle;
 - `docs/reviews/EXP-482-adjudication.json` and `.md` — every finding and authorized
   before/after change;
-- `experiments/manifests/EXP-482-reviewed-release.json` — actual release only
-  after review, adjudication and source-qualified tests.
+- `experiments/manifests/EXP-482-reviewed-release.json` — reserved old path,
+  not populated with a placeholder or reused EXP-481 review.
+
+The active no-paid-review route uses `docs/reviews/EXP-482-local-audit.md` and
+`experiments/manifests/EXP-482-local-audit-release.json`. Its validator pins the
+unchanged pre-amendment numerical plan and the human policy, checks the complete
+pushed code/test inventory and retained prior context, and binds the actual
+operator audit. A local audit is not an independent provider review or proof.
+The release is separately committed/pushed; fresh tests, raw reference audits,
+sealed-runtime setup, live-parent authorization and the unused one-shot marker
+are all still required. Grants now call the binding `release_sha256` and record
+`release_mode`, avoiding a misleading claim that a local audit is an AI review.
+Historical grants and frozen executable branches remain unchanged.
+
+After the tested code freeze, use `scripts/build_paired_local_release.py` to
+assemble a candidate from the actual audit and live source check. It only writes
+a candidate in a fresh artifact directory. Then commit/push the candidate at its
+fixed role and validate it with `scripts/check_paired_release.py --mode local-audited
+--experiment-id EXP-482`. Target execution explicitly selects `--mode execute
+--release-mode local-audited --experiment-id EXP-482`; there is no generic skip
+gate, relaxed numerical threshold or automatic paid-review fallback.
 
 Do not create placeholder approvals. Review the construct as well as the
 procedure: finite-resolution historical-x adequacy on a supported,
@@ -101,7 +123,8 @@ criticality, homoclinic existence or the entire parameter plane.
 | Actual successor controller and source-qualified full configuration | Verified live at ba85d90: 426 tests/no skips, both raw audits, all 192 configurations; source preflight receipt retained |
 | Prospective review and target numerical qualification | Not performed; no new target trajectories |
 
-The real `--mode source --experiment-id EXP-482` preflight on pushed source has
-now passed. It ran all bound tests and reconstructed inputs and every
-configuration without integrating a target trajectory. Next is the compact
-cumulative review; no completed historical review is rerun or relabeled.
+The original `--mode source --experiment-id EXP-482` preflight on pushed source
+passed at ba85d90. The amended controller must pass a new source-bound preflight;
+the older receipt does not qualify changed code. No completed historical review
+is rerun or relabeled. New Pro requests require explicit per-call human approval
+at a major milestone, not an account refill or routine numerical refinement.

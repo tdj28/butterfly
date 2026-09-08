@@ -1,7 +1,7 @@
 """Host-only fixed phase dispatch; the user-facing controller supplies authority.
 
 No CLI loads an old preflight or a saved grant. The production command reaches
-this function only after its fresh reviewed setup. The worker independently
+this function only after its fresh release-validated setup. The worker independently
 checks that its live parent is that ordinary frozen controller invocation.
 """
 from dataclasses import asdict
@@ -72,19 +72,18 @@ def dispatch(root, output, *, setup=None, control=False, fault=None, experiment_
             runtime_sha = sha256(runtime_root/"runtime-contract.json")
             preflight, preflight_sha = None, None
         else:
-            raise ValueError("target dispatch requires the fresh reviewed setup")
+            raise ValueError("target dispatch requires the fresh release-validated setup")
         contract = load_contract(runtime_root, runtime_sha)
         verify_runtime(runtime_root, contract)
         if control:
             from butterfly.paired_phase_control import make_control
             design, _ = make_control()
-            review_sha, inputs, input_sha = None, None, None
+            release_sha, release_mode, inputs, input_sha = None, None, None, None
             slot = output/"control-once.json"
         else:
             source = json.loads((setup/"source.json").read_bytes())
-            if preflight["mode"] != "reviewed" or source["status"] != "source-and-review-verified":
-                raise ValueError("source-only setup cannot authorize target phases")
-            review_sha = source["release_sha256"]
+            gate = runpy.run_path(str(root/"python/butterfly/paired_release.py"))
+            release_sha, release_mode = gate["require_release_observation"](preflight, source, experiment_id)
             inputs, input_sha = setup/"inputs", preflight["inputs"]["sha256"]
             plan = load_package(inputs, input_sha)
             if plan.get("experiment_id") != experiment_id:
@@ -108,7 +107,7 @@ def dispatch(root, output, *, setup=None, control=False, fault=None, experiment_
         write_json(slot, dict(kind="analytic-circle" if control else "target", nonce=secrets.token_hex(32),
             source_commit=design.source_commit, plan_sha256=design.plan_sha256,
             runtime_contract_sha256=runtime_sha, preflight_sha256=preflight_sha,
-            review_sha256=review_sha, created_unix=time.time(), output=str(output)))
+            release_sha256=release_sha, release_mode=release_mode, created_unix=time.time(), output=str(output)))
         slot_consumed = True
         slot_sha = sha256(slot)
         results, previous, previous_record = {}, None, None
@@ -128,7 +127,8 @@ def dispatch(root, output, *, setup=None, control=False, fault=None, experiment_
                 phase=phase, source_commit=design.source_commit, plan_sha256=design.plan_sha256,
                 design_sha256=design.identity(), runtime_contract_sha256=runtime_sha,
                 input_root=None if inputs is None else str(inputs), input_contract_sha256=input_sha,
-                campaign_slot_sha256=slot_sha, preflight_sha256=preflight_sha, review_sha256=review_sha,
+                campaign_slot_sha256=slot_sha, preflight_sha256=preflight_sha,
+                release_sha256=release_sha, release_mode=release_mode,
                 limits=asdict(limits), deadline_monotonic=time.monotonic()+limits.wall_seconds, previous=previous)
             if fault == "wrong-predecessor" and phase == "collection":
                 grant["previous"] = {**previous, "receipt": {"path": "terminal.json", "sha256": "0"*64}}

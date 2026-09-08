@@ -20,6 +20,17 @@ MAXIMUM_BYTES = 16*1024**2
 HEADINGS = ("Verdict", "Blocking findings", "Important non-blocking findings", "What should remain unchanged",
             "Minimal revised design", "Freeze checklist")
 VERDICTS = ("NOT READY TO FREEZE", "READY AFTER SPECIFIED FIXES", "READY TO FREEZE")
+LOCAL_RELEASE = "experiments/manifests/EXP-482-local-audit-release.json"
+LOCAL_AUDIT = "docs/reviews/EXP-482-local-audit.md"
+LOCAL_POLICY_SHA256 = "ee967d1c61cc6ccea6d69cfdaba8a3fae61207c4abc10ee0058b1082f07a6197"
+LOCAL_PLAN_SHA256 = "92c989f734afb36cb539f35c0ba0242e5459202b4142ba462e12c223dcce5d8a"
+LOCAL_CONTEXT = (
+    "AGENTS.md", "docs/updates/2026-09-08-human-controlled-pro-reviews.md",
+    "docs/reviews/EXP-481-review-01/review.md", "docs/reviews/EXP-481-adjudication.json",
+    "docs/reviews/EXP-481-adjudication.md",
+    "docs/experiments/receipts/EXP-481-qualification-result.json",
+    "docs/experiments/receipts/EXP-482-full-workload.json",
+    "docs/updates/2026-09-07-exp482-review-quota-block.md")
 
 
 def digest(raw):
@@ -248,16 +259,92 @@ def validate_review_bundle(root, declaration):
 
 
 def experiment_paths(experiment_id):
-    """Only these two separately reviewed studies have execution path roles.
+    """Only these two separately frozen studies have execution path roles.
 
     A caller cannot turn a failed attempt into a new slot by inventing an ID.
-    Selecting EXP-482 still requires its own committed design and exact review.
+    Selecting EXP-482 still requires its own committed design and release gate.
     """
     if experiment_id not in ("EXP-481", "EXP-482"):
         raise ValueError("unknown fixed paired experiment")
     return dict(plan=f"experiments/manifests/{experiment_id}-paired-design.json",
         release=f"experiments/manifests/{experiment_id}-reviewed-release.json",
         slot=f"artifacts/{experiment_id}/target-once.json")
+
+
+def release_role(experiment_id, mode):
+    paths = experiment_paths(experiment_id)
+    if mode == "local-audited":
+        if experiment_id != "EXP-482":
+            raise ValueError("local-audit amendment is scoped only to EXP-482")
+        return LOCAL_RELEASE
+    if mode not in ("source", "reviewed"):
+        raise ValueError("unknown release mode")
+    return paths["release"]
+
+
+def require_release_observation(preflight, source, experiment_id):
+    """Keep source-only setup distinct from either real release path."""
+    expected = {"reviewed": "source-and-review-verified", "local-audited": "source-and-local-audit-verified"}
+    mode = preflight.get("mode")
+    if mode not in expected or source.get("status") != expected[mode]:
+        raise ValueError("source-only or mismatched setup cannot authorize target phases")
+    release_role(experiment_id, mode)
+    if mode == "local-audited" and source.get("paid_review") != "not_run":
+        raise ValueError("local audit must not impersonate a paid review")
+    return hex_value(source["release_sha256"], 64), mode
+
+
+def verify_local_release(root, release_path, freeze_commit, remote_ref, *, required_source_paths,
+                         plan_path, experiment_id="EXP-482"):
+    """Prospective human-policy amendment, not a provider review or proof.
+
+    Bind an explicit local audit and its retained prior context to pushed Git
+    bytes. Independently pin the pre-amendment numeric design and policy. Fresh
+    source tests, raw input audits, runtime binding and one-shot dispatch remain
+    separate mandatory checks. The audit's reasoning is an operator judgment,
+    not made true by its hash, and no provider validator/API is invoked here.
+    """
+    if (release_path != release_role(experiment_id, "local-audited")
+            or plan_path != experiment_paths(experiment_id)["plan"]):
+        raise ValueError("fixed local release and numeric design roles required")
+    source = verify_pushed_source(root, freeze_commit, remote_ref)
+    raw = committed_file(root, freeze_commit, release_path)
+    if read_bound(root, dict(path=release_path, sha256=digest(raw))) != raw:
+        raise ValueError("local release differs from pushed bytes")
+    release = json.loads(raw)
+    if (set(release) != {"schema", "experiment_id", "paid_review", "code_freeze_commit",
+                        "source_files", "plan", "audit", "context"}
+            or release["schema"] != "butterfly.paired-local-audit-release.v1"
+            or release["experiment_id"] != experiment_id or release["paid_review"] != "not_run"
+            or release["plan"]["path"] != plan_path or release["plan"]["sha256"] != LOCAL_PLAN_SHA256
+            or release["audit"]["path"] != LOCAL_AUDIT
+            or set(release["context"]) != set(LOCAL_CONTEXT)):
+        raise ValueError("explicit no-paid-review release with unchanged numeric design required")
+    code = hex_value(release["code_freeze_commit"], 40)
+    git(root, "merge-base", "--is-ancestor", code, freeze_commit)
+    inventory = verify_inventory(root, code, release["source_files"], required_paths=required_source_paths)
+    verify_inventory(root, freeze_commit, release["source_files"], required_paths=required_source_paths)
+    for row in (release["plan"], release["audit"], *release["context"].values()):
+        if committed_file(root, freeze_commit, row["path"]) != read_bound(root, row):
+            raise ValueError("local-audit role differs from pushed bytes")
+    for path, row in release["context"].items():
+        if row["path"] != path or committed_file(root, code, path) != read_bound(root, row):
+            raise ValueError("local audit context differs from its code freeze")
+    if (release["context"]["AGENTS.md"]["sha256"] != LOCAL_POLICY_SHA256
+            or committed_file(root, code, plan_path) != read_bound(root, release["plan"])):
+        raise ValueError("policy or numeric design differs from the amendment")
+    audit = read_bound(root, release["audit"]).decode()
+    # These machine lines explicitly scope the human-readable operator audit;
+    # they are not a surrogate model verdict or independent attestation.
+    for line in ("Paid review: not_run", "Local audit disposition: release-ready",
+                 f"Experiment: {experiment_id}", f"Code freeze: {code}",
+                 f"Source inventory SHA-256: {inventory}", f"Plan SHA-256: {LOCAL_PLAN_SHA256}"):
+        if audit.splitlines().count(line) != 1:
+            raise ValueError("local audit does not name this exact source/design disposition")
+    return dict(status="source-and-local-audit-verified", source=source, paid_review="not_run",
+        audit_sha256=release["audit"]["sha256"], release_sha256=digest(raw), plan_sha256=LOCAL_PLAN_SHA256,
+        claim="operator local audit under human policy; no new provider review or scientific validation",
+        target_execution_authorized=False, runtime_and_one_shot_gate_still_required=True)
 
 
 def decision_context(plan, inventory_sha256):

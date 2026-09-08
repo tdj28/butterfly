@@ -1,12 +1,18 @@
 # EXP-482 numerical refinement — engineering draft, not target authorization
 
-**Current checkpoint:** both engineering measurements are complete, and the
+**Current checkpoint (2026-09-08):** the human policy supersedes the mandatory
+paid-review requirements below. The review packet was published, but its API
+attempt failed before generation. It will not be retried automatically. The
+prospective local-audit gate migration is underway; see
+[current policy](../updates/2026-09-08-human-controlled-pro-reviews.md).
+
+Both engineering measurements are complete, and the
 distinct successor implementation has passed its actual source preflight
 (426 tests, no skips; no target trajectories). See
 [successor status](../updates/2026-09-07-exp482-successor-preflight.md) and
 [protocol](EXP-482-successor-protocol.md). The remaining public review-packet
-publication is blocked by an environment disclosure guard; the prospective
-review and target execution have not occurred. Earlier prospective sections
+publication subsequently succeeded; no completed prospective Pro review or
+target execution occurred. Earlier prospective sections
 below are retained as historical expectations, not unfinished benchmark work.
 
 EXP-481's complete qualification failed its unchanged scaled-state accuracy

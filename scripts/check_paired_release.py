@@ -19,11 +19,12 @@ def check(root, source_commit, remote_ref, *, mode="source",
           release=None, experiment_id="EXP-481"):
     """The actual command's check, also used directly by the campaign controller."""
     root = Path(root).resolve(strict=True)
-    if mode not in ("source", "reviewed"):
+    if mode not in ("source", "reviewed", "local-audited"):
         raise ValueError("unknown release check mode")
     gate = runpy.run_path(str(root/"python/butterfly/paired_release.py"))
     paths = gate["experiment_paths"](experiment_id)
-    release = paths["release"] if release is None else release
+    default_release = gate["release_role"](experiment_id, mode)
+    release = default_release if release is None else release
     observed = gate["verify_pushed_source"](root, source_commit, remote_ref)
     # Pin this host-side consumer and the builder before evaluating its source
     # map. The worker still verifies the separate realized exact-file bundle.
@@ -59,8 +60,9 @@ def check(root, source_commit, remote_ref, *, mode="source",
         raw = gate["committed_file"](root, source_commit, path)
         files[path] = dict(bytes=len(raw), sha256=gate["digest"](raw))
     inventory_sha = gate["verify_inventory"](root, source_commit, files, required_paths=required)
-    if mode == "reviewed":
-        result = gate["verify_reviewed_release"](root, release, source_commit, remote_ref,
+    if mode in ("reviewed", "local-audited"):
+        validator = "verify_local_release" if mode == "local-audited" else "verify_reviewed_release"
+        result = gate[validator](root, release, source_commit, remote_ref,
             required_source_paths=required, plan_path=paths["plan"], experiment_id=experiment_id)
     else:
         result = dict(status="source-preflight-passed", source=observed, source_files=files,
@@ -74,7 +76,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-commit", required=True)
     parser.add_argument("--remote-ref", required=True)
-    parser.add_argument("--mode", choices=("source", "reviewed"), default="source")
+    parser.add_argument("--mode", choices=("source", "reviewed", "local-audited"), default="source")
     parser.add_argument("--release")
     parser.add_argument("--experiment-id", choices=("EXP-481", "EXP-482"), default="EXP-481")
     parser.add_argument("--output-dir", type=Path, help="optional fresh local directory for the observed receipt")

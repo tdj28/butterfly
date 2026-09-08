@@ -23,7 +23,7 @@ HANDSHAKE_SECONDS = 10.
 STAGES = ("qualification", "collection", "analysis")
 # Independent anchor in frozen worker source, not chosen by the received JSON.
 # The controller computes runtime hashes dynamically, so this is not a cycle.
-CONTROLLER_SOURCE_SHA256 = "2641f321defa5034a6789502684b21f7b45dcbce97e7e22f4055c6bc7c6d20ea"
+CONTROLLER_SOURCE_SHA256 = "a7ef42f051363d2b88a832e4908a05479e12479e0ff85ee7068475874114de71"
 
 
 def canonical(value):
@@ -131,12 +131,15 @@ def validate_grant(grant, phase, runtime_sha256):
     if type(wall) not in (int, float) or not 0 < remaining <= wall <= 14400:
         raise ValueError("phase grant deadline is expired or exceeds bounded policy")
     if grant["kind"] == "target":
-        for name in ("review_sha256", "preflight_sha256", "input_contract_sha256"):
+        for name in ("release_sha256", "preflight_sha256", "input_contract_sha256"):
             if re.fullmatch("[0-9a-f]{64}", grant.get(name, "")) is None:
-                raise ValueError("target grant needs review, setup and input bindings")
+                raise ValueError("target grant needs release, setup and input bindings")
+        if grant.get("release_mode") not in ("reviewed", "local-audited"):
+            raise ValueError("target grant requires an explicit release mode")
         if type(grant.get("input_root")) is not str:
             raise ValueError("target input root required")
-    elif (grant.get("review_sha256") is not None or grant.get("input_root") is not None
+    elif (grant.get("release_sha256") is not None or grant.get("release_mode") is not None
+            or grant.get("input_root") is not None
             or grant.get("input_contract_sha256") is not None or grant["source_commit"] != "0"*40):
         raise ValueError("analytic control cannot accept research inputs or review authority")
     prior = grant["previous"]

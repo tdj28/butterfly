@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Fixed paired-study setup and one-shot campaign, using the actual review gate.
+"""Fixed paired-study setup and one-shot campaign, using an explicit release gate.
 
 Default source preflight never executes target phases. Execute requires fresh
-reviewed setup and the fixed unused experiment slot. Control runs only the
+release-validated setup and the fixed unused experiment slot. Control runs only the
 fixed analytic circle, never target fields or user-selected scientific inputs.
 """
 import argparse
@@ -89,7 +89,8 @@ def preflight(output, source_commit, remote_ref, *, mode="source",
     try:
         observed, plan, plan_sha = bind_setup(ROOT, source_commit, remote_ref, mode, release, experiment_id)
         paths = runpy.run_path(str(ROOT/"python/butterfly/paired_release.py"))["experiment_paths"](experiment_id)
-        release = paths["release"] if release is None else release
+        gate = runpy.run_path(str(ROOT/"python/butterfly/paired_release.py"))
+        release = gate["release_role"](experiment_id, mode) if release is None else release
         api["write_json"](output/"source.json", observed)
         builder = runpy.run_path(str(ROOT/"scripts/build_paired_runtime.py"))
         runtime = builder["build"](output/"runtime", startup_guard_seconds=120.)
@@ -184,7 +185,9 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--source-commit")
     parser.add_argument("--remote-ref")
-    parser.add_argument("--mode", choices=("source", "reviewed", "control", "execute"), default="source")
+    parser.add_argument("--mode", choices=("source", "reviewed", "local-audited", "control", "execute"), default="source")
+    parser.add_argument("--release-mode", choices=("reviewed", "local-audited"), default="reviewed",
+        help="execute release gate; local-audited is scoped only to EXP-482")
     parser.add_argument("--release")
     parser.add_argument("--experiment-id", choices=("EXP-481", "EXP-482"), default="EXP-481")
     parser.add_argument("--control-fault", choices=("wrong-grant", "wrong-parent-argv", "wrong-predecessor", "missing-grant"))
@@ -198,7 +201,7 @@ def main():
     prefix = [sys.executable, "-B", str(Path(__file__).resolve())]
     if sys.orig_argv[:3] != prefix:
         os.execv(sys.executable, [*prefix, *sys.argv[1:]])
-    if args.mode in ("source", "reviewed"):
+    if args.mode in ("source", "reviewed", "local-audited"):
         result = preflight(args.output_dir, args.source_commit, args.remote_ref, mode=args.mode,
             release=args.release, experiment_id=args.experiment_id)
         print(json.dumps({k: result[k] for k in ("status", "source_commit", "plan_sha256", "target_execution_authorized")}))
@@ -214,7 +217,7 @@ def main():
     if args.source_commit is not None:
         setup = output/"preflight"
         preflight(setup, args.source_commit, args.remote_ref,
-            mode="reviewed" if args.mode == "execute" else "source", release=args.release,
+            mode=args.release_mode if args.mode == "execute" else "source", release=args.release,
             experiment_id=args.experiment_id)
     else:
         builder = runpy.run_path(str(ROOT/"scripts/build_paired_runtime.py"))
