@@ -101,7 +101,10 @@ inputs; historical result reproduction is a separate requirement.
 - [ ] Construct actual finite-return image curves near the two observed
   slope-sign-change regions in each case. Test curve/critical-location agreement
   across history lengths, initial curve directions and solvers before treating
-  discrete sign changes as fold brackets. Then test a conditional local partition
+  discrete sign changes as fold brackets. The fixed 16-family
+  [EXP-486 pilot](updates/2026-09-08-exp486-continuous-return-curves.md)
+  is implemented and its analytic controls pass; target results are pending.
+  Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
   before assigning target words or continuing a chain arrow. No automatic paid
