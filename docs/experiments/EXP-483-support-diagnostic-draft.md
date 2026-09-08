@@ -1,6 +1,7 @@
 # EXP-483 draft: diagnose the support bottleneck using preserved EXP-482 data
 
-Status: descriptive, outcome-informed analysis plan; **no new target integration
+Status: implementation ready for bounded saved-data execution; descriptive,
+outcome-informed analysis plan; **no new target integration
 or changed EXP-482 result**. No paid review is requested or required for this
 routine local diagnostic. This is not a new confirmatory sample.
 
@@ -20,8 +21,15 @@ First verify those anchors and the complete relevant journal inventories.
 
 ## Execution list
 
-- [ ] Implement/test a bounded read-only diagnostic and commit it before the
+- [x] Implement/test a bounded read-only diagnostic and commit it before the
   new diagnostic execution. No calls to a field, integrator or paid API.
+  `scripts/diagnose_exp483_support.py` has a 600-second wall limit, requires a
+  clean committed source and fresh output below `artifacts/EXP-483`, streams
+  authenticated raw batches, and retains a failure receipt if it fails. The
+  original analysis is replayed unchanged for integrity, not refitted under
+  alternative settings. Twelve new synthetic tests and four existing summary
+  tests passed before execution. The inherited raw bound is 262,144 events per
+  batch. Outputs contain aggregate counts, not a new raw-data copy.
 - [ ] Reproduce the original common cohort and four-pairs-per-window selection
   exactly before comparing alternative descriptive populations.
 - [ ] For both cases, both step profiles and both original windows, tabulate
