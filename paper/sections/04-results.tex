@@ -80,14 +80,18 @@ relative scaled derivative disagreement was $2.04\times10^{-10}$ between
 solvers and $1.77\times10^{-8}$ against finite differences. These are
 observed discrepancies, not rigorous error bounds.
 
-This qualifies a local numerical measurement, not a symbolic partition.
-The plotted partial derivative holds $z$ fixed; the derivative along a
-return curve $z=h(x)$ would also contain
-$(\partial P_x/\partial z)h'(x)$. That curve and its tangent must be
-established before a projected fold can be assigned $C$ or $D$. The new
-calculation advances the geometry test without deciding the letters by
-comparison with the historical words.
+This measures local flow geometry, not a symbolic partition. The plotted
+partial holds $z$ fixed; a return curve $z=h(x)$ contributes the additional
+term $(\partial P_x/\partial z)h'(x)$. To estimate its direction, a subsequent
+test transported sensitivities through eight preceding observed returns.
+All 80 points passed the solver and history-length consistency checks
+across 1,280 integrations. Ten were too close to vertical in the scaled
+coordinates to report an $x$-graph slope safely. The other 70 observations
+show two sampled slope-sign changes per case. These are leads for locating
+folds, not certified fold brackets or verified symbolic chains: a consistent
+finite-history direction does not yet define the required return curve.
 % Evidence: EXP-484; 80 states from 27/26 original seeds, not 80 independent seeds.
+% EXP-485: audited complete matrix; descriptive sign changes, not C/D assignments.
 
 \begin{figure}[tbp]
   \centering
