@@ -29,7 +29,14 @@ fold geometry, not an invariant quotient or a verified historical chain.
 
 ## Execution and audit
 
-Pending the exact-source freeze, target run and read-only evidence audit.
+Source/protocol freeze `098e58a9c9ad68e2583d60c67bc886e527a61177`
+was pushed and verified against the live remote before execution. The
+one-shot command is running in `artifacts/EXP-486/target-098e58a`; it runs
+input preparation and all six controls before consuming the target marker.
+The post-freeze audit tests also pass (26 focused numerical/runner/audit tests).
+Operational progress may report completed families, but the scientific
+verdict waits for completion of the full fixed matrix and its read-only audit.
+
 The next scientific decision is whether all four depth/direction families
 agree in each region. A failed region stays failed; no silent replacement
 of the radius, anchor, direction or numerical gate is allowed.
