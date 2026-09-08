@@ -1,0 +1,3564 @@
+{
+  "all_cases_primary_resolved": false,
+  "all_raw_collection_and_analysis_replay_exact": true,
+  "analysis_sha256": "d43f996f0a9e24d959689fba975cb3f851505a5192a26e4dca006dcf2af2a27d",
+  "campaign_bytes": 769637502,
+  "campaign_files": 25861,
+  "campaign_sha256": "c4ab5fb1fdd07273e5e5f4b2c7548b1d073e3645e1cc63f24738a2bf2418c27e",
+  "cases": {
+    "local-a025-c083": {
+      "cohort": {
+        "calibration_seeds": 2517,
+        "disagreement_fraction": 0.0089111328125,
+        "intersection_loss": {
+          "rk4-000125": 36,
+          "rk4-00025": 37
+        },
+        "joint_population_passed": true,
+        "profile_counts": {
+          "rk4-000125": {
+            "ambiguous_nonfailed": 0,
+            "barrio_only": 1654,
+            "both": 769,
+            "failed": 0,
+            "historical_only": 0,
+            "neither_insufficient": 646,
+            "retained": 5123,
+            "total": 8192
+          },
+          "rk4-00025": {
+            "ambiguous_nonfailed": 0,
+            "barrio_only": 1655,
+            "both": 768,
+            "failed": 0,
+            "historical_only": 0,
+            "neither_insufficient": 645,
+            "retained": 5124,
+            "total": 8192
+          }
+        },
+        "retention_compatible": true,
+        "sufficient_seeds": true,
+        "validation_seeds": 2570
+      },
+      "critical_matrix": {
+        "reason": "joint primary map did not qualify",
+        "status": "not-evaluated"
+      },
+      "joint_primary": {
+        "branch_count": null,
+        "critical_intervals": [],
+        "maximum_span_threshold": 0.04,
+        "primary_keys": [
+          "rk4-00025/window-0",
+          "rk4-00025/window-1",
+          "rk4-000125/window-0",
+          "rk4-000125/window-1"
+        ],
+        "reason": "one or more primary maps unresolved",
+        "resolved": false,
+        "variants": [
+          [
+            40,
+            1e-05
+          ],
+          [
+            30,
+            1e-05
+          ],
+          [
+            50,
+            1e-05
+          ],
+          [
+            40,
+            1e-06
+          ],
+          [
+            40,
+            0.0001
+          ]
+        ]
+      },
+      "primary_failure_counts": {
+        "held-out graph/support gate failed": 2,
+        "insufficient bin coverage": 10,
+        "unsupported interior gap": 8
+      },
+      "retained_seeds": 5087,
+      "variants": [
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855742951429,
+            -0.06368581603629586
+          ],
+          "coverage": 0.75,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855742951429,
+            -0.06368581603629586
+          ],
+          "coverage": 0.8666666666666667,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.44964312593764505,
+          "heldout_q90_error": 0.007316880590785595,
+          "heldout_unsupported_fraction": 0.09124513618677044,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": [
+            0.003977260303447113,
+            0.9441636744726549
+          ],
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855742951429,
+            -0.06368581603629586
+          ],
+          "coverage": 0.7,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855742951429,
+            -0.06368581603629586
+          ],
+          "coverage": 0.75,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855742951429,
+            -0.06368581603629586
+          ],
+          "coverage": 0.75,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753930815,
+            -0.1169764552086967
+          ],
+          "coverage": 0.525,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753930815,
+            -0.1169764552086967
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753930815,
+            -0.1169764552086967
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753930815,
+            -0.1169764552086967
+          ],
+          "coverage": 0.525,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753930815,
+            -0.1169764552086967
+          ],
+          "coverage": 0.525,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855743427183,
+            -0.0636711549333846
+          ],
+          "coverage": 0.75,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855743427183,
+            -0.0636711549333846
+          ],
+          "coverage": 0.8666666666666667,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.44960757383079003,
+          "heldout_q90_error": 0.007312534180809394,
+          "heldout_unsupported_fraction": 0.09056420233463036,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": [
+            0.003949815278022945,
+            0.9441625917653976
+          ],
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855743427183,
+            -0.0636711549333846
+          ],
+          "coverage": 0.72,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855743427183,
+            -0.0636711549333846
+          ],
+          "coverage": 0.75,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855743427183,
+            -0.0636711549333846
+          ],
+          "coverage": 0.75,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753680516,
+            -0.22554273697158145
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753680516,
+            -0.22554273697158145
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753680516,
+            -0.22554273697158145
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753680516,
+            -0.22554273697158145
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.765855753680516,
+            -0.22554273697158145
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696623689,
+            12.471828925331325
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696623689,
+            12.471828925331325
+          ],
+          "coverage": 0.23333333333333334,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696623689,
+            12.471828925331325
+          ],
+          "coverage": 0.14,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696623689,
+            12.471828925331325
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696623689,
+            12.471828925331325
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296690501924,
+            12.08095028208782
+          ],
+          "coverage": 0.075,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296690501924,
+            12.08095028208782
+          ],
+          "coverage": 0.13333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296690501924,
+            12.08095028208782
+          ],
+          "coverage": 0.08,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296690501924,
+            12.08095028208782
+          ],
+          "coverage": 0.075,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296690501924,
+            12.08095028208782
+          ],
+          "coverage": 0.075,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696385187,
+            12.471935961185737
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696385187,
+            12.471935961185737
+          ],
+          "coverage": 0.23333333333333334,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696385187,
+            12.471935961185737
+          ],
+          "coverage": 0.14,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696385187,
+            12.471935961185737
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556296696385187,
+            12.471935961185737
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055629669066969,
+            11.272627735591856
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055629669066969,
+            11.272627735591856
+          ],
+          "coverage": 0.13333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055629669066969,
+            11.272627735591856
+          ],
+          "coverage": 0.1,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055629669066969,
+            11.272627735591856
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055629669066969,
+            11.272627735591856
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892137609826,
+            0.027070445004304517
+          ],
+          "coverage": 0.8,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892137609826,
+            0.027070445004304517
+          ],
+          "coverage": 0.9,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.5363934163676504,
+          "heldout_q90_error": 0.01766271514698272,
+          "heldout_unsupported_fraction": 0.12324902723735409,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": [
+            0.00347760425025283,
+            0.9902303950733409
+          ],
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892137609826,
+            0.027070445004304517
+          ],
+          "coverage": 0.72,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892137609826,
+            0.027070445004304517
+          ],
+          "coverage": 0.8,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892137609826,
+            0.027070445004304517
+          ],
+          "coverage": 0.8,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892134773397,
+            0.027070445104096334
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892134773397,
+            0.027070445104096334
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892134773397,
+            0.027070445104096334
+          ],
+          "coverage": 0.52,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892134773397,
+            0.027070445104096334
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286892134773397,
+            0.027070445104096334
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213885438,
+            0.027070445004610946
+          ],
+          "coverage": 0.8,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213885438,
+            0.027070445004610946
+          ],
+          "coverage": 0.9,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.5363943518582929,
+          "heldout_q90_error": 0.017654256730642713,
+          "heldout_unsupported_fraction": 0.12315175097276265,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": [
+            0.0034745683709244014,
+            0.9902303878961639
+          ],
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213885438,
+            0.027070445004610946
+          ],
+          "coverage": 0.72,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213885438,
+            0.027070445004610946
+          ],
+          "coverage": 0.8,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213885438,
+            0.027070445004610946
+          ],
+          "coverage": 0.8,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213618281,
+            0.027070445100311185
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213618281,
+            0.027070445100311185
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213618281,
+            0.027070445100311185
+          ],
+          "coverage": 0.52,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213618281,
+            0.027070445100311185
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328689213618281,
+            0.027070445100311185
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        }
+      ]
+    },
+    "local-a027-c083": {
+      "cohort": {
+        "calibration_seeds": 3004,
+        "disagreement_fraction": 0.0078125,
+        "intersection_loss": {
+          "rk4-000125": 33,
+          "rk4-00025": 31
+        },
+        "joint_population_passed": true,
+        "profile_counts": {
+          "rk4-000125": {
+            "ambiguous_nonfailed": 0,
+            "barrio_only": 872,
+            "both": 471,
+            "failed": 0,
+            "historical_only": 0,
+            "neither_insufficient": 838,
+            "retained": 6011,
+            "total": 8192
+          },
+          "rk4-00025": {
+            "ambiguous_nonfailed": 0,
+            "barrio_only": 875,
+            "both": 469,
+            "failed": 0,
+            "historical_only": 0,
+            "neither_insufficient": 839,
+            "retained": 6009,
+            "total": 8192
+          }
+        },
+        "retention_compatible": true,
+        "sufficient_seeds": true,
+        "validation_seeds": 2974
+      },
+      "critical_matrix": {
+        "reason": "joint primary map did not qualify",
+        "status": "not-evaluated"
+      },
+      "joint_primary": {
+        "branch_count": null,
+        "critical_intervals": [],
+        "maximum_span_threshold": 0.04,
+        "primary_keys": [
+          "rk4-00025/window-0",
+          "rk4-00025/window-1",
+          "rk4-000125/window-0",
+          "rk4-000125/window-1"
+        ],
+        "reason": "one or more primary maps unresolved",
+        "resolved": false,
+        "variants": [
+          [
+            40,
+            1e-05
+          ],
+          [
+            30,
+            1e-05
+          ],
+          [
+            50,
+            1e-05
+          ],
+          [
+            40,
+            1e-06
+          ],
+          [
+            40,
+            0.0001
+          ]
+        ]
+      },
+      "primary_failure_counts": {
+        "held-out graph/support gate failed": 2,
+        "insufficient bin coverage": 10,
+        "unsupported interior gap": 8
+      },
+      "retained_seeds": 5978,
+      "variants": [
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103682061,
+            -0.17393084828634997
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103682061,
+            -0.17393084828634997
+          ],
+          "coverage": 0.9,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.445320219750103,
+          "heldout_q90_error": 0.008509626970648089,
+          "heldout_unsupported_fraction": 0.10020174848688634,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": [
+            0.004083852740177023,
+            0.9810881960945267
+          ],
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103682061,
+            -0.17393084828634997
+          ],
+          "coverage": 0.7,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103682061,
+            -0.17393084828634997
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103682061,
+            -0.17393084828634997
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104480843,
+            -0.11436378679855252
+          ],
+          "coverage": 0.525,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104480843,
+            -0.11436378679855252
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104480843,
+            -0.11436378679855252
+          ],
+          "coverage": 0.48,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104480843,
+            -0.11436378679855252
+          ],
+          "coverage": 0.525,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104480843,
+            -0.11436378679855252
+          ],
+          "coverage": 0.525,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103675482,
+            -0.18922803046870307
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103675482,
+            -0.18922803046870307
+          ],
+          "coverage": 0.9,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.4459190863423309,
+          "heldout_q90_error": 0.008608142801570592,
+          "heldout_unsupported_fraction": 0.10020174848688634,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": [
+            0.004089260826406212,
+            0.9823850132073818
+          ],
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103675482,
+            -0.18922803046870307
+          ],
+          "coverage": 0.72,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103675482,
+            -0.18922803046870307
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224103675482,
+            -0.18922803046870307
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104497466,
+            -0.1136959219859861
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104497466,
+            -0.1136959219859861
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104497466,
+            -0.1136959219859861
+          ],
+          "coverage": 0.48,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104497466,
+            -0.1136959219859861
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            -11.766224104497466,
+            -0.1136959219859861
+          ],
+          "coverage": 0.5,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 0,
+            "name": "x",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "primary",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055609130440365,
+            11.658614474093184
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055609130440365,
+            11.658614474093184
+          ],
+          "coverage": 0.2,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055609130440365,
+            11.658614474093184
+          ],
+          "coverage": 0.16,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055609130440365,
+            11.658614474093184
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.01055609130440365,
+            11.658614474093184
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303958777,
+            12.099890544735926
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303958777,
+            12.099890544735926
+          ],
+          "coverage": 0.13333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303958777,
+            12.099890544735926
+          ],
+          "coverage": 0.1,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303958777,
+            12.099890544735926
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303958777,
+            12.099890544735926
+          ],
+          "coverage": 0.125,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091304433414,
+            11.54450514504617
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091304433414,
+            11.54450514504617
+          ],
+          "coverage": 0.2,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091304433414,
+            11.54450514504617
+          ],
+          "coverage": 0.12,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091304433414,
+            11.54450514504617
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091304433414,
+            11.54450514504617
+          ],
+          "coverage": 0.175,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303976986,
+            12.10481068401654
+          ],
+          "coverage": 0.075,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303976986,
+            12.10481068401654
+          ],
+          "coverage": 0.13333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303976986,
+            12.10481068401654
+          ],
+          "coverage": 0.1,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303976986,
+            12.10481068401654
+          ],
+          "coverage": 0.075,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.010556091303976986,
+            12.10481068401654
+          ],
+          "coverage": 0.075,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "historical-negative"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533872897,
+            0.027071946731450008
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533872897,
+            0.027071946731450008
+          ],
+          "coverage": 0.8666666666666667,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.5361787598428419,
+          "heldout_q90_error": 0.018806999658309738,
+          "heldout_unsupported_fraction": 0.13483523873570946,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": [
+            0.00356472613807339,
+            0.9906113750681901
+          ],
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533872897,
+            0.027071946731450008
+          ],
+          "coverage": 0.7,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533872897,
+            0.027071946731450008
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533872897,
+            0.027071946731450008
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533674875,
+            0.027071946732961392
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533674875,
+            0.027071946732961392
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533674875,
+            0.027071946732961392
+          ],
+          "coverage": 0.52,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533674875,
+            0.027071946732961392
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761533674875,
+            0.027071946732961392
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-000125/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761535175726,
+            0.02707194672805549
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761535175726,
+            0.02707194672805549
+          ],
+          "coverage": 0.8666666666666667,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": 0.5361924979988797,
+          "heldout_q90_error": 0.0188108298940406,
+          "heldout_unsupported_fraction": 0.13483523873570946,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": [
+            0.0035647246339683457,
+            0.9906113499981329
+          ],
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "held-out graph/support gate failed",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761535175726,
+            0.02707194672805549
+          ],
+          "coverage": 0.7,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761535175726,
+            0.02707194672805549
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.023286761535175726,
+            0.02707194672805549
+          ],
+          "coverage": 0.825,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-0",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "unsupported interior gap",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328676153503553,
+            0.027071946729554614
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 30,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328676153503553,
+            0.027071946729554614
+          ],
+          "coverage": 0.5333333333333333,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 50,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328676153503553,
+            0.027071946729554614
+          ],
+          "coverage": 0.52,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-05
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328676153503553,
+            0.027071946729554614
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 1e-06
+        },
+        {
+          "bins": 40,
+          "bootstrap_consensus": null,
+          "calibration_bounds": [
+            0.02328676153503553,
+            0.027071946729554614
+          ],
+          "coverage": 0.55,
+          "critical_intervals": null,
+          "heldout_affine_q90_error": null,
+          "heldout_q90_error": null,
+          "heldout_unsupported_fraction": null,
+          "key": "rk4-00025/window-1",
+          "normalized_domain": null,
+          "projection": {
+            "axis": 2,
+            "name": "z",
+            "section": "barrio-positive"
+          },
+          "reason": "insufficient bin coverage",
+          "resolved": false,
+          "role": "diagnostic",
+          "smoothing": 0.0001
+        }
+      ]
+    }
+  },
+  "complete_inventory_verified": true,
+  "display_support": [
+    {
+      "calibration_bounds": [
+        -11.765855743427183,
+        -0.0636711549333846
+      ],
+      "case": "local-a025-c083",
+      "coverage": 0.75,
+      "distinct_calibration_seeds_per_bin": [
+        1299,
+        371,
+        433,
+        272,
+        14,
+        9,
+        10,
+        12,
+        12,
+        6,
+        11,
+        12,
+        9,
+        6,
+        216,
+        378,
+        674,
+        211,
+        250,
+        384,
+        377,
+        6,
+        4,
+        6,
+        5,
+        8,
+        129,
+        1056,
+        877,
+        658,
+        289,
+        2,
+        7,
+        223,
+        288,
+        197,
+        33,
+        15,
+        3,
+        2
+      ],
+      "profile": "rk4-00025",
+      "window": 0
+    },
+    {
+      "calibration_bounds": [
+        -11.765855753680516,
+        -0.22554273697158145
+      ],
+      "case": "local-a025-c083",
+      "coverage": 0.5,
+      "distinct_calibration_seeds_per_bin": [
+        1714,
+        237,
+        240,
+        154,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        86,
+        73,
+        1063,
+        590,
+        148,
+        175,
+        330,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        147,
+        1828,
+        297,
+        312,
+        0,
+        0,
+        54,
+        106,
+        199,
+        28,
+        12,
+        5,
+        4
+      ],
+      "profile": "rk4-00025",
+      "window": 1
+    },
+    {
+      "calibration_bounds": [
+        -11.765855742951429,
+        -0.06368581603629586
+      ],
+      "case": "local-a025-c083",
+      "coverage": 0.75,
+      "distinct_calibration_seeds_per_bin": [
+        1299,
+        370,
+        434,
+        273,
+        14,
+        8,
+        10,
+        12,
+        12,
+        6,
+        11,
+        12,
+        9,
+        6,
+        216,
+        378,
+        674,
+        212,
+        249,
+        385,
+        376,
+        7,
+        3,
+        6,
+        5,
+        8,
+        129,
+        1056,
+        877,
+        658,
+        289,
+        2,
+        7,
+        223,
+        288,
+        197,
+        33,
+        15,
+        3,
+        2
+      ],
+      "profile": "rk4-000125",
+      "window": 0
+    },
+    {
+      "calibration_bounds": [
+        -11.765855753930815,
+        -0.1169764552086967
+      ],
+      "case": "local-a025-c083",
+      "coverage": 0.525,
+      "distinct_calibration_seeds_per_bin": [
+        1712,
+        239,
+        242,
+        152,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        98,
+        565,
+        1071,
+        113,
+        143,
+        225,
+        280,
+        0,
+        0,
+        0,
+        0,
+        1,
+        47,
+        1233,
+        1266,
+        339,
+        211,
+        0,
+        1,
+        95,
+        133,
+        143,
+        21,
+        8,
+        4,
+        2
+      ],
+      "profile": "rk4-000125",
+      "window": 1
+    },
+    {
+      "calibration_bounds": [
+        -11.766224103675482,
+        -0.18922803046870307
+      ],
+      "case": "local-a027-c083",
+      "coverage": 0.825,
+      "distinct_calibration_seeds_per_bin": [
+        1664,
+        393,
+        416,
+        295,
+        13,
+        5,
+        11,
+        10,
+        9,
+        10,
+        13,
+        10,
+        11,
+        14,
+        189,
+        128,
+        1174,
+        408,
+        302,
+        295,
+        505,
+        7,
+        7,
+        3,
+        11,
+        6,
+        10,
+        769,
+        1591,
+        562,
+        532,
+        3,
+        11,
+        147,
+        264,
+        308,
+        46,
+        19,
+        9,
+        7
+      ],
+      "profile": "rk4-00025",
+      "window": 0
+    },
+    {
+      "calibration_bounds": [
+        -11.766224104497466,
+        -0.1136959219859861
+      ],
+      "case": "local-a027-c083",
+      "coverage": 0.5,
+      "distinct_calibration_seeds_per_bin": [
+        2157,
+        248,
+        212,
+        156,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        119,
+        860,
+        1196,
+        129,
+        161,
+        161,
+        281,
+        0,
+        0,
+        0,
+        0,
+        0,
+        58,
+        1527,
+        1557,
+        360,
+        204,
+        0,
+        1,
+        109,
+        118,
+        159,
+        22,
+        7,
+        3,
+        3
+      ],
+      "profile": "rk4-00025",
+      "window": 1
+    },
+    {
+      "calibration_bounds": [
+        -11.766224103682061,
+        -0.17393084828634997
+      ],
+      "case": "local-a027-c083",
+      "coverage": 0.825,
+      "distinct_calibration_seeds_per_bin": [
+        1664,
+        395,
+        420,
+        289,
+        13,
+        5,
+        11,
+        9,
+        10,
+        10,
+        13,
+        10,
+        10,
+        15,
+        192,
+        128,
+        1171,
+        416,
+        299,
+        300,
+        497,
+        7,
+        7,
+        3,
+        11,
+        7,
+        9,
+        1025,
+        1418,
+        569,
+        519,
+        3,
+        11,
+        158,
+        263,
+        304,
+        41,
+        17,
+        9,
+        7
+      ],
+      "profile": "rk4-000125",
+      "window": 0
+    },
+    {
+      "calibration_bounds": [
+        -11.766224104480843,
+        -0.11436378679855252
+      ],
+      "case": "local-a027-c083",
+      "coverage": 0.525,
+      "distinct_calibration_seeds_per_bin": [
+        2160,
+        246,
+        209,
+        154,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        119,
+        856,
+        1205,
+        133,
+        163,
+        159,
+        274,
+        1,
+        1,
+        0,
+        0,
+        0,
+        58,
+        1526,
+        1564,
+        353,
+        210,
+        0,
+        0,
+        107,
+        121,
+        157,
+        22,
+        8,
+        3,
+        4
+      ],
+      "profile": "rk4-000125",
+      "window": 1
+    }
+  ],
+  "experiment_id": "EXP-482",
+  "historical_symbols_verified": false,
+  "paid_review": "not_run",
+  "phases": {
+    "analysis": {
+      "automatic_retry": false,
+      "binding": {
+        "campaign_slot_sha256": "18bebdcb679a217068327448658f767c2ee5d52ea2d59385585310b8363c8ba1",
+        "grant_sha256": "fe3490b49a98dbaac856692c587f5051e7374025dc73bf40bf93215a77fdeab1",
+        "phase": "analysis"
+      },
+      "elapsed_seconds": 111.59869458340108,
+      "maximum_sampled_disk_bytes": 769634218,
+      "maximum_sampled_rss_bytes": 254771200,
+      "owned_group_cleanup_verified": true,
+      "reason": null,
+      "returncode": 0,
+      "samples": 96,
+      "scientific_qualification": false,
+      "status": "completed"
+    },
+    "collection": {
+      "automatic_retry": false,
+      "binding": {
+        "campaign_slot_sha256": "18bebdcb679a217068327448658f767c2ee5d52ea2d59385585310b8363c8ba1",
+        "grant_sha256": "4f3e0bd2ba305b8f68e7ee889fa450fa8cd84539d74d1de66d5c5f3277d33b59",
+        "phase": "collection"
+      },
+      "elapsed_seconds": 5038.527333499864,
+      "maximum_sampled_disk_bytes": 727662898,
+      "maximum_sampled_rss_bytes": 271532032,
+      "owned_group_cleanup_verified": true,
+      "reason": null,
+      "returncode": 0,
+      "samples": 4542,
+      "scientific_qualification": false,
+      "status": "completed"
+    },
+    "qualification": {
+      "automatic_retry": false,
+      "binding": {
+        "campaign_slot_sha256": "18bebdcb679a217068327448658f767c2ee5d52ea2d59385585310b8363c8ba1",
+        "grant_sha256": "aa941a9bbed93928fa870568a5670d5a504a4af00c67ecb769d725fc51a731ff",
+        "phase": "qualification"
+      },
+      "elapsed_seconds": 90.53755900077522,
+      "maximum_sampled_disk_bytes": 30711684,
+      "maximum_sampled_rss_bytes": 123469824,
+      "owned_group_cleanup_verified": true,
+      "reason": null,
+      "returncode": 0,
+      "samples": 88,
+      "scientific_qualification": false,
+      "status": "completed"
+    }
+  },
+  "reporting_thresholds": {
+    "maximum_supported_q90_error": 0.08,
+    "maximum_unsupported_fraction": 0.05,
+    "minimum_coverage": 0.7,
+    "supported_error_quantile": 0.9
+  },
+  "scope": "Insufficient supported domain for the frozen test, not a symbolic or homoclinic refutation; no retry",
+  "source_commit": "8ce37169ef9c24c570f5e2b9d5a60e48f310c377",
+  "status": "completed-primary-unresolved"
+}

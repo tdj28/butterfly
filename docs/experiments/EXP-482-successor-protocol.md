@@ -1,8 +1,9 @@
 # EXP-482: a separately frozen finer-step successor
 
 Status (2026-09-08): the explicit local-audit release and fresh setup passed;
-**192/192 numerical comparisons passed and full collection is running**.
-See the [live result and raw-replay audit](../updates/2026-09-08-exp482-live-run.md).
+**192/192 numerical comparisons passed; collection/analysis completed with both
+primary maps unresolved because of support**. See the
+[complete result and raw-replay audit](../updates/2026-09-08-exp482-map-result.md).
 No paid review ran. The numeric design is
 `experiments/manifests/EXP-482-paired-design.json`. It contains no fabricated
 approval. Selecting a new experiment name does not authorize its execution.
@@ -125,7 +126,7 @@ criticality, homoclinic existence or the entire parameter plane.
 | Amended source-bound setup | 449 tests/no skips, both raw audits, all 192 configurations at 8ce3716 |
 | Local release and target numerical qualification | Real local gate passed; 128 trials and 192/192 comparisons passed; raw replay exact |
 | Paid Pro review | Not run; failed pre-generation request preserved, not retried |
-| Full collection and analysis | Collection running; analysis not yet available at this checkpoint |
+| Full collection and analysis | Completed; both primary maps support-limited; full raw-data analysis replay exact |
 
 The original `--mode source --experiment-id EXP-482` preflight on pushed source
 passed at ba85d90. The amended controller must pass a new source-bound preflight;
