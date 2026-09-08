@@ -1,5 +1,10 @@
 # EXP-485 — finite-history transported-tangent pilot
 
+Completed: all 1,280 integrations and 80 direction checks passed. Ten points
+remain unsuitable for an x-graph slope under the frozen conditioning rule.
+See [the audited result](../updates/2026-09-08-exp485-transported-tangents.md).
+The prospective protocol below was frozen before targets at `af72692499126fce3da0d887679d8ad384ffad69`.
+
 Prospective local CPU experiment; no paid review or external upload. This is a
 method-development pilot, not confirmatory verification of Jones' chains.
 

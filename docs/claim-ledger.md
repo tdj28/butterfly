@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (EXP-482/483 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-485 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -60,6 +60,14 @@ and event-time-corrected derivative comparisons; all prescribed finite
 differences at ten points pass as well. The 240-integration grid was audited
 without rerunning the flow. This qualifies a local numerical geometry tool,
 not an invariant curve or critical symbol. [Result and figure](updates/2026-09-08-exp484-direct-geometry.md).
+
+**EXP-485 update:** eight-predecessor transported directions pass the frozen
+geometry and history/solver checks at all 80 points across 1,280 integrations.
+Ten fail the separate x-graph conditioning rule. Two sampled slope-sign changes
+per case are exploratory leads, not certified folds: different trajectory
+points have not been joined into a verified return curve. Small singular values
+below floating-point resolution do not establish exact rank loss. No new
+word, arrow or homoclinic conclusion follows. [Result and figure](updates/2026-09-08-exp485-transported-tangents.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

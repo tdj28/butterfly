@@ -93,6 +93,16 @@ inputs; historical result reproduction is a separate requirement.
   assigned from coordinate partial derivatives alone.
   All 80 points passed; the entire 240-integration matrix and its decisions
   were audited. See [the completed result](updates/2026-09-08-exp484-direct-geometry.md).
+- [x] Complete the fixed [EXP-485 transported-direction pilot](updates/2026-09-08-exp485-transported-tangents.md):
+  eight actual predecessors at every EXP-484 point, two solvers, four history
+  lengths, complete-grid audit and explicit unresolved/near-vertical cases.
+  All 1,280 integrations completed and 80 directions passed. Ten points fail
+  the separate x-graph conditioning gate; no critical symbols were assigned.
+- [ ] Construct actual finite-return image curves near the two observed
+  slope-sign-change regions in each case. Test curve/critical-location agreement
+  across history lengths, initial curve directions and solvers before treating
+  discrete sign changes as fold brackets. Then test a conditional local partition
+  on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
   before assigning target words or continuing a chain arrow. No automatic paid
   review gate applies: major-milestone reviews require human approval per call.
