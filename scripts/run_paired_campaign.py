@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""EXP-481 setup and one-shot campaign, using the actual source/review gate.
+"""Fixed paired-study setup and one-shot campaign, using an explicit release gate.
 
 Default source preflight never executes target phases. Execute requires fresh
-reviewed setup and the fixed unused experiment slot. Control runs only the
+release-validated setup and the fixed unused experiment slot. Control runs only the
 fixed analytic circle, never target fields or user-selected scientific inputs.
 """
 import argparse
@@ -26,21 +26,23 @@ def utc():
     return datetime.now(timezone.utc).isoformat()
 
 
-def bind_setup(root, source_commit, remote_ref, mode, release):
+def bind_setup(root, source_commit, remote_ref, mode, release, experiment_id="EXP-481"):
     """Check actual pushed bytes before loading the builder or scientific code."""
     gate = runpy.run_path(str(root/"python/butterfly/paired_release.py"))
+    paths = gate["experiment_paths"](experiment_id)
     for name in ("scripts/run_paired_campaign.py", "scripts/check_paired_release.py"):
         raw = gate["committed_file"](root, source_commit, name)
         gate["read_bound"](root, dict(path=name, sha256=gate["digest"](raw)))
     checker = runpy.run_path(str(root/"scripts/check_paired_release.py"))
-    observed = checker["check"](root, source_commit, remote_ref, mode=mode, release=release)
+    observed = checker["check"](root, source_commit, remote_ref, mode=mode, release=release,
+        experiment_id=experiment_id)
     # The numeric design is independent of release administration and is bound
     # even before a review exists. Neither its schema nor a JSON flag is authority.
-    raw = gate["committed_file"](root, source_commit, PLAN)
-    gate["read_bound"](root, dict(path=PLAN, sha256=gate["digest"](raw)))
+    raw = gate["committed_file"](root, source_commit, paths["plan"])
+    gate["read_bound"](root, dict(path=paths["plan"], sha256=gate["digest"](raw)))
     plan = json.loads(raw)
-    if plan.get("schema") != "butterfly.paired-design.v1" or plan.get("experiment_id") != "EXP-481":
-        raise ValueError("numeric EXP-481 design required")
+    if plan.get("schema") != "butterfly.paired-design.v1" or plan.get("experiment_id") != experiment_id:
+        raise ValueError("numeric design must match the selected fixed experiment")
     return observed, plan, hashlib.sha256(raw).hexdigest()
 
 
@@ -75,7 +77,7 @@ def select_host_runtime(runtime):
 
 
 def preflight(output, source_commit, remote_ref, *, mode="source",
-              release="experiments/manifests/EXP-481-reviewed-release.json"):
+              release=None, experiment_id="EXP-481"):
     output = Path(output).absolute()
     # Preserve a failed source check too, without fabricating a successful source
     # observation. Never reuse a directory, even when no target has been launched.
@@ -85,7 +87,10 @@ def preflight(output, source_commit, remote_ref, *, mode="source",
         source_commit=source_commit, remote_ref=remote_ref, target_execution_authorized=False,
         target_trajectories_generated=0, scope="source-bound tests and outcome-free production setup"))
     try:
-        observed, plan, plan_sha = bind_setup(ROOT, source_commit, remote_ref, mode, release)
+        observed, plan, plan_sha = bind_setup(ROOT, source_commit, remote_ref, mode, release, experiment_id)
+        paths = runpy.run_path(str(ROOT/"python/butterfly/paired_release.py"))["experiment_paths"](experiment_id)
+        gate = runpy.run_path(str(ROOT/"python/butterfly/paired_release.py"))
+        release = gate["release_role"](experiment_id, mode) if release is None else release
         api["write_json"](output/"source.json", observed)
         builder = runpy.run_path(str(ROOT/"scripts/build_paired_runtime.py"))
         runtime = builder["build"](output/"runtime", startup_guard_seconds=120.)
@@ -98,7 +103,7 @@ def preflight(output, source_commit, remote_ref, *, mode="source",
         from butterfly.paired_inputs import load_references
         from butterfly.paired_phases import from_reference_audit
         from butterfly.paired_supervisor import StageLimits, supervise
-        inputs = build_package(ROOT/PLAN, ROOT, output/"inputs")
+        inputs = build_package(ROOT/paths["plan"], ROOT, output/"inputs")
         if inputs["plan_sha256"] != plan_sha:
             raise ValueError("packaged design differs from pushed design")
         audit = load_references(plan, output/"inputs")
@@ -158,7 +163,7 @@ def preflight(output, source_commit, remote_ref, *, mode="source",
             raise ValueError("packaged inputs changed during preflight")
         api["verify_runtime"](output/"runtime", contract)
         # Repeat the live gate and committed design checks after tests and child.
-        _, final_plan, final_sha = bind_setup(ROOT, source_commit, remote_ref, mode, release)
+        _, final_plan, final_sha = bind_setup(ROOT, source_commit, remote_ref, mode, release, experiment_id)
         if final_plan != plan or final_sha != plan_sha:
             raise ValueError("pushed design changed during preflight")
         receipt = dict(status="preflight-passed", completed_at=utc(), source_commit=source_commit,
@@ -180,8 +185,11 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--source-commit")
     parser.add_argument("--remote-ref")
-    parser.add_argument("--mode", choices=("source", "reviewed", "control", "execute"), default="source")
-    parser.add_argument("--release", default="experiments/manifests/EXP-481-reviewed-release.json")
+    parser.add_argument("--mode", choices=("source", "reviewed", "local-audited", "control", "execute"), default="source")
+    parser.add_argument("--release-mode", choices=("reviewed", "local-audited"), default="reviewed",
+        help="execute release gate; local-audited is scoped only to EXP-482")
+    parser.add_argument("--release")
+    parser.add_argument("--experiment-id", choices=("EXP-481", "EXP-482"), default="EXP-481")
     parser.add_argument("--control-fault", choices=("wrong-grant", "wrong-parent-argv", "wrong-predecessor", "missing-grant"))
     args = parser.parse_args()
     if (args.source_commit is None) != (args.remote_ref is None) or (args.mode != "control" and args.source_commit is None):
@@ -193,13 +201,15 @@ def main():
     prefix = [sys.executable, "-B", str(Path(__file__).resolve())]
     if sys.orig_argv[:3] != prefix:
         os.execv(sys.executable, [*prefix, *sys.argv[1:]])
-    if args.mode in ("source", "reviewed"):
-        result = preflight(args.output_dir, args.source_commit, args.remote_ref, mode=args.mode, release=args.release)
+    if args.mode in ("source", "reviewed", "local-audited"):
+        result = preflight(args.output_dir, args.source_commit, args.remote_ref, mode=args.mode,
+            release=args.release, experiment_id=args.experiment_id)
         print(json.dumps({k: result[k] for k in ("status", "source_commit", "plan_sha256", "target_execution_authorized")}))
         return
     if any(any(c.isspace() for c in a) for a in sys.orig_argv):
         parser.error("authorized controller paths/arguments must not contain whitespace")
-    if args.mode == "execute" and (ROOT/"artifacts/EXP-481/target-once.json").exists():
+    paths = runpy.run_path(str(ROOT/"python/butterfly/paired_release.py"))["experiment_paths"](args.experiment_id)
+    if args.mode == "execute" and (ROOT/paths["slot"]).exists():
         raise ValueError("target attempt already claimed; inspect preserved evidence, no retry or resume")
     output = args.output_dir.absolute()
     output.mkdir(parents=True, exist_ok=False, mode=0o700)
@@ -207,7 +217,8 @@ def main():
     if args.source_commit is not None:
         setup = output/"preflight"
         preflight(setup, args.source_commit, args.remote_ref,
-            mode="reviewed" if args.mode == "execute" else "source", release=args.release)
+            mode=args.release_mode if args.mode == "execute" else "source", release=args.release,
+            experiment_id=args.experiment_id)
     else:
         builder = runpy.run_path(str(ROOT/"scripts/build_paired_runtime.py"))
         built = builder["build"](output/"runtime")
@@ -215,7 +226,8 @@ def main():
         api["verify_runtime"](output/"runtime", api["load_contract"](output/"runtime", built["sha256"]))
         select_host_runtime(output/"runtime")
     dispatch = runpy.run_path(str(ROOT/"scripts/dispatch_paired_phases.py"))["dispatch"]
-    result = dispatch(ROOT, output/"campaign", setup=setup, control=args.mode == "control", fault=args.control_fault)
+    result = dispatch(ROOT, output/"campaign", setup=setup, control=args.mode == "control",
+        fault=args.control_fault, experiment_id=args.experiment_id)
     print(json.dumps({k: result[k] for k in ("status", "kind", "all_cases_primary_resolved", "historical_symbols_verified")}))
 
 

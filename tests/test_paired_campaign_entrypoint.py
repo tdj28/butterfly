@@ -17,8 +17,9 @@ from scripts.build_paired_runtime import build, ROOT
 from scripts.run_paired_campaign import PLAN, STAGES, require_preflight
 
 
-def numeric_plan():
-    return json.loads((ROOT/PLAN).read_bytes())
+def numeric_plan(experiment_id="EXP-481"):
+    from butterfly.paired_release import experiment_paths
+    return json.loads((ROOT/experiment_paths(experiment_id)["plan"]).read_bytes())
 
 
 def test_numeric_design_has_no_scientific_changes_or_approval_placeholder():
@@ -29,12 +30,12 @@ def test_numeric_design_has_no_scientific_changes_or_approval_placeholder():
     assert numeric_plan() == original
 
 
-@pytest.fixture(scope="module")
-def setup(tmp_path_factory):
+@pytest.fixture(scope="module", params=["EXP-481", "EXP-482"])
+def setup(tmp_path_factory, request):
     root = tmp_path_factory.mktemp("preflight-control")
     helpers = runpy.run_path(str(ROOT/"tests/test_paired_input_package.py"))
     inputs = helpers["synthetic_inputs"](root/"source")
-    plan = numeric_plan()
+    plan = numeric_plan(request.param)
     plan["inputs"] = inputs["inputs"]
     (root/"source/proposal.json").write_text(json.dumps(plan))
     packaged = build_package(root/"source/proposal.json", root/"source", root/"inputs")
@@ -90,19 +91,20 @@ def test_real_worker_full_design_entrypoint_before_any_integration(setup, tmp_pa
     assert witness["audit"] == audit
     require_preflight(witness, source_commit="a"*40, plan_sha256=plan_hash,
         runtime_sha256=runtime["sha256"], input_sha256=input_hash, design=design)
-    assert witness["design"]["trial_counts"] == dict(qualification=128, collection=512)
+    assert witness["design"]["trial_counts"] == dict(qualification=128,
+        collection=512 if plan["experiment_id"] == "EXP-481" else 64)
     assert [witness["design"]["phase_limits"][s]["wall_seconds"] for s in STAGES] == [1800, 14400, 7200]
 
 
 @pytest.mark.parametrize("kind", ["correct", "design", "count", "budget", "authority", "source", "plan", "runtime", "inputs", "target", "imports"])
 def test_preflight_consumer_uses_independent_expected_design(setup, kind):
-    _, _, packaged, runtime, _, _, design = setup
+    _, plan, packaged, runtime, _, _, design = setup
     plan_sha = packaged["plan_sha256"]
     witness = dict(status="passed", runtime_contract_sha256=runtime["sha256"],
         input_contract_sha256=packaged["sha256"], loaded_modules={"butterfly.paired_phases": {}},
         target_execution_authorized=False, target_trajectories_generated=0,
         design=dict(source_commit="a"*40, plan_sha256=plan_sha, design_sha256=design.identity(),
-            trial_counts=dict(qualification=128, collection=512),
+            trial_counts=dict(qualification=128, collection=512 if plan["experiment_id"] == "EXP-481" else 64),
             phase_limits={s: asdict(phase_limits(design.plan, s)) for s in STAGES}, guard_seconds=120.,
             scope="all fixed configurations validated without calling a field, integrator or map fit"))
     if kind == "design": witness["design"]["design_sha256"] = "0"*64

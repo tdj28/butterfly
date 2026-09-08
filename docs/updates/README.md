@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-07-exp482-successor-preflight.md`](2026-09-07-exp482-successor-preflight.md)
+  — distinct successor design/attempt; real source preflight passes 426 tests,
+  raw-reference audits and all configurations; cumulative prospective review next.
+
 - [`2026-09-07-exp482-full-workload.md`](2026-09-07-exp482-full-workload.md)
   — full-size analytic and map controls pass; original scan-overhead estimate
   fails; explicitly labeled one-second polling redesign fits projected limits.

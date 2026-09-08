@@ -16,12 +16,15 @@ MANDATORY_TESTS = ("paired_release", "paired_journal", "paired_capture_inputs", 
 
 
 def check(root, source_commit, remote_ref, *, mode="source",
-          release="experiments/manifests/EXP-481-reviewed-release.json"):
+          release=None, experiment_id="EXP-481"):
     """The actual command's check, also used directly by the campaign controller."""
     root = Path(root).resolve(strict=True)
-    if mode not in ("source", "reviewed"):
+    if mode not in ("source", "reviewed", "local-audited"):
         raise ValueError("unknown release check mode")
     gate = runpy.run_path(str(root/"python/butterfly/paired_release.py"))
+    paths = gate["experiment_paths"](experiment_id)
+    default_release = gate["release_role"](experiment_id, mode)
+    release = default_release if release is None else release
     observed = gate["verify_pushed_source"](root, source_commit, remote_ref)
     # Pin this host-side consumer and the builder before evaluating its source
     # map. The worker still verifies the separate realized exact-file bundle.
@@ -46,6 +49,10 @@ def check(root, source_commit, remote_ref, *, mode="source",
         "scripts/build_paired_inputs.py", "scripts/qualify_paired_startup.py", "scripts/qualify_paired_input_dispatch.py",
         "scripts/qualify_paired_phases.py", "scripts/qualify_paired_runtime.py", "scripts/qualify_paired_adaptive.py",
         "scripts/qualify_paired_sampling.py", "scripts/run_paired_campaign.py",
+        # The source-qualified regression suite checks both designs and their
+        # exact permitted differences, even when only one is selected to run.
+        "experiments/manifests/EXP-481-paired-design.json",
+        "experiments/manifests/EXP-482-paired-design.json",
         "experiments/manifests/EXP-481-paired-sampling-draft.json",
         "experiments/manifests/EXP-481-paired-sampling-proposal.json"} | test_support
     files = {}
@@ -53,9 +60,10 @@ def check(root, source_commit, remote_ref, *, mode="source",
         raw = gate["committed_file"](root, source_commit, path)
         files[path] = dict(bytes=len(raw), sha256=gate["digest"](raw))
     inventory_sha = gate["verify_inventory"](root, source_commit, files, required_paths=required)
-    if mode == "reviewed":
-        result = gate["verify_reviewed_release"](root, release, source_commit, remote_ref,
-            required_source_paths=required, plan_path=PLAN)
+    if mode in ("reviewed", "local-audited"):
+        validator = "verify_local_release" if mode == "local-audited" else "verify_reviewed_release"
+        result = gate[validator](root, release, source_commit, remote_ref,
+            required_source_paths=required, plan_path=paths["plan"], experiment_id=experiment_id)
     else:
         result = dict(status="source-preflight-passed", source=observed, source_files=files,
             source_inventory_sha256=inventory_sha, target_execution_authorized=False,
@@ -68,11 +76,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-commit", required=True)
     parser.add_argument("--remote-ref", required=True)
-    parser.add_argument("--mode", choices=("source", "reviewed"), default="source")
-    parser.add_argument("--release", default="experiments/manifests/EXP-481-reviewed-release.json")
+    parser.add_argument("--mode", choices=("source", "reviewed", "local-audited"), default="source")
+    parser.add_argument("--release")
+    parser.add_argument("--experiment-id", choices=("EXP-481", "EXP-482"), default="EXP-481")
     parser.add_argument("--output-dir", type=Path, help="optional fresh local directory for the observed receipt")
     args = parser.parse_args()
-    result = check(ROOT, args.source_commit, args.remote_ref, mode=args.mode, release=args.release)
+    result = check(ROOT, args.source_commit, args.remote_ref, mode=args.mode, release=args.release,
+        experiment_id=args.experiment_id)
     if args.output_dir is None:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:

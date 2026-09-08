@@ -26,7 +26,8 @@ def control_grant(runtime_sha):
     design, _ = make_control()
     return dict(schema="butterfly.paired-phase-grant.v1", kind="analytic-circle", phase="qualification",
         runtime_contract_sha256=runtime_sha, source_commit=design.source_commit, plan_sha256=design.plan_sha256,
-        design_sha256=design.identity(), campaign_slot_sha256="a"*64, review_sha256=None, preflight_sha256=None,
+        design_sha256=design.identity(), campaign_slot_sha256="a"*64, release_sha256=None,
+        release_mode=None, preflight_sha256=None,
         input_root=None, input_contract_sha256=None, previous=None,
         limits=asdict(phase_limits(design.plan, "qualification")), deadline_monotonic=time.monotonic()+60.)
 
@@ -121,10 +122,11 @@ def test_issuer_consumes_failed_attempt_too():
         right.close()
 
 
-@pytest.fixture(scope="module")
-def actual_control(tmp_path_factory):
+@pytest.fixture(scope="module", params=["EXP-481", "EXP-482"])
+def actual_control(tmp_path_factory, request):
     output = tmp_path_factory.mktemp("authorized-phases")/"run"
     command = [sys.executable, "-B", str(ROOT/"scripts/run_paired_campaign.py"), "--mode", "control", "--output-dir", str(output)]
+    if request.param == "EXP-482": command += ["--experiment-id", request.param]
     result = subprocess.run(command, capture_output=True, text=True, timeout=100)
     assert result.returncode == 0, result.stdout+result.stderr
     return output, command
