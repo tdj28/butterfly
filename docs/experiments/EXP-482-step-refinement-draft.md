@@ -3,7 +3,9 @@
 **Current checkpoint (2026-09-08):** the human policy supersedes the mandatory
 paid-review requirements below. The review packet was published, but its API
 attempt failed before generation. It will not be retried automatically. The
-prospective local-audit gate migration is underway; see
+local-audit gate migration is complete. All 192 target numerical comparisons
+passed and full collection is running; see the
+[live-run update](../updates/2026-09-08-exp482-live-run.md) and
 [current policy](../updates/2026-09-08-human-controlled-pro-reviews.md).
 
 Both engineering measurements are complete, and the

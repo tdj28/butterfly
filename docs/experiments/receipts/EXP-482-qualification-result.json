@@ -1,0 +1,131 @@
+{
+  "cases": {
+    "local-a025-c083": {
+      "comparisons": 96,
+      "passed": 96
+    },
+    "local-a027-c083": {
+      "comparisons": 96,
+      "passed": 96
+    }
+  },
+  "collection_and_analysis_assessed_by_this_audit": false,
+  "comparison_count": 192,
+  "comparisons_passed": 192,
+  "experiment_id": "EXP-482",
+  "groups": [
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-00025",
+      "maximum_scaled_state_difference": 2.516301915593896e-06,
+      "maximum_time_difference": 3.767109291175075e-09,
+      "passed": 32,
+      "right": "rk4-000125",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-00025",
+      "maximum_scaled_state_difference": 2.635204500357001e-06,
+      "maximum_time_difference": 4.019600652327426e-09,
+      "passed": 32,
+      "right": "DOP853",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-00025",
+      "maximum_scaled_state_difference": 2.6306904224583717e-06,
+      "maximum_time_difference": 4.018808397177054e-09,
+      "passed": 32,
+      "right": "Radau",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-000125",
+      "maximum_scaled_state_difference": 1.4696085463903576e-07,
+      "maximum_time_difference": 2.524913611523516e-10,
+      "passed": 32,
+      "right": "DOP853",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "rk4-000125",
+      "maximum_scaled_state_difference": 1.4372859584461794e-07,
+      "maximum_time_difference": 2.516991060019791e-10,
+      "passed": 32,
+      "right": "Radau",
+      "total": 32
+    },
+    {
+      "capture_mismatches": 0,
+      "count_mismatches": 0,
+      "left": "DOP853",
+      "maximum_scaled_state_difference": 2.7820412698861023e-08,
+      "maximum_time_difference": 1.5276668818842154e-12,
+      "passed": 32,
+      "right": "Radau",
+      "total": 32
+    }
+  ],
+  "historical_symbols_verified": false,
+  "paid_review": "not_run",
+  "qualification_trials": 128,
+  "raw_comparison_replay_exact": true,
+  "release_mode": "local-audited",
+  "run_anchors": {
+    "campaign/qualification-verified.json": {
+      "bytes": 530124,
+      "path": "campaign/qualification-verified.json",
+      "sha256": "e5b844bb7b8341e4831382d3c98c6cc42d75210871c8e6f49e20ab402231e453"
+    },
+    "campaign/qualification/phase-witness.json": {
+      "bytes": 215565,
+      "path": "campaign/qualification/phase-witness.json",
+      "sha256": "fee89f609d12e4b9470a3f220b209cde594a067a4fdc2c85b838386222307a35"
+    },
+    "campaign/qualification/phase/terminal.json": {
+      "bytes": 509055,
+      "path": "campaign/qualification/phase/terminal.json",
+      "sha256": "6b3cd52dd120a299b1d59d4d7d34153f7a77d50d8a55bb4aec75e37e3c6e5724"
+    },
+    "campaign/qualification/supervisor/terminal.json": {
+      "bytes": 544,
+      "path": "campaign/qualification/supervisor/terminal.json",
+      "sha256": "bdf709a76d157a8d2673ff021d041ab91dc459d392474a62733ca817bcce3435"
+    },
+    "preflight/receipt.json": {
+      "bytes": 10856,
+      "path": "preflight/receipt.json",
+      "sha256": "d74ae87ec66cb9ee52204c31f3f3ca78ea173231206db0847f040735177aeeb7"
+    }
+  },
+  "scope": "frozen early event accuracy on new diagnostic draw; no long-time, map, symbol or homoclinic result",
+  "source_commit": "8ce37169ef9c24c570f5e2b9d5a60e48f310c377",
+  "status": "numerically-qualified",
+  "supervisor": {
+    "automatic_retry": false,
+    "binding": {
+      "campaign_slot_sha256": "18bebdcb679a217068327448658f767c2ee5d52ea2d59385585310b8363c8ba1",
+      "grant_sha256": "aa941a9bbed93928fa870568a5670d5a504a4af00c67ecb769d725fc51a731ff",
+      "phase": "qualification"
+    },
+    "elapsed_seconds": 90.53755900077522,
+    "maximum_sampled_disk_bytes": 30711684,
+    "maximum_sampled_rss_bytes": 123469824,
+    "owned_group_cleanup_verified": true,
+    "reason": null,
+    "returncode": 0,
+    "samples": 88,
+    "scientific_qualification": false,
+    "status": "completed"
+  },
+  "threshold": 0.0001
+}

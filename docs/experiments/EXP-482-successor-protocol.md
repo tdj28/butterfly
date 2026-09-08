@@ -1,8 +1,9 @@
 # EXP-482: a separately frozen finer-step successor
 
-Status (2026-09-08): the human-policy amendment removes mandatory paid review.
-The explicit local-audit release path is being tested prospectively; **no target
-execution yet**. The numeric design is
+Status (2026-09-08): the explicit local-audit release and fresh setup passed;
+**192/192 numerical comparisons passed and full collection is running**.
+See the [live result and raw-replay audit](../updates/2026-09-08-exp482-live-run.md).
+No paid review ran. The numeric design is
 `experiments/manifests/EXP-482-paired-design.json`. It contains no fabricated
 approval. Selecting a new experiment name does not authorize its execution.
 
@@ -65,7 +66,7 @@ Only EXP-481 and EXP-482 are recognized by the existing controller. The default
 remains EXP-481. The explicit successor option is `--experiment-id EXP-482`;
 there is no arbitrary experiment-name, attempt, retry or resume option.
 The new fixed attempt is `artifacts/EXP-482/target-once.json`; the old marker
-must never be removed. Setup, review, final plan and dispatch must agree on the
+must never be removed. Setup, release, final plan and dispatch must agree on the
 experiment identity before any new slot can be consumed.
 
 The full source/test closure includes **both numeric designs** because the
@@ -121,7 +122,10 @@ criticality, homoclinic existence or the entire parameter plane.
 | --- | --- |
 | Both release identities, Git/provider tamper controls, isolated setup | 132 focused tests passed before final closure/control additions |
 | Actual successor controller and source-qualified full configuration | Verified live at ba85d90: 426 tests/no skips, both raw audits, all 192 configurations; source preflight receipt retained |
-| Prospective review and target numerical qualification | Not performed; no new target trajectories |
+| Amended source-bound setup | 449 tests/no skips, both raw audits, all 192 configurations at 8ce3716 |
+| Local release and target numerical qualification | Real local gate passed; 128 trials and 192/192 comparisons passed; raw replay exact |
+| Paid Pro review | Not run; failed pre-generation request preserved, not retried |
+| Full collection and analysis | Collection running; analysis not yet available at this checkpoint |
 
 The original `--mode source --experiment-id EXP-482` preflight on pushed source
 passed at ba85d90. The amended controller must pass a new source-bound preflight;
