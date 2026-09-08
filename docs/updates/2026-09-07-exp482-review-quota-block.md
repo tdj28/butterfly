@@ -1,5 +1,11 @@
 # EXP-482: packet published; API credit balance blocks review
 
+**Superseded operational status, 2026-09-08:** the human reports funding the
+account and has made Pro review optional, major-milestone-only, and subject to
+explicit per-call human approval. Do not automatically retry this review. See
+[the policy transition](2026-09-08-human-controlled-pro-reviews.md). The failure
+and provenance recorded below remain historical evidence.
+
 The user explicitly approved publication of the EXP-482 packet, including
 the prior AI advisory, and requested continued flow-level symbolic testing.
 The packet was committed and pushed at
