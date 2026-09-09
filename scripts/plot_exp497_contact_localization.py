@@ -43,7 +43,7 @@ def build(path,anchor,output):
     output.mkdir(parents=True,exist_ok=False)
     plt.rcParams.update({"svg.hashsalt":STEM,"font.size":10})
     fig,(left,right) = plt.subplots(1,2,figsize=(12,6))
-    fig.subplots_adjust(left=.08,right=.97,top=.79,bottom=.28,wspace=.31)
+    fig.subplots_adjust(left=.08,right=.97,top=.79,bottom=.34,wspace=.31)
     success = any(r["status"] == "proximate" for r in rows)
     title = "A primitive cycle reaches measured fold proximity" if success else "Bounded contact localization remains unresolved"
     fig.suptitle(title,fontsize=19,y=.97)
@@ -72,7 +72,9 @@ def build(path,anchor,output):
             if not curve["variants"]:
                 right.text(level+(i-1.5)*.07,.07,"unresolved fold",rotation=90,fontsize=7,
                            transform=right.get_xaxis_transform(),color=COLORS[i])
-        left.annotate(str(level),(a,contact["mean_residual"] or 0),xytext=(5,7),textcoords="offset points",fontsize=9)
+        offset = {1:(5,7),2:(12,18),3:(-12,-18)}[level]
+        left.annotate(str(level),(a,contact["mean_residual"] or 0),xytext=offset,
+                      textcoords="offset points",fontsize=9,arrowprops=dict(arrowstyle="-",lw=.6,color="#666666"))
     left.set(xlabel="a (computed parameter values only)",ylabel="Signed event-3 input-x residual / 15",
              title="Endpoint lead and new localization points")
     left.ticklabel_format(axis="x",style="plain",useOffset=False)

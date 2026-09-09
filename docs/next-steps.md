@@ -184,6 +184,13 @@ inputs; historical result reproduction is a separate requirement.
   first interval, re-correcting the primitive cycle and recomputing every fold
   representation at each new parameter. Neither endpoint is proximate; endpoint
   signs alone do not prove an interior contact or continuity.
+  [EXP-497 completes that bounded interior localization](updates/2026-09-09-exp497-contact-localization.md):
+  after 179 retained target IVPs, the third point meets the unchanged full-state
+  proximity rule in all sixteen variants and retains primitive six/eight counts.
+  Use this one-fold calibration point to identify the second critical object
+  or consistent piecewise boundary, then qualify the branch dictionary. It is
+  not yet an exact critical point, C/D assignment, doubly-superstable center or
+  source-matched arrow; the second case's inherited failures remain.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
