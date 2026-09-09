@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-500 complete polynomial census; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-501 limiting contact; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -25,6 +25,18 @@ supersedes incompatible interpretations in the historical narrative below:
 
 The detailed rows retain experiment history; the current execution order is
 in [next-steps.md](next-steps.md).
+
+**EXP-501 update:** all eight limiting-grazing representations and sixteen
+precision profiles qualify after 38 integrations and a full raw audit.
+All 384 full-state predecessor/cycle comparisons fail the 1e-4 proximity
+criterion; the best all-variant cycle-index distance is 0.01346118. The
+finite-perturbation explanation of the EXP-498 mismatch is not supported:
+the limiting predecessor still misses the cycle at this anchor. This is a
+negative result for the reconstructed one-fold calibration point, not a
+refutation of Jones's chain or a C/D identification. Prior failed experiments
+remain failed. The next contact search must satisfy both distinct residuals,
+not keep tightening this fixed anchor.
+[Audited result and public replay](updates/2026-09-09-exp501-limiting-contact.md).
 
 **EXP-500 update:** all 64 saved decimal profiles and 239,072 polynomial
 segments pass the complete count-certificate audit. The census retains 1,024

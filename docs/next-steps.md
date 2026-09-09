@@ -219,6 +219,16 @@ inputs; historical result reproduction is a separate requirement.
   exact-flow all-root proof or a periodic-family insertion: history-dependent
   finite-time counts cannot be relabeled as primitive periods. All older
   accuracy failures remain unchanged.
+  [EXP-501 now qualifies the limiting boundary itself](updates/2026-09-09-exp501-limiting-contact.md):
+  all 38 integrations, sixteen precision profiles and 72 accepted prefix
+  events pass the raw audit. All 384 limiting-predecessor/cycle comparisons
+  fail the primary proximity criterion; the best all-variant distance is
+  0.01346118, also outside the largest sensitivity radius. Finite perturbations
+  do not explain the gap. Next freeze a bounded joint a,c contact search using
+  the distinct right-fold and limiting-boundary residuals, with full-state
+  checks, primitive-period guards and no favorable representation selection.
+  Do not spend another experiment merely refining this fixed anchor or count
+  its near-identical upstream boundary representations as different objects.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
