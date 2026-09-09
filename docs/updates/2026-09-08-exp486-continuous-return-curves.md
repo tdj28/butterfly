@@ -70,9 +70,11 @@ witness the solvers agree through four returns, then Radau records a fifth
 crossing during the large excursion while DOP853 next records a later crossing.
 Small integration error before the excursion does not guarantee complete
 event enumeration. The outcome-informed [EXP-487 witness study](../experiments/EXP-487-section-census-witness.md)
-will test whether bracketing at extrema of the plane residual recovers the
-missing crossing under both solver and step refinement. It cannot silently
-repair EXP-486 or convert the failed regions into passes.
+tested whether bracketing at extrema of the plane residual recovers the
+missing crossing under both solver and step refinement. Its
+[completed result](2026-09-08-exp487-missed-crossing-witness.md) confirms
+ordinary-event omissions and qualifies one witness; the other retains a
+strict state/reference mismatch. It does not repair EXP-486 retroactively.
 
 ## Why this matters for Jones
 

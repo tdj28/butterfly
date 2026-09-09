@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-486 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-487 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -77,6 +77,15 @@ refinement; the other right region exceeds the fixed candidate-count limit at
 depth eight. A saved left-region witness has an earlier Radau crossing absent
 from the DOP853 event list. No smooth fold, letter, chain or homoclinic verdict
 may be inferred from that discrepancy. [Full result and figure](updates/2026-09-08-exp486-continuous-return-curves.md).
+
+**EXP-487 update:** an outcome-informed two-witness census confirms ordinary
+event omissions at coarse DOP853 steps. Extrema-bracketed crossing counts
+agree across all twelve profiles, but only the first witness satisfies all
+state/time/old-reference gates. The second retains its state-accuracy and
+coarse-reference mismatch. This qualifies neither the missing folds nor
+historical symbols. The safeguard existed in an earlier grazing counter but
+was absent from the new variational-return path; this is a code integration
+gap, not a new physical mechanism. [Result and next steps](updates/2026-09-08-exp487-missed-crossing-witness.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

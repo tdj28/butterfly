@@ -107,7 +107,10 @@ inputs; historical result reproduction is a separate requirement.
   left-region fold refinements failed solver agreement. Its full-grid audit
   and all-family figure are complete. The
   [EXP-487 event-census witness](experiments/EXP-487-section-census-witness.md)
-  tests the observed crossing-detection discrepancy before any fold retry.
+  completed twelve profiles and confirmed the ordinary-event omission.
+  [One witness qualified; one retained an accuracy/reference failure](updates/2026-09-08-exp487-missed-crossing-witness.md).
+  Next separate refined-event convergence from agreement with the old coarse
+  witness, then test section tangency and qualify the event-aware fold path.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
