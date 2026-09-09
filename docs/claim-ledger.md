@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-491 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-492 boundary localization; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -124,6 +124,17 @@ these sampled points with the finest step, and no prior omission or failed
 verdict is erased. The screen does not diagnose every failed interval as a
 grazing boundary, assign C/D or verify a Jones word/arrow.
 [Complete screen and all-family scatter figure](updates/2026-09-08-exp491-event-sheet-probe.md).
+
+**EXP-492 update:** all 248 target integrations and sixteen boundary
+nominations completed. Both solvers locate all sixteen nondegenerate
+tangencies and pass their local crossing-pair/scaling tests. Fifteen pass the
+complete rule; one narrow side arm exceeds the paired scaled-state bound
+(1.3365e-6 versus 1e-6) and remains unqualified. Within each parameter case,
+the root states are nearly coincident despite different upstream coordinates
+and return counts; this is not sixteen distinct physical boundaries or a
+global uniqueness proof. These are fixed-parameter initial-curve grazings,
+not newly verified periodic windows, C/D assignments or Jones chain arrows.
+[Complete matrix and boundary geometry](updates/2026-09-08-exp492-event-boundaries.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

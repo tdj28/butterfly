@@ -129,10 +129,15 @@ inputs; historical result reproduction is a separate requirement.
   [EXP-491 completed the full three-point screen](updates/2026-09-08-exp491-event-sheet-probe.md):
   all 156 trajectories and 78 paired samples qualify numerically, but sixteen
   intervals fail time coherence, including two input-sign reversals. The
-  ten screened intervals match EXP-490's ten qualified searches. Next
-  localize the event-domain boundaries inside the sixteen flagged intervals,
-  retaining all cases, depths and directions; do not assume all flags are
-  proven grazings or that three passing samples certify a whole interval.
+  ten screened intervals match EXP-490's ten qualified searches.
+  [EXP-492 directly localized all sixteen nominated tangencies](updates/2026-09-08-exp492-event-boundaries.md):
+  all 248 integrations completed; both methods pass local geometry, but only
+  fifteen candidates pass the complete rule. One paired side-state comparison
+  exceeds its frozen bound and remains unqualified. The root states nearly
+  coincide within each parameter case; do not count upstream preimages as
+  different physical critical objects. Three passing samples still do not
+  certify a whole interval, and the ten unselected intervals remain untested
+  for hidden boundaries.
   Do not require global smoothness merely to permit symbolic coding: define
   consistent piecewise return domains where appropriate. Test whether an
   extra crossing represents the proposed physical inner return or only a
