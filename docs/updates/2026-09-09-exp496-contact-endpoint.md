@@ -68,8 +68,12 @@ cases are not independent discoveries of different periodic families.
   SHA-256 `1dd72bdd60537709f6d06a04a358d52a52fd5a0f617162ad06a418c901e19233`:
   159 files, **531,055,878 bytes**, including every returned target mesh,
   profile, analytic control and start record. No other experiment's restricted
-  archive is included. Public release/network verification is pending at this
-  result checkpoint.
+  archive is included. Public release is **blocked pending payload-specific
+  human approval**: the upload safety gate rejected publication of the exact
+  raw archive. The tar is 531,189,760 bytes, SHA-256
+  `e1db8ff993b182a19758f0f224a02e397c86b674cc1716a6612c578edbae0d1c`.
+  No alternative upload route is being used. No public-download replication
+  is claimed; this does not block local localization research.
 - Local raw directory `artifacts/EXP-496/target-7513bed` and consumed witness
   `artifacts/EXP-496/target-once.json` remain unchanged; neither may be reset.
 
