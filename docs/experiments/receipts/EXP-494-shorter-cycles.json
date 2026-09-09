@@ -1,0 +1,1056 @@
+{
+  "analysis": "post-run-shorter-cycle-diagnostic",
+  "analysis_sha256": "720b5325d8b6e111f239b8265a8cd3a026a3485e7dcf56b33d83ed05a7c80bb6",
+  "experiment_id": "EXP-494",
+  "new_integrations": 0,
+  "parent_summary_sha256": "3a51ec4aaf07d15975c25e9dc47a907b0e43cc6d9a8cee7fddfe1d3f85263e6e",
+  "primary_verdict_replaced": false,
+  "rows": [
+    {
+      "half_period_qualified": true,
+      "id": "local-a025-c083--aminus--04",
+      "paired": [
+        {
+          "passed": true,
+          "phase_error": 8.826273045769994e-14,
+          "same_counts": true,
+          "scaled_state_error": 5.662250201087085e-13
+        },
+        {
+          "passed": true,
+          "phase_error": 7.349676423018536e-14,
+          "same_counts": true,
+          "scaled_state_error": 7.342859235359357e-13
+        }
+      ],
+      "parameters": {
+        "a": 0.21534999999999999,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "primary_status": "unqualified",
+      "profiles": [
+        {
+          "candidate_period": 22.16416664012909,
+          "method": "DOP853",
+          "metric": {
+            "qualified": true,
+            "repeat": {
+              "passed": true,
+              "phase_error": 1.2212453270876722e-14,
+              "same_counts": true,
+              "scaled_state_error": 1.9160425828734945e-13
+            },
+            "rigorous_minimal_period_proof": false,
+            "windows": [
+              {
+                "boundary_phase_margin": 0.03502488744749184,
+                "closure_scaled": 4.107973905054837e-11,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.651773998796353,
+                    -1.8888017371465853,
+                    0.03399778681293483
+                  ],
+                  [
+                    1.6517739988097992,
+                    -1.8888017371836194,
+                    0.033997786812524876
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.2500928219521899,
+                    0.5351464146978354,
+                    0.8163530144637386,
+                    0.9649751125525039
+                  ],
+                  "historical": [
+                    0.18376701042733487,
+                    0.46880784486504834,
+                    0.7500035290076521
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005976944518265137,
+                      -4.239986681241504,
+                      0.02595801901143833
+                    ],
+                    [
+                      0.005976944518275185,
+                      -8.200542642193914,
+                      0.024689093137694587
+                    ],
+                    [
+                      0.005976944518074302,
+                      -13.782379017306306,
+                      0.023291974695296015
+                    ],
+                    [
+                      0.005976944518430359,
+                      -2.1881435016070476,
+                      0.027027105353995485
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.597126011700768,
+                      -0.027754560103415517,
+                      0.018554190814289735
+                    ],
+                    [
+                      -6.981474917897901,
+                      -0.02775456010341395,
+                      0.014124601356312199
+                    ],
+                    [
+                      -11.74892443530713,
+                      -0.0277545601034033,
+                      0.010565745469646393
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.28714883899164656,
+                    "minimum_radius": 0.4626262759734427,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.15033673777432918,
+                    "minimum_radius": 0.46259331469661147,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.3151096904125192,
+                    "minimum_radius": 0.46264512950916425,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9776002448537996,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.17361116261420356,
+                  "historical": 0.4771482376260544
+                },
+                "phase": 0.25,
+                "qualified": true,
+                "shorter_periods": []
+              },
+              {
+                "boundary_phase_margin": 0.03502488744749228,
+                "closure_scaled": 5.8194999730612205e-11,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.6517739988097992,
+                    -1.8888017371836194,
+                    0.033997786812524876
+                  ],
+                  [
+                    1.6517739987909987,
+                    -1.8888017371315484,
+                    0.033997786813105654
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.2500928219521857,
+                    0.5351464146978312,
+                    0.8163530144637264,
+                    0.9649751125525077
+                  ],
+                  "historical": [
+                    0.1837670104273307,
+                    0.468807844865044,
+                    0.75000352900764
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005976944518257667,
+                      -4.2399866812424785,
+                      0.02595801901143795
+                    ],
+                    [
+                      0.00597694451827914,
+                      -8.200542642195792,
+                      0.02468909313769406
+                    ],
+                    [
+                      0.005976944518028146,
+                      -13.782379017305923,
+                      0.02329197469529599
+                    ],
+                    [
+                      0.005976944518427833,
+                      -2.1881435016065525,
+                      0.027027105353994996
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.5971260117016066,
+                      -0.027754560103415718,
+                      0.0185541908142883
+                    ],
+                    [
+                      -6.9814749178994955,
+                      -0.027754560103403,
+                      0.014124601356310605
+                    ],
+                    [
+                      -11.748924435306801,
+                      -0.027754560103400355,
+                      0.010565745469646575
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.3055339103187919,
+                    "minimum_radius": 0.46272857504616627,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.15711000440192577,
+                    "minimum_radius": 0.46261524364245304,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.849555921538755,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.30867169450419946,
+                    "minimum_radius": 0.46272857504616627,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.977600244853799,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.17361116261427392,
+                  "historical": 0.4771482376258365
+                },
+                "phase": 1.25,
+                "qualified": true,
+                "shorter_periods": []
+              }
+            ]
+          },
+          "original_period": 44.32833328025818,
+          "original_profile_qualified": false
+        },
+        {
+          "candidate_period": 22.16416664012928,
+          "method": "Radau",
+          "metric": {
+            "qualified": true,
+            "repeat": {
+              "passed": true,
+              "phase_error": 9.026113190202523e-14,
+              "same_counts": true,
+              "scaled_state_error": 1.4921120037125776e-12
+            },
+            "rigorous_minimal_period_proof": false,
+            "windows": [
+              {
+                "boundary_phase_margin": 0.035024887447420286,
+                "closure_scaled": 2.044436268439435e-12,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.6517739988080091,
+                    -1.8888017371918997,
+                    0.03399778681241089
+                  ],
+                  [
+                    1.6517739988122107,
+                    -1.8888017371944814,
+                    0.03399778681243107
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.25009282195225907,
+                    0.5351464146979023,
+                    0.8163530144638265,
+                    0.9649751125525503
+                  ],
+                  "historical": [
+                    0.18376701042740462,
+                    0.46880784486511584,
+                    0.7500035290077404
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005976944518271391,
+                      -4.239986681238605,
+                      0.025958019011439154
+                    ],
+                    [
+                      0.005976944518257836,
+                      -8.200542642188383,
+                      0.02468909313769488
+                    ],
+                    [
+                      0.005976944518071555,
+                      -13.782379017307667,
+                      0.023291974695295217
+                    ],
+                    [
+                      0.0059769445184270735,
+                      -2.1881435016089914,
+                      0.027027105353995377
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.597126011698301,
+                      -0.02775456010341586,
+                      0.018554190814293967
+                    ],
+                    [
+                      -6.981474917893179,
+                      -0.02775456010341612,
+                      0.014124601356316905
+                    ],
+                    [
+                      -11.748924435308282,
+                      -0.027754560103407024,
+                      0.010565745469645746
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.849555921538762,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.013139786705973691,
+                    "minimum_radius": 0.46256948460744446,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.849555921538766,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 1.3322676295501878e-15,
+                    "maximum_angle_step": 0.006573996210149194,
+                    "minimum_radius": 0.4625694325868156,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.849555921538762,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.013139786705973691,
+                    "minimum_radius": 0.46256948460744446,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9776002448537997,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.1736111626138917,
+                  "historical": 0.4771482376267146
+                },
+                "phase": 0.25,
+                "qualified": true,
+                "shorter_periods": []
+              },
+              {
+                "boundary_phase_margin": 0.035024887447418884,
+                "closure_scaled": 9.606928577331937e-13,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.6517739988122107,
+                    -1.8888017371944814,
+                    0.03399778681243107
+                  ],
+                  [
+                    1.6517739988077764,
+                    -1.888801737191198,
+                    0.033997786812422194
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.25009282195222965,
+                    0.5351464146978724,
+                    0.8163530144637363,
+                    0.9649751125525812
+                  ],
+                  "historical": [
+                    0.18376701042737528,
+                    0.46880784486508614,
+                    0.7500035290076501
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005976944518260226,
+                      -4.239986681246249,
+                      0.02595801901143638
+                    ],
+                    [
+                      0.005976944518237036,
+                      -8.200542642202938,
+                      0.024689093137690656
+                    ],
+                    [
+                      0.005976944518119018,
+                      -13.782379017304804,
+                      0.02329197469529586
+                    ],
+                    [
+                      0.005976944518421574,
+                      -2.188143501605258,
+                      0.027027105353991887
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.5971260117048343,
+                      -0.02775456010341751,
+                      0.01855419081428275
+                    ],
+                    [
+                      -6.981474917905609,
+                      -0.02775456010342641,
+                      0.014124601356304497
+                    ],
+                    [
+                      -11.748924435305852,
+                      -0.02775456010339571,
+                      0.010565745469647135
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.013160413386598057,
+                    "minimum_radius": 0.46256950484084025,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.84955592153875,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 1.3322676295501878e-15,
+                    "maximum_angle_step": 0.006585531330297756,
+                    "minimum_radius": 0.46256943532551476,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.01320065489035144,
+                    "minimum_radius": 0.46256950484084025,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9776002448538003,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.17361116261444529,
+                  "historical": 0.4771482376250255
+                },
+                "phase": 1.25,
+                "qualified": true,
+                "shorter_periods": []
+              }
+            ]
+          },
+          "original_period": 44.32833328025856,
+          "original_profile_qualified": false
+        }
+      ]
+    },
+    {
+      "half_period_qualified": true,
+      "id": "local-a027-c083--aminus--04",
+      "paired": [
+        {
+          "passed": true,
+          "phase_error": 3.185229857649574e-13,
+          "same_counts": true,
+          "scaled_state_error": 2.367382075231049e-12
+        },
+        {
+          "passed": true,
+          "phase_error": 2.2792878695554464e-13,
+          "same_counts": true,
+          "scaled_state_error": 2.5133389315836663e-12
+        }
+      ],
+      "parameters": {
+        "a": 0.21536999999999998,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "primary_status": "unqualified",
+      "profiles": [
+        {
+          "candidate_period": 22.163613596845224,
+          "method": "DOP853",
+          "metric": {
+            "qualified": true,
+            "repeat": {
+              "passed": true,
+              "phase_error": 1.4099832412739488e-14,
+              "same_counts": true,
+              "scaled_state_error": 2.2310907785161453e-13
+            },
+            "rigorous_minimal_period_proof": false,
+            "windows": [
+              {
+                "boundary_phase_margin": 0.03503425425032911,
+                "closure_scaled": 5.19757372448844e-11,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.6524624225009004,
+                    -1.888967948432837,
+                    0.034001362245002026
+                  ],
+                  [
+                    1.652462422516377,
+                    -1.8889679484782436,
+                    0.03400136224448325
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.25009088204368657,
+                    0.5351518307645164,
+                    0.8163542870578961,
+                    0.9649657457496709
+                  ],
+                  "historical": [
+                    0.1837637944496618,
+                    0.4688119826507465,
+                    0.7500035297398966
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005977500070310733,
+                      -4.241087450659711,
+                      0.02595762633181712
+                    ],
+                    [
+                      0.005977500070299478,
+                      -8.203159982655176,
+                      0.024688351955129775
+                    ],
+                    [
+                      0.005977500070113607,
+                      -13.78243656764717,
+                      0.02329196852842152
+                    ],
+                    [
+                      0.0059775000704745,
+                      -2.1885709616220725,
+                      0.02702759071039009
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.5980167055206835,
+                      -0.02775456224317089,
+                      0.018552662107075762
+                    ],
+                    [
+                      -6.9836139614404065,
+                      -0.02775456224316962,
+                      0.014122468065347837
+                    ],
+                    [
+                      -11.748810962581716,
+                      -0.0277545622431674,
+                      0.010565808830305475
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.849555921538762,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.2866410741574968,
+                    "minimum_radius": 0.4632465886817145,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.15007317051509822,
+                    "minimum_radius": 0.4631918585714531,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.31477210966801167,
+                    "minimum_radius": 0.4632684114513299,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9775962232738886,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.17370060351018093,
+                  "historical": 0.4768843722733049
+                },
+                "phase": 0.25,
+                "qualified": true,
+                "shorter_periods": []
+              },
+              {
+                "boundary_phase_margin": 0.03503425425032911,
+                "closure_scaled": 6.098986504953501e-11,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.652462422516377,
+                    -1.8889679484782436,
+                    0.03400136224448325
+                  ],
+                  [
+                    1.6524624224979665,
+                    -1.888967948425028,
+                    0.034001362245091996
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.25009088204369134,
+                    0.5351518307645212,
+                    0.81635428705791,
+                    0.9649657457496665
+                  ],
+                  "historical": [
+                    0.18376379444966676,
+                    0.4688119826507515,
+                    0.7500035297399107
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005977500070300413,
+                      -4.241087450658567,
+                      0.025957626331817488
+                    ],
+                    [
+                      0.005977500070276157,
+                      -8.203159982652982,
+                      0.02468835195513033
+                    ],
+                    [
+                      0.005977500070070252,
+                      -13.78243656764759,
+                      0.023291968528421317
+                    ],
+                    [
+                      0.005977500070469426,
+                      -2.188570961622638,
+                      0.02702759071039064
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.598016705519707,
+                      -0.027754562243174456,
+                      0.01855266210707744
+                    ],
+                    [
+                      -6.983613961438546,
+                      -0.027754562243183147,
+                      0.014122468065349692
+                    ],
+                    [
+                      -11.748810962582088,
+                      -0.027754562243165817,
+                      0.010565808830305263
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.30093822687918,
+                    "minimum_radius": 0.4632717764853755,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.15556862663160026,
+                    "minimum_radius": 0.4632038872724545,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.3112104318788643,
+                    "minimum_radius": 0.4632717764853755,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9775962232738881,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.17370060351010227,
+                  "historical": 0.4768843722735581
+                },
+                "phase": 1.25,
+                "qualified": true,
+                "shorter_periods": []
+              }
+            ]
+          },
+          "original_period": 44.32722719369045,
+          "original_profile_qualified": false
+        },
+        {
+          "candidate_period": 22.16361359684539,
+          "method": "Radau",
+          "metric": {
+            "qualified": true,
+            "repeat": {
+              "passed": true,
+              "phase_error": 2.8832491949515315e-13,
+              "same_counts": true,
+              "scaled_state_error": 4.657611417369913e-12
+            },
+            "rigorous_minimal_period_proof": false,
+            "windows": [
+              {
+                "boundary_phase_margin": 0.03503425425010696,
+                "closure_scaled": 6.727856541508476e-12,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.6524624225031554,
+                    -1.8889679484800448,
+                    0.03400136224440484
+                  ],
+                  [
+                    1.6524624225164746,
+                    -1.8889679484878164,
+                    0.034001362244471325
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.25009088204391144,
+                    0.53515183076474,
+                    0.8163542870582142,
+                    0.9649657457497954
+                  ],
+                  "historical": [
+                    0.18376379444988716,
+                    0.4688119826509706,
+                    0.7500035297402151
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005977500070312345,
+                      -4.241087450647602,
+                      0.025957626331821235
+                    ],
+                    [
+                      0.005977500070297386,
+                      -8.20315998263208,
+                      0.02468835195513516
+                    ],
+                    [
+                      0.005977500070114098,
+                      -13.782436567652185,
+                      0.023291968528420217
+                    ],
+                    [
+                      0.0059775000704776005,
+                      -2.18857096162869,
+                      0.027027590710394307
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.5980167055103296,
+                      -0.027754562243167417,
+                      0.018552662107093495
+                    ],
+                    [
+                      -6.983613961420697,
+                      -0.027754562243161803,
+                      0.01412246806536753
+                    ],
+                    [
+                      -11.748810962585996,
+                      -0.027754562243176045,
+                      0.010565808830303076
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.012861326959164919,
+                    "minimum_radius": 0.4631598216554023,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.849555921538755,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.006443089615610428,
+                    "minimum_radius": 0.4631597869531518,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.849555921538755,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.012861326959164919,
+                    "minimum_radius": 0.4631598216554023,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9775962232738887,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.1737006035092037,
+                  "historical": 0.47688437227601793
+                },
+                "phase": 0.25,
+                "qualified": true,
+                "shorter_periods": []
+              },
+              {
+                "boundary_phase_margin": 0.035034254250105396,
+                "closure_scaled": 6.869388397469303e-12,
+                "conditional_minimal_period": true,
+                "counts": {
+                  "barrio": 4,
+                  "historical": 3
+                },
+                "endpoints": [
+                  [
+                    1.6524624225164746,
+                    -1.8889679484878164,
+                    0.034001362244471325
+                  ],
+                  [
+                    1.6524624225034434,
+                    -1.8889679484806234,
+                    0.03400136224440335
+                  ]
+                ],
+                "event_phases": {
+                  "barrio": [
+                    0.2500908820438137,
+                    0.5351518307646408,
+                    0.8163542870579259,
+                    0.9649657457498945
+                  ],
+                  "historical": [
+                    0.18376379444978944,
+                    0.46881198265087126,
+                    0.750003529739927
+                  ]
+                },
+                "event_states": {
+                  "barrio": [
+                    [
+                      0.005977500070308924,
+                      -4.2410874506714595,
+                      0.02595762633181263
+                    ],
+                    [
+                      0.005977500070305586,
+                      -8.203159982677539,
+                      0.02468835195512235
+                    ],
+                    [
+                      0.005977500070094984,
+                      -13.782436567643048,
+                      0.023291968528422205
+                    ],
+                    [
+                      0.00597750007046952,
+                      -2.1885709616168043,
+                      0.027027590710379516
+                    ]
+                  ],
+                  "historical": [
+                    [
+                      -3.598016705530735,
+                      -0.027754562243167705,
+                      0.018552662107058544
+                    ],
+                    [
+                      -6.9836139614595245,
+                      -0.027754562243159968,
+                      0.01412246806532881
+                    ],
+                    [
+                      -11.748810962578194,
+                      -0.027754562243200775,
+                      0.010565808830307433
+                    ]
+                  ]
+                },
+                "geometry": {
+                  "extrema_augmented": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.012472334498476487,
+                    "minimum_radius": 0.4631599301003961,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "midpoint_enriched": {
+                    "angle_change": 18.84955592153876,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 0.0,
+                    "maximum_angle_step": 0.006250663499068562,
+                    "minimum_radius": 0.46315977486606,
+                    "qualified": true,
+                    "reason": null
+                  },
+                  "raw": {
+                    "angle_change": 18.849555921538755,
+                    "cut_index": 3,
+                    "endpoint_difference": 0.0,
+                    "integer_error": 4.440892098500626e-16,
+                    "maximum_angle_step": 0.012472334498476487,
+                    "minimum_radius": 0.4631599301003961,
+                    "qualified": true,
+                    "reason": null
+                  }
+                },
+                "minimum_crossing_angle": 0.9775962232738884,
+                "minimum_distinct_event_separation": {
+                  "barrio": 0.17370060351069977,
+                  "historical": 0.47688437227073416
+                },
+                "phase": 1.25,
+                "qualified": true,
+                "shorter_periods": []
+              }
+            ]
+          },
+          "original_period": 44.32722719369078,
+          "original_profile_qualified": false
+        }
+      ]
+    }
+  ],
+  "scope": "Conditional numerical period check on already-inspected failed profiles, not a period-doubling bifurcation or Jones insertion-arrow certificate.",
+  "source_commit": "4b32c05c714ecd8f60ffa1608318ae80c98cccb4"
+}

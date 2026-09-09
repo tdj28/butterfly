@@ -1,0 +1,34 @@
+{
+  "audit_code_sha256": "e99c57b98898773897c0c333c6df468e655103e24f697a7bce6961438cc3ff26",
+  "compressed_summary": {
+    "bytes": 1334727,
+    "path": "EXP-494-periodic-transport-data.json.gz",
+    "sha256": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f"
+  },
+  "experiment_id": "EXP-494",
+  "full_data_index": {
+    "path": "EXP-494-full-data-index.json",
+    "sha256": "bcc740f263211dd71a8e0f5db9e02f42acaa803aadcf7b5bd9862bb2be450611"
+  },
+  "full_grid_nodes": 66,
+  "io_adapter": {
+    "path": "scripts/audit_exp494_cached.py",
+    "scope": "Load each NPZ member once as a read-only array; unchanged frozen numerical checks and raw hashes.",
+    "sha256": "6e526f5a99c5ce8b49e04f1e546d1471f2d1385aeeac320afd3da69f93626a82"
+  },
+  "new_ivps": 0,
+  "passed": true,
+  "raw_bytes": 2123676101,
+  "raw_files": 1161,
+  "replayed_observations": 116,
+  "saved_profiles": 8,
+  "source_commit": "4e5054955e8ddeb9db94e4702fe78d6232eda303",
+  "status_counts": {
+    "interrupted": 0,
+    "not-run": 8,
+    "qualified": 56,
+    "unqualified": 2
+  },
+  "summary_sha256": "3a51ec4aaf07d15975c25e9dc47a907b0e43cc6d9a8cee7fddfe1d3f85263e6e",
+  "symbolic_chains_verified": false
+}
