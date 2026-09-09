@@ -23,6 +23,14 @@ itself a diagnosis of which one occurred. EXP-491 retains its separate flags
 for that reason. Its three sampled points cannot exclude hidden boundaries
 between them.
 
+**A discontinuity does not forbid symbolic dynamics.** Given a defined return
+map and a partition of its domain, one can record which partition element
+each iterate visits without requiring the map to be globally continuous.
+The issue here is whether that coding has the geometry and meaning claimed
+for Jones's particular chain, not whether every jump must be eliminated.
+Consistent piecewise return branches are a possible route; an unsupported
+smooth interpolation is not a substitute for defining them.
+
 ## Why event time is part of the derivative
 
 Let the initial curve be q(u), the flow be Phi(t,q), and the section be h=0
@@ -129,6 +137,14 @@ order:
 5. Continue the required families between windows to test the claimed
    insertion arrows. Matching isolated node words alone does not verify a
    chain connection.
+
+In particular, test whether a newly accepted crossing corresponds to the
+physical inner-return mechanism associated with the proposed inserted
+symbol. That is a hypothesis to investigate, **not a finding of EXP-491**.
+Compare the geometric trajectory and corrected periodic-orbit family on
+both sides, retaining section-based event counts separately. A change in
+the number of intersections with a chosen section, by itself, is not proof
+of a new periodic window, a changed orbit family or the claimed chain arrow.
 
 Until those tests succeed, the flow-level chain is **unverified**, not
 verified by a plot and not debunked by a numerical coordinate failure.

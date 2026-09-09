@@ -133,6 +133,11 @@ inputs; historical result reproduction is a separate requirement.
   localize the event-domain boundaries inside the sixteen flagged intervals,
   retaining all cases, depths and directions; do not assume all flags are
   proven grazings or that three passing samples certify a whole interval.
+  Do not require global smoothness merely to permit symbolic coding: define
+  consistent piecewise return domains where appropriate. Test whether an
+  extra crossing represents the proposed physical inner return or only a
+  change in section-based event count, using geometric trajectories and
+  corrected orbit families rather than word matching alone.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

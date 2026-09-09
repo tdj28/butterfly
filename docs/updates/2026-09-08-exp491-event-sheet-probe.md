@@ -84,6 +84,11 @@ matrix. Two selected grazing witnesses were directly qualified in EXP-489;
 this screen does not extend that conclusion to every flagged interval.
 Work on conditioned segments must preserve gaps and test agreement between
 different finite-history curves before any held-out symbolic coding test.
+Global continuity is not a prerequisite for every symbolic description.
+A consistent piecewise return-domain description may be appropriate here.
+The next test must distinguish a geometrically meaningful inserted inner
+return from an extra intersection created by the chosen section; this
+possible connection to Jones's insertion mechanism remains a hypothesis.
 
 ## Reproducibility and release
 
