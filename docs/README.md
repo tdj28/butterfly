@@ -6,6 +6,12 @@ supersedes earlier interpretations of full-flow Floquet zeros and cautions
 against treating the fine homoclinic turn as error-bounded. The long index
 below is a historical record, not the current execution order.
 
+Latest symbolic-geometry result: [EXP-490's complete direct-fold test](updates/2026-09-08-exp490-direct-folds.md)
+recovers right-hand folds across both local parameter cases and all history/
+direction comparisons, while retaining every unresolved interval. The figure
+distinguishes successful searches from missing geometry; Jones's flow-level
+chains remain unverified.
+
 The [new execution checkpoint](updates/2026-09-04-reproducible-core-and-readable-paper.md)
 adds a public core-data replay, readable manuscript, and a successful
 independent endpoint/collocation test of the initial homoclinic candidate.

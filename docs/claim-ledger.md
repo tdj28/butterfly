@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-489 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-490 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -100,6 +100,18 @@ four prior accepted returns and square-root separation scaling. This identifies
 two local itinerary boundaries, not smooth projected folds or a verified
 symbolic partition. It neither rescues EXP-486/487/488 nor debunks Jones.
 [Mechanism and figure](updates/2026-09-08-exp489-section-grazing.md).
+
+**EXP-490 update:** all 26 original candidate intervals and 52 solver profiles
+completed, retaining 208 trajectories. Ten candidate searches qualify in both
+solvers, spanning all eight right-region depth/direction families at the two
+local parameter values. The recovered physical input locations are nearly
+coincident within each case; multiple upstream u roots must not be counted as
+distinct scalar-map critical points. Fourteen candidate searches leave their
+fixed boxes; two converge but fail input-projection qualification in both
+solvers. In the latter, neighboring return-map slopes have the same sign while
+the input tangent reverses and becomes nearly zero. No complete region,
+invariant quotient, C/D assignment or Jones word/arrow is qualified. Earlier
+verdicts remain unchanged. [Complete results and outcome figure](updates/2026-09-08-exp490-direct-folds.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

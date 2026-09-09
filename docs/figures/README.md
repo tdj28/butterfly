@@ -8,6 +8,7 @@ experiment documentation and plotting scripts.
 | --- | --- | --- |
 | [EXP-485 PNG](EXP-485-transported-tangent.png), [SVG](EXP-485-transported-tangent.svg) | [All 80 results](../experiments/receipts/EXP-485-transported-tangent-result.json) | [Inputs, derived values, code/output hashes, alt text](EXP-485-transported-tangent.receipt.json) |
 | [EXP-486 PNG](EXP-486-continuous-return-curves.png), [SVG](EXP-486-continuous-return-curves.svg), [PDF](EXP-486-continuous-return-curves.pdf) | [All 16 families](../experiments/receipts/EXP-486-return-image-fold-result.json) | [Complete figure receipt](EXP-486-continuous-return-curves.receipt.json), [hashed index](EXP-486-continuous-return-curves.index.json) |
+| [EXP-490 PNG](EXP-490-direct-folds.png), [SVG](EXP-490-direct-folds.svg), [PDF](EXP-490-direct-folds.pdf) | [All 26 candidates and both solvers](../experiments/receipts/EXP-490-direct-fold-result.json) | [Complete figure receipt](EXP-490-direct-folds.receipt.json), [hashed index](EXP-490-direct-folds.index.json) |
 
 Redraw from public repository files, without raw target journals or new integration:
 
@@ -37,3 +38,19 @@ EXP-486 redraw and source/code/output verification:
 
 Known unresolved brackets remain hatched gaps, not smooth connecting lines.
 The gray x bands are prior candidate intervals, not uncertainty bounds.
+
+EXP-490 redraw and verification, without raw trajectories or new integration:
+
+```sh
+.venv/bin/python scripts/plot_exp490_direct_folds.py \
+  --receipt docs/experiments/receipts/EXP-490-direct-fold-result.json \
+  --expected-sha256 ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66 \
+  --output-dir artifacts/EXP-490/public-redraw
+.venv/bin/python scripts/plot_exp490_direct_folds.py \
+  --output-dir docs/figures --verify-only
+```
+
+The outcome matrix retains unsuccessful searches and both solvers. Repeated
+input x values are nearly coincident physical locations reached from different
+upstream intervals, not a count of additional critical points. The figure is
+not a reconstructed return curve or an all-root certificate.
