@@ -1,6 +1,16 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-503 joint response; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-504 contact continuation; not a new audit of every row)
+
+**EXP-504 update:** all 200 new integrations audit cleanly, but the first warm
+continuation step fails fold proximity: 0.00010118864 versus the unchanged
+0.0001 limit. The boundary gap improves diagnostically to 0.011925723, still
+about 119 times tolerance. Combined model error is under 10%, yet the signed
+fold component moves opposite its prediction. The full point qualifications
+and both cycle-index checks pass; the path rejects this point and leaves seven
+slots unrun. No accepted-path endpoint or Jones arrow is established. Restore
+the fold constraint prospectively instead of weakening the limit or restarting
+the marker. See the [audited result and figure](updates/2026-09-09-exp504-guarded-contact-continuation.md).
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources

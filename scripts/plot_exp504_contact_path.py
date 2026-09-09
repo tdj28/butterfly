@@ -61,6 +61,9 @@ def draw(rows,analysis):
         for r in rows:
             if not r['accepted'] and r[key] is not None:
                 right.scatter(r['number'],r[key],color='black',marker='x',s=75,zorder=4)
+                if key == 'fold_distance' and .5 < r[key]/1e-4 < 2:
+                    right.annotate(f"{r[key]/1e-4:.3f} x limit",(r['number'],r[key]),
+                        xytext=(-8,12),textcoords='offset points',ha='right',fontsize=8,color='#b53a27')
     right.axhline(1e-4,color='#555555',ls='--',lw=1,label='Required proximity: 0.0001')
     right.set_yscale('log')
     right.set_xticks([r['number'] for r in rows])
@@ -74,10 +77,12 @@ def draw(rows,analysis):
             ax.spines[side].set_visible(False)
     fig.suptitle('Following the contact direction',fontsize=19,y=.98)
     subtitle = ('Both numerical proximity tests passed; symbolic chains remain unverified' if analysis['joint_proximity']
-        else 'The complete bounded path has not established simultaneous contact')
+        else 'Continuation stopped at a rejected step; simultaneous contact is not established'
+        if any(not r['accepted'] for r in rows) else 'The bounded path has not established simultaneous contact')
     fig.text(.5,.90,subtitle,ha='center',fontsize=11)
-    handles = [Line2D([],[],marker='*',color='#0072b2',ls='none',markersize=10,label='Starting point'),
-        Line2D([],[],marker='o',color='#0072b2',ls='none',markersize=6,label='Accepted continuation step')]
+    handles = [Line2D([],[],marker='*',color='#0072b2',ls='none',markersize=10,label='Starting point')]
+    if any(r['accepted'] and r['number'] > 0 for r in rows):
+        handles.append(Line2D([],[],marker='o',color='#0072b2',ls='none',markersize=6,label='Accepted continuation step'))
     if any(not r['accepted'] for r in rows):
         handles.append(Line2D([],[],marker='X',color='#b53a27',ls='none',markersize=7,label='Rejected step (retained)'))
     fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.14),ncol=3,frameon=False,fontsize=9)

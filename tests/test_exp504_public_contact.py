@@ -7,6 +7,37 @@ import pytest
 from scripts import verify_exp504_public_contact as public
 from scripts import plot_exp504_contact_path as figure
 
+RESULT = public.run.ROOT/'docs/experiments/receipts/EXP-504-contact-path-result.json'
+RESULT_SHA = '83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128'
+
+
+def test_complete_published_path_and_rejection_replay():
+    result = public.verify(RESULT,RESULT_SHA)
+    assert result['passed'] and result['points'] == 1 and result['target_ivps'] == 200
+    assert result['analysis']['status'] == 'measured-step-rejected'
+    assert result['analysis']['accepted_steps'] == 0
+    assert result['full_raw_audit_repeated'] is False
+
+
+@pytest.mark.parametrize('kind',['accepted','missing-unrun','dropped-point','source','initialized-model'])
+def test_rehashed_path_tampering_rejected(kind,tmp_path):
+    saved = json.loads(RESULT.read_bytes())
+    if kind == 'accepted':
+        saved['result']['steps'][0]['decision']['accepted'] = True
+    elif kind == 'missing-unrun':
+        saved['progress'].pop()
+    elif kind == 'dropped-point':
+        saved['result']['steps'] = []
+        saved['point_counts'] = []
+    elif kind == 'source':
+        saved['source_commit'] = '0'*40
+    else:
+        saved['result']['initialization']['models'][0][0][0] += .1
+    path = tmp_path/'tampered.json'
+    public.run.write_json(path,saved)
+    with pytest.raises(ValueError):
+        public.verify(path,public.sha256(path))
+
 
 def count_for(row,old):
     data = (json.dumps(row,sort_keys=True,indent=2,allow_nan=False)+'\n').encode()

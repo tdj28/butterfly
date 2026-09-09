@@ -11,6 +11,18 @@ experiment documentation and plotting scripts.
 | [EXP-490 PNG](EXP-490-direct-folds.png), [SVG](EXP-490-direct-folds.svg), [PDF](EXP-490-direct-folds.pdf) | [All 26 candidates and both solvers](../experiments/receipts/EXP-490-direct-fold-result.json) | [Complete figure receipt](EXP-490-direct-folds.receipt.json), [hashed index](EXP-490-direct-folds.index.json) |
 | [EXP-491 PNG](EXP-491-sampled-event-sheets.png), [SVG](EXP-491-sampled-event-sheets.svg), [PDF](EXP-491-sampled-event-sheets.pdf) | [All 78 paired samples / 156 trajectories](../experiments/receipts/EXP-491-event-sheet-result.json) | [Complete figure receipt](EXP-491-sampled-event-sheets.receipt.json), [hashed index](EXP-491-sampled-event-sheets.index.json) |
 | [EXP-503 PNG](EXP-503-joint-contact-residuals.png), [SVG](EXP-503-joint-contact-residuals.svg), [PDF](EXP-503-joint-contact-residuals.pdf) | [Eight fixed points, one correction, old anchor](../experiments/receipts/EXP-503-joint-contact-result.json) | [Complete figure receipt](EXP-503-joint-contact-residuals.receipt.json), [hashed index](EXP-503-joint-contact-residuals.index.json) |
+| [EXP-504 PNG](EXP-504-contact-path.png), [SVG](EXP-504-contact-path.svg), [PDF](EXP-504-contact-path.pdf) | [Starting point and sole rejected continuation step](../experiments/receipts/EXP-504-contact-path-result.json) | [Complete figure receipt](EXP-504-contact-path.receipt.json), [hashed index](EXP-504-contact-path.index.json) |
+
+EXP-504 redraw and verification (all measured points, including the rejection):
+
+```sh
+PYTHONPATH=.:python .venv/bin/python scripts/plot_exp504_contact_path.py \
+  --receipt docs/experiments/receipts/EXP-504-contact-path-result.json \
+  --expected-sha256 83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128 \
+  --output-dir artifacts/EXP-504/public-redraw
+PYTHONPATH=.:python .venv/bin/python scripts/plot_exp504_contact_path.py \
+  --verify-only --output-dir docs/figures
+```
 
 Redraw from public repository files, without raw target journals or new integration:
 

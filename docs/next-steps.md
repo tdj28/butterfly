@@ -240,7 +240,15 @@ inputs; historical result reproduction is a separate requirement.
   consumed attempts, and do not use a favorable subset to certify contact.
   Do not spend another experiment merely refining this fixed anchor or count
   its near-identical upstream boundary representations as different objects.
-  Then test a conditional local partition
+  [EXP-504's full raw audit](updates/2026-09-09-exp504-guarded-contact-continuation.md)
+  passes 200 IVPs, but the first warm step violates fold proximity by 1.19%.
+  All numerical and cycle-identity checks pass and the boundary gap decreases;
+  the combined model-error norm masked a wrongly predicted fold component.
+  The point is rejected and seven later slots remain unrun. Next freeze a
+  fixed-c fold-restoration test, then a constrained continuation that corrects
+  the fold condition before accepting a path point. Preserve this failure and
+  every threshold; do not resume EXP-504 or count its diagnostic improvement
+  as an accepted path. Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
   before assigning target words or continuing a chain arrow. No automatic paid

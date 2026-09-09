@@ -2,13 +2,60 @@
 
 ## Current checkpoint
 
-The target run has started at frozen source
+**The complete raw audit passes all 200 integrations. The first step is
+numerically qualified but rejected because its fold distance exceeds the
+unchanged proximity limit.** The other seven slots remain explicitly unrun.
+No target attempt was restarted, and no failed row was removed.
+
+| Quantity | EXP-503 start | EXP-504 measured step |
+| --- | --- | --- |
+| a | 0.21558803194140663 | 0.21559483661175796 |
+| c | 7.192 | 7.172000000000001 |
+| Worst fold input/successor distance | 0.00005007375 | 0.00010118864 |
+| Worst limiting-boundary distance | 0.012701999 | 0.011925723 |
+| Required distance for each contact | 0.0001 | 0.0001 |
+
+The dominant residual fell 6.11% diagnostically, but this is **not an accepted
+continuation improvement**: the fold is 1.19% outside its limit and the boundary
+is still about 119 times too far away. Both original and adjacent cycle-index
+checks passed, as did all four fold and eight limiting-boundary representations,
+primitive six/eight counts, paired ODE checks and high-precision event audits.
+The primary contact endpoint and secondary accepted-path endpoint both fail.
+
+![All measured points and both full-state distances](../figures/EXP-504-contact-path.png)
+
+The combined directional prediction error passed (worst 5.46%, limit 10%), yet
+its fold component predicted a decrease of 0.000001951 while the observed fold
+residual **increased** by 0.000033168. The larger boundary component masks that
+directional error in the combined norm. This is a concrete limitation of the
+proposed continuation controller, not evidence that Jones's chains are false.
+Next, restore the fold constraint at fixed c before accepting a further path
+point. Use a new prospective experiment; do not relax this experiment's limit
+or resume its consumed marker.
+
+The [complete audit receipt](../experiments/receipts/EXP-504-contact-path-result.json)
+has SHA-256
+`83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128`.
+It retains all 256 variants, the rejected point and eight-slot ledger, all 26
+parent candidates and the full decision. The local raw summary hash is
+`f8eb916d725854a0ea62f3ba82ee07d915a816916f1f38360b8bb41657262e26`.
+The target run took 668.01 seconds and retained 284 files / 1,363,017,548 bytes
+before its summary. Of 200 IVPs, 176 follow the older product-count convention
+and 24 are separately retained guard integrations. The full audit replayed
+meshes, Decimal Taylor recurrence, Newton traces, complete prefix census and
+all state comparisons; it is a local shared-code audit, not independent-team
+certification. The public comparator passes without private raw files but
+does not repeat that full raw audit. The figure's latest PDF was rendered and
+visually checked, and the source/data/output hash verification passes.
+
+## Execution and pre-target validation history
+
+The target run executed at frozen source
 `0657f510e2ca07939237a2a70ca681278977e14a`, live verified on both the working
 branch and preserved `codex/exp504-local-execution` remote ref. The exclusive
 marker SHA-256 is
 `9a35855b8d378522243dc0ad7e823f9424647bb767b71f8e6ba394f357196795`.
-Full raw evidence is being retained under artifacts/EXP-504/target-0657f51;
-no scientific result is promoted before the complete raw audit.
+Full raw evidence remains under artifacts/EXP-504/target-0657f51.
 
 EXP-503 established a reproducible direction that reduced the dominant contact
 gap by 5.64%, while leaving it far outside tolerance. EXP-504 now tests whether
@@ -55,9 +102,8 @@ They passed: 75 focused tests in 3.41 seconds and an isolated startup with no
 target integrations. The frozen plan hash is
 `a5cc08a114d1c967d6b6b22f8e7307959c7f02d7a5dc7b69af1e846ebce9774c`.
 
-This checkpoint does not yet contain EXP-504 scientific results. The target
-run is active and its full raw audit is next. Jones's flow-level chains remain
-unverified, not debunked.
+These were pre-target checkpoints; the complete audited result is now reported
+above. Jones's flow-level chains remain unverified, not debunked.
 
 ## Public replay preparation during the run
 
