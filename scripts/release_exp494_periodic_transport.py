@@ -10,6 +10,7 @@ import tarfile
 from unittest.mock import patch
 
 from scripts import audit_exp494_periodic_winding_transport as audit
+from scripts import audit_exp494_cached as cached
 from scripts import run_exp494_periodic_winding_transport as run
 from scripts.check_public_repository import check_file
 from scripts.research_bundle import safe_name
@@ -40,7 +41,7 @@ def partition(entries, limit=CHUNK):
 
 
 def build(directory, summary_sha, output):
-    result = audit.audit(directory,summary_sha)
+    result = cached.audit(directory,summary_sha)
     summary = json.loads((directory/"summary.json").read_bytes())
     parent = run.parent_inputs(run.load_plan())
     files = {"artifacts/EXP-494/target-4e50549/"+name:directory/name for name in [*summary["files"],"summary.json"]}
@@ -75,7 +76,8 @@ def build(directory, summary_sha, output):
         execution_source=summary["source_commit"],summary_sha256=summary_sha,shards=shards,
         total_members=len(entries),total_bytes=sum(e["bytes"] for e in entries),
         scope="Complete EXP-494 trial/observation evidence plus all required EXP-480 saved-cycle raw inputs; not the earlier discovery campaign.",
-        builder_sha256=run.sha256(Path(__file__)),auditor_sha256=run.sha256(Path(audit.__file__)))
+        builder_sha256=run.sha256(Path(__file__)),auditor_sha256=run.sha256(Path(audit.__file__)),
+        io_adapter_sha256=run.sha256(Path(cached.__file__)))
     run.write_json(output/INDEX,index)
     run.write_json(output/RECEIPT,dict(result,compressed_summary=dict(path=DATA,bytes=(output/DATA).stat().st_size,sha256=run.sha256(output/DATA)),
                                     full_data_index=dict(path=INDEX,sha256=run.sha256(output/INDEX))))
@@ -132,7 +134,7 @@ def unpack(index_path, index_sha, output):
                 if digest.hexdigest() != row["sha256"]:
                     raise ValueError("extracted member hash differs; partial root retained")
     with patch.object(run,"PARENT",output/"artifacts/EXP-480/run-5b584f4"):
-        result = audit.audit(output/"artifacts/EXP-494/target-4e50549",index["summary_sha256"])
+        result = cached.audit(output/"artifacts/EXP-494/target-4e50549",index["summary_sha256"])
     run.write_json(output/"public-replay.json",result)
     return result
 
