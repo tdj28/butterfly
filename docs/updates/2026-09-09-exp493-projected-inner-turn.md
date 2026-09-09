@@ -24,8 +24,15 @@ Consequently this supports a local geometric ingredient of Jones's proposal,
 not a C/D assignment, verified word, p-to-p+1 connection, or complete
 explanation of the parameter plane.
 
+In fact, [EXP-480](../experiments/EXP-480-paired-section-reproducibility.md)
+already found the same six historical-section/eight Barrio-section returns
+for the corrected cycles at both of these parameter values. These two cases
+must not be presented as opposite-period endpoints of an arrow. The newly
+tested initial-condition arcs and the corrected periodic cycles are distinct
+objects; transporting the marker between them is still research to do.
+
 The next decisive step is to transport this geometric marker onto corrected
-periodic cycles and qualify its relationship to the symbolic partition, then
+periodic cycles, check minimal period, and qualify its relationship to the symbolic partition, then
 follow one claimed connection. Matching a drawing or choosing a dictionary
 to reproduce the target word will not count as verification.
 
@@ -105,12 +112,29 @@ a GPU or the private full-horizon trajectories. It does not revalidate ODE
 integration or rule out every possible hidden smooth loop between saved
 vertices.
 
+Portable polygon replay allows arithmetic roundoff at relative 1e-12 and
+absolute 1e-13 when comparing computed floating-point measurements across
+platforms. Data hashes, identities, integer indices and acceptance decisions
+remain exact. This is not a relaxation of any experiment's scientific gates;
+the original saved measurements and failed verdict are unchanged.
+The original Linux CI at head
+`895cabb66c64f46d5d5c29df10e8bda43305c6cf` failed only the public polygon
+test's exact floating-point dictionary comparison on both Python versions;
+2,060 other tests passed. The
+[failed CI run](https://github.com/tdj28/butterfly/actions/runs/34322536769)
+is retained. The revised comparison still rejects changed decisions and
+material numerical errors; it requires final-head CI before merge.
+
 Before execution, 31 focused tests and the complete 2,051-test suite passed
 (one Linux-only skip). All twelve exact-data consumer controls passed; the
 controls include origin contact and deliberately missed small detours.
 After the public exporter was added, all 40 focused geometry/release tests
 passed, including complete public-only replay, both winding orientations,
 branch-cut endpoint handling, and rejection of altered archives or verdicts.
+The complete final local suite also passed 2,060 tests with one Linux-only
+skip in 135.29 seconds. A subsequent public-replay regression additionally
+checks that machine roundoff is tolerated but changed decisions and material
+numerical errors are rejected; all 41 focused tests pass with that addition.
 EXP-492 merged to `main` as
 `4ab72f21d119a9e9d98c4c0a473c2bd7e3b8fc1f` only after all four final-head
 push/PR Python 3.12/3.13 checks passed. This successor preserves its separately

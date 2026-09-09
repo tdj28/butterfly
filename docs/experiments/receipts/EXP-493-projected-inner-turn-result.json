@@ -53,7 +53,7 @@
   "experiment_id": "EXP-493",
   "export_code": {
     "path": "scripts/export_exp493_projected_inner_turn.py",
-    "sha256": "a89edc6f5a0855a8e9e2e321455016d17f8f375f5d13f87218f4958523b74d33"
+    "sha256": "a4e7ed9771c72a6422f030757afdb34b8482f3318f33198d2a4927c5bbd610e2"
   },
   "intervals": [
     {

@@ -151,6 +151,10 @@ inputs; historical result reproduction is a separate requirement.
   qualify its relationship to the critical/branch partition, then continue
   one proposed p-to-p+1 connection. The fixed-parameter initial-condition
   result does not already establish that periodic-family connection.
+  EXP-480's two corrected cycles both retain six historical/eight Barrio
+  returns; they are not established opposite-period endpoints. Include a
+  minimal-period check and actual parameter-family transport before claiming
+  a chain connection.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

@@ -19,6 +19,14 @@ def test_negative_ray_endpoint_convention():
     assert release.ray_index([[1.,.1],[1.,-.1]]) == 0
 
 
+def test_portable_roundoff_does_not_relax_decisions_or_real_errors():
+    a = dict(qualified=True,index=1,angle=3.14)
+    assert release.same_numeric(dict(a,angle=np.nextafter(3.14,np.inf)),a)
+    assert not release.same_numeric(dict(a,qualified=False),a)
+    assert not release.same_numeric(dict(a,index=2),a)
+    assert not release.same_numeric(dict(a,angle=3.141),a)
+
+
 def test_all_released_profiles_replay_without_full_horizon_raw_data():
     assert release.verify(release.ROOT/"docs/experiments/receipts")
 

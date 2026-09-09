@@ -25,6 +25,17 @@ def canonical(value):
     return (json.dumps(value,sort_keys=True,indent=2,allow_nan=False)+"\n").encode()
 
 
+def same_numeric(actual,stored):
+    """Portable replay roundoff only; identities and gate decisions are exact."""
+    if isinstance(actual,dict) and isinstance(stored,dict):
+        return actual.keys() == stored.keys() and all(same_numeric(actual[k],stored[k]) for k in actual)
+    if isinstance(actual,list) and isinstance(stored,list):
+        return len(actual) == len(stored) and all(same_numeric(a,b) for a,b in zip(actual,stored,strict=True))
+    if isinstance(actual,(float,np.floating)) and isinstance(stored,(float,np.floating)):
+        return bool(np.isclose(actual,stored,rtol=1e-12,atol=1e-13,equal_nan=False))
+    return type(actual) is type(stored) and actual == stored
+
+
 def ray_index(q):
     """Independent signed intersections of a polygon with the negative ray.
 
@@ -84,7 +95,7 @@ def derive(saved,binding):
                 if set(nodes) != {"raw","extrema_augmented","midpoint_enriched"}:
                     raise ValueError("complete polygon representations required")
                 replay = compare_polygons(nodes,v["equilibrium"][:2],**{k:p[k] for k in ("radius_floor","angle_ceiling","angle_agreement")})
-                if replay != v["geometry"]:
+                if not same_numeric(replay,v["geometry"]):
                     raise ValueError("public polygon geometry replay differs")
                 index = ray_index(np.array([q[:2]-v["equilibrium"][:2] for _,q in nodes["midpoint_enriched"]]))
                 if index != replay["measures"]["midpoint_enriched"]["cut_index"]:
