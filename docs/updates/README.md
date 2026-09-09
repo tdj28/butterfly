@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-08-exp492-event-boundaries.md`](2026-09-08-exp492-event-boundaries.md)
+  - frozen sixteen-candidate direct boundary run launched after 48 control
+  IVPs and 2,007 passing tests; scientific results pending complete audit.
 - [`2026-09-08-exp491-event-sheet-probe.md`](2026-09-08-exp491-event-sheet-probe.md)
   - all 156 trajectories audited: 78/78 sampled points reproduce, but only
   ten intervals pass the time/coordinate screen; sixteen retain event-time
