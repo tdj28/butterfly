@@ -1,0 +1,146 @@
+{
+  "audit_source_sha256": "8743dbe4dfb4eaa47ec4b25008d3f3687fbc1dafafb435b20c2d4b3b48fed047",
+  "candidates": 26,
+  "cases": [
+    {
+      "case": "local-a025-c083",
+      "complete": true,
+      "eligible_candidates": [
+        "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+        "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+        "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+        "local-a025-c083--region-1--depth-8--direction-1--candidate-0"
+      ],
+      "envelope": {
+        "minimum_state_distance": 0.0036343637672362275,
+        "minimum_x_distance": 0.002388706592079437,
+        "nearest_state_index": 3,
+        "nearest_x_index": 3,
+        "pair_state_distance": [
+          0.02306926277088079,
+          0.8129618801836328,
+          0.44601384794049037,
+          0.0036343637672362275,
+          0.7888441579807507,
+          0.4218961257376341
+        ],
+        "pair_x_distance": [
+          0.015450943946225416,
+          0.549662777209331,
+          0.32806189140958253,
+          0.002388706592079437,
+          0.5403056628265394,
+          0.3102222408715004
+        ],
+        "radii": [
+          {
+            "radius": 1e-06,
+            "state_indices": [],
+            "x_indices": []
+          },
+          {
+            "radius": 1e-05,
+            "state_indices": [],
+            "x_indices": []
+          },
+          {
+            "radius": 0.0001,
+            "state_indices": [],
+            "x_indices": []
+          },
+          {
+            "radius": 0.001,
+            "state_indices": [],
+            "x_indices": []
+          }
+        ]
+      },
+      "families": [
+        "local-a025-c083--region-1--depth-4--direction-0",
+        "local-a025-c083--region-1--depth-4--direction-1",
+        "local-a025-c083--region-1--depth-8--direction-0",
+        "local-a025-c083--region-1--depth-8--direction-1"
+      ],
+      "status": "not-proximate-at-primary-radius"
+    },
+    {
+      "case": "local-a027-c083",
+      "complete": true,
+      "eligible_candidates": [
+        "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+        "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+        "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+        "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+        "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+        "local-a027-c083--region-1--depth-8--direction-1--candidate-2"
+      ],
+      "envelope": {
+        "minimum_state_distance": 0.004001183517943381,
+        "minimum_x_distance": 0.0026290424883001744,
+        "nearest_state_index": 3,
+        "nearest_x_index": 3,
+        "pair_state_distance": [
+          0.023409256156506526,
+          0.8133712539059976,
+          0.44637982351582867,
+          0.004001183517943381,
+          0.7886162311207087,
+          0.4216248007305941
+        ],
+        "pair_x_distance": [
+          0.015681952252814983,
+          0.5498362356851081,
+          0.32834184998205374,
+          0.0026290424883001744,
+          0.5402325618341374,
+          0.31003085524155716
+        ],
+        "radii": [
+          {
+            "radius": 1e-06,
+            "state_indices": [],
+            "x_indices": []
+          },
+          {
+            "radius": 1e-05,
+            "state_indices": [],
+            "x_indices": []
+          },
+          {
+            "radius": 0.0001,
+            "state_indices": [],
+            "x_indices": []
+          },
+          {
+            "radius": 0.001,
+            "state_indices": [],
+            "x_indices": []
+          }
+        ]
+      },
+      "families": [
+        "local-a027-c083--region-1--depth-4--direction-0",
+        "local-a027-c083--region-1--depth-4--direction-1",
+        "local-a027-c083--region-1--depth-8--direction-0",
+        "local-a027-c083--region-1--depth-8--direction-1"
+      ],
+      "status": "not-proximate-at-primary-radius"
+    }
+  ],
+  "comparison_cells": 240,
+  "eligible": 10,
+  "experiment_id": "EXP-495",
+  "input_hashes": {
+    "docs/experiments/receipts/EXP-490-direct-fold-result.json": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "docs/experiments/receipts/EXP-494-periodic-transport-result.json": "801500bb27577cb32c9bd5908329204a95ffa8f32a4fe0eb1b55af42c4ed178d",
+    "experiments/manifests/EXP-490-candidates.json": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea"
+  },
+  "local_attempt_witness_checked": true,
+  "mode": "local-primary-audit",
+  "new_integrations": 0,
+  "passed": true,
+  "result_sha256": "197e7564130f0bddd4022057f6fdaaeac9a39d7cb615374b0418482f04247863",
+  "source_commit": "e08a85717fb53b55ecf999b5b3c797f530c55610",
+  "symbolic_chains_verified": false
+}
