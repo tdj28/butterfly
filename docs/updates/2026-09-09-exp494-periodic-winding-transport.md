@@ -143,7 +143,16 @@ The four raw shard hashes are listed in the release instructions.
 A fresh public download into `artifacts/EXP-494/public-download-01` also
 matched the index hash `bcc740f263211dd71a8e0f5db9e02f42acaa803aadcf7b5bd9862bb2be450611`
 and compact-data hash `ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f`.
-This is public-byte verification for those two assets plus server-digest
-verification for the others. The full fresh-directory numerical replay
-described above used the local release shards, not a second network download
-of all four shards; it must not be called an independent public-download replay.
+The first availability check covered those two assets plus server-digest
+verification for the others. We then closed the remaining public-package gap:
+all four raw shards were downloaded into that same acquisition directory and
+the documented extractor verified their hashes and every member before
+replaying into the fresh `artifacts/EXP-494/public-network-replay-01` directory.
+This **full public-download replay passed** all 66 nodes, 116 observations,
+eight saved profiles and 1161 bound raw files, with **zero new integrations**.
+Its `public-replay.json` is byte-identical to the
+[archived receipt](../experiments/receipts/EXP-494-public-replay.json), SHA-256
+`597c4d9c1a20ccfe214768511bcc8ede656814759699b3e337ca23177c2f3400`.
+This verifies that the public package supplies the declared numerical replay's
+data dependencies. It is still the same local software environment and audit
+implementation, not an independent-team or different-environment replication.
