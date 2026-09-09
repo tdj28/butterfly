@@ -1,0 +1,2370 @@
+{
+  "accessibility": "Solver shapes/fill, explicit FAIL/not-run text and labels supplement colors.",
+  "alt_text": "Two upper scatter panels compare candidate flow periods under a and c changes for both starting cycles and both solvers. The lower eight-by-eight grid lists each paired projected winding, explicitly marking failed and unrun nodes.",
+  "claim_scope": "No generating partition, word, insertion arrow, homoclinic proof or full-plane coverage.",
+  "data_source": {
+    "aggregation": "Counts only; no averaging of solvers.",
+    "exclusions": "Uncorrected candidates have no period point, but remain explicitly present in the status grid.",
+    "fields": [
+      "rows.spec",
+      "rows.status",
+      "rows.profiles.correction",
+      "rows.profiles.metric.windows"
+    ],
+    "path": "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz",
+    "selection": "All 66 nodes, including two bases; all 64 new parameter nodes appear in the grid.",
+    "sha256": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "transformation": "Raw parameter and period coordinates; first-window integer winding; no fit or connecting lines."
+  },
+  "derived_values": [
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.3372850416888,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33728504168911,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "base",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--base",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 0
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33448655622438,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33448655622464,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--01",
+        "parameters": {
+          "a": 0.21565,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33170120439814,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.331701204398314,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--02",
+        "parameters": {
+          "a": 0.21555,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32892882011968,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.328928820119735,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--03",
+        "parameters": {
+          "a": 0.21545,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": false,
+          "period": 44.32833328025818,
+          "qualified": false,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": false,
+          "period": 44.32833328025856,
+          "qualified": false,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--04",
+        "parameters": {
+          "a": 0.21534999999999999,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 4
+      },
+      "status": "unqualified"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--05",
+        "parameters": {
+          "a": 0.21525,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 5
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--06",
+        "parameters": {
+          "a": 0.21515,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 6
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--07",
+        "parameters": {
+          "a": 0.21505,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 7
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aminus--08",
+        "parameters": {
+          "a": 0.21495,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 8
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34009683079056,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34009683079092,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--01",
+        "parameters": {
+          "a": 0.21585,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.342922097568874,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34292209756931,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--02",
+        "parameters": {
+          "a": 0.21595,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.3457610202399,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.3457610202403,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--03",
+        "parameters": {
+          "a": 0.21605,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34861378133995,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34861378134032,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--04",
+        "parameters": {
+          "a": 0.21615,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 4
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35148056787481,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35148056787511,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--05",
+        "parameters": {
+          "a": 0.21625,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 5
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.354361571476154,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.3543615714765,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--06",
+        "parameters": {
+          "a": 0.21635,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 6
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35725698856464,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35725698856502,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--07",
+        "parameters": {
+          "a": 0.21645,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 7
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.360167020520706,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.360167020521125,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--aplus--08",
+        "parameters": {
+          "a": 0.21655,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 8
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33983060370331,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33983060370379,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--01",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.21
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34238066654378,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.342380666544244,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--02",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.208
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34493525346052,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34493525346083,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--03",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.2059999999999995
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.347494387909784,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34749438791013,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--04",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.204
+        },
+        "step": 4
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35005809355603,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.350058093556314,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--05",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.202
+        },
+        "step": 5
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.352626394274864,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.352626394275205,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--06",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.2
+        },
+        "step": 6
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.3551993141555,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35519931415589,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--07",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.1979999999999995
+        },
+        "step": 7
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35777687750345,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35777687750387,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cminus--08",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.196
+        },
+        "step": 8
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33474395745276,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.334743957453085,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--01",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.2139999999999995
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.3322073281488,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33220732814913,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--02",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.215999999999999
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32967513112836,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.32967513112861,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--03",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.218
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32714734393881,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.327147343939195,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--04",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.22
+        },
+        "step": 4
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.324623944320834,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.32462394432118,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--05",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.2219999999999995
+        },
+        "step": 5
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32210491020608,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.32210491020643,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--06",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.223999999999999
+        },
+        "step": 6
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.31959021971485,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.31959021971516,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--07",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.226
+        },
+        "step": 7
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.3170798511538,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.31707985115418,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a025-c083",
+        "id": "local-a025-c083--cplus--08",
+        "parameters": {
+          "a": 0.21575,
+          "b": 0.2,
+          "c": 7.228
+        },
+        "step": 8
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33784632970789,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33784632970837,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "base",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--base",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 0
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33504519724329,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33504519724374,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--01",
+        "parameters": {
+          "a": 0.21567,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33225723209993,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.3322572321003,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--02",
+        "parameters": {
+          "a": 0.21556999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32948226741579,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.329482267416225,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--03",
+        "parameters": {
+          "a": 0.21547,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": false,
+          "period": 44.32722719369045,
+          "qualified": false,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": false,
+          "period": 44.32722719369078,
+          "qualified": false,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--04",
+        "parameters": {
+          "a": 0.21536999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 4
+      },
+      "status": "unqualified"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--05",
+        "parameters": {
+          "a": 0.21527,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 5
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--06",
+        "parameters": {
+          "a": 0.21517,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 6
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--07",
+        "parameters": {
+          "a": 0.21506999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 7
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [],
+      "spec": {
+        "arm": "a-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aminus--08",
+        "parameters": {
+          "a": 0.21497,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 8
+      },
+      "status": "not-run"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34066080029023,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.340660800290536,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--01",
+        "parameters": {
+          "a": 0.21586999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.343488783853786,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34348878385393,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--02",
+        "parameters": {
+          "a": 0.21597,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.346330459466756,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.3463304594679,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--03",
+        "parameters": {
+          "a": 0.21606999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.349186010547534,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34918601054788,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--04",
+        "parameters": {
+          "a": 0.21617,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 4
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35205562501434,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35205562501461,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--05",
+        "parameters": {
+          "a": 0.21627,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 5
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35493949544325,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.354939495443496,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--06",
+        "parameters": {
+          "a": 0.21636999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 6
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.357837819232984,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.3578378192334,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--07",
+        "parameters": {
+          "a": 0.21647,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 7
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.360750798777154,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.36075079877746,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "a+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--aplus--08",
+        "parameters": {
+          "a": 0.21656999999999998,
+          "b": 0.2,
+          "c": 7.212
+        },
+        "step": 8
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34039366590638,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34039366590671,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--01",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.21
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.342945514505395,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34294551450573,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--02",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.208
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34550189888315,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34550189888345,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--03",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.2059999999999995
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.34806284262529,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.34806284262549,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--04",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.204
+        },
+        "step": 4
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35062836952806,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.350628369528366,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--05",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.202
+        },
+        "step": 5
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35319850360064,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35319850360093,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--06",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.2
+        },
+        "step": 6
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.35577326906792,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.355773269068195,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--07",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.1979999999999995
+        },
+        "step": 7
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.3583526903733,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.35835269037361,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c-",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cminus--08",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.196
+        },
+        "step": 8
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.335303482736975,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.33530348273735,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--01",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.2139999999999995
+        },
+        "step": 1
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33276510202318,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.332765102023465,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--02",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.215999999999999
+        },
+        "step": 2
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.33023116479597,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.330231164796274,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--03",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.218
+        },
+        "step": 3
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32770164848256,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.32770164848297,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--04",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.22
+        },
+        "step": 4
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32517653070521,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.32517653070537,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--05",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.2219999999999995
+        },
+        "step": 5
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.322655789278706,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.322655789279075,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--06",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.223999999999999
+        },
+        "step": 6
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.32013940220864,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.320139402209065,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--07",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.226
+        },
+        "step": 7
+      },
+      "status": "qualified"
+    },
+    {
+      "profiles": [
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "DOP853",
+          "minimal_period": true,
+          "period": 44.31762734768824,
+          "qualified": true,
+          "winding": 6
+        },
+        {
+          "counts": {
+            "barrio": 8,
+            "historical": 6
+          },
+          "method": "Radau",
+          "minimal_period": true,
+          "period": 44.31762734768861,
+          "qualified": true,
+          "winding": 6
+        }
+      ],
+      "spec": {
+        "arm": "c+",
+        "case": "local-a027-c083",
+        "id": "local-a027-c083--cplus--08",
+        "parameters": {
+          "a": 0.21577,
+          "b": 0.2,
+          "c": 7.228
+        },
+        "step": 8
+      },
+      "status": "qualified"
+    }
+  ],
+  "description": "Candidate periods and the full continuation ledger, including failures and unrun successors.",
+  "figure_id": "EXP-494-periodic-winding-transport",
+  "guards": "Fixed complete grid, source identity, paired verdict replay and artifact hash verified before plotting.",
+  "interval_semantics": "Discrete exploratory samples; no interval certificate or statistical uncertainty band.",
+  "provenance": {
+    "generator": "scripts/plot_exp494_periodic_transport.py",
+    "generator_sha256": "bcc0093e10bc4c24608a534d0a855951d866e2bdbc134e6cb5184e8d73c8ff5e",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-494-periodic-winding-transport.pdf": {
+        "bytes": 39732,
+        "sha256": "9abc5857946ee7829eae1b03c2d916d2cf01792596fb3823036adeea5dcd2921"
+      },
+      "EXP-494-periodic-winding-transport.png": {
+        "bytes": 434659,
+        "sha256": "481530fb0ddcfb24569e20b0ab6ecc4c35a61b85fac539d5bb21559554db93ad"
+      },
+      "EXP-494-periodic-winding-transport.svg": {
+        "bytes": 196553,
+        "sha256": "d71e6f126f621272583b9c730ebd206863c8069ba7abd5a1cc0716ca28246786"
+      }
+    },
+    "source_commit": "4e5054955e8ddeb9db94e4702fe78d6232eda303"
+  },
+  "title": "Following the corrected periodic orbits"
+}

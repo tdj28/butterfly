@@ -23,8 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp494-periodic-winding-transport.md`](2026-09-09-exp494-periodic-winding-transport.md)
-  - running the frozen corrected-cycle winding/minimal-period checks and
-  64-node paired-solver parameter survey; results pending full-grid audit.
+  - 806 integrations; 54/64 new parameter nodes qualify. Two apparently
+  six-return continuations are detected as double traversals of shorter
+  three-return cycles; eight blocked successors remain unrun. No new insertion.
 - [`2026-09-09-exp493-projected-inner-turn.md`](2026-09-09-exp493-projected-inner-turn.md)
   - all 128 saved side profiles reproduce the projected turning geometry;
   all 64 opposite-side comparisons add one relative winding. Complete result

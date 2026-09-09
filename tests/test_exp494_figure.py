@@ -31,6 +31,10 @@ def test_full_grid_retains_every_failed_and_blocked_node():
     assert len([r for r in rows if r["spec"]["step"] > 0]) == 64
 
 
+def test_checked_in_actual_figure_receipts_and_full_data():
+    plot.verify(run.ROOT/"docs/figures")
+
+
 @pytest.mark.parametrize("change", ["missing", "duplicated", "false-pass", "claim", "source"])
 def test_figure_rejects_incomplete_or_relabelled_evidence(change):
     s = fixture()

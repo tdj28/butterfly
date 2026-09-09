@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-493 projected-turn diagnostic; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-494 periodic-family diagnostic; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -147,6 +147,18 @@ periodic family, full-flow topological invariant, C/D dictionary or Jones
 word/arrow. All local-window polygons are publicly released for numerical
 replay; full-horizon integration validation is a separate matter.
 [Mechanism, limits and public replay](updates/2026-09-09-exp493-projected-inner-turn.md).
+
+**EXP-494 update:** all eight retained EXP-480 profiles pass a conditional
+numerical minimal-period check. A new 806-integration periodic-family survey
+qualifies 54/64 new parameter nodes and both bases; two nodes fail because
+the nominal six-return orbit is a repeated shorter cycle, and eight later
+nodes remain unrun. An explicitly post-run check identifies three historical
+and four Barrio returns over half the candidate period in all four failed
+solver profiles. Primary failures remain unchanged. Every qualified new/base
+sample has winding six; no six-to-seven transition was found on this finite
+cross-shaped sample. This does not establish absence between samples,
+primary shrimp-center identity, a flip bifurcation, C/D membership or a Jones
+arrow. [Full ledger, detected trap and replay](updates/2026-09-09-exp494-periodic-winding-transport.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

@@ -52,7 +52,7 @@ def plot(source, anchor, output):
     plt.rcParams.update({"font.size":10, "svg.hashsalt":FIGURE})
     output.mkdir(parents=True,exist_ok=False)
     fig = plt.figure(figsize=(12,10))
-    gs = fig.add_gridspec(2,2,height_ratios=[1,1.45],left=.16,right=.97,top=.82,bottom=.16,hspace=.43,wspace=.25)
+    gs = fig.add_gridspec(2,2,height_ratios=[1,1.45],left=.16,right=.97,top=.82,bottom=.22,hspace=.43,wspace=.25)
     colors = {"local-a025-c083":"#0072b2","local-a027-c083":"#a45190"}
     for ax,axis in zip([fig.add_subplot(gs[0,0]),fig.add_subplot(gs[0,1])],("a","c"),strict=True):
         for r in rows:
@@ -113,6 +113,8 @@ def plot(source, anchor, output):
         path = output/f"{FIGURE}.{suffix}"
         metadata = {"Date":None} if suffix == "svg" else ({"CreationDate":None,"ModDate":None} if suffix == "pdf" else None)
         fig.savefig(path,dpi=300,metadata=metadata)
+        if suffix == "svg":
+            path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines())+"\n")
         outputs[path.name] = dict(bytes=path.stat().st_size,sha256=run.sha256(path))
     plt.close(fig)
     receipt = dict(figure_id=FIGURE,title="Following the corrected periodic orbits",

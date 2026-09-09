@@ -155,6 +155,18 @@ inputs; historical result reproduction is a separate requirement.
   returns; they are not established opposite-period endpoints. Include a
   minimal-period check and actual parameter-family transport before claiming
   a chain connection.
+  [EXP-494 completes that bounded transport/minimal-period survey](updates/2026-09-09-exp494-periodic-winding-transport.md):
+  all eight older cycle profiles pass, and 54/64 new paired parameter nodes
+  qualify after 806 integrations. Two continuations converge to a shorter
+  three-return cycle traversed twice; the primitive-period gate rejects them
+  despite passing closure and unchanged nominal 6/8 event counts. Eight
+  dependent nodes remain unrun. All qualified samples retain winding six.
+  Carry the primitive-period guard into every successor; do not silently
+  continue a repeated parent as the requested family. Prioritize qualified
+  critical-to-orbit membership and an operational branch dictionary on
+  primitive candidates before interpreting another parameter sweep as a
+  source-chain test. A possible three/six flip is a different question, not
+  completion of the required insertion arrow.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
