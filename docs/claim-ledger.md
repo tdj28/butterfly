@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-494 periodic-family diagnostic; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-495 fold/cycle proximity; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -159,6 +159,17 @@ sample has winding six; no six-to-seven transition was found on this finite
 cross-shaped sample. This does not establish absence between samples,
 primary shrimp-center identity, a flip bifurcation, C/D membership or a Jones
 arrow. [Full ledger, detected trap and replay](updates/2026-09-09-exp494-periodic-winding-transport.md).
+
+**EXP-495 update:** the complete saved-state fold/cycle comparison retains
+all 26 parent candidates, with 10 eligible searches and 240 consecutive-pair
+cells. Both primitive bases fail proximity to the measured right-hand fold:
+closest all-variant scaled distances .00363436 and .00400118 exceed the frozen
+1e-4 radius and every sensitivity radius through 1e-3. The x-only baseline
+also fails. These nominations are not qualified critical-contact centers;
+they remain valid periodic observations. This is a finite-resolution
+comparison to finite-return image-curve geometry, not a proof of nonmembership
+in an invariant quotient or a refutation of Jones. No C/D or arrow is assigned.
+[Complete distances, figure and public replay](updates/2026-09-09-exp495-fold-cycle-membership.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

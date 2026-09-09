@@ -167,6 +167,16 @@ inputs; historical result reproduction is a separate requirement.
   primitive candidates before interpreting another parameter sweep as a
   source-chain test. A possible three/six flip is a different question, not
   completion of the required insertion arrow.
+  [EXP-495 completes the direct saved-state critical-contact screen](updates/2026-09-09-exp495-fold-cycle-membership.md):
+  all 240 eligible pair cells are audited, with all 26 parent candidates
+  retained. Neither base is proximate to the measured right-hand fold under
+  the primary or any fixed sensitivity radius, even in x alone. These are
+  qualified periodic orbits, not qualified critical-contact centers. Next
+  solve/refine a contact condition on the primitive family and recompute the
+  fold at each new parameter, retaining both solvers, all depth/direction
+  representations and failures. Establish the second critical object or
+  justified piecewise domain boundary separately; no C/D label follows from
+  one right-hand fold or a three/six doubling relation.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

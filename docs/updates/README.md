@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp495-fold-cycle-membership.md`](2026-09-09-exp495-fold-cycle-membership.md)
+  - Complete 240-cell saved-state comparison: neither primitive base cycle
+  meets the measured right-fold proximity criterion, including every fixed
+  sensitivity radius. All 26 parent candidates and failures remain; no new IVPs.
 - [`2026-09-09-exp494-periodic-winding-transport.md`](2026-09-09-exp494-periodic-winding-transport.md)
   - 806 integrations; 54/64 new parameter nodes qualify. Two apparently
   six-return continuations are detected as double traversals of shorter
