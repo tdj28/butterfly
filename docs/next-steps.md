@@ -210,6 +210,15 @@ inputs; historical result reproduction is a separate requirement.
   and joint contact conditions remain separate; do not substitute passing rows
   into the old EXP-498 decision. Shared root-box resolution also limits what
   tiny paired decimal differences say about absolute accuracy.
+  [EXP-500 closes the complete stored-polynomial census](updates/2026-09-09-exp500-complete-polynomial-census.md):
+  all 239,072 segments and 1,024 plane roots pass the count-certificate audit;
+  both configurations agree at every input and reproduce all old accepted
+  sequences. There are no unresolved regions or failed join checks. Use these
+  qualified event sequences for local geometric replay, then high-precision
+  grazing/domain transport and the joint contact conditions. This is not an
+  exact-flow all-root proof or a periodic-family insertion: history-dependent
+  finite-time counts cannot be relabeled as primitive periods. All older
+  accuracy failures remain unchanged.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

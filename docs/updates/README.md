@@ -23,8 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp500-complete-polynomial-census.md`](2026-09-09-exp500-complete-polynomial-census.md)
-  - Complete saved-polynomial crossing census: exact root-count and analytic
-  controls pass; target census and result audit follow the source freeze.
+  - All 239,072 stored-polynomial segments and 1,024 plane roots audited;
+  complete classifications and accepted sequences agree at all 32 inputs.
+  No exact-flow all-root proof or Jones arrow is inferred.
 - [`2026-09-09-exp499-decimal-event-reference.md`](2026-09-09-exp499-decimal-event-reference.md)
   - All 64 decimal trajectories and 480 root evaluations audited; the reference
   agrees at all inputs and exposes an additional limitation of original paired

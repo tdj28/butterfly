@@ -134,6 +134,10 @@ The [higher-precision follow-up](docs/updates/2026-09-09-exp499-decimal-event-re
 now supplies an audited decimal reference at all 32 side inputs. It also finds
 an additional limitation of ordinary paired-solver agreement. This strengthens
 the numerical foundation, not the still-unverified symbolic-chain claim.
+The [complete polynomial census](docs/updates/2026-09-09-exp500-complete-polynomial-census.md)
+then checks all 239,072 stored segments: both precision configurations recover
+the complete accepted sequence, with no unresolved root regions. This is a
+statement about the numerical polynomials, not an all-root theorem for the flow.
 
 ### From broad parameter scans to individual shrimp
 

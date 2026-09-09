@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-499 decimal event reference; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-500 complete polynomial census; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -25,6 +25,17 @@ supersedes incompatible interpretations in the historical narrative below:
 
 The detailed rows retain experiment history; the current execution order is
 in [next-steps.md](next-steps.md).
+
+**EXP-500 update:** all 64 saved decimal profiles and 239,072 polynomial
+segments pass the complete count-certificate audit. The census retains 1,024
+plane roots: 480 accepted downward, 480 upward outside the half-plane and 64
+excluded initial roots. All 32 input pairs agree in complete classification
+and reproduce their full previously nominated accepted sequences, with no
+unresolved root regions or failed joins. This closes a missing-crossing
+limitation for these stored numerical polynomials, not an all-root theorem
+for the exact flow, a repaired EXP-498 verdict, C/D or a Jones arrow. Differing
+finite-time event counts at fixed parameters are not periodic-family periods.
+[Complete result and public comparison replay](updates/2026-09-09-exp500-complete-polynomial-census.md).
 
 **Symbolic-presentation update:** the main manuscript now displays the full
 23-word source-derived chain and explains the alphabet and zero-insertion
