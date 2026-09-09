@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-488",
+  "status": "prospective-exploratory-refinement",
+  "parent_run": "artifacts/EXP-487/target-3059d52",
+  "parent_summary_sha256": "1178079c0a84eb3f1daa60d295acb1ceefcf4e9eea361793ee87227d30ca3a5a",
+  "parent_receipt": "docs/experiments/receipts/EXP-487-section-census-result.json",
+  "parent_receipt_sha256": "eb7f1c9765fe42a1c9fd06d9096e9cdfbf68084dde77969c48a866cd94005938",
+  "cases": ["local-a025-c083", "local-a027-c083"],
+  "solvers": ["DOP853", "Radau"],
+  "tolerances": [[1e-10, 1e-12], [1e-12, 1e-14], [1e-13, 1e-15]],
+  "max_step": 0.001,
+  "horizon": 50.0,
+  "guard": 1e-8,
+  "extremum_margin": 1e-10,
+  "scales": [15.0, 15.0, 0.01],
+  "thresholds": {"fine_scaled_state": 1e-7, "fine_time": 1e-9, "minimum_angle": 1e-7, "section_residual": 1e-8},
+  "control": {"horizon": 13.0, "state_error": 1e-8, "time_error": 1e-9},
+  "limits": {"wall_seconds": 1800, "output_bytes": 268435456, "target_integrations": 12},
+  "paid_review": "not_run",
+  "claim_boundary": "Two outcome-informed fixed witnesses; numerical refinement agreement, not a rigorous error bound or all-root proof. Old coarse-reference errors are diagnostics, not a retroactive waiver of EXP-487. No fold, critical letter, symbolic chain, invariant quotient, or homoclinic conclusion."
+}

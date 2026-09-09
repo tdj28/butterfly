@@ -1,0 +1,18 @@
+{
+  "experiment_id": "EXP-488",
+  "stage": "outcome-free-local-preflight",
+  "paid_review": "not_run",
+  "target_integrations": 0,
+  "focused_tests_passed": 23,
+  "full_suite": {"passed": 1906, "skipped": 1, "seconds": 112.19, "skip_reason": "Existing Linux /proc process-identity test on macOS"},
+  "parent_audit_replay": "exact public EXP-487 receipt match",
+  "hidden_pair_no_root_tangency_controls": 6,
+  "nonlinear_rotation_profiles": 6,
+  "controls_passed": true,
+  "rotation_max_absolute_state_error": 5.3290705182007514e-14,
+  "rotation_max_absolute_time_error": 3.552713678800501e-15,
+  "raw_controls_path": "artifacts/EXP-488/preflight-controls-02.json",
+  "raw_controls_sha256": "3fad80a1fdcadd004f9a8d2433acd04cd5f2202505dc54c2b68b270acd47d175",
+  "operational_incident": "The first standalone control invocation computed controls but failed to save because artifacts/EXP-488 did not yet exist. The directory was created and controls were repeated with this fresh output name. No target was run and no target marker was created by either invocation.",
+  "review_scope": "Same-agent local audit, not independent peer review. Full controls execute again inside the frozen production runner before target authority is consumed."
+}

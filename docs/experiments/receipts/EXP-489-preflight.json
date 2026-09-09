@@ -1,0 +1,16 @@
+{
+  "experiment_id": "EXP-489",
+  "stage": "outcome-free-local-preflight",
+  "paid_review": "not_run",
+  "target_integrations": 0,
+  "full_suite": {"passed": 1912, "skipped": 1, "seconds": 114.52},
+  "final_focused_tests_passed": 16,
+  "test_timing": "The full suite ran during final prospective prefix-check development; the affected tests and both authentic normal-form controls were rerun after that change. This is not a claim that the full suite started from the final freeze bytes.",
+  "normal_form_solvers_passed": ["DOP853", "Radau"],
+  "pair_separation_ratios": [3.162277662366249, 3.162277661253785],
+  "expected_ratio": "sqrt(10)",
+  "raw_controls_path": "artifacts/EXP-489/preflight-controls-02.json",
+  "raw_controls_sha256": "c9c3b56da1c44cf740d47dac029ab607b1ccd2a94a1b66588f3bd160d076165e",
+  "development_incident": "The first synthetic seed time .48 caused Newton to leave the fixed displacement box before converging; three tests correctly failed. Only the synthetic seed was moved to .498, still distinct from the exact root .5. Target settings and bounds were not loosened. The earlier pre-prefix-check control receipt is preserved separately.",
+  "local_audit": "Matrix, fixed-time Jacobian finite differences, exact normal-form root, both side signs and doses, uncertainty, missing arms, search-box and four-return-prefix negative tests. Same-agent audit, not independent peer review."
+}
