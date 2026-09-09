@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp496-contact-endpoint.md`](2026-09-09-exp496-contact-endpoint.md)
+  - In preparation: paired fold recomputation at the qualified lower-a cycle
+  endpoints; sixteen profiles, all history/direction variants and failures retained.
 - [`2026-09-09-exp495-fold-cycle-membership.md`](2026-09-09-exp495-fold-cycle-membership.md)
   - Complete 240-cell saved-state comparison: neither primitive base cycle
   meets the measured right-fold proximity criterion, including every fixed
