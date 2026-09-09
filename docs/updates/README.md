@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-08-exp491-event-sheet-probe.md`](2026-09-08-exp491-event-sheet-probe.md)
+  - live 156-trajectory calculation at three points of all 26 original
+  intervals; explicit event-sheet and input-coordinate screening.
 - [`2026-09-08-exp490-direct-folds.md`](2026-09-08-exp490-direct-folds.md)
   - all 26 candidate intervals, 52 solver profiles and 208 retained trajectories;
   ten paired-qualified searches across eight right-region families, with
