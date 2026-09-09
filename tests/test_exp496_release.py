@@ -33,6 +33,18 @@ def test_figure_rejects_missing_ledger_without_target_results():
         plot.validate(dict(passed=True, experiment_id="EXP-496", ledger=[], candidates=[]))
 
 
+def test_published_complete_result_and_figure_replay():
+    path = plot.run.ROOT/"docs/experiments/receipts/EXP-496-contact-endpoint-result.json"
+    result = json.loads(path.read_bytes())
+    plot.validate(result)
+    assert plot.verify(plot.run.ROOT/"docs/figures")
+    assert result["target_trajectories"] == 124
+    assert [c["status"] for c in result["contact"]["cases"]] == [
+        "opposite-sign-endpoints", "mixed-representation-results"]
+    assert sum(c["qualified_in_region"] for c in result["candidates"]) == 6
+    assert sum(len(c["variants"])*6 for c in result["contact"]["rows"]) == 144
+
+
 @pytest.mark.parametrize("fault", ["member-name", "symlink", "duplicate", "wrong-bytes", "shard-hash"])
 def test_bound_archive_still_rejects_unsafe_or_changed_content(tmp_path, fault):
     tarpath = tmp_path/"part.tar"

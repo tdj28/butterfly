@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-495 fold/cycle proximity; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-496 contact endpoints; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -170,6 +170,17 @@ they remain valid periodic observations. This is a finite-resolution
 comparison to finite-return image-curve geometry, not a proof of nonmembership
 in an invariant quotient or a refutation of Jones. No C/D or arrow is assigned.
 [Complete distances, figure and public replay](updates/2026-09-09-exp495-fold-cycle-membership.md).
+
+**EXP-496 update:** all sixteen lower-endpoint fold profiles and 124 trajectories
+are audited. The first case has qualified opposite-sign contact residuals at
+a=.21545/.21575 across all four history/direction representations, both solvers
+and repeat windows. The second is mixed: its depth-four rows support opposite
+signs, but both depth-eight rows fail the unchanged input-gain gate despite
+Newton convergence. Six qualified representations supply 144 ordered-pair cells;
+all parent/failed candidates remain accounted for. Neither lower endpoint is
+proximate. This nominates one interval, not an interior root, continuity proof,
+exact criticality, C/D or a Jones arrow.
+[Complete result, degeneracies and figure](updates/2026-09-09-exp496-contact-endpoint.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

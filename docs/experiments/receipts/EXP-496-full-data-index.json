@@ -1,0 +1,816 @@
+{
+  "auditor_sha256": "6ce2991f748f355bd7670f6f2204e5cb6ad6369511a61c2cb6d5cc947328dec1",
+  "builder_sha256": "ec99a2ff5aa474ce2a4a7d68501966cd8c3ecb1e408914947a2145a7c5c336c8",
+  "execution_source": "7513bed94ed206e57438a5cb3497c736da98ea11",
+  "experiment_id": "EXP-496",
+  "license": "GPL-2.0-only",
+  "schema": "butterfly.exp496-full-data.v1",
+  "scope": "Every EXP-496 returned target mesh, profile, control, start record and summary. Public parent inputs are pinned in the source manifest.",
+  "shards": [
+    {
+      "bytes": 531189760,
+      "members": [
+        {
+          "bytes": 6180,
+          "path": "binding.json",
+          "sha256": "705aec994194865f3ba726d7c876b90d6e60e809d90c915288a805925cd9db8d"
+        },
+        {
+          "bytes": 329879,
+          "path": "controls.json",
+          "sha256": "721f6b318d1088c9e5e3b797f694e317e6b7c6c13f203f0caaff19c92ca89021"
+        },
+        {
+          "bytes": 1636001,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--census-0.npz",
+          "sha256": "5e3cc1ac05c9fa07bf2c781b74126042c13893a47e90cb95f10982f484521d73"
+        },
+        {
+          "bytes": 1636045,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--census-1.npz",
+          "sha256": "ccd2f6753eb6b8093fba106317333961a5fa4f4b934453ee64897b83de778e35"
+        },
+        {
+          "bytes": 1636264,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--census-2.npz",
+          "sha256": "f32f3d04a4004668061b0c3dee4f781e629665be6004059090e2be8302226b65"
+        },
+        {
+          "bytes": 2172548,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-0.npz",
+          "sha256": "205e72f46196fffa1c2b908195cdea801e2af8cadb8d4453660682d37587a350"
+        },
+        {
+          "bytes": 2172608,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-1.npz",
+          "sha256": "5419bf014700e75bffe1c30cacb1136018f735b90fb8c3e533ec10b2376bd91e"
+        },
+        {
+          "bytes": 2172649,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-2.npz",
+          "sha256": "feab5e74de655fc401915bf62007f936aa86398c0fed8e98818b0c5a6fa0a8ce"
+        },
+        {
+          "bytes": 2172540,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-3.npz",
+          "sha256": "8f3557be01a70a2c07658b1a006f2a9fc0ea7e6ffab0da960beee2e079429c01"
+        },
+        {
+          "bytes": 2172653,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-4.npz",
+          "sha256": "a29043dcbaef97199329362a108202a8ef794aa013e7912c25d271ab8356a4d5"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853-started.json",
+          "sha256": "40a86e3224f13fea29abb638367755cd00a1ce0d7fb029f701a6dcfbcc68405a"
+        },
+        {
+          "bytes": 66067,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--DOP853.json",
+          "sha256": "3462bbe66fcb020f07bea6965ee3df32ee2fa4786995bd98580a798c7fa61d1c"
+        },
+        {
+          "bytes": 2797558,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--census-0.npz",
+          "sha256": "88c0cf7395f6cabbd76e9bc33ac121cd3c1cab8cd850efe6f9e6d0843683ae06"
+        },
+        {
+          "bytes": 2797567,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--census-1.npz",
+          "sha256": "5e584afb5b785f22022804000f3f98266b44cbd96b6ef9a9a9639fc06940c118"
+        },
+        {
+          "bytes": 2814591,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--census-2.npz",
+          "sha256": "cd26fc73265937720be2e1a4a41d8edeb4e7b1df28b7570ae0f28e160cb4090e"
+        },
+        {
+          "bytes": 4401942,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-0.npz",
+          "sha256": "677e0c0758d842697be9bab01958fe7bcd2c49668017d7ef56e16ae53d44509d"
+        },
+        {
+          "bytes": 4402148,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-1.npz",
+          "sha256": "831420d507878f7d489fd33728695b24a5b09ceb2481c6c5279d13c7e3487585"
+        },
+        {
+          "bytes": 4411924,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-2.npz",
+          "sha256": "2779b0b0fbf1f6c8a418ce324fe744e12fa4bb54bbbc03cdc597de27847eba7b"
+        },
+        {
+          "bytes": 4391734,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-3.npz",
+          "sha256": "cf88664e68201db89372a5b47356b78475be660f10bd73ba4de7334752869fc7"
+        },
+        {
+          "bytes": 4418251,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-4.npz",
+          "sha256": "e33d28d80d4592e4602876127a2249870e86df36357e7d14e65a2f88fe97177c"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau-started.json",
+          "sha256": "4965ad479155326e6110025b9389fea1e829ef00c3cad80c925a8a86038613ff"
+        },
+        {
+          "bytes": 66109,
+          "path": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--Radau.json",
+          "sha256": "352db3efca928b19a8cb16c2887f9652b878e63f6773c64c1a009dad2a530944"
+        },
+        {
+          "bytes": 1636130,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--census-0.npz",
+          "sha256": "b95a70a8fea12b5a93dfad6f76d28869e16cb1a8475aec60bc9c3aeaa1b737ca"
+        },
+        {
+          "bytes": 1636334,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--census-1.npz",
+          "sha256": "c220aafa5a38f7dd587f45217400fdc31d0868ef61fb36e4e46ce04c8f5a34d9"
+        },
+        {
+          "bytes": 1636239,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--census-2.npz",
+          "sha256": "b867193fa0bc41b1724e4f1ca373d7d43827da76b705fd6f3566b8ba8bf0f87b"
+        },
+        {
+          "bytes": 2172788,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-0.npz",
+          "sha256": "8945b35da7119baaa143ef173b3dda392eae28bf970f44923db796ef3344c82c"
+        },
+        {
+          "bytes": 2173012,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-1.npz",
+          "sha256": "131ab4decd6c91abe0b2e42298d2d5af45646d96d2f2b72b54dc89156470810c"
+        },
+        {
+          "bytes": 2173137,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-2.npz",
+          "sha256": "5afd6a9a04761dd25453d221fabd8f9deeffb7922672cb4171897f5f58069876"
+        },
+        {
+          "bytes": 2172926,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-3.npz",
+          "sha256": "006d2d14283635383f9d650abcd8206441171bfc1f0ca08d1e170d4aadf3980f"
+        },
+        {
+          "bytes": 2173033,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-4.npz",
+          "sha256": "d0509e7ceeea5f47de376cf6c3f38e34c24e0337e13850dfa67843f0160a66b5"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853-started.json",
+          "sha256": "24033b28666156e70a815df8d0fec27017383b27ee6bc2064728ff3998e6b091"
+        },
+        {
+          "bytes": 66277,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--DOP853.json",
+          "sha256": "e0ea2efc497362de0bb974f46cf35c6c857094878a4dd8a26a363f3e8957f51c"
+        },
+        {
+          "bytes": 2777637,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--census-0.npz",
+          "sha256": "cf272cb85248b9810c2e1c18b72567698e3507d193a2215b479d6325722b7724"
+        },
+        {
+          "bytes": 2768875,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--census-1.npz",
+          "sha256": "024cb6169c3d04a003502373fbb07d3b9945d0d712a806573539175bdc2afd69"
+        },
+        {
+          "bytes": 2783242,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--census-2.npz",
+          "sha256": "9a240210e350b08589ccd74238f7966bd62ab969fc32736aef50f3c19e102635"
+        },
+        {
+          "bytes": 4356648,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-0.npz",
+          "sha256": "66f8724da82d0c679f48e62b770f6532bdbf894474b0c073c4f8a446fefcf7e2"
+        },
+        {
+          "bytes": 4319266,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-1.npz",
+          "sha256": "a9f997ed0d6fc262eabb2f21937eab1e663b470e558a0cb4a2a14dd6509641f6"
+        },
+        {
+          "bytes": 4321377,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-2.npz",
+          "sha256": "113dd90fbbc6b75403ae6c8be092ac354cd22846e04a609faa6e579bbc7536cf"
+        },
+        {
+          "bytes": 4322663,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-3.npz",
+          "sha256": "10ebed0776788b9b836f9a011ded32b7d780966c9d7693ef269364db742e27a6"
+        },
+        {
+          "bytes": 4303217,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-4.npz",
+          "sha256": "c02ba45a1f35cdf828d791dbce5bacbc8ce0d04e9a5d4cfdad89b354e1418d11"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau-started.json",
+          "sha256": "52dce353e892490c1bab3f546bf6d39869c6fec6c10507a41980b194eb512546"
+        },
+        {
+          "bytes": 66204,
+          "path": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--Radau.json",
+          "sha256": "cdad4ec2ed0e6bddde891d299eee494be5a4d7f327b198f7ac83a0978484684c"
+        },
+        {
+          "bytes": 2775504,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--census-0.npz",
+          "sha256": "1da76663b38e7012153f840fd055b3f35902a8f9328130c4cbf8bbde940dabad"
+        },
+        {
+          "bytes": 2775268,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--census-1.npz",
+          "sha256": "89371948d3dcda4528c1f1381b48e43deb0f7d1e11f09990855e078acd00e367"
+        },
+        {
+          "bytes": 2775325,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--census-2.npz",
+          "sha256": "66c3a0233244310d1ccc2a4743b8e32f0feb313a76b605e81f13bd75365537cd"
+        },
+        {
+          "bytes": 3843388,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--newton-0.npz",
+          "sha256": "db93415f01041c2da8837ae3a2d57195a2e9036678dbcf5e8966607290dfee1d"
+        },
+        {
+          "bytes": 3845464,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--newton-1.npz",
+          "sha256": "eac9e5ad9b7b488de9d2f74ebc3ba05be4e2e15f065d70cde6bfe2bc3287d939"
+        },
+        {
+          "bytes": 3845205,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--newton-2.npz",
+          "sha256": "233e14a6c91878471ae6490cd5d0210f7be22dc8c4274163296b2bc2b97a10cd"
+        },
+        {
+          "bytes": 3845325,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853--newton-3.npz",
+          "sha256": "532145ddeab5ab99f3d48d834fd61b2d6bcb2e20b3590d576b134b06e2730841"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853-started.json",
+          "sha256": "5320214656c1ff244a1db8b4e659cbf088c01299c30903f4375950eba7fc4a17"
+        },
+        {
+          "bytes": 107816,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--DOP853.json",
+          "sha256": "6cbabe75949b01a29a182a79967c28641701fbd9323e5366b4786131e8a47676"
+        },
+        {
+          "bytes": 4639778,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--census-0.npz",
+          "sha256": "b9c2c30a7a8d71c9e794bd952d95d2be2e8667c529aec6e4a9c3503071e28fdc"
+        },
+        {
+          "bytes": 4648079,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--census-1.npz",
+          "sha256": "975daa49ff54de8aaefa74ad813bb4159c294fc252c2dd79a35678becb7ac536"
+        },
+        {
+          "bytes": 4640785,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--census-2.npz",
+          "sha256": "47346a4395e55b8812d827f8a92c65f8551a1e42b2d7c6082a31f5491d23a1f2"
+        },
+        {
+          "bytes": 7361741,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--newton-0.npz",
+          "sha256": "7fc462aefd7f404de0b2ffacd295307054c6aa1d44a8290d1b04602c3c31d0ba"
+        },
+        {
+          "bytes": 7359468,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--newton-1.npz",
+          "sha256": "82ff13ddf4ca887520d25ad2b5cb3d49c05921c7aaef8d54779f88f35c7d7b24"
+        },
+        {
+          "bytes": 7337883,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--newton-2.npz",
+          "sha256": "c192af1e9d2991590d69e129826f174c643d42d2a02221c37fcf6319767d6608"
+        },
+        {
+          "bytes": 7360629,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau--newton-3.npz",
+          "sha256": "3073cc67b1d96a1b22eccf5fbe1d32e43369f5c9aa95ecec819eef7d3d88c98b"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau-started.json",
+          "sha256": "d55aca399f38c234fa07dfb7f26e0c822f81e9a569ad8ddb1f61e1ab75e89a93"
+        },
+        {
+          "bytes": 107838,
+          "path": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--Radau.json",
+          "sha256": "b43123b05e687263f9e998fedce1e9adb1dd9136a2a0da255e38cf533063c27c"
+        },
+        {
+          "bytes": 2775489,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--census-0.npz",
+          "sha256": "e77afd3c548fa2cbbb889eebeffbcc4dd9c6dcdf8065fc77bdf06e9220fa4ca3"
+        },
+        {
+          "bytes": 2775357,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--census-1.npz",
+          "sha256": "3f04a826981209c1fe332ae57d215df3583b7949a54ef04e7b24e793e56edb3d"
+        },
+        {
+          "bytes": 2775572,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--census-2.npz",
+          "sha256": "5a82567f20a2179fbc34919ac2049e8daa04f30afe0539629b59cd0bbfc74b0e"
+        },
+        {
+          "bytes": 3842698,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--newton-0.npz",
+          "sha256": "a51f51baac6a892d1297ebb25bf0f4eb28f0a9ff8e558a3f9f58df62b210780c"
+        },
+        {
+          "bytes": 3844500,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--newton-1.npz",
+          "sha256": "d4e900783eada898fcaf42661016413845faaca391f13b2e4580bf78dc978297"
+        },
+        {
+          "bytes": 3844416,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--newton-2.npz",
+          "sha256": "aaf0330f21b068e41bc55ef2bedd5d37153ee993b134f573329fd2e13519a11d"
+        },
+        {
+          "bytes": 3844419,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853--newton-3.npz",
+          "sha256": "299e164a78e6d81132f935e1d3c13bc407e5e84a4d0a216b47135c4faaf67ff0"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853-started.json",
+          "sha256": "1ca624e0ed832830e5654459470628a8b2d46f29c81aa2fd9e851ea1f2b00692"
+        },
+        {
+          "bytes": 107964,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--DOP853.json",
+          "sha256": "6d72dbd0a9e4cac92f7bf7b397f6f733b7fd53a314c68264cca2253caf121fa6"
+        },
+        {
+          "bytes": 4589117,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--census-0.npz",
+          "sha256": "802e28eb822c6f0c4f1b4d01ae87743ee48ba280cd279a918bcc9065fbf12a43"
+        },
+        {
+          "bytes": 4604712,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--census-1.npz",
+          "sha256": "25f63c4315d721cbed42add4b1e1098b034b188689607da239a02140cb174ebd"
+        },
+        {
+          "bytes": 4591408,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--census-2.npz",
+          "sha256": "96ea67f9c7f2f30f2ad7bfde2b505f350e63a0830f0293e2dc00e7e04b8fb417"
+        },
+        {
+          "bytes": 7279121,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--newton-0.npz",
+          "sha256": "9ad113c7e10ca24574241e91891563fb761b93fdb8e828c7de6f3a91efbac4cd"
+        },
+        {
+          "bytes": 7284008,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--newton-1.npz",
+          "sha256": "3cbf54f62cebb00f943f47c908c451ac9dab2dae50ad490b8b64c1e5f1c7c7bc"
+        },
+        {
+          "bytes": 7291517,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--newton-2.npz",
+          "sha256": "95d59d75d9a07e4d847192ae077817cd81c3b5f3a8b0d9fa69a97aee8648a440"
+        },
+        {
+          "bytes": 7303067,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau--newton-3.npz",
+          "sha256": "f4995c4fb054a9f5ed4ca6cdf4e0a6824077258d84b9465d418e530f1068fe77"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau-started.json",
+          "sha256": "e3efdd1a3e8ad4c67e5f913c8926f9e2c0e340e5978f97f0e2eb7ac672bdb2a3"
+        },
+        {
+          "bytes": 107889,
+          "path": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--Radau.json",
+          "sha256": "ab6d742556ede87ee49842ad4af5bbd8a8fbde18630a25bf8926bcfb0b1ef88c"
+        },
+        {
+          "bytes": 1881056,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--census-0.npz",
+          "sha256": "8d852b9c40b3358cbcb240d261fcd3007f98d5a178e4a0b67ff56a655591c9c2"
+        },
+        {
+          "bytes": 1880995,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--census-1.npz",
+          "sha256": "ff34a93213336f93ea66c611e22a1342566c81608ee4265aed43eaf3d323bc98"
+        },
+        {
+          "bytes": 1881105,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--census-2.npz",
+          "sha256": "f81a6cd7515dc8ba1f6c88d3e5a032fa283db2a6e3d0f013a1ccb5bd18bd0920"
+        },
+        {
+          "bytes": 2533014,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-0.npz",
+          "sha256": "8d1cf4b410d81ea2943ac6b8ae266d32199c76123301886dbe444a06d0a0cedc"
+        },
+        {
+          "bytes": 2533254,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-1.npz",
+          "sha256": "99ce80eab01821d1da6c7471b0d07448d387bc3ad6fcf3feb70277c4585633a4"
+        },
+        {
+          "bytes": 2533220,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-2.npz",
+          "sha256": "51b6d5d4da40b74c18801b1c141eaa56fa0035266ddf23b7f0d61757528ab764"
+        },
+        {
+          "bytes": 2533241,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-3.npz",
+          "sha256": "c4d851577f782bfe6240786770cdcc1c063ac0041652c873fda8f825fdd8316a"
+        },
+        {
+          "bytes": 2533161,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853--newton-4.npz",
+          "sha256": "931157adbd683712ce6e4fb41a622f11d79c526f76183a11352ede3dac93f8ec"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853-started.json",
+          "sha256": "12ba4eb7dfd3c06a01d0d0462f3a4480f50590a7744a0a29ad346ed2257e1900"
+        },
+        {
+          "bytes": 69906,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--DOP853.json",
+          "sha256": "962d5b0006b6fe7e542f4f6f6ae81eaecaf7b31b556812b823d5b7b0223cc361"
+        },
+        {
+          "bytes": 3189050,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--census-0.npz",
+          "sha256": "4293b3b91b36665d0f60f83ef174b07d7f23f3a5ea9e5907c0b644064510d8c9"
+        },
+        {
+          "bytes": 3203925,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--census-1.npz",
+          "sha256": "a661f5b44b231ba8032a24f9fd110e0dd50fec23ee43b7395eb2b18f99f21d0d"
+        },
+        {
+          "bytes": 3198916,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--census-2.npz",
+          "sha256": "1be5ed9c3219aa7a0c838f12832bdf84594de93ed52cec7ec07d334ed426b01a"
+        },
+        {
+          "bytes": 4829478,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-0.npz",
+          "sha256": "e7e729402fb9eb64fe435299b83ad036c48bc9291ab3f516d7be6484813b47c9"
+        },
+        {
+          "bytes": 4834773,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-1.npz",
+          "sha256": "6c3ca7c42f9e4dff7460d7717eff41a0f704e6d312ff0f51c2c98166efed5d40"
+        },
+        {
+          "bytes": 4834054,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-2.npz",
+          "sha256": "48eda30ecf2fd8d519401677c1f6194f0d472bf3bb0ba8f1be0b64e38080cc41"
+        },
+        {
+          "bytes": 4852603,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-3.npz",
+          "sha256": "9a35f6117ee92784f2c4f566d93d283bc45f6b943de1eeb1383097e5d5f5e88c"
+        },
+        {
+          "bytes": 4823313,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau--newton-4.npz",
+          "sha256": "5c42b12930987de565f8fac0981ca54464bcaf26d55731f142d30dbfdf12bcbf"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau-started.json",
+          "sha256": "abef5cb30dae7111d8083f34bf9434b48bea28d80442c945fa81530b40b09308"
+        },
+        {
+          "bytes": 69914,
+          "path": "local-a027-c083--region-1--depth-4--direction-0--candidate-0--Radau.json",
+          "sha256": "869c78edbff20ba86beb13920547d18d518a87f53a0fefc9682e625ab489a236"
+        },
+        {
+          "bytes": 1881109,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--census-0.npz",
+          "sha256": "4e985525ee9fb730d42e09f43aec83c487d0c59b74783b4ded048b41e0cc72a8"
+        },
+        {
+          "bytes": 1880923,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--census-1.npz",
+          "sha256": "7362ee5895365c212ddd2fbb66496e9fedc23bdda55d79d5ed5387a36dab8b96"
+        },
+        {
+          "bytes": 1881197,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--census-2.npz",
+          "sha256": "a3a257f0399ff1415f06fefc671779fe272102813ff338b175eb3a4addd4276a"
+        },
+        {
+          "bytes": 2533611,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-0.npz",
+          "sha256": "2cb641f387502d1244e0860e13a5273c7e228764daf994601828f59ec3d96338"
+        },
+        {
+          "bytes": 2533573,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-1.npz",
+          "sha256": "f9e55dbcad4c8859a26fc67f9ff84ee90ac8522a62272aca26b798737396a22a"
+        },
+        {
+          "bytes": 2533484,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-2.npz",
+          "sha256": "6b494b3e73d052f1c6b891abfd1f0d0578d696969cbf4a3ff36f14dc35e62d16"
+        },
+        {
+          "bytes": 2533617,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-3.npz",
+          "sha256": "9eb145c1df3ce3825115938035f186c638ec3c1a939e86a7193c582b6070eb16"
+        },
+        {
+          "bytes": 2533572,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853--newton-4.npz",
+          "sha256": "543bf32179e6ff562ac0c54583aa0336912f1850cd94a68212b418496d45c051"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853-started.json",
+          "sha256": "04665946563128f493fe4bb42e69b82e87ba374bea9394edfe87377f8f61986f"
+        },
+        {
+          "bytes": 70046,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--DOP853.json",
+          "sha256": "bb10757c2e5ddc04154ee541cd82e7a2df971ac9641f8b9638f0cc4988ad4b3f"
+        },
+        {
+          "bytes": 3151914,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--census-0.npz",
+          "sha256": "370bc4afef567621333b943eb48e7fb63a9994366d1c89bd431ca057dcc02617"
+        },
+        {
+          "bytes": 3163684,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--census-1.npz",
+          "sha256": "3a1732c19765c227ef9838fa5b1b5da6defb1d1dfe6f24d9e0c78355560aa0e0"
+        },
+        {
+          "bytes": 3154104,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--census-2.npz",
+          "sha256": "515994d01ea41e9e86d9c9552d35e125db70682c255b2ac9e54d7096c95592fb"
+        },
+        {
+          "bytes": 4763162,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-0.npz",
+          "sha256": "d651cd9a8513d86db23a33fdcb1a8dddb1d3253642a0fabde7a7a27af4b14523"
+        },
+        {
+          "bytes": 4747112,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-1.npz",
+          "sha256": "1d67805c08d675c477952864dbb2f46add5d8acbfcf5e5c353e08741ff3cde26"
+        },
+        {
+          "bytes": 4764820,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-2.npz",
+          "sha256": "f8cc138406dd3451ea50c2d314bca86c8072c25ab9ec08a87caf07bce3281797"
+        },
+        {
+          "bytes": 4766619,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-3.npz",
+          "sha256": "9de02b774d8e10e792ebdac742551207b5a7e02ce16f7db70db66fb6c328aadf"
+        },
+        {
+          "bytes": 4761590,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau--newton-4.npz",
+          "sha256": "669354aa0712b89f2acddf94fee83e60e3ede06a56ebcefb93b532e542bc8ff3"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau-started.json",
+          "sha256": "b5ef1f8fd5aa5ce66b0be8c041be6cce4431288fed334a3b7b0fd7b7c88fb43f"
+        },
+        {
+          "bytes": 70094,
+          "path": "local-a027-c083--region-1--depth-4--direction-1--candidate-0--Radau.json",
+          "sha256": "3308d0fd4117a1fa2ce535dfe65f9260126c9680ebfcdf723943b382755d4b03"
+        },
+        {
+          "bytes": 3450391,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--census-0.npz",
+          "sha256": "1788671a61bd581a8ea69b51850fa7f479d1e6e36336f3001bce5286bcc281c6"
+        },
+        {
+          "bytes": 3450632,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--census-1.npz",
+          "sha256": "df3c323e21eff1a906dc86ed8c63a7adff917a5a5ef023bb66069f5f3e715b04"
+        },
+        {
+          "bytes": 3450705,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--census-2.npz",
+          "sha256": "0e4e6b18aa770d0e5495cc31243a5d5c537fb1ea35a0f7de94a523c7ec1d6054"
+        },
+        {
+          "bytes": 4835690,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--newton-0.npz",
+          "sha256": "2c42e2c3f23598f5fea6687b4ba93f2c4a868c25fe16a08de985fde0577ff813"
+        },
+        {
+          "bytes": 4837157,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--newton-1.npz",
+          "sha256": "8a5d9cf915872b5e709b69fcb3722b469f434af97974f0df7dc5e902790cac51"
+        },
+        {
+          "bytes": 4837071,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--newton-2.npz",
+          "sha256": "464b2c93aadebb64834cdaf27494b46f860294cf5c6f6488efd69d49956aa5bb"
+        },
+        {
+          "bytes": 4837157,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--newton-3.npz",
+          "sha256": "e03f93088e42752ad51aa2dc8fb642e22153cfb8b40d3e7800a3c8678cd61e83"
+        },
+        {
+          "bytes": 4837416,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853--newton-4.npz",
+          "sha256": "2fc255a6b14b2c6068b84231ccbc655e888f5b32f6395de5435743f9419f0bd4"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853-started.json",
+          "sha256": "50b1f8b3198b30cf10ef63feb20e4cdfcf3d8e10eef33accae58f04357b95650"
+        },
+        {
+          "bytes": 118878,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--DOP853.json",
+          "sha256": "c3ea69a3446025fbb04279cf5b6ce7a575b74bc1bd102f5676baee56bd8ed3b5"
+        },
+        {
+          "bytes": 6052826,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--census-0.npz",
+          "sha256": "a2572ce3a44ffb431df7151eecea92eafebe7b523f9b2a88c47e74769e831658"
+        },
+        {
+          "bytes": 6059179,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--census-1.npz",
+          "sha256": "8cc45a4d26619d93371f0f1b5ff4059df5499892f5c679384f0e1d68691d706f"
+        },
+        {
+          "bytes": 6047269,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--census-2.npz",
+          "sha256": "eac6cdd9a4b5b94fc02e3c5345a390b9353d15542e21a9aee5c9a65d742a28a5"
+        },
+        {
+          "bytes": 9513678,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--newton-0.npz",
+          "sha256": "d6e68ded3038dc547a2e4c45cc048a289bbdbd78e0346cc612c9eaa1c750502d"
+        },
+        {
+          "bytes": 9484022,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--newton-1.npz",
+          "sha256": "a0bfc2657c2c9f469757456ce490fee892e8e32ef82305baa6036be42a8941b7"
+        },
+        {
+          "bytes": 9445682,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--newton-2.npz",
+          "sha256": "211a70da9cc54284125df6495b316592f75635a0a82faf806d1de6d4c085ab55"
+        },
+        {
+          "bytes": 9459712,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--newton-3.npz",
+          "sha256": "89f4be4cc79b46c231746d3a3f17efb0e52992fc044d0914e033edf2d5e35ebe"
+        },
+        {
+          "bytes": 9463907,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau--newton-4.npz",
+          "sha256": "8deee290fe7a7e3b18497a1f36796ad98d6aff9d11536d7daab84fc95bad2aa5"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau-started.json",
+          "sha256": "b67bd8ec9a2501dde921828e61e8f2e08fee02e2e7385fb78875459ce032cf03"
+        },
+        {
+          "bytes": 118945,
+          "path": "local-a027-c083--region-1--depth-8--direction-0--candidate-1--Radau.json",
+          "sha256": "95b3001f0002379b096f08678048e2c662e6c046ab41c94e7157470fabf3da2a"
+        },
+        {
+          "bytes": 3450370,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--census-0.npz",
+          "sha256": "e82de86ba4c47498f8bab9afe96590d1fcbb51db1eb8c3bb83c66cf126e6c36c"
+        },
+        {
+          "bytes": 3450061,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--census-1.npz",
+          "sha256": "6dda1fc5013b079fa94216be1b3574ef46576722e977d2c6d6c2eecc92cb05da"
+        },
+        {
+          "bytes": 3450143,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--census-2.npz",
+          "sha256": "1039ba015664553c12f834502c9c4d00ad5856dea2c16c8d12f177092b0b5502"
+        },
+        {
+          "bytes": 4833134,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--newton-0.npz",
+          "sha256": "aad580cb8efdffa7cb22f4227de23919f34bf91eef9e06f561a7f282850bb0ad"
+        },
+        {
+          "bytes": 4834576,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--newton-1.npz",
+          "sha256": "696caf09d1e5ae0cd3ff14f249242ea6e8f363da4de016f9cfa3aa047dd45822"
+        },
+        {
+          "bytes": 4834593,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--newton-2.npz",
+          "sha256": "cfa406ab4dc7ae9a14234a8b563589e1f61733343565e1825a524f553cc33c82"
+        },
+        {
+          "bytes": 4834574,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--newton-3.npz",
+          "sha256": "6d3b424deb3f437153ecfb8db6b67d5660df0e509089f62e24af8745fce74c81"
+        },
+        {
+          "bytes": 4834626,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853--newton-4.npz",
+          "sha256": "5d17b6ec130658818ad33bae4ad19cec8808241af45fa66def6632222436bfda"
+        },
+        {
+          "bytes": 160,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853-started.json",
+          "sha256": "7e3df58018cfcab4087411c96470ec9a464f8fc1496879b2938ff33f9b4ede67"
+        },
+        {
+          "bytes": 119052,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--DOP853.json",
+          "sha256": "c55251e7a38d42cd15d3ceb7c52dfc0b5a586e904afbc97598f8307d2d14974a"
+        },
+        {
+          "bytes": 5996309,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--census-0.npz",
+          "sha256": "0eed893bb8e482209ff1b67a137b7ebe62468b681c5dd36ffad6c2b83fe2cec0"
+        },
+        {
+          "bytes": 5984510,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--census-1.npz",
+          "sha256": "cad8afeb6074b9ac91fb2ec8fa5054dfeefabb39fea26bb5bda3112a77b0135b"
+        },
+        {
+          "bytes": 6026995,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--census-2.npz",
+          "sha256": "3cf1abed4eb8cf42ae941c20bfe4d332f7eef34ecf7a382829942addea0f8a21"
+        },
+        {
+          "bytes": 9476002,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--newton-0.npz",
+          "sha256": "1fd31dd55bafb97558e042e3a927de8e1a21df92761b6d0858cf1d3afa0bf6c4"
+        },
+        {
+          "bytes": 9465894,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--newton-1.npz",
+          "sha256": "5d032e64e0e337f63352329e384170f53c669055f242c437001fd8c7dd5e60bb"
+        },
+        {
+          "bytes": 9427490,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--newton-2.npz",
+          "sha256": "379ea689f85c4abed844882acb2adc3ce22ae93092e1365bc948cf5c12e92cd4"
+        },
+        {
+          "bytes": 9387016,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--newton-3.npz",
+          "sha256": "786970ffcd1a4de1e01a54e13e865e53c1d9b6415e76cc357fe881a8c576b7d4"
+        },
+        {
+          "bytes": 9409498,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau--newton-4.npz",
+          "sha256": "fbc7e4a6bcc34afe41285cbc248aad64bc7bb012eac320dbae08f636945738dc"
+        },
+        {
+          "bytes": 159,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau-started.json",
+          "sha256": "ed3068305f5ee8c950f5f6a4ef1cb9a2e3cd5a045f5a5ad07b545f857ee4fca2"
+        },
+        {
+          "bytes": 119037,
+          "path": "local-a027-c083--region-1--depth-8--direction-1--candidate-1--Radau.json",
+          "sha256": "3318fcd40a9e3a5047d207cdb2f796e42c39f32d88c1d59b8c85a0ab4f76df82"
+        },
+        {
+          "bytes": 214907,
+          "path": "summary.json",
+          "sha256": "b99970186185c73b0104f257966b18dd22f764d7b1d364c8319c222c2c1bbe24"
+        }
+      ],
+      "path": "EXP-496-full-data-00.tar",
+      "sha256": "e1db8ff993b182a19758f0f224a02e397c86b674cc1716a6612c578edbae0d1c"
+    }
+  ],
+  "summary_sha256": "b99970186185c73b0104f257966b18dd22f764d7b1d364c8319c222c2c1bbe24",
+  "total_bytes": 531055878,
+  "total_members": 159
+}

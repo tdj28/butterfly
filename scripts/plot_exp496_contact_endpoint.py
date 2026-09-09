@@ -79,6 +79,9 @@ def build(path, expected, output):
                   "A sign change nominates an interval; it does not prove contact, continuity, C/D, or a Jones arrow.", fontsize=10)
     for extension in ("svg", "png"):
         fig.savefig(output/f"{STEM}.{extension}", dpi=300, metadata={"Date": None} if extension == "svg" else None)
+        if extension == "svg":
+            svg = output/f"{STEM}.{extension}"
+            svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines())+"\n")
     plt.close(fig)
     receipt_path = output/f"{STEM}.receipt.json"
     write_json(receipt_path, dict(experiment_id="EXP-496", source_data_sha256=expected,

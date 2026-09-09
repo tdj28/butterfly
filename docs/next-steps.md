@@ -177,6 +177,13 @@ inputs; historical result reproduction is a separate requirement.
   representations and failures. Establish the second critical object or
   justified piecewise domain boundary separately; no C/D label follows from
   one right-hand fold or a three/six doubling relation.
+  [EXP-496 supplies one qualified endpoint interval](updates/2026-09-09-exp496-contact-endpoint.md):
+  all 124 new trajectories are audited. The first case has opposite signed
+  residuals across all four representations; the second remains mixed because
+  both depth-eight searches lose input conditioning. Next localize inside the
+  first interval, re-correcting the primitive cycle and recomputing every fold
+  representation at each new parameter. Neither endpoint is proximate; endpoint
+  signs alone do not prove an interior contact or continuity.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
