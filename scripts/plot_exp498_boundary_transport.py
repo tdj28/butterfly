@@ -63,7 +63,7 @@ def build(path,expected_sha,output):
     fig,(left,right) = plt.subplots(1,2,figsize=(13,7))
     fig.subplots_adjust(left=.08,right=.97,top=.80,bottom=.35,wspace=.32)
     complete = result["diagnostic"]["complete_qualified_matrix"]
-    title = "The extra-return boundary at the primitive-cycle point" if complete else "Boundary transport retains an incomplete qualification matrix"
+    title = "The extra-return boundary at the primitive-cycle point" if complete else "The extra-return boundary is not yet matched to the cycle"
     fig.suptitle(title,fontsize=19,y=.97)
     qualified = sum(bool(r["geometry"]["analysis"] and r["geometry"]["analysis"]["qualified"]) for r in result["rows"])
     fig.text(.5,.91,f"EXP-498 | a = {p['anchor_parameters']['a']:.10f}, b = 0.2, c = 7.212 | {qualified}/8 boundary/turn matrices qualify",ha="center")
@@ -71,7 +71,9 @@ def build(path,expected_sha,output):
     q = np.asarray(cycles[0]["metric"]["windows"][0]["event_states"]["historical"])
     for i in range(6):
         left.annotate("",xy=q[(i+1)%6,[0,2]],xytext=q[i,[0,2]],arrowprops=dict(arrowstyle="->",color="#aaaaaa",lw=.8))
-        left.annotate(str(i),q[i,[0,2]],xytext=(4,5),textcoords="offset points",fontsize=8)
+        offset = [(-12,-14),(12,16),(8,8),(10,-4),(-10,8),(-10,-12)][i]
+        left.annotate(str(i),q[i,[0,2]],xytext=offset,textcoords="offset points",fontsize=8,
+                      arrowprops=dict(arrowstyle="-",lw=.5,color="#777777"))
     all_cycles = np.array([q for profile in cycles for w in profile["metric"]["windows"] for q in w["event_states"]["historical"]])
     left.scatter(all_cycles[:,0],all_cycles[:,2],c="#222222",s=35,marker="*",zorder=4)
     fold = np.array([v["fold_input"] for r in anchor["result"]["contact"]["rows"] for v in r["variants"]])
@@ -81,6 +83,7 @@ def build(path,expected_sha,output):
         passed = bool(row["geometry"]["analysis"] and row["geometry"]["analysis"]["qualified"])
         label = c["parent_id"].split("--region-0--")[1].replace("depth-","h").replace("direction-","d").replace("candidate-","n").replace("--"," / ")
         if not passed: label += " (unqualified)"
+        if row["parent_qualified"] is False: label += " [prior fail]"
         handles.append(Line2D([],[],color=COLORS[i],marker=MARKERS[i],ls="none",label=label,
             markerfacecolor=COLORS[i] if passed else "none"))
         records = [v for v in row["predecessors"] if v["eligible"]]
@@ -133,6 +136,8 @@ def verify(output):
     if set(index) != {name} or sha256(output/name) != index[name]["sha256"] or (output/name).stat().st_size != index[name]["bytes"]:
         raise ValueError("figure receipt differs")
     receipt = json.loads((output/name).read_bytes())
+    if receipt["figure_id"] != STEM or set(receipt["outputs"]) != {f"{STEM}.svg",f"{STEM}.png"}:
+        raise ValueError("complete figure output set required")
     source = run.ROOT/receipt["source_data_path"]
     if sha256(source) != receipt["source_data_sha256"] or sha256(Path(__file__)) != receipt["generator_sha256"]:
         raise ValueError("figure source differs")

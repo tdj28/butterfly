@@ -23,8 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp498-boundary-transport.md`](2026-09-09-exp498-boundary-transport.md)
-  - Transport the extra-return boundary to the new primitive-cycle point,
-  keeping all eight first-case nominations and the old accuracy failure.
+  - All 136 integrations audited: six of eight boundary matrices qualify;
+  two near-tangent accuracy failures remain, and boundary inputs do not meet
+  the cycle-proximity criterion at any of the six events.
 - [`2026-09-09-exp497-contact-localization.md`](2026-09-09-exp497-contact-localization.md)
   - All 179 target IVPs audited: the third interior point meets full-state
   fold/cycle proximity in all sixteen variants while retaining primitive 6/8 counts.
