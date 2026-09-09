@@ -1,0 +1,19 @@
+{
+  "experiment_id": "EXP-493",
+  "parent_source": "919f16f1846d145ff14ad1da35e3fb516cd1e849",
+  "parent_summary_sha256": "4a856360eb1c8da8099fd39ca09e4543423ed32a8a4dd20766f175a7c98e86a6",
+  "parent_receipt_path": "docs/experiments/receipts/EXP-492-event-boundary-result.json",
+  "parent_receipt_sha256": "7544eb230106e6b1f6fccf658fb6f60e6ef53230bcc0709b0b6e912addc268bf",
+  "window": 0.05,
+  "radius_floor": 1e-10,
+  "angle_ceiling": 2.9,
+  "angle_agreement": 1e-6,
+  "paired_angle": 1e-6,
+  "paired_scaled_endpoint": 1e-6,
+  "paired_radius_relative": 0.01,
+  "relative_turn_error": 0.01,
+  "scales": [15.0, 15.0, 0.01],
+  "max_seconds": 300,
+  "max_output_bytes": 33554432,
+  "claim_boundary": "Same-agent, outcome-informed saved-data diagnostic of relative winding of open trajectory arcs about the small equilibrium's x-y projection. No new integrations, rigorous smooth-curve enclosure, full-flow topological invariant, independent flow replication, physical periodic-window transition, C/D or branch dictionary, verified Jones word/arrow, or homoclinic conclusion. All parent failures remain failures."
+}
