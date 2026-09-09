@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-08-exp491-event-sheet-probe.md`](2026-09-08-exp491-event-sheet-probe.md)
+  - all 156 trajectories audited: 78/78 sampled points reproduce, but only
+  ten intervals pass the time/coordinate screen; sixteen retain event-time
+  discontinuity warnings, including two input-sign reversals.
 - [`2026-09-08-exp490-direct-folds.md`](2026-09-08-exp490-direct-folds.md)
   - all 26 candidate intervals, 52 solver profiles and 208 retained trajectories;
   ten paired-qualified searches across eight right-region families, with

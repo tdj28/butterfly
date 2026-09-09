@@ -1,0 +1,20 @@
+{
+  "experiment_id": "EXP-491",
+  "status": "prospective-exploratory-sheet-probe",
+  "candidates_path": "experiments/manifests/EXP-490-candidates.json",
+  "candidates_sha256": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+  "parent_receipt": "docs/experiments/receipts/EXP-490-direct-fold-result.json",
+  "parent_receipt_sha256": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+  "solvers": ["DOP853", "Radau"],
+  "fractions": [0.0, 0.5, 1.0],
+  "rtol": 1e-13,
+  "atol": 1e-15,
+  "max_step": 0.001,
+  "guard": 1e-8,
+  "extremum_margin": 1e-10,
+  "scales": [15.0, 15.0, 0.01],
+  "thresholds": {"angle": 1e-7, "plane": 1e-8, "state": 1e-6, "time": 1e-7, "tangent_relative": 1e-5, "time_gradient_relative": 1e-5, "minimum_gain": 1e-4, "minimum_x_component": 0.001, "adjacent_time": 1.0, "time_prediction": 0.25},
+  "limits": {"candidates": 26, "families": 16, "samples": 78, "target_trajectories": 156, "control_profiles": 48, "wall_seconds": 7200, "output_bytes": 8589934592, "initial_free_bytes": 17179869184, "minimum_free_bytes": 8589934592},
+  "paid_review": "not_run",
+  "claim_boundary": "Outcome-informed, three-sample local event/input-chart screening across all original candidate intervals. No interval-continuity certificate, hidden-boundary exclusion, fitted scalar partition, distinct-critical-point count, C/D assignment, Jones word/arrow, homoclinic proof or whole-plane explanation. Earlier verdicts remain unchanged."
+}
