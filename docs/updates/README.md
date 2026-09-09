@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp502-joint-contact-search.md`](2026-09-09-exp502-joint-contact-search.md)
+  - Joint a,c contact search in preparation; complete analytic controls and
+  focused tests pass. This entry distinguishes earlier archived-product
+  counts from actual integration calls; no new contact result yet.
 - [`2026-09-09-exp501-limiting-contact.md`](2026-09-09-exp501-limiting-contact.md)
   - All 38 integrations and sixteen limiting-boundary profiles audit cleanly;
   none of 384 cycle-contact comparisons passes. The mismatch persists in the
