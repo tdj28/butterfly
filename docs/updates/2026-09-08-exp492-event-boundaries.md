@@ -61,9 +61,10 @@ On the reconstructed section, tangency forces x=x_s,y=y_s: the orbit passes
 through the vertical line over the small equilibrium's x--y projection.
 That gives a concrete next mechanism test. Does passing this boundary add
 the projected inner turn described by Jones, or have we only changed a
-counter? The separately prepared EXP-493 saved-trajectory diagnostic
+counter? The subsequent
+[EXP-493 saved-trajectory diagnostic](2026-09-09-exp493-projected-inner-turn.md)
 measures planar angle from trajectory geometry before comparing event counts.
-It will retain the unqualified parent and cannot promote it to a complete pass.
+It retains the unqualified parent and cannot promote it to a complete pass.
 
 For Jones, this is progress toward reconstructing the mechanism, not yet
 verification of the flow-level symbolic chains. C/D assignments, held-out

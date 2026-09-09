@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-492 boundary localization; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-493 projected-turn diagnostic; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -135,6 +135,18 @@ and return counts; this is not sixteen distinct physical boundaries or a
 global uniqueness proof. These are fixed-parameter initial-curve grazings,
 not newly verified periodic windows, C/D assignments or Jones chain arrows.
 [Complete matrix and boundary geometry](updates/2026-09-08-exp492-event-boundaries.md).
+
+**EXP-493 update:** a separate saved-trajectory diagnostic passes all 128
+geometric profiles, 64 paired-solver comparisons and 64 opposite-side
+relative-turn comparisons. The added negative crossing is accompanied by
+one additional winding about the equilibrium's x--y projection, measured
+from trajectory polygons before comparing the event list. Complete candidate
+qualification remains 15/16 because EXP-492's accuracy failure is retained.
+This supports a local projected-inner-turn ingredient, not a continued
+periodic family, full-flow topological invariant, C/D dictionary or Jones
+word/arrow. All local-window polygons are publicly released for numerical
+replay; full-horizon integration validation is a separate matter.
+[Mechanism, limits and public replay](updates/2026-09-09-exp493-projected-inner-turn.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate
