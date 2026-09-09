@@ -112,8 +112,13 @@ inputs; historical result reproduction is a separate requirement.
   [EXP-488 separated refined convergence from the old coarse reference](updates/2026-09-08-exp488-event-accuracy.md):
   all twelve profiles completed; the first witness passes all six fine-pair
   comparisons and the second passes three of six. Its finest solver pair agrees,
-  but the complete criterion still fails. Next test section tangency directly
-  and qualify the event-aware fold path; do not select only the favorable pair.
+  but the complete criterion still fails.
+  [EXP-489 directly reproduced a section-grazing boundary near both selected witnesses](updates/2026-09-08-exp489-section-grazing.md):
+  26 integrations, both solvers, all signed perturbations, four preceding
+  accepted returns and the predicted pair birth/death and square-root scaling.
+  Next carry explicit grazing boundaries into the full depth/direction curve
+  matrix; qualify smooth fold searches only on event-consistent branches.
+  Do not bridge grazing boundaries or select only favorable accuracy profiles.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
