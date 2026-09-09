@@ -22,6 +22,17 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-08-exp490-direct-folds.md`](2026-09-08-exp490-direct-folds.md)
+  - all 26 candidate intervals, 52 solver profiles and 208 retained trajectories;
+  ten paired-qualified searches across eight right-region families, with
+  duplicated physical locations and all sixteen unresolved intervals retained.
+- [`2026-09-08-exp489-section-grazing.md`](2026-09-08-exp489-section-grazing.md)
+  - both selected section tangencies reproduce crossing-pair birth/death and
+  square-root scaling; this explains event-list jumps, not symbolic chains.
+- [`2026-09-08-exp488-event-accuracy.md`](2026-09-08-exp488-event-accuracy.md)
+  - complete tolerance matrix retains one passing and one unresolved witness;
+  a favorable finest solver pair does not erase the complete failed criterion.
+
 - [`2026-09-07-exp482-successor-preflight.md`](2026-09-07-exp482-successor-preflight.md)
   — distinct successor design/attempt; real source preflight passes 426 tests,
   raw-reference audits and all configurations; cumulative prospective review next.

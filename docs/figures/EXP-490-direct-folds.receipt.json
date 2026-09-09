@@ -1,0 +1,921 @@
+{
+  "accessibility": "Letters duplicate color; explicit text for unavailable locations.",
+  "alt_text": "Two panels retain every candidate at each of two parameter values. Each row shows the DOP853, Radau and paired verdict, with letters as well as colors. Unresolved candidates remain visible. Input x is printed only for paired-qualified folds; this is an outcome table, not a reconstructed curve or proof that unresolved intervals lack folds.",
+  "audit": {
+    "path": "scripts/audit_exp490_direct_folds.py",
+    "sha256": "1b0d5484133ebf6a807ac4c491457be5be9dbd06d561f7bcab45731665f1e276"
+  },
+  "claim_boundary": "All original candidate intervals, outcome-informed finite-image geometry only. Qualified numerical projected folds, not an invariant quotient, complete partition, C/D membership, Jones word or arrow, homoclinic proof or whole-plane explanation. All earlier verdicts remain unchanged.",
+  "completed_summary_sha256": "41fe7b8e5346a97946c2bb51400fb1109d0b5a29d682653494b36fd2962b345e",
+  "derived_values": [
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 4,
+      "direction": 0,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 4,
+      "direction": 0,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 2,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 4,
+      "direction": 1,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 4,
+      "direction": 1,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 2,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 2,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 2,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 4,
+      "direction": 0,
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "in_region": true,
+      "input_x": [
+        -6.8807579818024704,
+        -6.880757981801896
+      ],
+      "ordinal": 1,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 4,
+      "direction": 1,
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "in_region": true,
+      "input_x": [
+        -6.88075798180285,
+        -6.880757981802116
+      ],
+      "ordinal": 1,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "in_region": true,
+      "input_x": [
+        -6.880757981802801,
+        -6.88075798180182
+      ],
+      "ordinal": 1,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21575,
+      "case": "local-a025-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "in_region": true,
+      "input_x": [
+        -6.880757981802083,
+        -6.880757981802508
+      ],
+      "ordinal": 1,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 4,
+      "direction": 0,
+      "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 4,
+      "direction": 1,
+      "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 0,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 4,
+      "direction": 0,
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "in_region": true,
+      "input_x": [
+        -6.880531997426647,
+        -6.880531997426469
+      ],
+      "ordinal": 1,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 4,
+      "direction": 1,
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "in_region": true,
+      "input_x": [
+        -6.880531997426601,
+        -6.880531997426851
+      ],
+      "ordinal": 1,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "in_region": true,
+      "input_x": [
+        -6.880531997430813,
+        -6.880531997429411
+      ],
+      "ordinal": 2,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+      "in_region": true,
+      "input_x": [
+        -6.88053199742686,
+        -6.880531997423647
+      ],
+      "ordinal": 3,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 0,
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 4,
+      "paired": "U",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "E",
+          "method": "DOP853",
+          "reason": "invalid event/input projection"
+        },
+        {
+          "checks": null,
+          "code": "E",
+          "method": "Radau",
+          "reason": "invalid event/input projection"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 1,
+      "paired": "U",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "N",
+          "method": "DOP853",
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "checks": null,
+          "code": "N",
+          "method": "Radau",
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "in_region": true,
+      "input_x": [
+        -6.8805319974299985,
+        -6.880531997430269
+      ],
+      "ordinal": 2,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+      "in_region": true,
+      "input_x": [
+        -6.880531997429871,
+        -6.880531997427532
+      ],
+      "ordinal": 3,
+      "paired": "Q",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "DOP853",
+          "reason": null
+        },
+        {
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "code": "Q",
+          "method": "Radau",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "a": 0.21577,
+      "case": "local-a027-c083",
+      "depth": 8,
+      "direction": 1,
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+      "in_region": false,
+      "input_x": null,
+      "ordinal": 4,
+      "paired": "U",
+      "region": 1,
+      "solvers": [
+        {
+          "checks": null,
+          "code": "E",
+          "method": "DOP853",
+          "reason": "invalid event/input projection"
+        },
+        {
+          "checks": null,
+          "code": "E",
+          "method": "Radau",
+          "reason": "invalid event/input projection"
+        }
+      ]
+    }
+  ],
+  "figure_id": "EXP-490-direct-folds",
+  "generator": {
+    "matplotlib": "3.11.1",
+    "path": "scripts/plot_exp490_direct_folds.py",
+    "python": "3.13.11 (main, Dec 17 2025, 20:55:16) [Clang 21.1.4 ]",
+    "sha256": "e10a69f4e7f823dae7101a60dd0ef31fa24a91ba4a72d9ec5151bec659410c90"
+  },
+  "input_table": {
+    "path": "experiments/manifests/EXP-490-candidates.json",
+    "sha256": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea"
+  },
+  "interval_semantics": "Candidate intervals are original search boxes, not confidence intervals. No error bars or rigorous bounds.",
+  "outputs": {
+    "EXP-490-direct-folds.pdf": {
+      "bytes": 30210,
+      "sha256": "5e06d816f1eaf164caef8556ad87eece68d6b8b9136750de6658f218f45cb8d6"
+    },
+    "EXP-490-direct-folds.png": {
+      "bytes": 449047,
+      "sha256": "aa8b137e37c61b43263981b15f6044ae4075811b14c7accfba25f7fe08c3aa07"
+    },
+    "EXP-490-direct-folds.svg": {
+      "bytes": 175319,
+      "sha256": "800c10bb68bb553b5a9e8d29979b3463a41e76d77eec22d7dfbc1d9d9679321f"
+    }
+  },
+  "raster_dpi": 300,
+  "run_source_commit": "892ab8f4719fbf4463bf9b4943314c9d4c8eda5e",
+  "source": {
+    "aggregation": "No pooling; paired verdict is the frozen conjunction, not a vote.",
+    "exclusions": "None; unavailable qualified locations are explicitly --.",
+    "fields": [
+      "candidates.id",
+      "candidates.solvers",
+      "candidates.qualified",
+      "candidates.qualified_in_region"
+    ],
+    "path": "docs/experiments/receipts/EXP-490-direct-fold-result.json",
+    "selection": "All 26 candidates, all 16 families and both solvers in frozen order.",
+    "sha256": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "transformation": "Categorical solver verdicts Q/N/E/F and paired Q/U. Successful input x printed to six decimals from DOP853; both exact solver values retained."
+  },
+  "title": "Direct fold test: all 26 candidate intervals"
+}

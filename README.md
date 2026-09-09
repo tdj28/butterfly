@@ -43,6 +43,11 @@ candidate checks, with explicit limits on what is reproduced.
   now reproduces the in-scope unimodal word list and its order under a
   predeclared notation mapping. This is finite combinatorial support, not
   verification of the Rössler centers, third-branch words, or connecting arrows.
+  The latest [direct-fold experiment](docs/updates/2026-09-08-exp490-direct-folds.md)
+  tests all 26 candidate intervals with two solvers: ten searches qualify
+  across eight finite-return curve families, while sixteen intervals remain
+  unresolved. Section-grazing jumps and ill-conditioned input curves must
+  not be mistaken for the missing critical geometry.
 - The shrimp and periodic-window skeleton evolves coherently over eleven
   sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
   These are finite-time, single-initial-condition recurrence maps; unresolved

@@ -116,9 +116,16 @@ inputs; historical result reproduction is a separate requirement.
   [EXP-489 directly reproduced a section-grazing boundary near both selected witnesses](updates/2026-09-08-exp489-section-grazing.md):
   26 integrations, both solvers, all signed perturbations, four preceding
   accepted returns and the predicted pair birth/death and square-root scaling.
-  Next carry explicit grazing boundaries into the full depth/direction curve
-  matrix; qualify smooth fold searches only on event-consistent branches.
-  Do not bridge grazing boundaries or select only favorable accuracy profiles.
+  [EXP-490 completed all 26 original candidate intervals and 52 solver profiles](updates/2026-09-08-exp490-direct-folds.md),
+  retaining 208 trajectories. Ten paired-qualified searches recover nearly
+  coincident right-hand fold locations within each case across all eight
+  right-region families. Fourteen intervals leave the fixed search boxes;
+  two converge but fail the input-projection gate in both solvers. Different
+  upstream roots can approach the same physical fold; do not count them as
+  extra scalar-map branches. Next construct event-consistent, conditioned
+  curve segments with explicit cuts at section grazing and input-projection
+  turns, retaining uncovered intervals and the full depth/direction matrix.
+  Do not bridge those cuts or select only favorable accuracy profiles.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

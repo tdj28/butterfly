@@ -1,0 +1,3221 @@
+{
+  "candidates": [
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          5.863365348801608e-14,
+          2.4868995751603505e-15
+        ],
+        "times": [
+          1.8474111129762605e-13,
+          1.2789769243681803e-13
+        ],
+        "u": 4.9894983977782914e-15
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            23.527103073068545,
+            29.76958823983351
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 29328.530969373485,
+          "event_state_error": 2.919077017142039e-14,
+          "event_time_error": 3.907985046680551e-14,
+          "finite_difference_relative_error": 1.654584158451263e-09,
+          "finite_difference_second_derivative": 29328.531017900008,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 14.548834805854005,
+              "image_state": [
+                -6.880637904176423,
+                -0.027754602898576612,
+                0.014225898501312065
+              ],
+              "input_x_tangent": -8.00496337350889,
+              "next_state": [
+                -11.765855739401832,
+                -0.02775460289859826,
+                0.010556296698600238
+              ],
+              "normalized_output_derivative": -0.0001343756867887039,
+              "normalized_x_component": 0.55021336624758,
+              "valid": true,
+              "x_graph_slope": 0.0002442246863342079
+            },
+            {
+              "gain": 14.549431631744566,
+              "image_state": [
+                -6.8807579818024704,
+                -0.02775460289858875,
+                0.014225777012856754
+              ],
+              "input_x_tangent": -8.005386835191347,
+              "next_state": [
+                -11.76585575406494,
+                -0.027754602898578635,
+                0.010556296690425349
+              ],
+              "normalized_output_derivative": -1.2421426420160702e-13,
+              "normalized_x_component": 0.5502199012176431,
+              "valid": true,
+              "x_graph_slope": 2.2575385573426077e-13
+            },
+            {
+              "gain": 14.550028419824667,
+              "image_state": [
+                -6.880878065781228,
+                -0.02775460289859366,
+                0.014225655520043652
+              ],
+              "input_x_tangent": -8.005810288252214,
+              "next_state": [
+                -11.765855739399587,
+                -0.02775460289856424,
+                0.010556296698602356
+              ],
+              "normalized_output_derivative": 0.00013439569167509574,
+              "normalized_x_component": 0.5502264364888908,
+              "valid": true,
+              "x_graph_slope": -0.0002442552425010738
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989323785492,
+            "determinant_scale": 2775.5673617314496,
+            "event_second_derivative": 29328.530969373485,
+            "first": [
+              -0.34446693382179117,
+              235.7796688528159,
+              0.006727298801037851
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                235.7796688528159,
+                -11.771843809640492
+              ],
+              [
+                -345250.8857377701,
+                5.063392038984205e-09
+              ]
+            ],
+            "residual": [
+              -4.2676973066591017e-13,
+              -1.5506884665228426e-10
+            ],
+            "second": [
+              34098.17270534417,
+              -33215.09239340317,
+              18.063061676655295
+            ],
+            "state": [
+              -11.76585575406503,
+              -0.027754602899016496,
+              0.01055629669042529
+            ],
+            "time": 29.76958823983355,
+            "u": 0.002468841282472428
+          },
+          "scaled_curvature": 30.509451912616466
+        },
+        {
+          "center_event_times": [
+            23.52710307306836,
+            29.769588239833382
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 29328.5309693312,
+          "event_state_error": 1.2767402875664876e-13,
+          "event_time_error": 1.3500311979441904e-13,
+          "finite_difference_relative_error": 5.699017748920773e-09,
+          "finite_difference_second_derivative": 29328.53113647502,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 14.548834805849681,
+              "image_state": [
+                -6.88063790417526,
+                -0.027754602898594386,
+                0.01422589850131325
+              ],
+              "input_x_tangent": -8.004963373505376,
+              "next_state": [
+                -11.765855739401866,
+                -0.0277546028985727,
+                0.010556296698600219
+              ],
+              "normalized_output_derivative": -0.0001343756880752601,
+              "normalized_x_component": 0.5502133662475021,
+              "valid": true,
+              "x_graph_slope": 0.00024422468867252853
+            },
+            {
+              "gain": 14.54943163174054,
+              "image_state": [
+                -6.880757981801896,
+                -0.027754602898582507,
+                0.01422577701285734
+              ],
+              "input_x_tangent": -8.005386835188636,
+              "next_state": [
+                -11.765855754064978,
+                -0.027754602898576047,
+                0.010556296690425328
+              ],
+              "normalized_output_derivative": -7.601178794358604e-13,
+              "normalized_x_component": 0.5502199012176091,
+              "valid": true,
+              "x_graph_slope": 1.381480164119396e-12
+            },
+            {
+              "gain": 14.55002841982276,
+              "image_state": [
+                -6.880878065781011,
+                -0.027754602898574725,
+                0.014225655520043875
+              ],
+              "input_x_tangent": -8.005810288250995,
+              "next_state": [
+                -11.765855739399596,
+                -0.027754602898584876,
+                0.010556296698602355
+              ],
+              "normalized_output_derivative": 0.0001343956914752985,
+              "normalized_x_component": 0.5502264364888791,
+              "valid": true,
+              "x_graph_slope": -0.00024425524213796086
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989323785489,
+            "determinant_scale": 2775.567361733856,
+            "event_second_derivative": 29328.5309693312,
+            "first": [
+              -0.3444669340163217,
+              235.7796688530147,
+              0.006727298800935095
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                235.7796688530147,
+                -11.771843809640755
+              ],
+              [
+                -345250.88573728845,
+                5.4812547833904546e-09
+              ]
+            ],
+            "residual": [
+              -1.9014304020181783e-12,
+              1.7838868160424681e-09
+            ],
+            "second": [
+              34098.17270531373,
+              -33215.09239336519,
+              18.063061676638945
+            ],
+            "state": [
+              -11.765855754064974,
+              -0.027754602900491157,
+              0.010556296690425272
+            ],
+            "time": 29.769588239833517,
+            "u": 0.0024688412824674386
+          },
+          "scaled_curvature": 30.509451912593136
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          7.45931094670027e-14,
+          3.789561257387201e-15
+        ],
+        "times": [
+          2.2382096176443156e-13,
+          1.5631940186722204e-13
+        ],
+        "u": 6.50347831143705e-15
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            23.527103097492144,
+            29.769588264257074
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 14662.769374689366,
+          "event_state_error": 3.0528820212557167e-15,
+          "event_time_error": 1.0658141036401503e-14,
+          "finite_difference_relative_error": 5.230940289426369e-10,
+          "finite_difference_second_derivative": 14662.769382359373,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 10.287178564351118,
+              "image_state": [
+                -6.880673077772662,
+                -0.027754602898581192,
+                0.014225862914236028
+              ],
+              "input_x_tangent": -5.6601628393436805,
+              "next_state": [
+                -11.765855746733944,
+                -0.027754602898589775,
+                0.01055629669451239
+              ],
+              "normalized_output_derivative": -9.501518355219079e-05,
+              "normalized_x_component": 0.5502152805005486,
+              "valid": true,
+              "x_graph_slope": 0.00017268728608509822
+            },
+            {
+              "gain": 10.287476943238175,
+              "image_state": [
+                -6.88075798180285,
+                -0.0277546028985833,
+                0.014225777012856365
+              ],
+              "input_x_tangent": -5.660374547487613,
+              "next_state": [
+                -11.765855754064926,
+                -0.02775460289857722,
+                0.010556296690425352
+              ],
+              "normalized_output_derivative": 3.326280603277485e-13,
+              "normalized_x_component": 0.5502199012176745,
+              "valid": true,
+              "x_graph_slope": -6.045365854481449e-13
+            },
+            {
+              "gain": 10.28777530875992,
+              "image_state": [
+                -6.880842889008916,
+                -0.02775460289858915,
+                0.014225691109298196
+              ],
+              "input_x_tangent": -5.660586252583846,
+              "next_state": [
+                -11.765855746733203,
+                -0.027754602898578864,
+                0.010556296694513417
+              ],
+              "normalized_output_derivative": 9.502518559960377e-05,
+              "normalized_x_component": 0.5502245220853456,
+              "valid": true,
+              "x_graph_slope": -0.00017270256374517668
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.999998932378549,
+            "determinant_scale": 1962.5233639598734,
+            "event_second_derivative": 14662.769374689366,
+            "first": [
+              -0.24356260090372464,
+              166.71298101074512,
+              0.004756678312146076
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                166.71298101074512,
+                -11.771843809640345
+              ],
+              [
+                -172607.83089567025,
+                3.4756230116173015e-09
+              ]
+            ],
+            "residual": [
+              -3.3285874057042975e-14,
+              -5.958278315176813e-10
+            ],
+            "second": [
+              17047.349312545954,
+              -16605.865440386722,
+              9.030610343890185
+            ],
+            "state": [
+              -11.765855754064967,
+              -0.027754602898623013,
+              0.010556296690425328
+            ],
+            "time": 29.769588264257063,
+            "u": 0.003491646447092156
+          },
+          "scaled_curvature": 30.509451912623934
+        },
+        {
+          "center_event_times": [
+            23.52710309749192,
+            29.769588264256917
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 14662.769374686173,
+          "event_state_error": 2.854545303835702e-14,
+          "event_time_error": 8.171241461241152e-14,
+          "finite_difference_relative_error": 1.6421035943136557e-09,
+          "finite_difference_second_derivative": 14662.76939876396,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 10.287178564348071,
+              "image_state": [
+                -6.880673077771844,
+                -0.02775460289857668,
+                0.014225862914236857
+              ],
+              "input_x_tangent": -5.66016283934155,
+              "next_state": [
+                -11.765855746734003,
+                -0.0277546028985983,
+                0.010556296694512362
+              ],
+              "normalized_output_derivative": -9.50151844445848e-05,
+              "normalized_x_component": 0.5502152805005044,
+              "valid": true,
+              "x_graph_slope": 0.00017268728770701184
+            },
+            {
+              "gain": 10.28747694323525,
+              "image_state": [
+                -6.880757981802116,
+                -0.02775460289858453,
+                0.014225777012857111
+              ],
+              "input_x_tangent": -5.660374547485526,
+              "next_state": [
+                -11.765855754064983,
+                -0.027754602898592055,
+                0.010556296690425323
+              ],
+              "normalized_output_derivative": -4.817313916779772e-13,
+              "normalized_x_component": 0.5502199012176281,
+              "valid": true,
+              "x_graph_slope": 8.755252047625196e-13
+            },
+            {
+              "gain": 10.28777530875692,
+              "image_state": [
+                -6.880842889008341,
+                -0.02775460289859149,
+                0.01422569110929877
+              ],
+              "input_x_tangent": -5.660586252581983,
+              "next_state": [
+                -11.765855746733221,
+                -0.027754602898576678,
+                0.010556296694513408
+              ],
+              "normalized_output_derivative": 9.502518491992679e-05,
+              "normalized_x_component": 0.550224522085325,
+              "valid": true,
+              "x_graph_slope": -0.00017270256250991107
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989323785492,
+            "determinant_scale": 1962.5233639599269,
+            "event_second_derivative": 14662.769374686173,
+            "first": [
+              -0.24356260090563275,
+              166.7129810107512,
+              0.004756678312145236
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                166.7129810107512,
+                -11.771843809640238
+              ],
+              [
+                -172607.83089563143,
+                3.49681150701997e-09
+              ]
+            ],
+            "residual": [
+              4.258537966705944e-13,
+              -4.969487044093057e-10
+            ],
+            "second": [
+              17047.349312542327,
+              -16605.865440384277,
+              9.030610343888272
+            ],
+            "state": [
+              -11.76585575406496,
+              -0.027754602898163873,
+              0.010556296690425345
+            ],
+            "time": 29.769588264257,
+            "u": 0.0034916464470856525
+          },
+          "scaled_curvature": 30.509451912639793
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          9.957312752106873e-14,
+          5.210646728907401e-15
+        ],
+        "times": [
+          1.6342482922482304e-13,
+          5.684341886080802e-14
+        ],
+        "u": 3.533631720564756e-15
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            46.58707008668365,
+            52.82955525344858
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 118500.46655355406,
+          "event_state_error": 2.076140185695389e-14,
+          "event_time_error": 4.263256414560601e-14,
+          "finite_difference_relative_error": 5.802408066467298e-08,
+          "finite_difference_second_derivative": 118500.45967767343,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 29.2422822081204,
+              "image_state": [
+                -6.8809993437631265,
+                -0.027754602898559497,
+                0.014225532821319798
+              ],
+              "input_x_tangent": 16.090069739283127,
+              "next_state": [
+                -11.765855694817201,
+                -0.027754602898569694,
+                0.010556296723459428
+              ],
+              "normalized_output_derivative": -0.0002701407769591519,
+              "normalized_x_component": 0.5502330366955769,
+              "valid": true,
+              "x_graph_slope": -0.0004909570290098931
+            },
+            {
+              "gain": 29.24562473796151,
+              "image_state": [
+                -6.880757981802801,
+                -0.027754602898605322,
+                0.014225777012856416
+              ],
+              "input_x_tangent": 16.091524754370106,
+              "next_state": [
+                -11.765855754064976,
+                -0.027754602898563855,
+                0.010556296690425331
+              ],
+              "normalized_output_derivative": -2.469324763404725e-13,
+              "normalized_x_component": 0.5502199012176658,
+              "valid": true,
+              "x_graph_slope": -4.487887039236455e-13
+            },
+            {
+              "gain": 29.248965722476118,
+              "image_state": [
+                -6.880516598025762,
+                -0.02775460289856434,
+                0.014226021234827625
+              ],
+              "input_x_tangent": 16.092978791403567,
+              "next_state": [
+                -11.765855694812188,
+                -0.02775460289860547,
+                0.010556296723460482
+              ],
+              "normalized_output_derivative": 0.0002701130880851945,
+              "normalized_x_component": 0.5502067643724254,
+              "valid": true,
+              "x_graph_slope": 0.0004909301476751013
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989323785492,
+            "determinant_scale": 863.907247714445,
+            "event_second_derivative": 118500.46655355406,
+            "first": [
+              0.10721681091278285,
+              -73.38743335654324,
+              -0.0020939013454891885
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -73.38743335654324,
+                -11.771843809640242
+              ],
+              [
+                -1394968.9836380011,
+                -1.0495352642525546e-08
+              ]
+            ],
+            "residual": [
+              3.3729269377502646e-13,
+              -1.1606773320238517e-09
+            ],
+            "second": [
+              119279.10295225866,
+              -219893.92956619107,
+              60.05274534424433
+            ],
+            "state": [
+              -11.765855754064944,
+              -0.027754602898252434,
+              0.010556296690425354
+            ],
+            "time": 52.82955525344854,
+            "u": -0.001106429311094104
+          },
+          "scaled_curvature": 30.50945191262052
+        },
+        {
+          "center_event_times": [
+            46.58707008668349,
+            52.829555253448525
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 118500.46655361236,
+          "event_state_error": 3.1745902203302497e-14,
+          "event_time_error": 1.4921397450962104e-13,
+          "finite_difference_relative_error": 6.298408144191022e-08,
+          "finite_difference_second_derivative": 118500.45908996933,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 29.242282208140463,
+              "image_state": [
+                -6.880999343758473,
+                -0.027754602898576654,
+                0.014225532821324495
+              ],
+              "input_x_tangent": 16.0900697392869,
+              "next_state": [
+                -11.765855694817224,
+                -0.02775460289855194,
+                0.010556296723459417
+              ],
+              "normalized_output_derivative": -0.0002701407717389657,
+              "normalized_x_component": 0.5502330366953284,
+              "valid": true,
+              "x_graph_slope": -0.0004909570195228869
+            },
+            {
+              "gain": 29.245624737967237,
+              "image_state": [
+                -6.88075798180182,
+                -0.027754602898567297,
+                0.014225777012857412
+              ],
+              "input_x_tangent": 16.09152475437167,
+              "next_state": [
+                -11.765855754065054,
+                -0.027754602898586576,
+                0.010556296690425286
+              ],
+              "normalized_output_derivative": 8.270205992770035e-13,
+              "normalized_x_component": 0.5502199012176116,
+              "valid": true,
+              "x_graph_slope": 1.5030728576826189e-12
+            },
+            {
+              "gain": 29.24896572250736,
+              "image_state": [
+                -6.8805165980234975,
+                -0.027754602898590143,
+                0.01422602123482991
+              ],
+              "input_x_tangent": 16.092978791417263,
+              "next_state": [
+                -11.765855694812204,
+                -0.02775460289859516,
+                0.010556296723460475
+              ],
+              "normalized_output_derivative": 0.00027011309062462634,
+              "normalized_x_component": 0.550206764372306,
+              "valid": true,
+              "x_graph_slope": 0.0004909301522906215
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.999998932378549,
+            "determinant_scale": 863.9072477181613,
+            "event_second_derivative": 118500.46655361236,
+            "first": [
+              0.1072168110423273,
+              -73.3874333568573,
+              -0.0020939013454261274
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -73.3874333568573,
+                -11.771843809640473
+              ],
+              [
+                -1394968.9836387169,
+                -1.0809497408281743e-08
+              ]
+            ],
+            "residual": [
+              -4.730382752171636e-13,
+              -2.62080535051723e-09
+            ],
+            "second": [
+              119279.10295233615,
+              -219893.92956629026,
+              60.05274534428383
+            ],
+            "state": [
+              -11.765855754064999,
+              -0.027754602899062765,
+              0.010556296690425295
+            ],
+            "time": 52.829555253448675,
+            "u": -0.0011064293110905703
+          },
+          "scaled_curvature": 30.509451912629597
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          4.388850394221322e-14,
+          1.0658141036401502e-15
+        ],
+        "times": [
+          2.2026824808563106e-13,
+          1.7763568394002505e-13
+        ],
+        "u": 4.3773578511929756e-15
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            46.587070076435126,
+            52.829555243200126
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 59244.3056651788,
+          "event_state_error": 3.861563846463412e-14,
+          "event_time_error": 1.2079226507921703e-13,
+          "finite_difference_relative_error": 2.5920701557522808e-08,
+          "finite_difference_second_derivative": 59244.30412952483,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 20.677074122766363,
+              "image_state": [
+                -6.880928644204667,
+                -0.02775460289860259,
+                0.014225604348849724
+              ],
+              "input_x_tangent": 11.377129727120945,
+              "next_state": [
+                -11.765855724443675,
+                -0.02775460289858953,
+                0.01055629670694112
+              ],
+              "normalized_output_derivative": -0.00019100595512423326,
+              "normalized_x_component": 0.550229189080201,
+              "valid": true,
+              "x_graph_slope": -0.00034713889941667995
+            },
+            {
+              "gain": 20.678745105711563,
+              "image_state": [
+                -6.880757981802083,
+                -0.02775460289858425,
+                0.01422577701285715
+              ],
+              "input_x_tangent": 11.377857089369007,
+              "next_state": [
+                -11.765855754065019,
+                -0.027754602898616393,
+                0.010556296690425307
+              ],
+              "normalized_output_derivative": 5.158562832914169e-13,
+              "normalized_x_component": 0.5502199012176223,
+              "valid": true,
+              "x_graph_slope": 9.375456651964794e-13
+            },
+            {
+              "gain": 20.68041554239879,
+              "image_state": [
+                -6.8805873084927995,
+                -0.02775460289857396,
+                0.014225949692079763
+              ],
+              "input_x_tangent": 11.378584105884125,
+              "next_state": [
+                -11.76585572444192,
+                -0.027754602898612136,
+                0.010556296706940865
+              ],
+              "normalized_output_derivative": 0.00019099211282829008,
+              "normalized_x_component": 0.5502106126714843,
+              "valid": true,
+              "x_graph_slope": 0.00034712546146820007
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989323785492,
+            "determinant_scale": 610.8432124905719,
+            "event_second_derivative": 59244.3056651788,
+            "first": [
+              0.07580982952858561,
+              -51.89007924930072,
+              -0.0014805355874951283
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -51.89007924930072,
+                -11.771843809640467
+              ],
+              [
+                -697414.712901115,
+                -7.313017691412682e-09
+              ]
+            ],
+            "residual": [
+              -6.059007462422272e-13,
+              -3.19147708260914e-10
+            ],
+            "second": [
+              59633.58423279779,
+              -109935.96051534088,
+              30.02336847857016
+            ],
+            "state": [
+              -11.765855754064965,
+              -0.027754602899195627,
+              0.010556296690425317
+            ],
+            "time": 52.82955524320025,
+            "u": -0.0015648057110988103
+          },
+          "scaled_curvature": 30.509451912628307
+        },
+        {
+          "center_event_times": [
+            46.587070076435346,
+            52.8295552432003
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 59244.30566522219,
+          "event_state_error": 1.3659744631707345e-13,
+          "event_time_error": 6.394884621840902e-14,
+          "finite_difference_relative_error": 2.2842102008653705e-08,
+          "finite_difference_second_derivative": 59244.30431195772,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 20.677074122777743,
+              "image_state": [
+                -6.880928644204459,
+                -0.027754602898576564,
+                0.014225604348849938
+              ],
+              "input_x_tangent": 11.37712972712694,
+              "next_state": [
+                -11.765855724443734,
+                -0.027754602898539503,
+                0.010556296706941084
+              ],
+              "normalized_output_derivative": -0.0001910059549422666,
+              "normalized_x_component": 0.5502291890801881,
+              "valid": true,
+              "x_graph_slope": -0.0003471388990859774
+            },
+            {
+              "gain": 20.67874510572797,
+              "image_state": [
+                -6.880757981802508,
+                -0.02775460289860114,
+                0.01422577701285671
+              ],
+              "input_x_tangent": 11.377857089378635,
+              "next_state": [
+                -11.765855754065035,
+                -0.027754602898606127,
+                0.010556296690425298
+              ],
+              "normalized_output_derivative": 3.7099117035763775e-14,
+              "normalized_x_component": 0.5502199012176513,
+              "valid": true,
+              "x_graph_slope": 6.742598178230637e-14
+            },
+            {
+              "gain": 20.680415542410607,
+              "image_state": [
+                -6.880587308491561,
+                -0.027754602898582812,
+                0.014225949692081012
+              ],
+              "input_x_tangent": 11.378584105889272,
+              "next_state": [
+                -11.76585572444193,
+                -0.027754602898539187,
+                0.010556296706940863
+              ],
+              "normalized_output_derivative": 0.000190992114186217,
+              "normalized_x_component": 0.5502106126714188,
+              "valid": true,
+              "x_graph_slope": 0.0003471254639362543
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989323785489,
+            "determinant_scale": 610.843212496945,
+            "event_second_derivative": 59244.30566522219,
+            "first": [
+              0.07580982981264614,
+              -51.890079249840504,
+              -0.001480535587352564
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -51.890079249840504,
+                -11.771843809640732
+              ],
+              [
+                -697414.7129016445,
+                -8.014420571633707e-09
+              ]
+            ],
+            "residual": [
+              -2.0653617704979865e-12,
+              -3.5780676199692607e-09
+            ],
+            "second": [
+              59633.584232859685,
+              -109935.96051542895,
+              30.023368478601768
+            ],
+            "state": [
+              -11.765855754064916,
+              -0.02775460290065509,
+              0.010556296690425295
+            ],
+            "time": 52.82955524320037,
+            "u": -0.001564805711094433
+          },
+          "scaled_curvature": 30.509451912599022
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+      "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+      "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+      "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+      "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 0,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          1.7520707107365752e-14,
+          1.5603259425252721e-15
+        ],
+        "times": [
+          6.039613253960852e-14,
+          8.526512829121202e-14
+        ],
+        "u": 4.089610594615323e-15
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            28.496023744875977,
+            34.73851721986983
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 8019.161587377581,
+          "event_state_error": 1.8232313806857784e-13,
+          "event_time_error": 9.947598300641403e-14,
+          "finite_difference_relative_error": 7.860296162748439e-10,
+          "finite_difference_second_derivative": 8019.161593680879,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 7.608651834270108,
+              "image_state": [
+                -6.88046920646968,
+                -0.02775460503835921,
+                0.014226069135361449
+              ],
+              "input_x_tangent": -4.18631211211765,
+              "next_state": [
+                -11.766224105826506,
+                -0.027754605038327,
+                0.010556091303206339
+              ],
+              "normalized_output_derivative": -7.02747146316861e-05,
+              "normalized_x_component": 0.5502041890341326,
+              "valid": true,
+              "x_graph_slope": 0.00012772479023660528
+            },
+            {
+              "gain": 7.6077019372342605,
+              "image_state": [
+                -6.880531997426647,
+                -0.02775460503834354,
+                0.01422600560487622
+              ],
+              "input_x_tangent": -4.185815472611258,
+              "next_state": [
+                -11.76622410983656,
+                -0.027754605038358894,
+                0.010556091300970863
+              ],
+              "normalized_output_derivative": -1.0977414860346247e-12,
+              "normalized_x_component": 0.5502076063370313,
+              "valid": true,
+              "x_graph_slope": 1.995140513128784e-12
+            },
+            {
+              "gain": 7.606752003579948,
+              "image_state": [
+                -6.880594780934139,
+                -0.027754605038354006,
+                0.014225942082493986
+              ],
+              "input_x_tangent": -4.185318803288138,
+              "next_state": [
+                -11.76622410582738,
+                -0.027754605038322205,
+                0.010556091303206306
+              ],
+              "normalized_output_derivative": 7.026990089690946e-05,
+              "normalized_x_component": 0.5502110232223176,
+              "valid": true,
+              "x_graph_slope": -0.0001277144548747368
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.99999893241973,
+            "determinant_scale": 2492.2575145931673,
+            "event_second_derivative": 8019.161587377581,
+            "first": [
+              0.3092905864109409,
+              -211.70635056463675,
+              -0.006040075556163876
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -211.70635056463675,
+                -11.772212720965085
+              ],
+              [
+                -94403.27605034497,
+                3.1110229947728385e-09
+              ]
+            ],
+            "residual": [
+              2.73108619053275e-12,
+              2.0775572373565865e-09
+            ],
+            "second": [
+              11781.571185195031,
+              29940.887611220875,
+              7.468534490524844
+            ],
+            "state": [
+              -11.766224109836548,
+              -0.027754605035624047,
+              0.010556091300970958
+            ],
+            "time": 34.73851721986973,
+            "u": 0.000772692037436689
+          },
+          "scaled_curvature": 30.512482800362662
+        },
+        {
+          "center_event_times": [
+            28.496023744876037,
+            34.73851721986991
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 8019.161587378223,
+          "event_state_error": 6.740811612597023e-14,
+          "event_time_error": 1.8474111129762605e-13,
+          "finite_difference_relative_error": 5.318893214886436e-10,
+          "finite_difference_second_derivative": 8019.161583112917,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 7.6086518342759,
+              "image_state": [
+                -6.880469206469127,
+                -0.02775460503836021,
+                0.014226069135362005
+              ],
+              "input_x_tangent": -4.186312112120581,
+              "next_state": [
+                -11.766224105826549,
+                -0.027754605038317417,
+                0.010556091303206314
+              ],
+              "normalized_output_derivative": -7.0274715224016e-05,
+              "normalized_x_component": 0.550204189034099,
+              "valid": true,
+              "x_graph_slope": 0.00012772479131317686
+            },
+            {
+              "gain": 7.607701937235657,
+              "image_state": [
+                -6.880531997426469,
+                -0.027754605038347265,
+                0.014226005604876395
+              ],
+              "input_x_tangent": -4.185815472611927,
+              "next_state": [
+                -11.766224109836546,
+                -0.0277546050383823,
+                0.010556091300970875
+              ],
+              "normalized_output_derivative": -1.3380068778806786e-12,
+              "normalized_x_component": 0.5502076063370183,
+              "valid": true,
+              "x_graph_slope": 2.4318218477356168e-12
+            },
+            {
+              "gain": 7.606752003586321,
+              "image_state": [
+                -6.880594780933454,
+                -0.027754605038340808,
+                0.01422594208249469
+              ],
+              "input_x_tangent": -4.185318803291433,
+              "next_state": [
+                -11.766224105827407,
+                -0.027754605038350692,
+                0.010556091303206288
+              ],
+              "normalized_output_derivative": 7.026990011908094e-05,
+              "normalized_x_component": 0.5502110232222899,
+              "valid": true,
+              "x_graph_slope": -0.000127714453461052
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197299,
+            "determinant_scale": 2492.2575145944697,
+            "event_second_derivative": 8019.161587378223,
+            "first": [
+              0.30929058651410185,
+              -211.70635056473932,
+              -0.0060400755561091065
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -211.70635056473932,
+                -11.772212720965523
+              ],
+              [
+                -94403.2760503593,
+                2.929695819275935e-09
+              ]
+            ],
+            "residual": [
+              9.839559722557567e-13,
+              1.234651048065416e-09
+            ],
+            "second": [
+              11781.571185194653,
+              29940.887611222814,
+              7.468534490524334
+            ],
+            "state": [
+              -11.76622410983661,
+              -0.027754605037371177,
+              0.01055609130097087
+            ],
+            "time": 34.73851721986973,
+            "u": 0.0007726920374325994
+          },
+          "scaled_curvature": 30.512482800355354
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          2.6367796834847468e-14,
+          4.564867002917102e-15
+        ],
+        "times": [
+          5.684341886080802e-14,
+          8.526512829121202e-14
+        ],
+        "u": 6.248690800902956e-15
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            28.49602376247635,
+            34.738517237470205
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 4009.0909866797906,
+          "event_state_error": 1.7505996652289468e-13,
+          "event_time_error": 9.947598300641403e-14,
+          "finite_difference_relative_error": 3.1017910024572387e-09,
+          "finite_difference_second_derivative": 4009.0909742444283,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 5.379603937836481,
+              "image_state": [
+                -6.880487600998707,
+                -0.027754605038349728,
+                0.014226050524129964
+              ],
+              "input_x_tangent": -2.9598860074404314,
+              "next_state": [
+                -11.766224107831873,
+                -0.027754605038367672,
+                0.010556091302088363
+              ],
+              "normalized_output_derivative": -4.968819406768063e-05,
+              "normalized_x_component": 0.5502051901298167,
+              "valid": true,
+              "x_graph_slope": 9.030847938013287e-05
+            },
+            {
+              "gain": 5.379129044024435,
+              "image_state": [
+                -6.880531997426601,
+                -0.027754605038350443,
+                0.014226005604876269
+              ],
+              "input_x_tangent": -2.959637715490688,
+              "next_state": [
+                -11.766224109836577,
+                -0.02775460503837819,
+                0.010556091300970856
+              ],
+              "normalized_output_derivative": -1.1516700034650017e-12,
+              "normalized_x_component": 0.5502076063370314,
+              "valid": true,
+              "x_graph_slope": 2.0931553657212486e-12
+            },
+            {
+              "gain": 5.378654137269885,
+              "image_state": [
+                -6.880576390129981,
+                -0.027754605038344468,
+                0.014225960689673798
+              ],
+              "input_x_tangent": -2.9593894130018805,
+              "next_state": [
+                -11.766224107832135,
+                -0.027754605038374333,
+                0.010556091302088538
+              ],
+              "normalized_output_derivative": 4.968578606129903e-05,
+              "normalized_x_component": 0.5502100223354419,
+              "valid": true,
+              "x_graph_slope": -9.03033097259859e-05
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.99999893241973,
+            "determinant_scale": 1762.1823019522387,
+            "event_second_derivative": 4009.0909866797906,
+            "first": [
+              0.21868783395432237,
+              -149.68966167880032,
+              -0.0042707120693623035
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -149.68966167880032,
+                -11.772212720965094
+              ],
+              [
+                -47195.87191287016,
+                2.2150620226923934e-09
+              ]
+            ],
+            "residual": [
+              2.6028415534007365e-12,
+              1.54024082377191e-09
+            ],
+            "second": [
+              5890.061103711008,
+              14968.635454091134,
+              3.733808924224211
+            ],
+            "state": [
+              -11.766224109836529,
+              -0.02775460503575229,
+              0.010556091300970965
+            ],
+            "time": 34.738517237470106,
+            "u": 0.001092818239847567
+          },
+          "scaled_curvature": 30.512482800369867
+        },
+        {
+          "center_event_times": [
+            28.496023762476295,
+            34.73851723747012
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 4009.0909866717598,
+          "event_state_error": 1.2213794790364811e-13,
+          "event_time_error": 3.552713678800501e-14,
+          "finite_difference_relative_error": 2.6459608564279193e-09,
+          "finite_difference_second_derivative": 4009.090976063862,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 5.379603937832083,
+              "image_state": [
+                -6.880487600998783,
+                -0.027754605038350047,
+                0.014226050524129891
+              ],
+              "input_x_tangent": -2.9598860074380577,
+              "next_state": [
+                -11.766224107831881,
+                -0.02775460503837894,
+                0.010556091302088361
+              ],
+              "normalized_output_derivative": -4.968819397525778e-05,
+              "normalized_x_component": 0.5502051901298253,
+              "valid": true,
+              "x_graph_slope": 9.030847921215258e-05
+            },
+            {
+              "gain": 5.379129044021216,
+              "image_state": [
+                -6.880531997426851,
+                -0.02775460503833736,
+                0.014226005604876005
+              ],
+              "input_x_tangent": -2.959637715488926,
+              "next_state": [
+                -11.766224109836573,
+                -0.027754605038309718,
+                0.010556091300970865
+              ],
+              "normalized_output_derivative": -8.373850803283578e-13,
+              "normalized_x_component": 0.550207606337033,
+              "valid": true,
+              "x_graph_slope": 1.5219438457115993e-12
+            },
+            {
+              "gain": 5.378654137267515,
+              "image_state": [
+                -6.880576390130081,
+                -0.02775460503834544,
+                0.014225960689673694
+              ],
+              "input_x_tangent": -2.959389413000586,
+              "next_state": [
+                -11.766224107832162,
+                -0.027754605038385137,
+                0.010556091302088523
+              ],
+              "normalized_output_derivative": 4.9685786198903305e-05,
+              "normalized_x_component": 0.5502100223354437,
+              "valid": true,
+              "x_graph_slope": -9.03033099760797e-05
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197299,
+            "determinant_scale": 1762.1823019509563,
+            "event_second_derivative": 4009.0909866717598,
+            "first": [
+              0.21868783400479114,
+              -149.68966167868876,
+              -0.004270712069330812
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -149.68966167868876,
+                -11.77221272096529
+              ],
+              [
+                -47195.87191277775,
+                2.1099492153453525e-09
+              ]
+            ],
+            "residual": [
+              1.8774842791557944e-12,
+              1.052735676410066e-09
+            ],
+            "second": [
+              5890.061103699159,
+              14968.635454095063,
+              3.7338089242175965
+            ],
+            "state": [
+              -11.76622410983657,
+              -0.02775460503647765,
+              0.01055609130097092
+            ],
+            "time": 34.738517237470084,
+            "u": 0.0010928182398538156
+          },
+          "scaled_curvature": 30.512482800345065
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 1,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          1.420738526825005e-13,
+          2.842170943040401e-15
+        ],
+        "times": [
+          4.334310688136611e-13,
+          5.684341886080801e-13
+        ],
+        "u": 8.040443311152501e-15
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            60.26592199008895,
+            66.5084154650824
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 26211.964317345664,
+          "event_state_error": 2.0343102202780017e-13,
+          "event_time_error": 3.268496584496461e-13,
+          "finite_difference_relative_error": 2.068273225002157e-08,
+          "finite_difference_second_derivative": 26211.963775210625,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 13.765641542579756,
+              "image_state": [
+                -6.880645560722323,
+                -0.02775460503833818,
+                0.014225890705512025
+              ],
+              "input_x_tangent": 7.574045761104832,
+              "next_state": [
+                -11.766224096719363,
+                -0.02775460503838887,
+                0.010556091308284407
+              ],
+              "normalized_output_derivative": -0.00012710732192585842,
+              "normalized_x_component": 0.5502137868167541,
+              "valid": true,
+              "x_graph_slope": -0.00023101442561305877
+            },
+            {
+              "gain": 13.754309439064539,
+              "image_state": [
+                -6.880531997430813,
+                -0.02775460503833617,
+                0.014226005604872001
+              ],
+              "input_x_tangent": 7.567725673289583,
+              "next_state": [
+                -11.766224109836518,
+                -0.027754605038305607,
+                0.010556091300970898
+              ],
+              "normalized_output_derivative": -3.5689291403474494e-12,
+              "normalized_x_component": 0.5502076063372529,
+              "valid": true,
+              "x_graph_slope": -6.486513634564068e-12
+            },
+            {
+              "gain": 13.742968136455175,
+              "image_state": [
+                -6.880418528975851,
+                -0.02775460503836345,
+                0.014226120410128397
+              ],
+              "input_x_tangent": 7.561400734580068,
+              "next_state": [
+                -11.766224096741805,
+                -0.027754605038322826,
+                0.010556091308271079
+              ],
+              "normalized_output_derivative": 0.00012698964699360186,
+              "normalized_x_component": 0.5502014309792641,
+              "valid": true,
+              "x_graph_slope": 0.00023080573739617884
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197294,
+            "determinant_scale": 6339.908389807535,
+            "event_second_derivative": 26211.964317345664,
+            "first": [
+              -0.7867862672880499,
+              538.5474254811207,
+              0.01536499574482842
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                538.5474254811207,
+                -11.772212720966335
+              ],
+              [
+                -308572.81977802544,
+                -3.2095806012932826e-09
+              ]
+            ],
+            "residual": [
+              -3.0019389751778647e-12,
+              7.463286877396058e-09
+            ],
+            "second": [
+              51089.12937053173,
+              -169112.40564771113,
+              23.659427684808637
+            ],
+            "state": [
+              -11.766224109836562,
+              -0.027754605041357072,
+              0.010556091300970785
+            ],
+            "time": 66.50841546508272,
+            "u": -0.0006386681129491434
+          },
+          "scaled_curvature": 30.51248280102605
+        },
+        {
+          "center_event_times": [
+            60.26592199008938,
+            66.50841546508296
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 26211.96431652138,
+          "event_state_error": 1.5558850504267715e-13,
+          "event_time_error": 1.4210854715202004e-14,
+          "finite_difference_relative_error": 2.0161402738025197e-08,
+          "finite_difference_second_derivative": 26211.96378805141,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 13.765641542518358,
+              "image_state": [
+                -6.8806455607229395,
+                -0.027754605038340957,
+                0.014225890705511406
+              ],
+              "input_x_tangent": 7.574045761071591,
+              "next_state": [
+                -11.766224096719267,
+                -0.027754605038342494,
+                0.010556091308284457
+              ],
+              "normalized_output_derivative": -0.00012710732261174152,
+              "normalized_x_component": 0.5502137868167934,
+              "valid": true,
+              "x_graph_slope": -0.00023101442685961792
+            },
+            {
+              "gain": 13.754309438996918,
+              "image_state": [
+                -6.880531997429411,
+                -0.02775460503835151,
+                0.014226005604873422
+              ],
+              "input_x_tangent": 7.5677256732514016,
+              "next_state": [
+                -11.76622410983656,
+                -0.027754605038344878,
+                0.01055609130097087
+              ],
+              "normalized_output_derivative": -1.9849922426783256e-12,
+              "normalized_x_component": 0.5502076063371819,
+              "valid": true,
+              "x_graph_slope": -3.6077150148699858e-12
+            },
+            {
+              "gain": 13.742968136333369,
+              "image_state": [
+                -6.880418528976377,
+                -0.027754605038363436,
+                0.014226120410127876
+              ],
+              "input_x_tangent": 7.561400734513699,
+              "next_state": [
+                -11.766224096741839,
+                -0.027754605038317347,
+                0.010556091308271056
+              ],
+              "normalized_output_derivative": 0.00012698964643286098,
+              "normalized_x_component": 0.5502014309793113,
+              "valid": true,
+              "x_graph_slope": 0.00023080573637700342
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.99999893241973,
+            "determinant_scale": 6339.908389786685,
+            "event_second_derivative": 26211.96431652138,
+            "first": [
+              -0.786786266662872,
+              538.5474254794073,
+              0.015364995745128191
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                538.5474254794073,
+                -11.772212720965104
+              ],
+              [
+                -308572.8197682457,
+                -4.168544398552854e-09
+              ]
+            ],
+            "residual": [
+              2.344083260830132e-12,
+              3.0112481397281954e-09
+            ],
+            "second": [
+              51089.129369484515,
+              -169112.40565157135,
+              23.659427684114714
+            ],
+            "state": [
+              -11.766224109836484,
+              -0.02775460503601105,
+              0.010556091300970977
+            ],
+            "time": 66.50841546508295,
+            "u": -0.000638668112941103
+          },
+          "scaled_curvature": 30.512482800374407
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          3.256075964408467e-13,
+          5.909855937957787e-15
+        ],
+        "times": [
+          1.6981971384666394e-12,
+          2.0037305148434825e-12
+        ],
+        "u": 3.3965885659625883e-15
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            60.55932746847841,
+            66.80182094347224
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 211838.228906882,
+          "event_state_error": 1.4289333605255193e-13,
+          "event_time_error": 3.979039320256561e-13,
+          "finite_difference_relative_error": 8.749692024407091e-08,
+          "finite_difference_second_derivative": 211838.21037168938,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 39.07556858798796,
+              "image_state": [
+                -6.8808546038788165,
+                -0.02775460503834489,
+                0.014225679207809106
+              ],
+              "input_x_tangent": 21.5003611157039,
+              "next_state": [
+                -11.766224003976863,
+                -0.02775460503836659,
+                0.010556091359991157
+              ],
+              "normalized_output_derivative": -0.00036111198406718853,
+              "normalized_x_component": 0.5502251635133782,
+              "valid": true,
+              "x_graph_slope": -0.0006562985628671787
+            },
+            {
+              "gain": 39.101298061092216,
+              "image_state": [
+                -6.88053199742686,
+                -0.02775460503837355,
+                0.014226005604876003
+              ],
+              "input_x_tangent": 21.513831610865235,
+              "next_state": [
+                -11.76622410983658,
+                -0.02775460503838627,
+                0.010556091300970856
+              ],
+              "normalized_output_derivative": 8.788653930734377e-13,
+              "normalized_x_component": 0.5502076063370539,
+              "valid": true,
+              "x_graph_slope": 1.5973341388796613e-12
+            },
+            {
+              "gain": 39.12702124194481,
+              "image_state": [
+                -6.88020918895406,
+                -0.027754605038361697,
+                0.014226332221289288
+              ],
+              "input_x_tangent": 21.527297297839528,
+              "next_state": [
+                -11.766224003858001,
+                -0.02775460503830631,
+                0.010556091360055104
+              ],
+              "normalized_output_derivative": 0.00036124494444547846,
+              "normalized_x_component": 0.5501900378442791,
+              "valid": true,
+              "x_graph_slope": 0.0006565821254432128
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197299,
+            "determinant_scale": 26547.09608468763,
+            "event_second_derivative": 211838.228906882,
+            "first": [
+              -3.294509845799479,
+              2255.059437987217,
+              0.06433784162169835
+            ],
+            "iteration": 5,
+            "jacobian": [
+              [
+                2255.059437987217,
+                -11.772212720965253
+              ],
+              [
+                -2493804.6931216405,
+                -1.41221860872065e-08
+              ]
+            ],
+            "residual": [
+              2.1122617543944955e-12,
+              -2.0119017563047237e-09
+            ],
+            "second": [
+              642436.7282949062,
+              857565.543008643,
+              385.7698384066903
+            ],
+            "state": [
+              -11.766224109836584,
+              -0.02775460503624287,
+              0.010556091300970918
+            ],
+            "time": 66.80182094347184,
+            "u": 0.005253575241212817
+          },
+          "scaled_curvature": 30.512482800286847
+        },
+        {
+          "center_event_times": [
+            60.559327468480106,
+            66.80182094347424
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 211838.22890961453,
+          "event_state_error": 1.1985216060346933e-12,
+          "event_time_error": 2.2168933355715126e-12,
+          "finite_difference_relative_error": 8.960700337355038e-08,
+          "finite_difference_second_derivative": 211838.20992742563,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 39.0755685880569,
+              "image_state": [
+                -6.8808546038777445,
+                -0.027754605038344704,
+                0.014225679207810203
+              ],
+              "input_x_tangent": 21.500361115740727,
+              "next_state": [
+                -11.766224003976868,
+                -0.02775460503842738,
+                0.010556091359991152
+              ],
+              "normalized_output_derivative": -0.00036111198285248956,
+              "normalized_x_component": 0.5502251635133498,
+              "valid": true,
+              "x_graph_slope": -0.0006562985606595727
+            },
+            {
+              "gain": 39.10129806137657,
+              "image_state": [
+                -6.880531997423647,
+                -0.02775460503834322,
+                0.01422600560487926
+              ],
+              "input_x_tangent": 21.513831611015128,
+              "next_state": [
+                -11.766224109836557,
+                -0.027754605038297624,
+                0.010556091300970875
+              ],
+              "normalized_output_derivative": 4.496863116235586e-12,
+              "normalized_x_component": 0.5502076063368861,
+              "valid": true,
+              "x_graph_slope": 8.173029715409288e-12
+            },
+            {
+              "gain": 39.127021241937044,
+              "image_state": [
+                -6.880209188954296,
+                -0.027754605038354918,
+                0.014226332221289065
+              ],
+              "input_x_tangent": 21.527297297837197,
+              "next_state": [
+                -11.766224003857928,
+                -0.027754605038262856,
+                0.01055609136005515
+              ],
+              "normalized_output_derivative": 0.00036124494414409584,
+              "normalized_x_component": 0.5501900378443287,
+              "valid": true,
+              "x_graph_slope": 0.0006565821248953745
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197319,
+            "determinant_scale": 26547.09608475371,
+            "event_second_derivative": 211838.22890961453,
+            "first": [
+              -3.294509841063035,
+              2255.0594379935087,
+              0.06433784162454124
+            ],
+            "iteration": 5,
+            "jacobian": [
+              [
+                2255.0594379935087,
+                -11.772212720961772
+              ],
+              [
+                -2493804.6931522465,
+                -1.842401076146416e-08
+              ]
+            ],
+            "residual": [
+              1.8035333643195983e-11,
+              -2.1981414022320678e-08
+            ],
+            "second": [
+              642436.728301465,
+              857565.5430049787,
+              385.76983841040817
+            ],
+            "state": [
+              -11.766224109836537,
+              -0.0277546050203198,
+              0.010556091300971415
+            ],
+            "time": 66.80182094347202,
+            "u": 0.005253575241216214
+          },
+          "scaled_curvature": 30.512482800255253
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 1,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 0.05744649123014669,
+              "image_state": [
+                -2.0097276141971476,
+                -0.027754605038352788,
+                0.022123723349485244
+              ],
+              "input_x_tangent": -0.00819305993309573,
+              "next_state": [
+                -3.926969830547799,
+                -0.027754605038337953,
+                0.018004692641997475
+              ],
+              "normalized_output_derivative": -0.2772966195924896,
+              "normalized_x_component": 0.14262071986732913,
+              "valid": true,
+              "x_graph_slope": 1.9442940678636371
+            },
+            {
+              "gain": 1.9191219806393556e-10,
+              "image_state": [
+                -2.009727675645308,
+                -0.027754605038350987,
+                0.022123723065188214
+              ],
+              "input_x_tangent": -2.738662630008548e-11,
+              "next_state": [
+                -3.926969950021103,
+                -0.027754605038340825,
+                0.018004692448812303
+              ],
+              "normalized_output_derivative": -0.2779807871017315,
+              "normalized_x_component": 0.1427039374066344,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.05744754168488955,
+              "image_state": [
+                -2.0097276141965166,
+                -0.027754605038353343,
+                0.022123723349488242
+              ],
+              "input_x_tangent": 0.0081932097500526,
+              "next_state": [
+                -3.9269698305465917,
+                -0.02775460503836418,
+                0.018004692641999418
+              ],
+              "normalized_output_derivative": 0.27729661960558527,
+              "normalized_x_component": 0.14262071987333902,
+              "valid": true,
+              "x_graph_slope": 1.944294067873528
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        },
+        {
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 0.0574464913287002,
+              "image_state": [
+                -2.0097276141968154,
+                -0.02775460503835065,
+                0.022123723349486882
+              ],
+              "input_x_tangent": -0.008193059947010221,
+              "next_state": [
+                -3.9269698305471548,
+                -0.027754605038364563,
+                0.018004692641998523
+              ],
+              "normalized_output_derivative": -0.2772966195858504,
+              "normalized_x_component": 0.14262071986486977,
+              "valid": true,
+              "x_graph_slope": 1.944294067850613
+            },
+            {
+              "gain": 2.154032609595581e-11,
+              "image_state": [
+                -2.0097276756448386,
+                -0.02775460503835023,
+                0.022123723065190417
+              ],
+              "input_x_tangent": 3.459084870390446e-12,
+              "next_state": [
+                -3.926969950020175,
+                -0.027754605038346473,
+                0.0180046924488138
+              ],
+              "normalized_output_derivative": 0.31145699787766035,
+              "normalized_x_component": 0.16058646721415645,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.05744754170721458,
+              "image_state": [
+                -2.00972761419603,
+                -0.027754605038352205,
+                0.022123723349490504
+              ],
+              "input_x_tangent": 0.008193209754030506,
+              "next_state": [
+                -3.926969830545647,
+                -0.027754605038350248,
+                0.018004692642000945
+              ],
+              "normalized_output_derivative": 0.2772966196348204,
+              "normalized_x_component": 0.1426207198871585,
+              "valid": true,
+              "x_graph_slope": 1.9442940678901175
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 1,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        },
+        {
+          "method": "Radau",
+          "qualified": false,
+          "reason": "fixed search box exceeded"
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          2.7582103268031233e-14,
+          3.020269219907353e-15
+        ],
+        "times": [
+          6.394884621840902e-14,
+          4.263256414560601e-14
+        ],
+        "u": 7.657177843178875e-15
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            60.26592198858303,
+            66.50841546357655
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 13105.061087449065,
+          "event_state_error": 2.412375854632387e-14,
+          "event_time_error": 4.263256414560601e-14,
+          "finite_difference_relative_error": 1.050124934301245e-08,
+          "finite_difference_second_derivative": 13105.06094982955,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 9.731090039998843,
+              "image_state": [
+                -6.880612286165512,
+                -0.02775460503837041,
+                0.014225924371351206
+              ],
+              "input_x_tangent": 5.35416227869027,
+              "next_state": [
+                -11.766224103280067,
+                -0.027754605038287403,
+                0.010556091304626551
+              ],
+              "normalized_output_derivative": -8.986310942502666e-05,
+              "normalized_x_component": 0.5502119759125059,
+              "valid": true,
+              "x_graph_slope": -0.00016332452465432447
+            },
+            {
+              "gain": 9.725423711928816,
+              "image_state": [
+                -6.8805319974299985,
+                -0.027754605038371537,
+                0.01422600560487283
+              ],
+              "input_x_tangent": 5.351002101155615,
+              "next_state": [
+                -11.766224109836525,
+                -0.027754605038361142,
+                0.010556091300970887
+              ],
+              "normalized_output_derivative": -2.6682472293398613e-12,
+              "normalized_x_component": 0.5502076063372221,
+              "valid": true,
+              "x_graph_slope": -4.849528066510395e-12
+            },
+            {
+              "gain": 9.71975413184285,
+              "image_state": [
+                -6.880451756110889,
+                -0.027754605038348926,
+                0.01422608679134448
+              ],
+              "input_x_tangent": 5.347840208758831,
+              "next_state": [
+                -11.766224103287978,
+                -0.027754605038273136,
+                0.01055609130462156
+              ],
+              "normalized_output_derivative": 8.980427272624585e-05,
+              "normalized_x_component": 0.550203239322566,
+              "valid": true,
+              "x_graph_slope": 0.00016322018175832033
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197298,
+            "determinant_scale": 4482.8349130422675,
+            "event_second_derivative": 13105.061087449065,
+            "first": [
+              -0.5563223835574985,
+              380.7971744760892,
+              0.01086431145835576
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                380.7971744760892,
+                -11.772212720965546
+              ],
+              [
+                -154275.56684261913,
+                -2.4530606435035907e-09
+              ]
+            ],
+            "residual": [
+              3.558472960740744e-13,
+              4.424847155348743e-09
+            ],
+            "second": [
+              25542.770736215163,
+              -84550.2754576127,
+              11.82888274759593
+            ],
+            "state": [
+              -11.766224109836497,
+              -0.027754605037999286,
+              0.010556091300970911
+            ],
+            "time": 66.5084154635766,
+            "u": -0.0009032448631785384
+          },
+          "scaled_curvature": 30.512482800722687
+        },
+        {
+          "center_event_times": [
+            60.265921988583095,
+            66.5084154635766
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 13105.061087331815,
+          "event_state_error": 4.860001290296623e-14,
+          "event_time_error": 2.1316282072803006e-13,
+          "finite_difference_relative_error": 1.3521470002240708e-09,
+          "finite_difference_second_derivative": 13105.061069611846,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 9.731090039994383,
+              "image_state": [
+                -6.880612286165892,
+                -0.027754605038334296,
+                0.014225924371350828
+              ],
+              "input_x_tangent": 5.354162278688081,
+              "next_state": [
+                -11.76622410327998,
+                -0.02775460503830718,
+                0.010556091304626604
+              ],
+              "normalized_output_derivative": -8.986310985471673e-05,
+              "normalized_x_component": 0.5502119759125332,
+              "valid": true,
+              "x_graph_slope": -0.00016332452543527007
+            },
+            {
+              "gain": 9.725423711876072,
+              "image_state": [
+                -6.880531997430269,
+                -0.02775460503836228,
+                0.014226005604872555
+              ],
+              "input_x_tangent": 5.351002101126706,
+              "next_state": [
+                -11.76622410983655,
+                -0.027754605038406446,
+                0.01055609130097087
+              ],
+              "normalized_output_derivative": -2.950280679149323e-12,
+              "normalized_x_component": 0.5502076063372335,
+              "valid": true,
+              "x_graph_slope": -5.362122670003649e-12
+            },
+            {
+              "gain": 9.719754131806603,
+              "image_state": [
+                -6.880451756109756,
+                -0.027754605038334528,
+                0.014226086791345632
+              ],
+              "input_x_tangent": 5.347840208738351,
+              "next_state": [
+                -11.766224103288,
+                -0.027754605038331086,
+                0.010556091304621552
+              ],
+              "normalized_output_derivative": 8.980427393957653e-05,
+              "normalized_x_component": 0.5502032393225107,
+              "valid": true,
+              "x_graph_slope": 0.00016322018396357763
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197296,
+            "determinant_scale": 4482.83491303778,
+            "event_second_derivative": 13105.061087331815,
+            "first": [
+              -0.5563223835643789,
+              380.7971744756986,
+              0.010864311458340182
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                380.7971744756986,
+                -11.772212720965836
+              ],
+              [
+                -154275.5668412402,
+                -2.5278468207545757e-09
+              ]
+            ],
+            "residual": [
+              -7.803133139638874e-13,
+              4.080054516464315e-09
+            ],
+            "second": [
+              25542.770736081617,
+              -84550.27545854806,
+              11.828882747493715
+            ],
+            "state": [
+              -11.766224109836541,
+              -0.027754605039135447,
+              0.010556091300970854
+            ],
+            "time": 66.50841546357681,
+            "u": -0.0009032448631708812
+          },
+          "scaled_curvature": 30.512482800779377
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          2.3696322681843185e-13,
+          4.736951571734001e-16
+        ],
+        "times": [
+          1.4139800441625994e-12,
+          1.6342482922482304e-12
+        ],
+        "u": 9.686695889854491e-15
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            60.559327481076934,
+            66.80182095607047
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 105911.600865524,
+          "event_state_error": 4.004373221899726e-13,
+          "event_time_error": 1.2931877790833823e-12,
+          "finite_difference_relative_error": 4.530868257568058e-08,
+          "finite_difference_second_derivative": 105911.5960668089,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 27.63494897028889,
+              "image_state": [
+                -6.8807601274728665,
+                -0.02775460503834365,
+                0.014225774792762972
+              ],
+              "input_x_tangent": 15.205302226736212,
+              "next_state": [
+                -11.766224056901802,
+                -0.02775460503835857,
+                0.010556091330483991
+              ],
+              "normalized_output_derivative": -0.00025534946336469393,
+              "normalized_x_component": 0.5502200218673774,
+              "valid": true,
+              "x_graph_slope": -0.00046408609868116036
+            },
+            {
+              "gain": 27.647812333038786,
+              "image_state": [
+                -6.880531997429871,
+                -0.027754605038345155,
+                0.014226005604872957
+              ],
+              "input_x_tangent": 15.212036644221522,
+              "next_state": [
+                -11.766224109836534,
+                -0.027754605038308757,
+                0.01055609130097088
+              ],
+              "normalized_output_derivative": -2.519938533231967e-12,
+              "normalized_x_component": 0.5502076063372049,
+              "valid": true,
+              "x_graph_slope": -4.579977637909238e-12
+            },
+            {
+              "gain": 27.660673471416263,
+              "image_state": [
+                -6.8803037663825455,
+                -0.02775460503833938,
+                0.014226236526649453
+              ],
+              "input_x_tangent": 15.218769361957337,
+              "next_state": [
+                -11.766224056859706,
+                -0.027754605038334684,
+                0.010556091330505816
+              ],
+              "normalized_output_derivative": 0.0002554159341010969,
+              "normalized_x_component": 0.5501951851491964,
+              "valid": true,
+              "x_graph_slope": 0.0004642278613031406
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.999998932419729,
+            "determinant_scale": 18770.96608713743,
+            "event_second_derivative": 105911.600865524,
+            "first": [
+              -2.32948765600857,
+              1594.5112828874235,
+              0.04549211105137945
+            ],
+            "iteration": 5,
+            "jacobian": [
+              [
+                1594.5112828874235,
+                -11.772212720966971
+              ],
+              [
+                -1246813.895005925,
+                -8.659912786868063e-09
+              ]
+            ],
+            "residual": [
+              -5.9601837354428255e-12,
+              4.742208403740733e-09
+            ],
+            "second": [
+              321195.58345184685,
+              428752.29040332185,
+              192.87123776904048
+            ],
+            "state": [
+              -11.766224109836559,
+              -0.027754605044315317,
+              0.0105560913009707
+            ],
+            "time": 66.80182095607177,
+            "u": 0.007429939797210086
+          },
+          "scaled_curvature": 30.512482800417494
+        },
+        {
+          "center_event_times": [
+            60.55932748107835,
+            66.8018209560721
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 105911.6008662004,
+          "event_state_error": 9.63164733155016e-15,
+          "event_time_error": 9.947598300641403e-14,
+          "finite_difference_relative_error": 4.2887980655821037e-08,
+          "finite_difference_second_derivative": 105911.59632386571,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 27.634948970458463,
+              "image_state": [
+                -6.880760127469368,
+                -0.027754605038367745,
+                0.014225774792766509
+              ],
+              "input_x_tangent": 15.20530222682424,
+              "next_state": [
+                -11.76622405690178,
+                -0.02775460503829328,
+                0.010556091330484008
+              ],
+              "normalized_output_derivative": -0.0002553494594093732,
+              "normalized_x_component": 0.5502200218671865,
+              "valid": true,
+              "x_graph_slope": -0.00046408609149270485
+            },
+            {
+              "gain": 27.64781233317798,
+              "image_state": [
+                -6.880531997427532,
+                -0.027754605038370146,
+                0.014226005604875327
+              ],
+              "input_x_tangent": 15.212036644295061,
+              "next_state": [
+                -11.766224109836541,
+                -0.027754605038310017,
+                0.01055609130097088
+              ],
+              "normalized_output_derivative": 1.3954767186598658e-13,
+              "normalized_x_component": 0.5502076063370946,
+              "valid": true,
+              "x_graph_slope": 2.5362730405528083e-13
+            },
+            {
+              "gain": 27.660673471654025,
+              "image_state": [
+                -6.880303766377922,
+                -0.027754605038338945,
+                0.014226236526654132
+              ],
+              "input_x_tangent": 15.218769362081007,
+              "next_state": [
+                -11.766224056859766,
+                -0.027754605038303317,
+                0.010556091330505786
+              ],
+              "normalized_output_derivative": 0.0002554159392880747,
+              "normalized_x_component": 0.5501951851489381,
+              "valid": true,
+              "x_graph_slope": 0.00046422787073088166
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989324197296,
+            "determinant_scale": 18770.966087169596,
+            "event_second_derivative": 105911.6008662004,
+            "first": [
+              -2.3294876548681587,
+              1594.5112828903318,
+              0.0454921110521052
+            ],
+            "iteration": 5,
+            "jacobian": [
+              [
+                1594.5112828903318,
+                -11.772212720965694
+              ],
+              [
+                -1246813.895013632,
+                -9.550596757890162e-09
+              ]
+            ],
+            "residual": [
+              -9.93580218100476e-14,
+              6.094786897392623e-10
+            ],
+            "second": [
+              321195.5834535713,
+              428752.2904027938,
+              192.87123777001773
+            ],
+            "state": [
+              -11.766224109836546,
+              -0.02775460503845449,
+              0.010556091300970873
+            ],
+            "time": 66.801820956072,
+            "u": 0.007429939797219773
+          },
+          "scaled_curvature": 30.51248280031735
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 1,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 0.028721258472479437,
+              "image_state": [
+                -2.009727644923037,
+                -0.027754605038353485,
+                0.022123723207328336
+              ],
+              "input_x_tangent": -0.004096247014982909,
+              "next_state": [
+                -3.926969890287991,
+                -0.027754605038338338,
+                0.018004692545399152
+              ],
+              "normalized_output_derivative": -0.27729665043981283,
+              "normalized_x_component": 0.1426207357490241,
+              "valid": true,
+              "x_graph_slope": 1.9442940676437386
+            },
+            {
+              "gain": 1.0951568357120665e-10,
+              "image_state": [
+                -2.009727675645037,
+                -0.0277546050383612,
+                0.022123723065189352
+              ],
+              "input_x_tangent": 1.549987175645621e-11,
+              "next_state": [
+                -3.926969950020562,
+                -0.027754605038343528,
+                0.018004692448813177
+              ],
+              "normalized_output_derivative": 0.2753695461139885,
+              "normalized_x_component": 0.14153106889369188,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.028721629822434154,
+              "image_state": [
+                -2.009727644922785,
+                -0.027754605038352465,
+                0.022123723207329495
+              ],
+              "input_x_tangent": 0.0040962999772546655,
+              "next_state": [
+                -3.926969890287491,
+                -0.02775460503835891,
+                0.01800469254539997
+              ],
+              "normalized_output_derivative": 0.27729665044554724,
+              "normalized_x_component": 0.14262073575139145,
+              "valid": true,
+              "x_graph_slope": 1.944294067651673
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        },
+        {
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 0.028721258259057213,
+              "image_state": [
+                -2.0097276449232093,
+                -0.02775460503835851,
+                0.022123723207327566
+              ],
+              "input_x_tangent": -0.004096246984825487,
+              "next_state": [
+                -3.926969890288312,
+                -0.02775460503833899,
+                0.01800469254539864
+              ],
+              "normalized_output_derivative": -0.2772966504569063,
+              "normalized_x_component": 0.14262073575880824,
+              "valid": true,
+              "x_graph_slope": 1.9442940676302083
+            },
+            {
+              "gain": 1.9699866166028913e-10,
+              "image_state": [
+                -2.009727675645201,
+                -0.02775460503835229,
+                0.02212372306518877
+              ],
+              "input_x_tangent": 2.8224600434612058e-11,
+              "next_state": [
+                -3.926969950020903,
+                -0.027754605038346963,
+                0.018004692448812618
+              ],
+              "normalized_output_derivative": 0.27860757047640583,
+              "normalized_x_component": 0.14327305676463667,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.028721629688507597,
+              "image_state": [
+                -2.0097276449223545,
+                -0.027754605038359456,
+                0.02212372320733152
+              ],
+              "input_x_tangent": 0.004096299957906146,
+              "next_state": [
+                -3.926969890286631,
+                -0.02775460503833893,
+                0.01800469254540136
+              ],
+              "normalized_output_derivative": 0.27729665042861074,
+              "normalized_x_component": 0.14262073574276327,
+              "valid": true,
+              "x_graph_slope": 1.9442940676505456
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "All original candidate intervals, outcome-informed finite-image geometry only. Qualified numerical projected folds, not an invariant quotient, complete partition, C/D membership, Jones word or arrow, homoclinic proof or whole-plane explanation. All earlier verdicts remain unchanged.",
+  "elapsed_seconds": 1572.141614999622,
+  "experiment_id": "EXP-490",
+  "families": [
+    {
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 2
+    },
+    {
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 2
+    },
+    {
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 2
+    },
+    {
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 2
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "in_region": 1,
+      "qualified": 1,
+      "unresolved": 0
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "in_region": 1,
+      "qualified": 1,
+      "unresolved": 0
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "in_region": 1,
+      "qualified": 1,
+      "unresolved": 0
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "in_region": 1,
+      "qualified": 1,
+      "unresolved": 0
+    },
+    {
+      "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 1
+    },
+    {
+      "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 1
+    },
+    {
+      "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 1
+    },
+    {
+      "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+      "in_region": 0,
+      "qualified": 0,
+      "unresolved": 1
+    },
+    {
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "in_region": 1,
+      "qualified": 1,
+      "unresolved": 0
+    },
+    {
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "in_region": 1,
+      "qualified": 1,
+      "unresolved": 0
+    },
+    {
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "in_region": 2,
+      "qualified": 2,
+      "unresolved": 2
+    },
+    {
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "in_region": 2,
+      "qualified": 2,
+      "unresolved": 2
+    }
+  ],
+  "paid_review": "not_run",
+  "same_agent_local_audit": true,
+  "source_commit": "892ab8f4719fbf4463bf9b4943314c9d4c8eda5e",
+  "status": "completed-audited",
+  "summary_sha256": "41fe7b8e5346a97946c2bb51400fb1109d0b5a29d682653494b36fd2962b345e",
+  "target_trajectories": 208
+}
