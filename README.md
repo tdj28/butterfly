@@ -130,6 +130,11 @@ pre-grazing inputs do not meet the proximity criterion at any cycle event.
 This rules out treating our one-fold calibration point as an already verified
 two-object contact; it neither verifies nor debunks Jones's symbolic chains.
 
+The [higher-precision follow-up](docs/updates/2026-09-09-exp499-decimal-event-reference.md)
+now supplies an audited decimal reference at all 32 side inputs. It also finds
+an additional limitation of ordinary paired-solver agreement. This strengthens
+the numerical foundation, not the still-unverified symbolic-chain claim.
+
 ### From broad parameter scans to individual shrimp
 
 ![Global parameter plane and period-6 zoom](paper/figures/fig02-global-and-period6-zoom.png)

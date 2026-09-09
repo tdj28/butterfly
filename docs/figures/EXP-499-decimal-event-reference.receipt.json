@@ -1,0 +1,770 @@
+{
+  "accessibility": "Separate marker shapes and colors; hollow failed markers and labeled inherited-failure shading.",
+  "alt_text": "All 32 side inputs in eight groups: DOP853 and Radau disagreement from both decimal references, and disagreement between the 40- and 50-digit configurations. Original failed pairs are shaded; hollow markers retain failed criteria.",
+  "audit_source_sha256": "889347d6d2054dc743b20881b8dcf2ed1a91e3686363d7e21eb176adc7585d46",
+  "derived_rows": [
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": -1.2840824532445485e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 2.393680367437149e-14,
+          "time": 1.7593607744935668e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.6792361276866338e-13,
+          "time": 1.1172517016340257e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 7.925631583624e-37,
+      "reference_time": 1.3871178475e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": -1.2840824532445484e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 6.343883843432154e-15,
+          "time": 6.688188387125616e-14,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 6.936801118320899e-14,
+          "time": 4.23392603803213e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 8.158132215237e-37,
+      "reference_time": 1.2836730583e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": 1.2840824532445484e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 2.621913028646338e-07,
+          "time": 2.8393740782557655e-11,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 2.003919133117927e-07,
+          "time": 2.172083837060221e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.537055822157429e-29,
+      "reference_time": 3.1181126961e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": 1.2840824532445485e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.041522667243351e-07,
+          "time": 1.1524625450641487e-11,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 5.432545737915807e-08,
+          "time": 5.989497539070307e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 1.4779926391984015e-29,
+      "reference_time": 1.4712200566e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": -1.2840824532445485e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 8.599302336103134e-12,
+          "time": 1.2353056561080604e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 5.626395234082267e-11,
+          "time": 7.132810362916892e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 4.852159494653399e-35,
+      "reference_time": 2.4927867355e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": -1.2840824532445484e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.2034319045548393e-11,
+          "time": 1.8188527005261435e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 5.787265217475954e-11,
+          "time": 6.650543303694824e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 4.0032865461981e-35,
+      "reference_time": 3.2454292952e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": 1.2840824532445484e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 9.359511723535382e-09,
+          "time": 1.0053153620787647e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.0678877637959244e-07,
+          "time": 1.1491149785058443e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.4378579587411647e-29,
+      "reference_time": 2.1093884903e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": 1.2840824532445485e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 6.503697779504051e-09,
+          "time": 7.035193228737024e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.5622780647749408e-08,
+          "time": 1.7016678376742368e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.411018248186605e-29,
+      "reference_time": 3.3390725235e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": -1.8160557188463127e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 3.094049691291778e-14,
+          "time": 2.15103484894838e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 5.891817914268083e-14,
+          "time": 4.172795499316512e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 7.603577567158e-37,
+      "reference_time": 1.5290144209e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": -1.8160557188463128e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 6.979656097459585e-15,
+          "time": 1.1327523981301431e-14,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 2.7102448418790547e-14,
+          "time": 2.671229088549375e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 7.863161441113e-37,
+      "reference_time": 7.639716279e-39
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": 1.8160557188463128e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 3.4356167336034153e-08,
+          "time": 3.693116780460966e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 9.080593556810749e-08,
+          "time": 9.871144045199346e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.5370144110136045e-29,
+      "reference_time": 2.3322929105e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": 1.8160557188463127e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 5.5477002309629574e-08,
+          "time": 6.165187543511604e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 4.931478987231206e-09,
+          "time": 5.518999310068123e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 1.4779850343608281e-29,
+      "reference_time": 1.2590108952e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": -1.816055718846311e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 7.650715855099913e-12,
+          "time": 6.64710872491818e-14,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.5369758560502708e-11,
+          "time": 2.1064057969725727e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 4.5767946964977e-35,
+      "reference_time": 1.4134094225e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": -1.816055718846311e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.220200838047674e-11,
+          "time": 1.9042542580865231e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 2.5261006707630145e-11,
+          "time": 3.7516653710627836e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 4.1501820573655e-35,
+      "reference_time": 1.3806509651e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": 1.816055718846311e-07,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 4.3986454389775386e-08,
+          "time": 4.730929210650926e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 2.7106801159058443e-08,
+          "time": 2.91549252078387e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.4378656973177053e-29,
+      "reference_time": 1.8489083309e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": 1.816055718846311e-06,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 9.188044345300581e-09,
+          "time": 9.960419328723578e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.2101091926233052e-08,
+          "time": 1.3122334502856024e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.411017088695878e-29,
+      "reference_time": 1.5920321961e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": -2.19719477003729e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.64980434832935e-08,
+          "time": 1.8158542658430573e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 8.237895199687476e-08,
+          "time": 8.856497625273647e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.4722763908226716e-29,
+      "reference_time": 4.517259728e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": -2.19719477003729e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 3.236317038871109e-07,
+          "time": 3.477073260896228e-11,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.1322209883049596e-06,
+          "time": 1.2167721461978014e-10,
+          "within_original_thresholds": false
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.5629751557564655e-29,
+      "reference_time": 7.039013966e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": 2.19719477003729e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 6.176806600040896e-11,
+          "time": 7.333477454081269e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 3.880981335794554e-11,
+          "time": 4.887857600992455e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 6.4626936594741e-35,
+      "reference_time": 9.028622488e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": 2.19719477003729e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 5.942313752558913e-11,
+          "time": 7.5562182968633e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.8066504292977934e-10,
+          "time": 2.276183284212944e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 3.9262039970721e-35,
+      "reference_time": 5.650159619e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": -2.1971947700372921e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 2.2162883294523806e-07,
+          "time": 2.453490321652856e-11,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 2.1138106166180126e-07,
+          "time": 2.3526207430284617e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 1.5184022216853775e-29,
+      "reference_time": 8.43062608e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": -2.197194770037292e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.3761797823909563e-06,
+          "time": 1.4901045115094401e-10,
+          "within_original_thresholds": false
+        },
+        {
+          "name": "Radau",
+          "state": 1.3648647652725977e-07,
+          "time": 1.4769649441759078e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": false,
+      "reference_qualified": true,
+      "reference_state": 2.3359251480963912e-29,
+      "reference_time": 8.471022341e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": 2.197194770037292e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 6.792832523911991e-14,
+          "time": 2.0045043143239877e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 8.162880327755144e-13,
+          "time": 2.7228771433807543e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 1.0246202007923e-36,
+      "reference_time": 5.347845923e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": 2.1971947700372921e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 2.1020536967499866e-13,
+          "time": 1.9810926636439633e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 3.143750094603878e-13,
+          "time": 7.255962901237339e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 8.636096550272999e-37,
+      "reference_time": 9.917742826e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": -3.107459841289943e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.1798363464767432e-08,
+          "time": 1.2626647827088846e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 2.567807089856063e-07,
+          "time": 2.7836963100136633e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.472239559880862e-29,
+      "reference_time": 5.2803784595e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": -3.107459841289943e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 2.4714592473932077e-07,
+          "time": 2.6568078810865658e-11,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 6.020670418744563e-07,
+          "time": 6.471534645223441e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 2.56306198757586e-29,
+      "reference_time": 1.0077542112e-37
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": 3.107459841289943e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.3357202969320466e-10,
+          "time": 1.7038167553362292e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 7.344570659352514e-11,
+          "time": 8.399262386849293e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 3.1045653955053e-35,
+      "reference_time": 1.7748984801e-37
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": 3.107459841289943e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 7.856243377413859e-11,
+          "time": 9.771104191221092e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 8.305606146630891e-11,
+          "time": 9.913212738373112e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 7.7625370138715e-35,
+      "reference_time": 1.5992001891e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": -3.107459841289943e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-0",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.752106873548439e-07,
+          "time": 1.940444930101031e-11,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 3.390787237028451e-07,
+          "time": 3.755265639751932e-11,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 1.5185834324381e-29,
+      "reference_time": 7.063324029e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": -3.107459841289943e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-1",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 1.062668134212955e-06,
+          "time": 1.1506482341597752e-10,
+          "within_original_thresholds": false
+        },
+        {
+          "name": "Radau",
+          "state": 3.052886537791818e-08,
+          "time": 3.3115963616551704e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": false,
+      "reference_qualified": true,
+      "reference_state": 2.33573726748967e-29,
+      "reference_time": 7.8046661875e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": 3.107459841289943e-08,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-2",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 3.3711168856896325e-13,
+          "time": 7.844046643572985e-13,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 1.2027125407186234e-13,
+          "time": 7.488775275692935e-13,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 1.0873500059480999e-36,
+      "reference_time": 7.604465368e-38
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": 3.107459841289943e-07,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-3",
+      "methods": [
+        {
+          "name": "DOP853",
+          "state": 2.1119353760462692e-13,
+          "time": 1.2284229483079302e-12,
+          "within_original_thresholds": true
+        },
+        {
+          "name": "Radau",
+          "state": 5.787995333552111e-13,
+          "time": 1.940597653182117e-12,
+          "within_original_thresholds": true
+        }
+      ],
+      "original_pair_passed": true,
+      "reference_qualified": true,
+      "reference_state": 9.630043754609999e-37,
+      "reference_time": 3.371099712e-38
+    }
+  ],
+  "description": "All-input numerical accuracy comparison with both original failures retained.",
+  "figure_id": "EXP-499-decimal-event-reference",
+  "generator_sha256": "67f3ccd7adb18c6f5360635b5af81bc113bec8e3048a69ce20d8028ceb7af705",
+  "interval_semantics": "Complete fixed-input worst discrepancies, not confidence intervals or rigorous error enclosures.",
+  "matplotlib": "3.11.1",
+  "outputs": {
+    "EXP-499-decimal-event-reference.pdf": {
+      "bytes": 33185,
+      "sha256": "5f5c1c89ed9307a54dc5c48c4a5e07bc04a929580e937978a82c914c85d63294"
+    },
+    "EXP-499-decimal-event-reference.png": {
+      "bytes": 452265,
+      "sha256": "1caac72e67ab516b22bd6209ba235e97633bac3950655886d772ee72377657ba"
+    },
+    "EXP-499-decimal-event-reference.svg": {
+      "bytes": 142007,
+      "sha256": "b61bc5632ed7eb812177ae72050ad6bdab6a16506e1e13f74f886af7f5433dc5"
+    }
+  },
+  "repairs_exp498": false,
+  "source_commit": "cef7b57ee1102b5bb6fa7350e22be2ae05de9240",
+  "source_data_path": "docs/experiments/receipts/EXP-499-decimal-event-reference-result.json",
+  "source_data_sha256": "d8e01f7cf572f5a77a0319fc59aa465f6e5f2ce9c590d613c7ebbd7cfd29c8d5",
+  "summary_sha256": "340617c9dfde4240a468b04574f87dc01c2cc3f13a6e488d933050adef1deab3",
+  "symbolic_chains_verified": false,
+  "title": "Higher precision checks every nominated section crossing",
+  "zero_display": "Exact zeros, if present, are labeled at min(positive errors,1e-9)/10; receipt values remain zero."
+}

@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-498 mixed boundary transport; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-499 decimal event reference; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -206,6 +206,18 @@ because the complete qualification gate fails. The one-fold anchor is not an
 established two-object contact. No C/D assignment, second smooth critical point,
 Jones chain or homoclinic conclusion follows. Full raw trajectories remain local.
 [Complete mixed result and geometry](updates/2026-09-09-exp498-boundary-transport.md).
+
+**EXP-499 update:** all 64 higher-precision trajectories and 480 nominated-root
+evaluations pass the raw coefficient audit. Both decimal configurations agree
+at all 32 inputs and 240 paired events under 1e-9 state / 1e-12 time criteria.
+Against both references, the original state threshold is exceeded at two
+DOP853 inputs and one Radau input; the latter belongs to a previously passing
+paired-solver case. Pairwise agreement is therefore not an error bound. The
+very small decimal discrepancies do not establish absolute accuracy beyond
+the shared 1e-25 root-box resolution. This qualifies an all-nominated-event
+numerical reference, not a complete census, repaired EXP-498 boundary verdict,
+C/D, Jones arrow or new homoclinic result. Full coefficient trajectories remain
+local. [Full comparison and scope](updates/2026-09-09-exp499-decimal-event-reference.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

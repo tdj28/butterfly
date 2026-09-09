@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp499-decimal-event-reference.md`](2026-09-09-exp499-decimal-event-reference.md)
+  - All 64 decimal trajectories and 480 root evaluations audited; the reference
+  agrees at all inputs and exposes an additional limitation of original paired
+  solver agreement. Original EXP-498 failures remain unchanged.
 - [`2026-09-09-exp498-boundary-transport.md`](2026-09-09-exp498-boundary-transport.md)
   - All 136 integrations audited: six of eight boundary matrices qualify;
   two near-tangent accuracy failures remain, and boundary inputs do not meet
