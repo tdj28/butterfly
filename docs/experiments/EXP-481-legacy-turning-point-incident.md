@@ -49,3 +49,33 @@ negative evidence. Report unchanged and changed outcomes alike. If a fix is
 made to the shared helper, use a separate reviewed correction commit with the
 analytic regression and an impact ledger. Do not claim the historical results
 are cleared merely because the new EXP-481 analyzer passes its controls.
+
+## 2026-09-09: exposure inventory, not numerical clearance
+
+The checked-in `scripts/inventory_legacy_turning_point_callers.py` now traces
+the local helper call chain and explicit imported callers without executing
+the old experiments. The [source-bound inventory](receipts/EXP-481-legacy-caller-inventory.json)
+retains **21 source scripts** (including the analytic reproducer) and three
+test files. Literal manifest-schema matches identify **42 candidate experiment
+manifests**, from EXP-106 through EXP-201. These are exposure candidates, not
+42 demonstrated mistakes or a complete dynamic dependency graph. Exact-path
+mentions in large release inventories likewise do not prove execution.
+
+Both whole-map counting and local critical-point tracking reach the unsafe
+helper. The coverage-censored consumer also uses its results even though it
+does not call the fitter directly. This means an eventual impact audit must
+include nominal fits, bootstrap decisions, robust-variant aggregation and
+critical-location use, not only the headline branch counts.
+
+A concrete raw-replay starting point is EXP-186. Its local `receipt.json`
+and `states.npz` hashes match the original published anchors in the
+[EXP-186 record](EXP-186-heldout-jones-landmark-word.md): respectively
+`efae1b0cbee8edf74bf11b6bf3de38c56418c5f8acb454ea3297722d7a836903` and
+`f58894f952a40857d29b77f12f959001cb05eaa5a9a5eb2e88d1585ddb295731`.
+The current legacy helper and EXP-186 runner are byte-identical to their
+versions at original source `877ee75e77bbbd874bbd4311ebd38f8f14e1ed95`.
+That establishes available inputs and source identity, **not** numerical
+replay or an unchanged verdict. No historical result has been cleared,
+reclassified, rerun or erased by this inventory. The shared helper remains
+unchanged. Freeze a separate retrospective sensitivity protocol before
+comparing its admitted roots with true turning geometry on these saved pairs.

@@ -1,0 +1,343 @@
+{
+  "accessibility": {
+    "non_color_channels": "Marker shape, open/filled markers, signed text labels and black failure crosses",
+    "png_dpi": 300
+  },
+  "alt_text": "Two scatter panels show the old anchor, all complete two-residual stencil matrices, and the measured joint proposal when available. Diamonds distinguish a changes, squares c changes, and outlines half steps. Black crosses flag unqualified points. The left panel includes the coordinate target at zero; the right zooms into measured responses. Missing complete matrices are explicitly listed.",
+  "bindings": {
+    "experiments/manifests/EXP-502-joint-contact-search.json": "20c9fc885f2eeaf8df6225e487f67ee5d531b64ccaa4e0fe2e7e32bb28091038",
+    "experiments/manifests/EXP-503-joint-contact-continuation.json": "ac90cbfa8168abd8a21e49066bc294c2102bb1542811caef9d74354eb6d515e9",
+    "scripts/exp502_response.py": "77c04371a378fe2d35c500366f6b7b480d94ae1f1c3ee59e85b62a5a94856dd9",
+    "scripts/verify_exp503_public_contact.py": "fa7671d2949d4c01224cfb599e37760477f71529778ff298f3ee998c08ba694d"
+  },
+  "claim_exclusions": [
+    "No exact flow contact proof",
+    "No C/D identification",
+    "No verified symbolic chain",
+    "Not a global parameter-plane explanation"
+  ],
+  "data_source": {
+    "aggregation": "Arithmetic means and componentwise full ranges over all correlated variants; not independent samples.",
+    "exclusions": "Only points lacking all 256 distinct residual vectors have no plotted coordinate; all are retained in the derived table and named on the figure.",
+    "fields": [
+      "rows.vectors",
+      "rows.qualified",
+      "proposal",
+      "analysis",
+      "EXP-502.base_vectors"
+    ],
+    "path": "docs/experiments/receipts/EXP-503-joint-contact-result.json",
+    "selection": "All eight fixed points, the old anchor and the sole measured proposal if present.",
+    "sha256": "56cf4e0d13d2f082c3272494f0ef6a4719dfd92d7d9686a74c67026c995437a7",
+    "transformation": "Both residual coordinates multiplied by 1000 for display. No interpolation or fitted curves."
+  },
+  "derived_values": [
+    {
+      "axis": "anchor",
+      "id": "anchor",
+      "maximum": [
+        1.7156995502354277e-05,
+        -0.013461181705051263
+      ],
+      "mean": [
+        1.7156995439589694e-05,
+        -0.013461181705058278
+      ],
+      "minimum": [
+        1.7156995229979564e-05,
+        -0.013461181705076488
+      ],
+      "parameters": {
+        "a": 0.21558015990653545,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 1.0,
+      "sign": 0,
+      "variants": 256
+    },
+    {
+      "axis": "a",
+      "id": "a-1--1",
+      "maximum": [
+        -0.0018910032050747816,
+        -0.013936608488718265
+      ],
+      "mean": [
+        -0.0018910032052229303,
+        -0.013936608488734428
+      ],
+      "minimum": [
+        -0.0018910032053965982,
+        -0.013936608488740529
+      ],
+      "parameters": {
+        "a": 0.21548015990653546,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 1.0,
+      "sign": -1,
+      "variants": 256
+    },
+    {
+      "axis": "a",
+      "id": "a-1-+1",
+      "maximum": [
+        0.0014956074833351114,
+        -0.013074249357549906
+      ],
+      "mean": [
+        0.0014956074832452053,
+        -0.013074249357553885
+      ],
+      "minimum": [
+        0.0014956074831222446,
+        -0.013074249357557721
+      ],
+      "parameters": {
+        "a": 0.21568015990653544,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 1.0,
+      "sign": 1,
+      "variants": 256
+    },
+    {
+      "axis": "a",
+      "id": "a-0.5--1",
+      "maximum": [
+        -0.0008589007714390936,
+        -0.01368280073409219
+      ],
+      "mean": [
+        -0.0008589007715302444,
+        -0.013682800734099382
+      ],
+      "minimum": [
+        -0.0008589007716755859,
+        -0.013682800734115756
+      ],
+      "parameters": {
+        "a": 0.21553015990653546,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 0.5,
+      "sign": -1,
+      "variants": 256
+    },
+    {
+      "axis": "a",
+      "id": "a-0.5-+1",
+      "maximum": [
+        0.0007924082833670928,
+        -0.013260315034756436
+      ],
+      "mean": [
+        0.0007924082831606167,
+        -0.013260315034784347
+      ],
+      "minimum": [
+        0.0007924082830446248,
+        -0.013260315034799778
+      ],
+      "parameters": {
+        "a": 0.21563015990653545,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 0.5,
+      "sign": 1,
+      "variants": 256
+    },
+    {
+      "axis": "c",
+      "id": "c-1--1",
+      "maximum": [
+        4.24560768964947e-06,
+        -0.013389516376751618
+      ],
+      "mean": [
+        4.245607622540183e-06,
+        -0.013389516376756321
+      ],
+      "minimum": [
+        4.245607499164805e-06,
+        -0.013389516376762394
+      ],
+      "parameters": {
+        "a": 0.21558015990653545,
+        "b": 0.2,
+        "c": 7.21
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 1.0,
+      "sign": -1,
+      "variants": 256
+    },
+    {
+      "axis": "c",
+      "id": "c-1-+1",
+      "maximum": [
+        3.0434461455778696e-05,
+        -0.013532649407536365
+      ],
+      "mean": [
+        3.0434461303012055e-05,
+        -0.01353264940756449
+      ],
+      "minimum": [
+        3.04344612048979e-05,
+        -0.013532649407578878
+      ],
+      "parameters": {
+        "a": 0.21558015990653545,
+        "b": 0.2,
+        "c": 7.2139999999999995
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 1.0,
+      "sign": 1,
+      "variants": 256
+    },
+    {
+      "axis": "c",
+      "id": "c-0.5--1",
+      "maximum": [
+        1.0655448394617887e-05,
+        -0.013425373830838642
+      ],
+      "mean": [
+        1.0655447917939915e-05,
+        -0.013425373830849994
+      ],
+      "minimum": [
+        1.0655447400094905e-05,
+        -0.013425373830856287
+      ],
+      "parameters": {
+        "a": 0.21558015990653545,
+        "b": 0.2,
+        "c": 7.210999999999999
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 0.5,
+      "sign": -1,
+      "variants": 256
+    },
+    {
+      "axis": "c",
+      "id": "c-0.5-+1",
+      "maximum": [
+        2.3750064980868994e-05,
+        -0.013496940172759054
+      ],
+      "mean": [
+        2.3750064444897763e-05,
+        -0.01349694017278511
+      ],
+      "minimum": [
+        2.375006388000145e-05,
+        -0.013496940172800266
+      ],
+      "parameters": {
+        "a": 0.21558015990653545,
+        "b": 0.2,
+        "c": 7.213
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 0.5,
+      "sign": 1,
+      "variants": 256
+    },
+    {
+      "axis": "proposal",
+      "id": "joint-proposal",
+      "maximum": [
+        3.28319534327548e-05,
+        -0.012701998962787018
+      ],
+      "mean": [
+        3.283195317259999e-05,
+        -0.012701998962801423
+      ],
+      "minimum": [
+        3.283195279616772e-05,
+        -0.01270199896281461
+      ],
+      "parameters": {
+        "a": 0.21558803194140663,
+        "b": 0.2,
+        "c": 7.192
+      },
+      "plotted": true,
+      "qualified": true,
+      "scale": 1.0,
+      "sign": 0,
+      "variants": 256
+    }
+  ],
+  "description": "The same two contact residuals are shown against their coordinate target and at a closer scale; neither panel is a parameter-plane atlas.",
+  "figure_id": "EXP-503-joint-contact-residuals",
+  "hard_guards": {
+    "analysis": {
+      "joint_proximity": false,
+      "reduction_at_least_twenty_percent": false,
+      "residual_reduction": 0.056397926934719234,
+      "status": "qualified-proposal-without-joint-proximity"
+    },
+    "experiment_id": "EXP-503",
+    "floating_replay_tolerance": {
+      "atol": 1e-13,
+      "discrete_gates": "exact",
+      "rtol": 1e-12
+    },
+    "full_raw_audit_repeated": false,
+    "measured_proposal": true,
+    "new_integrations": 0,
+    "passed": true,
+    "stencil_points": 8,
+    "symbolic_chains_verified": false
+  },
+  "interval_semantics": "Descriptive fixed-census numerical-representation ranges, not inferential uncertainty or absolute error bounds.",
+  "provenance": {
+    "audit_receipt_sha256": "56cf4e0d13d2f082c3272494f0ef6a4719dfd92d7d9686a74c67026c995437a7",
+    "experiment_id": "EXP-503",
+    "generator_path": "scripts/plot_exp503_joint_contact.py",
+    "generator_sha256": "543b91bbff297851a2b1bab0157b97b95103cd9e57ebf9fb45db2f700faee073",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-503-joint-contact-residuals.pdf": {
+        "bytes": 25801,
+        "sha256": "4754e86610b16f095524c01e85a0d7bb6bc8044ab7f89aaa48b9a956a1315250"
+      },
+      "EXP-503-joint-contact-residuals.png": {
+        "bytes": 301025,
+        "sha256": "fdc3ee13a384879187af1e11b9f233236a0d44009b6471a65ade11e41ace2fd6"
+      },
+      "EXP-503-joint-contact-residuals.svg": {
+        "bytes": 135115,
+        "sha256": "bccae5450975a9afd9e1375aef06add3c74e522f5d1b32ba3ae03c59833d0a13"
+      }
+    },
+    "python": "3.13.11 (main, Dec 17 2025, 20:55:16) [Clang 21.1.4 ]",
+    "source_commit": "ea11c80a49c85b1671fdaf3d6f536000c53bcb45"
+  },
+  "title": "Testing both contacts together"
+}
