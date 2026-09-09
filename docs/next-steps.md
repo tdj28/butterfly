@@ -109,8 +109,11 @@ inputs; historical result reproduction is a separate requirement.
   [EXP-487 event-census witness](experiments/EXP-487-section-census-witness.md)
   completed twelve profiles and confirmed the ordinary-event omission.
   [One witness qualified; one retained an accuracy/reference failure](updates/2026-09-08-exp487-missed-crossing-witness.md).
-  Next separate refined-event convergence from agreement with the old coarse
-  witness, then test section tangency and qualify the event-aware fold path.
+  [EXP-488 separated refined convergence from the old coarse reference](updates/2026-09-08-exp488-event-accuracy.md):
+  all twelve profiles completed; the first witness passes all six fine-pair
+  comparisons and the second passes three of six. Its finest solver pair agrees,
+  but the complete criterion still fails. Next test section tangency directly
+  and qualify the event-aware fold path; do not select only the favorable pair.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

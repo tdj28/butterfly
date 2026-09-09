@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-487 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-488 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -86,6 +86,12 @@ coarse-reference mismatch. This qualifies neither the missing folds nor
 historical symbols. The safeguard existed in an earlier grazing counter but
 was absent from the new variational-return path; this is a code integration
 gap, not a new physical mechanism. [Result and next steps](updates/2026-09-08-exp487-missed-crossing-witness.md).
+
+**EXP-488 update:** all twelve tolerance profiles completed. The first witness
+passes all six fine-pair comparisons; the second passes three of six and
+remains unresolved. Its finest solver pair agrees, but the complete rule fails.
+No prior verdict is changed and no fold or letter is newly qualified.
+[Accuracy study](updates/2026-09-08-exp488-event-accuracy.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate
