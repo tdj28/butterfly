@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-501 limiting contact; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-503 joint response; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -25,6 +25,20 @@ supersedes incompatible interpretations in the historical narrative below:
 
 The detailed rows retain experiment history; the current execution order is
 in [next-steps.md](next-steps.md).
+
+**EXP-502/503 update:** the complete eight-point a,c stencil and sole clipped
+correction pass full raw audit across 1,580 integrations, with all nine
+primitive six/eight cycles and event-index correspondences qualified. All
+256 correlated response variants pass orientation, conditioning and
+full/half-step checks. The correction at a=0.21558803194140663, b=0.2, c=7.192
+reduces the dominant residual by 5.64%; its right-fold pair passes 1e-4
+proximity, but the limiting boundary distance remains 0.012702. Both the
+joint-contact target and separate 20% reduction target fail. This supports
+testing a guarded lower-c continuation, not jumping to the unmeasured full
+linear extrapolation, declaring C/D, or verifying/refuting Jones's chains.
+The original storage failure and partial evidence remain preserved; EXP-503
+is a resource continuation, not an independent replication.
+[Audited result, full point census and figure](updates/2026-09-09-exp503-resource-continuation.md).
 
 **EXP-501 update:** all eight limiting-grazing representations and sixteen
 precision profiles qualify after 38 integrations and a full raw audit.

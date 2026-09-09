@@ -1,6 +1,12 @@
 # EXP-502: testing both contacts together
 
-**Resource-stopped with seven complete points preserved; EXP-503 continues the matrix.** EXP-501 showed that
+**Resource-stopped with seven complete points preserved; EXP-503 completed and audited the matrix.**
+The [combined result](2026-09-09-exp503-resource-continuation.md) covers all
+nine points and 1,580 integrations. Its qualified correction reduces the
+dominant gap by 5.64% but fails joint contact and the 20% reduction target.
+EXP-502 itself remains resource-failed; no attempt or partial evidence was reset.
+The preparation and first-point record below retain their original scope.
+EXP-501 showed that
 the limiting boundary misses the primitive cycle at the right-fold proximity
 anchor. EXP-502 varies both a and c to test whether the two contact residuals
 can be reduced together. The bounded search uses eight fixed stencil points
@@ -33,7 +39,7 @@ period-insertion arrow.
   `preflight-focused-02.xml` (14 pass, one fail); the assertion was retained
   and the copied root normalized. No target attempt was consumed.
 - Manuscript references and the symbolic control table pass. No paid review,
-  API call, credential read, GPU rental or raw upload was used.
+  model-API call, credential read, GPU rental or raw upload was used.
 
 ## Integration-count clarification
 
@@ -55,7 +61,7 @@ Both public Linux CI jobs (Python 3.12 and 3.13) passed for that exact head:
 The runner was launched against that live public revision, with output at
 `artifacts/EXP-502/target-69efcd3`. It repeats the analytic controls before
 consuming the exclusive attempt marker. The first individually audited point
-is recorded below; the whole response matrix remains pending. This file records
+is recorded below; the full response is now audited in EXP-503. This file records
 the complete run,
 raw audit, failures and next scientific decision rather than marking the
 research objective complete at preparation.
@@ -66,8 +72,9 @@ recorded integrations; the partial eighth retains another 109 trajectory
 files. The failure counter is 1,327 **reservations**, while 1,326 target
 trajectory files exist, including 192 guard meshes. The terminal traceback
 shows the final reservation rejected by `budget(True)` before its integration
-began. This is not 1,327 completed IVPs. Only the first point has undergone
-the standalone audit below; the complete response has not been interpreted.
+began. This is not 1,327 completed IVPs. At the original failure, only the
+first point had undergone the standalone audit below. The subsequent EXP-503
+audit replays every complete point, including all seven original checkpoints.
 
 Before the failure receipt, 1,958 files occupied 8,557,276,936 bytes. This
 crosses the frozen 8 GiB allowance minus its 32 MiB write margin, while

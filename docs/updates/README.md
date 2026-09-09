@@ -23,8 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp503-resource-continuation.md`](2026-09-09-exp503-resource-continuation.md)
-  - Computation complete: eight fixed points and one joint correction;
-  363 new integrations. Full raw audit is running before interpretation.
+  - All nine points and 1,580 integrations pass raw audit. The joint correction
+  reduces the dominant gap 5.64%, but the boundary still misses by 127 times
+  tolerance; a qualified local response supports testing lower-c continuation.
 - [`2026-09-09-exp502-joint-contact-search.md`](2026-09-09-exp502-joint-contact-search.md)
   - Seven fixed points completed before the frozen storage threshold stopped
   the eighth. All evidence is retained; failure metadata is public and

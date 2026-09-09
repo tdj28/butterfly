@@ -228,11 +228,16 @@ inputs; historical result reproduction is a separate requirement.
   after seven of eight joint a,c response-stencil points. The
   [EXP-503 continuation](updates/2026-09-09-exp503-resource-continuation.md)
   preserves that failure and reuses all seven complete points to finish the
-  same matrix
-  and at most one correction, using the distinct right-fold and limiting-boundary
-  residuals with full-state checks, primitive-period guards and no favorable
-  representation selection. Complete its target run and raw audit before
-  interpreting the response or choosing a successor.
+  same matrix and sole correction. Its full raw audit now passes all nine
+  points and 1,580 integrations. All 256 correlated response variants qualify;
+  the correction reduces the dominant residual 5.64% while retaining fold
+  proximity, but the boundary distance is still 0.012702, about 127 times
+  tolerance. Both contact and 20% reduction targets fail. Freeze a bounded,
+  event-index-preserving continuation toward lower c with renewed response,
+  full-state and primitive-cycle checks. The unbounded linear extrapolation
+  (roughly -0.3595 in c) is not a validated root or an authorized numerical
+  jump. Plan retained storage before targets; preserve all old evidence and
+  consumed attempts, and do not use a favorable subset to certify contact.
   Do not spend another experiment merely refining this fixed anchor or count
   its near-identical upstream boundary representations as different objects.
   Then test a conditional local partition
@@ -244,6 +249,9 @@ inputs; historical result reproduction is a separate requirement.
   [legacy turning-point impact audit](experiments/EXP-481-legacy-turning-point-incident.md)
   against preserved historical raw evidence. Its analytic stationary-inflection
   defect is confirmed; impact on earlier Rössler conclusions remains unmeasured.
+  The new static inventory identifies 21 source callers and 42 candidate
+  manifests, not 42 erroneous results. EXP-186's archived data and original
+  source hashes match and provide a concrete first retrospective replay case.
 - [x] Independently enumerate the finite quadratic-map control and compare
   its words/order with the in-scope unimodal source subset under a predeclared
   dictionary. [EXP-478](experiments/EXP-478-quadratic-symbolic-control.md)

@@ -10,6 +10,11 @@ from scripts import run_exp502_joint_contact as run
 from scripts import audit_exp502_joint_contact as audit
 from scripts import run_exp503_joint_continuation as continuation
 
+# Only reconstructed floating arithmetic uses this existing scalar-audit bound.
+# Input bytes, source hashes, discrete identities and every gate remain exact.
+# This public replay does not change the frozen, full raw-data audit.
+numeric_equal = audit.old.periodic_audit.numeric_equal
+
 
 def verify(path, expected_sha):
     path = Path(path)
@@ -56,7 +61,7 @@ def verify(path, expected_sha):
         pair = run.previous.cycles_run.compare_profiles(row["cycle"]["profiles"],p["periodic"])
         counts = pair["passed"] and all(w["counts"] == dict(historical=6,barrio=8)
             for v in row["cycle"]["profiles"] for w in v["metric"]["windows"])
-        if pair != row["cycle"]["pair"] or row["cycle"]["status"] != ("qualified" if counts else "unqualified"):
+        if not numeric_equal(pair,row["cycle"]["pair"]) or row["cycle"]["status"] != ("qualified" if counts else "unqualified"):
             raise ValueError("compact cycle qualification differs")
         cycles = [dict(method=v["method"],phase=w["phase"],states=w["event_states"]["historical"])
             for v in row["cycle"]["profiles"] for w in v.get("metric",{}).get("windows",[])] if counts else []
@@ -64,21 +69,21 @@ def verify(path, expected_sha):
             if run.boundary_analysis.compare(boundary["profiles"],c,cycles) != boundary["comparison"]:
                 raise ValueError("compact boundary comparisons differ")
         rebuilt = run.summarize(p,row["cycle"],row["folds"],row["boundaries"])
-        if any(row[k] != v for k,v in rebuilt.items()):
+        if any(not numeric_equal(row[k],v) for k,v in rebuilt.items()):
             raise ValueError("compact point comparisons differ")
         if row["contact"] is not None and not audit.old.periodic_audit.numeric_equal(
                 audit.old.scalar_contact(row["folds"],row["cycle"]),row["contact"]):
             raise ValueError("separate scalar fold comparison differs")
     matrix = run.response.response(saved["rows"],p["base_vectors"],p["anchor"])
     audit.check_scalar(matrix,p["base_vectors"],p["anchor"])
-    if matrix != saved["response"]:
+    if not numeric_equal(matrix,saved["response"]):
         raise ValueError("complete response reconstruction differs")
     if matrix["qualified"]:
-        if saved["proposal"] is None or saved["proposal"]["spec"] != matrix["proposal"]:
+        if saved["proposal"] is None or not numeric_equal(saved["proposal"]["spec"],matrix["proposal"]):
             raise ValueError("unique measured proposal required")
     elif saved["proposal"] is not None:
         raise ValueError("unqualified response cannot license proposal")
-    if saved["analysis"] != run.response.verdict(matrix,saved["proposal"],p["base_vectors"]):
+    if not numeric_equal(saved["analysis"],run.response.verdict(matrix,saved["proposal"],p["base_vectors"])):
         raise ValueError("public verdict differs")
     calls = sum(c["target_ivps"] for c in saved["point_counts"])
     fresh = sum(c["target_ivps"] for c in saved["point_counts"] if c["provenance"] == "continuation")
@@ -89,7 +94,8 @@ def verify(path, expected_sha):
         raise ValueError("compact integration accounting differs")
     return dict(passed=True,experiment_id="EXP-503",stencil_points=8,
         measured_proposal=saved["proposal"] is not None,analysis=saved["analysis"],
-        new_integrations=0,full_raw_audit_repeated=False,symbolic_chains_verified=False)
+        new_integrations=0,full_raw_audit_repeated=False,symbolic_chains_verified=False,
+        floating_replay_tolerance=dict(rtol=1e-12,atol=1e-13,discrete_gates="exact"))
 
 
 def main():

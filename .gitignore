@@ -19,3 +19,4 @@ dist/
 artifacts/
 .DS_Store
 tmp/
+/output/pdf/EXP-503-*/
