@@ -1,0 +1,1073 @@
+{
+  "comparison": {
+    "angle": "1e-7",
+    "initial_time_cutoff": "1e-8",
+    "join_jump": "1e-20",
+    "scaled_state": "1e-9",
+    "time": "1e-12"
+  },
+  "experiment_id": "EXP-500",
+  "inputs": {
+    "docs/experiments/receipts/EXP-486-return-image-fold-result.json": "74fd97ef7c32e56a8c29d32113ab7cfa2531f9a48caf543906beb8cb2b5762d4",
+    "docs/experiments/receipts/EXP-490-direct-fold-result.json": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "docs/experiments/receipts/EXP-491-event-sheet-result.json": "d96454454290ed83d5503fce91f9b86ccce516b40b50a84b9d35ab512f6fc879",
+    "docs/experiments/receipts/EXP-492-event-boundary-result.json": "7544eb230106e6b1f6fccf658fb6f60e6ef53230bcc0709b0b6e912addc268bf",
+    "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "docs/experiments/receipts/EXP-494-periodic-transport-result.json": "801500bb27577cb32c9bd5908329204a95ffa8f32a4fe0eb1b55af42c4ed178d",
+    "docs/experiments/receipts/EXP-496-contact-endpoint-result.json": "c6ad2dca38df1e0628550b5f697252ce81e62cb47db9ae1dec9736d8c5ab3e6b",
+    "docs/experiments/receipts/EXP-497-contact-localization-result.json": "ed229b4a772ef19d227272006401d19090ee5e28a357791f25400cafa3271cff",
+    "docs/experiments/receipts/EXP-498-boundary-transport-result.json": "f327a6acb9bb72cd0286ff41090f38e12e3b10a0ff9f476b0a6b2f705e176344",
+    "docs/experiments/receipts/EXP-499-decimal-event-reference-result.json": "d8e01f7cf572f5a77a0319fc59aa465f6e5f2ce9c590d613c7ebbd7cfd29c8d5",
+    "experiments/manifests/EXP-490-candidates.json": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+    "experiments/manifests/EXP-490-direct-folds.json": "6af6c16bd3ee2d88525f05db0264f5c0c7de6596d917843c633ac06f20c17fdb",
+    "experiments/manifests/EXP-492-event-boundaries.json": "68184d92b619de9da1205707a123205c7bd56da11953f14c2d51a29f530d86b2",
+    "experiments/manifests/EXP-492-event-boundary-inputs.json": "9377b422f1321d1b811f59a2b477bf72bee5e58bb4272decb60e040746cf86da",
+    "experiments/manifests/EXP-496-candidates.json": "6bac72b0f7724e67a6df762bd4c24fdd394f4baf5c07ef16e6e3009423796701",
+    "experiments/manifests/EXP-496-contact-endpoint.json": "3bf857eadc5f33bdf438ec80f4fcee7eacd09bf0526aaea0cb690fd5e6c6afb9",
+    "experiments/manifests/EXP-498-boundary-transport.json": "495e61145346fb6b2e13cd726b4d00367072eb91d5b53a31cb84e247a9fafc6a",
+    "experiments/manifests/EXP-499-decimal-event-reference.json": "bf876d4d95f67eaa9ff79532519ecf344dcf8763b7b466e0afe026daa7bce256"
+  },
+  "isolation": {
+    "maximum_depth": 160,
+    "maximum_nodes": 2048,
+    "maximum_refinements": 256,
+    "time_width": "1e-25"
+  },
+  "ledger": [
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+      "parent_qualified": false,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+      "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+      "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+      "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+      "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    }
+  ],
+  "limits": {
+    "initial_free_bytes": 9663676416,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 536870912,
+    "segments": 1000000,
+    "wall_seconds": 7200
+  },
+  "new_integrations": 0,
+  "paid_review": "not_run-human-approval-policy",
+  "parent_sha256": "d8e01f7cf572f5a77a0319fc59aa465f6e5f2ce9c590d613c7ebbd7cfd29c8d5",
+  "raw_summary_sha256": "340617c9dfde4240a468b04574f87dc01c2cc3f13a6e488d933050adef1deab3",
+  "repairs_exp498": false,
+  "scales": [
+    15.0,
+    15.0,
+    0.01
+  ],
+  "section": {
+    "gate_upper": 0.0059833378137410485,
+    "offset": -0.027754584727718534
+  },
+  "source_paths": [
+    "docs/experiments/EXP-491-event-sheet-probe.md",
+    "docs/experiments/EXP-492-event-boundaries.md",
+    "docs/experiments/EXP-493-projected-inner-turn.md",
+    "docs/experiments/EXP-494-periodic-winding-transport.md",
+    "docs/experiments/EXP-495-fold-cycle-membership.md",
+    "docs/experiments/EXP-496-contact-endpoint.md",
+    "docs/experiments/EXP-497-contact-localization.md",
+    "docs/experiments/EXP-498-boundary-transport.md",
+    "docs/experiments/EXP-499-decimal-event-reference.md",
+    "docs/experiments/EXP-500-complete-polynomial-census.md",
+    "experiments/manifests/EXP-490-direct-folds.json",
+    "experiments/manifests/EXP-491-event-sheet-probe.json",
+    "experiments/manifests/EXP-492-event-boundaries.json",
+    "experiments/manifests/EXP-493-projected-inner-turn.json",
+    "experiments/manifests/EXP-494-periodic-winding-transport.json",
+    "experiments/manifests/EXP-495-fold-cycle-membership.json",
+    "experiments/manifests/EXP-496-candidates.json",
+    "experiments/manifests/EXP-496-contact-endpoint.json",
+    "experiments/manifests/EXP-497-contact-localization.json",
+    "experiments/manifests/EXP-498-boundary-transport.json",
+    "experiments/manifests/EXP-499-decimal-event-reference.json",
+    "experiments/manifests/EXP-500-complete-polynomial-census.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/event_boundary_shooting.py",
+    "python/butterfly/event_sheet_probe.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/polynomial_census.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/section_grazing.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp493_projected_inner_turn.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp491_event_sheet_probe.py",
+    "scripts/audit_exp492_event_boundaries.py",
+    "scripts/audit_exp494_periodic_winding_transport.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp496_contact_endpoint.py",
+    "scripts/audit_exp497_contact_localization.py",
+    "scripts/audit_exp498_boundary_transport.py",
+    "scripts/audit_exp499_decimal_reference.py",
+    "scripts/audit_exp500_polynomial_census.py",
+    "scripts/build_exp492_event_boundaries.py",
+    "scripts/exp499_reference_controls.py",
+    "scripts/exp500_census_analysis.py",
+    "scripts/export_exp493_projected_inner_turn.py",
+    "scripts/plot_exp498_boundary_transport.py",
+    "scripts/plot_exp499_decimal_reference.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp491_event_sheet_probe.py",
+    "scripts/run_exp492_event_boundaries.py",
+    "scripts/run_exp494_periodic_winding_transport.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "scripts/run_exp497_contact_localization.py",
+    "scripts/run_exp498_boundary_transport.py",
+    "scripts/run_exp499_decimal_reference.py",
+    "scripts/run_exp500_polynomial_census.py",
+    "scripts/verify_quadratic_symbolic_control.py",
+    "tests/test_decimal_taylor.py",
+    "tests/test_event_boundary_shooting.py",
+    "tests/test_event_sheet_probe.py",
+    "tests/test_exp493_projected_inner_turn.py",
+    "tests/test_exp494_transport.py",
+    "tests/test_exp495_membership.py",
+    "tests/test_exp496_contact_endpoint.py",
+    "tests/test_exp497_contact_localization.py",
+    "tests/test_exp498_boundary_transport.py",
+    "tests/test_exp499_decimal_reference.py",
+    "tests/test_exp500_polynomial_census.py",
+    "tests/test_periodic_winding.py",
+    "tests/test_polynomial_census.py",
+    "tests/test_projected_winding.py",
+    "uv.lock"
+  ],
+  "status": "prospective-outcome-informed-saved-polynomial-census",
+  "symbolic_chains_verified": false,
+  "trials": [
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-0",
+      "initial": [
+        -6.461953065419128,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-1",
+      "initial": [
+        -6.461935730306009,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-2",
+      "initial": [
+        -6.46193187805865,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-3",
+      "initial": [
+        -6.4619145429455305,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-0",
+      "initial": [
+        -6.362729058665839,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-1",
+      "initial": [
+        -6.36271172355272,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-2",
+      "initial": [
+        -6.362707871305361,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-3",
+      "initial": [
+        -6.3626905361922415,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-0",
+      "initial": [
+        -6.461957597852903,
+        -0.027754584727718534,
+        0.014701180543385657
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-1",
+      "initial": [
+        -6.461940261891166,
+        -0.027754584727718534,
+        0.014701192100693481
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-2",
+      "initial": [
+        -6.461936409455225,
+        -0.027754584727718534,
+        0.014701194668984108
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-3",
+      "initial": [
+        -6.461919073493489,
+        -0.027754584727718534,
+        0.014701206226291933
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-0",
+      "initial": [
+        -6.362728764425409,
+        -0.027754584727718534,
+        0.014767333099003986
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-1",
+      "initial": [
+        -6.3627114284636725,
+        -0.027754584727718534,
+        0.01476734465631181
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-2",
+      "initial": [
+        -6.362707576027731,
+        -0.027754584727718534,
+        0.014767347224602437
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-3",
+      "initial": [
+        -6.362690240065994,
+        -0.027754584727718534,
+        0.014767358781910262
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-0",
+      "initial": [
+        -5.931792226132142,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-1",
+      "initial": [
+        -5.931789259919203,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-2",
+      "initial": [
+        -5.931788600760772,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-3",
+      "initial": [
+        -5.931785634547833,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-0",
+      "initial": [
+        -5.915414562666175,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-1",
+      "initial": [
+        -5.915411596453235,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-2",
+      "initial": [
+        -5.915410937294804,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-3",
+      "initial": [
+        -5.915407971081865,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-0",
+      "initial": [
+        -5.931792539784604,
+        -0.027754584727718534,
+        0.015258223191421323
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-1",
+      "initial": [
+        -5.931789573421604,
+        -0.027754584727718534,
+        0.015258225168996655
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-2",
+      "initial": [
+        -5.931788914229826,
+        -0.027754584727718534,
+        0.015258225608457842
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-3",
+      "initial": [
+        -5.9317859478668264,
+        -0.027754584727718534,
+        0.015258227586033174
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-0",
+      "initial": [
+        -5.915414047524349,
+        -0.027754584727718534,
+        0.015269142186261494
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-0--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-0--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 0
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-1",
+      "initial": [
+        -5.9154110811613485,
+        -0.027754584727718534,
+        0.015269144163836826
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-1--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-1--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 1
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-2",
+      "initial": [
+        -5.915410421969571,
+        -0.027754584727718534,
+        0.015269144603298012
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-2--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-2--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 2
+    },
+    {
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-3",
+      "initial": [
+        -5.91540745560657,
+        -0.027754584727718534,
+        0.015269146580873345
+      ],
+      "profiles": [
+        {
+          "configuration": "decimal-40",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-3--decimal-40.json.gz"
+        },
+        {
+          "configuration": "decimal-50",
+          "raw_path": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-3--decimal-50.json.gz"
+        }
+      ],
+      "side_index": 3
+    }
+  ]
+}
