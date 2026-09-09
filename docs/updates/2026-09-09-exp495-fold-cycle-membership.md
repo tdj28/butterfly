@@ -123,3 +123,17 @@ replay, failed-parent retention and tamper rejection. The final full suite
 passed **2144 tests**, with the same one Linux-only skip, in 137.05 seconds;
 the receipt is `artifacts/EXP-495/release-tests-01.xml`. No paid review was
 requested, consistent with the human-controlled policy.
+
+## Fresh public-checkout check
+
+After pushing result revision `fe72cd3d5708f0866b8ee7cbc388da1201c33fb0`,
+a new shallow, blob-filtered HTTPS clone materialized only the 18-file replay
+and figure dependency set. Both the public numerical audit and figure
+verification passed there. The analysis module's root was verified to be that
+fresh checkout, with **no `artifacts/` directory present**. Its audit receipt
+is byte-identical to the published public replay receipt; the local witness
+copy is `artifacts/EXP-495/fresh-checkout-replay-01.json`.
+
+This tests the actual publicly obtainable source/data closure. It reused the
+existing locked Python dependency environment and was run by the same agent;
+it is not a clean dependency installation or independent-team replication.
