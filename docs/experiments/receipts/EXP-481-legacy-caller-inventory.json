@@ -1,0 +1,773 @@
+{
+  "callers": [
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 258
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-118",
+          "path": "experiments/manifests/EXP-118-a150-invariant-identity.json",
+          "schema": "butterfly.invariant-identity-audit-manifest.v1",
+          "sha256": "3e4cf8e4c44003d934e3623287e96b4d618cb629fe0636293d5d96025e8cc67c"
+        },
+        {
+          "experiment_id": "EXP-119",
+          "path": "experiments/manifests/EXP-119-a150-resolution-convergence.json",
+          "schema": "butterfly.resolution-convergence-manifest.v1",
+          "sha256": "f5d4f34efa32376ac224b7a9c02f84f75f5496e0a461c19a31e54cb5e5ebe482"
+        }
+      ],
+      "path": "scripts/audit_a150_invariant_identity.py",
+      "role": "source",
+      "sha256": "30d6fbe7db2a69be58af32f5e58070ee1bfc8701478f427c29ed703da9d367e4"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 28
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-107",
+          "path": "experiments/manifests/EXP-107-return-map-sensitivity.json",
+          "schema": "butterfly.return-map-sensitivity-manifest.v1",
+          "sha256": "c1ba860b460ab35578980cc74363255f41685d85a21cb8f533dfb2cee000d77e"
+        }
+      ],
+      "path": "scripts/audit_return_map_sensitivity.py",
+      "role": "source",
+      "sha256": "85dc7a2543fee906a6a3bbe5411ce959670af26a58009a7075bc17474bae2757"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 64
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-106",
+          "path": "experiments/manifests/EXP-106-calibrate-return-map-oracle.json",
+          "schema": "butterfly.return-map-oracle-calibration-manifest.v1",
+          "sha256": "ce28da5f12bb7368708f4c3da34b2a107d7a4248798ec4063b69009fff430457"
+        }
+      ],
+      "path": "scripts/calibrate_return_map_oracle.py",
+      "role": "source",
+      "sha256": "78796039a7b3feb204e4ff6ce1090518012731202148a1db44e507d59763606a"
+    },
+    {
+      "calls": [
+        {
+          "function": "_critical_points",
+          "line": 24
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/EXP-481-legacy-turning-point-incident.md",
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [],
+      "path": "scripts/check_legacy_stationary_inflection.py",
+      "role": "source",
+      "sha256": "8e816477115db8eb9f47361266541b4b623d523b68717e7a10d10ac96a1312ad"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 93
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-201",
+          "path": "experiments/manifests/EXP-201-jones-critical-smoothing-scale-audit.json",
+          "schema": "butterfly.jones-smoothing-scale-audit-manifest.v1",
+          "sha256": "6669ba8343719f25a079db8321ef08ca806817e54f3b9a6ce3ff19f5601335a3"
+        }
+      ],
+      "path": "scripts/gpu_audit_jones_smoothing_scale.py",
+      "role": "source",
+      "sha256": "35e6e881872d999dcf5621674a97b0fb366c339a2287f69f9cfd3707d761df24"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 593
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-190",
+          "path": "experiments/manifests/EXP-190-gpu-two-critical-residual-scan.json",
+          "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+          "sha256": "c8b0f99fe75a8d7b12954889511f57db848e9bb7139398c9ee68d7e6bf7d5873"
+        },
+        {
+          "experiment_id": "EXP-197",
+          "path": "experiments/manifests/EXP-197-barrio-z-two-critical-scan.json",
+          "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+          "sha256": "d45be4476eb137e505e0ed6ba0b4405e2d94632b22b944221884440dafacab25"
+        },
+        {
+          "experiment_id": "EXP-199",
+          "path": "experiments/manifests/EXP-199-incomplete-local-barrio-signed-residual-scan.json",
+          "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+          "sha256": "443af469395456b7e366359456ee90ec0bf03230045b339d28270e06bfd7163a"
+        },
+        {
+          "experiment_id": "EXP-200",
+          "path": "experiments/manifests/EXP-200-lower-c-high-support-signed-residual-scan.json",
+          "schema": "butterfly.jones-two-critical-gpu-scan-manifest.v1",
+          "sha256": "41488e8d0e115a4a7379ca4a4a158e522124294e3016de84d1d0ed20587c7b7a"
+        }
+      ],
+      "path": "scripts/gpu_scan_jones_two_critical_residuals.py",
+      "role": "source",
+      "sha256": "58a0cb381eaab1ba9389962d426e1a821573268d018602597a9d9cb03c9c885a"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 109
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/EXP-130-gpu-transverse-sprinkler-pilot.md",
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-130",
+          "path": "experiments/manifests/EXP-130-gpu-transverse-sprinkler-pilot.json",
+          "schema": "butterfly.gpu-sprinkler-boundary-pilot-manifest.v1",
+          "sha256": "7a5b6799eb9414fbcb682a887af20a7f096a004aead8c63d2432f76942d76c81"
+        }
+      ],
+      "path": "scripts/gpu_sprinkler_boundary_pilot.py",
+      "role": "source",
+      "sha256": "ad3ac3e155df51e2f40fef904c7e0f4d032b2f440b6d5fee44efaecd570e32de"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 303
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-113",
+          "path": "experiments/manifests/EXP-113-gpu-sprinkler-parity.json",
+          "schema": "butterfly.gpu-sprinkler-parity-manifest.v1",
+          "sha256": "f6a2862201457ecaaf3273be4f2ef4add471faf9a53392eefcb83fff2175acb6"
+        }
+      ],
+      "path": "scripts/gpu_sprinkler_qualify.py",
+      "role": "source",
+      "sha256": "fd7e14bd5d385a878b4cc220a32503afdafd7b13d03512b52aa18c7628bdf794"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 396
+        },
+        {
+          "function": "infer_return_map_branches_coverage_censored",
+          "line": 431
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/EXP-115-censor-aware-pim-controls.md",
+        "docs/experiments/EXP-129-blind-a148125-pim-boundary-slope.md",
+        "docs/experiments/EXP-131-transverse-pim-endpoints.md",
+        "docs/experiments/EXP-132-transverse-pim-256-brackets.md",
+        "docs/experiments/EXP-148-blind-a1481875-censored-pim.md",
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-115",
+          "path": "experiments/manifests/EXP-115-censor-aware-pim-controls.json",
+          "schema": "butterfly.censored-pim-controls-manifest.v1",
+          "sha256": "2846e9377fd0ea9a995d422957987cc8988f8d5c6c7d6cb51e0f934b17ae6c13"
+        },
+        {
+          "experiment_id": "EXP-125",
+          "path": "experiments/manifests/EXP-125-blind-a148-censored-pim.json",
+          "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+          "sha256": "8071736155ae463035de33e390354410948dbab509f97fba6ff392de0763671c"
+        },
+        {
+          "experiment_id": "EXP-126",
+          "path": "experiments/manifests/EXP-126-blind-a1485-censored-pim.json",
+          "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+          "sha256": "bc53d2c5e205f25e0b24086e987b6c6859b6199080018d73be8bac046ae62a61"
+        },
+        {
+          "experiment_id": "EXP-128",
+          "path": "experiments/manifests/EXP-128-blind-a14825-censored-pim.json",
+          "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+          "sha256": "7cf0f68470add401944c0b81543d4fe81d2592eabba80913529bd257d593ab59"
+        },
+        {
+          "experiment_id": "EXP-129",
+          "path": "experiments/manifests/EXP-129-blind-a148125-pim-boundary-slope.json",
+          "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+          "sha256": "ca25c3af339ba963ae5014286f454ce280e671f04b4ee925db892302b2e76da9"
+        },
+        {
+          "experiment_id": "EXP-131",
+          "path": "experiments/manifests/EXP-131-transverse-pim-endpoints.json",
+          "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+          "sha256": "f053b878a50ed1351fc52682654994665b04f80c70cc72968f170828c9e5ef0c"
+        },
+        {
+          "experiment_id": "EXP-132",
+          "path": "experiments/manifests/EXP-132-transverse-pim-256-brackets.json",
+          "schema": "butterfly.coverage-censored-pim-transverse-manifest.v1",
+          "sha256": "d80768054b6e10289ce28b1f9e2a6a42dc5d1fa9e543a716b22e188b51c5caeb"
+        },
+        {
+          "experiment_id": "EXP-148",
+          "path": "experiments/manifests/EXP-148-blind-a1481875-censored-pim.json",
+          "schema": "butterfly.blind-censored-pim-midpoint-manifest.v1",
+          "sha256": "58b1c82261e3b25305589caad3c3fffe77a4d999242a35cdf64ff047635eb297"
+        }
+      ],
+      "path": "scripts/qualify_censored_pim_saddle_controls.py",
+      "role": "source",
+      "sha256": "65eab33421de309180271ce78a449e34d19eca7eb1013138862b389294c3766d"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 62
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-196",
+          "path": "experiments/manifests/EXP-196-gpu-barrio-section-parity.json",
+          "schema": "butterfly.gpu-barrio-section-qualification-manifest.v1",
+          "sha256": "4604912140b520d7a6485688b966ca75b3ede15439c4837e5b906b572783ba19"
+        }
+      ],
+      "path": "scripts/qualify_gpu_barrio_section.py",
+      "role": "source",
+      "sha256": "9b0a776136c8e92202c9e9a16f98a903667f5bb266a241e6e0541a8b4a1c1942"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_local_critical_point_robust",
+          "line": 229
+        },
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 244
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-181",
+          "path": "experiments/manifests/EXP-181-jones-gap-sprinkler.json",
+          "schema": "butterfly.jones-gap-sprinkler-manifest.v1",
+          "sha256": "dcc89fcf5a4ce74fb1aaa31fbc5b0535b4e112761c7945252e2659a61a2ee847"
+        }
+      ],
+      "path": "scripts/qualify_jones_gap_sprinkler.py",
+      "role": "source",
+      "sha256": "2e357cdf8625123049aabf0ba76c28c016acb9d3be26fd857c4881d000d87d81"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_local_critical_point_robust",
+          "line": 128
+        },
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 143
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-182",
+          "path": "experiments/manifests/EXP-182-jones-gap-sprinkler-parity.json",
+          "schema": "butterfly.jones-gap-sprinkler-parity-manifest.v1",
+          "sha256": "c6bb6d52896c82c22310e7a0c5f124d256d99a4ccb519eb372578601a608bfb8"
+        },
+        {
+          "experiment_id": "EXP-183",
+          "path": "experiments/manifests/EXP-183-jones-gap-sprinkler-parity.json",
+          "schema": "butterfly.jones-gap-sprinkler-parity-manifest.v1",
+          "sha256": "b9762df7411d70730b3b5cd06db543c0d6df2e28b19b43b0d74d8c5330909468"
+        }
+      ],
+      "path": "scripts/qualify_jones_gap_sprinkler_parity.py",
+      "role": "source",
+      "sha256": "8134d645c0c202ee683bc8af159a7508aa0beca5de6c0f2b73d1f0d1301a13ea"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 211
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-186",
+          "path": "experiments/manifests/EXP-186-heldout-jones-landmark-word.json",
+          "schema": "butterfly.jones-landmark-word-manifest.v1",
+          "sha256": "a5375219a3497ae852aa47d68d06f7671a66d23195b2b2cab36fd7b22347e601"
+        }
+      ],
+      "path": "scripts/qualify_jones_landmark_word.py",
+      "role": "source",
+      "sha256": "8bda8d425548a447f763eea64a19df3d90e1efacda3e124951366d46137dcea8"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 178
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-175",
+          "path": "experiments/manifests/EXP-175-jones-section-operational-partition.json",
+          "schema": "butterfly.operational-partition-control-manifest.v1",
+          "sha256": "16caf4bdd888adeb51866f0fa2f28348903f6dfd7a655038bfc694d3787734e8"
+        },
+        {
+          "experiment_id": "EXP-176",
+          "path": "experiments/manifests/EXP-176-jones-section-operational-partition-power.json",
+          "schema": "butterfly.operational-partition-control-manifest.v1",
+          "sha256": "65149a7b473bca6befd5a70f958635c76838e9512a2f62614b42daa406f38046"
+        },
+        {
+          "experiment_id": "EXP-177",
+          "path": "experiments/manifests/EXP-177-jones-section-two-branch-control.json",
+          "schema": "butterfly.operational-partition-control-manifest.v1",
+          "sha256": "fd8925a9ee337f9097574e9083dcad6b6827a04de288d7d2e892a921004d84f7"
+        }
+      ],
+      "path": "scripts/qualify_operational_partition_control.py",
+      "role": "source",
+      "sha256": "938fc4028a79847a256f4c0f0a5791c7c6a791c2b85df94dde472de5ea41844c"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 296
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/EXP-114-pim-saddle-controls.md",
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-114",
+          "path": "experiments/manifests/EXP-114-pim-saddle-controls.json",
+          "schema": "butterfly.pim-saddle-controls-manifest.v1",
+          "sha256": "22a61c55f4c994d78f2f8f1f7a7ee9fb2b6bd70db5fe0b1c1a506be59079f815"
+        }
+      ],
+      "path": "scripts/qualify_pim_saddle_controls.py",
+      "role": "source",
+      "sha256": "e7c725750421feec8f6db090ec848c9ce5069c6bdb34ff9d7748ff45d04d5e80"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 85
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-108",
+          "path": "experiments/manifests/EXP-108-published-return-map-controls.json",
+          "schema": "butterfly.published-return-map-manifest.v1",
+          "sha256": "3319f904764ac94bf2481720f04bedf584d3015b01539f835428c5fc60fc1ac7"
+        }
+      ],
+      "path": "scripts/qualify_published_return_maps.py",
+      "role": "source",
+      "sha256": "abe81cc262b6abb7c8bb5cf86a64cdf6910898fdb29427977fcb206d2762534f"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 136
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-110",
+          "path": "experiments/manifests/EXP-110-sprinkler-controls.json",
+          "schema": "butterfly.sprinkler-controls-manifest.v1",
+          "sha256": "66015f138e18f6e94cd3dda5d45359883c0d1799a18672579e3082d4425d1f0d"
+        }
+      ],
+      "path": "scripts/qualify_sprinkler_controls.py",
+      "role": "source",
+      "sha256": "9d27c0216f234c931b06e7f8c179d423a260dcdcfe1a63343115e3c3765c3ebf"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 598
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-111",
+          "path": "experiments/manifests/EXP-111-sprinkler-convergence.json",
+          "schema": "butterfly.sprinkler-convergence-manifest.v1",
+          "sha256": "fe6a72897cedf3077649b34ad26a9605a8f1f6fbe56dcd243a1488e037ed4395"
+        },
+        {
+          "experiment_id": "EXP-112",
+          "path": "experiments/manifests/EXP-112-sobol-hermite-saddles.json",
+          "schema": "butterfly.sprinkler-convergence-manifest.v1",
+          "sha256": "1f6d1394ba94b6e2e36534c1967f0459895922c5fe741ea35962385532bf1a73"
+        },
+        {
+          "experiment_id": "EXP-117",
+          "path": "experiments/manifests/EXP-117-sprinkler-saddle-a-path.json",
+          "schema": "butterfly.sprinkler-path-continuation-manifest.v1",
+          "sha256": "7aa6dff3f100780ef0b39b44a7fda1ba1e855eb24d463559ec170eed0333fc5d"
+        },
+        {
+          "experiment_id": "EXP-120",
+          "path": "experiments/manifests/EXP-120-a145-large-sprinkler.json",
+          "schema": "butterfly.sprinkler-convergence-manifest.v1",
+          "sha256": "a56ac149f12ecc4b0050231797b956a7c6dde60900fab8c6389d024efef51c38"
+        },
+        {
+          "experiment_id": "EXP-121",
+          "path": "experiments/manifests/EXP-121-coverage-censor-controls.json",
+          "schema": "butterfly.sprinkler-coverage-censor-manifest.v1",
+          "sha256": "6336867a91671ae9f29ad5078cfdce86dc4e84327a9783f94a479d8a7940b853"
+        },
+        {
+          "experiment_id": "EXP-122",
+          "path": "experiments/manifests/EXP-122-blind-a147-saddle.json",
+          "schema": "butterfly.sprinkler-coverage-censor-manifest.v1",
+          "sha256": "0dd4db2b0b42e46ef7347b2f2312742e3cd029096a3a72f1e9854220782a2985"
+        },
+        {
+          "experiment_id": "EXP-123",
+          "path": "experiments/manifests/EXP-123-blind-a148-saddle.json",
+          "schema": "butterfly.sprinkler-coverage-censor-manifest.v1",
+          "sha256": "9df69330f40ed9953e13ef6d3ee720d9f6909cabe3f76d39b20ad795f93182ae"
+        },
+        {
+          "experiment_id": "EXP-124",
+          "path": "experiments/manifests/EXP-124-a148-conditioning-horizons.json",
+          "schema": "butterfly.sprinkler-coverage-censor-manifest.v1",
+          "sha256": "c972fd9d1807ab1a794e38703871d6d9019ed810aded8a58624b94bffed6d7cb"
+        }
+      ],
+      "path": "scripts/qualify_sprinkler_convergence.py",
+      "role": "source",
+      "sha256": "371d828579fbb228ea648e493ea075d3e1037b47e1c3bbdf3573ef8fdfcd5ff2"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 94
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-178",
+          "path": "experiments/manifests/EXP-178-jones-critical-identity-path.json",
+          "schema": "butterfly.jones-critical-identity-path-manifest.v1",
+          "sha256": "21a6d3f69384b57a4c4b28abd8636bb45533c4e31c57237ce8f5f92666f8359a"
+        },
+        {
+          "experiment_id": "EXP-179",
+          "path": "experiments/manifests/EXP-179-jones-critical-identity-power.json",
+          "schema": "butterfly.jones-critical-identity-path-manifest.v1",
+          "sha256": "44b3ccd3fb2358f9a9a04a36d71480f13ca42748ee658af2450e4600b156293d"
+        }
+      ],
+      "path": "scripts/scan_jones_critical_identity_path.py",
+      "role": "source",
+      "sha256": "3ea2d0c820af50cea999b36dcce75f9090d037ce75835d065d6e765cded140e0"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 72
+        },
+        {
+          "function": "infer_local_critical_point_robust",
+          "line": 85
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-180",
+          "path": "experiments/manifests/EXP-180-jones-local-critical-track.json",
+          "schema": "butterfly.jones-local-critical-track-manifest.v1",
+          "sha256": "4123a4f9f7601ca2d03c9649534c62625159c99b063e65ee10de6bee3f9959ee"
+        }
+      ],
+      "path": "scripts/scan_jones_local_critical_track.py",
+      "role": "source",
+      "sha256": "b4ebf683d29811ebd186999cf07542ae78a8f7e96439e7cdaea3b9287fe8ffbb"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 88
+        }
+      ],
+      "exact_path_references": [
+        "docs/experiments/receipts/EXP-481-phase-authorization.json",
+        "docs/experiments/receipts/EXP-481-production-preflight.json",
+        "experiments/manifests/EXP-481-reviewed-release.json",
+        "experiments/manifests/EXP-482-local-audit-release.json"
+      ],
+      "matching_manifest_schemas": [
+        {
+          "experiment_id": "EXP-109",
+          "path": "experiments/manifests/EXP-109-published-return-map-a-path.json",
+          "schema": "butterfly.return-map-path-manifest.v1",
+          "sha256": "81767354bbbd6040f4d1a0034bbe541275b507bbed0803c1f6eb786a7090ce6d"
+        }
+      ],
+      "path": "scripts/scan_published_return_map_path.py",
+      "role": "source",
+      "sha256": "98f83b480786c8a02a0edaeb0e622df4439403c83c559e40b1be812aefa37cc4"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_local_critical_point_robust",
+          "line": 42
+        },
+        {
+          "function": "infer_local_critical_point_robust",
+          "line": 62
+        },
+        {
+          "function": "infer_local_critical_point_robust",
+          "line": 81
+        }
+      ],
+      "exact_path_references": [],
+      "matching_manifest_schemas": [],
+      "path": "tests/test_local_critical.py",
+      "role": "test",
+      "sha256": "84d90bbb3356b2b0c2ca78101af1c068edc03ac55f5a549177218c88e6762292"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches",
+          "line": 19
+        },
+        {
+          "function": "infer_return_map_branches",
+          "line": 27
+        },
+        {
+          "function": "infer_return_map_branches",
+          "line": 37
+        },
+        {
+          "function": "infer_return_map_branches",
+          "line": 49
+        },
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 59
+        },
+        {
+          "function": "infer_return_map_branches_robust",
+          "line": 91
+        }
+      ],
+      "exact_path_references": [],
+      "matching_manifest_schemas": [],
+      "path": "tests/test_return_map.py",
+      "role": "test",
+      "sha256": "89882b4f8b4f848510352d37c9ac94c723ad9d7e69e2318e080dd879bdb97eb5"
+    },
+    {
+      "calls": [
+        {
+          "function": "infer_return_map_branches_coverage_censored",
+          "line": 47
+        }
+      ],
+      "exact_path_references": [],
+      "matching_manifest_schemas": [],
+      "path": "tests/test_return_map_coverage_censor.py",
+      "role": "test",
+      "sha256": "868b70264abfe188485bc8adc6ea24ac5eb368ff84fe46e074f3a7e38d6e25b8"
+    }
+  ],
+  "explicit_result_consumers": [
+    "infer_return_map_branches_coverage_censored"
+  ],
+  "generator_path": "scripts/inventory_legacy_turning_point_callers.py",
+  "generator_sha256": "d5c5b505116eea1cd36d6721cbaf570cb8f39dd914ef564180ece47199c70389",
+  "legacy_path": "python/butterfly/return_map.py",
+  "legacy_sha256": "d6d74c1cf34dd21a1e99a5e431f1d4451d228449e33cfbe1e0046488aabfc58b",
+  "limitations": [
+    "Not a complete dynamic call graph",
+    "No historical source checkout or raw-data replay",
+    "No result is cleared or reclassified",
+    "Unreferenced callers are retained",
+    "No new numerical trajectories"
+  ],
+  "new_integrations": 0,
+  "numerical_results_reclassified": 0,
+  "reference_scope": "Exact caller-path text mentions in tracked experiment Markdown/JSON and manifest JSON, plus manifest schema strings present literally in the caller. Neither a mention nor a schema match is proof of execution or numerical impact.",
+  "same_module_call_chain_functions": [
+    "_critical_points",
+    "_fit_branch_count",
+    "infer_local_critical_point_robust",
+    "infer_return_map_branches",
+    "infer_return_map_branches_robust"
+  ],
+  "source_callers": 21,
+  "source_scope": "Tracked Python files under python/, scripts/ and tests/ at execution time; explicit import aliases and direct call expressions only.",
+  "status": "static-exposure-inventory-not-numerical-impact-audit",
+  "test_callers": 3
+}

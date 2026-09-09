@@ -23,8 +23,8 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp503-resource-continuation.md`](2026-09-09-exp503-resource-continuation.md)
-  - Storage continuation validated against the actual failed-run archive;
-  seven fixed points will be reused with unchanged scientific settings.
+  - Computation complete: eight fixed points and one joint correction;
+  363 new integrations. Full raw audit is running before interpretation.
 - [`2026-09-09-exp502-joint-contact-search.md`](2026-09-09-exp502-joint-contact-search.md)
   - Seven fixed points completed before the frozen storage threshold stopped
   the eighth. All evidence is retained; failure metadata is public and
