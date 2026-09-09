@@ -1,7 +1,6 @@
 # EXP-496: testing a parameter interval for critical contact
 
-Status: implementation and pre-outcome validation complete; freeze and target
-execution next. All 2159 tests pass with one existing Linux-only skip, and all
+Status: frozen and executing locally. All 2159 tests pass with one existing Linux-only skip, and all
 twelve analytic fold controls pass. The first restricted-host suite's process
 inspection failures remain documented in the preflight record.
 
@@ -23,5 +22,20 @@ are reused with their shorter-cycle safeguards; there are no new periodic IVPs.
 - [Complete candidate ledger](../../experiments/manifests/EXP-496-candidates.json)
 
 No paid Pro review, new GPU rental or restricted upload is involved.
-Next: freeze/push, execute the complete
-bounded matrix, then audit retained raw meshes before interpreting its result.
+Execution source is `7513bed94ed206e57438a5cb3497c736da98ea11`, pushed before
+targets and preserved at `codex/exp496-local-execution`. The runtime verified
+the live remote SHA, clean source and input closure, repeated all twelve
+analytic controls, and created the exclusive consumed-attempt witness.
+Eleven of sixteen target profiles have completed at the current operational
+checkpoint. No target outcome is interpreted yet.
+Raw evidence is retained in `artifacts/EXP-496/target-7513bed`; the witness is
+`artifacts/EXP-496/target-once.json` and must not be reset.
+
+Next: complete the bounded matrix, then audit retained raw meshes before
+interpreting its result. Derived release and figure code is being prepared
+separately; the executed numerical sources remain unchanged.
+
+The complete suite including derived release/figure checks passes **2176 tests
+with one existing Linux-only skip**, in 143.20 seconds. Its local receipt is
+`artifacts/EXP-496/release-tests-01.xml`. Public extraction tests reject changed
+hashes, unsafe member names, duplicate entries, symlinks and changed contents.
