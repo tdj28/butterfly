@@ -224,9 +224,12 @@ inputs; historical result reproduction is a separate requirement.
   events pass the raw audit. All 384 limiting-predecessor/cycle comparisons
   fail the primary proximity criterion; the best all-variant distance is
   0.01346118, also outside the largest sensitivity radius. Finite perturbations
-  do not explain the gap. Next freeze a bounded joint a,c contact search using
-  the distinct right-fold and limiting-boundary residuals, with full-state
-  checks, primitive-period guards and no favorable representation selection.
+  do not explain the gap. [EXP-502 is now launched](updates/2026-09-09-exp502-joint-contact-search.md)
+  from its tested public source freeze: eight joint a,c response-stencil points
+  and at most one correction, using the distinct right-fold and limiting-boundary
+  residuals with full-state checks, primitive-period guards and no favorable
+  representation selection. Complete its target run and raw audit before
+  interpreting the response or choosing a successor.
   Do not spend another experiment merely refining this fixed anchor or count
   its near-identical upstream boundary representations as different objects.
   Then test a conditional local partition
