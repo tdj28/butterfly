@@ -1,7 +1,8 @@
 # EXP-498: bring the extra-return boundary to the primitive-cycle point
 
-The next numerical test is implemented and its preflight controls pass.
-No new target result is claimed in this checkpoint.
+The prospectively frozen numerical run is executing locally. The first of
+eight candidate matrices has completed; interpretation waits for the complete
+run and raw-data audit. No new scientific result is claimed in this checkpoint.
 
 [EXP-497](2026-09-09-exp497-contact-localization.md) supplied a primitive-cycle
 point close to one measured right-hand fold. The earlier grazing/extra-turn
@@ -47,6 +48,14 @@ and no missing imported project module. The public auditor CLI starts
 successfully. The full suite passes **2,216 tests**, with one existing
 Linux-only skip and no failures, in 141.74 seconds; the receipt is
 `artifacts/EXP-498/preflight-tests-01.xml`.
+
+Execution source `511ff1c1593ced21a91496d7fb1270eca9b9878d` was pushed and
+preserved at `codex/exp498-local-execution`. The production runner checked the
+live remote ref, clean source, input/import closure and disk reserve, repeated
+its controls, and consumed `artifacts/EXP-498/target-once.json`. Do not reset
+that marker or restart the attempt. Raw evidence is accumulating in
+`artifacts/EXP-498/target-511ff1c`. Subsequent visualization tooling is separate
+from the immutable numerical source inventory.
 
 - [Prospective protocol](../experiments/EXP-498-boundary-transport.md)
 - [Machine plan](../../experiments/manifests/EXP-498-boundary-transport.json)
