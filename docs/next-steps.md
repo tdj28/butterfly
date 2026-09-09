@@ -101,7 +101,17 @@ inputs; historical result reproduction is a separate requirement.
 - [ ] Construct actual finite-return image curves near the two observed
   slope-sign-change regions in each case. Test curve/critical-location agreement
   across history lengths, initial curve directions and solvers before treating
-  discrete sign changes as fold brackets. Then test a conditional local partition
+  discrete sign changes as fold brackets. The fixed 16-family
+  [EXP-486 pilot](updates/2026-09-08-exp486-continuous-return-curves.md)
+  completed 928 integrations: one of four regions qualified, and all
+  left-region fold refinements failed solver agreement. Its full-grid audit
+  and all-family figure are complete. The
+  [EXP-487 event-census witness](experiments/EXP-487-section-census-witness.md)
+  completed twelve profiles and confirmed the ordinary-event omission.
+  [One witness qualified; one retained an accuracy/reference failure](updates/2026-09-08-exp487-missed-crossing-witness.md).
+  Next separate refined-event convergence from agreement with the old coarse
+  witness, then test section tangency and qualify the event-aware fold path.
+  Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
   before assigning target words or continuing a chain arrow. No automatic paid
