@@ -1,6 +1,6 @@
 # Research priorities after the public audit
 
-Symbolic execution updated 2026-09-08; other priorities reviewed 2026-09-04.
+Symbolic execution updated 2026-09-09; other priorities reviewed 2026-09-04.
 This is the current execution order; the long
 [backlog](TODO.md) and frozen manifests retain the historical record.
 The [audit](reviews/2026-09-04-public-research-audit.md) explains the corrections
@@ -143,6 +143,14 @@ inputs; historical result reproduction is a separate requirement.
   extra crossing represents the proposed physical inner return or only a
   change in section-based event count, using geometric trajectories and
   corrected orbit families rather than word matching alone.
+  [EXP-493 completes the local saved-trajectory winding check](updates/2026-09-09-exp493-projected-inner-turn.md):
+  all 128 profiles and 64 opposite-side comparisons reproduce one extra
+  projected winding; the complete result retains the parent 15/16 verdict.
+  All local-window polygons are public and replayable without private data.
+  Next transport this geometric marker onto corrected periodic cycles and
+  qualify its relationship to the critical/branch partition, then continue
+  one proposed p-to-p+1 connection. The fixed-parameter initial-condition
+  result does not already establish that periodic-family connection.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

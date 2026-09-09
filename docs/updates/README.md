@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp493-projected-inner-turn.md`](2026-09-09-exp493-projected-inner-turn.md)
+  - all 128 saved side profiles reproduce the projected turning geometry;
+  all 64 opposite-side comparisons add one relative winding. Complete result
+  remains fifteen passes and one inherited accuracy failure; no new IVPs.
 - [`2026-09-08-exp492-event-boundaries.md`](2026-09-08-exp492-event-boundaries.md)
   - all 248 target IVPs audited; fifteen complete boundary passes and one
   retained paired-state accuracy failure, with all sixteen local mechanisms
