@@ -15,11 +15,22 @@ from butterfly._paired_startup import sha256, write_json
 FIGURE = "EXP-486-continuous-return-curves"
 
 
+def broken_series(grid, values, intervals):
+    """Keep every sample, but never join across a known unresolved bracket."""
+    out = []
+    for i, value in enumerate(values):
+        if i and any(grid[i-1] < upper and grid[i] > lower for lower, upper in intervals):
+            out.append(float("nan"))
+        out.append(value)
+    return out
+
+
 def plot(source, expected_sha, output):
     if sha256(source) != expected_sha:
         raise ValueError("audited figure input anchor changed")
     result = json.loads(source.read_bytes())
-    if result["status"] != "completed-audited" or not result["complete_grid_and_decision_replay"]:
+    if (result.get("experiment_id") != "EXP-486" or result["status"] != "completed-audited"
+            or not result["complete_grid_and_decision_replay"]):
         raise ValueError("fully audited result required")
     ids = {f"{c}--region-{r}--depth-{m}--direction-{d}" for c in
            ("local-a025-c083", "local-a027-c083") for r in (0, 1) for m in (4, 8) for d in (0, 1)}
@@ -57,10 +68,18 @@ def plot(source, expected_sha, output):
             invalid = [not o["valid"] for o in observations]
             missing += sum(invalid)
             label = f"m={family['depth']}, d{family['direction_id']}"
-            ax.plot(x, y, color=color, ls=line, marker=marker, ms=3, lw=1.2, label=label)
+            gaps = [r["original_u_bracket"] for r in analysis["roots"] if r["status"] != "qualified"]
+            if analysis["excessive_brackets"]:
+                gaps += [[family["grid"][i] for i in indices] for indices in analysis["candidate_intervals"]]
+            ax.plot(broken_series(family["grid"], x, gaps), broken_series(family["grid"], y, gaps),
+                    color=color, ls=line, marker=marker, ms=3, lw=1.2, label=label)
             # Ordered u samples belong to this one flow curve, not different seeds.
-            slope_ax.plot(np.asarray(family["grid"])/family["radius"], slopes,
+            slope_ax.plot(broken_series(family["grid"], np.asarray(family["grid"])/family["radius"], gaps),
+                          broken_series(family["grid"], slopes, gaps),
                           color=color, ls=line, marker=marker, ms=3, lw=1.2)
+            for lo, hi in gaps:
+                slope_ax.axvspan(lo/family["radius"], hi/family["radius"], facecolor="none",
+                                edgecolor=".8", hatch="//", lw=0, zorder=0)
             ax.scatter(np.asarray(x)[invalid], np.asarray(y)[invalid], marker="x", color="black", s=30, zorder=6)
             roots = []
             for root in analysis["roots"]:
@@ -77,6 +96,7 @@ def plot(source, expected_sha, output):
                                   image_state=o["image_state"], next_state=o["next_state"],
                                   x_graph_slope=o["x_graph_slope"]))
             derived.append(dict(family_id=family["id"], qualified=analysis["qualified"],
+                unresolved_u_brackets=gaps,
                 normalized_u=(np.asarray(family["grid"])/family["radius"]).tolist(),
                 points=[dict(image_x=float(xx) if np.isfinite(xx) else None,
                              next_x=float(yy) if np.isfinite(yy) else None,
@@ -90,7 +110,7 @@ def plot(source, expected_sha, output):
         ax.legend(fontsize=8, ncols=2)
         for panel in (ax, slope_ax):
             panel.grid(alpha=.15)
-    fig.suptitle("Continuous flow-return curves: testing local fold geometry\nb = 0.2, c = 7.212; finite histories, not verified symbolic chains", fontsize=14)
+    fig.suptitle("Flow-return curve samples: testing local fold geometry\nb = 0.2, c = 7.212; hatching and line gaps retain unresolved brackets", fontsize=14)
     fig.legend(handles=[Line2D([], [], marker="*", color=".3", lw=0, markersize=11, label="Qualified in-region root"),
                         Line2D([], [], marker="*", color=".3", markerfacecolor="none", lw=0, markersize=11, label="Other evaluated root"),
                         Line2D([], [], marker="x", color="black", lw=0, label="Unavailable x-graph slope")],
@@ -109,7 +129,7 @@ def plot(source, expected_sha, output):
         alt_text="Four rows show both candidate regions in two nearby parameter cases. Left panels show each continuous finite-history return curve; a gray band marks the prior candidate interval. Right panels show derivatives against the normalized starting-curve parameter. Line styles and markers distinguish both history lengths and both starting directions. Stars mark evaluated roots, and crosses or slope gaps retain invalid geometry.",
         source_receipt_sha256=expected_sha, source_fields=["families.id", "families.grid", "families.radius", "families.old_x_interval", "rows.analysis.grid_observations", "rows.analysis.roots", "regions.qualified"],
         data_selection="All 16 families and 17 grid points per family, all refined roots; no outcome filtering. Display DOP853 values only after the complete dual-solver audit; counterpart solver evidence remains in the source receipt. Unreturned states and invalid slopes are gaps, never filled.",
-        interpolation="Straight display segments in the original u order between finite samples of each individual flow curve; not interpolation across trajectories or a rigorous continuum certificate.",
+        interpolation="Straight display segments in the original u order between finite samples of each individual flow curve. Known unresolved or unrefined candidate brackets are hatched and lines are broken across them. Not interpolation across trajectories or a rigorous continuity certificate.",
         interval_semantics="Gray band is the prior-outcome-informed observed x interval, not a confidence or error interval. No uncertainty bars are claimed.",
         generator=dict(path="scripts/plot_exp486_return_image_folds.py", sha256=sha256(Path(__file__)), python=sys.version, numpy=np.__version__, matplotlib=matplotlib.__version__),
         audit=dict(path="scripts/audit_exp486_return_image_folds.py", sha256=result["audit_script_sha256"]),
@@ -117,6 +137,15 @@ def plot(source, expected_sha, output):
         accessibility="Distinct line styles and point shapes in addition to color; filled/open stars distinguish root scope. Panel titles state missing slope counts and region status.",
         guards=["Exact input SHA-256", "completed-audited status", "complete 16-family/17-point grid", "all roots retained", "no scientific image generation"],
         claim_boundary=result["claim_boundary"])
+    receipt["data_source"] = dict(artifact=source.resolve().relative_to(ROOT).as_posix(), sha256=expected_sha,
+        fields=receipt["source_fields"], selection=receipt["data_selection"],
+        exclusions="No families or roots excluded; undefined coordinates/slopes remain missing.",
+        aggregation="No averaging; individual grid points and roots retained.",
+        transformation="u divided by each family's frozen radius; physical x coordinates and dimensionless x-graph derivatives.")
+    receipt["provenance"] = dict(study_id="EXP-486", run_source_commit=result["source_commit"],
+        completed_summary_sha256=result["completed_summary_sha256"],
+        audit_receipt=receipt["data_source"]["artifact"], audit_receipt_sha256=expected_sha,
+        generator=receipt["generator"], audit=receipt["audit"], outputs=outputs)
     receipt_path = output/f"{FIGURE}.receipt.json"
     write_json(receipt_path, receipt)
     write_json(output/f"{FIGURE}.index.json", dict(schema="butterfly.figure-receipt-index.v1",
@@ -134,6 +163,12 @@ def verify(output):
         receipt = json.loads(path.read_bytes())
         if set(receipt["outputs"]) != {f"{FIGURE}.{suffix}" for suffix in ("png", "svg", "pdf")}:
             raise ValueError("figure output set changed")
+        for source in (dict(path=receipt["data_source"]["artifact"], sha256=receipt["data_source"]["sha256"]),
+                       receipt["generator"], receipt["audit"]):
+            path = (ROOT/source["path"]).resolve()
+            path.relative_to(ROOT)
+            if sha256(path) != source["sha256"]:
+                raise ValueError("figure source/code bytes changed")
         for name, anchor in receipt["outputs"].items():
             path = output/name
             if sha256(path) != anchor["sha256"] or path.stat().st_size != anchor["bytes"]:

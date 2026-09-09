@@ -1,0 +1,23 @@
+{
+  "experiment_id": "EXP-487",
+  "status": "prospective-exploratory-witness",
+  "parent_run": "artifacts/EXP-486/target-098e58a",
+  "parent_summary_sha256": "a66b1a24e79f94fa5707f9c5e3f9ed8a9877b8ac8ba43f0e5022f9961cd976a0",
+  "parent_source_commit": "098e58a9c9ad68e2583d60c67bc886e527a61177",
+  "witnesses": [
+    {"case": "local-a025-c083", "family_id": "local-a025-c083--region-0--depth-4--direction-0", "evaluation": 28},
+    {"case": "local-a027-c083", "family_id": "local-a027-c083--region-0--depth-4--direction-0", "evaluation": 33}
+  ],
+  "solvers": ["DOP853", "Radau"],
+  "max_steps": [0.02, 0.005, 0.001],
+  "horizon": 50.0,
+  "guard": 1e-8,
+  "rtol": 1e-10,
+  "atol": 1e-12,
+  "extremum_margin": 1e-10,
+  "thresholds": {"scaled_state": 1e-6, "time": 1e-7, "minimum_angle": 1e-7, "section_residual": 1e-8},
+  "scales": [15.0, 15.0, 0.01],
+  "limits": {"wall_seconds": 1800, "output_bytes": 268435456, "integrations": 12},
+  "claim_boundary": "Outcome-informed event-census witnesses only. Extrema are numerically detected, not a rigorous all-root guarantee. No silent repair of EXP-486, no new fold, invariant quotient, critical letter, Jones word, chain arrow or homoclinic conclusion.",
+  "paid_review": "not_run"
+}

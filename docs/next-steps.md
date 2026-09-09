@@ -103,7 +103,11 @@ inputs; historical result reproduction is a separate requirement.
   across history lengths, initial curve directions and solvers before treating
   discrete sign changes as fold brackets. The fixed 16-family
   [EXP-486 pilot](updates/2026-09-08-exp486-continuous-return-curves.md)
-  is implemented and its analytic controls pass; target results are pending.
+  completed 928 integrations: one of four regions qualified, and all
+  left-region fold refinements failed solver agreement. Its full-grid audit
+  and all-family figure are complete. The
+  [EXP-487 event-census witness](experiments/EXP-487-section-census-witness.md)
+  tests the observed crossing-detection discrepancy before any fold retry.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

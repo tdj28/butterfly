@@ -1,0 +1,9 @@
+{
+  "receipts": {
+    "EXP-486-continuous-return-curves.receipt.json": {
+      "bytes": 66606,
+      "sha256": "56c6573770af687dd004da0a8c0a5907a8234ba51f7924357e54784df4e52eb9"
+    }
+  },
+  "schema": "butterfly.figure-receipt-index.v1"
+}

@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-485 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-486 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -68,6 +68,15 @@ per case are exploratory leads, not certified folds: different trajectory
 points have not been joined into a verified return curve. Small singular values
 below floating-point resolution do not establish exact rank loss. No new
 word, arrow or homoclinic conclusion follows. [Result and figure](updates/2026-09-08-exp485-transported-tangents.md).
+
+**EXP-486 update:** continuous-flow finite-image samples qualify only one of
+four candidate regions (six of sixteen curve families; 928 integrations).
+At a=.21575 the right-hand numerical fold agrees across both history lengths
+and starting directions. Both left regions fail solver agreement during root
+refinement; the other right region exceeds the fixed candidate-count limit at
+depth eight. A saved left-region witness has an earlier Radau crossing absent
+from the DOP853 event list. No smooth fold, letter, chain or homoclinic verdict
+may be inferred from that discrepancy. [Full result and figure](updates/2026-09-08-exp486-continuous-return-curves.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate
