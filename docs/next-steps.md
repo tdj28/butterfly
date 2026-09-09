@@ -126,6 +126,13 @@ inputs; historical result reproduction is a separate requirement.
   curve segments with explicit cuts at section grazing and input-projection
   turns, retaining uncovered intervals and the full depth/direction matrix.
   Do not bridge those cuts or select only favorable accuracy profiles.
+  [EXP-491 completed the full three-point screen](updates/2026-09-08-exp491-event-sheet-probe.md):
+  all 156 trajectories and 78 paired samples qualify numerically, but sixteen
+  intervals fail time coherence, including two input-sign reversals. The
+  ten screened intervals match EXP-490's ten qualified searches. Next
+  localize the event-domain boundaries inside the sixteen flagged intervals,
+  retaining all cases, depths and directions; do not assume all flags are
+  proven grazings or that three passing samples certify a whole interval.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry

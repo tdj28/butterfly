@@ -30,6 +30,9 @@ def test_all_samples_families_and_solvers_retained():
     assert len(rows) == 26 and len({r["family_id"] for r in rows}) == 16
     assert sum(len(r["samples"]) for r in rows) == 156
     assert all([s["method"] for s in r["samples"]] == ["DOP853","Radau"]*3 for r in rows)
+    families = figure.family_summaries(rows)
+    assert len(families) == 16 and sum(f["candidates"] for f in families) == 26
+    assert all(f["screened_regular"] == f["candidates"] for f in families)
 
 
 @pytest.mark.parametrize("change",["missing","duplicate","solver","paired","interval","coordinate"])
@@ -64,3 +67,4 @@ def test_unresolved_profiles_have_explicit_unavailable_coordinates():
     assert len(rows[0]["samples"]) == 6
     assert [s["xy"] for s in rows[0]["samples"][:2]] == [None,None]
     assert not rows[0]["analysis"]["screened_regular"]
+    assert sum(f["unavailable_solver_points"] for f in figure.family_summaries(rows)) == 2

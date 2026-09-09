@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-08 (through EXP-490 symbolic-method follow-up; not a new audit of every row)
+Last updated: 2026-09-08 (through EXP-491 symbolic-method follow-up; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -112,6 +112,18 @@ solvers. In the latter, neighboring return-map slopes have the same sign while
 the input tangent reverses and becomes nearly zero. No complete region,
 invariant quotient, C/D assignment or Jones word/arrow is qualified. Earlier
 verdicts remain unchanged. [Complete results and outcome figure](updates/2026-09-08-exp490-direct-folds.md).
+
+**EXP-491 update:** all 156 trajectories at three points of each original
+interval completed and were audited. All 78 paired samples pass numerical
+and input-projection checks, but sixteen intervals fail the event-time
+coherence screen; two also reverse sampled input-tangent sign. The ten
+screened-regular intervals exactly match the ten EXP-490 qualified searches.
+This is outcome-informed consistency, not independent confirmation or a
+continuous-interval certificate. No ordinary-event omission is observed at
+these sampled points with the finest step, and no prior omission or failed
+verdict is erased. The screen does not diagnose every failed interval as a
+grazing boundary, assign C/D or verify a Jones word/arrow.
+[Complete screen and all-family scatter figure](updates/2026-09-08-exp491-event-sheet-probe.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

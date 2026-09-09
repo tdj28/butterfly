@@ -6,11 +6,14 @@ supersedes earlier interpretations of full-flow Floquet zeros and cautions
 against treating the fine homoclinic turn as error-bounded. The long index
 below is a historical record, not the current execution order.
 
-Latest symbolic-geometry result: [EXP-490's complete direct-fold test](updates/2026-09-08-exp490-direct-folds.md)
-recovers right-hand folds across both local parameter cases and all history/
-direction comparisons, while retaining every unresolved interval. The figure
-distinguishes successful searches from missing geometry; Jones's flow-level
-chains remain unverified.
+Latest symbolic-geometry result: [EXP-491's complete event-sheet screen](updates/2026-09-08-exp491-event-sheet-probe.md)
+reproduces all 78 sampled points with two solvers, while sixteen of the
+26 intervals fail the event-time coherence screen. Ten intervals pass and
+match the previously qualified right-hand fold searches. The all-family
+figure preserves gaps; accurate points do not certify a continuous return
+curve. [This explanation](methods/return-map-geometry-and-symbolic-validation.md)
+distinguishes projected folds, grazing boundaries and coordinate failures.
+Jones's flow-level chains remain unverified.
 
 The [new execution checkpoint](updates/2026-09-04-reproducible-core-and-readable-paper.md)
 adds a public core-data replay, readable manuscript, and a successful

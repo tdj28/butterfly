@@ -9,6 +9,7 @@ experiment documentation and plotting scripts.
 | [EXP-485 PNG](EXP-485-transported-tangent.png), [SVG](EXP-485-transported-tangent.svg) | [All 80 results](../experiments/receipts/EXP-485-transported-tangent-result.json) | [Inputs, derived values, code/output hashes, alt text](EXP-485-transported-tangent.receipt.json) |
 | [EXP-486 PNG](EXP-486-continuous-return-curves.png), [SVG](EXP-486-continuous-return-curves.svg), [PDF](EXP-486-continuous-return-curves.pdf) | [All 16 families](../experiments/receipts/EXP-486-return-image-fold-result.json) | [Complete figure receipt](EXP-486-continuous-return-curves.receipt.json), [hashed index](EXP-486-continuous-return-curves.index.json) |
 | [EXP-490 PNG](EXP-490-direct-folds.png), [SVG](EXP-490-direct-folds.svg), [PDF](EXP-490-direct-folds.pdf) | [All 26 candidates and both solvers](../experiments/receipts/EXP-490-direct-fold-result.json) | [Complete figure receipt](EXP-490-direct-folds.receipt.json), [hashed index](EXP-490-direct-folds.index.json) |
+| [EXP-491 PNG](EXP-491-sampled-event-sheets.png), [SVG](EXP-491-sampled-event-sheets.svg), [PDF](EXP-491-sampled-event-sheets.pdf) | [All 78 paired samples / 156 trajectories](../experiments/receipts/EXP-491-event-sheet-result.json) | [Complete figure receipt](EXP-491-sampled-event-sheets.receipt.json), [hashed index](EXP-491-sampled-event-sheets.index.json) |
 
 Redraw from public repository files, without raw target journals or new integration:
 
@@ -54,3 +55,19 @@ The outcome matrix retains unsuccessful searches and both solvers. Repeated
 input x values are nearly coincident physical locations reached from different
 upstream intervals, not a count of additional critical points. The figure is
 not a reconstructed return curve or an all-root certificate.
+
+EXP-491 public-data-only redraw and verification:
+
+```sh
+.venv/bin/python scripts/plot_exp491_event_sheets.py \
+  --receipt docs/experiments/receipts/EXP-491-event-sheet-result.json \
+  --expected-sha256 d96454454290ed83d5503fce91f9b86ccce516b40b50a84b9d35ab512f6fc879 \
+  --output-dir artifacts/EXP-491/public-redraw
+.venv/bin/python scripts/plot_exp491_event_sheets.py \
+  --output-dir docs/figures --verify-only
+```
+
+All sixteen family panels retain three sample positions for every original
+candidate and both solvers. Pointwise numerical failures or unavailable
+events must not be removed. No interpolant bridges a failed interval, and
+the absence of a flag at three points does not exclude hidden boundaries.

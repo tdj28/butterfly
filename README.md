@@ -48,6 +48,10 @@ candidate checks, with explicit limits on what is reproduced.
   across eight finite-return curve families, while sixteen intervals remain
   unresolved. Section-grazing jumps and ill-conditioned input curves must
   not be mistaken for the missing critical geometry.
+  The [full event-sheet screen](docs/updates/2026-09-08-exp491-event-sheet-probe.md)
+  now reproduces all 78 sampled points but flags sixteen intervals for large
+  return-time changes; the ten passing intervals match the qualified fold
+  searches. Accurate points alone do not certify a continuous symbolic map.
 - The shrimp and periodic-window skeleton evolves coherently over eleven
   sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
   These are finite-time, single-initial-condition recurrence maps; unresolved
