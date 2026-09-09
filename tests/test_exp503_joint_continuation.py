@@ -66,6 +66,30 @@ def test_running_original_is_not_recoverable(tmp_path):
         run.original_metadata(tmp_path)
 
 
+@pytest.mark.parametrize("kind",["passed","isolated","target-integrations","source","stdout"])
+def test_original_startup_corruption_rejected_before_control_reuse(kind,tmp_path):
+    startup = dict(passed=True,isolated=True,target_integrations=0,sources=dict(run.base.INPUTS),
+                   stdout=json.dumps(dict(valid=True,target_integrations=0,stencil_points=8)))
+    if kind in ("passed","isolated"):
+        startup[kind] = False
+    elif kind == "target-integrations":
+        startup["target_integrations"] = 1
+    elif kind == "source":
+        startup["sources"][next(iter(startup["sources"]))] = "0"*64
+    else:
+        startup["stdout"] = json.dumps(dict(valid=False))
+    run.write_json(tmp_path/"startup.json",startup)
+    with pytest.raises(ValueError,match="original copied-source startup"):
+        run.replay_controls(tmp_path,dict(source_paths=[]))
+
+
+def test_numerical_exception_is_not_reclassified_as_resource_failure(tmp_path):
+    run.write_json(tmp_path/"failure.json",dict(error_type="ValueError",message="numerical failure"))
+    run.write_json(tmp_path/"binding.json",{})
+    with pytest.raises(ValueError,match="immutable original resource failure"):
+        run.original_metadata(tmp_path)
+
+
 def test_original_numerics_remain_pinned():
     assert run.sha256(run.base.PLAN) == run.BASE_SHA
     p = run.base.load()

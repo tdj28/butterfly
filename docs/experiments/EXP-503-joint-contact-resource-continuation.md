@@ -38,9 +38,9 @@ unverified regardless of residual reduction.
 ## Resource amendment and accounting
 
 Only operational limits change: at most 4 GiB of **additional** output,
-7,200 seconds for this continuation, 9 GiB free before launch and a 6 GiB
-free-space floor. The smaller reserve is explicit and prospective; no
-scientific accuracy threshold is loosened. The original output remains
+7,200 seconds for this continuation, 13 GiB free before launch and the original
+8 GiB free-space floor. No reserve or scientific accuracy threshold is
+loosened. The original output remains
 read-only. This allows completing the same small matrix without deleting
 research evidence or uploading it elsewhere. If these limits are still
 insufficient, retain another explicit resource failure; do not extend them
@@ -54,6 +54,11 @@ products plus guard meshes. The successor checks all limits before incrementing
 its own call counter. Keep the original partial-attempt reservation count
 separate from the exact completed-matrix trajectory count. The combined
 reservation cap is 4,096; this resource amendment does not erase failed work.
+
+Pre-execution planning amendment: the earlier preparation checkpoint proposed
+a 6 GiB reserve. Available disk space subsequently increased without deletion
+by this agent. The final design therefore retains 8 GiB and requires 13 GiB
+at launch. No EXP-503 targets or attempt marker existed at this change.
 
 ## Pre-execution validation
 

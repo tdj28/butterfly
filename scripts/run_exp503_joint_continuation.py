@@ -66,7 +66,7 @@ def expected(original):
     return dict(experiment_id="EXP-503",status="outcome-informed-resource-continuation",
         base_plan_sha256=BASE_SHA,original=original_metadata(original),
         limits=dict(cumulative_reserved_ivps=4096,wall_seconds=7200,output_bytes=4*1024**3,
-                    initial_free_bytes=9*1024**3,minimum_free_bytes=6*1024**3),
+                    initial_free_bytes=13*1024**3,minimum_free_bytes=8*1024**3),
         paid_review="not-requested-human-approval-policy",scientific_settings_changed=False,
         original_attempt_reset=False,symbolic_chains_verified=False)
 
@@ -99,6 +99,11 @@ def startup(p,original):
 
 
 def replay_controls(original,p):
+    startup = json.loads((original/"startup.json").read_bytes())
+    if (not startup["passed"] or not startup["isolated"] or startup["target_integrations"] != 0
+            or startup["sources"] != {n:sha256(ROOT/n) for n in set(p["source_paths"])|set(base.INPUTS)}
+            or json.loads(startup["stdout"]) != dict(valid=True,target_integrations=0,stencil_points=8)):
+        raise ValueError("original copied-source startup differs")
     prior_audit.old.fold_audit.check_controls(json.loads((original/"fold-controls.json").read_bytes()),p["fold"])
     prior_audit.old.check_periodic_controls(original)
     prior_audit.decimal_audit.check_controls(original/"decimal-controls",json.loads((original/"decimal-controls.json").read_bytes()))

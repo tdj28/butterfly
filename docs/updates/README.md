@@ -23,13 +23,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp503-resource-continuation.md`](2026-09-09-exp503-resource-continuation.md)
-  - Conditional storage-continuation software prepared and unit-tested;
-  not launched. It must preserve the original attempt and every completed
-  fixed point, with unchanged scientific settings.
+  - Storage continuation validated against the actual failed-run archive;
+  seven fixed points will be reused with unchanged scientific settings.
 - [`2026-09-09-exp502-joint-contact-search.md`](2026-09-09-exp502-joint-contact-search.md)
-  - Joint a,c contact search launched from its tested public source freeze.
-  This entry distinguishes earlier archived-product
-  counts from actual integration calls; no new contact result yet.
+  - Seven fixed points completed before the frozen storage threshold stopped
+  the eighth. All evidence is retained; failure metadata is public and
+  the complete joint-contact verdict remains pending.
 - [`2026-09-09-exp501-limiting-contact.md`](2026-09-09-exp501-limiting-contact.md)
   - All 38 integrations and sixteen limiting-boundary profiles audit cleanly;
   none of 384 cycle-contact comparisons passes. The mismatch persists in the

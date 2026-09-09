@@ -1,6 +1,6 @@
 # EXP-502: testing both contacts together
 
-**Search in progress: first point audited, full result pending.** EXP-501 showed that
+**Resource-stopped with seven complete points preserved; EXP-503 continues the matrix.** EXP-501 showed that
 the limiting boundary misses the primitive cycle at the right-fold proximity
 anchor. EXP-502 varies both a and c to test whether the two contact residuals
 can be reduced together. The bounded search uses eight fixed stencil points
@@ -60,10 +60,23 @@ the complete run,
 raw audit, failures and next scientific decision rather than marking the
 research objective complete at preparation.
 
-Latest execution checkpoint: all four a-direction stencil points have
-completed, with 708 recorded target integrations. The c-direction points
-continue. Only the first point has undergone the standalone audit below;
-the complete eight-point response has not yet been interpreted.
+The run reached its frozen storage threshold on 2026-09-09 at
+21:02:48 UTC, during the eighth point. Seven complete points contain 1,217
+recorded integrations; the partial eighth retains another 109 trajectory
+files. The failure counter is 1,327 **reservations**, while 1,326 target
+trajectory files exist, including 192 guard meshes. The terminal traceback
+shows the final reservation rejected by `budget(True)` before its integration
+began. This is not 1,327 completed IVPs. Only the first point has undergone
+the standalone audit below; the complete response has not been interpreted.
+
+Before the failure receipt, 1,958 files occupied 8,557,276,936 bytes. This
+crosses the frozen 8 GiB allowance minus its 32 MiB write margin, while
+remaining below the absolute 8 GiB cap. The run did not exhaust its 7,200-second
+wall cap. No files, failed attempts or markers were removed or reset.
+The [public failure metadata](../experiments/receipts/EXP-502-resource-failure.json)
+is byte-identical to the original receipt, SHA-256
+`bf995c17d6c2c0e635e58143295477bfd01957b9816b87f24a6337a40a2817c7`.
+It publishes the failure and inventory, not the raw trajectories.
 
 ### First fixed point: standalone raw audit completed
 
@@ -87,6 +100,6 @@ All remaining fixed points still run regardless of this result.
 
 The retained size of the first two points motivates a separately documented
 [resource continuation](2026-09-09-exp503-resource-continuation.md), prepared
-while this run continues unchanged. It may execute only after an archived
-resource failure and reuses every completed fixed point. The original cap,
+while the run was active. Its archived-failure gate is now satisfied and it
+reuses all seven completed fixed points. The original cap,
 attempt marker, source files and scientific thresholds are not being changed.
