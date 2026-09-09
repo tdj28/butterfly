@@ -119,6 +119,17 @@ solvers and all curve representations, with primitive-period safeguards intact.
 This measured anchor supports the next branch-dictionary study. It does not
 already reproduce Jones's C/D words or insertion arrows.
 
+### The second object is still separated from that cycle
+
+![All eight boundary nominations remain visible; two fail numerical qualification and none meets the full-state cycle-proximity criterion.](docs/figures/EXP-498-boundary-transport.png)
+
+The [same-parameter boundary test](docs/updates/2026-09-09-exp498-boundary-transport.md)
+completed 136 integrations. Six of eight nominations pass the complete local
+extra-return checks; two retain near-tangent solver disagreement. The measured
+pre-grazing inputs do not meet the proximity criterion at any cycle event.
+This rules out treating our one-fold calibration point as an already verified
+two-object contact; it neither verifies nor debunks Jones's symbolic chains.
+
 ### From broad parameter scans to individual shrimp
 
 ![Global parameter plane and period-6 zoom](paper/figures/fig02-global-and-period6-zoom.png)

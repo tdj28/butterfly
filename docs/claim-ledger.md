@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-497 local fold/cycle proximity; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-498 mixed boundary transport; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -193,6 +193,19 @@ fold, not exact criticality, a zero flow multiplier, a doubly-superstable center
 C/D, a second critical point or a Jones word/arrow. Full raw evidence is local;
 public trajectory replay remains unavailable pending publication approval.
 [Complete refinement, figure and claim boundary](updates/2026-09-09-exp497-contact-localization.md).
+
+**EXP-498 update:** at the EXP-497 point, all 136 target IVPs and all 26 parent
+interval ledger entries are audited. All eight paired grazing roots and local
+extra-turn comparisons pass, but only six complete boundary/turn matrices
+qualify. Two depth-eight nominations fail near-tangent paired-state accuracy;
+the historical failure remains included. All 64 preceding section states are
+compared to all six cycle events in both windows (768 cells). No fixed index
+meets any predeclared proximity radius; the best worst-variant distance is
+0.0134645 against the primary 0.0001 radius. Overall ordering remains unresolved
+because the complete qualification gate fails. The one-fold anchor is not an
+established two-object contact. No C/D assignment, second smooth critical point,
+Jones chain or homoclinic conclusion follows. Full raw trajectories remain local.
+[Complete mixed result and geometry](updates/2026-09-09-exp498-boundary-transport.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

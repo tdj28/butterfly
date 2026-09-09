@@ -191,6 +191,15 @@ inputs; historical result reproduction is a separate requirement.
   or consistent piecewise boundary, then qualify the branch dictionary. It is
   not yet an exact critical point, C/D assignment, doubly-superstable center or
   source-matched arrow; the second case's inherited failures remain.
+  [EXP-498 transports the grazing boundary to that same point](updates/2026-09-09-exp498-boundary-transport.md):
+  136 integrations complete, but only six of eight boundary/turn matrices
+  qualify. Two near-tangent paired-state errors remain. All 768 predecessor/
+  cycle comparisons are retained, and no event index meets the proximity rule.
+  Diagnose those errors from retained trajectories, then freeze a successor
+  with unchanged accuracy thresholds. Joint contact conditions in a and c,
+  not further one-fold tuning alone, are needed to test a two-object center.
+  Preserve every representation, the primitive-period guard and the distinction
+  between a piecewise domain boundary and a smooth critical point.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
