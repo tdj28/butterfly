@@ -1,0 +1,115 @@
+{
+  "atol": 1e-15,
+  "candidates_sha256": "6bac72b0f7724e67a6df762bd4c24fdd394f4baf5c07ef16e6e3009423796701",
+  "controls": {
+    "counts": [
+      2,
+      3
+    ],
+    "kinds": [
+      "fold",
+      "no-fold",
+      "projection-degenerate"
+    ]
+  },
+  "experiment_id": "EXP-496",
+  "extremum_margin": 1e-10,
+  "guard": 1e-08,
+  "inputs": {
+    "docs/experiments/receipts/EXP-490-direct-fold-result.json": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "docs/experiments/receipts/EXP-494-periodic-transport-result.json": "801500bb27577cb32c9bd5908329204a95ffa8f32a4fe0eb1b55af42c4ed178d",
+    "experiments/manifests/EXP-490-candidates.json": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+    "experiments/manifests/EXP-490-direct-folds.json": "6af6c16bd3ee2d88525f05db0264f5c0c7de6596d917843c633ac06f20c17fdb"
+  },
+  "iterations": 8,
+  "limits": {
+    "initial_free_bytes": 17179869184,
+    "max_target_trajectories": 176,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 2147483648,
+    "wall_seconds": 3600
+  },
+  "max_step": 0.001,
+  "paid_review": "not-run-human-approval-policy",
+  "primary_event": 3,
+  "primary_radius": 0.0001,
+  "root_determinant": 1e-10,
+  "root_plane": 1e-10,
+  "rtol": 1e-13,
+  "scales": [
+    15.0,
+    15.0,
+    0.01
+  ],
+  "sensitivity_radii": [
+    1e-06,
+    1e-05,
+    0.0001,
+    0.001
+  ],
+  "sign_floor": 1e-06,
+  "solvers": [
+    "DOP853",
+    "Radau"
+  ],
+  "source_paths": [
+    "docs/experiments/EXP-495-fold-cycle-membership.md",
+    "docs/experiments/EXP-496-contact-endpoint.md",
+    "experiments/manifests/EXP-490-direct-folds.json",
+    "experiments/manifests/EXP-495-fold-cycle-membership.json",
+    "experiments/manifests/EXP-496-candidates.json",
+    "experiments/manifests/EXP-496-contact-endpoint.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp496_contact_endpoint.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "tests/test_exp495_membership.py",
+    "tests/test_exp496_contact_endpoint.py",
+    "uv.lock"
+  ],
+  "thresholds": {
+    "angle": 1e-07,
+    "curvature_relative_error": 0.001,
+    "minimum_gain": 0.0001,
+    "minimum_scaled_curvature": 1e-06,
+    "minimum_x_component": 0.001,
+    "plane": 1e-08,
+    "root_derivative": 1e-07,
+    "solver_u": 1e-09,
+    "state": 1e-06,
+    "time": 1e-07
+  }
+}

@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp496-contact-endpoint.md`](2026-09-09-exp496-contact-endpoint.md)
+  - All 124 trajectories audited: the first case has opposite-sign endpoints
+  in all four representations; the second retains two input-conditioning failures.
 - [`2026-09-09-exp495-fold-cycle-membership.md`](2026-09-09-exp495-fold-cycle-membership.md)
   - Complete 240-cell saved-state comparison: neither primitive base cycle
   meets the measured right-fold proximity criterion, including every fixed

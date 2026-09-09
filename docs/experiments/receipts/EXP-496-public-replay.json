@@ -1,0 +1,5689 @@
+{
+  "audit_source_sha256": "6ce2991f748f355bd7670f6f2204e5cb6ad6369511a61c2cb6d5cc947328dec1",
+  "candidates": [
+    {
+      "agreement": {
+        "states": [
+          2.654126918244515e-14,
+          2.960594732333751e-15
+        ],
+        "times": [
+          2.1316282072803006e-14,
+          7.105427357601002e-15
+        ],
+        "u": 6.145257913647839e-16
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            23.53049583306107,
+            29.772856452010316
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 29216.108736204933,
+          "event_state_error": 3.399687938573e-14,
+          "event_time_error": 1.7763568394002505e-14,
+          "finite_difference_relative_error": 4.165467491627522e-09,
+          "finite_difference_second_derivative": 29216.108857903684,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 14.526885129903027,
+              "image_state": [
+                -6.8840286176668,
+                -0.027754570802183732,
+                0.014222469482915707
+              ],
+              "input_x_tangent": -7.995565955694674,
+              "next_state": [
+                -11.760331948939795,
+                -0.02775457080216535,
+                0.0105593776370454
+              ],
+              "normalized_output_derivative": -0.0001340629922499998,
+              "normalized_x_component": 0.5503978233596762,
+              "valid": true,
+              "x_graph_slope": 0.0002435747137073828
+            },
+            {
+              "gain": 14.527472215651187,
+              "image_state": [
+                -6.884148554290527,
+                -0.027754570802182306,
+                0.014222348195445931
+              ],
+              "input_x_tangent": -7.995983893271699,
+              "next_state": [
+                -11.760331963546724,
+                -0.027754570802196933,
+                0.010559377628897077
+              ],
+              "normalized_output_derivative": -3.4293239125711904e-14,
+              "normalized_x_component": 0.5504043493992863,
+              "valid": true,
+              "x_graph_slope": 6.230553803424646e-14
+            },
+            {
+              "gain": 14.528059264260664,
+              "image_state": [
+                -6.88426849718397,
+                -0.027754570802183756,
+                0.014222226903699042
+              ],
+              "input_x_tangent": -7.99640182237958,
+              "next_state": [
+                -11.760331948937507,
+                -0.027754570802175152,
+                0.010559377637047541
+              ],
+              "normalized_output_derivative": 0.00013408284320941816,
+              "normalized_x_component": 0.5504108757355429,
+              "valid": true,
+              "x_graph_slope": -0.0002436050033172695
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989317607283,
+            "determinant_scale": 2740.654336359511,
+            "event_second_derivative": 29216.108736204933,
+            "first": [
+              -0.3403922769373143,
+              232.92332841351856,
+              0.006651733288224505
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                232.92332841351856,
+                -11.766311685825931
+              ],
+              [
+                -343765.84163726796,
+                4.990129531812215e-09
+              ]
+            ],
+            "residual": [
+              5.009222203700148e-13,
+              -6.272111718885753e-10
+            ],
+            "second": [
+              33873.83772990654,
+              -32941.23948240977,
+              17.95558086513708
+            ],
+            "state": [
+              -11.760331963546708,
+              -0.02775457080168698,
+              0.010559377628897105
+            ],
+            "time": 29.772856452010334,
+            "u": 0.0018945814972485368
+          },
+          "scaled_curvature": 30.464025617312313
+        },
+        {
+          "center_event_times": [
+            23.530495833061092,
+            29.77285645201031
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 29216.108736212307,
+          "event_state_error": 3.84696903961886e-14,
+          "event_time_error": 2.4868995751603507e-14,
+          "finite_difference_relative_error": 1.30276288320517e-09,
+          "finite_difference_second_derivative": 29216.10877427397,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 14.526885129903906,
+              "image_state": [
+                -6.884028617667275,
+                -0.02775457080219374,
+                0.014222469482915228
+              ],
+              "input_x_tangent": -7.995565955695452,
+              "next_state": [
+                -11.760331948939783,
+                -0.027754570802161267,
+                0.01055937763704541
+              ],
+              "normalized_output_derivative": -0.00013406299176787836,
+              "normalized_x_component": 0.5503978233596964,
+              "valid": true,
+              "x_graph_slope": 0.000243574712831423
+            },
+            {
+              "gain": 14.527472215651244,
+              "image_state": [
+                -6.884148554290791,
+                -0.027754570802180738,
+                0.014222348195445666
+              ],
+              "input_x_tangent": -7.995983893271888,
+              "next_state": [
+                -11.76033196354668,
+                -0.027754570802181112,
+                0.010559377628897101
+              ],
+              "normalized_output_derivative": 2.5754013695754785e-13,
+              "normalized_x_component": 0.5504043493992972,
+              "valid": true,
+              "x_graph_slope": -4.679107954699544e-13
+            },
+            {
+              "gain": 14.528059264259815,
+              "image_state": [
+                -6.8842684971837125,
+                -0.027754570802180946,
+                0.014222226903699306
+              ],
+              "input_x_tangent": -7.9964018223788855,
+              "next_state": [
+                -11.760331948937539,
+                -0.027754570802177483,
+                0.010559377637047524
+              ],
+              "normalized_output_derivative": 0.00013408284292397676,
+              "normalized_x_component": 0.5504108757355274,
+              "valid": true,
+              "x_graph_slope": -0.00024360500279867948
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989317607284,
+            "determinant_scale": 2740.654336359089,
+            "event_second_derivative": 29216.108736212307,
+            "first": [
+              -0.3403922768980048,
+              232.9233284134832,
+              0.00665173328824538
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                232.9233284134832,
+                -11.76631168582591
+              ],
+              [
+                -343765.84163735225,
+                4.8950374864631385e-09
+              ]
+            ],
+            "residual": [
+              5.838350636278022e-13,
+              -1.0698242292050963e-09
+            ],
+            "second": [
+              33873.8377299123,
+              -32941.23948241593,
+              17.95558086514019
+            ],
+            "state": [
+              -11.760331963546705,
+              -0.027754570801604067,
+              0.010559377628897108
+            ],
+            "time": 29.772856452010334,
+            "u": 0.0018945814972479223
+          },
+          "scaled_curvature": 30.46402561731856
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          1.1483869410966463e-13,
+          3.789561257387201e-15
+        ],
+        "times": [
+          2.8421709430404007e-13,
+          1.7408297026122455e-13
+        ],
+        "u": 5.733694768972342e-15
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            23.530495851752264,
+            29.772856470701434
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 14606.565937923822,
+          "event_state_error": 7.244158976386453e-14,
+          "event_time_error": 1.0658141036401503e-13,
+          "finite_difference_relative_error": 2.4435979015154364e-10,
+          "finite_difference_second_derivative": 14606.56594149308,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 10.271657257800348,
+              "image_state": [
+                -6.884063749962606,
+                -0.027754570802183978,
+                0.01422243395471124
+              ],
+              "input_x_tangent": -5.653517432671655,
+              "next_state": [
+                -11.760331956243883,
+                -0.027754570802170676,
+                0.010559377632970803
+              ],
+              "normalized_output_derivative": -9.479407636563933e-05,
+              "normalized_x_component": 0.5503997349968376,
+              "valid": true,
+              "x_graph_slope": 0.00017222769259905984
+            },
+            {
+              "gain": 10.271950767205032,
+              "image_state": [
+                -6.884148554291271,
+                -0.027754570802175475,
+                0.014222348195445184
+              ],
+              "input_x_tangent": -5.653726379085297,
+              "next_state": [
+                -11.76033196354673,
+                -0.027754570802173348,
+                0.010559377628897079
+              ],
+              "normalized_output_derivative": 8.104670527487213e-13,
+              "normalized_x_component": 0.5504043493993166,
+              "valid": true,
+              "x_graph_slope": -1.472493910401006e-12
+            },
+            {
+              "gain": 10.272244263479514,
+              "image_state": [
+                -6.884233361753801,
+                -0.027754570802193703,
+                0.014222262434041457
+              ],
+              "input_x_tangent": -5.6539353225040205,
+              "next_state": [
+                -11.760331956243046,
+                -0.02775457080216715,
+                0.010559377632971883
+              ],
+              "normalized_output_derivative": 9.480400174060299e-05,
+              "normalized_x_component": 0.5504089639500905,
+              "valid": true,
+              "x_graph_slope": -0.00017224283750800167
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989317607284,
+            "determinant_scale": 1937.8375090581276,
+            "event_second_derivative": 14606.565937923822,
+            "first": [
+              -0.2406815457210433,
+              164.69335681855787,
+              0.004703248452462234
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                164.69335681855787,
+                -11.766311685825835
+              ],
+              [
+                -171865.4074852273,
+                3.475453147494534e-09
+              ]
+            ],
+            "residual": [
+              1.1011781764214135e-12,
+              -6.91318113865691e-10
+            ],
+            "second": [
+              16935.19548194647,
+              -16468.954949683837,
+              8.976876599026708
+            ],
+            "state": [
+              -11.760331963546742,
+              -0.027754570801086724,
+              0.010559377628897101
+            ],
+            "time": 29.772856470701328,
+            "u": 0.0026794790660935497
+          },
+          "scaled_curvature": 30.46402561730369
+        },
+        {
+          "center_event_times": [
+            23.53049585175198,
+            29.77285647070126
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 14606.565937920546,
+          "event_state_error": 4.3526524976892724e-14,
+          "event_time_error": 5.684341886080802e-14,
+          "finite_difference_relative_error": 3.021157213152507e-09,
+          "finite_difference_second_derivative": 14606.565982049278,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 10.271657257797205,
+              "image_state": [
+                -6.88406374996171,
+                -0.027754570802190615,
+                0.014222433954712156
+              ],
+              "input_x_tangent": -5.6535174326692745,
+              "next_state": [
+                -11.760331956243897,
+                -0.027754570802197565,
+                0.010559377632970794
+              ],
+              "normalized_output_derivative": -9.479407736560496e-05,
+              "normalized_x_component": 0.5503997349967742,
+              "valid": true,
+              "x_graph_slope": 0.00017222769441587853
+            },
+            {
+              "gain": 10.271950767201263,
+              "image_state": [
+                -6.884148554290128,
+                -0.027754570802181286,
+                0.014222348195446332
+              ],
+              "input_x_tangent": -5.653726379082701,
+              "next_state": [
+                -11.760331963546786,
+                -0.027754570802190348,
+                0.010559377628897044
+              ],
+              "normalized_output_derivative": -4.587774731983261e-13,
+              "normalized_x_component": 0.5504043493992659,
+              "valid": true,
+              "x_graph_slope": 8.335280665915063e-13
+            },
+            {
+              "gain": 10.272244263478012,
+              "image_state": [
+                -6.88423336175338,
+                -0.02775457080218923,
+                0.014222262434041882
+              ],
+              "input_x_tangent": -5.6539353225029485,
+              "next_state": [
+                -11.760331956243048,
+                -0.027754570802177796,
+                0.01055937763297188
+              ],
+              "normalized_output_derivative": 9.480400126715525e-05,
+              "normalized_x_component": 0.5504089639500667,
+              "valid": true,
+              "x_graph_slope": -0.00017224283664783467
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989317607283,
+            "determinant_scale": 1937.8375090581744,
+            "event_second_derivative": 14606.565937920546,
+            "first": [
+              -0.24068154572958605,
+              164.69335681856154,
+              0.004703248452457601
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                164.69335681856154,
+                -11.766311685825855
+              ],
+              [
+                -171865.40748518912,
+                3.480848609349607e-09
+              ]
+            ],
+            "residual": [
+              6.504519145522636e-13,
+              -6.650866524182675e-10
+            ],
+            "second": [
+              16935.1954819439,
+              -16468.954949680152,
+              8.976876599025411
+            ],
+            "state": [
+              -11.760331963546664,
+              -0.02775457080153745,
+              0.010559377628897132
+            ],
+            "time": 29.772856470701317,
+            "u": 0.002679479066087816
+          },
+          "scaled_curvature": 30.464025617324836
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          2.381775332516156e-13,
+          1.4210854715202005e-15
+        ],
+        "times": [
+          4.334310688136611e-13,
+          2.0605739337042905e-13
+        ],
+        "u": 6.1784345001258956e-15
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            46.609372966054224,
+            52.85173358500354
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 143307.64531946392,
+          "event_state_error": 1.4243282479379597e-13,
+          "event_time_error": 2.1316282072803006e-13,
+          "finite_difference_relative_error": 5.469408673349791e-08,
+          "finite_difference_second_derivative": 143307.63748138314,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 32.17176216869084,
+              "image_state": [
+                -6.884414181782682,
+                -0.027754570802184356,
+                0.014222079583535817
+              ],
+              "input_x_tangent": 17.707942812687367,
+              "next_state": [
+                -11.760331891893578,
+                -0.027754570802153978,
+                0.010559377668871132
+              ],
+              "normalized_output_derivative": -0.0002969593278431113,
+              "normalized_x_component": 0.5504188026703901,
+              "valid": true,
+              "x_graph_slope": -0.000539515231678851
+            },
+            {
+              "gain": 32.174628975234114,
+              "image_state": [
+                -6.8841485542898555,
+                -0.0277545708021951,
+                0.014222348195446613
+              ],
+              "input_x_tangent": 17.70905572827576,
+              "next_state": [
+                -11.760331963546715,
+                -0.027754570802209326,
+                0.010559377628897082
+              ],
+              "normalized_output_derivative": 8.044972390741363e-13,
+              "normalized_x_component": 0.5504043493992429,
+              "valid": true,
+              "x_graph_slope": 1.4616476776613985e-12
+            },
+            {
+              "gain": 32.177494009237236,
+              "image_state": [
+                -6.883882910114261,
+                -0.027754570802168057,
+                0.014222616834347942
+              ],
+              "input_x_tangent": 17.710167549174702,
+              "next_state": [
+                -11.760331891892246,
+                -0.027754570802159872,
+                0.010559377668869944
+              ],
+              "normalized_output_derivative": 0.00029691498429405995,
+              "normalized_x_component": 0.5503898950020975,
+              "valid": true,
+              "x_graph_slope": 0.0005394630006659705
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.999998931760728,
+            "determinant_scale": 1376.38599048078,
+            "event_second_derivative": 143307.64531946392,
+            "first": [
+              0.17094865128533754,
+              -116.97659271776548,
+              -0.003340572516789154
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -116.97659271776548,
+                -11.766311685826462
+              ],
+              [
+                -1686202.4217908047,
+                -1.2319424091966624e-08
+              ]
+            ],
+            "residual": [
+              -2.157916206835253e-12,
+              -4.50716752808944e-09
+            ],
+            "second": [
+              144829.7073446126,
+              -245965.32678355408,
+              73.57788457954189
+            ],
+            "state": [
+              -11.760331963546665,
+              -0.02775457080434582,
+              0.010559377628897042
+            ],
+            "time": 52.85173358500375,
+            "u": -0.0013274938392808858
+          },
+          "scaled_curvature": 30.464025617308998
+        },
+        {
+          "center_event_times": [
+            46.60937296605379,
+            52.85173358500333
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 143307.64531946796,
+          "event_state_error": 1.8315534274411979e-13,
+          "event_time_error": 4.334310688136611e-13,
+          "finite_difference_relative_error": 5.711904509909755e-08,
+          "finite_difference_second_derivative": 143307.6371338721,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 32.171762168711645,
+              "image_state": [
+                -6.884414181778675,
+                -0.02775457080217941,
+                0.014222079583539864
+              ],
+              "input_x_tangent": 17.707942812691897,
+              "next_state": [
+                -11.760331891893564,
+                -0.02775457080220715,
+                0.010559377668871132
+              ],
+              "normalized_output_derivative": -0.00029695932336572695,
+              "normalized_x_component": 0.5504188026701751,
+              "valid": true,
+              "x_graph_slope": -0.0005395152235445572
+            },
+            {
+              "gain": 32.17462897524626,
+              "image_state": [
+                -6.8841485542875045,
+                -0.027754570802159106,
+                0.014222348195448995
+              ],
+              "input_x_tangent": 17.709055728278283,
+              "next_state": [
+                -11.760331963546736,
+                -0.027754570802213267,
+                0.010559377628897072
+              ],
+              "normalized_output_derivative": 3.399075177179562e-12,
+              "normalized_x_component": 0.5504043493991135,
+              "valid": true,
+              "x_graph_slope": 6.17559650626016e-12
+            },
+            {
+              "gain": 32.177494009241755,
+              "image_state": [
+                -6.883882910111528,
+                -0.027754570802189453,
+                0.014222616834350705
+              ],
+              "input_x_tangent": 17.71016754917238,
+              "next_state": [
+                -11.760331891892202,
+                -0.027754570802212,
+                0.010559377668869968
+              ],
+              "normalized_output_derivative": 0.00029691498733043747,
+              "normalized_x_component": 0.5503898950019479,
+              "valid": true,
+              "x_graph_slope": 0.0005394630061828926
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.999998931760728,
+            "determinant_scale": 1376.3859904956166,
+            "event_second_derivative": 143307.64531946796,
+            "first": [
+              0.17094865201160286,
+              -116.9765927190232,
+              -0.0033405725164208557
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -116.9765927190232,
+                -11.766311685826679
+              ],
+              [
+                -1686202.4217909013,
+                -1.4135854209396115e-08
+              ]
+            ],
+            "residual": [
+              -2.7726952678275296e-12,
+              -1.2959120887501285e-08
+            ],
+            "second": [
+              144829.70734465471,
+              -245965.3267837248,
+              73.57788457955881
+            ],
+            "state": [
+              -11.76033196354675,
+              -0.027754570804960597,
+              0.010559377628896981
+            ],
+            "time": 52.851733585003764,
+            "u": -0.0013274938392747074
+          },
+          "scaled_curvature": 30.464025617301175
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          9.80118763926896e-14,
+          2.5847379792054426e-15
+        ],
+        "times": [
+          2.1316282072803006e-13,
+          1.2789769243681803e-13
+        ],
+        "u": 6.843484112728504e-16
+      },
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            46.60937295377105,
+            52.85173357272022
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 71646.65769719264,
+          "event_state_error": 1.6738925060858872e-14,
+          "event_time_error": 3.552713678800501e-14,
+          "finite_difference_relative_error": 2.8261247366239788e-08,
+          "finite_difference_second_derivative": 71646.65567236872,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 22.74832769544753,
+              "image_state": [
+                -6.884336373630118,
+                -0.027754570802164452,
+                0.014222158264842327
+              ],
+              "input_x_tangent": 12.521010984211188,
+              "next_state": [
+                -11.760331927723668,
+                -0.027754570802198737,
+                0.010559377648882344
+              ],
+              "normalized_output_derivative": -0.00020996686696971015,
+              "normalized_x_component": 0.5504145690110194,
+              "valid": true,
+              "x_graph_slope": -0.00038147040211340515
+            },
+            {
+              "gain": 22.74976082382803,
+              "image_state": [
+                -6.884148554291198,
+                -0.027754570802191757,
+                0.014222348195445248
+              ],
+              "input_x_tangent": 12.521567305229269,
+              "next_state": [
+                -11.760331963546694,
+                -0.027754570802158283,
+                0.0105593776288971
+              ],
+              "normalized_output_derivative": -7.422779481581779e-13,
+              "normalized_x_component": 0.5504043493993228,
+              "valid": true,
+              "x_graph_slope": -1.3486048011216737e-12
+            },
+            {
+              "gain": 22.751193325593523,
+              "image_state": [
+                -6.883960726612523,
+                -0.027754570802188384,
+                0.014222538139541302
+              ],
+              "input_x_tangent": 12.52212323926307,
+              "next_state": [
+                -11.760331927723113,
+                -0.027754570802200944,
+                0.010559377648881287
+              ],
+              "normalized_output_derivative": 0.00020994469431174264,
+              "normalized_x_component": 0.5503941292247095,
+              "valid": true,
+              "x_graph_slope": 0.00038144428358542407
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989317607283,
+            "determinant_scale": 973.2023062982396,
+            "event_second_derivative": 71646.65769719264,
+            "first": [
+              0.12087279459822306,
+              -82.7107298411829,
+              -0.002362021192094222
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -82.7107298411829,
+                -11.766311685825984
+              ],
+              [
+                -843016.905712906,
+                -7.699444581898973e-09
+              ]
+            ],
+            "residual": [
+              2.8070254454171106e-13,
+              1.5202759051646808e-09
+            ],
+            "second": [
+              72407.61152522414,
+              -122970.35855625365,
+              36.78526321330553
+            ],
+            "state": [
+              -11.760331963546713,
+              -0.0277545708019072,
+              0.01055937762889709
+            ],
+            "time": 52.851733572720185,
+            "u": -0.0018774538007628701
+          },
+          "scaled_curvature": 30.464025617305314
+        },
+        {
+          "center_event_times": [
+            46.60937295377126,
+            52.85173357272035
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 71646.65769726962,
+          "event_state_error": 1.6189364663669417e-13,
+          "event_time_error": 1.7053025658242404e-13,
+          "finite_difference_relative_error": 3.1387559926134176e-08,
+          "finite_difference_second_derivative": 71646.65544845586,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 22.748327695422955,
+              "image_state": [
+                -6.884336373628607,
+                -0.027754570802200864,
+                0.014222158264843852
+              ],
+              "input_x_tangent": 12.521010984195817,
+              "next_state": [
+                -11.760331927723666,
+                -0.027754570802181293,
+                0.010559377648882344
+              ],
+              "normalized_output_derivative": -0.00020996686531468242,
+              "normalized_x_component": 0.5504145690109383,
+              "valid": true,
+              "x_graph_slope": -0.0003814703991065865
+            },
+            {
+              "gain": 22.74976082383557,
+              "image_state": [
+                -6.884148554292171,
+                -0.027754570802176193,
+                0.014222348195444268
+              ],
+              "input_x_tangent": 12.521567305234568,
+              "next_state": [
+                -11.760331963546692,
+                -0.027754570802197055,
+                0.010559377628897103
+              ],
+              "normalized_output_derivative": -1.7966331092775945e-12,
+              "normalized_x_component": 0.5504043493993733,
+              "valid": true,
+              "x_graph_slope": -3.2642058719887725e-12
+            },
+            {
+              "gain": 22.75119332559862,
+              "image_state": [
+                -6.88396072661222,
+                -0.027754570802204233,
+                0.014222538139541607
+              ],
+              "input_x_tangent": 12.522123239265499,
+              "next_state": [
+                -11.760331927723154,
+                -0.027754570802138997,
+                0.010559377648881268
+              ],
+              "normalized_output_derivative": 0.00020994469465450064,
+              "normalized_x_component": 0.5503941292246929,
+              "valid": true,
+              "x_graph_slope": 0.0003814442842081857
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989317607284,
+            "determinant_scale": 973.2023062874109,
+            "event_second_derivative": 71646.65769726962,
+            "first": [
+              0.12087279393689869,
+              -82.71072984026699,
+              -0.0023620211924363457
+            ],
+            "iteration": 3,
+            "jacobian": [
+              [
+                -82.71072984026699,
+                -11.766311685825496
+              ],
+              [
+                -843016.9057137654,
+                -6.0684670066812885e-09
+              ]
+            ],
+            "residual": [
+              2.419252298491159e-12,
+              9.109046628097417e-09
+            ],
+            "second": [
+              72407.61152526595,
+              -122970.35855625286,
+              36.78526321332998
+            ],
+            "state": [
+              -11.760331963546685,
+              -0.02775457079976865,
+              0.01055937762889717
+            ],
+            "time": 52.85173357272018,
+            "u": -0.0018774538007621858
+          },
+          "scaled_curvature": 30.464025617312256
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          3.105155021998485e-14,
+          6.7501559897209515e-15
+        ],
+        "times": [
+          7.105427357601002e-15,
+          3.552713678800501e-14
+        ],
+        "u": 1.7694179454963432e-16
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            28.496146674443345,
+            34.738515592169634
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 5628.839173585568,
+          "event_state_error": 1.1624266364288853e-14,
+          "event_time_error": 2.842170943040401e-14,
+          "finite_difference_relative_error": 3.821568249092286e-09,
+          "finite_difference_second_derivative": 5628.839195096561,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 6.377378096198804,
+              "image_state": [
+                -6.883869822297332,
+                -0.027754572941949752,
+                0.014222630020768613
+              ],
+              "input_x_tangent": -3.510039943836866,
+              "next_state": [
+                -11.760700123267688,
+                -0.027754572941967197,
+                0.010559172228932061
+              ],
+              "normalized_output_derivative": -5.8853700414024956e-05,
+              "normalized_x_component": 0.5503891867300456,
+              "valid": true,
+              "x_graph_slope": 0.00010693106229736208
+            },
+            {
+              "gain": 6.376412745988268,
+              "image_state": [
+                -6.883922469048768,
+                -0.0277545729419369,
+                0.014222576779604338
+              ],
+              "input_x_tangent": -3.509526891821642,
+              "next_state": [
+                -11.76070012608253,
+                -0.027754572941951414,
+                0.010559172227362
+              ],
+              "normalized_output_derivative": -1.793345658758173e-14,
+              "normalized_x_component": 0.5503920513974989,
+              "valid": true,
+              "x_graph_slope": 3.258305882515371e-14
+            },
+            {
+              "gain": 6.375447370891861,
+              "image_state": [
+                -6.883975108104218,
+                -0.027754572941935014,
+                0.014222523546620377
+              ],
+              "input_x_tangent": -3.509013817854067,
+              "next_state": [
+                -11.760700123268464,
+                -0.02775457294195737,
+                0.010559172228932016
+              ],
+              "normalized_output_derivative": 5.884757115113765e-05,
+              "normalized_x_component": 0.550394915637613,
+              "valid": true,
+              "x_graph_slope": -0.00010691881316338982
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989318019228,
+            "determinant_scale": 2012.5789539591603,
+            "event_second_derivative": 5628.839173585568,
+            "first": [
+              0.2499518666917765,
+              -171.04013920748767,
+              -0.004884206380282998
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                -171.04013920748767,
+                -11.766680403914304
+              ],
+              [
+                -66232.75160058119,
+                2.2910082719818092e-09
+              ]
+            ],
+            "residual": [
+              1.6634957300531994e-13,
+              1.981557140595669e-10
+            ],
+            "second": [
+              8069.903752953684,
+              30426.078374940666,
+              5.409435657942168
+            ],
+            "state": [
+              -11.76070012608254,
+              -0.02775457294177705,
+              0.010559172227362003
+            ],
+            "time": 34.73851559216966,
+            "u": 0.0016007175444026273
+          },
+          "scaled_curvature": 30.46705187866586
+        },
+        {
+          "center_event_times": [
+            28.496146674443338,
+            34.7385155921696
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 5628.839173582301,
+          "event_state_error": 2.378791608137476e-14,
+          "event_time_error": 4.973799150320701e-14,
+          "finite_difference_relative_error": 3.1328458670301805e-09,
+          "finite_difference_second_derivative": 5628.839155948015,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 6.377378096199549,
+              "image_state": [
+                -6.883869822297488,
+                -0.02775457294194048,
+                0.014222630020768463
+              ],
+              "input_x_tangent": -3.5100399438373784,
+              "next_state": [
+                -11.76070012326766,
+                -0.02775457294190665,
+                0.01055917222893209
+              ],
+              "normalized_output_derivative": -5.885370026754388e-05,
+              "normalized_x_component": 0.5503891867300617,
+              "valid": true,
+              "x_graph_slope": 0.00010693106203121806
+            },
+            {
+              "gain": 6.3764127459898745,
+              "image_state": [
+                -6.883922469049073,
+                -0.027754572941934594,
+                0.014222576779604028
+              ],
+              "input_x_tangent": -3.509526891822612,
+              "next_state": [
+                -11.760700126082428,
+                -0.027754572941960674,
+                0.010559172227362064
+              ],
+              "normalized_output_derivative": 2.9185896044292575e-13,
+              "normalized_x_component": 0.5503920513975123,
+              "valid": true,
+              "x_graph_slope": -5.302746645811115e-13
+            },
+            {
+              "gain": 6.37544737089181,
+              "image_state": [
+                -6.883975108103634,
+                -0.027754572941930632,
+                0.014222523546620966
+              ],
+              "input_x_tangent": -3.5090138178538246,
+              "next_state": [
+                -11.76070012326848,
+                -0.027754572941900636,
+                0.010559172228932014
+              ],
+              "normalized_output_derivative": 5.8847570478921e-05,
+              "normalized_x_component": 0.5503949156375794,
+              "valid": true,
+              "x_graph_slope": -0.00010691881194206124
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989318019229,
+            "determinant_scale": 2012.578953958527,
+            "event_second_derivative": 5628.839173582301,
+            "first": [
+              0.24995186669258312,
+              -171.0401392074343,
+              -0.004884206380280979
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                -171.0401392074343,
+                -11.766680403914275
+              ],
+              [
+                -66232.7516005427,
+                2.282637745487648e-09
+              ]
+            ],
+            "residual": [
+              3.3954436484684436e-13,
+              1.5812995357578075e-10
+            ],
+            "second": [
+              8069.903752949325,
+              30426.078374940975,
+              5.409435657939738
+            ],
+            "state": [
+              -11.760700126082549,
+              -0.027754572941603856,
+              0.010559172227362006
+            ],
+            "time": 34.73851559216965,
+            "u": 0.0016007175444028043
+          },
+          "scaled_curvature": 30.467051878631338
+        }
+      ]
+    },
+    {
+      "agreement": {
+        "states": [
+          3.903127820947816e-14,
+          2.417048043194351e-15
+        ],
+        "times": [
+          5.3290705182007514e-14,
+          9.237055564881302e-14
+        ],
+        "u": 1.4748618992754814e-14
+      },
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "qualified": true,
+      "qualified_in_region": true,
+      "region": 1,
+      "solvers": [
+        {
+          "center_event_times": [
+            28.496146711112054,
+            34.738515628838364
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 2814.0750056037436,
+          "event_state_error": 4.919005018126181e-14,
+          "event_time_error": 7.815970093361102e-14,
+          "finite_difference_relative_error": 6.304690657698122e-10,
+          "finite_difference_second_derivative": 2814.075007377931,
+          "in_region": true,
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 4.509011286317107,
+              "image_state": [
+                -6.883885245249753,
+                -0.027754572941940125,
+                0.014222614423640806
+              ],
+              "input_x_tangent": -2.4817148388397383,
+              "next_state": [
+                -11.760700124675331,
+                -0.02775457294196691,
+                0.010559172228146868
+              ],
+              "normalized_output_derivative": -4.1612668399060526e-05,
+              "normalized_x_component": 0.5503900259399807,
+              "valid": true,
+              "x_graph_slope": 7.560578215056231e-05
+            },
+            {
+              "gain": 4.508528667954955,
+              "image_state": [
+                -6.883922469048539,
+                -0.027754572941931635,
+                0.014222576779604566
+              ],
+              "input_x_tangent": -2.4814583423400856,
+              "next_state": [
+                -11.760700126082476,
+                -0.02775457294191134,
+                0.01055917222736203
+              ],
+              "normalized_output_derivative": -2.889606795145238e-13,
+              "normalized_x_component": 0.5503920513974822,
+              "valid": true,
+              "x_graph_slope": 5.250088164987727e-13
+            },
+            {
+              "gain": 4.5080460407925615,
+              "image_state": [
+                -6.883959688999951,
+                -0.027754572941934407,
+                0.014222539139657845
+              ],
+              "input_x_tangent": -2.4812018380787824,
+              "next_state": [
+                -11.760700124675573,
+                -0.02775457294196889,
+                0.010559172228147007
+              ],
+              "normalized_output_derivative": 4.1609603766515835e-05,
+              "normalized_x_component": 0.5503940766413649,
+              "valid": true,
+              "x_graph_slope": -7.559965764971074e-05
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989318019229,
+            "determinant_scale": 1423.0188377095853,
+            "event_second_derivative": 2814.0750056037436,
+            "first": [
+              0.17673155833668813,
+              -120.93604557372691,
+              -0.0034534385211268804
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                -120.93604557372691,
+                -11.766680403914119
+              ],
+              [
+                -33112.32122356541,
+                1.6222422294376315e-09
+              ]
+            ],
+            "residual": [
+              7.699119120019304e-13,
+              1.5048362556058237e-10
+            ],
+            "second": [
+              4034.4538763258715,
+              15211.193522345939,
+              2.7043849314846806
+            ],
+            "state": [
+              -11.760700126082485,
+              -0.027754572941173488,
+              0.010559172227362048
+            ],
+            "time": 34.738515628838286,
+            "u": 0.002263894753286433
+          },
+          "scaled_curvature": 30.467051878643883
+        },
+        {
+          "center_event_times": [
+            28.496146711112107,
+            34.73851562883846
+          ],
+          "checks": {
+            "center_derivative": true,
+            "event_state": true,
+            "event_time": true,
+            "finite_difference": true,
+            "fixed_input_projection": true,
+            "nondegenerate": true,
+            "opposite_slopes": true
+          },
+          "event_second_derivative": 2814.0750056146676,
+          "event_state_error": 1.6801652661750192e-13,
+          "event_time_error": 2.1316282072803006e-13,
+          "finite_difference_relative_error": 6.088431089847472e-09,
+          "finite_difference_second_derivative": 2814.0750227479693,
+          "in_region": true,
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 4.509011286322727,
+              "image_state": [
+                -6.883885245249261,
+                -0.027754572941926934,
+                0.0142226144236413
+              ],
+              "input_x_tangent": -2.4817148388426857,
+              "next_state": [
+                -11.760700124675346,
+                -0.027754572941960733,
+                0.01055917222814686
+              ],
+              "normalized_output_derivative": -4.1612668923782035e-05,
+              "normalized_x_component": 0.5503900259399483,
+              "valid": true,
+              "x_graph_slope": 7.560578310392981e-05
+            },
+            {
+              "gain": 4.508528667962616,
+              "image_state": [
+                -6.883922469048156,
+                -0.02775457294194151,
+                0.014222576779604956
+              ],
+              "input_x_tangent": -2.4814583423442262,
+              "next_state": [
+                -11.7607001260825,
+                -0.027754572941947594,
+                0.010559172227362022
+              ],
+              "normalized_output_derivative": -7.155461121221425e-13,
+              "normalized_x_component": 0.5503920513974654,
+              "valid": true,
+              "x_graph_slope": 1.3000662169908613e-12
+            },
+            {
+              "gain": 4.508046040801397,
+              "image_state": [
+                -6.883959688999902,
+                -0.027754572941937276,
+                0.014222539139657897
+              ],
+              "input_x_tangent": -2.481201838083646,
+              "next_state": [
+                -11.760700124675544,
+                -0.027754572941911443,
+                0.010559172228147028
+              ],
+              "normalized_output_derivative": 4.160960369614427e-05,
+              "normalized_x_component": 0.550394076641365,
+              "valid": true,
+              "x_graph_slope": -7.559965752185404e-05
+            }
+          ],
+          "qualified": true,
+          "root": {
+            "angle": 0.9999989318019231,
+            "determinant_scale": 1423.0188377117922,
+            "event_second_derivative": 2814.0750056146676,
+            "first": [
+              0.1767315582782611,
+              -120.9360455739181,
+              -0.003453438521165174
+            ],
+            "iteration": 4,
+            "jacobian": [
+              [
+                -120.9360455739181,
+                -11.766680403913774
+              ],
+              [
+                -33112.32122369192,
+                1.725417808629004e-09
+              ]
+            ],
+            "residual": [
+              2.516053337897617e-12,
+              6.301479338333138e-10
+            ],
+            "second": [
+              4034.453876343062,
+              15211.193522341997,
+              2.7043849314942756
+            ],
+            "state": [
+              -11.760700126082517,
+              -0.027754572939427347,
+              0.010559172227362088
+            ],
+            "time": 34.73851562883824,
+            "u": 0.0022638947532716844
+          },
+          "scaled_curvature": 30.467051878660477
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 1,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 0.010275890655128248,
+              "image_state": [
+                -6.907196356048273,
+                -0.02775457294194536,
+                0.014199078986037296
+              ],
+              "input_x_tangent": 0.005668773296073559,
+              "next_state": [
+                -11.760147474625942,
+                -0.027754572942012154,
+                0.0105594805316994
+              ],
+              "normalized_output_derivative": -0.02625867060794393,
+              "normalized_x_component": 0.5516576116197307,
+              "valid": true,
+              "x_graph_slope": -0.04759957998376099
+            },
+            {
+              "gain": 2.6720457516829195e-11,
+              "image_state": [
+                -6.90719631353301,
+                -0.027754572941942765,
+                0.014199079028890844
+              ],
+              "input_x_tangent": 1.4690685704958164e-11,
+              "next_state": [
+                -11.760147476649674,
+                -0.027754572941858895,
+                0.010559480530570405
+              ],
+              "normalized_output_derivative": -0.025775125749588148,
+              "normalized_x_component": 0.5497916978294856,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.010274838991670332,
+              "image_state": [
+                -6.907196356044889,
+                -0.027754572941918933,
+                0.014199078986040706
+              ],
+              "input_x_tangent": -0.0056681931378776826,
+              "next_state": [
+                -11.760147474626141,
+                -0.027754572941862784,
+                0.010559480531699292
+              ],
+              "normalized_output_derivative": 0.026258670612578878,
+              "normalized_x_component": 0.551657611615404,
+              "valid": true,
+              "x_graph_slope": -0.04759957999253617
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        },
+        {
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 0.010275890620668048,
+              "image_state": [
+                -6.9071963560481535,
+                -0.0277545729419183,
+                0.014199078986037417
+              ],
+              "input_x_tangent": 0.005668773276998608,
+              "next_state": [
+                -11.760147474626015,
+                -0.027754572941920744,
+                0.01055948053169936
+              ],
+              "normalized_output_derivative": -0.026258670602182354,
+              "normalized_x_component": 0.5516576116134325,
+              "valid": true,
+              "x_graph_slope": -0.04759957997386031
+            },
+            {
+              "gain": 6.532298281882857e-12,
+              "image_state": [
+                -6.907196313532756,
+                -0.027754572941920453,
+                0.014199079028891108
+              ],
+              "input_x_tangent": 3.643629842287055e-12,
+              "next_state": [
+                -11.760147476649632,
+                -0.027754572941992364,
+                0.010559480530570422
+              ],
+              "normalized_output_derivative": -0.031771006433095036,
+              "normalized_x_component": 0.5577868133169238,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.010274839094504336,
+              "image_state": [
+                -6.907196356045268,
+                -0.027754572941933835,
+                0.01419907898604032
+              ],
+              "input_x_tangent": -0.005668193194638882,
+              "next_state": [
+                -11.760147474626097,
+                -0.027754572941917653,
+                0.010559480531699316
+              ],
+              "normalized_output_derivative": 0.026258670606369473,
+              "normalized_x_component": 0.5516576116185222,
+              "valid": true,
+              "x_graph_slope": -0.04759957998101122
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        }
+      ]
+    },
+    {
+      "agreement": null,
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "qualified": false,
+      "qualified_in_region": false,
+      "region": 1,
+      "solvers": [
+        {
+          "method": "DOP853",
+          "observations": [
+            {
+              "gain": 0.005137507403952148,
+              "image_state": [
+                -6.907196334788513,
+                -0.027754572941924717,
+                0.014199079007466218
+              ],
+              "input_x_tangent": 0.0028341450581763944,
+              "next_state": [
+                -11.7601474756379,
+                -0.027754572941927173,
+                0.010559480531134847
+              ],
+              "normalized_output_derivative": -0.026258646411886678,
+              "normalized_x_component": 0.5516576104583639,
+              "valid": true,
+              "x_graph_slope": -0.047599536223326584
+            },
+            {
+              "gain": 3.9209629186295884e-12,
+              "image_state": [
+                -6.907196313532921,
+                -0.02775457294194258,
+                0.014199079028890938
+              ],
+              "input_x_tangent": 2.169138942538969e-12,
+              "next_state": [
+                -11.760147476649653,
+                -0.027754572941947622,
+                0.010559480530570414
+              ],
+              "normalized_output_derivative": -0.028449085171785266,
+              "normalized_x_component": 0.5532158777204408,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.00513713563040211,
+              "image_state": [
+                -6.907196334787301,
+                -0.027754572941954995,
+                0.014199079007467431
+              ],
+              "input_x_tangent": -0.0028339399665358368,
+              "next_state": [
+                -11.760147475638,
+                -0.027754572941985536,
+                0.0105594805311348
+              ],
+              "normalized_output_derivative": 0.026258646407996532,
+              "normalized_x_component": 0.55165761047154,
+              "valid": true,
+              "x_graph_slope": -0.04759953621513795
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        },
+        {
+          "method": "Radau",
+          "observations": [
+            {
+              "gain": 0.00513750740539576,
+              "image_state": [
+                -6.907196334789154,
+                -0.027754572941921022,
+                0.014199079007465582
+              ],
+              "input_x_tangent": 0.0028341450590732304,
+              "next_state": [
+                -11.760147475637883,
+                -0.027754572941912647,
+                0.010559480531134856
+              ],
+              "normalized_output_derivative": -0.0262586464140519,
+              "normalized_x_component": 0.5516576104779174,
+              "valid": true,
+              "x_graph_slope": -0.04759953622556435
+            },
+            {
+              "gain": 1.6173754778191273e-11,
+              "image_state": [
+                -6.907196313532145,
+                -0.02775457294195863,
+                0.01419907902889172
+              ],
+              "input_x_tangent": -8.901059519080453e-12,
+              "next_state": [
+                -11.760147476649726,
+                -0.027754572941860827,
+                0.010559480530570374
+              ],
+              "normalized_output_derivative": 0.028257322748989455,
+              "normalized_x_component": 0.5503397102992226,
+              "valid": false,
+              "x_graph_slope": null
+            },
+            {
+              "gain": 0.005137135656472811,
+              "image_state": [
+                -6.907196334787085,
+                -0.027754572941956077,
+                0.014199079007467662
+              ],
+              "input_x_tangent": -0.0028339399807716585,
+              "next_state": [
+                -11.760147475638002,
+                -0.027754572941961427,
+                0.010559480531134788
+              ],
+              "normalized_output_derivative": 0.026258646399898757,
+              "normalized_x_component": 0.5516576104430653,
+              "valid": true,
+              "x_graph_slope": -0.04759953620291589
+            }
+          ],
+          "qualified": false,
+          "reason": "invalid event/input projection"
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "cases": [
+      {
+        "case": "local-a025-c083",
+        "representations": [
+          "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+          "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+          "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+          "local-a025-c083--region-1--depth-8--direction-1--candidate-0"
+        ],
+        "status": "opposite-sign-endpoints"
+      },
+      {
+        "case": "local-a027-c083",
+        "representations": [
+          "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+          "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+          "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+          "local-a027-c083--region-1--depth-8--direction-1--candidate-1"
+        ],
+        "status": "mixed-representation-results"
+      }
+    ],
+    "continuity_verified": false,
+    "exact_contact_verified": false,
+    "new_periodic_integrations": 0,
+    "rows": [
+      {
+        "case": "local-a025-c083",
+        "envelope": {
+          "minimum_state_distance": 0.003991096784956676,
+          "minimum_x_distance": 0.0026385038946875974,
+          "nearest_state_index": 3,
+          "nearest_x_index": 3,
+          "pair_state_distance": [
+            0.0158470163640163,
+            0.8048987510150383,
+            0.4386016943601528,
+            0.003991096784956676,
+            0.7941840031562971,
+            0.4278869465014202
+          ],
+          "pair_x_distance": [
+            0.010564504769438324,
+            0.546311926096955,
+            0.3224403900558894,
+            0.0026385038946875974,
+            0.5421503122591524,
+            0.31451438918102426
+          ],
+          "radii": [
+            {
+              "radius": 1e-06,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 1e-05,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.0001,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.001,
+              "state_indices": [],
+              "x_indices": []
+            }
+          ]
+        },
+        "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+        "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+        "status": "opposite-sign-endpoints",
+        "variants": [
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154128532,
+                  5.384581669432009e-15,
+                  0.0001584701636399028
+                ],
+                [
+                  0.026262783977406556,
+                  1.4797191250082165e-14,
+                  1.4671548986561894e-05
+                ]
+              ],
+              [
+                [
+                  4.8499206252787905,
+                  1.700029006457271e-16,
+                  0.0036482990175622926
+                ],
+                [
+                  8.194678891454288,
+                  1.1809997424450103e-14,
+                  0.00804898751015032
+                ]
+              ],
+              [
+                [
+                  3.31849548219809,
+                  2.8171909249863347e-15,
+                  0.004386016943601466
+                ],
+                [
+                  4.836605850838256,
+                  9.131584377541913e-15,
+                  0.003623059598701678
+                ]
+              ],
+              [
+                [
+                  0.03957755841794075,
+                  5.495603971894525e-15,
+                  3.991096784717631e-05
+                ],
+                [
+                  0.001603051835019187,
+                  1.2212453270876722e-15,
+                  8.943691621535188e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357421178,
+                  1.3405943022348765e-14,
+                  0.003662076197386701
+                ],
+                [
+                  8.132254683887286,
+                  1.2909812108219398e-14,
+                  0.007941840031562971
+                ]
+              ],
+              [
+                [
+                  3.2560712746310885,
+                  1.717376241217039e-15,
+                  0.004278869465014117
+                ],
+                [
+                  4.717715837714912,
+                  9.242606680004428e-15,
+                  0.0035045004029089517
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831812,
+                -0.02775457080218769,
+                0.014063878031806028
+              ],
+              [
+                -11.734069179569317,
+                -0.027754570802182136,
+                0.010574049177883639
+              ],
+              [
+                -3.565653072092437,
+                -0.027754570802185123,
+                0.018608365139047397
+              ],
+              [
+                -6.923726112708468,
+                -0.0277545708021878,
+                0.014182437227598755
+              ],
+              [
+                -11.758728911711705,
+                -0.027754570802195712,
+                0.01056027199805923
+              ],
+              [
+                -3.6280772796594385,
+                -0.027754570802184023,
+                0.018501217660460048
+              ]
+            ],
+            "fold_input": [
+              -6.884148554290527,
+              -0.027754570802182306,
+              0.014222348195445931
+            ],
+            "fold_output": [
+              -11.760331963546724,
+              -0.027754570802196933,
+              0.010559377628897077
+            ],
+            "lower_signed_residual": -0.0026385038945293832,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01584701636399028,
+              0.8048987510150319,
+              0.43860169436014657,
+              0.003991096784717631,
+              0.7941840031562971,
+              0.4278869465014117
+            ],
+            "pair_x_distance": [
+              0.010564504769419022,
+              0.5463119260969526,
+              0.32244039005588376,
+              0.0026385038945293832,
+              0.5421503122591524,
+              0.3145143891809941
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002388706591762653
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154130753,
+                  1.0085682289329156e-14,
+                  0.0001584701636399271
+                ],
+                [
+                  0.026262783977417214,
+                  4.896777427987331e-14,
+                  1.4671548986570568e-05
+                ]
+              ],
+              [
+                [
+                  4.84992062527878,
+                  6.359496262930975e-14,
+                  0.003648299017562284
+                ],
+                [
+                  8.194678891454325,
+                  1.2583684094735759e-14,
+                  0.008048987510150383
+                ]
+              ],
+              [
+                [
+                  3.3184954821981285,
+                  2.7210872444172196e-14,
+                  0.004386016943601528
+                ],
+                [
+                  4.836605850838342,
+                  1.4939438575112263e-14,
+                  0.003623059598701765
+                ]
+              ],
+              [
+                [
+                  0.039577558417855485,
+                  2.95666269245487e-14,
+                  3.991096784708957e-05
+                ],
+                [
+                  0.0016030518350031997,
+                  6.889627757189487e-14,
+                  8.943691621465799e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357421194,
+                  5.426908922245843e-14,
+                  0.003662076197386708
+                ],
+                [
+                  8.132254683887222,
+                  1.2073675392798577e-14,
+                  0.007941840031562853
+                ]
+              ],
+              [
+                [
+                  3.256071274631024,
+                  2.6700863742235015e-14,
+                  0.004278869465013999
+                ],
+                [
+                  4.71771583771489,
+                  4.541506060107281e-15,
+                  0.0035045004029089274
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.0426161258318345,
+                -0.02775457080219239,
+                0.014063878031806004
+              ],
+              [
+                -11.734069179569307,
+                -0.0277545708022459,
+                0.010574049177883647
+              ],
+              [
+                -3.5656530720923985,
+                -0.027754570802209517,
+                0.01860836513904746
+              ],
+              [
+                -6.9237261127083825,
+                -0.027754570802211873,
+                0.014182437227598842
+              ],
+              [
+                -11.75872891171172,
+                -0.027754570802128037,
+                0.010560271998059223
+              ],
+              [
+                -3.628077279659503,
+                -0.027754570802209007,
+                0.01850121766045993
+              ]
+            ],
+            "fold_input": [
+              -6.884148554290527,
+              -0.027754570802182306,
+              0.014222348195445931
+            ],
+            "fold_output": [
+              -11.760331963546724,
+              -0.027754570802196933,
+              0.010559377628897077
+            ],
+            "lower_signed_residual": -0.002638503894523699,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01584701636399271,
+              0.8048987510150383,
+              0.4386016943601528,
+              0.003991096784708957,
+              0.7941840031562853,
+              0.42788694650139986
+            ],
+            "pair_x_distance": [
+              0.010564504769420502,
+              0.546311926096955,
+              0.3224403900558894,
+              0.002638503894523699,
+              0.5421503122591481,
+              0.3145143891809926
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.002388706591777575
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154052504,
+                  1.294103713078698e-15,
+                  0.00015847016363916208
+                ],
+                [
+                  0.02626278397694115,
+                  1.2961853812498703e-14,
+                  1.4671548986298216e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625278948,
+                  1.3336554083309693e-14,
+                  0.0036482990175622666
+                ],
+                [
+                  8.194678891452853,
+                  6.435824095873954e-15,
+                  0.008048987510147902
+                ]
+              ],
+              [
+                [
+                  3.3184954821969646,
+                  6.810524366684945e-15,
+                  0.004386016943599337
+                ],
+                [
+                  4.836605850835575,
+                  1.538699723191428e-14,
+                  0.003623059598698998
+                ]
+              ],
+              [
+                [
+                  0.03957755842031396,
+                  1.576169750272527e-14,
+                  3.9910967849566756e-05
+                ],
+                [
+                  0.0016030518349836598,
+                  3.645694857112858e-14,
+                  8.94369162127498e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357420905,
+                  3.608224830031759e-14,
+                  0.0036620761973864373
+                ],
+                [
+                  8.132254683886934,
+                  1.503311364281501e-14,
+                  0.007941840031562465
+                ]
+              ],
+              [
+                [
+                  3.2560712746310454,
+                  1.5407813913626e-14,
+                  0.0042788694650139
+                ],
+                [
+                  4.717715837715364,
+                  1.6688039838896884e-15,
+                  0.0035045004029094027
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831316,
+                -0.027754570802179444,
+                0.014063878031806504
+              ],
+              [
+                -11.734069179569738,
+                -0.027754570802194074,
+                0.0105740491778834
+              ],
+              [
+                -3.565653072093826,
+                -0.02775457080218755,
+                0.018608365139045003
+              ],
+              [
+                -6.923726112711105,
+                -0.0277545708021965,
+                0.014182437227596099
+              ],
+              [
+                -11.758728911711696,
+                -0.027754570802144655,
+                0.010560271998059229
+              ],
+              [
+                -3.6280772796597454,
+                -0.027754570802196146,
+                0.018501217660459566
+              ]
+            ],
+            "fold_input": [
+              -6.884148554290791,
+              -0.027754570802180738,
+              0.014222348195445666
+            ],
+            "fold_output": [
+              -11.76033196354668,
+              -0.027754570802181112,
+              0.010559377628897101
+            ],
+            "lower_signed_residual": -0.0026385038946875974,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016363916208,
+              0.8048987510147901,
+              0.4386016943599337,
+              0.003991096784956676,
+              0.7941840031562465,
+              0.42788694650139
+            ],
+            "pair_x_distance": [
+              0.010564504769368337,
+              0.5463119260968569,
+              0.322440390055705,
+              0.0026385038946875974,
+              0.5421503122591289,
+              0.31451438918102426
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.0023887065916345187
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154157487,
+                  1.4498818812214154e-14,
+                  0.00015847016364016302
+                ],
+                [
+                  0.026262783977115234,
+                  2.9341112872671715e-14,
+                  1.4671548986397095e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625278774,
+                  2.8966412601860725e-14,
+                  0.0036482990175621677
+                ],
+                [
+                  8.194678891453151,
+                  9.534040223968532e-15,
+                  0.008048987510148405
+                ]
+              ],
+              [
+                [
+                  3.3184954821972616,
+                  9.159339953157541e-15,
+                  0.00438601694359984
+                ],
+                [
+                  4.836605850836164,
+                  4.0141501234103316e-14,
+                  0.0036230595986995774
+                ]
+              ],
+              [
+                [
+                  0.0395775584197251,
+                  3.9766800963292326e-14,
+                  3.991096784898736e-05
+                ],
+                [
+                  0.0016030518349570144,
+                  4.246603069191224e-14,
+                  8.943691621118854e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357420932,
+                  4.209133042110125e-14,
+                  0.003662076197386453
+                ],
+                [
+                  8.132254683887119,
+                  1.536964999715451e-15,
+                  0.007941840031562767
+                ]
+              ],
+              [
+                [
+                  3.2560712746312293,
+                  1.9116652705264414e-15,
+                  0.004278869465014202
+                ],
+                [
+                  4.717715837714314,
+                  1.4873519083025144e-14,
+                  0.0035045004029084018
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125832366,
+                -0.02775457080216624,
+                0.014063878031805503
+              ],
+              [
+                -11.734069179569564,
+                -0.02775457080215177,
+                0.010574049177883498
+              ],
+              [
+                -3.565653072093529,
+                -0.02775457080217158,
+                0.018608365139045506
+              ],
+              [
+                -6.923726112710516,
+                -0.02775457080214097,
+                0.014182437227596678
+              ],
+              [
+                -11.758728911711723,
+                -0.027754570802138646,
+                0.010560271998059213
+              ],
+              [
+                -3.6280772796595615,
+                -0.02775457080218265,
+                0.018501217660459868
+              ]
+            ],
+            "fold_input": [
+              -6.884148554290791,
+              -0.027754570802180738,
+              0.014222348195445666
+            ],
+            "fold_output": [
+              -11.76033196354668,
+              -0.027754570802181112,
+              0.010559377628897101
+            ],
+            "lower_signed_residual": -0.00263850389464834,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.0158470163640163,
+              0.8048987510148404,
+              0.43860169435998403,
+              0.003991096784898736,
+              0.7941840031562767,
+              0.4278869465014202
+            ],
+            "pair_x_distance": [
+              0.010564504769438324,
+              0.5463119260968767,
+              0.32244039005574426,
+              0.00263850389464834,
+              0.5421503122591412,
+              0.31451438918095426
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.00238870659203864
+          }
+        ]
+      },
+      {
+        "case": "local-a025-c083",
+        "envelope": {
+          "minimum_state_distance": 0.003991096785023289,
+          "minimum_x_distance": 0.0026385038947317695,
+          "nearest_state_index": 3,
+          "nearest_x_index": 3,
+          "pair_state_distance": [
+            0.015847016364082915,
+            0.804898751015038,
+            0.43860169436022756,
+            0.003991096785023289,
+            0.7941840031562969,
+            0.42788694650148645
+          ],
+          "pair_x_distance": [
+            0.010564504769482497,
+            0.5463119260969553,
+            0.3224403900558898,
+            0.0026385038947317695,
+            0.5421503122591528,
+            0.31451438918103136
+          ],
+          "radii": [
+            {
+              "radius": 1e-06,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 1e-05,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.0001,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.001,
+              "state_indices": [],
+              "x_indices": []
+            }
+          ]
+        },
+        "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+        "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+        "status": "opposite-sign-endpoints",
+        "variants": [
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154054103,
+                  1.2215922717828676e-14,
+                  0.00015847016363915514
+                ],
+                [
+                  0.026262783977411885,
+                  8.788109129298505e-15,
+                  1.467154898656016e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625278046,
+                  6.661338147750939e-15,
+                  0.003648299017561545
+                ],
+                [
+                  8.194678891454291,
+                  1.1775302954930567e-14,
+                  0.008048987510150318
+                ]
+              ],
+              [
+                [
+                  3.318495482198834,
+                  9.648531973383001e-15,
+                  0.004386016943602213
+                ],
+                [
+                  4.836605850838262,
+                  1.4453716001838757e-14,
+                  0.0036230595987016764
+                ]
+              ],
+              [
+                [
+                  0.03957755841719646,
+                  1.2326945020291191e-14,
+                  3.991096784642864e-05
+                ],
+                [
+                  0.001603051835024516,
+                  2.2364055052292997e-14,
+                  8.943691621517841e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357420434,
+                  2.023728407074543e-14,
+                  0.0036620761973859533
+                ],
+                [
+                  8.132254683887291,
+                  1.0675488271161271e-14,
+                  0.00794184003156297
+                ]
+              ],
+              [
+                [
+                  3.2560712746318328,
+                  8.548717289613705e-15,
+                  0.0042788694650148645
+                ],
+                [
+                  4.717715837714917,
+                  1.434269369937624e-14,
+                  0.00350450040290895
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831812,
+                -0.02775457080218769,
+                0.014063878031806028
+              ],
+              [
+                -11.734069179569317,
+                -0.027754570802182136,
+                0.010574049177883639
+              ],
+              [
+                -3.565653072092437,
+                -0.027754570802185123,
+                0.018608365139047397
+              ],
+              [
+                -6.923726112708468,
+                -0.0277545708021878,
+                0.014182437227598755
+              ],
+              [
+                -11.758728911711705,
+                -0.027754570802195712,
+                0.01056027199805923
+              ],
+              [
+                -3.6280772796594385,
+                -0.027754570802184023,
+                0.018501217660460048
+              ]
+            ],
+            "fold_input": [
+              -6.884148554291271,
+              -0.027754570802175475,
+              0.014222348195445184
+            ],
+            "fold_output": [
+              -11.76033196354673,
+              -0.027754570802173348,
+              0.010559377628897079
+            ],
+            "lower_signed_residual": -0.0026385038944797636,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016363915514,
+              0.8048987510150318,
+              0.43860169436022134,
+              0.003991096784642864,
+              0.7941840031562969,
+              0.42788694650148645
+            ],
+            "pair_x_distance": [
+              0.010564504769369402,
+              0.5463119260969528,
+              0.3224403900558841,
+              0.0026385038944797636,
+              0.5421503122591528,
+              0.31451438918099445
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002388706591787937
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154056323,
+                  1.6917023337725823e-14,
+                  0.00015847016363917943
+                ],
+                [
+                  0.026262783977422544,
+                  7.255307465925398e-14,
+                  1.4671548986568833e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625278036,
+                  7.042630367770641e-14,
+                  0.0036482990175615362
+                ],
+                [
+                  8.19467889145433,
+                  3.616898447411643e-14,
+                  0.00804898751015038
+                ]
+              ],
+              [
+                [
+                  3.318495482198873,
+                  3.404221349256886e-14,
+                  0.004386016943602276
+                ],
+                [
+                  4.836605850838347,
+                  3.852473895449293e-14,
+                  0.003623059598701763
+                ]
+              ],
+              [
+                [
+                  0.03957755841711119,
+                  3.6397967972945366e-14,
+                  3.9910967846341905e-05
+                ],
+                [
+                  0.0016030518350085288,
+                  4.53109771925142e-14,
+                  8.943691621448452e-07
+                ]
+              ],
+              [
+                [
+                  4.87458035742045,
+                  4.7437748174061767e-14,
+                  0.0036620761973859602
+                ],
+                [
+                  8.132254683887226,
+                  3.5658975772179247e-14,
+                  0.007941840031562852
+                ]
+              ],
+              [
+                [
+                  3.2560712746317684,
+                  3.353220479063168e-14,
+                  0.004278869465014747
+                ],
+                [
+                  4.717715837714895,
+                  1.9043794319273388e-14,
+                  0.0035045004029089256
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.0426161258318345,
+                -0.02775457080219239,
+                0.014063878031806004
+              ],
+              [
+                -11.734069179569307,
+                -0.0277545708022459,
+                0.010574049177883647
+              ],
+              [
+                -3.5656530720923985,
+                -0.027754570802209517,
+                0.01860836513904746
+              ],
+              [
+                -6.9237261127083825,
+                -0.027754570802211873,
+                0.014182437227598842
+              ],
+              [
+                -11.75872891171172,
+                -0.027754570802128037,
+                0.010560271998059223
+              ],
+              [
+                -3.628077279659503,
+                -0.027754570802209007,
+                0.01850121766045993
+              ]
+            ],
+            "fold_input": [
+              -6.884148554291271,
+              -0.027754570802175475,
+              0.014222348195445184
+            ],
+            "fold_output": [
+              -11.76033196354673,
+              -0.027754570802173348,
+              0.010559377628897079
+            ],
+            "lower_signed_residual": -0.0026385038944740794,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016363917943,
+              0.804898751015038,
+              0.43860169436022756,
+              0.0039910967846341905,
+              0.7941840031562851,
+              0.42788694650147463
+            ],
+            "pair_x_distance": [
+              0.010564504769370882,
+              0.5463119260969553,
+              0.3224403900558898,
+              0.0026385038944740794,
+              0.5421503122591483,
+              0.314514389180993
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.0023887065918028584
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154118762,
+                  1.842276331487369e-15,
+                  0.00015847016363982822
+                ],
+                [
+                  0.026262783977047732,
+                  3.726186026398182e-15,
+                  1.4671548986355462e-05
+                ]
+              ],
+              [
+                [
+                  4.84992062527961,
+                  1.2788381464901022e-14,
+                  0.0036482990175629327
+                ],
+                [
+                  8.19467889145296,
+                  2.7998436902265667e-15,
+                  0.008048987510147959
+                ]
+              ],
+              [
+                [
+                  3.318495482196302,
+                  6.262351748276274e-15,
+                  0.004386016943598671
+                ],
+                [
+                  4.8366058508356815,
+                  6.151329445813758e-15,
+                  0.0036230595986990553
+                ]
+              ],
+              [
+                [
+                  0.039577558420976544,
+                  1.5213524884316598e-14,
+                  3.991096785023289e-05
+                ],
+                [
+                  0.0016030518350902412,
+                  4.56926163572291e-14,
+                  8.943691621847438e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357421568,
+                  3.663042091872626e-14,
+                  0.0036620761973871034
+                ],
+                [
+                  8.13225468388704,
+                  5.797445856714489e-15,
+                  0.007941840031562522
+                ]
+              ],
+              [
+                [
+                  3.256071274630383,
+                  1.485964129521733e-14,
+                  0.004278869465013234
+                ],
+                [
+                  4.71771583771547,
+                  1.090447176999021e-14,
+                  0.00350450040290946
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831316,
+                -0.027754570802179444,
+                0.014063878031806504
+              ],
+              [
+                -11.734069179569738,
+                -0.027754570802194074,
+                0.0105740491778834
+              ],
+              [
+                -3.565653072093826,
+                -0.02775457080218755,
+                0.018608365139045003
+              ],
+              [
+                -6.923726112711105,
+                -0.0277545708021965,
+                0.014182437227596099
+              ],
+              [
+                -11.758728911711696,
+                -0.027754570802144655,
+                0.010560271998059229
+              ],
+              [
+                -3.6280772796597454,
+                -0.027754570802196146,
+                0.018501217660459566
+              ]
+            ],
+            "fold_input": [
+              -6.884148554290128,
+              -0.027754570802181286,
+              0.014222348195446332
+            ],
+            "fold_output": [
+              -11.760331963546786,
+              -0.027754570802190348,
+              0.010559377628897044
+            ],
+            "lower_signed_residual": -0.0026385038947317695,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01584701636398282,
+              0.8048987510147959,
+              0.43860169435986707,
+              0.003991096785023289,
+              0.7941840031562521,
+              0.42788694650132336
+            ],
+            "pair_x_distance": [
+              0.010564504769412508,
+              0.546311926096864,
+              0.3224403900557121,
+              0.0026385038947317695,
+              0.542150312259136,
+              0.31451438918103136
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.0023887065916492036
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154223745,
+                  1.5046991430622825e-14,
+                  0.00015847016364082915
+                ],
+                [
+                  0.026262783977221815,
+                  3.8576780658772236e-14,
+                  1.4671548986454341e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625279436,
+                  2.9514585220269396e-14,
+                  0.003648299017562834
+                ],
+                [
+                  8.194678891453258,
+                  1.8769708010069053e-14,
+                  0.008048987510148462
+                ]
+              ],
+              [
+                [
+                  3.318495482196599,
+                  9.707512571566213e-15,
+                  0.004386016943599174
+                ],
+                [
+                  4.83660585083627,
+                  4.937716902020384e-14,
+                  0.0036230595986996347
+                ]
+              ],
+              [
+                [
+                  0.03957755842038768,
+                  4.0314973581701e-14,
+                  3.991096784965349e-05
+                ],
+                [
+                  0.0016030518350635958,
+                  5.170169847801276e-14,
+                  8.943691621691313e-07
+                ]
+              ],
+              [
+                [
+                  4.8745803574215945,
+                  4.263950303950992e-14,
+                  0.003662076197387119
+                ],
+                [
+                  8.132254683887226,
+                  7.69870278638507e-15,
+                  0.007941840031562824
+                ]
+              ],
+              [
+                [
+                  3.2560712746305667,
+                  1.3634926521177704e-15,
+                  0.004278869465013536
+                ],
+                [
+                  4.717715837714421,
+                  2.4109186869125665e-14,
+                  0.003504500402908459
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125832366,
+                -0.02775457080216624,
+                0.014063878031805503
+              ],
+              [
+                -11.734069179569564,
+                -0.02775457080215177,
+                0.010574049177883498
+              ],
+              [
+                -3.565653072093529,
+                -0.02775457080217158,
+                0.018608365139045506
+              ],
+              [
+                -6.923726112710516,
+                -0.02775457080214097,
+                0.014182437227596678
+              ],
+              [
+                -11.758728911711723,
+                -0.027754570802138646,
+                0.010560271998059213
+              ],
+              [
+                -3.6280772796595615,
+                -0.02775457080218265,
+                0.018501217660459868
+              ]
+            ],
+            "fold_input": [
+              -6.884148554290128,
+              -0.027754570802181286,
+              0.014222348195446332
+            ],
+            "fold_output": [
+              -11.760331963546786,
+              -0.027754570802190348,
+              0.010559377628897044
+            ],
+            "lower_signed_residual": -0.0026385038946925123,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016364082915,
+              0.8048987510148462,
+              0.4386016943599174,
+              0.003991096784965349,
+              0.7941840031562823,
+              0.42788694650135356
+            ],
+            "pair_x_distance": [
+              0.010564504769482497,
+              0.5463119260968838,
+              0.32244039005575137,
+              0.0026385038946925123,
+              0.5421503122591483,
+              0.31451438918096136
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.0023887065920533248
+          }
+        ]
+      },
+      {
+        "case": "local-a025-c083",
+        "envelope": {
+          "minimum_state_distance": 0.003991096785289569,
+          "minimum_x_distance": 0.0026385038949066817,
+          "nearest_state_index": 3,
+          "nearest_x_index": 3,
+          "pair_state_distance": [
+            0.015847016364349195,
+            0.8048987510150377,
+            0.4386016943600846,
+            0.003991096785289569,
+            0.7941840031562966,
+            0.4278869465013435
+          ],
+          "pair_x_distance": [
+            0.010564504769657408,
+            0.5463119260969544,
+            0.32244039005588887,
+            0.0026385038949066817,
+            0.5421503122591518,
+            0.31451438918102803
+          ],
+          "radii": [
+            {
+              "radius": 1e-06,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 1e-05,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.0001,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.001,
+              "state_indices": [],
+              "x_indices": []
+            }
+          ]
+        },
+        "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+        "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+        "status": "opposite-sign-endpoints",
+        "variants": [
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.1584675715419568,
+                  7.41073868937292e-15,
+                  0.00015847016364058455
+                ],
+                [
+                  0.026262783977397675,
+                  2.7190055762460474e-14,
+                  1.467154898655669e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625279462,
+                  1.2965323259450656e-14,
+                  0.0036482990175629743
+                ],
+                [
+                  8.194678891454277,
+                  2.4202861936828413e-14,
+                  0.008048987510150315
+                ]
+              ],
+              [
+                [
+                  3.3184954821974184,
+                  9.978129433818594e-15,
+                  0.004386016943600784
+                ],
+                [
+                  4.8366058508382475,
+                  2.1524448889920222e-14,
+                  0.003623059598701673
+                ]
+              ],
+              [
+                [
+                  0.03957755841861221,
+                  7.299716386910404e-15,
+                  3.991096784785805e-05
+                ],
+                [
+                  0.0016030518350103051,
+                  1.3614109839465982e-14,
+                  8.943691621483146e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357421849,
+                  6.106226635438361e-16,
+                  0.0036620761973873827
+                ],
+                [
+                  8.132254683887277,
+                  2.5302676620597708e-14,
+                  0.007941840031562966
+                ]
+              ],
+              [
+                [
+                  3.256071274630417,
+                  1.107794411758789e-14,
+                  0.004278869465013435
+                ],
+                [
+                  4.717715837714903,
+                  2.1635471192382738e-14,
+                  0.0035045004029089465
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831812,
+                -0.02775457080218769,
+                0.014063878031806028
+              ],
+              [
+                -11.734069179569317,
+                -0.027754570802182136,
+                0.010574049177883639
+              ],
+              [
+                -3.565653072092437,
+                -0.027754570802185123,
+                0.018608365139047397
+              ],
+              [
+                -6.923726112708468,
+                -0.0277545708021878,
+                0.014182437227598755
+              ],
+              [
+                -11.758728911711705,
+                -0.027754570802195712,
+                0.01056027199805923
+              ],
+              [
+                -3.6280772796594385,
+                -0.027754570802184023,
+                0.018501217660460048
+              ]
+            ],
+            "fold_input": [
+              -6.8841485542898555,
+              -0.0277545708021951,
+              0.014222348195446613
+            ],
+            "fold_output": [
+              -11.760331963546715,
+              -0.027754570802209326,
+              0.010559377628897082
+            ],
+            "lower_signed_residual": -0.0026385038945741473,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016364058455,
+              0.8048987510150315,
+              0.4386016943600784,
+              0.003991096784785805,
+              0.7941840031562966,
+              0.4278869465013435
+            ],
+            "pair_x_distance": [
+              0.010564504769463785,
+              0.5463119260969518,
+              0.32244039005588315,
+              0.0026385038945741473,
+              0.5421503122591518,
+              0.3145143891809935
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.0023887065917846803
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.158467571541979,
+                  2.7096380694757727e-15,
+                  0.00015847016364060884
+                ],
+                [
+                  0.026262783977408333,
+                  3.6574909767495e-14,
+                  1.4671548986565364e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625279451,
+                  5.079964227050482e-14,
+                  0.0036482990175629657
+                ],
+                [
+                  8.194678891454316,
+                  1.9081958235744878e-16,
+                  0.008048987510150377
+                ]
+              ],
+              [
+                [
+                  3.318495482197457,
+                  1.4415552085367267e-14,
+                  0.004386016943600846
+                ],
+                [
+                  4.836605850838333,
+                  2.546574062733953e-15,
+                  0.0036230595987017597
+                ]
+              ],
+              [
+                [
+                  0.03957755841852695,
+                  1.677130656574377e-14,
+                  3.991096784777132e-05
+                ],
+                [
+                  0.001603051834994318,
+                  8.128914208427318e-14,
+                  8.943691621413757e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357421865,
+                  6.706440958126336e-14,
+                  0.0036620761973873896
+                ],
+                [
+                  8.132254683887211,
+                  3.191891195797325e-16,
+                  0.007941840031562848
+                ]
+              ],
+              [
+                [
+                  3.2560712746303526,
+                  1.3905543383430086e-14,
+                  0.004278869465013317
+                ],
+                [
+                  4.717715837714881,
+                  1.693437057248559e-14,
+                  0.003504500402908922
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.0426161258318345,
+                -0.02775457080219239,
+                0.014063878031806004
+              ],
+              [
+                -11.734069179569307,
+                -0.0277545708022459,
+                0.010574049177883647
+              ],
+              [
+                -3.5656530720923985,
+                -0.027754570802209517,
+                0.01860836513904746
+              ],
+              [
+                -6.9237261127083825,
+                -0.027754570802211873,
+                0.014182437227598842
+              ],
+              [
+                -11.75872891171172,
+                -0.027754570802128037,
+                0.010560271998059223
+              ],
+              [
+                -3.628077279659503,
+                -0.027754570802209007,
+                0.01850121766045993
+              ]
+            ],
+            "fold_input": [
+              -6.8841485542898555,
+              -0.0277545708021951,
+              0.014222348195446613
+            ],
+            "fold_output": [
+              -11.760331963546715,
+              -0.027754570802209326,
+              0.010559377628897082
+            ],
+            "lower_signed_residual": -0.002638503894568463,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016364060884,
+              0.8048987510150377,
+              0.4386016943600846,
+              0.003991096784777132,
+              0.7941840031562848,
+              0.4278869465013317
+            ],
+            "pair_x_distance": [
+              0.010564504769465266,
+              0.5463119260969544,
+              0.32244039005588887,
+              0.002638503894568463,
+              0.5421503122591474,
+              0.31451438918099206
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.0023887065917996015
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.1584675715438113,
+                  2.0337898032352086e-14,
+                  0.00015847016364249102
+                ],
+                [
+                  0.026262783976997994,
+                  1.9192980538207394e-14,
+                  1.4671548986327707e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625282234,
+                  3.496855582874048e-14,
+                  0.0036482990175655955
+                ],
+                [
+                  8.19467889145291,
+                  2.5719010254832142e-14,
+                  0.008048987510147931
+                ]
+              ],
+              [
+                [
+                  3.3184954821936783,
+                  2.844252611211573e-14,
+                  0.004386016943596008
+                ],
+                [
+                  4.836605850835632,
+                  1.6767837118791817e-14,
+                  0.0036230595986990275
+                ]
+              ],
+              [
+                [
+                  0.03957755842360022,
+                  3.7393699248156054e-14,
+                  3.991096785289569e-05
+                ],
+                [
+                  0.0016030518350405032,
+                  6.861178292183467e-14,
+                  8.943691621569883e-07
+                ]
+              ],
+              [
+                [
+                  4.8745803574241915,
+                  1.4450246554886803e-14,
+                  0.003662076197389766
+                ],
+                [
+                  8.132254683886991,
+                  1.7121720707891086e-14,
+                  0.007941840031562494
+                ]
+              ],
+              [
+                [
+                  3.256071274627759,
+                  3.7039815659056785e-14,
+                  0.004278869465010571
+                ],
+                [
+                  4.717715837715421,
+                  3.3823638334595785e-14,
+                  0.003504500402909432
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831316,
+                -0.027754570802179444,
+                0.014063878031806504
+              ],
+              [
+                -11.734069179569738,
+                -0.027754570802194074,
+                0.0105740491778834
+              ],
+              [
+                -3.565653072093826,
+                -0.02775457080218755,
+                0.018608365139045003
+              ],
+              [
+                -6.923726112711105,
+                -0.0277545708021965,
+                0.014182437227596099
+              ],
+              [
+                -11.758728911711696,
+                -0.027754570802144655,
+                0.010560271998059229
+              ],
+              [
+                -3.6280772796597454,
+                -0.027754570802196146,
+                0.018501217660459566
+              ]
+            ],
+            "fold_input": [
+              -6.8841485542875045,
+              -0.027754570802159106,
+              0.014222348195448995
+            ],
+            "fold_output": [
+              -11.760331963546736,
+              -0.027754570802213267,
+              0.010559377628897072
+            ],
+            "lower_signed_residual": -0.0026385038949066817,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.0158470163642491,
+              0.8048987510147931,
+              0.4386016943596008,
+              0.003991096785289569,
+              0.7941840031562494,
+              0.4278869465010571
+            ],
+            "pair_x_distance": [
+              0.01056450476958742,
+              0.5463119260968606,
+              0.3224403900557088,
+              0.0026385038949066817,
+              0.5421503122591328,
+              0.31451438918102803
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002388706591629486
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154486113,
+                  7.13318293321663e-15,
+                  0.00015847016364349195
+                ],
+                [
+                  0.026262783977172077,
+                  6.149594722337781e-14,
+                  1.4671548986426586e-05
+                ]
+              ],
+              [
+                [
+                  4.84992062528206,
+                  7.33441085642994e-15,
+                  0.0036482990175654966
+                ],
+                [
+                  8.194678891453208,
+                  4.168887457467463e-14,
+                  0.008048987510148434
+                ]
+              ],
+              [
+                [
+                  3.3184954821939754,
+                  1.2472661792273243e-14,
+                  0.004386016943596511
+                ],
+                [
+                  4.836605850836221,
+                  7.229633558480941e-14,
+                  0.003623059598699607
+                ]
+              ],
+              [
+                [
+                  0.03957755842301136,
+                  1.813479921786154e-14,
+                  3.991096785231629e-05
+                ],
+                [
+                  0.0016030518350138578,
+                  7.462086504261833e-14,
+                  8.943691621413757e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357424218,
+                  2.0459328675670463e-14,
+                  0.003662076197389782
+                ],
+                [
+                  8.132254683887176,
+                  3.0617869350990645e-14,
+                  0.007941840031562796
+                ]
+              ],
+              [
+                [
+                  3.256071274627943,
+                  2.3543667015957226e-14,
+                  0.004278869465010873
+                ],
+                [
+                  4.717715837714371,
+                  4.702835343373124e-14,
+                  0.0035045004029084312
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125832366,
+                -0.02775457080216624,
+                0.014063878031805503
+              ],
+              [
+                -11.734069179569564,
+                -0.02775457080215177,
+                0.010574049177883498
+              ],
+              [
+                -3.565653072093529,
+                -0.02775457080217158,
+                0.018608365139045506
+              ],
+              [
+                -6.923726112710516,
+                -0.02775457080214097,
+                0.014182437227596678
+              ],
+              [
+                -11.758728911711723,
+                -0.027754570802138646,
+                0.010560271998059213
+              ],
+              [
+                -3.6280772796595615,
+                -0.02775457080218265,
+                0.018501217660459868
+              ]
+            ],
+            "fold_input": [
+              -6.8841485542875045,
+              -0.027754570802159106,
+              0.014222348195448995
+            ],
+            "fold_output": [
+              -11.760331963546736,
+              -0.027754570802213267,
+              0.010559377628897072
+            ],
+            "lower_signed_residual": -0.002638503894867424,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016364349195,
+              0.8048987510148434,
+              0.43860169435965113,
+              0.003991096785231629,
+              0.7941840031562796,
+              0.4278869465010873
+            ],
+            "pair_x_distance": [
+              0.010564504769657408,
+              0.5463119260968805,
+              0.32244039005574804,
+              0.002638503894867424,
+              0.542150312259145,
+              0.31451438918095803
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.002388706592033607
+          }
+        ]
+      },
+      {
+        "case": "local-a025-c083",
+        "envelope": {
+          "minimum_state_distance": 0.003991096784816857,
+          "minimum_x_distance": 0.0026385038945955825,
+          "nearest_state_index": 3,
+          "nearest_x_index": 3,
+          "pair_state_distance": [
+            0.01584701636392436,
+            0.8048987510150359,
+            0.4386016943602211,
+            0.003991096784816857,
+            0.7941840031562949,
+            0.42788694650156
+          ],
+          "pair_x_distance": [
+            0.010564504769375737,
+            0.546311926096953,
+            0.3224403900558874,
+            0.0026385038945955825,
+            0.5421503122591503,
+            0.3145143891810251
+          ],
+          "radii": [
+            {
+              "radius": 1e-06,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 1e-05,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.0001,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.001,
+              "state_indices": [],
+              "x_indices": []
+            }
+          ]
+        },
+        "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+        "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+        "status": "opposite-sign-endpoints",
+        "variants": [
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154061386,
+                  4.066191827689636e-15,
+                  0.00015847016363921933
+                ],
+                [
+                  0.02626278397737636,
+                  2.3852447794681098e-14,
+                  1.4671548986539343e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625278119,
+                  9.620776397767372e-15,
+                  0.003648299017561609
+                ],
+                [
+                  8.194678891454256,
+                  2.683964162031316e-14,
+                  0.008048987510150298
+                ]
+              ],
+              [
+                [
+                  3.3184954821987613,
+                  6.63358257213531e-15,
+                  0.004386016943602149
+                ],
+                [
+                  4.836605850838226,
+                  2.951805466722135e-14,
+                  0.0036230595987016556
+                ]
+              ],
+              [
+                [
+                  0.03957755841726929,
+                  3.95516952522712e-15,
+                  3.9910967846492826e-05
+                ],
+                [
+                  0.0016030518349889888,
+                  3.742839371767559e-14,
+                  8.943691621309674e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357420506,
+                  3.95516952522712e-15,
+                  0.0036620761973860175
+                ],
+                [
+                  8.132254683887256,
+                  2.5739826936543864e-14,
+                  0.007941840031562949
+                ]
+              ],
+              [
+                [
+                  3.25607127463176,
+                  7.733397255904606e-15,
+                  0.0042788694650148
+                ],
+                [
+                  4.717715837714882,
+                  2.9407032364758834e-14,
+                  0.003504500402908929
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831812,
+                -0.02775457080218769,
+                0.014063878031806028
+              ],
+              [
+                -11.734069179569317,
+                -0.027754570802182136,
+                0.010574049177883639
+              ],
+              [
+                -3.565653072092437,
+                -0.027754570802185123,
+                0.018608365139047397
+              ],
+              [
+                -6.923726112708468,
+                -0.0277545708021878,
+                0.014182437227598755
+              ],
+              [
+                -11.758728911711705,
+                -0.027754570802195712,
+                0.01056027199805923
+              ],
+              [
+                -3.6280772796594385,
+                -0.027754570802184023,
+                0.018501217660460048
+              ]
+            ],
+            "fold_input": [
+              -6.884148554291198,
+              -0.027754570802191757,
+              0.014222348195445248
+            ],
+            "fold_output": [
+              -11.760331963546694,
+              -0.027754570802158283,
+              0.0105593776288971
+            ],
+            "lower_signed_residual": -0.002638503894484619,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016363921933,
+              0.8048987510150297,
+              0.4386016943602149,
+              0.003991096784649283,
+              0.7941840031562949,
+              0.42788694650148
+            ],
+            "pair_x_distance": [
+              0.010564504769374258,
+              0.5463119260969503,
+              0.32244039005588176,
+              0.002638503894484619,
+              0.5421503122591503,
+              0.3145143891809921
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002388706591736837
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154063607,
+                  6.349087922075114e-16,
+                  0.00015847016363924361
+                ],
+                [
+                  0.026262783977387016,
+                  8.761741332463657e-14,
+                  1.4671548986548016e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625278108,
+                  5.41441891321881e-14,
+                  0.0036482990175616004
+                ],
+                [
+                  8.194678891454295,
+                  5.123332313949902e-14,
+                  0.00804898751015036
+                ]
+              ],
+              [
+                [
+                  3.3184954821988,
+                  1.776009894705055e-14,
+                  0.0043860169436022115
+                ],
+                [
+                  4.836605850838311,
+                  5.3589077619875525e-14,
+                  0.0036230595987017424
+                ]
+              ],
+              [
+                [
+                  0.03957755841718402,
+                  2.0115853427427055e-14,
+                  3.991096784640609e-05
+                ],
+                [
+                  0.0016030518349730016,
+                  3.024663852713161e-14,
+                  8.943691621240285e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357420522,
+                  6.371986271958008e-14,
+                  0.0036620761973860244
+                ],
+                [
+                  8.13225468388719,
+                  5.072331443756184e-14,
+                  0.00794184003156283
+                ]
+              ],
+              [
+                [
+                  3.2560712746316955,
+                  1.725009024511337e-14,
+                  0.004278869465014682
+                ],
+                [
+                  4.717715837714859,
+                  3.410813298465598e-14,
+                  0.003504500402908905
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.0426161258318345,
+                -0.02775457080219239,
+                0.014063878031806004
+              ],
+              [
+                -11.734069179569307,
+                -0.0277545708022459,
+                0.010574049177883647
+              ],
+              [
+                -3.5656530720923985,
+                -0.027754570802209517,
+                0.01860836513904746
+              ],
+              [
+                -6.9237261127083825,
+                -0.027754570802211873,
+                0.014182437227598842
+              ],
+              [
+                -11.75872891171172,
+                -0.027754570802128037,
+                0.010560271998059223
+              ],
+              [
+                -3.628077279659503,
+                -0.027754570802209007,
+                0.01850121766045993
+              ]
+            ],
+            "fold_input": [
+              -6.884148554291198,
+              -0.027754570802191757,
+              0.014222348195445248
+            ],
+            "fold_output": [
+              -11.760331963546694,
+              -0.027754570802158283,
+              0.0105593776288971
+            ],
+            "lower_signed_residual": -0.002638503894478935,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01584701636392436,
+              0.8048987510150359,
+              0.4386016943602211,
+              0.003991096784640609,
+              0.794184003156283,
+              0.42788694650146825
+            ],
+            "pair_x_distance": [
+              0.010564504769375737,
+              0.546311926096953,
+              0.3224403900558874,
+              0.002638503894478935,
+              0.542150312259146,
+              0.3145143891809906
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.0023887065917517583
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.1584675715391448,
+                  3.2508717939805365e-15,
+                  0.0001584701636377639
+                ],
+                [
+                  0.026262783976953585,
+                  2.9802549317281546e-15,
+                  1.4671548986296482e-05
+                ]
+              ],
+              [
+                [
+                  4.8499206252775675,
+                  1.7881529590368928e-14,
+                  0.0036482990175608684
+                ],
+                [
+                  8.194678891452867,
+                  9.506284648352903e-15,
+                  0.0080489875101479
+                ]
+              ],
+              [
+                [
+                  3.318495482198345,
+                  1.135549987374418e-14,
+                  0.004386016943600735
+                ],
+                [
+                  4.836605850835587,
+                  5.551115123125783e-16,
+                  0.0036230595986989963
+                ]
+              ],
+              [
+                [
+                  0.039577558418933734,
+                  2.0306673009784504e-14,
+                  3.991096784816857e-05
+                ],
+                [
+                  0.0016030518349960943,
+                  5.2399057315355435e-14,
+                  8.943691621257632e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357419525,
+                  3.153727279325835e-14,
+                  0.003662076197385039
+                ],
+                [
+                  8.132254683886947,
+                  9.08995101411847e-16,
+                  0.007941840031562463
+                ]
+              ],
+              [
+                [
+                  3.2560712746324256,
+                  1.9952789420685235e-14,
+                  0.004278869465015298
+                ],
+                [
+                  4.717715837715376,
+                  1.7610912728116546e-14,
+                  0.003504500402909401
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125831316,
+                -0.027754570802179444,
+                0.014063878031806504
+              ],
+              [
+                -11.734069179569738,
+                -0.027754570802194074,
+                0.0105740491778834
+              ],
+              [
+                -3.565653072093826,
+                -0.02775457080218755,
+                0.018608365139045003
+              ],
+              [
+                -6.923726112711105,
+                -0.0277545708021965,
+                0.014182437227596099
+              ],
+              [
+                -11.758728911711696,
+                -0.027754570802144655,
+                0.010560271998059229
+              ],
+              [
+                -3.6280772796597454,
+                -0.027754570802196146,
+                0.018501217660459566
+              ]
+            ],
+            "fold_input": [
+              -6.884148554292171,
+              -0.027754570802176193,
+              0.014222348195444268
+            ],
+            "fold_output": [
+              -11.760331963546692,
+              -0.027754570802197055,
+              0.010559377628897103
+            ],
+            "lower_signed_residual": -0.0026385038945955825,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01584701636377639,
+              0.80489875101479,
+              0.4386016943600735,
+              0.003991096784816857,
+              0.7941840031562463,
+              0.4278869465015298
+            ],
+            "pair_x_distance": [
+              0.01056450476927632,
+              0.5463119260968577,
+              0.32244039005570585,
+              0.0026385038945955825,
+              0.5421503122591298,
+              0.3145143891810251
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002388706591675316
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.15846757154019464,
+                  9.953843305154919e-15,
+                  0.00015847016363876483
+                ],
+                [
+                  0.02626278397712767,
+                  4.528322161689857e-14,
+                  1.467154898639536e-05
+                ]
+              ],
+              [
+                [
+                  4.849920625277393,
+                  2.442143709480149e-14,
+                  0.0036482990175607695
+                ],
+                [
+                  8.194678891453163,
+                  2.547614896819539e-14,
+                  0.008048987510148403
+                ]
+              ],
+              [
+                [
+                  3.318495482198642,
+                  4.614364446098307e-15,
+                  0.004386016943601238
+                ],
+                [
+                  4.836605850836176,
+                  5.6083609978330173e-14,
+                  0.0036230595986995757
+                ]
+              ],
+              [
+                [
+                  0.03957755841834487,
+                  3.522182545623309e-14,
+                  3.991096784758917e-05
+                ],
+                [
+                  0.001603051834969449,
+                  5.84081394361391e-14,
+                  8.943691621101507e-07
+                ]
+              ],
+              [
+                [
+                  4.874580357419552,
+                  3.754635491404201e-14,
+                  0.0036620761973850547
+                ],
+                [
+                  8.13225468388713,
+                  1.4405143744511406e-14,
+                  0.007941840031562765
+                ]
+              ],
+              [
+                [
+                  3.2560712746326095,
+                  6.456640777585676e-15,
+                  0.0042788694650156
+                ],
+                [
+                  4.7177158377143265,
+                  3.0815627827252e-14,
+                  0.0035045004029084
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.042616125832366,
+                -0.02775457080216624,
+                0.014063878031805503
+              ],
+              [
+                -11.734069179569564,
+                -0.02775457080215177,
+                0.010574049177883498
+              ],
+              [
+                -3.565653072093529,
+                -0.02775457080217158,
+                0.018608365139045506
+              ],
+              [
+                -6.923726112710516,
+                -0.02775457080214097,
+                0.014182437227596678
+              ],
+              [
+                -11.758728911711723,
+                -0.027754570802138646,
+                0.010560271998059213
+              ],
+              [
+                -3.6280772796595615,
+                -0.02775457080218265,
+                0.018501217660459868
+              ]
+            ],
+            "fold_input": [
+              -6.884148554292171,
+              -0.027754570802176193,
+              0.014222348195444268
+            ],
+            "fold_output": [
+              -11.760331963546692,
+              -0.027754570802197055,
+              0.010559377628897103
+            ],
+            "lower_signed_residual": -0.002638503894556325,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.015847016363876483,
+              0.8048987510148403,
+              0.4386016943601238,
+              0.003991096784758917,
+              0.7941840031562765,
+              0.42788694650156
+            ],
+            "pair_x_distance": [
+              0.01056450476934631,
+              0.5463119260968775,
+              0.3224403900557451,
+              0.002638503894556325,
+              0.542150312259142,
+              0.3145143891809551
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.002388706592079437
+          }
+        ]
+      },
+      {
+        "case": "local-a027-c083",
+        "envelope": {
+          "minimum_state_distance": 0.0032223905644820916,
+          "minimum_x_distance": 0.0021290949018341722,
+          "nearest_state_index": 3,
+          "nearest_x_index": 3,
+          "pair_state_distance": [
+            0.016588795030176955,
+            0.8056718603949057,
+            0.43933140517070923,
+            0.0032223905644820916,
+            0.7935925372052166,
+            0.42725208198098275
+          ],
+          "pair_x_distance": [
+            0.011064479792221723,
+            0.5466269871095187,
+            0.3229894155671664,
+            0.0021290949018341722,
+            0.5419357132782925,
+            0.31405403067677257
+          ],
+          "radii": [
+            {
+              "radius": 1e-06,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 1e-05,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.0001,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.001,
+              "state_indices": [],
+              "x_indices": []
+            }
+          ]
+        },
+        "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+        "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+        "status": "opposite-sign-endpoints",
+        "variants": [
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.16596719688217298,
+                  7.424616477180734e-16,
+                  0.00016588795030061249
+                ],
+                [
+                  0.028847079204865622,
+                  1.9571150255970338e-14,
+                  1.61168256738696e-05
+                ]
+              ],
+              [
+                [
+                  4.847930577828896,
+                  5.0584536559483695e-15,
+                  0.0036472877265684694
+                ],
+                [
+                  8.199404806642583,
+                  1.2285311656867748e-14,
+                  0.008056718603948583
+                ]
+              ],
+              [
+                [
+                  3.322627149608823,
+                  2.2273849431542203e-15,
+                  0.004393314051706244
+                ],
+                [
+                  4.844841233506971,
+                  9.662409761190816e-15,
+                  0.0036311806465982744
+                ]
+              ],
+              [
+                [
+                  0.03193642352679049,
+                  2.4175106361212784e-14,
+                  3.2223905644064577e-05
+                ],
+                [
+                  0.0010423690058249946,
+                  2.021646738903371e-14,
+                  5.815151116091155e-07
+                ]
+              ],
+              [
+                [
+                  4.875735288027936,
+                  3.472916398905568e-14,
+                  0.00366282303713073
+                ],
+                [
+                  8.129035699174388,
+                  1.7943979635504093e-14,
+                  0.007935925372052167
+                ]
+              ],
+              [
+                [
+                  3.252258042140627,
+                  3.4312830354821244e-15,
+                  0.004272520819809828
+                ],
+                [
+                  4.710810460151588,
+                  1.3770234952303895e-14,
+                  0.0034975166019417265
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.049889665930941,
+                -0.027754572941937644,
+                0.014056688829303726
+              ],
+              [
+                -11.731853046877664,
+                -0.027754572941931843,
+                0.010575289053035869
+              ],
+              [
+                -3.561295319439945,
+                -0.02775457294193913,
+                0.018615890831310582
+              ],
+              [
+                -6.915858892575558,
+                -0.027754572941961077,
+                0.014190352873960274
+              ],
+              [
+                -11.759657757076704,
+                -0.02775457294197163,
+                0.010559753742473608
+              ],
+              [
+                -3.631664426908141,
+                -0.02775457294193347,
+                0.018495097599414166
+              ]
+            ],
+            "fold_input": [
+              -6.883922469048768,
+              -0.0277545729419369,
+              0.014222576779604338
+            ],
+            "fold_output": [
+              -11.76070012608253,
+              -0.027754572941951414,
+              0.010559172227362
+            ],
+            "lower_signed_residual": -0.0021290949017860328,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01658879503006125,
+              0.8056718603948583,
+              0.4393314051706244,
+              0.0032223905644064577,
+              0.7935925372052166,
+              0.42725208198098275
+            ],
+            "pair_x_distance": [
+              0.011064479792144866,
+              0.5466269871095055,
+              0.3229894155671314,
+              0.0021290949017860328,
+              0.5419357132782925,
+              0.31405403067677257
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.0026290424878313936
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.1659671968822476,
+                  9.117706589734098e-15,
+                  0.00016588795030068534
+                ],
+                [
+                  0.028847079204885162,
+                  3.040276363996952e-14,
+                  1.6116825673874804e-05
+                ]
+              ],
+              [
+                [
+                  4.847930577828876,
+                  4.491546023999149e-14,
+                  0.003647287726568464
+                ],
+                [
+                  8.199404806642608,
+                  5.127842594987442e-15,
+                  0.008056718603948614
+                ]
+              ],
+              [
+                [
+                  3.3226271496088473,
+                  9.384854005034526e-15,
+                  0.004393314051706275
+                ],
+                [
+                  4.844841233507003,
+                  5.729097751761003e-14,
+                  0.0036311806465983126
+                ]
+              ],
+              [
+                [
+                  0.03193642352675852,
+                  4.277828091758806e-14,
+                  3.222390564402641e-05
+                ],
+                [
+                  0.0010423690058214419,
+                  4.8568787880398645e-14,
+                  5.815151116073808e-07
+                ]
+              ],
+              [
+                [
+                  4.87573528802794,
+                  6.308148448042061e-14,
+                  0.0036628230371307316
+                ],
+                [
+                  8.129035699174358,
+                  6.598888102615774e-15,
+                  0.007935925372052111
+                ]
+              ],
+              [
+                [
+                  3.2522580421405967,
+                  2.1111584702637742e-14,
+                  0.004272520819809772
+                ],
+                [
+                  4.710810460151514,
+                  5.39499001028787e-15,
+                  0.0034975166019416536
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.0498896659310155,
+                -0.02775457294194602,
+                0.014056688829303653
+              ],
+              [
+                -11.731853046877644,
+                -0.027754572941981817,
+                0.010575289053035874
+              ],
+              [
+                -3.5612953194399206,
+                -0.027754572941946287,
+                0.018615890831310614
+              ],
+              [
+                -6.915858892575526,
+                -0.027754572941894123,
+                0.014190352873960312
+              ],
+              [
+                -11.759657757076708,
+                -0.027754572941999983,
+                0.010559753742473607
+              ],
+              [
+                -3.6316644269081713,
+                -0.027754572941958013,
+                0.01849509759941411
+              ]
+            ],
+            "fold_input": [
+              -6.883922469048768,
+              -0.0277545729419369,
+              0.014222576779604338
+            ],
+            "fold_output": [
+              -11.76070012608253,
+              -0.027754572941951414,
+              0.010559172227362
+            ],
+            "lower_signed_residual": -0.0021290949017839012,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.016588795030068534,
+              0.8056718603948614,
+              0.4393314051706275,
+              0.0032223905644026413,
+              0.7935925372052111,
+              0.4272520819809772
+            ],
+            "pair_x_distance": [
+              0.011064479792149839,
+              0.5466269871095072,
+              0.3229894155671335,
+              0.0021290949017839012,
+              0.5419357132782905,
+              0.31405403067676757
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.002629042487818959
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.1659671968827654,
+                  7.417677583276827e-15,
+                  0.00016588795030119015
+                ],
+                [
+                  0.02884707920458851,
+                  1.7236212457305555e-14,
+                  1.6116825673729088e-05
+                ]
+              ],
+              [
+                [
+                  4.847930577828767,
+                  8.843620280529763e-15,
+                  0.003647287726568235
+                ],
+                [
+                  8.199404806641912,
+                  2.6308816236664256e-14,
+                  0.008056718603947572
+                ]
+              ],
+              [
+                [
+                  3.3226271496085555,
+                  2.2898349882893854e-16,
+                  0.004393314051705607
+                ],
+                [
+                  4.844841233505843,
+                  3.799738301779598e-14,
+                  0.0036311806465971434
+                ]
+              ],
+              [
+                [
+                  0.03193642352751258,
+                  1.1917550279960665e-14,
+                  3.2223905644820916e-05
+                ],
+                [
+                  0.001042369005528343,
+                  4.581057755359552e-14,
+                  5.815151114477862e-07
+                ]
+              ],
+              [
+                [
+                  4.875735288027827,
+                  1.9730744815760204e-14,
+                  0.0036628230371305165
+                ],
+                [
+                  8.129035699173528,
+                  1.3711254354120683e-14,
+                  0.007935925372050854
+                ]
+              ],
+              [
+                [
+                  3.252258042140172,
+                  1.2368578383714635e-14,
+                  0.004272520819808889
+                ],
+                [
+                  4.71081046015059,
+                  1.866215515455849e-14,
+                  0.003497516601940774
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.049889665931838,
+                -0.027754572941942012,
+                0.014056688829302838
+              ],
+              [
+                -11.73185304687784,
+                -0.027754572941943438,
+                0.010575289053035793
+              ],
+              [
+                -3.561295319440517,
+                -0.027754572941934365,
+                0.018615890831309635
+              ],
+              [
+                -6.915858892576585,
+                -0.027754572941922677,
+                0.014190352873959207
+              ],
+              [
+                -11.7596577570769,
+                -0.027754572941914864,
+                0.010559753742473511
+              ],
+              [
+                -3.6316644269089005,
+                -0.027754572941946963,
+                0.018495097599412917
+              ]
+            ],
+            "fold_input": [
+              -6.883922469049073,
+              -0.027754572941934594,
+              0.014222576779604028
+            ],
+            "fold_output": [
+              -11.760700126082428,
+              -0.027754572941960674,
+              0.010559172227362064
+            ],
+            "lower_signed_residual": -0.0021290949018341722,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.016588795030119015,
+              0.8056718603947571,
+              0.43933140517056074,
+              0.0032223905644820916,
+              0.7935925372050854,
+              0.42725208198088893
+            ],
+            "pair_x_distance": [
+              0.01106447979218436,
+              0.5466269871094608,
+              0.3229894155670562,
+              0.0021290949018341722,
+              0.5419357132782352,
+              0.314054030676706
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002629042487622139
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.16596719688332584,
+                  6.661338147750939e-16,
+                  0.00016588795030176955
+                ],
+                [
+                  0.028847079204977533,
+                  4.5151382632724335e-14,
+                  1.611682567390256e-05
+                ]
+              ],
+              [
+                [
+                  4.847930577828378,
+                  1.9071549894889017e-14,
+                  0.0036472877265680617
+                ],
+                [
+                  8.19940480664278,
+                  3.8625352916099587e-14,
+                  0.008056718603949057
+                ]
+              ],
+              [
+                [
+                  3.322627149609425,
+                  1.2545520178264269e-14,
+                  0.004393314051707092
+                ],
+                [
+                  4.844841233507497,
+                  2.3408358584831035e-14,
+                  0.0036311806465988035
+                ]
+              ],
+              [
+                [
+                  0.03193642352585879,
+                  2.671474153004283e-15,
+                  3.2223905643160786e-05
+                ],
+                [
+                  0.0010423690051961643,
+                  6.83481049534862e-15,
+                  5.815151112552319e-07
+                ]
+              ],
+              [
+                [
+                  4.875735288028159,
+                  3.291464323318394e-14,
+                  0.003662823037130709
+                ],
+                [
+                  8.12903569917259,
+                  3.1960545321396694e-14,
+                  0.007935925372049192
+                ]
+              ],
+              [
+                [
+                  3.2522580421392338,
+                  5.880712583561376e-15,
+                  0.0042725208198072274
+                ],
+                [
+                  4.71081046015003,
+                  2.6745966552610412e-14,
+                  0.0034975166019401947
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.049889665932398,
+                -0.02775457294193393,
+                0.014056688829302258
+              ],
+              [
+                -11.73185304687745,
+                -0.027754572941915523,
+                0.010575289053035966
+              ],
+              [
+                -3.5612953194396475,
+                -0.02775457294192205,
+                0.01861589083131112
+              ],
+              [
+                -6.915858892574931,
+                -0.027754572941937266,
+                0.014190352873960867
+              ],
+              [
+                -11.759657757077232,
+                -0.02775457294196751,
+                0.010559753742473319
+              ],
+              [
+                -3.631664426909839,
+                -0.027754572941928714,
+                0.018495097599411255
+              ]
+            ],
+            "fold_input": [
+              -6.883922469049073,
+              -0.027754572941934594,
+              0.014222576779604028
+            ],
+            "fold_output": [
+              -11.760700126082428,
+              -0.027754572941960674,
+              0.010559172227362064
+            ],
+            "lower_signed_residual": -0.0021290949017239197,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.016588795030176955,
+              0.8056718603949057,
+              0.43933140517070923,
+              0.0032223905643160786,
+              0.7935925372049192,
+              0.42725208198072273
+            ],
+            "pair_x_distance": [
+              0.011064479792221723,
+              0.5466269871095187,
+              0.3229894155671664,
+              0.0021290949017239197,
+              0.5419357132781727,
+              0.31405403067666865
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.002629042488046807
+          }
+        ]
+      },
+      {
+        "case": "local-a027-c083",
+        "envelope": {
+          "minimum_state_distance": 0.0032223905645748993,
+          "minimum_x_distance": 0.0021290949018952787,
+          "nearest_state_index": 3,
+          "nearest_x_index": 3,
+          "pair_state_distance": [
+            0.016588795030269762,
+            0.8056718603949098,
+            0.4393314051706164,
+            0.0032223905645748993,
+            0.7935925372052135,
+            0.42725208198096004
+          ],
+          "pair_x_distance": [
+            0.01106447979228283,
+            0.5466269871095235,
+            0.3229894155671713,
+            0.0021290949018952787,
+            0.5419357132782889,
+            0.314054030676769
+          ],
+          "radii": [
+            {
+              "radius": 1e-06,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 1e-05,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.0001,
+              "state_indices": [],
+              "x_indices": []
+            },
+            {
+              "radius": 0.001,
+              "state_indices": [],
+              "x_indices": []
+            }
+          ]
+        },
+        "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+        "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+        "status": "opposite-sign-endpoints",
+        "variants": [
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.16596719688240213,
+                  6.00908212078366e-15,
+                  0.00016588795030083973
+                ],
+                [
+                  0.02884707920481233,
+                  2.050443148604586e-14,
+                  1.6116825673838375e-05
+                ]
+              ],
+              [
+                [
+                  4.847930577829125,
+                  2.0816681711721685e-16,
+                  0.0036472877265686966
+                ],
+                [
+                  8.19940480664253,
+                  2.779027008514845e-14,
+                  0.008056718603948552
+                ]
+              ],
+              [
+                [
+                  3.3226271496085937,
+                  7.494005416219807e-15,
+                  0.004393314051706017
+                ],
+                [
+                  4.8448412335069175,
+                  4.973799150320701e-14,
+                  0.003631180646598243
+                ]
+              ],
+              [
+                [
+                  0.03193642352701964,
+                  2.944172683427837e-14,
+                  3.2223905644291825e-05
+                ],
+                [
+                  0.0010423690057717039,
+                  6.029204913104991e-14,
+                  5.815151115778905e-07
+                ]
+              ],
+              [
+                [
+                  4.8757352880281655,
+                  3.9995784462121264e-14,
+                  0.003662823037130957
+                ],
+                [
+                  8.129035699174334,
+                  2.2131602106512105e-14,
+                  0.007935925372052136
+                ]
+              ],
+              [
+                [
+                  3.2522580421403977,
+                  1.835337437583462e-15,
+                  0.0042725208198096006
+                ],
+                [
+                  4.710810460151535,
+                  2.6305346789712303e-14,
+                  0.0034975166019416953
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.049889665930941,
+                -0.027754572941937644,
+                0.014056688829303726
+              ],
+              [
+                -11.731853046877664,
+                -0.027754572941931843,
+                0.010575289053035869
+              ],
+              [
+                -3.561295319439945,
+                -0.02775457294193913,
+                0.018615890831310582
+              ],
+              [
+                -6.915858892575558,
+                -0.027754572941961077,
+                0.014190352873960274
+              ],
+              [
+                -11.759657757076704,
+                -0.02775457294197163,
+                0.010559753742473608
+              ],
+              [
+                -3.631664426908141,
+                -0.02775457294193347,
+                0.018495097599414166
+              ]
+            ],
+            "fold_input": [
+              -6.883922469048539,
+              -0.027754572941931635,
+              0.014222576779604566
+            ],
+            "fold_output": [
+              -11.760700126082476,
+              -0.02775457294191134,
+              0.01055917222736203
+            ],
+            "lower_signed_residual": -0.0021290949018013096,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.016588795030083973,
+              0.8056718603948552,
+              0.43933140517060165,
+              0.0032223905644291825,
+              0.7935925372052135,
+              0.42725208198096004
+            ],
+            "pair_x_distance": [
+              0.011064479792160142,
+              0.546626987109502,
+              0.32298941556712785,
+              0.0021290949018013096,
+              0.5419357132782889,
+              0.314054030676769
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.002629042487828374
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.16596719688247674,
+                  1.4384327062799684e-14,
+                  0.0001658879503009126
+                ],
+                [
+                  0.02884707920483187,
+                  7.047834538198572e-14,
+                  1.611682567384358e-05
+                ]
+              ],
+              [
+                [
+                  4.847930577829105,
+                  5.0182080713057076e-14,
+                  0.0036472877265686914
+                ],
+                [
+                  8.199404806642555,
+                  3.4947739147028756e-14,
+                  0.008056718603948583
+                ]
+              ],
+              [
+                [
+                  3.322627149608618,
+                  1.4651474478100113e-14,
+                  0.004393314051706048
+                ],
+                [
+                  4.8448412335069495,
+                  1.7215395775593834e-14,
+                  0.0036311806465982813
+                ]
+              ],
+              [
+                [
+                  0.03193642352698767,
+                  3.7511660444522477e-14,
+                  3.222390564425366e-05
+                ],
+                [
+                  0.0010423690057681512,
+                  8.864436962241484e-14,
+                  5.815151115761558e-07
+                ]
+              ],
+              [
+                [
+                  4.875735288028169,
+                  6.83481049534862e-14,
+                  0.003662823037130959
+                ],
+                [
+                  8.129035699174304,
+                  4.667446984463197e-14,
+                  0.00793592537205208
+                ]
+              ],
+              [
+                [
+                  3.2522580421403675,
+                  2.637820517570333e-14,
+                  0.004272520819809545
+                ],
+                [
+                  4.71081046015146,
+                  3.468059173172833e-14,
+                  0.0034975166019416224
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.0498896659310155,
+                -0.02775457294194602,
+                0.014056688829303653
+              ],
+              [
+                -11.731853046877644,
+                -0.027754572941981817,
+                0.010575289053035874
+              ],
+              [
+                -3.5612953194399206,
+                -0.027754572941946287,
+                0.018615890831310614
+              ],
+              [
+                -6.915858892575526,
+                -0.027754572941894123,
+                0.014190352873960312
+              ],
+              [
+                -11.759657757076708,
+                -0.027754572941999983,
+                0.010559753742473607
+              ],
+              [
+                -3.6316644269081713,
+                -0.027754572941958013,
+                0.01849509759941411
+              ]
+            ],
+            "fold_input": [
+              -6.883922469048539,
+              -0.027754572941931635,
+              0.014222576779604566
+            ],
+            "fold_output": [
+              -11.760700126082476,
+              -0.02775457294191134,
+              0.01055917222736203
+            ],
+            "lower_signed_residual": -0.0021290949017991776,
+            "method": "DOP853",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.01658879503009126,
+              0.8056718603948583,
+              0.4393314051706048,
+              0.003222390564425366,
+              0.793592537205208,
+              0.4272520819809545
+            ],
+            "pair_x_distance": [
+              0.011064479792165117,
+              0.5466269871095036,
+              0.32298941556712996,
+              0.0021290949017991776,
+              0.5419357132782869,
+              0.314054030676764
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.0026290424878159394
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.165967196883682,
+                  5.030698080332741e-16,
+                  0.00016588795030211823
+                ],
+                [
+                  0.02884707920466134,
+                  4.15639744844043e-15,
+                  1.611682567377072e-05
+                ]
+              ],
+              [
+                [
+                  4.8479305778296835,
+                  1.9290125052862095e-15,
+                  0.0036472877265691633
+                ],
+                [
+                  8.199404806641983,
+                  1.3229001227799131e-14,
+                  0.008056718603947613
+                ]
+              ],
+              [
+                [
+                  3.322627149607639,
+                  7.143591274072492e-15,
+                  0.004393314051704679
+                ],
+                [
+                  4.844841233505916,
+                  2.4917568008930857e-14,
+                  0.003631180646597185
+                ]
+              ],
+              [
+                [
+                  0.03193642352842918,
+                  1.8832158055204218e-14,
+                  3.222390564574899e-05
+                ],
+                [
+                  0.0010423690056011736,
+                  3.2730762544730396e-14,
+                  5.815151114894196e-07
+                ]
+              ],
+              [
+                [
+                  4.875735288028744,
+                  2.6645352591003757e-14,
+                  0.0036628230371314446
+                ],
+                [
+                  8.1290356991736,
+                  6.314393452555578e-16,
+                  0.007935925372050895
+                ]
+              ],
+              [
+                [
+                  3.2522580421392555,
+                  5.4539706084710815e-15,
+                  0.004272520819807961
+                ],
+                [
+                  4.710810460150663,
+                  5.582340145693365e-15,
+                  0.0034975166019408158
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.049889665931838,
+                -0.027754572941942012,
+                0.014056688829302838
+              ],
+              [
+                -11.73185304687784,
+                -0.027754572941943438,
+                0.010575289053035793
+              ],
+              [
+                -3.561295319440517,
+                -0.027754572941934365,
+                0.018615890831309635
+              ],
+              [
+                -6.915858892576585,
+                -0.027754572941922677,
+                0.014190352873959207
+              ],
+              [
+                -11.7596577570769,
+                -0.027754572941914864,
+                0.010559753742473511
+              ],
+              [
+                -3.6316644269089005,
+                -0.027754572941946963,
+                0.018495097599412917
+              ]
+            ],
+            "fold_input": [
+              -6.883922469048156,
+              -0.02775457294194151,
+              0.014222576779604956
+            ],
+            "fold_output": [
+              -11.7607001260825,
+              -0.027754572941947594,
+              0.010559172227362022
+            ],
+            "lower_signed_residual": -0.0021290949018952787,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.016588795030211823,
+              0.8056718603947614,
+              0.4393314051704679,
+              0.0032223905645748993,
+              0.7935925372050895,
+              0.4272520819807961
+            ],
+            "pair_x_distance": [
+              0.011064479792245467,
+              0.5466269871094656,
+              0.32298941556706107,
+              0.0021290949018952787,
+              0.5419357132782401,
+              0.31405403067671084
+            ],
+            "phase": 0.25,
+            "upper_signed_residual": 0.0026290424876476
+          },
+          {
+            "absolute_endpoint_differences": [
+              [
+                [
+                  0.16596719688424244,
+                  7.580741590018647e-15,
+                  0.00016588795030269762
+                ],
+                [
+                  0.028847079205050363,
+                  3.207156762385921e-14,
+                  1.6116825673944193e-05
+                ]
+              ],
+              [
+                [
+                  4.8479305778292945,
+                  2.598615767013257e-14,
+                  0.00364728772656899
+                ],
+                [
+                  8.199404806642853,
+                  2.554553790723446e-14,
+                  0.008056718603949098
+                ]
+              ],
+              [
+                [
+                  3.3226271496085085,
+                  1.9460127953507822e-14,
+                  0.004393314051706164
+                ],
+                [
+                  4.8448412335075695,
+                  1.032854357596591e-14,
+                  0.003631180646598845
+                ]
+              ],
+              [
+                [
+                  0.03193642352677539,
+                  4.24313362223927e-15,
+                  3.222390564408886e-05
+                ],
+                [
+                  0.001042369005268995,
+                  1.9914625504213745e-14,
+                  5.815151112968653e-07
+                ]
+              ],
+              [
+                [
+                  4.875735288029076,
+                  2.6000035457940385e-14,
+                  0.003662823037131637
+                ],
+                [
+                  8.129035699172661,
+                  1.8880730312531568e-14,
+                  0.007935925372049233
+                ]
+              ],
+              [
+                [
+                  3.252258042138317,
+                  1.2795320358804929e-14,
+                  0.004272520819806299
+                ],
+                [
+                  4.710810460150102,
+                  1.3666151543745286e-14,
+                  0.0034975166019402364
+                ]
+              ]
+            ],
+            "cycle_events": [
+              [
+                -7.049889665932398,
+                -0.02775457294193393,
+                0.014056688829302258
+              ],
+              [
+                -11.73185304687745,
+                -0.027754572941915523,
+                0.010575289053035966
+              ],
+              [
+                -3.5612953194396475,
+                -0.02775457294192205,
+                0.01861589083131112
+              ],
+              [
+                -6.915858892574931,
+                -0.027754572941937266,
+                0.014190352873960867
+              ],
+              [
+                -11.759657757077232,
+                -0.02775457294196751,
+                0.010559753742473319
+              ],
+              [
+                -3.631664426909839,
+                -0.027754572941928714,
+                0.018495097599411255
+              ]
+            ],
+            "fold_input": [
+              -6.883922469048156,
+              -0.02775457294194151,
+              0.014222576779604956
+            ],
+            "fold_output": [
+              -11.7607001260825,
+              -0.027754572941947594,
+              0.010559172227362022
+            ],
+            "lower_signed_residual": -0.002129094901785026,
+            "method": "Radau",
+            "opposite_sign_resolved": true,
+            "pair_state_distance": [
+              0.016588795030269762,
+              0.8056718603949098,
+              0.4393314051706164,
+              0.0032223905644088863,
+              0.7935925372049233,
+              0.4272520819806299
+            ],
+            "pair_x_distance": [
+              0.01106447979228283,
+              0.5466269871095235,
+              0.3229894155671713,
+              0.002129094901785026,
+              0.5419357132781774,
+              0.3140540306766735
+            ],
+            "phase": 1.25,
+            "upper_signed_residual": 0.0026290424880722678
+          }
+        ]
+      },
+      {
+        "case": "local-a027-c083",
+        "envelope": null,
+        "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+        "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+        "status": "unresolved-fold",
+        "variants": []
+      },
+      {
+        "case": "local-a027-c083",
+        "envelope": null,
+        "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+        "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+        "status": "unresolved-fold",
+        "variants": []
+      }
+    ],
+    "symbolic_chains_verified": false
+  },
+  "elapsed_seconds": 876.3250135416165,
+  "experiment_id": "EXP-496",
+  "ledger": [
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+      "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+      "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+      "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+      "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+      "parent_qualified_in_region": true,
+      "status": "not-selected-duplicate-representation"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "parent_qualified_in_region": true,
+      "status": "selected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+      "parent_qualified_in_region": true,
+      "status": "not-selected-duplicate-representation"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+      "parent_qualified_in_region": false,
+      "status": "not-evaluated-parent-ineligible"
+    }
+  ],
+  "local_attempt_witness_checked": false,
+  "paid_review": "not_run",
+  "passed": true,
+  "same_agent_local_audit": true,
+  "source_commit": "7513bed94ed206e57438a5cb3497c736da98ea11",
+  "summary_sha256": "b99970186185c73b0104f257966b18dd22f764d7b1d364c8319c222c2c1bbe24",
+  "symbolic_chains_verified": false,
+  "target_trajectories": 124
+}
