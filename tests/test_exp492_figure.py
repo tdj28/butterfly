@@ -85,3 +85,13 @@ def test_failed_side_points_are_retained():
     rows = figure.derive(result)
     assert not rows[0]["qualified"] and len(rows[0]["samples"]) == 8
     assert sum(not s["side_passed"] for s in rows[0]["samples"]) == 2
+
+
+def test_paired_accuracy_failure_is_visible_on_both_solver_arms():
+    result = synthetic()
+    a = next(r["analysis"] for r in result["intervals"] if r["analysis"] is not None)
+    a["paired_sides"][-1]["errors"][0]["scaled_state"] = 2e-6
+    a["paired_sides"][-1]["passed"] = a["qualified"] = False
+    rows = figure.derive(result)
+    assert not rows[0]["qualified"] and all(s["local_passed"] for s in rows[0]["samples"])
+    assert sum(not s["side_passed"] for s in rows[0]["samples"]) == 4

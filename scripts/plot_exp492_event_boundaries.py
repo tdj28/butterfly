@@ -41,7 +41,7 @@ def derive(result):
                 if [v["nominal_dose"] for v in s["sides"]] != c["doses"]:
                     raise ValueError("dose matrix differs")
                 root = s["root"]
-                for v in s["sides"]:
+                for side_index,v in enumerate(s["sides"]):
                     u = a["roots"]["common_center_u"]+v["nominal_dose"]
                     dose = u-root["u"]
                     expected = 2 if root["jacobian"][0][0]*dose*root["jacobian"][1][1] < 0 else 0
@@ -57,7 +57,9 @@ def derive(result):
                         xy = [(u-reference["u"])/max(abs(d) for d in c["doses"]),e["time"]-reference["time"]]
                         if not np.isfinite(xy).all():
                             raise ValueError("nonfinite figure coordinate")
-                        samples.append(dict(method=s["method"],nominal_dose=v["nominal_dose"],xy=xy,accepted=e["accepted"],side_passed=v["passed"]))
+                        paired_passed = a["paired_sides"][side_index]["passed"]
+                        samples.append(dict(method=s["method"],nominal_dose=v["nominal_dose"],xy=xy,accepted=e["accepted"],
+                            local_passed=v["passed"],paired_passed=paired_passed,side_passed=bool(v["passed"] and paired_passed)))
                 pairs = sorted([v for v in s["sides"] if v["expected_roots"] == 2],key=lambda v:abs(v["nominal_dose"]))
                 ratio = pairs[1]["separation"]/pairs[0]["separation"] if len(pairs) == 2 and all(v["separation"] is not None and v["separation"] > 0 for v in pairs) else None
                 passed = all(v["passed"] for v in s["sides"]) and ratio is not None and abs(ratio/np.sqrt(10)-1) <= p["square_root_ratio_relative_error"]
@@ -113,10 +115,13 @@ def plot(source,anchor,output):
                 if not s["side_passed"]:
                     ax.scatter(*s["xy"],marker="x",s=25,color="black",zorder=5)
             # Explicit zero-root conditions remain visible, not silently absent.
-            counts = "; ".join(f"{m}: "+"/".join(str(len(v["local_roots"])) for v in s["sides"])
+            counts = "\n".join(f"{m}: "+"/".join(str(len(v["local_roots"])) for v in s["sides"])
                 for m,s in zip(("D","R"),r["analysis"]["solvers"],strict=True))
-            ax.text(.03,.04,counts,transform=ax.transAxes,fontsize=7,
+            text_x = .04 if sign > 0 else .57
+            ax.text(text_x,.05,counts,transform=ax.transAxes,fontsize=7,
                 bbox=dict(facecolor="white",alpha=.9,edgecolor="none"))
+            ax.text(text_x,.23,f"Paired: {sum(v['passed'] for v in r['analysis']['paired_sides'])}/4",
+                transform=ax.transAxes,fontsize=7,bbox=dict(facecolor="white",alpha=.9,edgecolor="none"))
         else:
             ax.text(.5,.5,"Root/box gate failed\nAll side arms skipped",ha="center",va="center",transform=ax.transAxes)
         ax.axvline(0,color="#cccccc",lw=.6,zorder=0)
@@ -147,7 +152,7 @@ def plot(source,anchor,output):
     fig.legend(handles=handles,loc="lower center",bbox_to_anchor=(.5,.109),ncol=4,frameon=False,fontsize=9)
     fig.legend(handles=[Line2D([],[],marker="D",linestyle="none",color="black",label="Located tangency"),
         Line2D([],[],ls="--",color="#777777",label="Local quadratic prediction (not a fit)"),
-        Line2D([],[],marker="x",linestyle="none",color="black",label="Failed side retained")],
+        Line2D([],[],marker="x",linestyle="none",color="black",label="Failed side arm retained")],
         loc="lower center",bbox_to_anchor=(.5,.079),ncol=3,frameon=False,fontsize=9)
     fig.text(.08,.061,"Panel labels: m return depth, d initial direction, c candidate number (local to each family). D/R counts follow doses -1, -0.1, +0.1, +1.",fontsize=8.5)
     fig.text(.08,.040,"Coordinates use the DOP853 root as the common plotting origin; the wide dose is the frozen half-interval width / 1000. Panel time scales differ.",fontsize=8.5)
