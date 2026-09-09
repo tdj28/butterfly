@@ -200,6 +200,16 @@ inputs; historical result reproduction is a separate requirement.
   not further one-fold tuning alone, are needed to test a two-object center.
   Preserve every representation, the primitive-period guard and the distinction
   between a piecewise domain boundary and a smooth critical point.
+  [EXP-499 supplies an all-input decimal reference](updates/2026-09-09-exp499-decimal-event-reference.md):
+  all 64 trajectories and 480 nominated roots are audited, and the two decimal
+  configurations agree at every input. A third original method/input discrepancy
+  demonstrates the limitation of paired Float64 agreement. Next use the retained
+  high-precision coefficients for a separately declared complete polynomial
+  census and local geometric replay, retaining unresolved isolation and avoiding
+  an exact-flow all-root claim. New-parameter high-precision grazing transport
+  and joint contact conditions remain separate; do not substitute passing rows
+  into the old EXP-498 decision. Shared root-box resolution also limits what
+  tiny paired decimal differences say about absolute accuracy.
   Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
