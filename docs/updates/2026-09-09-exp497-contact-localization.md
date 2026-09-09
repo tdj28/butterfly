@@ -1,8 +1,8 @@
 # EXP-497: narrowing the qualified contact interval
 
-Status: implementation and pre-outcome validation complete: 2194 tests pass,
-one existing Linux-only skip; all sixteen actual analytic controls pass.
-No localization target has run yet. This continues the first-case endpoint lead from
+Status: frozen and executing locally. Pre-outcome validation passed 2194 tests,
+with one existing Linux-only skip; all sixteen actual analytic controls pass.
+This continues the first-case endpoint lead from
 [EXP-496](2026-09-09-exp496-contact-endpoint.md), now merged into main.
 
 The local refinement is bounded to three new parameter values. Each requires
@@ -20,3 +20,15 @@ right-hand fold. It would not yet establish a second critical point, C/D,
 an invariant quotient, exact criticality or a source-matched Jones chain.
 No paid review, GPU rental or restricted upload is involved. The pending
 EXP-496 public-archive approval does not block this local calculation.
+
+Execution source is `ec0bca1c35fd7ee34c99088dedd028cf4b4ca635`, pushed before
+targets and preserved at `codex/exp497-local-execution`. The runtime checked
+the live pushed SHA, clean source, input/import closure and disk reserve,
+repeated its controls and created the exclusive consumed-attempt marker.
+Evidence is retained at `artifacts/EXP-497/target-ec0bca1`; the witness is
+`artifacts/EXP-497/target-once.json` and must not be reset.
+
+At the current operational checkpoint, the first proposed parameter has both
+periodic profiles and six of eight fold profiles recorded. The frozen numerical
+source remains unchanged. No new contact verdict is interpreted before the
+complete mesh, periodic-event, adaptive-ledger and scalar audit.
