@@ -1,0 +1,757 @@
+{
+  "candidates": [
+    {
+      "accepted_prefix": 4,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "initial_state": [
+        -6.368736994544714,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "original_exp498_qualified": true,
+      "parent_qualified": true,
+      "seed_time": "32.13603014860269979635631898418068885803222656250",
+      "seed_u": "-0.006213120642507678932642267710662054014392197132110595703125",
+      "time_box": [
+        31.142981203698852,
+        33.14298120369885
+      ],
+      "u_box": [
+        -0.02516153791106085,
+        0.014838462088939151
+      ]
+    },
+    {
+      "accepted_prefix": 1,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "initial_state": [
+        -6.368736994544714,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "original_exp498_qualified": true,
+      "parent_qualified": true,
+      "seed_time": "9.75069533114244535454417928121984004974365234375",
+      "seed_u": "0.00040181314104491838994255570316482817361247725784778594970703125",
+      "time_box": [
+        8.751193011362531,
+        10.751193011362531
+      ],
+      "u_box": [
+        -0.018992345838891683,
+        0.021007654161108318
+      ]
+    },
+    {
+      "accepted_prefix": 4,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "initial_state": [
+        -6.368736994544714,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "initial_tangent": [
+        10.606601717798211,
+        0.0,
+        0.0070710678118654745
+      ],
+      "original_exp498_qualified": true,
+      "parent_qualified": true,
+      "seed_time": "32.13603009775211916121406829915940761566162109375",
+      "seed_u": "-0.008787106710350634473927211587351848720572888851165771484375",
+      "time_box": [
+        31.14298116125505,
+        33.14298116125505
+      ],
+      "u_box": [
+        -0.027299872246084374,
+        0.012700127753915626
+      ]
+    },
+    {
+      "accepted_prefix": 1,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "initial_state": [
+        -6.368736994544714,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "initial_tangent": [
+        10.606601717798211,
+        0.0,
+        0.0070710678118654745
+      ],
+      "original_exp498_qualified": true,
+      "parent_qualified": true,
+      "seed_time": "9.7506953345308726710527480463497340679168701171875",
+      "seed_u": "0.00056827742375752522512033504398232253151945769786834716796875",
+      "time_box": [
+        8.751193019883265,
+        10.751193019883265
+      ],
+      "u_box": [
+        -0.01857489198123676,
+        0.02142510801876324
+      ]
+    },
+    {
+      "accepted_prefix": 5,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "initial_state": [
+        -5.925589433696137,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "original_exp498_qualified": true,
+      "parent_qualified": true,
+      "seed_time": "33.11555354289615848983885371126234531402587890625",
+      "seed_u": "-0.00041329977625667192590343257396767739919596351683139801025390625",
+      "time_box": [
+        32.11049264479242,
+        34.11049264479242
+      ],
+      "u_box": [
+        -0.020173576127314616,
+        0.019826423872685385
+      ]
+    },
+    {
+      "accepted_prefix": 8,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "initial_state": [
+        -5.925589433696137,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "original_exp498_qualified": false,
+      "parent_qualified": false,
+      "seed_time": "55.5375695847181276576520758680999279022216796875",
+      "seed_u": "0.0006785444548078292561869850896272282625432126224040985107421875",
+      "time_box": [
+        54.53704025305076,
+        56.53704025305076
+      ],
+      "u_box": [
+        -0.019144841816313717,
+        0.020855158183686284
+      ]
+    },
+    {
+      "accepted_prefix": 5,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "initial_state": [
+        -5.925589433696137,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "initial_tangent": [
+        10.606601717798211,
+        0.0,
+        0.0070710678118654745
+      ],
+      "original_exp498_qualified": true,
+      "parent_qualified": true,
+      "seed_time": "33.11555353891103692376418621279299259185791015625",
+      "seed_u": "-0.0005845237046258223577617496591329881994170136749744415283203125",
+      "time_box": [
+        32.11049264311686,
+        34.11049264311686
+      ],
+      "u_box": [
+        -0.020245486129420155,
+        0.019754513870579846
+      ]
+    },
+    {
+      "accepted_prefix": 8,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "initial_state": [
+        -5.925589433696137,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "initial_tangent": [
+        10.606601717798211,
+        0.0,
+        0.0070710678118654745
+      ],
+      "original_exp498_qualified": false,
+      "parent_qualified": true,
+      "seed_time": "55.53756959129511017181357601657509803771972656250",
+      "seed_u": "0.0009596553544192472731157173004845617469982244074344635009765625",
+      "time_box": [
+        54.537040261346434,
+        56.537040261346434
+      ],
+      "u_box": [
+        -0.01879056245711626,
+        0.021209437542883743
+      ]
+    }
+  ],
+  "configurations": [
+    {
+      "digits": 40,
+      "name": "decimal-40",
+      "order": 24,
+      "step": "0.02"
+    },
+    {
+      "digits": 50,
+      "name": "decimal-50",
+      "order": 32,
+      "step": "0.01"
+    }
+  ],
+  "cycles": [
+    {
+      "method": "DOP853",
+      "phase": 0.25,
+      "states": [
+        [
+          -7.080060727506531,
+          -0.027754584727707497,
+          0.0140269456545538
+        ],
+        [
+          -11.721690267778909,
+          -0.027754584727709225,
+          0.010580978600598779
+        ],
+        [
+          -3.5424957387639746,
+          -0.027754584727710852,
+          0.018648426249452725
+        ],
+        [
+          -6.882419958209135,
+          -0.027754584727698768,
+          0.014224096139829338
+        ],
+        [
+          -11.762728127144612,
+          -0.027754584727695403,
+          0.01055804092862993
+        ],
+        [
+          -3.6462218361495036,
+          -0.02775458472770725,
+          0.018470302101429067
+        ]
+      ]
+    },
+    {
+      "method": "DOP853",
+      "phase": 1.25,
+      "states": [
+        [
+          -7.080060727506516,
+          -0.02775458472770676,
+          0.014026945654553815
+        ],
+        [
+          -11.721690267778902,
+          -0.027754584727719803,
+          0.010580978600598784
+        ],
+        [
+          -3.54249573876397,
+          -0.0277545847277348,
+          0.018648426249452735
+        ],
+        [
+          -6.882419958209125,
+          -0.027754584727727717,
+          0.014224096139829348
+        ],
+        [
+          -11.76272812714461,
+          -0.027754584727744162,
+          0.01055804092862993
+        ],
+        [
+          -3.646221836149467,
+          -0.027754584727716195,
+          0.01847030210142913
+        ]
+      ]
+    },
+    {
+      "method": "Radau",
+      "phase": 0.25,
+      "states": [
+        [
+          -7.08006072750673,
+          -0.02775458472771395,
+          0.014026945654553574
+        ],
+        [
+          -11.721690267779262,
+          -0.027754584727702154,
+          0.010580978600598569
+        ],
+        [
+          -3.5424957387650324,
+          -0.0277545847277104,
+          0.018648426249450862
+        ],
+        [
+          -6.882419958211168,
+          -0.02775458472770491,
+          0.014224096139827306
+        ],
+        [
+          -11.762728127144747,
+          -0.0277545847277195,
+          0.010558040928629843
+        ],
+        [
+          -3.646221836150074,
+          -0.027754584727714596,
+          0.018470302101428127
+        ]
+      ]
+    },
+    {
+      "method": "Radau",
+      "phase": 1.25,
+      "states": [
+        [
+          -7.0800607275075835,
+          -0.0277545847277175,
+          0.01402694565455279
+        ],
+        [
+          -11.721690267778884,
+          -0.0277545847276338,
+          0.010580978600598782
+        ],
+        [
+          -3.542495738764053,
+          -0.027754584727736408,
+          0.01864842624945256
+        ],
+        [
+          -6.882419958209308,
+          -0.027754584727698265,
+          0.01422409613982919
+        ],
+        [
+          -11.762728127144769,
+          -0.027754584727659654,
+          0.010558040928629832
+        ],
+        [
+          -3.646221836150084,
+          -0.02775458472772741,
+          0.018470302101428093
+        ]
+      ]
+    }
+  ],
+  "experiment_id": "EXP-501",
+  "field": {
+    "constant": [
+      0,
+      0,
+      0.2,
+      0,
+      0,
+      0
+    ],
+    "linear": [
+      [
+        0,
+        1,
+        -1
+      ],
+      [
+        0,
+        2,
+        -1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0.21558015990653545
+      ],
+      [
+        2,
+        2,
+        -7.212
+      ],
+      [
+        3,
+        4,
+        -1
+      ],
+      [
+        3,
+        5,
+        -1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        4,
+        0.21558015990653545
+      ],
+      [
+        5,
+        5,
+        -7.212
+      ]
+    ],
+    "quadratic": [
+      [
+        2,
+        0,
+        2,
+        1
+      ],
+      [
+        5,
+        3,
+        2,
+        1
+      ],
+      [
+        5,
+        0,
+        5,
+        1
+      ]
+    ]
+  },
+  "inputs": {
+    "docs/experiments/receipts/EXP-497-contact-localization-result.json": "ed229b4a772ef19d227272006401d19090ee5e28a357791f25400cafa3271cff",
+    "docs/experiments/receipts/EXP-498-boundary-transport-result.json": "f327a6acb9bb72cd0286ff41090f38e12e3b10a0ff9f476b0a6b2f705e176344",
+    "experiments/manifests/EXP-498-boundary-transport.json": "495e61145346fb6b2e13cd726b4d00367072eb91d5b53a31cb84e247a9fafc6a",
+    "experiments/manifests/EXP-499-decimal-event-reference.json": "bf876d4d95f67eaa9ff79532519ecf344dcf8763b7b466e0afe026daa7bce256"
+  },
+  "ledger": [
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+      "parent_qualified": false,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+      "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+      "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+      "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+      "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    }
+  ],
+  "limits": {
+    "initial_free_bytes": 9663676416,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 4294967296,
+    "target_ivps": 128,
+    "wall_seconds": 7200
+  },
+  "paid_review": "not_requested-human-approval-policy",
+  "section": {
+    "gate_upper": 0.0059833378137410485,
+    "offset": -0.027754584727718534
+  },
+  "source_paths": [
+    "docs/experiments/EXP-501-limiting-grazing-contact.md",
+    "experiments/manifests/EXP-501-limiting-grazing-contact.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/decimal_grazing.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/polynomial_census.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/audit_exp501_limiting_contact.py",
+    "scripts/exp500_census_analysis.py",
+    "scripts/exp501_analytic_controls.py",
+    "scripts/exp501_contact_analysis.py",
+    "scripts/run_exp501_limiting_contact.py",
+    "tests/test_decimal_grazing.py",
+    "tests/test_exp501_limiting_contact.py",
+    "uv.lock"
+  ],
+  "status": "prospective-outcome-informed-limiting-contact-pilot",
+  "symbolic_chains_verified": false,
+  "thresholds": {
+    "contact": "1e-4",
+    "prefix_cut": "0.05",
+    "prefix_state": "1e-9",
+    "prefix_time": "1e-12",
+    "root_residual": "1e-24",
+    "root_state": "1e-9",
+    "root_time": "1e-12",
+    "root_u": "1e-12"
+  }
+}

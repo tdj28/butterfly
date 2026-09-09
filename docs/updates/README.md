@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp501-limiting-contact.md`](2026-09-09-exp501-limiting-contact.md)
+  - All 38 integrations and sixteen limiting-boundary profiles audit cleanly;
+  none of 384 cycle-contact comparisons passes. The mismatch persists in the
+  limiting trajectory, not merely at finite perturbations.
 - [`2026-09-09-exp500-complete-polynomial-census.md`](2026-09-09-exp500-complete-polynomial-census.md)
   - All 239,072 stored-polynomial segments and 1,024 plane roots audited;
   complete classifications and accepted sequences agree at all 32 inputs.
