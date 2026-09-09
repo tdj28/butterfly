@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-495",
+  "status": "prospective-exploratory-saved-data-analysis",
+  "cases": ["local-a025-c083", "local-a027-c083"],
+  "methods": ["DOP853", "Radau"],
+  "phases": [0.25, 1.25],
+  "scales": [15.0, 15.0, 0.01],
+  "primary_radius": 0.0001,
+  "sensitivity_radii": [0.000001, 0.00001, 0.0001, 0.001],
+  "fold_candidates": 26,
+  "cycle_events": 6,
+  "maximum_new_integrations": 0,
+  "maximum_output_bytes": 16777216,
+  "paid_review": "not_requested-human-approval-policy",
+  "inputs": {
+    "experiments/manifests/EXP-490-candidates.json": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+    "docs/experiments/receipts/EXP-490-direct-fold-result.json": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "docs/experiments/receipts/EXP-494-periodic-transport-result.json": "801500bb27577cb32c9bd5908329204a95ffa8f32a4fe0eb1b55af42c4ed178d"
+  }
+}
