@@ -22,6 +22,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp497-contact-localization.md`](2026-09-09-exp497-contact-localization.md)
+  - All 179 target IVPs audited: the third interior point meets full-state
+  fold/cycle proximity in all sixteen variants while retaining primitive 6/8 counts.
 - [`2026-09-09-exp496-contact-endpoint.md`](2026-09-09-exp496-contact-endpoint.md)
   - All 124 trajectories audited: the first case has opposite-sign endpoints
   in all four representations; the second retains two input-conditioning failures.

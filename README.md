@@ -52,6 +52,12 @@ candidate checks, with explicit limits on what is reproduced.
   now reproduces all 78 sampled points but flags sixteen intervals for large
   return-time changes; the ten passing intervals match the qualified fold
   searches. Accurate points alone do not certify a continuous symbolic map.
+  The latest [contact localization](docs/updates/2026-09-09-exp497-contact-localization.md)
+  now finds a primitive six-return cycle close to one measured fold in the
+  full state, across all four representations and both solvers. This closes
+  one numerical gap, not the second critical point, C/D labels or a chain arrow.
+  The full raw evidence for this newest stage remains local pending publication
+  approval; its audited summary and figure are public.
 - The shrimp and periodic-window skeleton evolves coherently over eleven
   sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
   These are finite-time, single-initial-condition recurrence maps; unresolved
@@ -103,6 +109,15 @@ lower-period connections, and period doubling. It shows the historical claim
 we aim to test; it does not present those arrows as newly reproduced results.
 The decisive computed figure will join the parameter path, return geometry,
 corrected orbits, and predicted extra symbol in one window-to-window test.
+
+### A newly localized fold/cycle proximity point
+
+![Three dependent parameter refinements bring every measured fold/cycle pair inside the fixed full-state proximity radius at the third point.](docs/figures/EXP-497-contact-localization.png)
+
+The first two points fail the unchanged criterion; the third passes in both
+solvers and all curve representations, with primitive-period safeguards intact.
+This measured anchor supports the next branch-dictionary study. It does not
+already reproduce Jones's C/D words or insertion arrows.
 
 ### From broad parameter scans to individual shrimp
 

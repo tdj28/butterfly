@@ -1,6 +1,6 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-496 contact endpoints; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-497 local fold/cycle proximity; not a new audit of every row)
 
 This ledger separates the paper's claims from current conclusions. Literature
 assessments in the dated review are research leads until their primary sources
@@ -181,6 +181,18 @@ all parent/failed candidates remain accounted for. Neither lower endpoint is
 proximate. This nominates one interval, not an interior root, continuity proof,
 exact criticality, C/D or a Jones arrow.
 [Complete result, degeneracies and figure](updates/2026-09-09-exp496-contact-endpoint.md).
+
+**EXP-497 update:** all 179 retained target IVPs and the complete six-row ledger
+are audited. The third interior first-case point, a=.21558015990653545,
+b=.2, c=7.212, meets fixed-event-3 full-state input/next-return proximity across
+all four representations, both methods and both windows: worst mismatch
+2.60310352808e-5 against radius 1e-4. All three measured points retain primitive
+six/eight counts; the two earlier points fail proximity and all three second-case
+levels remain unrun. This is operational proximity to one finite-image-curve
+fold, not exact criticality, a zero flow multiplier, a doubly-superstable center,
+C/D, a second critical point or a Jones word/arrow. Full raw evidence is local;
+public trajectory replay remains unavailable pending publication approval.
+[Complete refinement, figure and claim boundary](updates/2026-09-09-exp497-contact-localization.md).
 
 **EXP-475 update to CLM-003:** a prospectively frozen, distinct collocation
 and eigenspace-endpoint formulation now reproduces the initial candidate

@@ -1,0 +1,172 @@
+{
+  "cases": [
+    "local-a025-c083",
+    "local-a027-c083"
+  ],
+  "experiment_id": "EXP-497",
+  "fold": {
+    "atol": 1e-15,
+    "controls": {
+      "counts": [
+        2,
+        3
+      ],
+      "kinds": [
+        "fold",
+        "no-fold",
+        "projection-degenerate"
+      ]
+    },
+    "extremum_margin": 1e-10,
+    "guard": 1e-08,
+    "iterations": 8,
+    "max_step": 0.001,
+    "root_determinant": 1e-10,
+    "root_plane": 1e-10,
+    "rtol": 1e-13,
+    "scales": [
+      15.0,
+      15.0,
+      0.01
+    ],
+    "solvers": [
+      "DOP853",
+      "Radau"
+    ],
+    "thresholds": {
+      "angle": 1e-07,
+      "curvature_relative_error": 0.001,
+      "minimum_gain": 0.0001,
+      "minimum_scaled_curvature": 1e-06,
+      "minimum_x_component": 0.001,
+      "plane": 1e-08,
+      "root_derivative": 1e-07,
+      "solver_u": 1e-09,
+      "state": 1e-06,
+      "time": 1e-07
+    }
+  },
+  "inputs": {
+    "docs/experiments/receipts/EXP-490-direct-fold-result.json": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "docs/experiments/receipts/EXP-494-periodic-transport-result.json": "801500bb27577cb32c9bd5908329204a95ffa8f32a4fe0eb1b55af42c4ed178d",
+    "docs/experiments/receipts/EXP-496-contact-endpoint-result.json": "c6ad2dca38df1e0628550b5f697252ce81e62cb47db9ae1dec9736d8c5ab3e6b",
+    "experiments/manifests/EXP-490-candidates.json": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+    "experiments/manifests/EXP-490-direct-folds.json": "6af6c16bd3ee2d88525f05db0264f5c0c7de6596d917843c633ac06f20c17fdb",
+    "experiments/manifests/EXP-496-candidates.json": "6bac72b0f7724e67a6df762bd4c24fdd394f4baf5c07ef16e6e3009423796701",
+    "experiments/manifests/EXP-496-contact-endpoint.json": "3bf857eadc5f33bdf438ec80f4fcee7eacd09bf0526aaea0cb690fd5e6c6afb9"
+  },
+  "levels": 3,
+  "limits": {
+    "initial_free_bytes": 12884901888,
+    "max_target_ivps": 512,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 2147483648,
+    "wall_seconds": 3600
+  },
+  "paid_review": "not-run-human-approval-policy",
+  "periodic": {
+    "atol": 1e-14,
+    "cases": [
+      "local-a025-c083",
+      "local-a027-c083"
+    ],
+    "correction_tolerance": 1e-11,
+    "experiment_id": "EXP-494",
+    "increments": {
+      "a": 0.0001,
+      "c": 0.002
+    },
+    "initial_free_bytes": 17179869184,
+    "max_evaluations": 30,
+    "max_step": 0.01,
+    "maximum_closure_error": 1e-09,
+    "maximum_ivps": 6000,
+    "maximum_output_bytes": 8589934592,
+    "maximum_paired_relative_period": 1e-07,
+    "maximum_paired_scaled_state": 1e-06,
+    "maximum_phase_residual": 1e-10,
+    "maximum_relative_period_step": 0.05,
+    "maximum_scaled_step": 0.25,
+    "maximum_seconds": 7200,
+    "methods": [
+      "DOP853",
+      "Radau"
+    ],
+    "minimum_free_bytes": 8589934592,
+    "paid_review": "not_requested-human-approval-policy",
+    "parent_receipt_sha256": "aa4556cdfbca2fa277c8e77daec00f01190e0a8bfde33d9977e5a594c58127b9",
+    "rtol": 1e-12,
+    "status": "prospectively-frozen-exploratory-transport",
+    "steps": 8
+  },
+  "primary_event": 3,
+  "primary_radius": 0.0001,
+  "sensitivity_radii": [
+    1e-06,
+    1e-05,
+    0.0001,
+    0.001
+  ],
+  "sign_floor": 1e-06,
+  "source_paths": [
+    "docs/experiments/EXP-494-periodic-winding-transport.md",
+    "docs/experiments/EXP-495-fold-cycle-membership.md",
+    "docs/experiments/EXP-496-contact-endpoint.md",
+    "docs/experiments/EXP-497-contact-localization.md",
+    "experiments/manifests/EXP-490-direct-folds.json",
+    "experiments/manifests/EXP-494-periodic-winding-transport.json",
+    "experiments/manifests/EXP-495-fold-cycle-membership.json",
+    "experiments/manifests/EXP-496-candidates.json",
+    "experiments/manifests/EXP-496-contact-endpoint.json",
+    "experiments/manifests/EXP-497-contact-localization.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp494_periodic_winding_transport.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp496_contact_endpoint.py",
+    "scripts/audit_exp497_contact_localization.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp494_periodic_winding_transport.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "scripts/run_exp497_contact_localization.py",
+    "tests/test_exp494_transport.py",
+    "tests/test_exp495_membership.py",
+    "tests/test_exp496_contact_endpoint.py",
+    "tests/test_exp497_contact_localization.py",
+    "tests/test_periodic_winding.py",
+    "uv.lock"
+  ]
+}
