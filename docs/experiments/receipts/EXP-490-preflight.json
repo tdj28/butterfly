@@ -1,0 +1,20 @@
+{
+  "experiment_id": "EXP-490",
+  "stage": "outcome-free-local-preflight",
+  "paid_review": "not_run",
+  "target_integrations": 0,
+  "focused_tests": {"passed": 15, "seconds": 15.41},
+  "full_suite": {"passed": 1933, "skipped": 1, "seconds": 130.14, "skip_reason": "Linux /proc process-identity test on macOS"},
+  "test_timing": "The full suite ran after the final numerical-code and test edits; only this preflight receipt was written while it ran. No target trajectories were run before the freeze.",
+  "analytic_controls": {"passed": 12, "total": 12, "counts": [2, 3], "methods": ["DOP853", "Radau"], "kinds": ["fold", "no-fold", "projection-degenerate"]},
+  "raw_controls_path": "artifacts/EXP-490/control-design-02.json",
+  "raw_controls_sha256": "721f6b318d1088c9e5e3b797f694e317e6b7c6c13f203f0caaff19c92ca89021",
+  "candidates_sha256": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+  "complete_input_matrix": {"candidates": 26, "families": 16, "solver_profiles": 52},
+  "development_incidents": [
+    "Four positive synthetic controls initially failed the unchanged target x-projection metric. Their analytic z coordinate was rescaled by .01, preserving exact x dynamics and fold locations. No target threshold or target initial condition was changed. The failed first development controls were printed, not retained as a raw file; the second full control matrix is hash-bound here.",
+    "A nonfinite-input unit test exposed an unused NaN component not rejected by the algebra helper. Complete shape/finiteness validation was added before targets.",
+    "A pre-outcome audit found that an integration-failure trace lacked its retained trajectory identity. The failure record and its raw-evidence replay regression were added before targets."
+  ],
+  "local_audit": "Complete historical candidate identity, independent componentwise Rossler algebra, exact analytic event curvature, genuine fold versus stationary inflection, missing/uncertain events, altered settings, negative controls, and auditable integration failures. Same-agent local audit, not independent peer review."
+}

@@ -1,0 +1,1874 @@
+[
+  {
+    "case": "local-a025-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 5,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0005--DOP853.json",
+        "sha256": "d12c6535a6184df0dd07cd066394e2490ae3cc26967c5b168b07534e59dbe422",
+        "time": 38.41029638052376
+      },
+      {
+        "grid_index": 5,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0005--Radau.json",
+        "sha256": "c32603311c0cbe74e6418a05c2cad466c4098c65d1d2536f020b3973edb60e3d",
+        "time": 38.41029638052251
+      },
+      {
+        "grid_index": 6,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0006--DOP853.json",
+        "sha256": "a57bda47decefc0f9a9ea4d94a7a5d0726274553e438ff82d3a1ef4e8e31f2a7",
+        "time": 32.16141047828923
+      },
+      {
+        "grid_index": 6,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0006--Radau.json",
+        "sha256": "484bf09e17b6a61d7b76a3ebaec8fe3e987e5b7e21fd91f797acaefb7ad0e619",
+        "time": 32.16141047827096
+      }
+    ],
+    "horizon": 40.91029638052376,
+    "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+    "indices": [
+      5,
+      6
+    ],
+    "initial_state": [
+      -6.368736994544714,
+      -0.027754602898589237,
+      0.014763327612257782
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 35.28585342940161,
+    "seed_u": -0.006420412266222742,
+    "time_box": [
+      31.66141047827096,
+      38.91029638052376
+    ],
+    "u_box": [
+      -0.0077044947194672905,
+      -0.005136329812978194
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0008--DOP853.json",
+        "sha256": "b9714b2d2473088bdeb79e2c7a8c91143648d4d0c097a5fa79a9a3939d8e8bed",
+        "time": 32.727522064022054
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0008--Radau.json",
+        "sha256": "7736a3818e6dc658ac355568e75292c6ca1b09808f03c76077df42a7132a5072",
+        "time": 32.727522064017
+      },
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0009--DOP853.json",
+        "sha256": "ead0cba039314162d18775ad289ad01bf800fcf380a6491fae0da8731d4805f5",
+        "time": 28.83356015622909
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-0--eval-0009--Radau.json",
+        "sha256": "26c78bb137ee1aebfacd84427834d2843ea0c667acd946a27d6b81e26966c69d",
+        "time": 28.833560156229687
+      }
+    ],
+    "horizon": 35.227522064022054,
+    "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+    "indices": [
+      8,
+      9
+    ],
+    "initial_state": [
+      -6.368736994544714,
+      -0.027754602898589237,
+      0.014763327612257782
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 30.780541110124453,
+    "seed_u": 0.0012840824532445484,
+    "time_box": [
+      28.33356015622909,
+      33.227522064022054
+    ],
+    "u_box": [
+      0.0,
+      0.002568164906489097
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 5,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0005--DOP853.json",
+        "sha256": "4c9cb0e98a0f333e05f4be7090b6b9b20da4e535d9cfca96ca5adfa2b4bf3c03",
+        "time": 38.410296132844806
+      },
+      {
+        "grid_index": 5,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0005--Radau.json",
+        "sha256": "b6ff4a5155da09e0bdcf04b53ee12c80ee666595831800f079357e8f29ba18a0",
+        "time": 38.41029613284478
+      },
+      {
+        "grid_index": 6,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0006--DOP853.json",
+        "sha256": "918865cf648b5e283ecbe98ea42836f6956e6ab6f7e9c28c1f6db08b715811ad",
+        "time": 32.16140989171617
+      },
+      {
+        "grid_index": 6,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0006--Radau.json",
+        "sha256": "6c11883f7c31fdd605a00407259afd736942d2d0caa5cf12a7e3f46cc3b54a11",
+        "time": 32.16140989170888
+      }
+    ],
+    "horizon": 40.910296132844806,
+    "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+    "indices": [
+      5,
+      6
+    ],
+    "initial_state": [
+      -6.368736994544714,
+      -0.027754602898589237,
+      0.014763327612257782
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 35.28585301227866,
+    "seed_u": -0.00908027859423156,
+    "time_box": [
+      31.661409891708878,
+      38.910296132844806
+    ],
+    "u_box": [
+      -0.010896334313077873,
+      -0.007264222875385248
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0008--DOP853.json",
+        "sha256": "867a166ce4aec183ee713f40582435a7d69f094b1f99286339471707a67888cb",
+        "time": 32.72752206402199
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0008--Radau.json",
+        "sha256": "bd2d5766ed9687903c75c96e8697393902ce06886fb6d940716e339dedb1f237",
+        "time": 32.727522064017926
+      },
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0009--DOP853.json",
+        "sha256": "042110a4570cda669367668e6fa066107abe88919273fe4167abcc44629cb4b7",
+        "time": 28.833560169848063
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-4--direction-1--eval-0009--Radau.json",
+        "sha256": "58d5e7ee835d13bce4c9966b75319f0f225f13ebfb88e37332d4c88b25baea39",
+        "time": 28.833560169848372
+      }
+    ],
+    "horizon": 35.22752206402199,
+    "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+    "indices": [
+      8,
+      9
+    ],
+    "initial_state": [
+      -6.368736994544714,
+      -0.027754602898589237,
+      0.014763327612257782
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 30.78054111693409,
+    "seed_u": 0.001816055718846311,
+    "time_box": [
+      28.333560169848063,
+      33.22752206402199
+    ],
+    "u_box": [
+      0.0,
+      0.003632111437692622
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 7,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0007--DOP853.json",
+        "sha256": "39169e5936f086f02271dc3cc506395077bcd28c89408f854b2fdf969ee7db98",
+        "time": 52.18281333929827
+      },
+      {
+        "grid_index": 7,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0007--Radau.json",
+        "sha256": "8cfb44fea403acd2ced51813bbac3b03d5c55169c8ca97e570f5d12f46dcb3fe",
+        "time": 52.18281333929595
+      },
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0008--DOP853.json",
+        "sha256": "de7501e6e50e7330566335bda93ac19c95d8f8299603f0b34b553ae2662bb7b2",
+        "time": 56.0927112374314
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0008--Radau.json",
+        "sha256": "42d929238e8cbc6a4053b0927cd99877e2222aefe77b43f6808b3d47b5c2c7ab",
+        "time": 56.09271123741271
+      }
+    ],
+    "horizon": 58.5927112374314,
+    "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+    "indices": [
+      7,
+      8
+    ],
+    "initial_state": [
+      -5.925589433696137,
+      -0.027754602898590924,
+      0.0152623585954803
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 54.13776228835959,
+    "seed_u": -0.000219719477003729,
+    "time_box": [
+      51.68281333929595,
+      56.5927112374314
+    ],
+    "u_box": [
+      -0.000439438954007458,
+      0.0
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0009--DOP853.json",
+        "sha256": "d6d76c2a011e9a69bda7d44969de271cc993217f2783a3cada440c7ef8fd0bb8",
+        "time": 55.83948442481682
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0009--Radau.json",
+        "sha256": "776a8c88998415c9f5baaf35f7d98a4762601603768c318d4b2274664fcc18e4",
+        "time": 55.83948442480093
+      },
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0010--DOP853.json",
+        "sha256": "7e5129b4e28fc8242609900d66e9d5352bf9ceb2ef3724e5cd407a3abeb7c33d",
+        "time": 61.963710607753924
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-0--eval-0010--Radau.json",
+        "sha256": "e73e0994e857b1e9c905f3dbf06bb46bac690c3bc4add50438d639cd80a21c67",
+        "time": 61.96371060774186
+      }
+    ],
+    "horizon": 64.46371060775392,
+    "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+    "indices": [
+      9,
+      10
+    ],
+    "initial_state": [
+      -5.925589433696137,
+      -0.027754602898590924,
+      0.0152623585954803
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 58.901597516278386,
+    "seed_u": 0.0006591584310111872,
+    "time_box": [
+      55.33948442480093,
+      62.463710607753924
+    ],
+    "u_box": [
+      0.000439438954007458,
+      0.0008788779080149164
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 7,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0007--DOP853.json",
+        "sha256": "abfd6732c7a2d242e9bbe61f93a9c0627ed91bbe0ceeda29b41372c55034aa1c",
+        "time": 52.182813336135546
+      },
+      {
+        "grid_index": 7,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0007--Radau.json",
+        "sha256": "7b37cabbf8e9269edeb0e190243da4ef8a01b196d48fb42662592f922bd262be",
+        "time": 52.18281333613335
+      },
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0008--DOP853.json",
+        "sha256": "44fb73f0c06a7ec2f1fcfb23247ffcb9e3be5281185ccdd8c5c95c068e7cc173",
+        "time": 56.09271123743134
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0008--Radau.json",
+        "sha256": "c1951a9ce6bb491b57adcefb23110fbba07af30cfaedea2e20f51e80f2b1dae1",
+        "time": 56.092711237413134
+      }
+    ],
+    "horizon": 58.59271123743134,
+    "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+    "indices": [
+      7,
+      8
+    ],
+    "initial_state": [
+      -5.925589433696137,
+      -0.027754602898590924,
+      0.0152623585954803
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 54.13776228677834,
+    "seed_u": -0.0003107459841289943,
+    "time_box": [
+      51.68281333613335,
+      56.59271123743134
+    ],
+    "u_box": [
+      -0.0006214919682579886,
+      0.0
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0009--DOP853.json",
+        "sha256": "939a3b19f7c6e512663d03c3569ba7c45d8a861a136fc0ab043586f051ec358e",
+        "time": 55.83948443538702
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0009--Radau.json",
+        "sha256": "a4a724c8ab66cb70b91f0bfa6c5015964dcbac0f5722eec052ff96d879722a00",
+        "time": 55.839484435370444
+      },
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0010--DOP853.json",
+        "sha256": "f7387d1f4998b8b26e849a671970b07cde57c5512c845478ad689212dceb468a",
+        "time": 61.963710635214106
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-0--depth-8--direction-1--eval-0010--Radau.json",
+        "sha256": "7b8ce5f236f297161871c52dcc14de78697fc80e1e98fe7ed360e0d542f893e7",
+        "time": 61.9637106352003
+      }
+    ],
+    "horizon": 64.46371063521411,
+    "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+    "indices": [
+      9,
+      10
+    ],
+    "initial_state": [
+      -5.925589433696137,
+      -0.027754602898590924,
+      0.0152623585954803
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -11.763248900930709,
+      -11.300597026321562
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 58.90159753529297,
+    "seed_u": 0.0009322379523869829,
+    "time_box": [
+      55.339484435370444,
+      62.463710635214106
+    ],
+    "u_box": [
+      0.0006214919682579886,
+      0.0012429839365159772
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-0--eval-0010--DOP853.json",
+        "sha256": "d231ea689929afe194a3e4fa702f25a26decceb15dce1012e8747419902651da",
+        "time": 29.756005901397685
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-0--eval-0010--Radau.json",
+        "sha256": "7789365a498086e0e89a9a5b2ab413ba9147b5e78276b51c6614088fb7ccb3dc",
+        "time": 29.756005901397717
+      },
+      {
+        "grid_index": 11,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-0--eval-0011--DOP853.json",
+        "sha256": "3469360a5adbc556357f2c88814c5aef2071fe2aefb6f64f675442e62779b883",
+        "time": 29.774686598679157
+      },
+      {
+        "grid_index": 11,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-0--eval-0011--Radau.json",
+        "sha256": "2c4f2326f2cb95f23469dc4d8c7e98b2d1cd3594501a8c9a4880c504cec6e066",
+        "time": 29.77468659867879
+      }
+    ],
+    "horizon": 32.27468659867915,
+    "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+    "indices": [
+      10,
+      11
+    ],
+    "initial_state": [
+      -5.888791282291216,
+      -0.027754602898588835,
+      0.015305312887038047
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -6.982439672264078,
+      -6.603948401198779
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 29.765346250038334,
+    "seed_u": 0.0022733612208601355,
+    "time_box": [
+      29.256005901397685,
+      30.274686598679157
+    ],
+    "u_box": [
+      0.0018186889766881086,
+      0.0027280334650321625
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-1--eval-0010--DOP853.json",
+        "sha256": "850fb71a3f480430a269d368d56629e0ff5b6fd9f84c44d00cf45421437a688f",
+        "time": 29.75600591519009
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-1--eval-0010--Radau.json",
+        "sha256": "73a382e5572d232a11d8a2c15da031dde8e2bb4fa6df29717a2be0cd39213497",
+        "time": 29.756005915190002
+      },
+      {
+        "grid_index": 11,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-1--eval-0011--DOP853.json",
+        "sha256": "6d4731aa9991d5ae86bb9c77d810e9a8169594a4bee6076721440e8e804d7d8b",
+        "time": 29.774686617408516
+      },
+      {
+        "grid_index": 11,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-4--direction-1--eval-0011--Radau.json",
+        "sha256": "648fecd66b537044a02259725d139c0dd2e9f99e902117ebb92d86f8748aaad6",
+        "time": 29.774686617408527
+      }
+    ],
+    "horizon": 32.27468661740853,
+    "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+    "indices": [
+      10,
+      11
+    ],
+    "initial_state": [
+      -5.888791282291216,
+      -0.027754602898588835,
+      0.015305312887038047
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -6.982439672264078,
+      -6.603948401198779
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 29.765346266299282,
+    "seed_u": 0.003215181370911299,
+    "time_box": [
+      29.256005915190002,
+      30.274686617408527
+    ],
+    "u_box": [
+      0.0025721450967290393,
+      0.003858217645093559
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 5,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--DOP853.json",
+        "sha256": "7a0bde4ec34c41460bb8286d72029038061c7175d3caba51fff8bd2d90b3967d",
+        "time": 52.82958465884396
+      },
+      {
+        "grid_index": 5,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--Radau.json",
+        "sha256": "69fef384c46f52668e488a27429f19c2e9d3545ae29a06e2bddbd57eaa7ca4d2",
+        "time": 52.82958465884195
+      },
+      {
+        "grid_index": 6,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--DOP853.json",
+        "sha256": "0321488bb19a9e35a28c8be9a5f3df508cadbddeb27c533c4b7a4faa98c01bda",
+        "time": 52.825999294667454
+      },
+      {
+        "grid_index": 6,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--Radau.json",
+        "sha256": "cc05861dfc22ea6474e7ae8603cdafc7e37828bf8bb6cf7c9f1eaa13c2800265",
+        "time": 52.825999294660996
+      }
+    ],
+    "horizon": 55.32958465884396,
+    "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+    "indices": [
+      5,
+      6
+    ],
+    "initial_state": [
+      -6.041976500152095,
+      -0.027754602898590042,
+      0.015128068056200669
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -6.982439672264078,
+      -6.603948401198779
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 52.827791976753595,
+    "seed_u": -0.0009259832685142777,
+    "time_box": [
+      52.325999294660996,
+      53.32958465884396
+    ],
+    "u_box": [
+      -0.0011111799222171333,
+      -0.000740786614811422
+    ]
+  },
+  {
+    "case": "local-a025-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 5,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0005--DOP853.json",
+        "sha256": "32bae3c69c7fdc8fd707842ad2ab75ae6af3df0ac1e938886e22bb12a45991af",
+        "time": 52.82958464897803
+      },
+      {
+        "grid_index": 5,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0005--Radau.json",
+        "sha256": "d4e30a74c41e577e31f8328e69053bfcc07038ac8340f30bd9458ca41b005277",
+        "time": 52.82958464897293
+      },
+      {
+        "grid_index": 6,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0006--DOP853.json",
+        "sha256": "ee5b4cb1351918b541739b6674e66519490904a1ccb4bcfc29753ac9734ec597",
+        "time": 52.82599928820386
+      },
+      {
+        "grid_index": 6,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0006--Radau.json",
+        "sha256": "ffa7093ad94e46bae5b841b8b6cb6e9e993f1049ffa1555e5d4d9bba1dd1399d",
+        "time": 52.82599928820109
+      }
+    ],
+    "horizon": 55.32958464897803,
+    "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+    "indices": [
+      5,
+      6
+    ],
+    "initial_state": [
+      -6.041976500152095,
+      -0.027754602898590042,
+      0.015128068056200669
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -6.982439672264078,
+      -6.603948401198779
+    ],
+    "parameters": {
+      "a": 0.21575,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 52.82779196858898,
+    "seed_u": -0.00130960376995692,
+    "time_box": [
+      52.32599928820109,
+      53.32958464897803
+    ],
+    "u_box": [
+      -0.001571524523948304,
+      -0.001047683015965536
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-0--eval-0009--DOP853.json",
+        "sha256": "91297916ebd23886ca6e66ba7e12a25eaebbc11f463816a4f950b20c97570544",
+        "time": 26.998151900551274
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-0--eval-0009--Radau.json",
+        "sha256": "0ea37d94195047971231b240afb77d601f3dc2ddbdda2959702f10dd04d9daaa",
+        "time": 26.9981519005493
+      },
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-0--eval-0010--DOP853.json",
+        "sha256": "ff2ca2bc1a15a0b8169d627c045eb269f034ee57ae74a89398b4faed1f503685",
+        "time": 33.21612329277591
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-0--eval-0010--Radau.json",
+        "sha256": "3f8a8867a20b0f0707698d317091e48abb6e71823e7026030944fab36df237b6",
+        "time": 33.216123292774576
+      }
+    ],
+    "horizon": 35.71612329277591,
+    "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+    "indices": [
+      9,
+      10
+    ],
+    "initial_state": [
+      -11.086757401464633,
+      -0.02775460503834921,
+      0.010949003098297395
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -11.762979530934055,
+      -11.33495446771254
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 30.107137596662767,
+    "seed_u": 0.002669518231871072,
+    "time_box": [
+      26.4981519005493,
+      33.71612329277591
+    ],
+    "u_box": [
+      0.0017796788212473807,
+      0.003559357642494763
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-1--eval-0009--DOP853.json",
+        "sha256": "95650494fbcb713a6439f1d346bf7ba445957a732da51c60b8fde2c7a63399a4",
+        "time": 26.998151914352768
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-1--eval-0009--Radau.json",
+        "sha256": "6e784ce477d99be7dca9b6c7380f2f66cb3a80c1d0e6d55d6ef93068bc6c712a",
+        "time": 26.998151914343573
+      },
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-1--eval-0010--DOP853.json",
+        "sha256": "1155addf6223111b97c33bcee70dc5013e45ee6947a932f259d1e7e8d68465d2",
+        "time": 33.21612332526429
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-4--direction-1--eval-0010--Radau.json",
+        "sha256": "0be3299572534428b27b3c1f8827a5fc04c5d7d4e4c5ddc2b26d305fe1137453",
+        "time": 33.21612332525858
+      }
+    ],
+    "horizon": 35.71612332526429,
+    "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+    "indices": [
+      9,
+      10
+    ],
+    "initial_state": [
+      -11.086757401464633,
+      -0.02775460503834921,
+      0.010949003098297395
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -11.762979530934055,
+      -11.33495446771254
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 30.107137619804803,
+    "seed_u": 0.0037754062791335846,
+    "time_box": [
+      26.498151914343573,
+      33.71612332526429
+    ],
+    "u_box": [
+      0.002516937519422391,
+      0.005033875038844778
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-0--eval-0009--DOP853.json",
+        "sha256": "0ba83491f0d69a7df1fe4820c29caf507682d98662d4bc6f7dad44801580c353",
+        "time": 49.62022263610807
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-0--eval-0009--Radau.json",
+        "sha256": "d9e71d94fcb248d9c12e9910f2f69705a412fa1a52a24f2d393130fc1b370950",
+        "time": 49.62022263610381
+      },
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-0--eval-0010--DOP853.json",
+        "sha256": "05143fe89c8f8afba195ab1d59fe6c74d72605a0c91f0af5c55c0b15de2f6448",
+        "time": 55.858410598301965
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-0--eval-0010--Radau.json",
+        "sha256": "4ac668d2454e8c77babbb64a77929ae2781e3a355d43bed9c15ddfd801bc1fd7",
+        "time": 55.85841059829957
+      }
+    ],
+    "horizon": 58.358410598301965,
+    "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+    "indices": [
+      9,
+      10
+    ],
+    "initial_state": [
+      -11.463855252893572,
+      -0.027754605038353704,
+      0.010727403350538645
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -11.762979530934055,
+      -11.33495446771254
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 52.73931661720335,
+    "seed_u": 0.0008906061961226268,
+    "time_box": [
+      49.12022263610381,
+      56.358410598301965
+    ],
+    "u_box": [
+      0.0005937374640817509,
+      0.0011874749281635026
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-1--eval-0009--DOP853.json",
+        "sha256": "981296e77b013ed151498f8712639bafc2b85444f5cffa5b21582ad131b72cc6",
+        "time": 49.62022264009567
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-1--eval-0009--Radau.json",
+        "sha256": "aea4930fcbe068a38b7aa1cbd4f5efb46bfe4ead1d7764369fa4dd75ed745a94",
+        "time": 49.62022264008702
+      },
+      {
+        "grid_index": 10,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-1--eval-0010--DOP853.json",
+        "sha256": "4e73e07c243f8983ae2e508aa091c3f433e8f8ffd4e1210ffdbe276e2ec93621",
+        "time": 55.85841060712666
+      },
+      {
+        "grid_index": 10,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-0--depth-8--direction-1--eval-0010--Radau.json",
+        "sha256": "6c24af65dd41242d8baa8eac6bc02d721b6524a59c62de87646fdb933e1985ec",
+        "time": 55.85841060712197
+      }
+    ],
+    "horizon": 58.35841060712666,
+    "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+    "indices": [
+      9,
+      10
+    ],
+    "initial_state": [
+      -11.463855252893572,
+      -0.027754605038353704,
+      0.010727403350538645
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -11.762979530934055,
+      -11.33495446771254
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 0,
+    "seed_time": 52.739316623607834,
+    "seed_u": 0.0012595522751428457,
+    "time_box": [
+      49.12022264008702,
+      56.35841060712666
+    ],
+    "u_box": [
+      0.0008397015167618972,
+      0.0016794030335237943
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-0--eval-0008--DOP853.json",
+        "sha256": "0b50cdb9fcad2d8d58d76e8e6dc5ef9859689d20ad3258886748789b582692b0",
+        "time": 34.75319086717633
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-0--eval-0008--Radau.json",
+        "sha256": "ac66d8c815b5ab75dba19e1adfc8b3e29f23369e2a47bdf166e034d1aadc2d23",
+        "time": 34.75319086717651
+      },
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-0--eval-0009--DOP853.json",
+        "sha256": "cdcbdf8dd5e83e6354ec44438855642f3d732c9f7449852c88f5f07ec88fa004",
+        "time": 34.73325727030674
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-0--eval-0009--Radau.json",
+        "sha256": "4c37d953e6c672e98b204597e48a956e86b94fe3a2b7a1211d909194b0600b13",
+        "time": 34.73325727030669
+      }
+    ],
+    "horizon": 37.25319086717651,
+    "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+    "indices": [
+      8,
+      9
+    ],
+    "initial_state": [
+      -3.665228430790503,
+      -0.02775460503835655,
+      0.018438027190509722
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 34.74322406874156,
+    "seed_u": 0.0005358399591606248,
+    "time_box": [
+      34.23325727030669,
+      35.25319086717651
+    ],
+    "u_box": [
+      0.0,
+      0.0010716799183212496
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 5,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-1--eval-0008--DOP853.json",
+        "sha256": "36cc3307af77864b1c54c127e4ae649ab67f0149d7e4c980f55c23640ce58b66",
+        "time": 34.75319086717633
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-1--eval-0008--Radau.json",
+        "sha256": "c8febfd081baa8dbf57dd614c579e39a70d41fc49b3a1d30a81bf5ea35e09187",
+        "time": 34.75319086717651
+      },
+      {
+        "grid_index": 9,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-1--eval-0009--DOP853.json",
+        "sha256": "cd6a4f4baa9154c0af85de9bd273861fd816da3390eeeefe2b197a39e39188de",
+        "time": 34.73325729640265
+      },
+      {
+        "grid_index": 9,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-4--direction-1--eval-0009--Radau.json",
+        "sha256": "a58b99e166e4395f0c20ed3fa76972dde8d61116516c016d917f327e00bc6249",
+        "time": 34.73325729640296
+      }
+    ],
+    "horizon": 37.25319086717651,
+    "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+    "indices": [
+      8,
+      9
+    ],
+    "initial_state": [
+      -3.665228430790503,
+      -0.02775460503835655,
+      0.018438027190509722
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 34.74322408178961,
+    "seed_u": 0.000757838330405442,
+    "time_box": [
+      34.23325729640265,
+      35.25319086717651
+    ],
+    "u_box": [
+      0.0,
+      0.001515676660810884
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 5,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0005--DOP853.json",
+        "sha256": "149021ebe1c1968788c8bcdec70eb879b3d343bd79aae3912ef22c15e7fad128",
+        "time": 60.72891257450651
+      },
+      {
+        "grid_index": 5,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0005--Radau.json",
+        "sha256": "5ee80dab3d6efca1eaddd33e026953779c929ab9b700404f1c7094a3925811b5",
+        "time": 60.72891257450423
+      },
+      {
+        "grid_index": 6,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0006--DOP853.json",
+        "sha256": "5f59d815190a2155e11c931d65050cf3e8b140025a766d15860cde5ee67db919",
+        "time": 66.51450508429295
+      },
+      {
+        "grid_index": 6,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0006--Radau.json",
+        "sha256": "3cb3b3460df01dddb95166eca00504b09c199d43f49a678119e7fc6f241d27c5",
+        "time": 66.51450508429161
+      }
+    ],
+    "horizon": 69.01450508429295,
+    "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+    "indices": [
+      5,
+      6
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 63.62170882939883,
+    "seed_u": -0.004315969148207467,
+    "time_box": [
+      60.22891257450423,
+      67.01450508429295
+    ],
+    "u_box": [
+      -0.005179162977848961,
+      -0.003452775318565974
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 7,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0007--DOP853.json",
+        "sha256": "9b3fdff69a55447ed4e95db52c403f46c138fbffbef01047d5d23974082992b1",
+        "time": 66.45824892600575
+      },
+      {
+        "grid_index": 7,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0007--Radau.json",
+        "sha256": "1ae075ab8e7d9bbad9722654750083a7b5fc7c987160117bbfa2cb5c482d1ca7",
+        "time": 66.45824892600793
+      },
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0008--DOP853.json",
+        "sha256": "b997fe58f1e203eddcd42e96a91120e2fbdf8bb07b3c8f2cea28c8afde5a0adc",
+        "time": 66.53385891846175
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0008--Radau.json",
+        "sha256": "e22ec23bd0f68c5dab91946f0ef89c7be040503eb50cd0b5aae28612f2fd6d0a",
+        "time": 66.5338589184649
+      }
+    ],
+    "horizon": 69.0338589184649,
+    "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+    "indices": [
+      7,
+      8
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 66.49605392223508,
+    "seed_u": -0.0008631938296414935,
+    "time_box": [
+      65.95824892600575,
+      67.0338589184649
+    ],
+    "u_box": [
+      -0.001726387659282987,
+      0.0
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 11,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0011--DOP853.json",
+        "sha256": "599204b47e3e4f29845650d9daeef90d31b96cd66ea25a3223d92bacbb161479",
+        "time": 66.78779072852807
+      },
+      {
+        "grid_index": 11,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0011--Radau.json",
+        "sha256": "af3ac32f90c0aa3623a6970d257795b8b9ca33e2987254e660446acd3f028dee",
+        "time": 66.78779072852595
+      },
+      {
+        "grid_index": 12,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0012--DOP853.json",
+        "sha256": "d14b49bc1798cd921da59e7d0aecd196bc4107a878a0fca919389b1971c98e2c",
+        "time": 67.22420057979066
+      },
+      {
+        "grid_index": 12,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0012--Radau.json",
+        "sha256": "6478676f6027ab87773d5a19c3d3c753b6eb7e509ee2b72c3ef3dfe087a00d1b",
+        "time": 67.2242005797884
+      }
+    ],
+    "horizon": 69.72420057979066,
+    "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+    "indices": [
+      11,
+      12
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 67.00599565415826,
+    "seed_u": 0.0060423568074904534,
+    "time_box": [
+      66.28779072852595,
+      67.72420057979066
+    ],
+    "u_box": [
+      0.005179162977848961,
+      0.006905550637131946
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+    "historical_endpoints": [
+      {
+        "grid_index": 15,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0015--DOP853.json",
+        "sha256": "2f2ed6b647547cea09f285f9be6be678d56b393b5bb9a4feb73b6c3f5ab33cc1",
+        "time": 56.35332621854178
+      },
+      {
+        "grid_index": 15,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0015--Radau.json",
+        "sha256": "557e90c8e2d94e23c9c80ad5220dcdc583e44aa4821acfc2436847492d6bb5fc",
+        "time": 56.353326218532864
+      },
+      {
+        "grid_index": 16,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0016--DOP853.json",
+        "sha256": "d48a53084761f33ef03ae3b9061d1489f5d3998f05c8d412ebae00e1775f7ae2",
+        "time": 50.20984619209948
+      },
+      {
+        "grid_index": 16,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-0--eval-0016--Radau.json",
+        "sha256": "0a283059d121548a71d630153cb3f83c32cc8b43d962cdf35b7baacd867a7c07",
+        "time": 50.20984619209142
+      }
+    ],
+    "horizon": 58.85332621854178,
+    "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+    "indices": [
+      15,
+      16
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      15.0,
+      0.0,
+      0.0
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 53.28158620531638,
+    "seed_u": 0.012947907444622401,
+    "time_box": [
+      49.70984619209142,
+      56.85332621854178
+    ],
+    "u_box": [
+      0.012084713614980909,
+      0.013811101274263894
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 5,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0005--DOP853.json",
+        "sha256": "15f71cf530dad3375e489b4d8b9379d7e5e44ec4150c06766b09d338d59e0316",
+        "time": 60.72891289539951
+      },
+      {
+        "grid_index": 5,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0005--Radau.json",
+        "sha256": "1c5a9bde3869d3c08d73d4b009a6761a7269292f993589bf0dc10bf259e4d4df",
+        "time": 60.72891289539615
+      },
+      {
+        "grid_index": 6,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0006--DOP853.json",
+        "sha256": "f6634bca51743affb0f1ad677582f3a91afec82458f8d6ae01a3f3e388cff4d9",
+        "time": 66.51450512251152
+      },
+      {
+        "grid_index": 6,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0006--Radau.json",
+        "sha256": "f2e1629c0886af6baac4c8c04eb756a4dbaa5ba02551129b96c9f1464968f97d",
+        "time": 66.51450512251022
+      }
+    ],
+    "horizon": 69.01450512251152,
+    "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+    "indices": [
+      5,
+      6
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 63.621709008954355,
+    "seed_u": -0.0061039168119841536,
+    "time_box": [
+      60.22891289539615,
+      67.01450512251152
+    ],
+    "u_box": [
+      -0.007324700174380984,
+      -0.0048831334495873235
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 7,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0007--DOP853.json",
+        "sha256": "d248943f177a51906dffba7dfdd8c278b932eaa03af9bcb0e5d26fa5460cefe4",
+        "time": 66.4582489188627
+      },
+      {
+        "grid_index": 7,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0007--Radau.json",
+        "sha256": "6db409ddf8651485484c68b6e170dc03d8c31fbb26a7eb9a13c201430ce0b9c2",
+        "time": 66.45824891886566
+      },
+      {
+        "grid_index": 8,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0008--DOP853.json",
+        "sha256": "c4e02873d55ce26d703b2319a85546d16d806ab4e99ff5df17fcdf49b1017f90",
+        "time": 66.53385891846172
+      },
+      {
+        "grid_index": 8,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0008--Radau.json",
+        "sha256": "5f887f52cbde31765fc151ad2961187aa28209c6c321f79d15b6ee4c27c6ddd6",
+        "time": 66.53385891846533
+      }
+    ],
+    "horizon": 69.03385891846533,
+    "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+    "indices": [
+      7,
+      8
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 66.49605391866385,
+    "seed_u": -0.0012207833623968309,
+    "time_box": [
+      65.9582489188627,
+      67.03385891846533
+    ],
+    "u_box": [
+      -0.0024415667247936618,
+      0.0
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 11,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0011--DOP853.json",
+        "sha256": "15032f3e25de2d2cde35b1a6b1703ae8e58541cc5956fdf19fd24b2dd11b23ff",
+        "time": 66.78779060211765
+      },
+      {
+        "grid_index": 11,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0011--Radau.json",
+        "sha256": "085f12f9db0a696871ab4b34342f48be0da49c4c54d7136cb9d24f2e07de1b72",
+        "time": 66.78779060211599
+      },
+      {
+        "grid_index": 12,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0012--DOP853.json",
+        "sha256": "a19d19cd21e93498a6e92f6b8e921bb482d174efd420ba7c5c3a59187c31f63a",
+        "time": 67.22420017063041
+      },
+      {
+        "grid_index": 12,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0012--Radau.json",
+        "sha256": "93c135732ae71f9a78669636f0e4db3b7adbf073435fb36864afaf2360e4f2d6",
+        "time": 67.2242001706273
+      }
+    ],
+    "horizon": 69.72420017063041,
+    "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+    "indices": [
+      11,
+      12
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 67.00599538637283,
+    "seed_u": 0.008545483536777814,
+    "time_box": [
+      66.28779060211599,
+      67.72420017063041
+    ],
+    "u_box": [
+      0.007324700174380985,
+      0.009766266899174644
+    ]
+  },
+  {
+    "case": "local-a027-c083",
+    "count": 9,
+    "epsilon": 1e-06,
+    "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+    "historical_endpoints": [
+      {
+        "grid_index": 15,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0015--DOP853.json",
+        "sha256": "4495e744fed156f6213c97e975f41640e42ad99105d74e99aace9f17ae2c30f1",
+        "time": 56.35332553416822
+      },
+      {
+        "grid_index": 15,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0015--Radau.json",
+        "sha256": "28714337aecc07b0ddb0d2e219ee997fb1c55e8cc5eb687d591001d479562eae",
+        "time": 56.353325534156276
+      },
+      {
+        "grid_index": 16,
+        "method": "DOP853",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0016--DOP853.json",
+        "sha256": "b514d62e97bf2ffe410a245d8f057cfa2bfe3601f4fa74b7f9685a50c865c441",
+        "time": 50.20984608560631
+      },
+      {
+        "grid_index": 16,
+        "method": "Radau",
+        "path": "artifacts/EXP-486/target-098e58a/trials/local-a027-c083--region-1--depth-8--direction-1--eval-0016--Radau.json",
+        "sha256": "89a604000a05f3b0866ec51327dc8d961ec1ff71315b5f903861289c02002876",
+        "time": 50.209846085595274
+      }
+    ],
+    "horizon": 58.85332553416822,
+    "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+    "indices": [
+      15,
+      16
+    ],
+    "initial_state": [
+      -11.721210784997831,
+      -0.027754605038349894,
+      0.010581247009824359
+    ],
+    "initial_tangent": [
+      10.606601717798211,
+      0.0,
+      0.0070710678118654745
+    ],
+    "old_x_interval": [
+      -7.123043220104579,
+      -6.829829056109014
+    ],
+    "parameters": {
+      "a": 0.21577,
+      "b": 0.2,
+      "c": 7.212
+    },
+    "region": 1,
+    "seed_time": 53.28158580988152,
+    "seed_u": 0.01831175043595246,
+    "time_box": [
+      49.709846085595274,
+      56.85332553416822
+    ],
+    "u_box": [
+      0.01709096707355563,
+      0.01953253379834929
+    ]
+  }
+]
