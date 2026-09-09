@@ -1,5 +1,31 @@
 # EXP-505: check one historical result for the known turning-point defect
 
+## Recorded implementation failure; continued prospectively as EXP-506
+
+EXP-505 stopped after retaining the first profile/x/original population's
+255 branch fits. The new replay adapter omitted four fields that the historical
+runner adds after `_word_row`: target comparisons, cyclic matches, reversal-only
+matches and membership status. Comparing the incomplete row with the complete
+old receipt therefore failed. This was an implementation defect in the new
+audit, not a changed historical scientific conclusion.
+
+Frozen source: `04771d80f973b60a39a187f382db8d773a32c089`.
+Failure SHA-256:
+`f025767950859ec7846dbaea96a4374fac4137a0989e429332bfcabf2cc7b29c`.
+The entire partial fit population and original source/input/marker inventories
+remain local under artifacts/EXP-505/target-04771d8. The marker is consumed;
+no filtered target fit ran and no restart or favorable-prefix selection is allowed.
+
+[EXP-506](2026-09-09-exp506-legacy-word-adapter-continuation.md) separately
+freezes the schema completion and exact-prefix reuse. Before any remaining
+target fits, all 255 retained fit results reconstructed the original robust
+partition within unchanged tolerances, without constructing another spline.
+The adapter also reproduced all eight complete stored word schemas. That
+confirms the diagnosed omission rather than treating a numerical mismatch as
+a reason to loosen a threshold. EXP-186 is not yet cleared by this failed run.
+
+## Pre-target validation history
+
 The [prospective retrospective protocol](../experiments/EXP-505-legacy-turning-point-impact.md)
 now specifies a complete saved-data sensitivity for EXP-186: both integration
 profiles, x and z, five oracle variants, every nominal/bootstrap fit, and all

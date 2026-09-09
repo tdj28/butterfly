@@ -22,9 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp506-legacy-word-adapter-continuation.md`](2026-09-09-exp506-legacy-word-adapter-continuation.md)
+  - Complete word-schema adapter and all 255 retained prefix fits pass replay
+  without new fitting; the remaining historical sensitivity is ready to execute.
 - [`2026-09-09-exp505-legacy-turning-point-impact.md`](2026-09-09-exp505-legacy-turning-point-impact.md)
-  - Saved-data sensitivity for EXP-186, including all nominal/bootstrap fits
-  and eight word rows; final pre-target controls and isolated startup pass.
+  - New replay adapter failed on omitted word-comparison fields after retaining
+  255 branch fits. The attempt is preserved, not reset; EXP-506 continues it.
 - [`2026-09-09-exp504-guarded-contact-continuation.md`](2026-09-09-exp504-guarded-contact-continuation.md)
   - All 200 integrations pass raw audit. The first step reduces the boundary
   gap but misses fold proximity by 1.19%; it is rejected and seven slots remain
