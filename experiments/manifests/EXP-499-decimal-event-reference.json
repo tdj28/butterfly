@@ -1,0 +1,1998 @@
+{
+  "configurations": [
+    {
+      "digits": 40,
+      "name": "decimal-40",
+      "order": 24,
+      "step": "0.02"
+    },
+    {
+      "digits": 50,
+      "name": "decimal-50",
+      "order": 32,
+      "step": "0.01"
+    }
+  ],
+  "experiment_id": "EXP-499",
+  "field": {
+    "constant": [
+      0,
+      0,
+      0.2
+    ],
+    "linear": [
+      [
+        0,
+        1,
+        -1
+      ],
+      [
+        0,
+        2,
+        -1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0.21558015990653545
+      ],
+      [
+        2,
+        2,
+        -7.212
+      ]
+    ],
+    "quadratic": [
+      [
+        2,
+        0,
+        2,
+        1
+      ]
+    ]
+  },
+  "inputs": {
+    "docs/experiments/receipts/EXP-486-return-image-fold-result.json": "74fd97ef7c32e56a8c29d32113ab7cfa2531f9a48caf543906beb8cb2b5762d4",
+    "docs/experiments/receipts/EXP-490-direct-fold-result.json": "ec74b11f2e9784ab990d142e3df36e7c500f3235faeefc92afdca50778e88b66",
+    "docs/experiments/receipts/EXP-491-event-sheet-result.json": "d96454454290ed83d5503fce91f9b86ccce516b40b50a84b9d35ab512f6fc879",
+    "docs/experiments/receipts/EXP-492-event-boundary-result.json": "7544eb230106e6b1f6fccf658fb6f60e6ef53230bcc0709b0b6e912addc268bf",
+    "docs/experiments/receipts/EXP-494-periodic-transport-data.json.gz": "ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f",
+    "docs/experiments/receipts/EXP-494-periodic-transport-result.json": "801500bb27577cb32c9bd5908329204a95ffa8f32a4fe0eb1b55af42c4ed178d",
+    "docs/experiments/receipts/EXP-496-contact-endpoint-result.json": "c6ad2dca38df1e0628550b5f697252ce81e62cb47db9ae1dec9736d8c5ab3e6b",
+    "docs/experiments/receipts/EXP-497-contact-localization-result.json": "ed229b4a772ef19d227272006401d19090ee5e28a357791f25400cafa3271cff",
+    "docs/experiments/receipts/EXP-498-boundary-transport-result.json": "f327a6acb9bb72cd0286ff41090f38e12e3b10a0ff9f476b0a6b2f705e176344",
+    "experiments/manifests/EXP-490-candidates.json": "f7ef9d69bad22cd0ce8ca3c112e4c4d2c420ac247c0d3187359a33cc71329fea",
+    "experiments/manifests/EXP-490-direct-folds.json": "6af6c16bd3ee2d88525f05db0264f5c0c7de6596d917843c633ac06f20c17fdb",
+    "experiments/manifests/EXP-492-event-boundaries.json": "68184d92b619de9da1205707a123205c7bd56da11953f14c2d51a29f530d86b2",
+    "experiments/manifests/EXP-492-event-boundary-inputs.json": "9377b422f1321d1b811f59a2b477bf72bee5e58bb4272decb60e040746cf86da",
+    "experiments/manifests/EXP-496-candidates.json": "6bac72b0f7724e67a6df762bd4c24fdd394f4baf5c07ef16e6e3009423796701",
+    "experiments/manifests/EXP-496-contact-endpoint.json": "3bf857eadc5f33bdf438ec80f4fcee7eacd09bf0526aaea0cb690fd5e6c6afb9",
+    "experiments/manifests/EXP-498-boundary-transport.json": "495e61145346fb6b2e13cd726b4d00367072eb91d5b53a31cb84e247a9fafc6a"
+  },
+  "ledger": [
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-0",
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-4--direction-1",
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-0",
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1",
+      "parent_qualified": false,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-0--depth-8--direction-1",
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "selected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-0",
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-4--direction-1",
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a025-c083",
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-0",
+      "id": "local-a027-c083--region-0--depth-4--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-4--direction-1",
+      "id": "local-a027-c083--region-0--depth-4--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-0",
+      "id": "local-a027-c083--region-0--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-0--depth-8--direction-1",
+      "id": "local-a027-c083--region-0--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 0,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-0",
+      "id": "local-a027-c083--region-1--depth-4--direction-0--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-4--direction-1",
+      "id": "local-a027-c083--region-1--depth-4--direction-1--candidate-0",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-1",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-2",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-0",
+      "id": "local-a027-c083--region-1--depth-8--direction-0--candidate-3",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-1",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-2",
+      "parent_qualified": null,
+      "parent_selection": "not-selected-screened-regular",
+      "region": 1,
+      "status": "not-run-parent-unselected"
+    },
+    {
+      "case": "local-a027-c083",
+      "family_id": "local-a027-c083--region-1--depth-8--direction-1",
+      "id": "local-a027-c083--region-1--depth-8--direction-1--candidate-3",
+      "parent_qualified": true,
+      "parent_selection": "nominated",
+      "region": 1,
+      "status": "not-run-no-anchor"
+    }
+  ],
+  "limits": {
+    "initial_free_bytes": 11811160064,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 2147483648,
+    "target_ivps": 64,
+    "wall_seconds": 7200
+  },
+  "original_state": 1e-06,
+  "original_time": 1e-07,
+  "paid_review": "not_run-human-approval-policy",
+  "reference_state": 1e-09,
+  "reference_time": 1e-12,
+  "required_sources": [
+    "docs/experiments/EXP-491-event-sheet-probe.md",
+    "docs/experiments/EXP-492-event-boundaries.md",
+    "docs/experiments/EXP-493-projected-inner-turn.md",
+    "docs/experiments/EXP-494-periodic-winding-transport.md",
+    "docs/experiments/EXP-495-fold-cycle-membership.md",
+    "docs/experiments/EXP-496-contact-endpoint.md",
+    "docs/experiments/EXP-497-contact-localization.md",
+    "docs/experiments/EXP-498-boundary-transport.md",
+    "docs/experiments/EXP-499-decimal-event-reference.md",
+    "experiments/manifests/EXP-490-direct-folds.json",
+    "experiments/manifests/EXP-491-event-sheet-probe.json",
+    "experiments/manifests/EXP-492-event-boundaries.json",
+    "experiments/manifests/EXP-493-projected-inner-turn.json",
+    "experiments/manifests/EXP-494-periodic-winding-transport.json",
+    "experiments/manifests/EXP-495-fold-cycle-membership.json",
+    "experiments/manifests/EXP-496-candidates.json",
+    "experiments/manifests/EXP-496-contact-endpoint.json",
+    "experiments/manifests/EXP-497-contact-localization.json",
+    "experiments/manifests/EXP-498-boundary-transport.json",
+    "experiments/manifests/EXP-499-decimal-event-reference.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/event_boundary_shooting.py",
+    "python/butterfly/event_sheet_probe.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/section_grazing.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp493_projected_inner_turn.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp491_event_sheet_probe.py",
+    "scripts/audit_exp492_event_boundaries.py",
+    "scripts/audit_exp494_periodic_winding_transport.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp496_contact_endpoint.py",
+    "scripts/audit_exp497_contact_localization.py",
+    "scripts/audit_exp498_boundary_transport.py",
+    "scripts/audit_exp499_decimal_reference.py",
+    "scripts/build_exp492_event_boundaries.py",
+    "scripts/exp499_reference_controls.py",
+    "scripts/export_exp493_projected_inner_turn.py",
+    "scripts/plot_exp498_boundary_transport.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp491_event_sheet_probe.py",
+    "scripts/run_exp492_event_boundaries.py",
+    "scripts/run_exp494_periodic_winding_transport.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "scripts/run_exp497_contact_localization.py",
+    "scripts/run_exp498_boundary_transport.py",
+    "scripts/run_exp499_decimal_reference.py",
+    "tests/test_decimal_taylor.py",
+    "tests/test_event_boundary_shooting.py",
+    "tests/test_event_sheet_probe.py",
+    "tests/test_exp493_projected_inner_turn.py",
+    "tests/test_exp494_transport.py",
+    "tests/test_exp495_membership.py",
+    "tests/test_exp496_contact_endpoint.py",
+    "tests/test_exp497_contact_localization.py",
+    "tests/test_exp498_boundary_transport.py",
+    "tests/test_exp499_decimal_reference.py",
+    "tests/test_periodic_winding.py",
+    "tests/test_projected_winding.py",
+    "uv.lock"
+  ],
+  "scales": [
+    15.0,
+    15.0,
+    0.01
+  ],
+  "section": {
+    "gate_upper": 0.0059833378137410485,
+    "offset": -0.027754584727718534
+  },
+  "source_paths": [
+    "docs/experiments/EXP-491-event-sheet-probe.md",
+    "docs/experiments/EXP-492-event-boundaries.md",
+    "docs/experiments/EXP-493-projected-inner-turn.md",
+    "docs/experiments/EXP-494-periodic-winding-transport.md",
+    "docs/experiments/EXP-495-fold-cycle-membership.md",
+    "docs/experiments/EXP-496-contact-endpoint.md",
+    "docs/experiments/EXP-497-contact-localization.md",
+    "docs/experiments/EXP-498-boundary-transport.md",
+    "docs/experiments/EXP-499-decimal-event-reference.md",
+    "experiments/manifests/EXP-490-direct-folds.json",
+    "experiments/manifests/EXP-491-event-sheet-probe.json",
+    "experiments/manifests/EXP-492-event-boundaries.json",
+    "experiments/manifests/EXP-493-projected-inner-turn.json",
+    "experiments/manifests/EXP-494-periodic-winding-transport.json",
+    "experiments/manifests/EXP-495-fold-cycle-membership.json",
+    "experiments/manifests/EXP-496-candidates.json",
+    "experiments/manifests/EXP-496-contact-endpoint.json",
+    "experiments/manifests/EXP-497-contact-localization.json",
+    "experiments/manifests/EXP-498-boundary-transport.json",
+    "experiments/manifests/EXP-499-decimal-event-reference.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/event_boundary_shooting.py",
+    "python/butterfly/event_sheet_probe.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/section_grazing.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp493_projected_inner_turn.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp491_event_sheet_probe.py",
+    "scripts/audit_exp492_event_boundaries.py",
+    "scripts/audit_exp494_periodic_winding_transport.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp496_contact_endpoint.py",
+    "scripts/audit_exp497_contact_localization.py",
+    "scripts/audit_exp498_boundary_transport.py",
+    "scripts/audit_exp499_decimal_reference.py",
+    "scripts/build_exp492_event_boundaries.py",
+    "scripts/exp499_reference_controls.py",
+    "scripts/export_exp493_projected_inner_turn.py",
+    "scripts/plot_exp498_boundary_transport.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp491_event_sheet_probe.py",
+    "scripts/run_exp492_event_boundaries.py",
+    "scripts/run_exp494_periodic_winding_transport.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "scripts/run_exp497_contact_localization.py",
+    "scripts/run_exp498_boundary_transport.py",
+    "scripts/run_exp499_decimal_reference.py",
+    "tests/test_decimal_taylor.py",
+    "tests/test_event_boundary_shooting.py",
+    "tests/test_event_sheet_probe.py",
+    "tests/test_exp493_projected_inner_turn.py",
+    "tests/test_exp494_transport.py",
+    "tests/test_exp495_membership.py",
+    "tests/test_exp496_contact_endpoint.py",
+    "tests/test_exp497_contact_localization.py",
+    "tests/test_exp498_boundary_transport.py",
+    "tests/test_exp499_decimal_reference.py",
+    "tests/test_periodic_winding.py",
+    "tests/test_projected_winding.py",
+    "uv.lock"
+  ],
+  "status": "prospective-exploratory-accuracy-reference",
+  "symbolic_chains_verified": false,
+  "trials": [
+    {
+      "boxes": [
+        [
+          "6.27464090969079586358247979660518467426300048828125",
+          "6.27466090969079586358247979660518467426300048828125"
+        ],
+        [
+          "16.0670687982372562652244596392847597599029541015625",
+          "16.0670887982372562652244596392847597599029541015625"
+        ],
+        [
+          "22.3853043378634680260574896237812936305999755859375",
+          "22.3853243378634680260574896237812936305999755859375"
+        ],
+        [
+          "28.665398471552233038437407230958342552185058593750",
+          "28.665418471552233038437407230958342552185058593750"
+        ],
+        [
+          "38.57274999013637601819937117397785186767578125000",
+          "38.57276999013637601819937117397785186767578125000"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": -1.2840824532445485e-06,
+      "historical_parent_qualified": true,
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-0",
+      "initial": [
+        -6.461953065419128,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.274641923241729267743949094437994062900543212890625",
+          "6.274661923241729267743949094437994062900543212890625"
+        ],
+        [
+          "16.067087194588303210593949188478291034698486328125",
+          "16.067107194588303210593949188478291034698486328125"
+        ],
+        [
+          "22.385322764465619703742049750871956348419189453125",
+          "22.385342764465619703742049750871956348419189453125"
+        ],
+        [
+          "28.6654193560629422898955454002134501934051513671875",
+          "28.6654393560629422898955454002134501934051513671875"
+        ],
+        [
+          "38.572834046035630327651233528740704059600830078125",
+          "38.572854046035630327651233528740704059600830078125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": -1.2840824532445484e-07,
+      "historical_parent_qualified": true,
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-1",
+      "initial": [
+        -6.461935730306009,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.274642148472207979779113884433172643184661865234375",
+          "6.274662148472207979779113884433172643184661865234375"
+        ],
+        [
+          "16.0670912827857904170514302677474915981292724609375",
+          "16.0671112827857904170514302677474915981292724609375"
+        ],
+        [
+          "22.38532685938549666616381728090345859527587890625",
+          "22.38534685938549666616381728090345859527587890625"
+        ],
+        [
+          "28.665423997164893042963740299455821514129638671875",
+          "28.665443997164893042963740299455821514129638671875"
+        ],
+        [
+          "32.137246064714090797451717662625014781951904296875",
+          "32.137266064714090797451717662625014781951904296875"
+        ],
+        [
+          "38.57285272630815915363200474530458450317382812500",
+          "38.57287272630815915363200474530458450317382812500"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": 1.2840824532445484e-07,
+      "historical_parent_qualified": true,
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-2",
+      "initial": [
+        -6.46193187805865,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.27464316199558298393412769655697047710418701171875",
+          "6.27466316199558298393412769655697047710418701171875"
+        ],
+        [
+          "16.067109680211799703783981385640799999237060546875",
+          "16.067129680211799703783981385640799999237060546875"
+        ],
+        [
+          "22.385345287061855733554693870246410369873046875000",
+          "22.385365287061855733554693870246410369873046875000"
+        ],
+        [
+          "28.6654448825713053616937031620182096958160400390625",
+          "28.6654648825713053616937031620182096958160400390625"
+        ],
+        [
+          "32.139931980211542471579377888701856136322021484375",
+          "32.139951980211542471579377888701856136322021484375"
+        ],
+        [
+          "38.57293679286027161424499354325234889984130859375",
+          "38.57295679286027161424499354325234889984130859375"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor",
+      "dose": 1.2840824532445485e-06,
+      "historical_parent_qualified": true,
+      "horizon": 40.91029638052376,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-0--anchor--side-3",
+      "initial": [
+        -6.4619145429455305,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.280085868941497183612909793737344443798065185546875",
+          "6.280105868941497183612909793737344443798065185546875"
+        ],
+        [
+          "16.1874821264555116096062192809768021106719970703125",
+          "16.1875021264555116096062192809768021106719970703125"
+        ],
+        [
+          "22.505876762596983174944398342631757259368896484375",
+          "22.505896762596983174944398342631757259368896484375"
+        ],
+        [
+          "28.7975763826763944786080173798836767673492431640625",
+          "28.7975963826763944786080173798836767673492431640625"
+        ],
+        [
+          "32.861513781693694701289132353849709033966064453125",
+          "32.861533781693694701289132353849709033966064453125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": -1.2840824532445485e-06,
+      "historical_parent_qualified": true,
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-0",
+      "initial": [
+        -6.362729058665839,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.28008676012952855472804003511555492877960205078125",
+          "6.28010676012952855472804003511555492877960205078125"
+        ],
+        [
+          "16.1875059243819464194302781834267079830169677734375",
+          "16.1875259243819464194302781834267079830169677734375"
+        ],
+        [
+          "22.5059005852100440614549370366148650646209716796875",
+          "22.5059205852100440614549370366148650646209716796875"
+        ],
+        [
+          "28.797601802696707172799506224691867828369140625000",
+          "28.797621802696707172799506224691867828369140625000"
+        ],
+        [
+          "32.8616366491665875082617276348173618316650390625",
+          "32.8616566491665875082617276348173618316650390625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": -1.2840824532445484e-07,
+      "historical_parent_qualified": true,
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-1",
+      "initial": [
+        -6.36271172355272,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.28008695816856527983418345684185624122619628906250",
+          "6.28010695816856527983418345684185624122619628906250"
+        ],
+        [
+          "9.75142155796763227982637545210309326648712158203125",
+          "9.75144155796763227982637545210309326648712158203125"
+        ],
+        [
+          "16.1875112129463843524490584968589246273040771484375",
+          "16.1875312129463843524490584968589246273040771484375"
+        ],
+        [
+          "22.505905879260218304125373833812773227691650390625",
+          "22.505925879260218304125373833812773227691650390625"
+        ],
+        [
+          "28.7976074517063707725128551828674972057342529296875",
+          "28.7976274517063707725128551828674972057342529296875"
+        ],
+        [
+          "32.861663953193385244730961858294904232025146484375",
+          "32.861683953193385244730961858294904232025146484375"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": 1.2840824532445484e-07,
+      "historical_parent_qualified": true,
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-2",
+      "initial": [
+        -6.362707871305361,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.28008784933188264233194786356762051582336425781250",
+          "6.28010784933188264233194786356762051582336425781250"
+        ],
+        [
+          "9.7530211163048271083653162349946796894073486328125",
+          "9.7530411163048271083653162349946796894073486328125"
+        ],
+        [
+          "16.1875350120988997326776370755396783351898193359375",
+          "16.1875550120988997326776370755396783351898193359375"
+        ],
+        [
+          "22.5059297030977574871712931781075894832611083984375",
+          "22.5059497030977574871712931781075894832611083984375"
+        ],
+        [
+          "28.797632872771984201563100214116275310516357421875",
+          "28.797652872771984201563100214116275310516357421875"
+        ],
+        [
+          "32.861786821954545322341800783760845661163330078125",
+          "32.861806821954545322341800783760845661163330078125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor",
+      "dose": 1.2840824532445485e-06,
+      "historical_parent_qualified": true,
+      "horizon": 35.227522064022054,
+      "id": "local-a025-c083--region-0--depth-4--direction-0--candidate-1--anchor--side-3",
+      "initial": [
+        -6.3626905361922415,
+        -0.027754584727718534,
+        0.014763327612257782
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.274640858829281308004510719911195337772369384765625",
+          "6.274660858829281308004510719911195337772369384765625"
+        ],
+        [
+          "16.0670687473628440267248151940293610095977783203125",
+          "16.0670887473628440267248151940293610095977783203125"
+        ],
+        [
+          "22.3853042869890344712757723755203187465667724609375",
+          "22.3853242869890344712757723755203187465667724609375"
+        ],
+        [
+          "28.665398420675980494252144126221537590026855468750",
+          "28.665418420675980494252144126221537590026855468750"
+        ],
+        [
+          "38.572749939213288049586481065489351749420166015625",
+          "38.572769939213288049586481065489351749420166015625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": -1.8160557188463127e-06,
+      "historical_parent_qualified": true,
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-0",
+      "initial": [
+        -6.461957597852903,
+        -0.027754584727718534,
+        0.014701180543385657
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.27464187239007260444623170769773423671722412109375",
+          "6.27466187239007260444623170769773423671722412109375"
+        ],
+        [
+          "16.0670871437353617972121355705894529819488525390625",
+          "16.0671071437353617972121355705894529819488525390625"
+        ],
+        [
+          "22.385322713612676514003396732732653617858886718750",
+          "22.385342713612676514003396732732653617858886718750"
+        ],
+        [
+          "28.6654193052098143590455947560258209705352783203125",
+          "28.6654393052098143590455947560258209705352783203125"
+        ],
+        [
+          "38.5728339951778625527367694303393363952636718750",
+          "38.5728539951778625527367694303393363952636718750"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": -1.8160557188463128e-07,
+      "historical_parent_qualified": true,
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-1",
+      "initial": [
+        -6.461940261891166,
+        -0.027754584727718534,
+        0.014701192100693481
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.27464209762274156446437700651586055755615234375",
+          "6.27466209762274156446437700651586055755615234375"
+        ],
+        [
+          "16.0670912319374977295183271053247153759002685546875",
+          "16.0671112319374977295183271053247153759002685546875"
+        ],
+        [
+          "22.3853268085372022022738747182302176952362060546875",
+          "22.3853468085372022022738747182302176952362060546875"
+        ],
+        [
+          "28.6654239463167620039030225598253309726715087890625",
+          "28.6654439463167620039030225598253309726715087890625"
+        ],
+        [
+          "32.137246014247629565261377138085663318634033203125",
+          "32.137266014247629565261377138085663318634033203125"
+        ],
+        [
+          "38.572852675464396176039372221566736698150634765625",
+          "38.572872675464396176039372221566736698150634765625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": 1.8160557188463128e-07,
+      "historical_parent_qualified": true,
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-2",
+      "initial": [
+        -6.461936409455225,
+        -0.027754584727718534,
+        0.014701194668984108
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.27464311115598201041620995965786278247833251953125",
+          "6.27466311115598201041620995965786278247833251953125"
+        ],
+        [
+          "16.0671096293847753366890174220316112041473388671875",
+          "16.0671296293847753366890174220316112041473388671875"
+        ],
+        [
+          "22.3853452362348491300281239091418683528900146484375",
+          "22.3853652362348491300281239091418683528900146484375"
+        ],
+        [
+          "28.6654448317460733386496940511278808116912841796875",
+          "28.6654648317460733386496940511278808116912841796875"
+        ],
+        [
+          "32.13993193065838800293931853957474231719970703125",
+          "32.13995193065838800293931853957474231719970703125"
+        ],
+        [
+          "38.57293674208063156584103126078844070434570312500",
+          "38.57295674208063156584103126078844070434570312500"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor",
+      "dose": 1.8160557188463127e-06,
+      "historical_parent_qualified": true,
+      "horizon": 40.910296132844806,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-0--anchor--side-3",
+      "initial": [
+        -6.461919073493489,
+        -0.027754584727718534,
+        0.014701206226291933
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.280085872319116256932147734914906322956085205078125",
+          "6.280105872319116256932147734914906322956085205078125"
+        ],
+        [
+          "16.1874821298340996855813500587828457355499267578125",
+          "16.1875021298340996855813500587828457355499267578125"
+        ],
+        [
+          "22.5058767659755730272763685206882655620574951171875",
+          "22.5058967659755730272763685206882655620574951171875"
+        ],
+        [
+          "28.7975763860550536088567241677083075046539306640625",
+          "28.7975963860550536088567241677083075046539306640625"
+        ],
+        [
+          "32.861513785076538928251466131769120693206787109375",
+          "32.861533785076538928251466131769120693206787109375"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": -1.816055718846311e-06,
+      "historical_parent_qualified": true,
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-0",
+      "initial": [
+        -6.362728764425409,
+        -0.027754584727718534,
+        0.014767333099003986
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.28008676351687673445667314808815717697143554687500",
+          "6.28010676351687673445667314808815717697143554687500"
+        ],
+        [
+          "16.1875059277695157555854166275821626186370849609375",
+          "16.1875259277695157555854166275821626186370849609375"
+        ],
+        [
+          "22.5059005885976098448963966802693903446197509765625",
+          "22.5059205885976098448963966802693903446197509765625"
+        ],
+        [
+          "28.797601806084290719809359870851039886474609375000",
+          "28.797621806084290719809359870851039886474609375000"
+        ],
+        [
+          "32.86163665255510186625542701222002506256103515625",
+          "32.86165665255510186625542701222002506256103515625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": -1.816055718846311e-07,
+      "historical_parent_qualified": true,
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-1",
+      "initial": [
+        -6.3627114284636725,
+        -0.027754584727718534,
+        0.01476734465631181
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.280086961558076618103996224817819893360137939453125",
+          "6.280106961558076618103996224817819893360137939453125"
+        ],
+        [
+          "9.7514215613280011518781975610181689262390136718750",
+          "9.7514415613280011518781975610181689262390136718750"
+        ],
+        [
+          "16.187511216335696294663648586720228195190429687500",
+          "16.187531216335696294663648586720228195190429687500"
+        ],
+        [
+          "22.5059058826495302463399639236740767955780029296875",
+          "22.5059258826495302463399639236740767955780029296875"
+        ],
+        [
+          "28.797607455095668503872730070725083351135253906250",
+          "28.797627455095668503872730070725083351135253906250"
+        ],
+        [
+          "32.86166395658186762830155203118920326232910156250",
+          "32.86168395658186762830155203118920326232910156250"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": 1.816055718846311e-07,
+      "historical_parent_qualified": true,
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-2",
+      "initial": [
+        -6.362707576027731,
+        -0.027754584727718534,
+        0.014767347224602437
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.280087852731111540691699701710604131221771240234375",
+          "6.280107852731111540691699701710604131221771240234375"
+        ],
+        [
+          "9.7530211196530554695982573321089148521423339843750",
+          "9.7530411196530554695982573321089148521423339843750"
+        ],
+        [
+          "16.1875350154970170757451342069543898105621337890625",
+          "16.1875550154970170757451342069543898105621337890625"
+        ],
+        [
+          "22.5059297064958748302387903095223009586334228515625",
+          "22.5059497064958748302387903095223009586334228515625"
+        ],
+        [
+          "28.7976328761700251612865031347610056400299072265625",
+          "28.7976528761700251612865031347610056400299072265625"
+        ],
+        [
+          "32.86178682534775992053255322389304637908935546875",
+          "32.86180682534775992053255322389304637908935546875"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor",
+      "dose": 1.816055718846311e-06,
+      "historical_parent_qualified": true,
+      "horizon": 35.22752206402199,
+      "id": "local-a025-c083--region-0--depth-4--direction-1--candidate-1--anchor--side-3",
+      "initial": [
+        -6.362690240065994,
+        -0.027754584727718534,
+        0.014767358781910262
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.29693545244368963921033355291001498699188232421875",
+          "6.29695545244368963921033355291001498699188232421875"
+        ],
+        [
+          "10.72725923315569269590241674450226128101348876953125",
+          "10.72727923315569269590241674450226128101348876953125"
+        ],
+        [
+          "17.04660519911035583163538831286132335662841796875",
+          "17.04662519911035583163538831286132335662841796875"
+        ],
+        [
+          "23.36484078447682184332734323106706142425537109375",
+          "23.36486078447682184332734323106706142425537109375"
+        ],
+        [
+          "29.6449386345333337311558352666907012462615966796875",
+          "29.6449586345333337311558352666907012462615966796875"
+        ],
+        [
+          "33.11786617146192985728703206405043601989746093750",
+          "33.11788617146192985728703206405043601989746093750"
+        ],
+        [
+          "39.55238567305730474799929652363061904907226562500",
+          "39.55240567305730474799929652363061904907226562500"
+        ],
+        [
+          "45.870780363922292698362070950679481029510498046875",
+          "45.870800363922292698362070950679481029510498046875"
+        ],
+        [
+          "52.16248352493443325329280924052000045776367187500",
+          "52.16250352493443325329280924052000045776367187500"
+        ],
+        [
+          "56.22663694561395037908368976786732673645019531250",
+          "56.22665694561395037908368976786732673645019531250"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": -2.19719477003729e-07,
+      "historical_parent_qualified": true,
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-0",
+      "initial": [
+        -5.931792226132142,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.2969355378912968512850056868046522140502929687500",
+          "6.2969555378912968512850056868046522140502929687500"
+        ],
+        [
+          "10.727265927783640696588918217457830905914306640625",
+          "10.727285927783640696588918217457830905914306640625"
+        ],
+        [
+          "17.04661188959012070199605659581720829010009765625",
+          "17.04663188959012070199605659581720829010009765625"
+        ],
+        [
+          "23.36484746404144236976208048872649669647216796875",
+          "23.36486746404144236976208048872649669647216796875"
+        ],
+        [
+          "29.644944427269244234821599093265831470489501953125",
+          "29.644964427269244234821599093265831470489501953125"
+        ],
+        [
+          "33.116277228453874291744796209968626499176025390625",
+          "33.116297228453874291744796209968626499176025390625"
+        ],
+        [
+          "39.5523686696412997798688593320548534393310546875",
+          "39.5523886696412997798688593320548534393310546875"
+        ],
+        [
+          "45.870763335941759540901330183260142803192138671875",
+          "45.870783335941759540901330183260142803192138671875"
+        ],
+        [
+          "52.162464907522874190135553362779319286346435546875",
+          "52.162484907522874190135553362779319286346435546875"
+        ],
+        [
+          "56.226521356236041148122239974327385425567626953125",
+          "56.226541356236041148122239974327385425567626953125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": -2.19719477003729e-08,
+      "historical_parent_qualified": true,
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-1",
+      "initial": [
+        -5.931789259919203,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.296935556879606886724332071025855839252471923828125",
+          "6.296955556879606886724332071025855839252471923828125"
+        ],
+        [
+          "10.7272674154768608667609441909007728099822998046875",
+          "10.7272874154768608667609441909007728099822998046875"
+        ],
+        [
+          "17.04661337636153779385494999587535858154296875",
+          "17.04663337636153779385494999587535858154296875"
+        ],
+        [
+          "23.364848948387240644706253078766167163848876953125",
+          "23.364868948387240644706253078766167163848876953125"
+        ],
+        [
+          "29.6449457145374829048023457289673388004302978515625",
+          "29.6449657145374829048023457289673388004302978515625"
+        ],
+        [
+          "39.55236489118946569988111150451004505157470703125",
+          "39.55238489118946569988111150451004505157470703125"
+        ],
+        [
+          "45.87075955203092154533806024119257926940917968750",
+          "45.87077955203092154533806024119257926940917968750"
+        ],
+        [
+          "52.162460770382217466476504341699182987213134765625",
+          "52.162480770382217466476504341699182987213134765625"
+        ],
+        [
+          "56.22649566959995188653920195065438747406005859375",
+          "56.22651566959995188653920195065438747406005859375"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": 2.19719477003729e-08,
+      "historical_parent_qualified": true,
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-2",
+      "initial": [
+        -5.931788600760772,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.296935642326790437692807245184667408466339111328125",
+          "6.296955642326790437692807245184667408466339111328125"
+        ],
+        [
+          "10.7272741100899221089548518648371100425720214843750",
+          "10.7272941100899221089548518648371100425720214843750"
+        ],
+        [
+          "17.046620066826566007875953800976276397705078125000",
+          "17.046640066826566007875953800976276397705078125000"
+        ],
+        [
+          "23.3648556279368136523544308147393167018890380859375",
+          "23.3648756279368136523544308147393167018890380859375"
+        ],
+        [
+          "29.6449515072174736951637896709144115447998046875",
+          "29.6449715072174736951637896709144115447998046875"
+        ],
+        [
+          "39.55234788853449463431388721801340579986572265625",
+          "39.55236788853449463431388721801340579986572265625"
+        ],
+        [
+          "45.87074252480939724364361609332263469696044921875",
+          "45.87076252480939724364361609332263469696044921875"
+        ],
+        [
+          "52.162442153522831821419458719901740550994873046875",
+          "52.162462153522831821419458719901740550994873046875"
+        ],
+        [
+          "56.22638007922104070757995941676199436187744140625",
+          "56.22640007922104070757995941676199436187744140625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor",
+      "dose": 2.19719477003729e-07,
+      "historical_parent_qualified": true,
+      "horizon": 58.5927112374314,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-0--anchor--side-3",
+      "initial": [
+        -5.931785634547833,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.29740200836408054897219699341803789138793945312500",
+          "6.29742200836408054897219699341803789138793945312500"
+        ],
+        [
+          "10.76402629407408235607590540894307196140289306640625",
+          "10.76404629407408235607590540894307196140289306640625"
+        ],
+        [
+          "17.083350947676219154800492106005549430847167968750",
+          "17.083370947676219154800492106005549430847167968750"
+        ],
+        [
+          "23.4015221796251694053125902428291738033294677734375",
+          "23.4015421796251694053125902428291738033294677734375"
+        ],
+        [
+          "29.676175347095763944480495410971343517303466796875",
+          "29.676195347095763944480495410971343517303466796875"
+        ],
+        [
+          "39.468643374556762258862363523803651332855224609375",
+          "39.468663374556762258862363523803651332855224609375"
+        ],
+        [
+          "45.78687898403299845085712149739265441894531250000",
+          "45.78689898403299845085712149739265441894531250000"
+        ],
+        [
+          "52.066978792906045091513078659772872924804687500",
+          "52.066998792906045091513078659772872924804687500"
+        ],
+        [
+          "55.54161608121409760997266857884824275970458984375",
+          "55.54163608121409760997266857884824275970458984375"
+        ],
+        [
+          "61.974476188710773859611435909755527973175048828125",
+          "61.974496188710773859611435909755527973175048828125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": -2.1971947700372921e-07,
+      "historical_parent_qualified": false,
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-0",
+      "initial": [
+        -5.915414562666175,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.297402091922021115664165336056612432003021240234375",
+          "6.297422091922021115664165336056612432003021240234375"
+        ],
+        [
+          "10.76403291522910927625389376771636307239532470703125",
+          "10.76405291522910927625389376771636307239532470703125"
+        ],
+        [
+          "17.0833575652207030992713043815456330776214599609375",
+          "17.0833775652207030992713043815456330776214599609375"
+        ],
+        [
+          "23.4015287847457940750928173656575381755828857421875",
+          "23.4015487847457940750928173656575381755828857421875"
+        ],
+        [
+          "29.6761808594879404432731462293304502964019775390625",
+          "29.6762008594879404432731462293304502964019775390625"
+        ],
+        [
+          "39.468630144732635377522456110455095767974853515625",
+          "39.468650144732635377522456110455095767974853515625"
+        ],
+        [
+          "45.78686572159498841983804595656692981719970703125",
+          "45.78688572159498841983804595656692981719970703125"
+        ],
+        [
+          "52.06696288071415385957152466289699077606201171875",
+          "52.06698288071415385957152466289699077606201171875"
+        ],
+        [
+          "55.53883196781751114713188144378364086151123046875",
+          "55.53885196781751114713188144378364086151123046875"
+        ],
+        [
+          "61.974392158390770267715197405777871608734130859375",
+          "61.974412158390770267715197405777871608734130859375"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": -2.197194770037292e-08,
+      "historical_parent_qualified": false,
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-1",
+      "initial": [
+        -5.915411596453235,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.29740211049040838787504981155507266521453857421875",
+          "6.29742211049040838787504981155507266521453857421875"
+        ],
+        [
+          "10.76403438659484785745235058129765093326568603515625",
+          "10.76405438659484785745235058129765093326568603515625"
+        ],
+        [
+          "17.083359035784112810461010667495429515838623046875",
+          "17.083379035784112810461010667495429515838623046875"
+        ],
+        [
+          "23.401530252548308274072041967883706092834472656250",
+          "23.401550252548308274072041967883706092834472656250"
+        ],
+        [
+          "29.6761820844562911980801800382323563098907470703125",
+          "29.6762020844562911980801800382323563098907470703125"
+        ],
+        [
+          "39.468627204871097168279447942040860652923583984375",
+          "39.468647204871097168279447942040860652923583984375"
+        ],
+        [
+          "45.786862774485761539153827470727264881134033203125",
+          "45.786882774485761539153827470727264881134033203125"
+        ],
+        [
+          "52.066959344742677350268422742374241352081298828125",
+          "52.066979344742677350268422742374241352081298828125"
+        ],
+        [
+          "61.974373486189143610545215778984129428863525390625",
+          "61.974393486189143610545215778984129428863525390625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": 2.197194770037292e-08,
+      "historical_parent_qualified": false,
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-2",
+      "initial": [
+        -5.915410937294804,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.29740219404793373115580834564752876758575439453125",
+          "6.29742219404793373115580834564752876758575439453125"
+        ],
+        [
+          "10.7640410077322932858123749610967934131622314453125",
+          "10.7640610077322932858123749610967934131622314453125"
+        ],
+        [
+          "17.0833656533111085218479274772107601165771484375",
+          "17.0833856533111085218479274772107601165771484375"
+        ],
+        [
+          "23.401536857651094768471011775545775890350341796875",
+          "23.401556857651094768471011775545775890350341796875"
+        ],
+        [
+          "29.6761875967800015752118270029313862323760986328125",
+          "29.6762075967800015752118270029313862323760986328125"
+        ],
+        [
+          "39.46861397594075844153849175199866294860839843750",
+          "39.46863397594075844153849175199866294860839843750"
+        ],
+        [
+          "45.78684951294009726098011014983057975769042968750",
+          "45.78686951294009726098011014983057975769042968750"
+        ],
+        [
+          "52.06694343319049129604536574333906173706054687500",
+          "52.06696343319049129604536574333906173706054687500"
+        ],
+        [
+          "61.97428946668967204459477216005325317382812500000",
+          "61.97430946668967204459477216005325317382812500000"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor",
+      "dose": 2.1971947700372921e-07,
+      "historical_parent_qualified": false,
+      "horizon": 64.46371060775392,
+      "id": "local-a025-c083--region-0--depth-8--direction-0--candidate-1--anchor--side-3",
+      "initial": [
+        -5.915407971081865,
+        -0.027754584727718534,
+        0.0152623585954803
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.296935448456485738830679110833443701267242431640625",
+          "6.296955448456485738830679110833443701267242431640625"
+        ],
+        [
+          "10.7272592291682645304717880208045244216918945312500",
+          "10.7272792291682645304717880208045244216918945312500"
+        ],
+        [
+          "17.0466051951229232253126610885374248027801513671875",
+          "17.0466251951229232253126610885374248027801513671875"
+        ],
+        [
+          "23.3648407804893892370046160067431628704071044921875",
+          "23.3648607804893892370046160067431628704071044921875"
+        ],
+        [
+          "29.6449386305459277701856990461237728595733642578125",
+          "29.6449586305459277701856990461237728595733642578125"
+        ],
+        [
+          "33.11786616751180252094854949973523616790771484375",
+          "33.11788616751180252094854949973523616790771484375"
+        ],
+        [
+          "39.552385669070715911175284418277442455291748046875",
+          "39.552405669070715911175284418277442455291748046875"
+        ],
+        [
+          "45.870780359935700308824380044825375080108642578125",
+          "45.870800359935700308824380044825375080108642578125"
+        ],
+        [
+          "52.16248352094789770717397914268076419830322265625",
+          "52.16250352094789770717397914268076419830322265625"
+        ],
+        [
+          "56.226636941630892939656405360437929630279541015625",
+          "56.226656941630892939656405360437929630279541015625"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": -3.107459841289943e-07,
+      "historical_parent_qualified": true,
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-0",
+      "initial": [
+        -5.931792539784604,
+        -0.027754584727718534,
+        0.015258223191421323
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.296935533906001202240076963789761066436767578125",
+          "6.296955533906001202240076963789761066436767578125"
+        ],
+        [
+          "10.72726592379814520739955696626566350460052490234375",
+          "10.72728592379814520739955696626566350460052490234375"
+        ],
+        [
+          "17.046611885604622548271436244249343872070312500000",
+          "17.046631885604622548271436244249343872070312500000"
+        ],
+        [
+          "23.3648474600559495451079783379100263118743896484375",
+          "23.3648674600559495451079783379100263118743896484375"
+        ],
+        [
+          "29.6449444232837798318769273464567959308624267578125",
+          "29.6449644232837798318769273464567959308624267578125"
+        ],
+        [
+          "33.116277224582908521597346407361328601837158203125",
+          "33.116297224582908521597346407361328601837158203125"
+        ],
+        [
+          "39.552368665656622303004041896201670169830322265625",
+          "39.552388665656622303004041896201670169830322265625"
+        ],
+        [
+          "45.870763331957085616750191547907888889312744140625",
+          "45.870783331957085616750191547907888889312744140625"
+        ],
+        [
+          "52.16246490353826066211695433594286441802978515625",
+          "52.16248490353826066211695433594286441802978515625"
+        ],
+        [
+          "56.22652135225488796322679263539612293243408203125",
+          "56.22654135225488796322679263539612293243408203125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": -3.107459841289943e-08,
+      "historical_parent_qualified": true,
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-1",
+      "initial": [
+        -5.931789573421604,
+        -0.027754584727718534,
+        0.015258225168996655
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.296935552894732234250341207371093332767486572265625",
+          "6.296955552894732234250341207371093332767486572265625"
+        ],
+        [
+          "10.72726741149210345383835374377667903900146484375",
+          "10.72728741149210345383835374377667903900146484375"
+        ],
+        [
+          "17.0466133723767803809323595487512648105621337890625",
+          "17.0466333723767803809323595487512648105621337890625"
+        ],
+        [
+          "23.3648489444024832317836626316420733928680419921875",
+          "23.3648689444024832317836626316420733928680419921875"
+        ],
+        [
+          "29.6449457105527130573818794800899922847747802734375",
+          "29.6449657105527130573818794800899922847747802734375"
+        ],
+        [
+          "39.552364887204397424511626013554632663726806640625",
+          "39.552384887204397424511626013554632663726806640625"
+        ],
+        [
+          "45.870759548045853269968574750237166881561279296875",
+          "45.870779548045853269968574750237166881561279296875"
+        ],
+        [
+          "52.162460766397131427538624848239123821258544921875",
+          "52.162480766397131427538624848239123821258544921875"
+        ],
+        [
+          "56.22649566561391372033540392294526100158691406250",
+          "56.22651566561391372033540392294526100158691406250"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": 3.107459841289943e-08,
+      "historical_parent_qualified": true,
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-2",
+      "initial": [
+        -5.931788914229826,
+        -0.027754584727718534,
+        0.015258225608457842
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.296935638343827145178011051029898226261138916015625",
+          "6.296955638343827145178011051029898226261138916015625"
+        ],
+        [
+          "10.72727410610719240736443680361844599246978759765625",
+          "10.72729410610719240736443680361844599246978759765625"
+        ],
+        [
+          "17.0466200628438371944639584398828446865081787109375",
+          "17.0466400628438371944639584398828446865081787109375"
+        ],
+        [
+          "23.364855623954081286228756653144955635070800781250",
+          "23.364875623954081286228756653144955635070800781250"
+        ],
+        [
+          "29.6449515032347129073286851053126156330108642578125",
+          "29.6449715032347129073286851053126156330108642578125"
+        ],
+        [
+          "39.552347884551003763817789149470627307891845703125",
+          "39.552367884551003763817789149470627307891845703125"
+        ],
+        [
+          "45.87074252082590282043383922427892684936523437500",
+          "45.87076252082590282043383922427892684936523437500"
+        ],
+        [
+          "52.162442149539287660218178643845021724700927734375",
+          "52.162462149539287660218178643845021724700927734375"
+        ],
+        [
+          "56.22638007523450516146112931892275810241699218750",
+          "56.22640007523450516146112931892275810241699218750"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor",
+      "dose": 3.107459841289943e-07,
+      "historical_parent_qualified": true,
+      "horizon": 58.59271123743134,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-0--anchor--side-3",
+      "initial": [
+        -5.9317859478668264,
+        -0.027754584727718534,
+        0.015258227586033174
+      ],
+      "original_candidate_qualified": true,
+      "side_index": 3
+    },
+    {
+      "boxes": [
+        [
+          "6.29740201493887547968597573344595730304718017578125",
+          "6.29742201493887547968597573344595730304718017578125"
+        ],
+        [
+          "10.764026300649610922164356452412903308868408203125",
+          "10.764046300649610922164356452412903308868408203125"
+        ],
+        [
+          "17.0833509542517468327105234493501484394073486328125",
+          "17.0833709542517468327105234493501484394073486328125"
+        ],
+        [
+          "23.4015221862006953068657821859233081340789794921875",
+          "23.4015421862006953068657821859233081340789794921875"
+        ],
+        [
+          "29.676175353671169053768608137033879756927490234375",
+          "29.676195353671169053768608137033879756927490234375"
+        ],
+        [
+          "39.46864338113021692834081477485597133636474609375",
+          "39.46866338113021692834081477485597133636474609375"
+        ],
+        [
+          "45.786878990606453120335572748444974422454833984375",
+          "45.786898990606453120335572748444974422454833984375"
+        ],
+        [
+          "52.06697879947921199118354707024991512298583984375",
+          "52.06699879947921199118354707024991512298583984375"
+        ],
+        [
+          "55.54161608759386188239659531973302364349365234375",
+          "55.54163608759386188239659531973302364349365234375"
+        ],
+        [
+          "61.9744761952767536195096909068524837493896484375",
+          "61.9744961952767536195096909068524837493896484375"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": -3.107459841289943e-07,
+      "historical_parent_qualified": true,
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-0",
+      "initial": [
+        -5.915414047524349,
+        -0.027754584727718534,
+        0.015269142186261494
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 0
+    },
+    {
+      "boxes": [
+        [
+          "6.2974020984987393967458046972751617431640625000000",
+          "6.2974220984987393967458046972751617431640625000000"
+        ],
+        [
+          "10.764032921805963004544537398032844066619873046875",
+          "10.764052921805963004544537398032844066619873046875"
+        ],
+        [
+          "17.083357571797555939383528311736881732940673828125",
+          "17.083377571797555939383528311736881732940673828125"
+        ],
+        [
+          "23.401528791322650467918720096349716186523437500000",
+          "23.401548791322650467918720096349716186523437500000"
+        ],
+        [
+          "29.67618086606477196710329735651612281799316406250",
+          "29.67620086606477196710329735651612281799316406250"
+        ],
+        [
+          "39.46863015130901748307223897427320480346679687500",
+          "39.46865015130901748307223897427320480346679687500"
+        ],
+        [
+          "45.78686572817136697267415001988410949707031250000",
+          "45.78688572817136697267415001988410949707031250000"
+        ],
+        [
+          "52.066962887290464910847731516696512699127197265625",
+          "52.066982887290464910847731516696512699127197265625"
+        ],
+        [
+          "55.53883197425302460260354564525187015533447265625",
+          "55.53885197425302460260354564525187015533447265625"
+        ],
+        [
+          "61.97439216496541154356236802414059638977050781250",
+          "61.97441216496541154356236802414059638977050781250"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": -3.107459841289943e-08,
+      "historical_parent_qualified": true,
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-1",
+      "initial": [
+        -5.9154110811613485,
+        -0.027754584727718534,
+        0.015269144163836826
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 1
+    },
+    {
+      "boxes": [
+        [
+          "6.297402117067548109616836882196366786956787109375",
+          "6.297422117067548109616836882196366786956787109375"
+        ],
+        [
+          "10.76403439317219985383644598186947405338287353515625",
+          "10.76405439317219985383644598186947405338287353515625"
+        ],
+        [
+          "17.08335904236146125413142726756632328033447265625",
+          "17.08337904236146125413142726756632328033447265625"
+        ],
+        [
+          "23.40153025912566027045613736845552921295166015625",
+          "23.40155025912566027045613736845552921295166015625"
+        ],
+        [
+          "29.6761820910336147727548450347967445850372314453125",
+          "29.6762020910336147727548450347967445850372314453125"
+        ],
+        [
+          "39.468627211447795465346644050441682338714599609375",
+          "39.468647211447795465346644050441682338714599609375"
+        ],
+        [
+          "45.786862781062459836221023579128086566925048828125",
+          "45.786882781062459836221023579128086566925048828125"
+        ],
+        [
+          "52.066959351319290382207327638752758502960205078125",
+          "52.066979351319290382207327638752758502960205078125"
+        ],
+        [
+          "61.974373492763610803422125172801315784454345703125",
+          "61.974393492763610803422125172801315784454345703125"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": 3.107459841289943e-08,
+      "historical_parent_qualified": true,
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-2",
+      "initial": [
+        -5.915410421969571,
+        -0.027754584727718534,
+        0.015269144603298012
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 2
+    },
+    {
+      "boxes": [
+        [
+          "6.29740220062699103010572798666544258594512939453125",
+          "6.29742220062699103010572798666544258594512939453125"
+        ],
+        [
+          "10.76404101431081323681837602634914219379425048828125",
+          "10.76406101431081323681837602634914219379425048828125"
+        ],
+        [
+          "17.083365659889629361032348242588341236114501953125",
+          "17.083385659889629361032348242588341236114501953125"
+        ],
+        [
+          "23.4015368642296209367259507416747510433197021484375",
+          "23.4015568642296209367259507416747510433197021484375"
+        ],
+        [
+          "29.6761876033586112322382177808322012424468994140625",
+          "29.6762076033586112322382177808322012424468994140625"
+        ],
+        [
+          "39.46861398252082471117319073528051376342773437500",
+          "39.46863398252082471117319073528051376342773437500"
+        ],
+        [
+          "45.78684951952017063604216673411428928375244140625",
+          "45.78686951952017063604216673411428928375244140625"
+        ],
+        [
+          "52.066943439770774281214471557177603244781494140625",
+          "52.066963439770774281214471557177603244781494140625"
+        ],
+        [
+          "61.97428947327542265611555194482207298278808593750",
+          "61.97430947327542265611555194482207298278808593750"
+        ]
+      ],
+      "candidate_id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor",
+      "dose": 3.107459841289943e-07,
+      "historical_parent_qualified": true,
+      "horizon": 64.46371063521411,
+      "id": "local-a025-c083--region-0--depth-8--direction-1--candidate-1--anchor--side-3",
+      "initial": [
+        -5.91540745560657,
+        -0.027754584727718534,
+        0.015269146580873345
+      ],
+      "original_candidate_qualified": false,
+      "side_index": 3
+    }
+  ]
+}
