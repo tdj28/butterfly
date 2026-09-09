@@ -21,8 +21,10 @@ It does not verify a Jones symbolic word or insertion arrow.
   closes this replay's dependencies, not the entire earlier research campaign.
 
 The archive release is [research-exp494](https://github.com/tdj28/butterfly/releases/tag/research-exp494).
-Upload/live verification is a separate final step recorded in the dated update;
-the local bundle and fresh-data replay are already complete.
+All eleven assets were published and their server-reported sizes and SHA-256
+digests matched the local files on 2026-09-09. A fresh public download of the
+index and compact data also matched. The full local bundle's fresh-directory
+replay passed; the four raw shards were not downloaded a second time for replay.
 Its Git tag supplies the release/replay code; the original numerical source is
 `4e5054955e8ddeb9db94e4702fe78d6232eda303`, separately preserved at
 `codex/exp494-local-execution`. Data retain the repository's GPL-2.0-only license.
@@ -100,5 +102,6 @@ independent-team replication or a rigorous all-root/minimal-period proof.
 
 The compact data and the complete index are under
 `docs/experiments/receipts/`. The raw shards are release assets, not Git
-blobs. Local full extraction/replay passed before publication; live release
-asset verification is recorded in the dated update when upload completes.
+blobs. Local full extraction/replay passed before publication; the
+[dated update](updates/2026-09-09-exp494-periodic-winding-transport.md)
+records the separate live release verification and its limits.

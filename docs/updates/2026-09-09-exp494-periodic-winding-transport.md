@@ -120,3 +120,30 @@ update; its legacy turning-point impact audit remains a separate prerequisite.
 
 No paid reviews, API calls, or cloud GPU charges are authorized or needed for
 this run. This says nothing about previously incurred project spending.
+
+## Repository checkpoint
+
+The completed result, replay tools, figure and compact receipts were merged
+in [PR #63](https://github.com/tdj28/butterfly/pull/63) at
+`f6976ebc7d58afda5bf1e62e4139b884165c93c2` on 2026-09-09 at 09:37:36 UTC.
+All four Python 3.12/3.13 push/PR checks passed on the exact reviewed head
+`bd2eb5e9fcf1d4c54e0e0a5e21b2534d501c26e3` before the squash merge.
+The local full suite recorded 2119 passed and one Linux-only skip; the
+separate staged public-repository scan passed. The protected historical-audit
+stash was left untouched. These software checks do not verify a symbolic chain.
+
+The [full-data release](https://github.com/tdj28/butterfly/releases/tag/research-exp494)
+was published at **2026-09-09 09:41:37 UTC**, release ID `385382530`.
+Its tag resolves to the reviewed head `bd2eb5e9fcf1d4c54e0e0a5e21b2534d501c26e3`;
+this is intentionally distinct from the frozen numerical execution revision.
+All **eleven uploaded assets** passed a programmatic comparison of GitHub's
+server-reported SHA-256 digests and byte sizes against the exact local files.
+The four raw shard hashes are listed in the release instructions.
+
+A fresh public download into `artifacts/EXP-494/public-download-01` also
+matched the index hash `bcc740f263211dd71a8e0f5db9e02f42acaa803aadcf7b5bd9862bb2be450611`
+and compact-data hash `ac783c3183ff028b0c0289cd7740d441b4ac76b11655fade0ae010836488bf9f`.
+This is public-byte verification for those two assets plus server-digest
+verification for the others. The full fresh-directory numerical replay
+described above used the local release shards, not a second network download
+of all four shards; it must not be called an independent public-download replay.
