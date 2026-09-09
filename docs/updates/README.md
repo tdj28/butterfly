@@ -23,8 +23,8 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp504-guarded-contact-continuation.md`](2026-09-09-exp504-guarded-contact-continuation.md)
-  - Prospective eight-step warm continuation, with full representation and raw
-  accuracy checks; pre-target validation is in progress.
+  - Frozen eight-step warm continuation is executing after validation, with
+  full representation and raw accuracy checks; no audited result yet.
 - [`2026-09-09-exp503-resource-continuation.md`](2026-09-09-exp503-resource-continuation.md)
   - All nine points and 1,580 integrations pass raw audit. The joint correction
   reduces the dominant gap 5.64%, but the boundary still misses by 127 times

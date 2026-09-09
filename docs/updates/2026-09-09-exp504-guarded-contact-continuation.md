@@ -2,6 +2,14 @@
 
 ## Current checkpoint
 
+The target run has started at frozen source
+`0657f510e2ca07939237a2a70ca681278977e14a`, live verified on both the working
+branch and preserved `codex/exp504-local-execution` remote ref. The exclusive
+marker SHA-256 is
+`9a35855b8d378522243dc0ad7e823f9424647bb767b71f8e6ba394f357196795`.
+Full raw evidence is being retained under artifacts/EXP-504/target-0657f51;
+no scientific result is promoted before the complete raw audit.
+
 EXP-503 established a reproducible direction that reduced the dominant contact
 gap by 5.64%, while leaving it far outside tolerance. EXP-504 now tests whether
 up to eight smaller corrections can extend that improvement. The
@@ -48,5 +56,17 @@ target integrations. The frozen plan hash is
 `a5cc08a114d1c967d6b6b22f8e7307959c7f02d7a5dc7b69af1e846ebce9774c`.
 
 This checkpoint does not yet contain EXP-504 scientific results. The target
-run and its full raw audit are the next actions after validation and live-pushed
-source binding. Jones's flow-level chains remain unverified, not debunked.
+run is active and its full raw audit is next. Jones's flow-level chains remain
+unverified, not debunked.
+
+## Public replay preparation during the run
+
+The separate public comparator and path figure generator do not modify the
+frozen numerical closure. Their first fixture test exposed an adapter mistake:
+the compact fold summaries flatten the `qualification` object expected by the
+original comparison helper. Restoring that wrapper made all ten controls pass
+against the already audited EXP-503 point. Four failed first-pass tests and the
+passing rerun are retained in public-controls-01.xml and public-controls-02.xml.
+This is reporting-code validation, not fresh flow evidence. The public replay
+reconstructs compact comparisons but explicitly does not repeat the raw meshes,
+Taylor coefficients or event census audit.
