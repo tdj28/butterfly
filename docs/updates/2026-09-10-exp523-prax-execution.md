@@ -50,6 +50,28 @@ any accepted prefix. Continue toward actual grazing and the independently
 identified symbolic partition; a sampled path alone will not verify Jones's
 flow-level symbolic chain.
 
+## Outcome-independent work while the worker runs
+
+The result renderer `scripts/render_exp523_path.py` is implemented outside the
+frozen numerical closure. Fifteen controls cover audited receipt identity,
+complete measurement selection, deterministic output, failed stencils and
+receipt/output hashes. It replays both the compact controller and separate
+scalar checks before drawing. Synthetic success and failed-predictor/refinement
+figures were rendered and visually inspected; they are explicitly labeled
+synthetic and are **not** EXP-523 results or manuscript figures.
+
+The actual figure will retain all calibration samples and unaccepted trials,
+distinguish the accepted prefix, show every full-state/gap variant range,
+and put both maximum heights against zero-height grazing. A zero-step or
+partially accepted run remains publishable as a failure or accepted prefix;
+it is not silently excluded. All 206 frozen source/input files still match
+the rehearsed source snapshot. The plot preparation has not changed the
+running worker or consumed a second attempt.
+
+At 22:35 UTC the same task-owned worker remained alive (808 seconds elapsed),
+with about 127 MiB of new raw run files retained. No point-completion or
+scientific verdict was available in the operational log at that check.
+
 Release housekeeping: EXP-521 (PR 87) and EXP-522 (PR 88) were normally merged
 to main after all four checks on their final heads passed. EXP-520 (PR 86)
 has passing checks but still needs its overlapping release documentation
