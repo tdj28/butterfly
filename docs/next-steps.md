@@ -1,6 +1,6 @@
 # Research priorities after the public audit
 
-Symbolic execution updated 2026-09-09; other priorities reviewed 2026-09-04.
+Symbolic execution updated 2026-09-10; other priorities reviewed 2026-09-04.
 This is the current execution order; the long
 [backlog](TODO.md) and frozen manifests retain the historical record.
 The [audit](reviews/2026-09-04-public-research-audit.md) explains the corrections
@@ -296,8 +296,12 @@ inputs; historical result reproduction is a separate requirement.
   [EXP-513](updates/2026-09-10-exp513-candidate-fold-qualification.md) now
   implements this all-five test: paired midpoint observations seed bounded
   fold shootings; all nine returns at three offsets and all four full-state
-  references must agree. Pre-target validation passes; no new fold
-  or restored representation is claimed yet.
+  references must agree. All 30 target IVPs audit cleanly, but both solvers'
+  first Newton proposals leave the u box at every candidate. No fold or
+  reference restoration qualifies. Next freeze a bracket-preserving,
+  event-aware refinement of all five intervals; discriminate a smooth root
+  from a grazing/domain cut instead of interpreting these full-step failures
+  as global absence or repeating the same unconstrained Newton seed.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting

@@ -1,6 +1,15 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-512 censored-return extension; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-513 bounded fold searches; not a new audit of every row)
+
+**EXP-513 result:** all 30 new IVPs pass full local raw audit. All five midpoint
+pairs are regular, but both solvers' first Newton steps leave the original u
+box in every candidate. None of the ten searches qualifies a fold and no
+root-offset census or full-state reference comparison is reached. This is a
+bounded-search failure, not an integration failure, demonstrated grazing cut,
+global root-absence result or debunking of Jones. Next prospectively refine all
+five brackets while checking event continuity, preserving the rejected searches
+and all numerical gates. See the [complete result](updates/2026-09-10-exp513-candidate-fold-qualification.md).
 
 **EXP-512 result:** all 28 new IVPs pass full local dense replay. All seven
 censored ninth returns are recovered, and every old eight-return state/time/
