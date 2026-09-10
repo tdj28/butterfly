@@ -1,0 +1,535 @@
+{
+  "D_identified": false,
+  "comparisons": {
+    "join_scaled": 1e-10,
+    "phase": 1e-07,
+    "scaled_state": 1e-06,
+    "unique_nearest_gap_separation": 1e-07
+  },
+  "exact_flow_completeness": false,
+  "experiment_id": "EXP-520",
+  "inputs": {
+    "docs/experiments/receipts/EXP-519-fixed-c-fold-response-result.json": "92ff9159ca3de7794a481e9d682d02626b945495f3ad87e6c7d095137f0117ec",
+    "experiments/manifests/EXP-520-observation-inputs.json": "abf2105570a93d834651af890f7a8df3527995a0a2fb145ee001e706b9e59381"
+  },
+  "isolation": {
+    "max_depth": 160,
+    "max_nodes": 2048,
+    "max_refinements": 256,
+    "time_width": "1/1000000000000000"
+  },
+  "limits": {
+    "failure_reserve_bytes": 65536,
+    "initial_free_bytes": 9663676416,
+    "maximum_segments": 500000,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 268435456,
+    "wall_seconds": 7200
+  },
+  "new_integrations": 0,
+  "observations": [
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325596,
+      "method": "DOP853",
+      "point": "coarse--1",
+      "raw_path": "coarse--1/coarse--1--DOP853--observation.npz",
+      "sha256": "77d41d184790086f6dfef1803c6dd7a965d2faf43398dcfdfdc71a438125983e"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72137,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72137,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72138
+          ]
+        }
+      },
+      "bytes": 8779635,
+      "method": "Radau",
+      "point": "coarse--1",
+      "raw_path": "coarse--1/coarse--1--Radau--observation.npz",
+      "sha256": "984e8a39ad31a171d75a6457f69eefcb945697eaab846be0aeec5725a99623c7"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325634,
+      "method": "DOP853",
+      "point": "coarse-+1",
+      "raw_path": "coarse-+1/coarse-+1--DOP853--observation.npz",
+      "sha256": "30f434c68d56abc7f56d03dda499d652a5188df6f6e360a501181de6a0c51df5"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72566,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72566,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72567
+          ]
+        }
+      },
+      "bytes": 8830457,
+      "method": "Radau",
+      "point": "coarse-+1",
+      "raw_path": "coarse-+1/coarse-+1--Radau--observation.npz",
+      "sha256": "105fab1ab252e64970daeda9b59f6ca13988f9a5d267ac0b9067ee1d9afa2197"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325770,
+      "method": "DOP853",
+      "point": "fine--1",
+      "raw_path": "fine--1/fine--1--DOP853--observation.npz",
+      "sha256": "fc1eeb79cbb874451d72204f874a3fc2117e9213477fcd800c8abcaf5dc9c478"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72339,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72339,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72340
+          ]
+        }
+      },
+      "bytes": 8805143,
+      "method": "Radau",
+      "point": "fine--1",
+      "raw_path": "fine--1/fine--1--Radau--observation.npz",
+      "sha256": "f0cb97337cc415b82df43f705942f4bc4a6d48a0460216f57cf2e50674c683df"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325452,
+      "method": "DOP853",
+      "point": "fine-+1",
+      "raw_path": "fine-+1/fine-+1--DOP853--observation.npz",
+      "sha256": "d5a890dd9ba913d269248f170b4f1ce6a24084aad0c0412bfdbc3234cce8a7c9"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72374,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72374,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72375
+          ]
+        }
+      },
+      "bytes": 8809046,
+      "method": "Radau",
+      "point": "fine-+1",
+      "raw_path": "fine-+1/fine-+1--Radau--observation.npz",
+      "sha256": "b6737bc4c6c09a723ab0987558bf96124d58868fe2db75f9b77cd5c88fa867e2"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325765,
+      "method": "DOP853",
+      "point": "correction",
+      "raw_path": "correction/correction--DOP853--observation.npz",
+      "sha256": "7c06faf95260bb19595ec8603ad1f0da808b6076e11b231e68427585fc1904f2"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72524,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72524,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72525
+          ]
+        }
+      },
+      "bytes": 8826549,
+      "method": "Radau",
+      "point": "correction",
+      "raw_path": "correction/correction--Radau--observation.npz",
+      "sha256": "dd38be6c54d26abd059529b4384e100bdbd7dec12c063a48c61ef5cba57796a3"
+    }
+  ],
+  "paid_review": "not_requested-human-approval-policy",
+  "parent_raw_sha256": "6aded74665ff16d63ff3f4e2b53cea49f5aec445db7c644e98f88f6bce54aa89",
+  "source_paths": [
+    "docs/experiments/EXP-520-periodic-stationarity-census.md",
+    "experiments/manifests/EXP-520-observation-inputs.json",
+    "experiments/manifests/EXP-520-periodic-stationarity-census.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/__main__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/_process_guard.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/bounded_json.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/cli.py",
+    "python/butterfly/decimal_grazing.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/event_boundary_shooting.py",
+    "python/butterfly/event_sheet_probe.py",
+    "python/butterfly/homoclinic_bvp.py",
+    "python/butterfly/homoclinic_refinement.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/paired_adaptive.py",
+    "python/butterfly/paired_adaptive_journal.py",
+    "python/butterfly/paired_authorization.py",
+    "python/butterfly/paired_campaign.py",
+    "python/butterfly/paired_decisions.py",
+    "python/butterfly/paired_input_io.py",
+    "python/butterfly/paired_input_package.py",
+    "python/butterfly/paired_inputs.py",
+    "python/butterfly/paired_journal.py",
+    "python/butterfly/paired_phase_control.py",
+    "python/butterfly/paired_phases.py",
+    "python/butterfly/paired_release.py",
+    "python/butterfly/paired_replay.py",
+    "python/butterfly/paired_sampling.py",
+    "python/butterfly/paired_sections.py",
+    "python/butterfly/paired_supervisor.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_c.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/plotting.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/polynomial_census.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/rossler_conventions.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/section_grazing.py",
+    "python/butterfly/seed_return_map.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/transported_tangent.py",
+    "python/butterfly/upo.py",
+    "scripts/audit_exp520_periodic_census.py",
+    "scripts/exp520_periodic_census.py",
+    "scripts/run_exp520_periodic_census.py",
+    "tests/test_exp520_periodic_census.py",
+    "tests/test_exp520_runner.py",
+    "uv.lock"
+  ],
+  "status": "prospective-saved-data-followup-after-EXP-519",
+  "symbolic_chains_verified": false,
+  "total_segments": 417460,
+  "trials": [
+    {
+      "id": "coarse--1",
+      "parameters": {
+        "a": 0.21558892539912652,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "profiles": [
+        {
+          "method": "DOP853",
+          "period": 44.41074085859376
+        },
+        {
+          "method": "Radau",
+          "period": 44.410740858594274
+        }
+      ]
+    },
+    {
+      "id": "coarse-+1",
+      "parameters": {
+        "a": 0.21560892539912654,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "profiles": [
+        {
+          "method": "DOP853",
+          "period": 44.4113554838389
+        },
+        {
+          "method": "Radau",
+          "period": 44.41135548383937
+        }
+      ]
+    },
+    {
+      "id": "fine--1",
+      "parameters": {
+        "a": 0.21559392539912653,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "profiles": [
+        {
+          "method": "DOP853",
+          "period": 44.41089445168395
+        },
+        {
+          "method": "Radau",
+          "period": 44.41089445168426
+        }
+      ]
+    },
+    {
+      "id": "fine-+1",
+      "parameters": {
+        "a": 0.21560392539912654,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "profiles": [
+        {
+          "method": "DOP853",
+          "period": 44.4112017642739
+        },
+        {
+          "method": "Radau",
+          "period": 44.411201764274296
+        }
+      ]
+    },
+    {
+      "id": "correction",
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "profiles": [
+        {
+          "method": "DOP853",
+          "period": 44.41086884519311
+        },
+        {
+          "method": "Radau",
+          "period": 44.41086884519353
+        }
+      ]
+    }
+  ],
+  "windows": [
+    0.25,
+    1.25
+  ]
+}

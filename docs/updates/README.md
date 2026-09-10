@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp521-critical-response-design.md`](2026-09-10-exp521-critical-response-design.md)
+  - Executable four-point c response and one conditional contact-preserving
+  periodic step; all 16 stationary points and both inner maxima tracked.
+  Design and tests, not yet a target result or a verified Jones arrow.
 - [`2026-09-10-exp518-recovered-fold-transport.md`](2026-09-10-exp518-recovered-fold-transport.md)
   - All 200 IVPs pass raw audit; all four constructions track through both
   remaining parameter steps. At the endpoint all 16 x-only comparisons pass,

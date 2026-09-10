@@ -1,0 +1,532 @@
+{
+  "anchor": {
+    "a": 0.21559892539912653,
+    "b": 0.2,
+    "c": 7.152000000000001
+  },
+  "attempts": 1,
+  "controls": {
+    "binding.json": {
+      "bytes": 7332,
+      "sha256": "a039b5992a12d3f8b6e2e0ae5be71a1af37838146df632b11b285593b2d89a73"
+    },
+    "control-DOP853-1.npz": {
+      "bytes": 227392,
+      "sha256": "ddac9c7da37eb79709679a36a2b1b3e4c30d884a1b6f60845cf0b38a81d9ee84"
+    },
+    "control-DOP853-2.npz": {
+      "bytes": 452793,
+      "sha256": "104dc1b1a328fb136507d450d11ae95fc1e5b4eb9c75bcd3445345bd5972d8f9"
+    },
+    "control-Radau-1.npz": {
+      "bytes": 395274,
+      "sha256": "128f1196cfa525b75d29583a347a4f5cdf4acf0468bccf7d057a38ae9607e637"
+    },
+    "control-Radau-2.npz": {
+      "bytes": 783257,
+      "sha256": "36e22d0ba5b0866bfd7356b7711703e2e3b81d9f90c1b42fdfd21c5172f1bcbd"
+    },
+    "controls.json": {
+      "bytes": 26188,
+      "sha256": "aeaf865a58c5ca20671ce83d728636f7aa070dff06c58e9e68a77de49a02f4ea"
+    },
+    "decimal-controls.json": {
+      "bytes": 38561,
+      "sha256": "e3b0d49fe6bf800403eee80289ca525f1a35c24d73523c9cfc5e1e6dd242bd3e"
+    },
+    "decimal-controls/decimal-40--parabola--census.json.gz": {
+      "bytes": 63413,
+      "sha256": "5096f8686ae543135425d3dbc645ff76b6db297587843e1471cfb24709461fe4"
+    },
+    "decimal-controls/decimal-40--parabola--iteration-0.json.gz": {
+      "bytes": 34436,
+      "sha256": "99a4ed9413cebbf3809ecada7b8c3e37f5acee72176e1ec6faf9d3532a806913"
+    },
+    "decimal-controls/decimal-40--parabola--iteration-1.json.gz": {
+      "bytes": 34407,
+      "sha256": "daf8280f1ea8bbd3d3f328d7dfe234554585db34a1e2f9ee0888f6b32ab88c4c"
+    },
+    "decimal-controls/decimal-40--parabola--iteration-2.json.gz": {
+      "bytes": 34404,
+      "sha256": "342c42516aaedf178ea769196f9a102acb26dfc41be20c15d7a97c32e9798401"
+    },
+    "decimal-controls/decimal-40--parabola-certificates.json": {
+      "bytes": 13089,
+      "sha256": "101b0a2113357e2c249718dbfb0fc1e67715c8a8455f35840d0f1afa6c4fcd1f"
+    },
+    "decimal-controls/decimal-40--rotation--census.json.gz": {
+      "bytes": 433471,
+      "sha256": "705aa40073722515b5f20377c50c8c0e44ad256c32982bdc528f40cd5f0de2f6"
+    },
+    "decimal-controls/decimal-40--rotation--iteration-0.json.gz": {
+      "bytes": 239946,
+      "sha256": "17b1c45d1cd51872a00bd059e17686ff5721fd18b5e3ff5faac9275f675990c6"
+    },
+    "decimal-controls/decimal-40--rotation--iteration-1.json.gz": {
+      "bytes": 241958,
+      "sha256": "011191b2f7c87ca508d3e6bf4a071024849fb43b18f0e4a1a230c95e2beda743"
+    },
+    "decimal-controls/decimal-40--rotation--iteration-2.json.gz": {
+      "bytes": 233536,
+      "sha256": "f9361a9cd0fb97ee622aeba81b1a77fcf286ace6fe45e4806de088038facddca"
+    },
+    "decimal-controls/decimal-40--rotation--iteration-3.json.gz": {
+      "bytes": 219597,
+      "sha256": "6dfcc97b7a70a1fff8fb3bb8408a710532bfa568d1c3eef0fad143f00f08628d"
+    },
+    "decimal-controls/decimal-40--rotation--iteration-4.json.gz": {
+      "bytes": 179318,
+      "sha256": "17d5b4bfacd18441cc7d3562a8827033ea4f03e1a8f16dfe729ab05ee097f130"
+    },
+    "decimal-controls/decimal-40--rotation-certificates.json": {
+      "bytes": 26051,
+      "sha256": "baf7a945062fe3eda59c5e44c8b159d805cc7410682286c41afac4d576476d4f"
+    },
+    "decimal-controls/decimal-50--parabola--census.json.gz": {
+      "bytes": 199390,
+      "sha256": "95dbf2b61f6ccbd88b1695abc3b8f8c14ae26ea919cb8d2c0756e90aa9e4191f"
+    },
+    "decimal-controls/decimal-50--parabola--iteration-0.json.gz": {
+      "bytes": 101727,
+      "sha256": "ec2d3fc4b96814cd24bd944447f9badbcdc239f3a8fee230b213453e780f5c20"
+    },
+    "decimal-controls/decimal-50--parabola--iteration-1.json.gz": {
+      "bytes": 102744,
+      "sha256": "1dd9e701fa30e716db579758d80871988c5c745bf989b6f1ee65968960a512e6"
+    },
+    "decimal-controls/decimal-50--parabola--iteration-2.json.gz": {
+      "bytes": 102748,
+      "sha256": "a90850b1b95e40cba805e37ac1c608893abbc594ff825ea1e808c1da4ce62198"
+    },
+    "decimal-controls/decimal-50--parabola-certificates.json": {
+      "bytes": 25989,
+      "sha256": "ebae400d0648a30aa427230463ccf242029b6140799d4ee1dab433e934689ea4"
+    },
+    "decimal-controls/decimal-50--rotation--census.json.gz": {
+      "bytes": 1401070,
+      "sha256": "d06c9da9a97a9bf74fb3906272b1e61206f20ce220eb7e8a84a30a94bb015cbd"
+    },
+    "decimal-controls/decimal-50--rotation--iteration-0.json.gz": {
+      "bytes": 780145,
+      "sha256": "6254d63f2a602538f21b6f7b5b81ebe172e192b63faa2acbc857005efc5b8b92"
+    },
+    "decimal-controls/decimal-50--rotation--iteration-1.json.gz": {
+      "bytes": 786680,
+      "sha256": "b97a97558b9c20dc60e6d7b878f03a39d12994b4a3f324292194ad535aba3fd8"
+    },
+    "decimal-controls/decimal-50--rotation--iteration-2.json.gz": {
+      "bytes": 764387,
+      "sha256": "1a71bd1efaa7f5648676dd1e4ebf0c4ab0cfaec324c756c12c9fc7827df55884"
+    },
+    "decimal-controls/decimal-50--rotation--iteration-3.json.gz": {
+      "bytes": 727267,
+      "sha256": "5647ce084cab408b64be7d595378315dc9dd3edd3ecd4825d37eac9cefad97da"
+    },
+    "decimal-controls/decimal-50--rotation--iteration-4.json.gz": {
+      "bytes": 635261,
+      "sha256": "04ce33f0937e1534cb66bcf58f360889480369bca7799e668b3ebc93cf3efc23"
+    },
+    "decimal-controls/decimal-50--rotation-certificates.json": {
+      "bytes": 51851,
+      "sha256": "bc851c260f50ab8f55475d1bdca01eda7b08df1eb978d6d0c0b88cd7dc107a2e"
+    },
+    "fold-controls.json": {
+      "bytes": 329879,
+      "sha256": "721f6b318d1088c9e5e3b797f694e317e6b7c6c13f203f0caaff19c92ca89021"
+    },
+    "response-controls.json": {
+      "bytes": 589,
+      "sha256": "f6dddac16b91e17286e6f89674b6c534dd25200f2a3c5df9edd21fdabf201909"
+    },
+    "startup.json": {
+      "bytes": 7026,
+      "sha256": "f2e2950eadf6ae8f532ede2ae8c19a667fc6b588a378b2929fba58833a342963"
+    }
+  },
+  "coordinate_scales": [
+    15.0,
+    15.0,
+    0.01
+  ],
+  "cycle_indices": [
+    3,
+    4
+  ],
+  "experiment_id": "EXP-519",
+  "folds_per_point": 4,
+  "full_state_radius": 0.0001,
+  "historical_targets": [
+    {
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--contact-03",
+      "image_state": [
+        -6.841793180892733,
+        -0.02794867457246087,
+        0.014316612003942183
+      ],
+      "method": "DOP853",
+      "next_state": [
+        -11.682976406411365,
+        -0.027948674572432965,
+        0.01063098146772383
+      ]
+    },
+    {
+      "id": "local-a025-c083--region-1--depth-4--direction-0--candidate-0--contact-03",
+      "image_state": [
+        -6.841793180892542,
+        -0.027948674572442316,
+        0.014316612003942379
+      ],
+      "method": "Radau",
+      "next_state": [
+        -11.682976406411392,
+        -0.02794867457245857,
+        0.010630981467723814
+      ]
+    },
+    {
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--contact-03",
+      "image_state": [
+        -6.841793180892507,
+        -0.02794867457245143,
+        0.014316612003942412
+      ],
+      "method": "DOP853",
+      "next_state": [
+        -11.68297640641145,
+        -0.02794867457242881,
+        0.010630981467723788
+      ]
+    },
+    {
+      "id": "local-a025-c083--region-1--depth-4--direction-1--candidate-0--contact-03",
+      "image_state": [
+        -6.841793180893056,
+        -0.02794867457244179,
+        0.01431661200394184
+      ],
+      "method": "Radau",
+      "next_state": [
+        -11.682976406411388,
+        -0.027948674572433392,
+        0.010630981467723821
+      ]
+    }
+  ],
+  "inputs": {
+    "docs/experiments/receipts/EXP-486-return-image-fold-result.json": "74fd97ef7c32e56a8c29d32113ab7cfa2531f9a48caf543906beb8cb2b5762d4",
+    "docs/experiments/receipts/EXP-497-contact-localization-result.json": "ed229b4a772ef19d227272006401d19090ee5e28a357791f25400cafa3271cff",
+    "docs/experiments/receipts/EXP-501-limiting-grazing-contact-result.json": "c97b64e4770e1b53a66802c9bf6791fe4dbbf22e84d6d12281ccda9ae451b485",
+    "docs/experiments/receipts/EXP-503-joint-contact-result.json": "56cf4e0d13d2f082c3272494f0ef6a4719dfd92d7d9686a74c67026c995437a7",
+    "docs/experiments/receipts/EXP-504-contact-path-result.json": "83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128",
+    "docs/experiments/receipts/EXP-507-fixed-c-fold-restoration-result.json": "b6d550882b761fb499a9b6e3f4d415aa05c0dc1d1f98f424bcffc2dacaba386d",
+    "docs/experiments/receipts/EXP-509-failed-predictor-replay-result.json": "6857228fe1c4b09692982e5d6481595398552c2e055b6f1620b22c499bcff4e5",
+    "docs/experiments/receipts/EXP-510-collapsed-root-witness.json": "5b271195075b337b72b09552c5b86f707f2e68595a7f8974262a1cbce7518df9",
+    "docs/experiments/receipts/EXP-510-four-substep-fold-transport-result.json": "43399d794bf8c55a20e73706a4850453f43ac762a465a3a7d39b9cc7665a8fe7",
+    "docs/experiments/receipts/EXP-511-direct-curve-coverage-result.json": "245610c6116eed25f76bc775cc77be6cce66eacd4193d466a069c23b1892eb85",
+    "docs/experiments/receipts/EXP-512-censored-return-extension-result.json": "c89bb30f90bf26a4f4902e349459b234201a66b00d3d2b4a500d6849fdb96e76",
+    "docs/experiments/receipts/EXP-514-candidate-grazing-boundaries-result.json": "825b6298900cf644b5b1e6e6b433c1e42bf3e791af8f0d89d90fd2ebc977d4bc",
+    "docs/experiments/receipts/EXP-516-event-ordinal-coverage-result.json": "45b8dd88ee0cab27d4eba7ec4c4891afdd6948ddaa83c110017ed26ac012a445",
+    "docs/experiments/receipts/EXP-517-earlier-return-folds-result.json": "0c1233986f4ac6463d8ded47ce0a92353a98a86a889089a3f2bafe78742adf76",
+    "docs/experiments/receipts/EXP-518-recovered-fold-transport-result.json": "f8a0b33cd13ff88d924928bc5f59a811468ae5a627ca007a0541702d194c8e01",
+    "experiments/manifests/EXP-497-contact-localization.json": "2e3cc27a66bc99e4b2f76fa9ad7bb9b61da233bcf1a080463980f30c51678cfe",
+    "experiments/manifests/EXP-501-limiting-grazing-contact.json": "d9ef2516e08a7014c3c5b1917be4d17884e0146d93ddd5492bd4b1520896b5cd",
+    "experiments/manifests/EXP-502-joint-contact-search.json": "20c9fc885f2eeaf8df6225e487f67ee5d531b64ccaa4e0fe2e7e32bb28091038",
+    "experiments/manifests/EXP-503-joint-contact-continuation.json": "ac90cbfa8168abd8a21e49066bc294c2102bb1542811caef9d74354eb6d515e9",
+    "experiments/manifests/EXP-504-guarded-contact-continuation.json": "a5cc08a114d1c967d6b6b22f8e7307959c7f02d7a5dc7b69af1e846ebce9774c",
+    "experiments/manifests/EXP-507-fixed-c-fold-restoration.json": "ac1ea02269f66d1ac005be552a6c8dbb1f7b0536ef94c02d1bbdce812b990788",
+    "experiments/manifests/EXP-511-direct-curve-coverage.json": "c6e22b10ba2d8169dbb5aaeb456cd8e97bb2b79cd23b4d6e0eb451edb5d5080f",
+    "experiments/manifests/EXP-518-recovered-fold-transport.json": "e217455377cbd0b3a8de00ef0455beb2f27c4c92b72dbdc8b4c519591929e058",
+    "scripts/exp510_fold_transport.py": "e67653ea97bc167559a0d37d5c70e96e48e51660ae952e257c1a37f4ebd8b0a7"
+  },
+  "limits": {
+    "failure_reserve_bytes": 1048576,
+    "initial_free_bytes": 12884901888,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 3221225472,
+    "target_ivps": 768,
+    "wall_seconds": 7200
+  },
+  "maximum_corrections": 1,
+  "minimum_absolute_x_response": 1e-08,
+  "new_boundaries": 0,
+  "new_control_ivps": 0,
+  "normalized_a_increment": 1e-05,
+  "numerical": {
+    "atol": 1e-15,
+    "controls": {
+      "counts": [
+        2,
+        3
+      ],
+      "kinds": [
+        "fold",
+        "no-fold",
+        "projection-degenerate"
+      ]
+    },
+    "extremum_margin": 1e-10,
+    "guard": 1e-08,
+    "iterations": 8,
+    "max_step": 0.001,
+    "root_determinant": 1e-10,
+    "root_plane": 1e-10,
+    "rtol": 1e-13,
+    "scales": [
+      15.0,
+      15.0,
+      0.01
+    ],
+    "solvers": [
+      "DOP853",
+      "Radau"
+    ],
+    "thresholds": {
+      "angle": 1e-07,
+      "curvature_relative_error": 0.001,
+      "minimum_gain": 0.0001,
+      "minimum_scaled_curvature": 1e-06,
+      "minimum_x_component": 0.001,
+      "plane": 1e-08,
+      "root_derivative": 1e-07,
+      "solver_u": 1e-09,
+      "state": 1e-06,
+      "time": 1e-07
+    }
+  },
+  "paid_review": "not-requested-human-approval-policy",
+  "periodic": {
+    "atol": 1e-14,
+    "cases": [
+      "local-a025-c083",
+      "local-a027-c083"
+    ],
+    "correction_tolerance": 1e-11,
+    "experiment_id": "EXP-494",
+    "increments": {
+      "a": 0.0001,
+      "c": 0.002
+    },
+    "initial_free_bytes": 17179869184,
+    "max_evaluations": 30,
+    "max_step": 0.01,
+    "maximum_closure_error": 1e-09,
+    "maximum_ivps": 6000,
+    "maximum_output_bytes": 8589934592,
+    "maximum_paired_relative_period": 1e-07,
+    "maximum_paired_scaled_state": 1e-06,
+    "maximum_phase_residual": 1e-10,
+    "maximum_relative_period_step": 0.05,
+    "maximum_scaled_step": 0.25,
+    "maximum_seconds": 7200,
+    "methods": [
+      "DOP853",
+      "Radau"
+    ],
+    "minimum_free_bytes": 8589934592,
+    "paid_review": "not_requested-human-approval-policy",
+    "parent_receipt_sha256": "aa4556cdfbca2fa277c8e77daec00f01190e0a8bfde33d9977e5a594c58127b9",
+    "rtol": 1e-12,
+    "status": "prospectively-frozen-exploratory-transport",
+    "steps": 8
+  },
+  "phases": [
+    0.25,
+    1.25
+  ],
+  "prediction_relative_tolerance": 0.1,
+  "response_relative_tolerance": 0.05,
+  "solvers": [
+    "DOP853",
+    "Radau"
+  ],
+  "source_paths": [
+    "docs/experiments/EXP-502-joint-contact-search.md",
+    "docs/experiments/EXP-502-local-design-audit.md",
+    "docs/experiments/EXP-503-joint-contact-resource-continuation.md",
+    "docs/experiments/EXP-504-guarded-contact-continuation.md",
+    "docs/experiments/EXP-504-local-design-audit.md",
+    "docs/experiments/EXP-507-fixed-c-fold-restoration.md",
+    "docs/experiments/EXP-508-constrained-contact-step.md",
+    "docs/experiments/EXP-509-failed-predictor-replay.md",
+    "docs/experiments/EXP-510-four-substep-fold-transport.md",
+    "docs/experiments/EXP-511-direct-curve-coverage.md",
+    "docs/experiments/EXP-512-censored-return-extension.md",
+    "docs/experiments/EXP-516-event-ordinal-coverage.md",
+    "docs/experiments/EXP-517-earlier-return-folds.md",
+    "docs/experiments/EXP-518-recovered-fold-transport.md",
+    "docs/experiments/EXP-519-fixed-c-fold-response.md",
+    "experiments/manifests/EXP-502-joint-contact-search.json",
+    "experiments/manifests/EXP-503-joint-contact-continuation.json",
+    "experiments/manifests/EXP-504-guarded-contact-continuation.json",
+    "experiments/manifests/EXP-507-fixed-c-fold-restoration.json",
+    "experiments/manifests/EXP-508-constrained-contact-step.json",
+    "experiments/manifests/EXP-509-failed-predictor-replay.json",
+    "experiments/manifests/EXP-510-four-substep-fold-transport.json",
+    "experiments/manifests/EXP-511-direct-curve-coverage.json",
+    "experiments/manifests/EXP-512-censored-return-extension.json",
+    "experiments/manifests/EXP-517-earlier-return-folds.json",
+    "experiments/manifests/EXP-518-recovered-fold-transport.json",
+    "experiments/manifests/EXP-519-fixed-c-fold-response.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/bounded_json.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/decimal_grazing.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/polynomial_census.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp494_periodic_winding_transport.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp497_contact_localization.py",
+    "scripts/audit_exp501_limiting_contact.py",
+    "scripts/audit_exp502_joint_contact.py",
+    "scripts/audit_exp503_joint_continuation.py",
+    "scripts/audit_exp504_guarded_contact.py",
+    "scripts/audit_exp507_fold_restoration.py",
+    "scripts/audit_exp508_constrained_step.py",
+    "scripts/audit_exp510_fold_transport.py",
+    "scripts/audit_exp511_curve_coverage.py",
+    "scripts/audit_exp512_censored_returns.py",
+    "scripts/audit_exp517_candidate_folds.py",
+    "scripts/audit_exp518_fold_transport.py",
+    "scripts/audit_exp519_fold_response.py",
+    "scripts/exp500_census_analysis.py",
+    "scripts/exp501_analytic_controls.py",
+    "scripts/exp501_contact_analysis.py",
+    "scripts/exp502_response.py",
+    "scripts/exp504_continuation_model.py",
+    "scripts/exp507_bounded_products.py",
+    "scripts/exp507_fold_restoration.py",
+    "scripts/exp508_constrained_step.py",
+    "scripts/exp510_fold_transport.py",
+    "scripts/exp511_curve_coverage.py",
+    "scripts/exp511_dense_census.py",
+    "scripts/exp512_censored_returns.py",
+    "scripts/exp513_candidate_folds.py",
+    "scripts/exp516_ordinal_coverage.py",
+    "scripts/exp517_candidate_folds.py",
+    "scripts/exp518_fold_transport.py",
+    "scripts/exp519_fold_response.py",
+    "scripts/prepare_exp511_prior_witness.py",
+    "scripts/replay_exp509_failed_predictor.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp494_periodic_winding_transport.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "scripts/run_exp497_contact_localization.py",
+    "scripts/run_exp501_limiting_contact.py",
+    "scripts/run_exp502_joint_contact.py",
+    "scripts/run_exp503_joint_continuation.py",
+    "scripts/run_exp504_guarded_contact.py",
+    "scripts/run_exp507_fold_restoration.py",
+    "scripts/run_exp508_constrained_step.py",
+    "scripts/run_exp510_fold_transport.py",
+    "scripts/run_exp511_curve_coverage.py",
+    "scripts/run_exp512_censored_returns.py",
+    "scripts/run_exp517_candidate_folds.py",
+    "scripts/run_exp518_fold_transport.py",
+    "scripts/run_exp519_fold_response.py",
+    "scripts/verify_exp503_public_contact.py",
+    "scripts/verify_exp504_public_contact.py",
+    "scripts/verify_exp507_public_restoration.py",
+    "scripts/verify_exp509_public_replay.py",
+    "scripts/verify_exp510_public_transport.py",
+    "scripts/verify_exp511_public_coverage.py",
+    "scripts/verify_exp512_public_extension.py",
+    "scripts/verify_exp517_public_folds.py",
+    "scripts/verify_exp518_public_transport.py",
+    "tests/test_exp502_joint_contact.py",
+    "tests/test_exp503_joint_continuation.py",
+    "tests/test_exp504_guarded_contact.py",
+    "tests/test_exp507_bounded_products.py",
+    "tests/test_exp507_fold_restoration.py",
+    "tests/test_exp508_constrained_step.py",
+    "tests/test_exp509_failed_predictor.py",
+    "tests/test_exp509_public_replay.py",
+    "tests/test_exp510_fold_transport.py",
+    "tests/test_exp510_public_transport.py",
+    "tests/test_exp511_curve_coverage.py",
+    "tests/test_exp511_public_coverage.py",
+    "tests/test_exp512_censored_returns.py",
+    "tests/test_exp516_ordinal_coverage.py",
+    "tests/test_exp517_candidate_folds.py",
+    "tests/test_exp518_fold_transport.py",
+    "tests/test_exp519_fold_response.py",
+    "uv.lock"
+  ],
+  "specifications": [
+    {
+      "id": "coarse--1",
+      "parameters": {
+        "a": 0.21558892539912652,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "scale": "coarse",
+      "sign": -1
+    },
+    {
+      "id": "coarse-+1",
+      "parameters": {
+        "a": 0.21560892539912654,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "scale": "coarse",
+      "sign": 1
+    },
+    {
+      "id": "fine--1",
+      "parameters": {
+        "a": 0.21559392539912653,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "scale": "fine",
+      "sign": -1
+    },
+    {
+      "id": "fine-+1",
+      "parameters": {
+        "a": 0.21560392539912654,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "scale": "fine",
+      "sign": 1
+    }
+  ],
+  "status": "prospective-outcome-informed-fixed-c-response",
+  "stencil_points": 4,
+  "symbolic_chains_verified": false
+}
