@@ -56,13 +56,20 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
-Current frontier: EXP-521's complete raw audit passes, but its linear fold
-predictor fails despite measured contact proximity and improving inner gaps.
-Freeze/test/execute EXP-522's one-point fixed-c nonlinear refinement next;
-require unchanged prediction gates and tenfold full-state residual reduction.
-Report net gap progress relative to the original c-step anchor separately from
-changes relative to the imperfect trial. See the
-[EXP-521 result](updates/2026-09-10-exp521-critical-response-result.md).
+Current frontier: EXP-522's new fixed-c nonlinear refinement passes every
+predeclared gate after EXP-521's failed linear predictor. All 96 new IVPs
+audit cleanly, every contact residual improves at least 115×, and both gap
+responses retain net progress from the original anchor. The first gap gives
+back a small amount relative to the trial; that local-progress failure remains
+explicit. See the [EXP-522 result](updates/2026-09-10-exp522-nonlinear-refinement-result.md).
+Next build/freeze a bounded multi-step predictor/corrector with explicit
+derivative refresh, full-state restoration, new-data predictions and complete
+extremum identity. Stop and investigate any crossing-count change separately;
+do not silently relax the existing 6/8 gates. Plan remote public-source-only
+execution or adequate local storage before a larger raw-retaining batch.
+The [conditional grazing derivation](theory/periodic-grazing-and-symbol-insertion.md)
+states what a one-count change can establish and the extra conditions still
+needed for Jones's particular zero insertion.
 
 - [x] Qualify observation of both fixed EXP-479 cycles on both sections:
   [EXP-480](updates/2026-09-06-exp480-both-cycles-qualified.md) passes; six

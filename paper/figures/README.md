@@ -1,5 +1,14 @@
 # Manuscript figures
 
+`fig40-exp521-critical-periodic-response.png` is an exact copy of
+[`EXP-521-critical-periodic-response.png`](../../docs/figures/EXP-521-critical-periodic-response.png).
+Its [receipt](../../docs/figures/EXP-521-critical-periodic-response.receipt.json)
+binds all fixed points, the failed predictor and the complete numerical ranges.
+Redraw without new integration or private data using
+`scripts/render_exp521_response.py --expected-sha256 8bfc3ec343335af24514a4162b22e9a9d52499e49c5ee8140fa92c08697d499d --output NEW_DIRECTORY`
+with the documented `PYTHONPATH=.:python` environment. This is a compact-data
+redraw, not raw-data replication.
+
 This directory contains the publication copies used by
 [the manuscript](../manuscript.tex). Figure captions preserve the project's
 distinction between finite-time rasters, corrected invariant orbits, and
