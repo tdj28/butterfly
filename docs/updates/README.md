@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp511-direct-curve-coverage.md`](2026-09-09-exp511-direct-curve-coverage.md)
+  - All 160 IVPs pass full dense replay. Of 40 paired samples, 31 are regular,
+  two collapse and seven lack a ninth return before the fixed horizon. No
+  sampled fold bracket qualifies; resolve time-window censoring next.
 - [`2026-09-09-exp510-four-substep-fold-transport.md`](2026-09-09-exp510-four-substep-fold-transport.md)
   - All 180 IVPs audit cleanly. The first smaller substep qualifies every
   fold; the second again loses depth-8 input regularity. The controller stops
