@@ -22,6 +22,13 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp509-failed-predictor-replay.md`](2026-09-09-exp509-failed-predictor-replay.md)
+  - All 196 original IVPs replay. Depth-8 roots collapse the input curve;
+  short-history folds miss proximity. Preserve the failed controller and
+  reject the point safely. Smaller-step fold-branch transport is next.
+- [`2026-09-09-exp508-constrained-contact-step.md`](2026-09-09-exp508-constrained-contact-step.md)
+  - Predictor produced 196 IVPs, then a missing-envelope reporting defect
+  stopped the controller. No corrector ran; failure and raw files preserved.
 - [`2026-09-09-exp507-fixed-c-fold-restoration.md`](2026-09-09-exp507-fixed-c-fold-restoration.md)
   - All 158 integrations pass raw audit. Fixed-c correction restores fold
   proximity, but the boundary remains about 119 times tolerance. Complete
