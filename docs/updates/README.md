@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp516-event-ordinal-coverage.md`](2026-09-10-exp516-event-ordinal-coverage.md)
+  - All 740 saved accepted events and 660 consecutive pairs audit cleanly;
+  all 40 prior decisions remain unchanged. No sampled ordinal restores the
+  reference, but two earlier-return sign-change cells warrant direct tests.
 - [`2026-09-10-exp515-third-return-precision.md`](2026-09-10-exp515-third-return-precision.md)
   - All twelve IVPs pass raw audit; all eighteen paired sensitivities resolve.
   Tiny third-return derivatives persist at higher precision, while both old

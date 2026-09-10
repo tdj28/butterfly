@@ -1,0 +1,30 @@
+{
+  "counts": {
+    "accepted_events": 740,
+    "coverage_cells": 0,
+    "endpoint_candidate_cells": 11,
+    "fixed_ordinal_decisions_preserved": 40,
+    "full_state_reference_distances": 5280,
+    "missing_ordinal_cells": 70,
+    "paired_ordinal_cells": 330,
+    "profiles": 80,
+    "regular_cells": 277,
+    "retained_pairs": 660,
+    "terminal_events_without_successor": 80
+  },
+  "experiment_id": "EXP-516",
+  "full_raw_audit_repeated": false,
+  "maximum_correction_scaled_absolute_error": 9.094947017729282e-11,
+  "new_integrations": 0,
+  "passed": true,
+  "public_replay": {
+    "directions": 2,
+    "full_raw_audit_repeated": false,
+    "new_integrations": 0,
+    "passed": true,
+    "receipt_sha256": "45b8dd88ee0cab27d4eba7ec4c4891afdd6948ddaa83c110017ed26ac012a445"
+  },
+  "receipt_sha256": "45b8dd88ee0cab27d4eba7ec4c4891afdd6948ddaa83c110017ed26ac012a445",
+  "scope": "Complete saved population and all reference comparisons; no independent IVP or exact-flow proof.",
+  "symbolic_chains_verified": false
+}
