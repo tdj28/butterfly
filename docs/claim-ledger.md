@@ -1,6 +1,19 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-519 fresh-response contact; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-521; not a new audit of every row)
+
+**EXP-521 result:** all 569 IVPs and 416634 periodic census segments pass raw
+audit. All five points retain full-state stationary-root correspondence. The
+prescribed c/a step improves both inner gaps (mean reductions 1.78071% and
+1.21704%); all sixteen full-state contact distances pass 1e-4. Nevertheless all
+sixteen linear fold predictions fail the unchanged 0.1 relative-error gate
+(worst 2.05741), so the overall step is rejected. All eight gap predictions
+pass (worst .00369803). A post-run even-curvature diagnosis explains most
+of the error but is not a validated new forecast. Next prospectively test a
+fixed-c nonlinear contact refinement, preserving this failure and distinguishing
+net progress from monotonic progress. No grazing, D, exact locus, homoclinic
+connection or Jones arrow is established. See the
+[complete result and figure](updates/2026-09-10-exp521-critical-response-result.md).
 
 **EXP-519 result:** all 513 target IVPs pass full local raw audit. Every fixed
 stencil point and the single prescribed correction retains all four qualified
