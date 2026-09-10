@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp521-critical-response-result.md`](2026-09-10-exp521-critical-response-result.md)
+  - All 569 IVPs and 416634 periodic census segments pass raw audit. Both
+  inner gaps improve and contact proximity passes, but all sixteen linear
+  fold predictions fail. Preserve that failure; test nonlinear refinement next.
 - [`2026-09-10-exp521-critical-response-design.md`](2026-09-10-exp521-critical-response-design.md)
   - Executable four-point c response and one conditional contact-preserving
   periodic step; all 16 stationary points and both inner maxima tracked.

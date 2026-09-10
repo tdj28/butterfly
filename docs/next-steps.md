@@ -56,6 +56,14 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
+Current frontier: EXP-521's complete raw audit passes, but its linear fold
+predictor fails despite measured contact proximity and improving inner gaps.
+Freeze/test/execute EXP-522's one-point fixed-c nonlinear refinement next;
+require unchanged prediction gates and tenfold full-state residual reduction.
+Report net gap progress relative to the original c-step anchor separately from
+changes relative to the imperfect trial. See the
+[EXP-521 result](updates/2026-09-10-exp521-critical-response-result.md).
+
 - [x] Qualify observation of both fixed EXP-479 cycles on both sections:
   [EXP-480](updates/2026-09-06-exp480-both-cycles-qualified.md) passes; six
   historical and eight Barrio events are not a one-to-one alphabet transport.

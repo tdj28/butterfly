@@ -6,6 +6,7 @@ experiment documentation and plotting scripts.
 
 | Figure | Audited data | Figure receipt |
 | --- | --- | --- |
+| [EXP-521 PNG](EXP-521-critical-periodic-response.png), [SVG](EXP-521-critical-periodic-response.svg), [PDF](EXP-521-critical-periodic-response.pdf) | [Complete failed-predictor audit](../experiments/receipts/EXP-521-critical-periodic-response-result.json) | [All data, limits, source/output hashes](EXP-521-critical-periodic-response.receipt.json), [hashed index](EXP-521-critical-periodic-response.index.json) |
 | [EXP-485 PNG](EXP-485-transported-tangent.png), [SVG](EXP-485-transported-tangent.svg) | [All 80 results](../experiments/receipts/EXP-485-transported-tangent-result.json) | [Inputs, derived values, code/output hashes, alt text](EXP-485-transported-tangent.receipt.json) |
 | [EXP-486 PNG](EXP-486-continuous-return-curves.png), [SVG](EXP-486-continuous-return-curves.svg), [PDF](EXP-486-continuous-return-curves.pdf) | [All 16 families](../experiments/receipts/EXP-486-return-image-fold-result.json) | [Complete figure receipt](EXP-486-continuous-return-curves.receipt.json), [hashed index](EXP-486-continuous-return-curves.index.json) |
 | [EXP-490 PNG](EXP-490-direct-folds.png), [SVG](EXP-490-direct-folds.svg), [PDF](EXP-490-direct-folds.pdf) | [All 26 candidates and both solvers](../experiments/receipts/EXP-490-direct-fold-result.json) | [Complete figure receipt](EXP-490-direct-folds.receipt.json), [hashed index](EXP-490-direct-folds.index.json) |
