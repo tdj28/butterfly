@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp507-fixed-c-fold-restoration.md`](2026-09-09-exp507-fixed-c-fold-restoration.md)
+  - One fixed-c corrective pilot implemented with complete-output quota guards;
+  focused tests, isolated startup and retained analytic-control replay pass.
+  Source freeze and target/raw-audit results are recorded in the dated update.
 - [`2026-09-09-exp506-legacy-word-adapter-continuation.md`](2026-09-09-exp506-legacy-word-adapter-continuation.md)
   - All 2,040 branch fits and 40 word splines reproduce; the turning filter
   changes none of EXP-186's saved outputs. A final-summary quota overrun is
