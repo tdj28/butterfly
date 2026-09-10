@@ -15,6 +15,21 @@ net progress from monotonic progress. No grazing, D, exact locus, homoclinic
 connection or Jones arrow is established. See the
 [complete result and figure](updates/2026-09-10-exp521-critical-response-result.md).
 
+**EXP-519 result:** all 513 target IVPs pass full local raw audit. Every fixed
+stencil point and the single prescribed correction retains all four qualified
+fold constructions, both solvers, both cycle windows and primitive 6/8 section
+counts. The fresh x and six-component derivative comparisons pass; worst
+relative discrepancy is .000177944 against .05. At corrected
+`a=.21559309191221962`, `b=.2`, `c=7.152000000000001`, all sixteen full-state
+contact tests pass (worst 8.822001578909222e-7, limit 1e-4), as do all prediction
+checks (worst .0063225625016077, limit .1). This restores numerical local
+fold/orbit proximity near the failed EXP-518 point; it is not exact contact,
+independent-team replication, D identification, a double-critical center or
+a Jones arrow. No new boundary was measured and the old depth-eight failure
+remains. Next establish the missing return-curve/quotient critical geometry;
+do not promote grazing to D or reuse an old joint Jacobian. See the
+[complete result](updates/2026-09-10-exp519-execution.md).
+
 **EXP-518 result:** all 200 target IVPs pass the full local raw audit. All
 four history/direction constructions qualify with both solvers at both
 remaining fixed parameter substeps. Largest scaled full-state spread is

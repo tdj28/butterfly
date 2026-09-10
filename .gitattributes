@@ -1,2 +1,3 @@
-# Preserve byte-authenticated generated SVG; do not normalize its whitespace.
-docs/figures/EXP-521-critical-periodic-response.svg -whitespace
+# Preserve the hash-bound Matplotlib SVG bytes; no blanket whitespace exception.
+docs/figures/EXP-519-fixed-c-fold-response.svg whitespace=-blank-at-eol
+docs/figures/EXP-521-critical-periodic-response.svg whitespace=-blank-at-eol

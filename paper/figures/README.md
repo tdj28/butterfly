@@ -7,6 +7,26 @@ topology claims.
 
 ## Generated composites
 
+### EXP-519: fresh response and restored full-state proximity
+
+`fig39-exp519-fixed-c-fold-response.png` is an exact copy of
+`docs/figures/EXP-519-fixed-c-fold-response.png`. Its adjacent receipt and
+index bind the audited source, generator/verifier hashes, complete plotted
+values and all output bytes. The main article keeps this as Figure 5 and
+moves the previous transport figure to the supplement without changing it.
+All four stencil points, the explicitly reused failed anchor and the single
+prescribed correction appear. Logarithmic panels show full-state separation
+and derivative consistency; all thresholds and coordinate scales are explicit.
+Contact and prediction pass in all sixteen variants, not just in projection.
+No second critical point or symbolic arrow is established.
+
+```sh
+PYTHONPATH=.:python .venv/bin/python -B -m scripts.render_exp519_response \
+  --result docs/experiments/receipts/EXP-519-fixed-c-fold-response-result.json \
+  --expected-sha256 92ff9159ca3de7794a481e9d682d02626b945495f3ad87e6c7d095137f0117ec \
+  --output-dir /tmp/exp519-response-regenerated
+```
+
 ### EXP-518: successful transport, failed full-state endpoint contact
 
 `fig38-exp518-recovered-fold-transport.png` is an exact copy of

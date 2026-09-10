@@ -1,5 +1,11 @@
 # Research updates
 
+Current result: [EXP-519 restores full-state fold/orbit proximity](2026-09-10-exp519-execution.md).
+All 513 IVPs pass raw audit; the prescribed correction passes all sixteen
+contact and prediction comparisons. The second critical point and symbolic
+chain remain unverified. Public replay and figure reproducibility checks pass;
+the release is being prepared.
+
 This directory is the chronological project log. It complements the thematic
 research plan, claim ledger, experiment records, and execution backlog without
 replacing them.
@@ -30,6 +36,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
   - Executable four-point c response and one conditional contact-preserving
   periodic step; all 16 stationary points and both inner maxima tracked.
   Design and tests, not yet a target result or a verified Jones arrow.
+- [`2026-09-10-exp519-execution.md`](2026-09-10-exp519-execution.md)
+  - All four response points and the single correction qualify. Worst corrected
+  full-state distance is 8.822e-7 versus 1e-4; the original reserve and every
+  numerical threshold remain unchanged. A local contact is recovered, not a chain.
 - [`2026-09-10-exp518-recovered-fold-transport.md`](2026-09-10-exp518-recovered-fold-transport.md)
   - All 200 IVPs pass raw audit; all four constructions track through both
   remaining parameter steps. At the endpoint all 16 x-only comparisons pass,

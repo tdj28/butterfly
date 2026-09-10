@@ -9,6 +9,11 @@ on:
 permissions:
   contents: read
 
+env:
+  # Use the same interpreter distribution in both matrix arms; do not silently
+  # select Ubuntu's system Python for 3.12 but managed Python for 3.13.
+  UV_MANAGED_PYTHON: "true"
+
 concurrency:
   group: checks-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -28,6 +33,8 @@ jobs:
           enable-cache: true
       - name: Install locked dependencies
         run: uv sync --locked --extra dev
+      - name: Verify managed interpreter selection
+        run: uv run --no-sync python scripts/check_ci_interpreter.py
       - name: Run CPU reference smoke check
         run: uv run --no-sync butterfly verify
       - name: Run tests without research artifacts or credentials

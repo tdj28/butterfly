@@ -81,8 +81,8 @@ without requiring a reader to reconstruct the whole chronology first.
 
 All **31 earlier scientific figures** remain. Independent-homoclinic,
 accuracy-grid, symbolic-chain, support-diagnostic, direct-return-geometry
-and recovered-fold figures bring the total to **38**: thirteen in the
-main article and 25 in the supplement. Supplementary figures use S-prefixed
+and recovered-fold/response figures bring the total to **39**: thirteen in the
+main article and 26 in the supplement. Supplementary figures use S-prefixed
 numbers, while asset filenames and generation receipts keep their stable
 historical identifiers. No scientific image or figure receipt was changed by
 the narrative reorganization; EXP-475 and EXP-476 add separate new figures.
@@ -105,11 +105,19 @@ verified C/D dictionary or Jones chain. The failed original eighth-return
 representation remains explicitly failed.
 
 EXP-518 then tracks those four constructions through both remaining parameter
-steps. Figure 5 puts this successful transport beside the failed full-state
+steps. Its supplementary figure puts successful transport beside the failed full-state
 cycle-contact test: all sixteen x projections pass, but all full-state
 comparisons fail. Neither contact nor a symbolic chain is inferred. The
 new figure is generated from the audited public receipt; it is not a fitted
 or hand-drawn interpolation of the evidence.
+
+EXP-519 then resolves that local mismatch using a fresh four-point response
+and one prescribed correction. All 513 integrations audit, and all sixteen
+full-state contact and prediction checks pass. The new Figure 5 shows every
+stencil point, the explicitly reused failed anchor and the corrected endpoint.
+The earlier transport figure is preserved in the supplement rather than
+adding another chronological stop to the main narrative. No second critical
+point or symbolic chain is inferred from this single local contact.
 
 [figures/README.md](figures/README.md) lists regeneration commands and source
 hashes. [supplement/](supplement/) contains the existing animation materials.
