@@ -109,6 +109,46 @@ finite-history direction does not yet define the required return curve.
   \label{fig:direct-return-geometry}
 \end{figure}
 
+\paragraph{The local fold survives different curve reconstructions.}
+A later direct search recovers one scalar fold at
+$a\approx0.215595$, $b=0.2$, $c=7.162$
+(Figure~\ref{fig:earlier-return-folds}). Four explicitly constructed curves
+reach the same local input and output states: two initial directions, each
+transported through either four or seven preceding returns. Both DOP853 and
+Radau qualify every case using the unchanged regularity, crossing-angle,
+curvature, finite-difference and full-event-history checks. The scalar fold
+is a local minimum of the output $x$ coordinate as a function of input $x$.
+The calculation uses 108 integrations; the largest scaled full-state spread
+among the eight solver profiles is $1.56\times10^{-13}$, against a
+$10^{-6}$ comparison threshold. This is numerical agreement, not a rigorous
+error bound or evidence of thirteen-digit accuracy.
+
+This resolves a specific obstruction in our reconstruction: failure of the
+previous eighth-return representation did not establish absence of the
+physical fold. That representation remains failed and is not relabeled as
+a success. Agreement with the previously located fold is a calibration
+result, not a held-out symbolic prediction. We still need to connect these
+local geometrical objects to a reproducible $C/D$ assignment, a primitive
+orbit family and the proposed chain arrows.
+% Evidence: EXP-517; complete four-case matrix, both solvers, all four
+% full-state reference comparisons. The earlier EXP-510/513 failures remain.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig37-exp517-earlier-return-folds.png}
+  \caption{Recovery of the same local scalar fold using four return-curve
+  constructions. Each local panel shows three computed offset samples per
+  solver; the lines are local fold approximations, not additional integrated
+  trajectories. Coordinates are centered separately at each solver's fold
+  estimate to show the local shape. The right panel separately tests the
+  uncentered full input and output states against every existing reference,
+  using coordinate scales $(15,15,0.01)$. All four worst-case discrepancies
+  lie below the unchanged dashed threshold. These are deterministic
+  calibration comparisons, not independent statistical samples, rigorous
+  error bars or a verified symbolic chain.}
+  \label{fig:earlier-return-folds}
+\end{figure}
+
 The remaining results test ingredients needed to close that gap: where the
 windows lie, how return branches change, which orbit families connect, and
 whether a candidate global return exists near the hub. They concern separate

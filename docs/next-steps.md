@@ -333,6 +333,18 @@ inputs; historical result reproduction is a separate requirement.
   direct, event-aware fold qualification. Test both with prospective mapped
   initial-direction contrasts and all full-state references; do not call
   earlier-return recovery a pass of the rejected original eighth-return test.
+  [EXP-517](updates/2026-09-10-exp517-earlier-return-folds.md) now recovers
+  the same local scalar fold in all four new history/direction constructions,
+  with both solvers, all full-state references and unchanged gates. All 108
+  IVPs pass raw audit; the maximum scaled cross-representation spread is
+  1.55605e-13. This is a calibrated local ingredient, not a verified chain.
+  Next freeze a prospective transport of these four constructions to the
+  two remaining EXP-510 parameter substeps, preserving all failed old
+  representations. Require complete event prefixes, input regularity,
+  cross-representation agreement and adjacent full-state identity before
+  any new endpoint fold/cycle comparison or renewed joint contact.
+  The endpoint was exposed in EXP-508/509 with old representations; do not
+  describe this outcome-informed successor as fully blind validation.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting

@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp517-earlier-return-folds.md`](2026-09-10-exp517-earlier-return-folds.md)
+  - All 108 IVPs pass raw audit. Both solvers recover the same local fold in
+  all four history/direction constructions, restoring every full-state reference.
+  This is positive local calibration, not a restored eighth-return test or chain.
 - [`2026-09-10-exp516-event-ordinal-coverage.md`](2026-09-10-exp516-event-ordinal-coverage.md)
   - All 740 saved accepted events and 660 consecutive pairs audit cleanly;
   all 40 prior decisions remain unchanged. No sampled ordinal restores the

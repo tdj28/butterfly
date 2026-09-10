@@ -1,6 +1,20 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-516 saved-ordinal coverage; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-517 earlier-return fold recovery; not a new audit of every row)
+
+**EXP-517 result:** all 108 target IVPs pass local raw audit. All four fixed
+history/direction constructions (histories 4 and 7, directions 0 and 1) qualify
+with both solvers and restore all four full-state reference pairs. The largest
+scaled input/output spread across eight profiles is 1.55605e-13, below the
+unchanged 1e-6 threshold. This is one recovered local scalar minimum, not four
+independent folds or a rigorous error enclosure. It resolves a local coverage
+obstruction in our construction; the original eighth-return failure remains.
+No C/D dictionary, generating partition, primitive-family membership or Jones
+chain arrow is verified or debunked. Next prospectively test the four newly
+qualified constructions at the remaining EXP-510 parameter substeps before
+renewed joint-contact continuation. The final endpoint was already exposed
+in EXP-508/509; this is not a fully blind parameter test. See the
+[complete result and figure](updates/2026-09-10-exp517-earlier-return-folds.md).
 
 **EXP-516 result:** all 740 saved accepted events and 660 consecutive pairs
 pass the saved-data audit; all 40 historical eighth-return decisions are
