@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp510-four-substep-fold-transport.md`](2026-09-09-exp510-four-substep-fold-transport.md)
+  - All 180 IVPs audit cleanly. The first smaller substep qualifies every
+  fold; the second again loses depth-8 input regularity. The controller stops
+  correctly. Direct curve coverage/root isolation is next, not looser gates.
 - [`2026-09-09-exp509-failed-predictor-replay.md`](2026-09-09-exp509-failed-predictor-replay.md)
   - All 196 original IVPs replay. Depth-8 roots collapse the input curve;
   short-history folds miss proximity. Preserve the failed controller and
