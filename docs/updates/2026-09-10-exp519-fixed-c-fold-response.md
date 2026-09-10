@@ -2,8 +2,12 @@
 
 ## Current status
 
-Pre-outcome implementation and validation in progress. No new target numerical
-result is asserted here. EXP-518 is merged through PR84 after all four final-head
+**Frozen and tested; target execution is blocked before outcome access by the
+12 GiB initial disk-reserve gate.** No target attempt marker or target output
+directory was created. An explicit human decision on a narrower startup
+reserve is pending; the full regression suite is running meanwhile.
+
+EXP-518 is merged through PR84 after all four final-head
 Python 3.12/3.13 push/PR checks passed. Main advanced to `1895bfd`; the successor
 branch is `codex/exp519-fixed-c-fold-response`.
 
@@ -70,3 +74,58 @@ deployed files). The fixed source is ready for the live public Git barrier and
 one local execution. These are validation results, not target outcomes. All
 control receipts, the failed first rehearsal, raw-upload restrictions and old
 experiment failures remain preserved.
+
+## Public freeze and operational block
+
+Source `cdd08b37762e2c89bc368535331450c94cd33f53` was committed, public-scanned
+(2,997 tracked files) and live-verified at
+`refs/heads/codex/exp519-local-execution` before the launch commands.
+Both launch commands exited at the initial fresh-output/disk-reserve gate,
+before output creation or one-shot marker consumption. They generated zero
+new target IVPs; neither is a scientific result. The numerical source,
+machine plan, reference inputs and old experiment markers remain unchanged.
+
+The first subsequent disk observation was 12,556,292 KiB available, below the
+12,582,912 KiB startup requirement. Four task-created temporary EXP-517/518
+source-copy trees were removed only after every file was SHA-256-identical
+to its still-present repository counterpart: 143, 143, 151 and 151 files,
+139,494,212 logical bytes altogether. These were recoverable public-file
+duplicates, not raw evidence. Nonidentical rehearsal trees and the failed
+EXP-519 rehearsal were preserved. The cleanup did not produce enough reported
+free space, so the unchanged retry was also correctly refused. At 15:58 UTC,
+12,432,404 KiB was reported available. This is an observation after the failed
+launches, not an invented measurement from inside their exception handlers.
+
+I requested explicit approval to prospectively lower only the initial reserve
+to 11.5 GiB, while preserving the 3 GiB output cap, 8 GiB continuing floor,
+one-shot rule and every scientific threshold. **That amendment is not approved
+or implemented at this checkpoint.** Alternatively, freeing enough local disk
+permits the unchanged frozen design to run. No further identical low-disk
+launch will be attempted without an actual resource or authority change.
+
+## Why the full state matters for the next symbolic step
+
+Rereading Jones's Figures 4--6 reinforces the distinction: C names the
+critical point retained on the two-branch side, while D is the additional
+critical point in the bimodal description. A section-grazing event cannot
+simply be assigned D without establishing that return-map geometry.
+
+There is also an exact algebraic reason not to confuse a projected encounter
+with the fixed point with a homoclinic approach. Let the small equilibrium be
+`(x*,y*,z*)`, and let the recovered section be `s=y-y*=0`.
+The Rössler equations give `ds/dt=x+a*y`. At a section tangency,
+`x=x*` and `y=y*`, but **z is unconstrained**. Writing `z=z*+delta`,
+the full vector field at that point is
+
+```text
+(-delta, 0, (x*-c)*delta),     d²s/dt² = -delta.
+```
+
+For nonzero delta this is a regular flow point with quadratic section
+tangency, directly above or below the equilibrium in the xy projection.
+It is not the equilibrium. Consequently, apparent contact with the center
+in an xy picture is not evidence of full-state equilibrium approach, much
+less the required global stable/unstable connection. This is an algebraic
+clarification of the existing vector field and section, not a new target
+integration, a new claim about Jones's homoclinic orbit, or a substitute for
+the missing C/D dictionary.
