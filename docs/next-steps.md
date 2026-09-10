@@ -62,11 +62,14 @@ audit cleanly, every contact residual improves at least 115×, and both gap
 responses retain net progress from the original anchor. The first gap gives
 back a small amount relative to the trial; that local-progress failure remains
 explicit. See the [EXP-522 result](updates/2026-09-10-exp522-nonlinear-refinement-result.md).
-Next build/freeze a bounded multi-step predictor/corrector with explicit
-derivative refresh, full-state restoration, new-data predictions and complete
-extremum identity. Stop and investigate any crossing-count change separately;
-do not silently relax the existing 6/8 gates. Plan remote public-source-only
-execution or adequate local storage before a larger raw-retaining batch.
+[EXP-523 is now running on prax](updates/2026-09-10-exp523-prax-execution.md):
+the bounded two-step predictor/corrector refreshes derivatives and checks
+full-state restoration, new-data predictions and complete extremum identity.
+Next complete its automatic raw audit, then independently replay the compact
+decisions and publish all attempted points, including failures and any accepted
+prefix. Do not restart the consumed attempt or modify its frozen source.
+Stop and investigate any crossing-count change separately; do not silently
+relax the existing 6/8 gates. A sampled two-step path is not chain verification.
 The [conditional grazing derivation](theory/periodic-grazing-and-symbol-insertion.md)
 states what a one-count change can establish and the extra conditions still
 needed for Jones's particular zero insertion.

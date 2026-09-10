@@ -61,8 +61,11 @@ figures were rendered and visually inspected; they are explicitly labeled
 synthetic and are **not** EXP-523 results or manuscript figures.
 
 The actual figure will retain all calibration samples and unaccepted trials,
-distinguish the accepted prefix, show every full-state/gap variant range,
-and put both maximum heights against zero-height grazing. A zero-step or
+distinguish the accepted prefix, and show every available full-state/gap
+variant range for the initial point, predictors and refinements. Calibration
+samples appear in parameter panel A; their values remain in the receipt but
+are not plotted in panels B/C. Both maximum heights are compared with
+zero-height grazing. A zero-step or
 partially accepted run remains publishable as a failure or accepted prefix;
 it is not silently excluded. All 206 frozen source/input files still match
 the rehearsed source snapshot. The plot preparation has not changed the
@@ -76,3 +79,40 @@ Release housekeeping: EXP-521 (PR 87) and EXP-522 (PR 88) were normally merged
 to main after all four checks on their final heads passed. EXP-520 (PR 86)
 has passing checks but still needs its overlapping release documentation
 reconciled with current main. No numerical source was altered to merge them.
+
+## 23:21 UTC operational and release checkpoint
+
+The task-owned worker was still alive after 58 minutes 50 seconds. The first
+calibration point (`step-0-a-0`) had completed, bringing the operational count
+to 104 IVPs and 83,598 periodic census segments. The host had 22,482,000 KiB
+free; no successful full-audit receipt existed yet. These are operational
+counts, not a scientific verdict. The frozen run and automatic audit continue
+without a restart or a deadline change.
+
+EXP-520's overlapping release documentation has now been reconciled and pushed
+as `15b9639` on its existing PR 86. The reconciliation preserves the earlier
+census, EXP-521's failed predictor and EXP-522's refinement, with no frozen
+source changes. Focused tests passed (64 passed, one unchanged empirical
+redraw deselected), all four frozen source sets matched their execution
+commits, and the three real plan loaders passed. Its new CI checks still have
+to finish before normal merge. PR 89's original checks were also still running.
+
+The prospective EXP-523 figure receipt now explicitly records the title,
+description, exact input artifact/hash and schema fields, numerical transforms,
+generator/runtime/output provenance, non-color visual distinctions, missing-data
+semantics, and hard guards. All 15 synthetic figure controls pass. This follows
+the research-integrity figure contract and changes no numerical source or
+target measurement. No empirical figure or new Jones claim is published here.
+
+The separate local review caught an overbroad caption: panels B/C do not show
+calibration ranges, only the initial point, predictors and refinements. The
+footer, alt text, receipt's explicit per-panel selection, and this note now
+state that distinction, with a regression assertion. All 206 physical frozen
+source/input files still match the execution commit. This review is not an
+independent replication of the numerical experiment.
+
+Final focused verification: 41 tests pass across the renderer, controller and
+runner suites. The corrected synthetic PDF was rendered and visually checked
+locally (`artifacts/EXP-523/figure-control-07`); it is not research evidence.
+This coherent figure-contract correction is pushed on PR 89, whose new final
+head must earn fresh CI results before merge. No target process is affected.

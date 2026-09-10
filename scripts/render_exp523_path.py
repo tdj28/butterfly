@@ -3,18 +3,21 @@
 import argparse
 import json
 import math
+import platform
 from pathlib import Path
 import re
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy
 from butterfly._paired_startup import sha256
 from scripts import run_exp523_refreshed_path as run
 from scripts import audit_exp523_refreshed_path as audit
 
 ROOT = Path(__file__).resolve().parents[1]
 STEM = 'EXP-523-refreshed-contact-path'
+TITLE = 'Contact-path continuation: every prediction tested'
 COMMIT = 'eae6745d124c2fa59efc4eff337929e9ff71607d'
 CLAIMS = ('symbolic_chains_verified', 'D_identified', 'exact_critical_locus_proved')
 
@@ -66,7 +69,7 @@ def draw(output, rows, completed_steps, *, synthetic=False):
         'axes.spines.top':False, 'axes.spines.right':False})
     fig, axes = plt.subplots(1, 3, figsize=(14, 6))
     fig.subplots_adjust(left=.065, right=.98, top=.73, bottom=.29, wspace=.38)
-    title = 'Contact-path continuation: every prediction tested'
+    title = TITLE
     if synthetic: title = 'SYNTHETIC CONTROL - '+title
     fig.suptitle(title, x=.065, ha='left', y=.97, fontsize=15)
     trials = [r for r in rows if r['kind'] != 'calibration']
@@ -115,7 +118,7 @@ def draw(output, rows, completed_steps, *, synthetic=False):
         ax.set_xlabel('Measurement stage (not a continuous trajectory)')
     for ax in axes: ax.grid(alpha=.14)
     fig.text(.065,.09,'A: gray crosses are all calibration samples; teal circles are accepted endpoints; red crosses are unaccepted trials.\n'
-        'Near-coincident P/R samples can overlap in A; B and C show each measurement separately.\n'
+        'P/R samples can overlap in A. B/C show Start, P and R; calibration values remain in the receipt.\n'
         'Dotted parameter segments only guide the eye. B/C retain all numerical variant ranges, not confidence intervals.\n'
         'Zero height in C is section grazing. No C/D identification, grazing endpoint, exact locus, homoclinic orbit or Jones arrow is established.',
         fontsize=9,color='#414956')
@@ -139,11 +142,54 @@ def render(receipt_path, expected_sha, output):
         generator_sha256=sha256(Path(__file__)),matplotlib=matplotlib.__version__,numpy=np.__version__,
         outputs=outputs,plotted_data=rows,completed_steps=receipt['result']['completed_steps'],
         selection='All measured calibration, predictor and refinement points; accepted prefix distinguished from trials.',
+        panel_selection=dict(A='All rows: initial point, calibration samples, predictors and refinements.',
+            B='Initial point, predictors and refinements only; all available 16-variant contact ranges.',
+            C='Initial point, predictors and refinements only; all available four-context ranges for both gaps.',
+            calibration_values='Retained in plotted_data; not displayed in B/C.'),
         interval_semantics='All 16 full-state variants and four contexts per gap; ranges are not confidence intervals.',
         transforms=dict(parameter_a='1e6*(a-initial a)',contact='max abs component per six-vector; plot floor 1e-18',
             gap='15 times normalized signed gap; mean and full four-context range'),
-        alt_text='Three panels distinguish calibration samples, accepted points and unaccepted trials in parameter space, show all contact residual ranges against both gates, and place both tracked maxima relative to zero-height grazing. Dotted segments are not a proved continuous locus.',
+        alt_text='Panel A includes all parameter samples. Panels B/C show only the initial point, predictors and refinements: their contact residual ranges against both gates and both tracked maxima relative to zero-height grazing. Calibration values remain in the receipt. Dotted segments are not a proved continuous locus.',
         claims_excluded=['continuous qualified path','exact critical locus','C/D identification','grazing endpoint','homoclinic connection','Jones arrow'])
+    product.update(
+        title=TITLE,
+        description=(f"{product['completed_steps']} of two bounded continuation steps accepted; "
+            f"{len(rows)-1} measured points retained, including every attempted calibration, "
+            "predictor and refinement. Panels distinguish parameter samples, full-state "
+            "contact residuals and the two tracked section-height maxima."),
+        data_source=dict(
+            artifact=path.name, sha256=expected_sha,
+            schema_fields=['experiment_id', 'passed', 'source_commit', 'inputs', 'plan_sha256',
+                'initial_anchor', 'result.completed_steps', 'result.steps[].a_points',
+                'result.steps[].c_points', 'result.steps[].predictor', 'result.steps[].refinement',
+                'result.steps[].accepted', 'result.steps[].predictor_decision',
+                'result.steps[].refinement_decision'],
+            measurement_fields=['spec.id', 'spec.parameters', 'qualified', 'vectors', 'gaps'],
+            initial_point='EXP-522 inputs bound by input_sources; initial_anchor checked against those inputs.',
+            selection=product['selection'], panel_selection=product['panel_selection'],
+            transforms=product['transforms']),
+        provenance=dict(source_commit=COMMIT, audit_receipt_sha256=expected_sha,
+            manifest_sha256=product['manifest_sha256'], input_sources=run.INPUTS,
+            generator=product['generator'], generator_sha256=product['generator_sha256'],
+            libraries=dict(python=platform.python_version(), numpy=np.__version__,
+                scipy=scipy.__version__, matplotlib=matplotlib.__version__),
+            outputs=outputs,
+            scope='Compact controller and scalar replay of an authenticated full-raw-audit receipt; not independent replication.'),
+        accessibility=dict(
+            noncolor_channels=['Initial diamond, accepted circle, unaccepted X, calibration plus in A.',
+                'P/R text labels distinguish predictions and normal refinements.',
+                'Accepted circles and unaccepted X markers in B.',
+                'Circle/square markers and root-number legend distinguish the two maxima in C.',
+                'Dashed/dotted lines distinguish the two contact thresholds.'],
+            overlap='Near-coincident P/R samples may overlap in A; B/C show only Start, P and R separately, not calibration samples.',
+            missing_data='Unqualified points remain in A and the displayed count; unavailable vectors/gaps are not imputed.'),
+        hard_guards=['Explicit audit-receipt SHA-256 before drawing.',
+            'Passed full-raw-audit identity, immutable source, manifest, inputs and claim boundaries.',
+            'Initial anchor matches bound EXP-522 inputs.',
+            'Complete ordered compact controller replay, including failed and unaccepted measurements.',
+            'Separate scalar decision checks; unique measurement identifiers.',
+            'Fresh output directory only; no overwrite.',
+            'Output byte counts/hashes and receipt hash index.'])
     output = Path(output); receipt_file = output/(STEM+'.receipt.json')
     receipt_file.write_text(json.dumps(product,sort_keys=True,indent=2,allow_nan=False)+'\n')
     (output/(STEM+'.index.json')).write_text(json.dumps(dict(figure_id=STEM,receipts={receipt_file.name:sha256(receipt_file)}),sort_keys=True,indent=2)+'\n')

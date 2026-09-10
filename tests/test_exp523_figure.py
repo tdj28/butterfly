@@ -83,3 +83,22 @@ def test_complete_receipt_renderer_binds_artifacts_and_all_data(tmp_path,monkeyp
     index=json.loads((tmp_path/'figure'/(figure.STEM+'.index.json')).read_bytes())
     assert index['receipts'][saved.name]==figure.sha256(saved)
     assert all(figure.sha256(tmp_path/'figure'/name)==entry['sha256'] for name,entry in product['outputs'].items())
+    assert product['title']==figure.TITLE
+    assert '18 measured points' in product['description']
+    data=product['data_source']; provenance=product['provenance']
+    assert data['artifact']==path.name and data['sha256']==digest
+    assert data['selection']==product['selection'] and data['transforms']==product['transforms']
+    assert data['panel_selection']==product['panel_selection']
+    for panel in ('B','C'):
+        assert 'Initial point, predictors and refinements only' in product['panel_selection'][panel]
+    assert 'not displayed in B/C' in product['panel_selection']['calibration_values']
+    assert 'not calibration samples' in product['accessibility']['overlap']
+    assert 'Calibration values remain in the receipt' in product['alt_text']
+    assert 'result.steps[].refinement_decision' in data['schema_fields']
+    assert data['measurement_fields']==['spec.id','spec.parameters','qualified','vectors','gaps']
+    assert provenance['audit_receipt_sha256']==digest and provenance['outputs']==product['outputs']
+    assert provenance['generator_sha256']==figure.sha256(Path(figure.__file__))
+    assert set(provenance['libraries'])=={'python','numpy','scipy','matplotlib'}
+    assert len(product['accessibility']['noncolor_channels'])==5
+    assert 'not imputed' in product['accessibility']['missing_data']
+    assert len(product['hard_guards'])==7
