@@ -29,6 +29,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp523-prax-execution.md`](2026-09-10-exp523-prax-execution.md)
+  - Frozen two-step computation is running on prax; worker liveness, consumed
+  marker and raw writing verified. Complete audit follows automatically.
+  This is operational progress, not an EXP-523 scientific result yet.
 - [`2026-09-10-exp523-refreshed-path-design.md`](2026-09-10-exp523-refreshed-path-design.md)
   - Two-step continuation with freshly measured a/c responses, a prospectively
   tested quadratic prediction, and at most one normal correction per step.
