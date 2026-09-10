@@ -22,6 +22,17 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp506-legacy-word-adapter-continuation.md`](2026-09-09-exp506-legacy-word-adapter-continuation.md)
+  - All 2,040 branch fits and 40 word splines reproduce; the turning filter
+  changes none of EXP-186's saved outputs. A final-summary quota overrun is
+  explicitly flagged, and a tested pre-write quota helper is added for new runs.
+- [`2026-09-09-exp505-legacy-turning-point-impact.md`](2026-09-09-exp505-legacy-turning-point-impact.md)
+  - New replay adapter failed on omitted word-comparison fields after retaining
+  255 branch fits. The attempt is preserved, not reset; EXP-506 continues it.
+- [`2026-09-09-exp504-guarded-contact-continuation.md`](2026-09-09-exp504-guarded-contact-continuation.md)
+  - All 200 integrations pass raw audit. The first step reduces the boundary
+  gap but misses fold proximity by 1.19%; it is rejected and seven slots remain
+  unrun. The next controller must restore the fold constraint explicitly.
 - [`2026-09-09-exp503-resource-continuation.md`](2026-09-09-exp503-resource-continuation.md)
   - All nine points and 1,580 integrations pass raw audit. The joint correction
   reduces the dominant gap 5.64%, but the boundary still misses by 127 times
@@ -29,7 +40,7 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 - [`2026-09-09-exp502-joint-contact-search.md`](2026-09-09-exp502-joint-contact-search.md)
   - Seven fixed points completed before the frozen storage threshold stopped
   the eighth. All evidence is retained; failure metadata is public and
-  the complete joint-contact verdict remains pending.
+  EXP-503 now supplies the complete audited verdict without resetting this failure.
 - [`2026-09-09-exp501-limiting-contact.md`](2026-09-09-exp501-limiting-contact.md)
   - All 38 integrations and sixteen limiting-boundary profiles audit cleanly;
   none of 384 cycle-contact comparisons passes. The mismatch persists in the

@@ -240,8 +240,20 @@ inputs; historical result reproduction is a separate requirement.
   consumed attempts, and do not use a favorable subset to certify contact.
   Do not spend another experiment merely refining this fixed anchor or count
   its near-identical upstream boundary representations as different objects.
-  Then test a conditional local partition
+  [EXP-504's full raw audit](updates/2026-09-09-exp504-guarded-contact-continuation.md)
+  passes 200 IVPs, but the first warm step violates fold proximity by 1.19%.
+  All numerical and cycle-identity checks pass and the boundary gap decreases;
+  the combined model-error norm masked a wrongly predicted fold component.
+  The point is rejected and seven later slots remain unrun. Next freeze a
+  fixed-c fold-restoration test, then a constrained continuation that corrects
+  the fold condition before accepting a path point. Preserve this failure and
+  every threshold; do not resume EXP-504 or count its diagnostic improvement
+  as an accepted path. Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
+  New executions must use the tested `bounded_json.py` admission for every JSON
+  product, including final summaries, and compact references to large fit
+  journals. EXP-506's final duplicated summary exposed an output-cap accounting
+  defect; its numerical replay passes but its resource protocol does not.
 - [ ] Establish the relevant return curve or quotient and its critical geometry
   before assigning target words or continuing a chain arrow. No automatic paid
   review gate applies: major-milestone reviews require human approval per call.
@@ -252,6 +264,12 @@ inputs; historical result reproduction is a separate requirement.
   The new static inventory identifies 21 source callers and 42 candidate
   manifests, not 42 erroneous results. EXP-186's archived data and original
   source hashes match and provide a concrete first retrospective replay case.
+  [EXP-506 now completes that saved-data sensitivity](updates/2026-09-09-exp506-legacy-word-adapter-continuation.md):
+  all partitions, bootstrap decisions, critical intervals and words are unchanged
+  under the additional turn-geometry filter. This is one checked exposure case,
+  not archive-wide clearance or a new validation of the original trajectories.
+  Preserve its recorded resource deviation and the prior adapter failure while
+  extending the same explicit-scope audit to the remaining candidate studies.
 - [x] Independently enumerate the finite quadratic-map control and compare
   its words/order with the in-scope unimodal source subset under a predeclared
   dictionary. [EXP-478](experiments/EXP-478-quadratic-symbolic-control.md)

@@ -1,0 +1,113 @@
+{
+  "accessibility": {
+    "non_color_channels": "Numbers, stars, circles, squares and rejected-point crosses",
+    "png_dpi": 300
+  },
+  "alt_text": "The left panel shows the parameter path, with a star at the starting point, numbered circles for accepted steps and crosses for rejected steps. The right panel shows worst fold and boundary distances on a logarithmic scale against the common proximity threshold.",
+  "bindings": {
+    "experiments/manifests/EXP-504-guarded-contact-continuation.json": "a5cc08a114d1c967d6b6b22f8e7307959c7f02d7a5dc7b69af1e846ebce9774c",
+    "scripts/exp504_continuation_model.py": "587c05e818a51c52ab720ca4930c759b8ab50258863ac254c13d49abbbf35845",
+    "scripts/run_exp504_guarded_contact.py": "77b4872739cd853130e94b49f14c3f28bb29d50b081426e705865aebf25069dc",
+    "scripts/verify_exp504_public_contact.py": "bd660416f77c3040cf3370f7f3e532849846447e51fde55177189ae4dac13d13"
+  },
+  "claim_exclusions": [
+    "No exact-flow proof",
+    "No C/D identification",
+    "No verified Jones arrow",
+    "Not a parameter-plane atlas"
+  ],
+  "data_source": {
+    "aggregation": "Worst full-state distance over the complete correlated representation set.",
+    "exclusions": "Only missing complete distance summaries are unplotted, explicitly listed; no favorable point selection.",
+    "fields": [
+      "result.steps.point",
+      "result.steps.decision",
+      "EXP-503.proposal"
+    ],
+    "path": "docs/experiments/receipts/EXP-504-contact-path-result.json",
+    "selection": "Starting point and every completed measured step, including rejected points.",
+    "sha256": "83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128",
+    "transformation": "Logarithmic distance axis; connecting lines show order only, without interpolation claims."
+  },
+  "derived_values": [
+    {
+      "accepted": true,
+      "boundary_distance": 0.012701998962814612,
+      "fold_distance": 5.0073746478418446e-05,
+      "id": "joint-proposal",
+      "joint_proximity": false,
+      "number": 0,
+      "parameters": {
+        "a": 0.21558803194140663,
+        "b": 0.2,
+        "c": 7.192
+      },
+      "qualified": true,
+      "reason": "EXP-503 start"
+    },
+    {
+      "accepted": false,
+      "boundary_distance": 0.011925722540959492,
+      "fold_distance": 0.000101188642198137,
+      "id": "step-01",
+      "joint_proximity": false,
+      "number": 1,
+      "parameters": {
+        "a": 0.21559483661175796,
+        "b": 0.2,
+        "c": 7.172000000000001
+      },
+      "qualified": true,
+      "reason": "fold proximity failed"
+    }
+  ],
+  "description": "All measured parameter points and both complete full-state proximity summaries.",
+  "figure_id": "EXP-504-contact-path",
+  "hard_guards": {
+    "analysis": {
+      "accepted_steps": 0,
+      "joint_proximity": false,
+      "reduction_at_least_twenty_percent": false,
+      "residual_reduction": null,
+      "status": "measured-step-rejected",
+      "symbolic_chains_verified": false
+    },
+    "experiment_id": "EXP-504",
+    "floating_replay_tolerance": {
+      "atol": 1e-13,
+      "discrete_gates": "exact",
+      "rtol": 1e-12
+    },
+    "full_raw_audit_repeated": false,
+    "new_integrations": 0,
+    "passed": true,
+    "points": 1,
+    "symbolic_chains_verified": false,
+    "target_ivps": 200
+  },
+  "interval_semantics": "Worst values over fixed correlated representations, not statistical uncertainty or absolute error bounds.",
+  "provenance": {
+    "audit_receipt_sha256": "83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128",
+    "experiment_id": "EXP-504",
+    "generator_path": "scripts/plot_exp504_contact_path.py",
+    "generator_sha256": "43813465977743d0d85373f9b4413adc7a72d9b35ce71d158015bccd32a67bb2",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-504-contact-path.pdf": {
+        "bytes": 24933,
+        "sha256": "730a604a2ffbc0962ccb5050bf3fc14e1fb98852654eb0e96f76e1dfc9276fdc"
+      },
+      "EXP-504-contact-path.png": {
+        "bytes": 299346,
+        "sha256": "9cd8005a9f19afd6cd9aefc297ef30bf4b2a14b58be1ae739909e966f66d287f"
+      },
+      "EXP-504-contact-path.svg": {
+        "bytes": 107081,
+        "sha256": "f3f2195c4029f2373b3c96cefabb7d8e8d80459aa77f9ef45cfd9cd8c9afc67e"
+      }
+    },
+    "python": "3.13.11 (main, Dec 17 2025, 20:55:16) [Clang 21.1.4 ]",
+    "source_commit": "0657f510e2ca07939237a2a70ca681278977e14a"
+  },
+  "title": "Following the contact direction"
+}

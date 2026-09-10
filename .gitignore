@@ -20,3 +20,4 @@ artifacts/
 .DS_Store
 tmp/
 /output/pdf/EXP-503-*/
+/output/pdf/EXP-504-*/
