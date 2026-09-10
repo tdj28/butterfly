@@ -282,6 +282,16 @@ inputs; historical result reproduction is a separate requirement.
   call this time-window censoring a domain hole or proof of lost physical
   coverage. Any newly exposed bracket still needs event-sheet continuity and
   fold qualification; the other 33 original samples and all failures remain.
+  [EXP-512](updates/2026-09-09-exp512-censored-return-extension.md) completes
+  that extension: all 28 new IVPs pass dense replay, every saved eight-return
+  prefix is unchanged at retained precision, and all seven ninth returns are
+  observed. The newly labeled grid has 38/40 regular pairs and five candidate
+  intervals: direction 0 [1,2], [15,16], [16,17]; direction 1 [17,18], [18,19].
+  Next freeze local fold/event-sheet qualification for all five, both solvers,
+  with unchanged gates and full-state comparisons to the four depth-four
+  references. Do not count these as five distinct folds or join across a
+  grazing discontinuity. Recovered fold representations may support renewed
+  constrained joint-contact continuation, not an automatic symbolic claim.
   Preserve all failures and never resume a consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit

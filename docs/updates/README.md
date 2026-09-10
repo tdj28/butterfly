@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp512-censored-return-extension.md`](2026-09-09-exp512-censored-return-extension.md)
+  - All 28 new IVPs pass raw replay and recover every censored ninth return
+  with unchanged saved prefixes. The grid now has 38/40 regular pairs and
+  five candidate intervals; actual fold/event-sheet qualification is next.
 - [`2026-09-09-exp511-direct-curve-coverage.md`](2026-09-09-exp511-direct-curve-coverage.md)
   - All 160 IVPs pass full dense replay. Of 40 paired samples, 31 are regular,
   two collapse and seven lack a ninth return before the fixed horizon. No
