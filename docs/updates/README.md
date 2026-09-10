@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp510-four-substep-fold-transport.md`](2026-09-09-exp510-four-substep-fold-transport.md)
+  - Four smaller substeps to the same predictor endpoint, retaining every fold
+  representation. Full local tests and isolated startup pass; target follows
+  the exact pushed source freeze.
 - [`2026-09-09-exp509-failed-predictor-replay.md`](2026-09-09-exp509-failed-predictor-replay.md)
   - All 196 original IVPs replay. Depth-8 roots collapse the input curve;
   short-history folds miss proximity. Preserve the failed controller and

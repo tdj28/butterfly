@@ -260,9 +260,12 @@ inputs; historical result reproduction is a separate requirement.
   without new integrations. Both depth-8 equation roots have near-collapsed
   input curves and same-sign neighboring slopes; the depth-4 folds qualify but
   miss contact tolerance. The 6.735% boundary-gap reduction does not license
-  acceptance. Next test four smaller fold-only continuation substeps from
+  acceptance. [EXP-510](updates/2026-09-09-exp510-four-substep-fold-transport.md)
+  implements four smaller fold-only continuation substeps from
   qualified EXP-507 to the same predictor parameters, retaining all four
   representations and both solvers with cross-history full-state agreement.
+  All 2,566 local tests and the isolated startup pass; execute and audit the
+  fixed sequence after its clean, pushed source freeze.
   Do not warm-start from the collapsed roots or lower the gain threshold.
   Preserve all failures and never resume a consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
