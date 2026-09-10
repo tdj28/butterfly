@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp518-recovered-fold-transport.md`](2026-09-10-exp518-recovered-fold-transport.md)
+  - EXP-517 is merged after all four final-head checks pass. The two-stage
+  successor passes 27 focused tests, the full-suite draft run, final 151-file
+  source-only startup and retained controls; no new target result is claimed yet.
 - [`2026-09-10-exp517-earlier-return-folds.md`](2026-09-10-exp517-earlier-return-folds.md)
   - All 108 IVPs pass raw audit. Both solvers recover the same local fold in
   all four history/direction constructions, restoring every full-state reference.
