@@ -1,0 +1,2861 @@
+{
+  "accessibility": "Crosses, outlines, labels and gray missing cells supplement color.",
+  "alt_text": "Two heatmaps display full-state reference distances by grid node and return ordinal. Red crosses preserve regularity failures, gray cells mark missing pairs, and a red box marks the previously fixed eighth-to-ninth-return screen.",
+  "data_source": {
+    "aggregation": "Maximum scaled distance over input/output endpoints, both solvers and all four references.",
+    "artifact": "docs/experiments/receipts/EXP-516-event-ordinal-coverage-result.json",
+    "exclusions": "None",
+    "fields": [
+      "analysis.rows[].ordinals[].nodes[].comparison"
+    ],
+    "selection": "All direction/node/ordinal cells, including invalid and missing.",
+    "sha256": "45b8dd88ee0cab27d4eba7ec4c4891afdd6948ddaa83c110017ed26ac012a445",
+    "transformation": "Logarithmic color. Exact zeros, if any, use the low color with an explicit 0 label. Gray padded rows are unavailable, not zeros."
+  },
+  "description": "Both directions and every original grid node at every available consecutive accepted return pair.",
+  "exclusions": [
+    "No exact-flow root census",
+    "No new fold qualification",
+    "No verified Jones symbol or chain"
+  ],
+  "figure_id": "EXP-516-event-ordinal-coverage",
+  "guards": {
+    "cells": 400,
+    "public_replay": {
+      "directions": 2,
+      "full_raw_audit_repeated": false,
+      "new_integrations": 0,
+      "passed": true,
+      "receipt_sha256": "45b8dd88ee0cab27d4eba7ec4c4891afdd6948ddaa83c110017ed26ac012a445"
+    },
+    "zero_distances": 0
+  },
+  "interval_semantics": "No statistical intervals or certified continuous event sheets.",
+  "plotted_data": [
+    {
+      "cells": [
+        {
+          "distance": 0.8633756832150996,
+          "node": 0,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8726257903788118,
+          "node": 1,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 664.3983190080589,
+          "node": 2,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 364.8599319310332,
+          "node": 3,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 211.74489873554646,
+          "node": 4,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 123.11460729586678,
+          "node": 5,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 70.6407798537318,
+          "node": 6,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 39.84702372646476,
+          "node": 7,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.61608085330184,
+          "node": 8,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.608451799815604,
+          "node": 9,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.60082447292804,
+          "node": 10,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 22.177672657585497,
+          "node": 11,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 12.321399718206239,
+          "node": 12,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 6.981066172309721,
+          "node": 13,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 4.162273691890778,
+          "node": 14,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.7036666586878892,
+          "node": 15,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.9563752033816793,
+          "node": 16,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.5717158730859364,
+          "node": 17,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.3684070504482528,
+          "node": 18,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.2545602141636754,
+          "node": 19,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.49481262959329453,
+          "node": 0,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5040627367570067,
+          "node": 1,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 664.0297559544371,
+          "node": 2,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 364.4913688774114,
+          "node": 3,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 211.37633568192467,
+          "node": 4,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 122.74604424224499,
+          "node": 5,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 70.27221680011,
+          "node": 6,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 39.47846067284296,
+          "node": 7,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.24751779968003,
+          "node": 8,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.2398887461938,
+          "node": 9,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.232261419306234,
+          "node": 10,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 21.809109603963694,
+          "node": 11,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 11.952836664584433,
+          "node": 12,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 6.612503118687917,
+          "node": 13,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 3.793710638268973,
+          "node": 14,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.335103605066084,
+          "node": 15,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.587812149759874,
+          "node": 16,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.2031528194641312,
+          "node": 17,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.9998439968264476,
+          "node": 18,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8859971605418703,
+          "node": 19,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.05569261901341195,
+          "node": 0,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.06632951372370875,
+          "node": 1,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5130051492174076,
+          "node": 2,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5213356144152352,
+          "node": 3,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5287107947809649,
+          "node": 4,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.534751462301333,
+          "node": 5,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5390502823046834,
+          "node": 6,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.541185315770715,
+          "node": 7,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413436583351219,
+          "node": 8,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413436585528619,
+          "node": 9,
+          "ordinal": 3,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413436583351139,
+          "node": 10,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5407397738129667,
+          "node": 11,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5373274255508944,
+          "node": 12,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5306214855374309,
+          "node": 13,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5203831809198936,
+          "node": 14,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5064851719863542,
+          "node": 15,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.48892521588783966,
+          "node": 16,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4678271517255597,
+          "node": 17,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4434289987005242,
+          "node": 18,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.41606072185827286,
+          "node": 19,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 557.8270721204924,
+          "node": 0,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 136.10226838571594,
+          "node": 1,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.07666915960719382,
+          "node": 2,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.08635133667447922,
+          "node": 3,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.09496360418588673,
+          "node": 4,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10204580668307928,
+          "node": 5,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10710137148094694,
+          "node": 6,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10961705438197362,
+          "node": 7,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.1098037545968997,
+          "node": 8,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10980375485364294,
+          "node": 9,
+          "ordinal": 4,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10980375459688947,
+          "node": 10,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10909181432979895,
+          "node": 11,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10507367804701295,
+          "node": 12,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0972009801947657,
+          "node": 13,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.08524191162933795,
+          "node": 14,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.06912495463227332,
+          "node": 15,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.048953531221928095,
+          "node": 16,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.025001286866523434,
+          "node": 17,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.002311011588995021,
+          "node": 18,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.032451651110687596,
+          "node": 19,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 557.4585090668706,
+          "node": 0,
+          "ordinal": 5,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 135.73370533209413,
+          "node": 1,
+          "ordinal": 5,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 34.292366428996615,
+          "node": 2,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 9.162306086353404,
+          "node": 3,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 3.3170943822917733,
+          "node": 4,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.9002783055345556,
+          "node": 5,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.5076804137117201,
+          "node": 6,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.396545770723618,
+          "node": 7,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.3897275331621537,
+          "node": 8,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.389727523903059,
+          "node": 9,
+          "ordinal": 5,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.3897275331626064,
+          "node": 10,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.4166744272195253,
+          "node": 11,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.631146553675003,
+          "node": 12,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.6951507037998166,
+          "node": 13,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 10.616368363495019,
+          "node": 14,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 94.50534436006761,
+          "node": 15,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8692887891969419,
+          "node": 16,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8185763446410695,
+          "node": 17,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.795512028115946,
+          "node": 18,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8410079616962021,
+          "node": 19,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5153240444251268,
+          "node": 0,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5337607375391903,
+          "node": 1,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 33.92380337537481,
+          "node": 2,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 8.7937430327316,
+          "node": 3,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.948531328669968,
+          "node": 4,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.5317152519127506,
+          "node": 5,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.1391173600899152,
+          "node": 6,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0279827171018128,
+          "node": 7,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0211644795403485,
+          "node": 8,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.021164470281254,
+          "node": 9,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0211644795408013,
+          "node": 10,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0481113735977203,
+          "node": 11,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.262583500053198,
+          "node": 12,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.3265876501780114,
+          "node": 13,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 10.247805309873213,
+          "node": 14,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 94.1367813064458,
+          "node": 15,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5007257355751367,
+          "node": 16,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4500132910192644,
+          "node": 17,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4269489744941408,
+          "node": 18,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.47244490807439693,
+          "node": 19,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0793594658527923,
+          "node": 0,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10088251220838669,
+          "node": 1,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413335970690283,
+          "node": 2,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5343094483219537,
+          "node": 3,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5139386054842664,
+          "node": 4,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4867584396134422,
+          "node": 5,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.46193455582667353,
+          "node": 6,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4480541425234928,
+          "node": 7,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4469862810635456,
+          "node": 8,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4469862795916317,
+          "node": 9,
+          "ordinal": 7,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4469862810636278,
+          "node": 10,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4510309309091829,
+          "node": 11,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.47240188732725097,
+          "node": 12,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5063539620383313,
+          "node": 13,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5359301786187848,
+          "node": 14,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.537057243000999,
+          "node": 15,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0624853657095293,
+          "node": 16,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.00501877639794493,
+          "node": 17,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.020523684042121973,
+          "node": 18,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.030217282308052894,
+          "node": 19,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 23.69602270030145,
+          "node": 0,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.0411242936198772,
+          "node": 1,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10979189093094019,
+          "node": 2,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.101526715557009,
+          "node": 3,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0777516746845338,
+          "node": 4,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.04647937295147262,
+          "node": 5,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.01836684785103647,
+          "node": 6,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0028346378218867957,
+          "node": 7,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0016452722763205321,
+          "node": 8,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0016452706374809473,
+          "node": 9,
+          "ordinal": 8,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0016452722764157685,
+          "node": 10,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.006154341288261422,
+          "node": 11,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.03016861968273086,
+          "node": 12,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.06897343646265902,
+          "node": 13,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10343073226883673,
+          "node": 14,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10475587871848334,
+          "node": 15,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 223.45974771392426,
+          "node": 16,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.796319771613398,
+          "node": 17,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8136814306485783,
+          "node": 18,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8282262022081005,
+          "node": 19,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 0,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.6725612399980718,
+          "node": 1,
+          "ordinal": 9,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 2,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 3,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 4,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 5,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 6,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 7,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 8,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 9,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 10,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 11,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 12,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 13,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 14,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 15,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 223.09118466030247,
+          "node": 16,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.42775671799159287,
+          "node": 17,
+          "ordinal": 9,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.44511837702677326,
+          "node": 18,
+          "ordinal": 9,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4596631485862954,
+          "node": 19,
+          "ordinal": 9,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 0,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.49185093827620247,
+          "node": 1,
+          "ordinal": 10,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 2,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 3,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 4,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 5,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 6,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 7,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 8,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 9,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 10,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 11,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 12,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 13,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 14,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 15,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5280278046442124,
+          "node": 16,
+          "ordinal": 10,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 17,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 18,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 19,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        }
+      ],
+      "direction": 0,
+      "ordinals": 10
+    },
+    {
+      "cells": [
+        {
+          "distance": 533.0353339698959,
+          "node": 0,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 354.77964084439316,
+          "node": 1,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 241.32848315840513,
+          "node": 2,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 164.7576031541312,
+          "node": 3,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 112.04255922429351,
+          "node": 4,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 75.62967728178829,
+          "node": 5,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 50.61097750001448,
+          "node": 6,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 33.597056611901394,
+          "node": 7,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.61384590839349,
+          "node": 8,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.60845179983311,
+          "node": 9,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.60305855447886,
+          "node": 10,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 22.177672252841116,
+          "node": 11,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 14.623559244725072,
+          "node": 12,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 9.699497752560491,
+          "node": 13,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 6.534485064632049,
+          "node": 14,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 4.525272312086969,
+          "node": 15,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 3.2625148822467462,
+          "node": 16,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.4742344800929015,
+          "node": 17,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.9833480028530928,
+          "node": 18,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.6766684296056322,
+          "node": 19,
+          "ordinal": 1,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 532.6667709162741,
+          "node": 0,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 354.41107779077134,
+          "node": 1,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 240.95992010478335,
+          "node": 2,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 164.38904010050942,
+          "node": 3,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 111.6739961706717,
+          "node": 4,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 75.26111422816648,
+          "node": 5,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 50.242414446392665,
+          "node": 6,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 33.22849355827959,
+          "node": 7,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.24528285477169,
+          "node": 8,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.2398887462113,
+          "node": 9,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.23449550085705,
+          "node": 10,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 21.80910919921931,
+          "node": 11,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 14.254996191103269,
+          "node": 12,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 9.330934698938686,
+          "node": 13,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 6.165922011010244,
+          "node": 14,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 4.156709258465164,
+          "node": 15,
+          "ordinal": 2,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.893951828624941,
+          "node": 16,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.1056714264710967,
+          "node": 17,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.6147849492312876,
+          "node": 18,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.308105375983827,
+          "node": 19,
+          "ordinal": 2,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5159515499905245,
+          "node": 0,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5217339784374047,
+          "node": 1,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5270303973101558,
+          "node": 2,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5317077188245697,
+          "node": 3,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5356251208821088,
+          "node": 4,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.538636004660625,
+          "node": 5,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5405907240372438,
+          "node": 6,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413401147714394,
+          "node": 7,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413436584440119,
+          "node": 8,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413436585528567,
+          "node": 9,
+          "ordinal": 3,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5413436584439956,
+          "node": 10,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5407397737551285,
+          "node": 11,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5386549390172454,
+          "node": 12,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5349657105265068,
+          "node": 13,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5295722487897802,
+          "node": 14,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.522399516539038,
+          "node": 15,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5134011116079331,
+          "node": 16,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5025617913398527,
+          "node": 17,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.48989841038609394,
+          "node": 18,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4754591665809861,
+          "node": 19,
+          "ordinal": 3,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.08008812108771038,
+          "node": 0,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.08681555144249095,
+          "node": 1,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.09299800351882051,
+          "node": 2,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.09847407209662168,
+          "node": 3,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10307221332177523,
+          "node": 4,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10661360315381077,
+          "node": 5,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10891613372096039,
+          "node": 6,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10979957622244234,
+          "node": 7,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10980375472529301,
+          "node": 8,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10980375485364138,
+          "node": 9,
+          "ordinal": 4,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10980375472527601,
+          "node": 10,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10909181426161703,
+          "node": 11,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10663589374578455,
+          "node": 12,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.1022974640716802,
+          "node": 13,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.09597203183527805,
+          "node": 14,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.08759135182811774,
+          "node": 15,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.07712827708903601,
+          "node": 16,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.06459950119262967,
+          "node": 17,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.05006584631143812,
+          "node": 18,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.03363004489431217,
+          "node": 19,
+          "ordinal": 4,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 21.43424005166889,
+          "node": 0,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 8.62065493941014,
+          "node": 1,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 4.0713140376032095,
+          "node": 2,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.4261003072321214,
+          "node": 3,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.7950663317167905,
+          "node": 4,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.5341611331181493,
+          "node": 5,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.4237341755265542,
+          "node": 6,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.38987826770829,
+          "node": 7,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.389727528532063,
+          "node": 8,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.38972752390309,
+          "node": 9,
+          "ordinal": 5,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.3897275285325503,
+          "node": 10,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.4166744299263525,
+          "node": 11,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.5329101875745452,
+          "node": 12,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.8729509622691791,
+          "node": 13,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 3.0101259752441383,
+          "node": 14,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 7.79428056494883,
+          "node": 15,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 32.20153285492896,
+          "node": 16,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 170.19470479080812,
+          "node": 17,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8717784443101593,
+          "node": 18,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8351480855889031,
+          "node": 19,
+          "ordinal": 5,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 21.065676998047085,
+          "node": 0,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 8.252091885788335,
+          "node": 1,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 3.7027509839814043,
+          "node": 2,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.0575372536103163,
+          "node": 3,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.4265032780949853,
+          "node": 4,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.165598079496344,
+          "node": 5,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.055171121904749,
+          "node": 6,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0213152140864847,
+          "node": 7,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0211644749102577,
+          "node": 8,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0211644702812848,
+          "node": 9,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0211644749107451,
+          "node": 10,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.0481113763045473,
+          "node": 11,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.1643471339527403,
+          "node": 12,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 1.5043879086473742,
+          "node": 13,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 2.6415629216223335,
+          "node": 14,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 7.425717511327025,
+          "node": 15,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 31.832969801307158,
+          "node": 16,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 169.82614173718633,
+          "node": 17,
+          "ordinal": 6,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5032153906883542,
+          "node": 18,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.466585031967098,
+          "node": 19,
+          "ordinal": 6,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5406267379464743,
+          "node": 0,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.533564914608925,
+          "node": 1,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.519821500738496,
+          "node": 2,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5016202846343881,
+          "node": 3,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4820676897791493,
+          "node": 4,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.46451283817336325,
+          "node": 5,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4520174893313283,
+          "node": 6,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.44701023541502194,
+          "node": 7,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.44698628032750626,
+          "node": 8,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.44698627959163445,
+          "node": 9,
+          "ordinal": 7,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.44698628032758503,
+          "node": 10,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4510309312928989,
+          "node": 11,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.4643958353165507,
+          "node": 12,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.48562534203111135,
+          "node": 13,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5106366301828366,
+          "node": 14,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5322323999771474,
+          "node": 15,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.541343030757586,
+          "node": 16,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5313383171604433,
+          "node": 17,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.06535265716933122,
+          "node": 18,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.023600780636949883,
+          "node": 19,
+          "ordinal": 7,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.1089585808361361,
+          "node": 0,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10065266103086064,
+          "node": 1,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0845879450063862,
+          "node": 2,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.06351510582318867,
+          "node": 3,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.04113436413992824,
+          "node": 4,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.021266745624237693,
+          "node": 5,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.007255913567240195,
+          "node": 6,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.0016719434729851185,
+          "node": 7,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.001645271456813223,
+          "node": 8,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.001645270637483029,
+          "node": 9,
+          "ordinal": 8,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.001645271456897704,
+          "node": 10,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.006154341716575924,
+          "node": 11,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.02113504752615184,
+          "node": 12,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.04518683176749361,
+          "node": 13,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.07392514651665526,
+          "node": 14,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.09908930651744141,
+          "node": 15,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.10980301459151166,
+          "node": 16,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.09804103182494313,
+          "node": 17,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 154.43530648062307,
+          "node": 18,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.8162083413212242,
+          "node": 19,
+          "ordinal": 8,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 0,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 1,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 2,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 3,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 4,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 5,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 6,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 7,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 8,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 9,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 10,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 11,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 12,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 13,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 14,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 15,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 16,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 17,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 154.06674342700128,
+          "node": 18,
+          "ordinal": 9,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.44764528769941914,
+          "node": 19,
+          "ordinal": 9,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 0,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 1,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 2,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 3,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 4,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 5,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 6,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 7,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 8,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 9,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 10,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 11,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 12,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 13,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 14,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 15,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 16,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 17,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        },
+        {
+          "distance": 0.5324264314226415,
+          "node": 18,
+          "ordinal": 10,
+          "regular": true,
+          "sampled_coverage": false
+        },
+        {
+          "distance": null,
+          "node": 19,
+          "ordinal": 10,
+          "regular": false,
+          "sampled_coverage": false
+        }
+      ],
+      "direction": 1,
+      "ordinals": 10
+    }
+  ],
+  "provenance": {
+    "experiment": "EXP-516",
+    "generator": "scripts/render_exp516_ordinal_coverage.py",
+    "generator_sha256": "b7abe645417abd7073929cb11a27e21f331c8f6059d88ad8d594c24f43a5cd46",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-516-event-ordinal-coverage.pdf": "d6dc017f725e535aaa27cf6402c26a317888df47fa0321687fa980a2f7c5eba6",
+      "EXP-516-event-ordinal-coverage.png": "6ea2da8affe47463b8ed794cad163cb4982989a05a57ed2504ac75f6669bae6c",
+      "EXP-516-event-ordinal-coverage.svg": "f22f50ef796cf305f4dd1225b894fbf75684b19c6d5864553b0b1ebfd3875295"
+    },
+    "source_commit": "94e1aaa64dff7ee7bbc3b34e35e09d6bdfff2859"
+  },
+  "title": "All retained return-pair coverage"
+}

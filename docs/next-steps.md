@@ -325,6 +325,14 @@ inputs; historical result reproduction is a separate requirement.
   Next prospectively reconstruct well-conditioned event-consistent image curves
   with held-out validation; do not try to create missing physical support by
   rescaling the old curve or silently dropping the longer-history contrast.
+  [EXP-516](updates/2026-09-10-exp516-event-ordinal-coverage.md) first checks the
+  cheaper return-renumbering explanation against every retained ordinal:
+  all 740 events and 660 pairs audit cleanly, with all 40 old decisions intact.
+  No sampled pair restores the reference. Two new endpoint-only cells at
+  direction-0 returns 4-to-5 and 7-to-8 bracket the reference x and require
+  direct, event-aware fold qualification. Test both with prospective mapped
+  initial-direction contrasts and all full-state references; do not call
+  earlier-return recovery a pass of the rejected original eighth-return test.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting

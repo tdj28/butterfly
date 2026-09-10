@@ -1,6 +1,21 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-515 precision diagnostic; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-516 saved-ordinal coverage; not a new audit of every row)
+
+**EXP-516 result:** all 740 saved accepted events and 660 consecutive pairs
+pass the saved-data audit; all 40 historical eighth-return decisions are
+preserved. Across 330 available paired ordinal/node cells, 277 are regular
+and none restores the four full-state references at a sampled point. Seventy
+additional cells are missing/horizon-limited. The nearest regular sampled
+distance remains about .00164527. This is not continuous-curve absence.
+The eleven endpoint-only sign-change cells include five old candidates,
+four additional ordinal views of intervals with known grazing, and two
+previously untested direction-0 cells: 4-to-5 returns at nodes 17–18, and
+7-to-8 returns at nodes 18–19. Both bracket the reference input x, but neither
+has a newly qualified root or certified interior. Next test these cells and
+prospectively mapped direction contrasts without rewriting the failed
+eighth-return result. No C/D assignment, exact-flow proof or Jones arrow
+follows. See the [full matrix and figure](updates/2026-09-10-exp516-event-ordinal-coverage.md).
 
 **EXP-515 result:** all twelve target IVPs pass full local raw audit. Both
 decimal configurations agree on all eighteen first/second/third-return
