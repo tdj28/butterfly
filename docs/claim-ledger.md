@@ -1,6 +1,17 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-509 failed-predictor raw replay; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-510 smaller-step fold transport; not a new audit of every row)
+
+**EXP-510 result:** all 180 IVPs pass full raw audit. One smaller substep to
+c=7.167 qualifies every fold, with 1.4988e-13 cross-history full-state spread.
+At c=7.162, both depth-8 candidates again fail input regularity (gains
+5.23e-12–2.46e-11 and positive neighboring slopes), while depth-4 folds qualify.
+The remaining two substeps are unrun. The four-substep recipe does not restore
+complete transport; neither a physical fold disappearance nor any Jones
+chain is established. Next distinguish wrong-root convergence from loss of
+finite-curve coverage by directly sampling the declared curves. See the
+[complete result](updates/2026-09-09-exp510-four-substep-fold-transport.md) and
+[the regularity explanation](methods/critical-point-regularity.md).
 
 **EXP-508/509 result:** all 196 predictor IVPs pass raw replay. Both depth-8
 representations converge to equation roots with near-collapsed input curves,

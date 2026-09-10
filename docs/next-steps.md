@@ -264,8 +264,14 @@ inputs; historical result reproduction is a separate requirement.
   implements four smaller fold-only continuation substeps from
   qualified EXP-507 to the same predictor parameters, retaining all four
   representations and both solvers with cross-history full-state agreement.
-  All 2,566 local tests and the isolated startup pass; execute and audit the
-  fixed sequence after its clean, pushed source freeze.
+  Its complete 180-IVP audit passes: all representations qualify at c=7.167,
+  but both depth-8 inputs again fail at c=7.162; later substeps are unrun.
+  One qualified fold-only substep is not a new joint-contact point. Next sample
+  the declared depth-8 image curves directly over a frozen domain at the failed
+  parameter, comparing coverage against the qualified depth-4 fold states.
+  Retain all regularity failures and every connected root bracket; distinguish
+  a solver's wrong root from insufficient finite-curve coverage. Do not infer
+  a physical bifurcation or global root absence from this finite failure.
   Do not warm-start from the collapsed roots or lower the gain threshold.
   Preserve all failures and never resume a consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
