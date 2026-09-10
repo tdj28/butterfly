@@ -1,5 +1,8 @@
 # Research updates
 
+Current work: [EXP-519 fresh fixed-c fold response](2026-09-10-exp519-fixed-c-fold-response.md).
+EXP-518 is merged; EXP-519 is in pre-outcome validation and has no target result yet.
+
 This directory is the chronological project log. It complements the thematic
 research plan, claim ledger, experiment records, and execution backlog without
 replacing them.
