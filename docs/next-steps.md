@@ -345,6 +345,15 @@ inputs; historical result reproduction is a separate requirement.
   any new endpoint fold/cycle comparison or renewed joint contact.
   The endpoint was exposed in EXP-508/509 with old representations; do not
   describe this outcome-informed successor as fully blind validation.
+  [EXP-518](updates/2026-09-10-exp518-recovered-fold-transport.md) completes
+  that transport: all 200 IVPs audit and every construction qualifies at both
+  remaining steps. Endpoint contact still fails in all 16 full-state variants,
+  despite passing x projections (worst 1.39565e-4 versus 1e-4). Next explicitly
+  bind the recovered four/seven-return families and qualify their local
+  parameter response before a new correction. Preserve the full-state test
+  and primitive identity; do not reuse old depth-eight response derivatives.
+  A joint fold/grazing correction alone would not supply the missing second
+  smooth critical point or verify a Jones word: retain that separate target.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting

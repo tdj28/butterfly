@@ -1,6 +1,22 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-517 earlier-return fold recovery; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-518 recovered-fold transport; not a new audit of every row)
+
+**EXP-518 result:** all 200 target IVPs pass the full local raw audit. All
+four history/direction constructions qualify with both solvers at both
+remaining fixed parameter substeps. Largest scaled full-state spread is
+1.85095e-13 (limit 1e-6); largest adjacent displacement is .000936384
+(separate limit .01). These are finite local comparisons, not rigorous error
+bounds or unique continuation. At the saved primitive cycle's parameters,
+all 16 x-only comparisons pass 1e-4 but every full-state comparison fails;
+worst full-state pair distance is 1.39565e-4. The full-state gate must not be
+replaced by the passing projection. No new cycle or boundary was integrated;
+the endpoint and boundary context are explicitly reused from EXP-508/509.
+Original depth-eight failures remain. Transport is recovered, not fold/cycle
+contact, a second smooth critical point, C/D assignment or a Jones arrow.
+Next qualify a response with explicit four/seven-return family bindings;
+do not reuse old depth-eight derivatives or mistake grazing for D. See the
+[complete result](updates/2026-09-10-exp518-recovered-fold-transport.md).
 
 **EXP-517 result:** all 108 target IVPs pass local raw audit. All four fixed
 history/direction constructions (histories 4 and 7, directions 0 and 1) qualify

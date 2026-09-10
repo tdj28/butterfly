@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp518-recovered-fold-transport.md`](2026-09-10-exp518-recovered-fold-transport.md)
+  - All 200 IVPs pass raw audit; all four constructions track through both
+  remaining parameter steps. At the endpoint all 16 x-only comparisons pass,
+  but all full-state comparisons fail: worst distance is 1.396 times tolerance.
+  Fold transport is recovered; fold/cycle contact and Jones's chains are not.
 - [`2026-09-10-exp517-earlier-return-folds.md`](2026-09-10-exp517-earlier-return-folds.md)
   - All 108 IVPs pass raw audit. Both solvers recover the same local fold in
   all four history/direction constructions, restoring every full-state reference.
