@@ -56,6 +56,18 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
+**Current frontier (EXP-520):** the complete saved-polynomial census passes
+on all five EXP-519 periodic orbits, both solvers and both repeat windows.
+The nearest stationary section gap remains approximately -0.344803 at the
+corrected fold-contact point. Follow the actual periodic family next,
+retaining both negative inner maxima and validating full-state identity,
+primitive-period exclusions, event completeness and solver agreement through
+any return-count change. Do not extrapolate a zero from the small existing a
+stencil or substitute the earlier transient boundary. A section tangency is
+not automatically a flow bifurcation, D or a homoclinic approach. The C/D
+dictionary and one actual word-insertion arrow remain open. See the
+[complete census and next decision](updates/2026-09-10-exp520-periodic-stationarity-census.md).
+
 - [x] Qualify observation of both fixed EXP-479 cycles on both sections:
   [EXP-480](updates/2026-09-06-exp480-both-cycles-qualified.md) passes; six
   historical and eight Barrio events are not a one-to-one alphabet transport.

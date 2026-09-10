@@ -22,6 +22,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp520-periodic-stationarity-census.md`](2026-09-10-exp520-periodic-stationarity-census.md)
+  - All 417,460 stored segments pass the exact polynomial-root audit; all
+  twenty cycle windows and five nearest-object nominations qualify. The
+  actual periodic candidate remains below the section by about 0.345:
+  restored fold contact is not yet section grazing or a verified Jones arrow.
 - [`2026-09-10-exp518-recovered-fold-transport.md`](2026-09-10-exp518-recovered-fold-transport.md)
   - All 200 IVPs pass raw audit; all four constructions track through both
   remaining parameter steps. At the endpoint all 16 x-only comparisons pass,

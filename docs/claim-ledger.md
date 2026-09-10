@@ -1,6 +1,21 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-518 recovered-fold transport; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-520 periodic stationarity; not a new audit of every row)
+
+**EXP-520 result:** every one of 417,460 retained observation-polynomial
+segments passes the exact root-certificate audit. All ten profiles and twenty
+cycle windows qualify, with 16 stationary points per cycle and an unambiguous
+nearest-object nomination in each of the five EXP-519 parameter cases.
+The original event callbacks agree with the complete census on these inputs;
+this does not generally certify that callback-based observers cannot miss
+roots. At EXP-519's corrected fold-contact point, the nearest signed section
+gap is approximately -0.344803, with z displacement 15.1495 and speed 108.148.
+Permitted: a reproducibly identified actual periodic candidate and an open
+local grazing gap. Forbidden: equating restored fold contact with grazing,
+identifying D, verifying a Jones arrow, exact-flow all-roots proof, or global
+homoclinic refutation. The certificate verifier uses independent polynomial
+expansion/count logic but shares geometry code and is not another team's
+replication. See the [complete result](updates/2026-09-10-exp520-periodic-stationarity-census.md).
 
 **EXP-518 result:** all 200 target IVPs pass the full local raw audit. All
 four history/direction constructions qualify with both solvers at both
