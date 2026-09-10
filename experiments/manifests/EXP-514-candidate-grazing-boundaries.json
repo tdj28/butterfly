@@ -1,0 +1,1109 @@
+{
+  "attempts": 1,
+  "candidates": [
+    {
+      "accepted_prefix": 1,
+      "case": "local-a025-c083",
+      "count": 9,
+      "direction": 0,
+      "doses": [
+        -1.2500000000000012e-06,
+        -1.250000000000001e-07,
+        1.250000000000001e-07,
+        1.2500000000000012e-06
+      ],
+      "endpoint_extrema": [
+        {
+          "accepted": false,
+          "angle": 3.85302881390171e-17,
+          "normal_velocity": 3.6828179394987615e-15,
+          "plane_value": -0.025203877607046406,
+          "raw_tangent": [
+            41.53235155228477,
+            25.292968576009,
+            191.1933896857833
+          ],
+          "residual": -0.025203877607046406,
+          "state": [
+            0.01145941824707448,
+            -0.05315255217950201,
+            13.266781538166308
+          ],
+          "time": 9.744411168402126
+        },
+        {
+          "accepted": false,
+          "angle": 3.192405880194498e-17,
+          "normal_velocity": 3.0513785942432037e-15,
+          "plane_value": -0.025203877607126363,
+          "raw_tangent": [
+            41.53235155228468,
+            25.292968576008455,
+            191.19338968578225
+          ],
+          "residual": -0.025203877607126363,
+          "state": [
+            0.011459418247091086,
+            -0.053152552179581966,
+            13.266781538166708
+          ],
+          "time": 9.744411168402117
+        },
+        {
+          "accepted": false,
+          "angle": 1.1649921490981985e-16,
+          "normal_velocity": 1.099120794378905e-14,
+          "plane_value": 0.006939104834432688,
+          "raw_tangent": [
+            41.94373170242919,
+            26.13407718582689,
+            190.87313989108446
+          ],
+          "residual": 0.006939104834432688,
+          "state": [
+            0.004529555721172637,
+            -0.021009569738022916,
+            13.082452376190927
+          ],
+          "time": 9.74891010852477
+        },
+        {
+          "accepted": false,
+          "angle": 4.3117212588944105e-17,
+          "normal_velocity": 4.067926551165613e-15,
+          "plane_value": 0.006939104834615989,
+          "raw_tangent": [
+            41.94373170242805,
+            26.134077185827895,
+            190.87313989107398
+          ],
+          "residual": 0.006939104834615989,
+          "state": [
+            0.0045295557211261946,
+            -0.021009569737839615,
+            13.082452376189774
+          ],
+          "time": 9.748910108524797
+        }
+      ],
+      "epsilon": 1e-06,
+      "extremum_index": 3,
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "half": 0,
+      "historical_endpoints": [
+        {
+          "grid_index": 5,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--DOP853.json",
+          "sha256": "7a0bde4ec34c41460bb8286d72029038061c7175d3caba51fff8bd2d90b3967d",
+          "time": 52.82958465884396
+        },
+        {
+          "grid_index": 5,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--Radau.json",
+          "sha256": "69fef384c46f52668e488a27429f19c2e9d3545ae29a06e2bddbd57eaa7ca4d2",
+          "time": 52.82958465884195
+        },
+        {
+          "grid_index": 6,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--DOP853.json",
+          "sha256": "0321488bb19a9e35a28c8be9a5f3df508cadbddeb27c533c4b7a4faa98c01bda",
+          "time": 52.825999294667454
+        },
+        {
+          "grid_index": 6,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--Radau.json",
+          "sha256": "cc05861dfc22ea6474e7ae8603cdafc7e37828bf8bb6cf7c9f1eaa13c2800265",
+          "time": 52.825999294660996
+        }
+      ],
+      "horizon": 70.67066222987654,
+      "id": "exp514-direction-0-candidate-0",
+      "indices": [
+        1,
+        2
+      ],
+      "initial_state": [
+        -6.041976500152095,
+        -0.027948674572455603,
+        0.015128068056200669
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "lower_cycle_id": "local-a025-c083--aminus--03",
+      "old_x_interval": [
+        -6.982439672264078,
+        -6.603948401198779
+      ],
+      "original_u_box": [
+        -0.021613192974701958,
+        -0.019113192974701956
+      ],
+      "parameters": {
+        "a": 0.21559488260076548,
+        "b": 0.2,
+        "c": 7.162000000000001
+      },
+      "parent_id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_parameters": {
+        "a": 0.21575,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "region": 1,
+      "seed_time": 9.746660638463453,
+      "seed_u": -0.020988192974701957,
+      "source_candidate_id": "exp513-direction-0-candidate-0",
+      "time_box": [
+        9.494411168402117,
+        9.998910108524797
+      ],
+      "u_box": [
+        -0.021613192974701958,
+        -0.020363192974701957
+      ]
+    },
+    {
+      "accepted_prefix": 5,
+      "case": "local-a025-c083",
+      "count": 9,
+      "direction": 0,
+      "doses": [
+        -1.2500000000000012e-06,
+        -1.250000000000001e-07,
+        1.250000000000001e-07,
+        1.2500000000000012e-06
+      ],
+      "endpoint_extrema": [
+        {
+          "accepted": false,
+          "angle": 3.828755169289721e-16,
+          "normal_velocity": 3.4420383210331806e-14,
+          "plane_value": 0.12347255615283635,
+          "raw_tangent": [
+            211.38474779184185,
+            -139.97550005506358,
+            2073.9834603080853
+          ],
+          "residual": 0.12347255615283635,
+          "state": [
+            -0.020594460034857192,
+            0.09552388158038075,
+            12.422239681723935
+          ],
+          "time": 33.062153911526636
+        },
+        {
+          "accepted": true,
+          "angle": 8.483774305665782e-16,
+          "normal_velocity": -7.62688523447963e-14,
+          "plane_value": 0.12347255615320621,
+          "raw_tangent": [
+            211.38474779182735,
+            -139.9755000550651,
+            2073.9834603079503
+          ],
+          "residual": 0.12347255615320621,
+          "state": [
+            -0.02059446003504762,
+            0.0955238815807506,
+            12.4222396817215
+          ],
+          "time": 33.06215391152659
+        },
+        {
+          "accepted": false,
+          "angle": 1.7987960731083953e-16,
+          "normal_velocity": 1.7350704206720025e-14,
+          "plane_value": -0.04787781514218892,
+          "raw_tangent": [
+            222.15763233258352,
+            -132.82785239930627,
+            2154.1952345567815
+          ],
+          "residual": -0.04787781514218892,
+          "state": [
+            0.016347803148074287,
+            -0.07582648971464452,
+            13.39737469430498
+          ],
+          "time": 33.08023046572865
+        },
+        {
+          "accepted": false,
+          "angle": 4.609392456882648e-16,
+          "normal_velocity": -4.4460962689285566e-14,
+          "plane_value": -0.04787781514375879,
+          "raw_tangent": [
+            222.15763233267847,
+            -132.82785239919056,
+            2154.195234557293
+          ],
+          "residual": -0.04787781514375879,
+          "state": [
+            0.016347803148350933,
+            -0.07582648971621439,
+            13.39737469431362
+          ],
+          "time": 33.080230465728754
+        }
+      ],
+      "epsilon": 1e-06,
+      "extremum_index": 11,
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "half": 1,
+      "historical_endpoints": [
+        {
+          "grid_index": 5,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--DOP853.json",
+          "sha256": "7a0bde4ec34c41460bb8286d72029038061c7175d3caba51fff8bd2d90b3967d",
+          "time": 52.82958465884396
+        },
+        {
+          "grid_index": 5,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--Radau.json",
+          "sha256": "69fef384c46f52668e488a27429f19c2e9d3545ae29a06e2bddbd57eaa7ca4d2",
+          "time": 52.82958465884195
+        },
+        {
+          "grid_index": 6,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--DOP853.json",
+          "sha256": "0321488bb19a9e35a28c8be9a5f3df508cadbddeb27c533c4b7a4faa98c01bda",
+          "time": 52.825999294667454
+        },
+        {
+          "grid_index": 6,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--Radau.json",
+          "sha256": "cc05861dfc22ea6474e7ae8603cdafc7e37828bf8bb6cf7c9f1eaa13c2800265",
+          "time": 52.825999294660996
+        }
+      ],
+      "horizon": 70.67066222987654,
+      "id": "exp514-direction-0-candidate-1",
+      "indices": [
+        15,
+        16
+      ],
+      "initial_state": [
+        -6.041976500152095,
+        -0.027948674572455603,
+        0.015128068056200669
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "lower_cycle_id": "local-a025-c083--aminus--03",
+      "old_x_interval": [
+        -6.982439672264078,
+        -6.603948401198779
+      ],
+      "original_u_box": [
+        0.005886807025298042,
+        0.008386807025298045
+      ],
+      "parameters": {
+        "a": 0.21559488260076548,
+        "b": 0.2,
+        "c": 7.162000000000001
+      },
+      "parent_id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_parameters": {
+        "a": 0.21575,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "region": 1,
+      "seed_time": 33.071192188627656,
+      "seed_u": 0.007761807025298044,
+      "source_candidate_id": "exp513-direction-0-candidate-1",
+      "time_box": [
+        32.81215391152659,
+        33.330230465728754
+      ],
+      "u_box": [
+        0.007136807025298043,
+        0.008386807025298045
+      ]
+    },
+    {
+      "accepted_prefix": 8,
+      "case": "local-a025-c083",
+      "count": 9,
+      "direction": 0,
+      "doses": [
+        -1.2500000000000012e-06,
+        -1.250000000000001e-07,
+        1.250000000000001e-07,
+        1.2500000000000012e-06
+      ],
+      "endpoint_extrema": [
+        {
+          "accepted": true,
+          "angle": 2.794269743937918e-16,
+          "normal_velocity": -2.4570623313735496e-14,
+          "plane_value": 0.17556268444300788,
+          "raw_tangent": [
+            -1383.775092310729,
+            -410.62176245785275,
+            -8157.398828221718
+          ],
+          "residual": 0.17556268444300788,
+          "state": [
+            -0.03182482512829453,
+            0.1476140098705523,
+            12.131326605800462
+          ],
+          "time": 55.579006235406545
+        },
+        {
+          "accepted": false,
+          "angle": 6.399753635494868e-17,
+          "normal_velocity": 5.627442956068762e-15,
+          "plane_value": 0.17556268443795292,
+          "raw_tangent": [
+            -1383.7750923109736,
+            -410.6217624571348,
+            -8157.398828227307
+          ],
+          "residual": 0.17556268443795292,
+          "state": [
+            -0.03182482512717451,
+            0.14761400986549733,
+            12.13132660582869
+          ],
+          "time": 55.57900623540503
+        },
+        {
+          "accepted": false,
+          "angle": 4.0300334985122594e-16,
+          "normal_velocity": -4.218153604185204e-14,
+          "plane_value": -0.25821900251683644,
+          "raw_tangent": [
+            -1221.7184333229075,
+            -259.5764619225577,
+            -7690.138413104315
+          ],
+          "residual": -0.25821900251683644,
+          "state": [
+            0.0616962867461575,
+            -0.286167677089292,
+            14.630414920702592
+          ],
+          "time": 55.44681288996381
+        },
+        {
+          "accepted": false,
+          "angle": 8.266905367070637e-17,
+          "normal_velocity": -8.652800698172314e-15,
+          "plane_value": -0.2582190025180175,
+          "raw_tangent": [
+            -1221.718433321618,
+            -259.5764619216909,
+            -7690.138413098858
+          ],
+          "residual": -0.2582190025180175,
+          "state": [
+            0.06169628674644566,
+            -0.2861676770904731,
+            14.630414920710594
+          ],
+          "time": 55.44681288996332
+        }
+      ],
+      "epsilon": 1e-06,
+      "extremum_index": 19,
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "half": 0,
+      "historical_endpoints": [
+        {
+          "grid_index": 5,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--DOP853.json",
+          "sha256": "7a0bde4ec34c41460bb8286d72029038061c7175d3caba51fff8bd2d90b3967d",
+          "time": 52.82958465884396
+        },
+        {
+          "grid_index": 5,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0005--Radau.json",
+          "sha256": "69fef384c46f52668e488a27429f19c2e9d3545ae29a06e2bddbd57eaa7ca4d2",
+          "time": 52.82958465884195
+        },
+        {
+          "grid_index": 6,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--DOP853.json",
+          "sha256": "0321488bb19a9e35a28c8be9a5f3df508cadbddeb27c533c4b7a4faa98c01bda",
+          "time": 52.825999294667454
+        },
+        {
+          "grid_index": 6,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-0--eval-0006--Radau.json",
+          "sha256": "cc05861dfc22ea6474e7ae8603cdafc7e37828bf8bb6cf7c9f1eaa13c2800265",
+          "time": 52.825999294660996
+        }
+      ],
+      "horizon": 70.67066222987654,
+      "id": "exp514-direction-0-candidate-2",
+      "indices": [
+        16,
+        17
+      ],
+      "initial_state": [
+        -6.041976500152095,
+        -0.027948674572455603,
+        0.015128068056200669
+      ],
+      "initial_tangent": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "lower_cycle_id": "local-a025-c083--aminus--03",
+      "old_x_interval": [
+        -6.982439672264078,
+        -6.603948401198779
+      ],
+      "original_u_box": [
+        0.008386807025298045,
+        0.010886807025298047
+      ],
+      "parameters": {
+        "a": 0.21559488260076548,
+        "b": 0.2,
+        "c": 7.162000000000001
+      },
+      "parent_id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0",
+      "parent_parameters": {
+        "a": 0.21575,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "region": 1,
+      "seed_time": 55.512909562684676,
+      "seed_u": 0.009011807025298045,
+      "source_candidate_id": "exp513-direction-0-candidate-2",
+      "time_box": [
+        55.19681288996332,
+        55.829006235406545
+      ],
+      "u_box": [
+        0.008386807025298045,
+        0.009636807025298046
+      ]
+    },
+    {
+      "accepted_prefix": 5,
+      "case": "local-a025-c083",
+      "count": 9,
+      "direction": 1,
+      "doses": [
+        -1.2499999999999976e-06,
+        -1.2499999999999976e-07,
+        1.2499999999999976e-07,
+        1.2499999999999976e-06
+      ],
+      "endpoint_extrema": [
+        {
+          "accepted": true,
+          "angle": 1.2462714169110239e-16,
+          "normal_velocity": -1.1362438767648086e-14,
+          "plane_value": 0.08997688994880546,
+          "raw_tangent": [
+            150.6918325513532,
+            -98.43866547663532,
+            1477.8072408754692
+          ],
+          "residual": 0.08997688994880546,
+          "state": [
+            -0.013372965812010506,
+            0.06202821537634986,
+            12.610692278521595
+          ],
+          "time": 33.065623243566954
+        },
+        {
+          "accepted": false,
+          "angle": 2.181070114816619e-16,
+          "normal_velocity": 1.988513520512214e-14,
+          "plane_value": 0.08997688994844576,
+          "raw_tangent": [
+            150.69183255138967,
+            -98.43866547661806,
+            1477.8072408756802
+          ],
+          "residual": 0.08997688994844576,
+          "state": [
+            -0.013372965811901708,
+            0.06202821537599015,
+            12.610692278523736
+          ],
+          "time": 33.06562324356695
+        },
+        {
+          "accepted": false,
+          "angle": 1.3471149969637572e-17,
+          "normal_velocity": 1.2906342661267445e-15,
+          "plane_value": -0.0310367557183317,
+          "raw_tangent": [
+            156.16886375027005,
+            -94.69860980966445,
+            1517.7607035084968
+          ],
+          "residual": -0.0310367557183317,
+          "state": [
+            0.012716956918699215,
+            -0.0589854302907873,
+            13.300332179632903
+          ],
+          "time": 33.07839820976223
+        },
+        {
+          "accepted": false,
+          "angle": 8.349759151207563e-16,
+          "normal_velocity": -7.999677309467046e-14,
+          "plane_value": -0.031036755718318862,
+          "raw_tangent": [
+            156.1688637502606,
+            -94.69860980964731,
+            1517.7607035083965
+          ],
+          "residual": -0.031036755718318862,
+          "state": [
+            0.01271695691861516,
+            -0.058985430290774465,
+            13.30033217963262
+          ],
+          "time": 33.07839820976228
+        }
+      ],
+      "epsilon": 1e-06,
+      "extremum_index": 11,
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "half": 1,
+      "historical_endpoints": [
+        {
+          "grid_index": 5,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0005--DOP853.json",
+          "sha256": "32bae3c69c7fdc8fd707842ad2ab75ae6af3df0ac1e938886e22bb12a45991af",
+          "time": 52.82958464897803
+        },
+        {
+          "grid_index": 5,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0005--Radau.json",
+          "sha256": "d4e30a74c41e577e31f8328e69053bfcc07038ac8340f30bd9458ca41b005277",
+          "time": 52.82958464897293
+        },
+        {
+          "grid_index": 6,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0006--DOP853.json",
+          "sha256": "ee5b4cb1351918b541739b6674e66519490904a1ccb4bcfc29753ac9734ec597",
+          "time": 52.82599928820386
+        },
+        {
+          "grid_index": 6,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0006--Radau.json",
+          "sha256": "ffa7093ad94e46bae5b841b8b6cb6e9e993f1049ffa1555e5d4d9bba1dd1399d",
+          "time": 52.82599928820109
+        }
+      ],
+      "horizon": 70.67066219205618,
+      "id": "exp514-direction-1-candidate-0",
+      "indices": [
+        17,
+        18
+      ],
+      "initial_state": [
+        -6.041976500152095,
+        -0.027948674572455603,
+        0.015128068056200669
+      ],
+      "initial_tangent": [
+        10.606601717798211,
+        0.0,
+        0.0070710678118654745
+      ],
+      "lower_cycle_id": "local-a025-c083--aminus--03",
+      "old_x_interval": [
+        -6.982439672264078,
+        -6.603948401198779
+      ],
+      "original_u_box": [
+        0.009182775350492486,
+        0.011682775350492482
+      ],
+      "parameters": {
+        "a": 0.21559488260076548,
+        "b": 0.2,
+        "c": 7.162000000000001
+      },
+      "parent_id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_parameters": {
+        "a": 0.21575,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "region": 1,
+      "seed_time": 33.0720107266646,
+      "seed_u": 0.011057775350492483,
+      "source_candidate_id": "exp513-direction-1-candidate-0",
+      "time_box": [
+        32.81562324356695,
+        33.32839820976228
+      ],
+      "u_box": [
+        0.010432775350492484,
+        0.011682775350492482
+      ]
+    },
+    {
+      "accepted_prefix": 8,
+      "case": "local-a025-c083",
+      "count": 9,
+      "direction": 1,
+      "doses": [
+        -1.2500000000000012e-06,
+        -1.250000000000001e-07,
+        1.250000000000001e-07,
+        1.2500000000000012e-06
+      ],
+      "endpoint_extrema": [
+        {
+          "accepted": true,
+          "angle": 6.779805472021537e-17,
+          "normal_velocity": -5.828670879282072e-15,
+          "plane_value": 0.22782957549228627,
+          "raw_tangent": [
+            -975.6613513740127,
+            -294.85912869583956,
+            -5722.329899907456
+          ],
+          "residual": 0.22782957549228627,
+          "state": [
+            -0.043093299367951955,
+            0.19988090091983066,
+            11.842112182931544
+          ],
+          "time": 55.59428306910891
+        },
+        {
+          "accepted": true,
+          "angle": 4.781377097172249e-16,
+          "normal_velocity": -4.110600748674642e-14,
+          "plane_value": 0.22782957549178257,
+          "raw_tangent": [
+            -975.6613513739305,
+            -294.8591286957313,
+            -5722.329899907383
+          ],
+          "residual": 0.22782957549178257,
+          "state": [
+            -0.04309329936787864,
+            0.19988090091932695,
+            11.84211218293423
+          ],
+          "time": 55.5942830691089
+        },
+        {
+          "accepted": false,
+          "angle": 4.800689291508022e-16,
+          "normal_velocity": 4.747938153748521e-14,
+          "plane_value": -0.11093259123566508,
+          "raw_tangent": [
+            -940.8959297487376,
+            -237.43374924473264,
+            -5749.88794869486
+          ],
+          "residual": -0.11093259123566508,
+          "state": [
+            0.029942090197394963,
+            -0.13888126580812069,
+            13.762968890422789
+          ],
+          "time": 55.494175473488326
+        },
+        {
+          "accepted": false,
+          "angle": 2.2973850325227643e-16,
+          "normal_velocity": -2.272140808834422e-14,
+          "plane_value": -0.11093259123665387,
+          "raw_tangent": [
+            -940.8959297484553,
+            -237.43374924440639,
+            -5749.887948694372
+          ],
+          "residual": -0.11093259123665387,
+          "state": [
+            0.029942090197537942,
+            -0.13888126580910948,
+            13.76296889042832
+          ],
+          "time": 55.49417547348801
+        }
+      ],
+      "epsilon": 1e-06,
+      "extremum_index": 19,
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "half": 0,
+      "historical_endpoints": [
+        {
+          "grid_index": 5,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0005--DOP853.json",
+          "sha256": "32bae3c69c7fdc8fd707842ad2ab75ae6af3df0ac1e938886e22bb12a45991af",
+          "time": 52.82958464897803
+        },
+        {
+          "grid_index": 5,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0005--Radau.json",
+          "sha256": "d4e30a74c41e577e31f8328e69053bfcc07038ac8340f30bd9458ca41b005277",
+          "time": 52.82958464897293
+        },
+        {
+          "grid_index": 6,
+          "method": "DOP853",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0006--DOP853.json",
+          "sha256": "ee5b4cb1351918b541739b6674e66519490904a1ccb4bcfc29753ac9734ec597",
+          "time": 52.82599928820386
+        },
+        {
+          "grid_index": 6,
+          "method": "Radau",
+          "path": "artifacts/EXP-486/target-098e58a/trials/local-a025-c083--region-1--depth-8--direction-1--eval-0006--Radau.json",
+          "sha256": "ffa7093ad94e46bae5b841b8b6cb6e9e993f1049ffa1555e5d4d9bba1dd1399d",
+          "time": 52.82599928820109
+        }
+      ],
+      "horizon": 70.67066219205618,
+      "id": "exp514-direction-1-candidate-1",
+      "indices": [
+        18,
+        19
+      ],
+      "initial_state": [
+        -6.041976500152095,
+        -0.027948674572455603,
+        0.015128068056200669
+      ],
+      "initial_tangent": [
+        10.606601717798211,
+        0.0,
+        0.0070710678118654745
+      ],
+      "lower_cycle_id": "local-a025-c083--aminus--03",
+      "old_x_interval": [
+        -6.982439672264078,
+        -6.603948401198779
+      ],
+      "original_u_box": [
+        0.011682775350492482,
+        0.014182775350492484
+      ],
+      "parameters": {
+        "a": 0.21559488260076548,
+        "b": 0.2,
+        "c": 7.162000000000001
+      },
+      "parent_id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0",
+      "parent_parameters": {
+        "a": 0.21575,
+        "b": 0.2,
+        "c": 7.212
+      },
+      "region": 1,
+      "seed_time": 55.54422927129853,
+      "seed_u": 0.012307775350492482,
+      "source_candidate_id": "exp513-direction-1-candidate-1",
+      "time_box": [
+        55.24417547348801,
+        55.84428306910891
+      ],
+      "u_box": [
+        0.011682775350492482,
+        0.012932775350492483
+      ]
+    }
+  ],
+  "controls": {
+    "kinds": [
+      "grazing",
+      "no-root-in-box"
+    ],
+    "maximum_ivps": 64,
+    "output_bytes": 67108864,
+    "solvers": [
+      "DOP853",
+      "Radau"
+    ],
+    "wall_seconds": 180
+  },
+  "experiment_id": "EXP-514",
+  "grazing": {
+    "atol": 1e-15,
+    "extremum_margin": 1e-10,
+    "guard": 1e-08,
+    "max_step": 0.001,
+    "minimum_angle": 1e-07,
+    "minimum_curvature": 1.0,
+    "minimum_unfolding": 1.0,
+    "newton_iterations": 8,
+    "root_plane": 1e-10,
+    "root_velocity": 1e-09,
+    "rtol": 1e-13,
+    "scales": [
+      15.0,
+      15.0,
+      0.01
+    ],
+    "side_residual": 1e-08,
+    "side_solver_scaled_state": 1e-06,
+    "side_solver_time": 1e-07,
+    "solver_scaled_state": 1e-07,
+    "solver_time": 1e-08,
+    "solver_u": 1e-09,
+    "solvers": [
+      "DOP853",
+      "Radau"
+    ],
+    "square_root_ratio_relative_error": 0.05,
+    "window": 0.05
+  },
+  "inputs": {
+    "docs/experiments/receipts/EXP-497-contact-localization-result.json": "ed229b4a772ef19d227272006401d19090ee5e28a357791f25400cafa3271cff",
+    "docs/experiments/receipts/EXP-501-limiting-grazing-contact-result.json": "c97b64e4770e1b53a66802c9bf6791fe4dbbf22e84d6d12281ccda9ae451b485",
+    "docs/experiments/receipts/EXP-503-joint-contact-result.json": "56cf4e0d13d2f082c3272494f0ef6a4719dfd92d7d9686a74c67026c995437a7",
+    "docs/experiments/receipts/EXP-504-contact-path-result.json": "83b55c0063779f85370890ff34a04a419c475a3692dc5e3567ad4376a31ec128",
+    "docs/experiments/receipts/EXP-507-fixed-c-fold-restoration-result.json": "b6d550882b761fb499a9b6e3f4d415aa05c0dc1d1f98f424bcffc2dacaba386d",
+    "docs/experiments/receipts/EXP-509-failed-predictor-replay-result.json": "6857228fe1c4b09692982e5d6481595398552c2e055b6f1620b22c499bcff4e5",
+    "docs/experiments/receipts/EXP-510-collapsed-root-witness.json": "5b271195075b337b72b09552c5b86f707f2e68595a7f8974262a1cbce7518df9",
+    "docs/experiments/receipts/EXP-510-four-substep-fold-transport-result.json": "43399d794bf8c55a20e73706a4850453f43ac762a465a3a7d39b9cc7665a8fe7",
+    "docs/experiments/receipts/EXP-511-direct-curve-coverage-result.json": "245610c6116eed25f76bc775cc77be6cce66eacd4193d466a069c23b1892eb85",
+    "docs/experiments/receipts/EXP-512-censored-return-extension-result.json": "c89bb30f90bf26a4f4902e349459b234201a66b00d3d2b4a500d6849fdb96e76",
+    "docs/experiments/receipts/EXP-513-candidate-fold-qualification-result.json": "64e60c557edf02ce0fabe17305e6049a6a043e3088812039e1dd07a9c2452741",
+    "experiments/manifests/EXP-497-contact-localization.json": "2e3cc27a66bc99e4b2f76fa9ad7bb9b61da233bcf1a080463980f30c51678cfe",
+    "experiments/manifests/EXP-501-limiting-grazing-contact.json": "d9ef2516e08a7014c3c5b1917be4d17884e0146d93ddd5492bd4b1520896b5cd",
+    "experiments/manifests/EXP-502-joint-contact-search.json": "20c9fc885f2eeaf8df6225e487f67ee5d531b64ccaa4e0fe2e7e32bb28091038",
+    "experiments/manifests/EXP-503-joint-contact-continuation.json": "ac90cbfa8168abd8a21e49066bc294c2102bb1542811caef9d74354eb6d515e9",
+    "experiments/manifests/EXP-504-guarded-contact-continuation.json": "a5cc08a114d1c967d6b6b22f8e7307959c7f02d7a5dc7b69af1e846ebce9774c",
+    "experiments/manifests/EXP-507-fixed-c-fold-restoration.json": "ac1ea02269f66d1ac005be552a6c8dbb1f7b0536ef94c02d1bbdce812b990788"
+  },
+  "limits": {
+    "failure_reserve_bytes": 1048576,
+    "initial_free_bytes": 11811160064,
+    "minimum_free_bytes": 8589934592,
+    "output_bytes": 2147483648,
+    "target_ivps": 160,
+    "wall_seconds": 3600
+  },
+  "numerical": {
+    "atol": 1e-15,
+    "controls": {
+      "counts": [
+        2,
+        3
+      ],
+      "kinds": [
+        "fold",
+        "no-fold",
+        "projection-degenerate"
+      ]
+    },
+    "extremum_margin": 1e-10,
+    "guard": 1e-08,
+    "iterations": 8,
+    "max_step": 0.001,
+    "root_determinant": 1e-10,
+    "root_plane": 1e-10,
+    "rtol": 1e-13,
+    "scales": [
+      15.0,
+      15.0,
+      0.01
+    ],
+    "solvers": [
+      "DOP853",
+      "Radau"
+    ],
+    "thresholds": {
+      "angle": 1e-07,
+      "curvature_relative_error": 0.001,
+      "minimum_gain": 0.0001,
+      "minimum_scaled_curvature": 1e-06,
+      "minimum_x_component": 0.001,
+      "plane": 1e-08,
+      "root_derivative": 1e-07,
+      "solver_u": 1e-09,
+      "state": 1e-06,
+      "time": 1e-07
+    }
+  },
+  "paid_review": "not-requested-human-approval-policy",
+  "source_paths": [
+    "docs/experiments/EXP-491-event-sheet-probe.md",
+    "docs/experiments/EXP-492-event-boundaries.md",
+    "docs/experiments/EXP-502-joint-contact-search.md",
+    "docs/experiments/EXP-502-local-design-audit.md",
+    "docs/experiments/EXP-503-joint-contact-resource-continuation.md",
+    "docs/experiments/EXP-504-guarded-contact-continuation.md",
+    "docs/experiments/EXP-504-local-design-audit.md",
+    "docs/experiments/EXP-507-fixed-c-fold-restoration.md",
+    "docs/experiments/EXP-508-constrained-contact-step.md",
+    "docs/experiments/EXP-509-failed-predictor-replay.md",
+    "docs/experiments/EXP-510-four-substep-fold-transport.md",
+    "docs/experiments/EXP-511-direct-curve-coverage.md",
+    "docs/experiments/EXP-512-censored-return-extension.md",
+    "docs/experiments/EXP-513-candidate-fold-qualification.md",
+    "docs/experiments/EXP-514-candidate-grazing-boundaries.md",
+    "experiments/manifests/EXP-490-direct-folds.json",
+    "experiments/manifests/EXP-491-event-sheet-probe.json",
+    "experiments/manifests/EXP-492-event-boundaries.json",
+    "experiments/manifests/EXP-502-joint-contact-search.json",
+    "experiments/manifests/EXP-503-joint-contact-continuation.json",
+    "experiments/manifests/EXP-504-guarded-contact-continuation.json",
+    "experiments/manifests/EXP-507-fixed-c-fold-restoration.json",
+    "experiments/manifests/EXP-508-constrained-contact-step.json",
+    "experiments/manifests/EXP-509-failed-predictor-replay.json",
+    "experiments/manifests/EXP-510-four-substep-fold-transport.json",
+    "experiments/manifests/EXP-511-direct-curve-coverage.json",
+    "experiments/manifests/EXP-512-censored-return-extension.json",
+    "experiments/manifests/EXP-513-candidate-fold-qualification.json",
+    "experiments/manifests/EXP-514-candidate-grazing-boundaries.json",
+    "pyproject.toml",
+    "python/butterfly/__init__.py",
+    "python/butterfly/_paired_startup.py",
+    "python/butterfly/atlas.py",
+    "python/butterfly/augmented_flip.py",
+    "python/butterfly/basins.py",
+    "python/butterfly/boundary.py",
+    "python/butterfly/bounded_json.py",
+    "python/butterfly/candidates.py",
+    "python/butterfly/classify.py",
+    "python/butterfly/decimal_grazing.py",
+    "python/butterfly/decimal_taylor.py",
+    "python/butterfly/event_boundary_shooting.py",
+    "python/butterfly/event_sheet_probe.py",
+    "python/butterfly/hopf.py",
+    "python/butterfly/integrate.py",
+    "python/butterfly/lyapunov.py",
+    "python/butterfly/models.py",
+    "python/butterfly/periodic.py",
+    "python/butterfly/periodic_winding.py",
+    "python/butterfly/poincare.py",
+    "python/butterfly/polynomial_census.py",
+    "python/butterfly/projected_fold_qualification.py",
+    "python/butterfly/projected_fold_shooting.py",
+    "python/butterfly/projected_winding.py",
+    "python/butterfly/return_geometry.py",
+    "python/butterfly/return_image_curve.py",
+    "python/butterfly/return_map.py",
+    "python/butterfly/saddle.py",
+    "python/butterfly/scan.py",
+    "python/butterfly/section_census.py",
+    "python/butterfly/section_grazing.py",
+    "python/butterfly/symbolic.py",
+    "python/butterfly/tiles.py",
+    "python/butterfly/upo.py",
+    "scripts/analyze_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp486_return_image_folds.py",
+    "scripts/audit_exp490_direct_folds.py",
+    "scripts/audit_exp491_event_sheet_probe.py",
+    "scripts/audit_exp492_event_boundaries.py",
+    "scripts/audit_exp494_periodic_winding_transport.py",
+    "scripts/audit_exp495_fold_cycle_membership.py",
+    "scripts/audit_exp497_contact_localization.py",
+    "scripts/audit_exp501_limiting_contact.py",
+    "scripts/audit_exp502_joint_contact.py",
+    "scripts/audit_exp503_joint_continuation.py",
+    "scripts/audit_exp504_guarded_contact.py",
+    "scripts/audit_exp507_fold_restoration.py",
+    "scripts/audit_exp508_constrained_step.py",
+    "scripts/audit_exp510_fold_transport.py",
+    "scripts/audit_exp511_curve_coverage.py",
+    "scripts/audit_exp512_censored_returns.py",
+    "scripts/audit_exp513_candidate_folds.py",
+    "scripts/audit_exp514_grazing_candidates.py",
+    "scripts/build_exp492_event_boundaries.py",
+    "scripts/exp500_census_analysis.py",
+    "scripts/exp501_analytic_controls.py",
+    "scripts/exp501_contact_analysis.py",
+    "scripts/exp502_response.py",
+    "scripts/exp504_continuation_model.py",
+    "scripts/exp507_bounded_products.py",
+    "scripts/exp507_fold_restoration.py",
+    "scripts/exp508_constrained_step.py",
+    "scripts/exp510_fold_transport.py",
+    "scripts/exp511_curve_coverage.py",
+    "scripts/exp511_dense_census.py",
+    "scripts/exp512_censored_returns.py",
+    "scripts/exp513_candidate_folds.py",
+    "scripts/exp514_grazing_candidates.py",
+    "scripts/prepare_exp511_prior_witness.py",
+    "scripts/replay_exp509_failed_predictor.py",
+    "scripts/run_exp486_return_image_folds.py",
+    "scripts/run_exp487_section_census.py",
+    "scripts/run_exp488_event_accuracy.py",
+    "scripts/run_exp490_direct_folds.py",
+    "scripts/run_exp491_event_sheet_probe.py",
+    "scripts/run_exp492_event_boundaries.py",
+    "scripts/run_exp494_periodic_winding_transport.py",
+    "scripts/run_exp496_contact_endpoint.py",
+    "scripts/run_exp497_contact_localization.py",
+    "scripts/run_exp501_limiting_contact.py",
+    "scripts/run_exp502_joint_contact.py",
+    "scripts/run_exp503_joint_continuation.py",
+    "scripts/run_exp504_guarded_contact.py",
+    "scripts/run_exp507_fold_restoration.py",
+    "scripts/run_exp508_constrained_step.py",
+    "scripts/run_exp510_fold_transport.py",
+    "scripts/run_exp511_curve_coverage.py",
+    "scripts/run_exp512_censored_returns.py",
+    "scripts/run_exp513_candidate_folds.py",
+    "scripts/run_exp514_grazing_candidates.py",
+    "scripts/verify_exp503_public_contact.py",
+    "scripts/verify_exp504_public_contact.py",
+    "scripts/verify_exp507_public_restoration.py",
+    "scripts/verify_exp509_public_replay.py",
+    "scripts/verify_exp510_public_transport.py",
+    "scripts/verify_exp511_public_coverage.py",
+    "scripts/verify_exp512_public_extension.py",
+    "scripts/verify_exp513_public_folds.py",
+    "tests/test_event_boundary_shooting.py",
+    "tests/test_event_sheet_probe.py",
+    "tests/test_exp502_joint_contact.py",
+    "tests/test_exp503_joint_continuation.py",
+    "tests/test_exp504_guarded_contact.py",
+    "tests/test_exp507_bounded_products.py",
+    "tests/test_exp507_fold_restoration.py",
+    "tests/test_exp508_constrained_step.py",
+    "tests/test_exp509_failed_predictor.py",
+    "tests/test_exp509_public_replay.py",
+    "tests/test_exp510_fold_transport.py",
+    "tests/test_exp510_public_transport.py",
+    "tests/test_exp511_curve_coverage.py",
+    "tests/test_exp511_public_coverage.py",
+    "tests/test_exp512_censored_returns.py",
+    "tests/test_exp513_candidate_folds.py",
+    "tests/test_exp514_grazing_candidates.py",
+    "uv.lock"
+  ],
+  "status": "prospective-outcome-informed-grazing-diagnostic",
+  "symbolic_chains_verified": false
+}

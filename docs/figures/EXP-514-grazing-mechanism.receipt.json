@@ -1,0 +1,447 @@
+{
+  "accessibility": "Triangle orientation distinguishes crossing direction; open squares distinguish Radau; panel titles identify every interval.",
+  "alt_text": "Five panels show a pair of section crossings on one side of each tangency and none on the other. Triangles distinguish accepted and opposite-direction crossings; open squares show Radau checks. Dashed curves are local quadratic guides, not additional trajectory observations.",
+  "data_source": {
+    "aggregation": "None",
+    "artifact": "docs/experiments/receipts/EXP-514-candidate-grazing-boundaries-result.json",
+    "exclusions": "No candidate excluded; unqualified cases are explicitly labeled.",
+    "fields": [
+      "rows[].candidate",
+      "rows[].decision.analysis.solvers[].root",
+      "rows[].decision.analysis.solvers[].sides[].local_roots"
+    ],
+    "selection": "All five candidates and every reported local root at all four prescribed offsets under both solvers.",
+    "sha256": "825b6298900cf644b5b1e6e6b433c1e42bf3e791af8f0d89d90fd2ebc977d4bc",
+    "transformation": "x=(side_u-root_u)/max_abs_dose; y=(event_t-root_t)/sqrt(abs(2*h_u*max_abs_dose/h_tt)). Dashed guide y=+/-sqrt(abs(x)) on the predicted pair side."
+  },
+  "description": "All five candidate intervals, two solvers and four signed offsets. Measured crossing times compared with the local quadratic tangency guide.",
+  "exclusions": [
+    "Not an exact-flow proof",
+    "Not a global fold-absence proof",
+    "Not verification of Jones symbols or arrows",
+    "Dashed lines are a local normal-form guide, not integrated data"
+  ],
+  "figure_id": "EXP-514-grazing-mechanism",
+  "guards": {
+    "all_candidates_present": true,
+    "expected_candidates": 5,
+    "finite_scaling": true,
+    "public_verifier": {
+      "candidates": 5,
+      "experiment_id": "EXP-514",
+      "full_raw_audit_repeated": false,
+      "new_integrations": 0,
+      "passed": true,
+      "qualified": 5,
+      "scope": "Compact root algebra, event measurements and two-sided mechanism decisions replayed. Raw shooting/dense meshes, analytic control products and actual disk bytes are not audited here.",
+      "symbolic_chains_verified": false
+    }
+  },
+  "interval_semantics": "No inferential intervals; points are fixed deterministic census observations.",
+  "plotted_data": [
+    {
+      "id": "exp514-direction-0-candidate-0",
+      "points": [
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": 1.250000000000001e-07,
+          "scale_t": 0.0022261085581332016,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 0.10000000119914078,
+          "y": -0.31576750355175653
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": 1.250000000000001e-07,
+          "scale_t": 0.0022261085581332016,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 0.10000000119914078,
+          "y": 0.316689501296068
+        },
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": 1.2500000000000012e-06,
+          "scale_t": 0.0022261085581332016,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 1.00000000120004,
+          "y": -0.9954130660609944
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": 1.2500000000000012e-06,
+          "scale_t": 0.0022261085581332016,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 1.00000000120004,
+          "y": 1.0046332471806998
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": 1.250000000000001e-07,
+          "scale_t": 0.0022261085581331505,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 0.09999999879828349,
+          "y": -0.3157674970028646
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": 1.250000000000001e-07,
+          "scale_t": 0.0022261085581331505,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 0.09999999879828349,
+          "y": 0.31668949470408597
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": 1.2500000000000012e-06,
+          "scale_t": 0.0022261085581331505,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 0.9999999987991828,
+          "y": -0.9954130653715755
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": 1.2500000000000012e-06,
+          "scale_t": 0.0022261085581331505,
+          "scale_u": 1.2500000000000012e-06,
+          "x": 0.9999999987991828,
+          "y": 1.0046332465040484
+        }
+      ],
+      "qualified": true
+    },
+    {
+      "id": "exp514-direction-0-candidate-1",
+      "points": [
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.005090205724318461,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -1.000000000071776,
+          "y": -0.9977580424344015
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.005090205724318461,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -1.000000000071776,
+          "y": 1.0024323403804056
+        },
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.005090205724318461,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.10000000007226441,
+          "y": -0.3159971338780368
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.005090205724318461,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.10000000007226441,
+          "y": 0.3164644244265465
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.0050902057243176445,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.9999999999274469,
+          "y": -0.9977580413583211
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.0050902057243176445,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.9999999999274469,
+          "y": 1.0024323393406196
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.0050902057243176445,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.09999999992793542,
+          "y": -0.315997131694897
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.0050902057243176445,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.09999999992793542,
+          "y": 0.3164644222573659
+        }
+      ],
+      "qualified": true
+    },
+    {
+      "id": "exp514-direction-0-candidate-2",
+      "points": [
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.00844762870683292,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.9999999997914446,
+          "y": -0.9741455012531545
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.00844762870683292,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.9999999997914446,
+          "y": 1.0264671525062834
+        },
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.00844762870683292,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.0999999997919331,
+          "y": -0.31362194199221044
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.00844762870683292,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.0999999997919331,
+          "y": 0.3188529446353376
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.00844762870684257,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -1.000000000209166,
+          "y": -0.9741455014438161
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.00844762870684257,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -1.000000000209166,
+          "y": 1.0264671527111842
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.00844762870684257,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.10000000020965451,
+          "y": -0.31362194924310477
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.00844762870684257,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.10000000020965451,
+          "y": 0.3188529521293082
+        }
+      ],
+      "qualified": true
+    },
+    {
+      "id": "exp514-direction-1-candidate-0",
+      "points": [
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.2499999999999976e-06,
+          "scale_t": 0.0042802260425208235,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -1.000000003427428,
+          "y": -0.9981022502179919
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.2499999999999976e-06,
+          "scale_t": 0.0042802260425208235,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -1.000000003427428,
+          "y": 1.0020323644153155
+        },
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.2499999999999976e-07,
+          "scale_t": 0.0042802260425208235,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -0.10000000342791379,
+          "y": -0.31603343151241503
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.2499999999999976e-07,
+          "scale_t": 0.0042802260425208235,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -0.10000000342791379,
+          "y": 0.31642636010948455
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.2499999999999976e-06,
+          "scale_t": 0.004280226042521381,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -0.9999999965731885,
+          "y": -0.998102250759041
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.2499999999999976e-06,
+          "scale_t": 0.004280226042521381,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -0.9999999965731885,
+          "y": 1.0020323649464038
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.2499999999999976e-07,
+          "scale_t": 0.004280226042521381,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -0.0999999965736744,
+          "y": -0.3160334364311284
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.2499999999999976e-07,
+          "scale_t": 0.004280226042521381,
+          "scale_u": 1.2499999999999976e-06,
+          "x": -0.0999999965736744,
+          "y": 0.3164263650580789
+        }
+      ],
+      "qualified": true
+    },
+    {
+      "id": "exp514-direction-1-candidate-1",
+      "points": [
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.007103398301906011,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.9999999958321117,
+          "y": -0.9782201965790571
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.007103398301906011,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.9999999958321117,
+          "y": 1.0222129713536903
+        },
+        {
+          "accepted": false,
+          "method": "DOP853",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.007103398301906011,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.09999999583260023,
+          "y": -0.31403531897233944
+        },
+        {
+          "accepted": true,
+          "method": "DOP853",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.007103398301906011,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.09999999583260023,
+          "y": 0.31843390528213
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.007103398301925594,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -1.0000000041657233,
+          "y": -0.9782201953250029
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.2500000000000012e-06,
+          "scale_t": 0.007103398301925594,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -1.0000000041657233,
+          "y": 1.0222129699654765
+        },
+        {
+          "accepted": false,
+          "method": "Radau",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.007103398301925594,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.10000000416621181,
+          "y": -0.3140353114323208
+        },
+        {
+          "accepted": true,
+          "method": "Radau",
+          "nominal_dose": -1.250000000000001e-07,
+          "scale_t": 0.007103398301925594,
+          "scale_u": 1.2500000000000012e-06,
+          "x": -0.10000000416621181,
+          "y": 0.3184338974740226
+        }
+      ],
+      "qualified": true
+    }
+  ],
+  "provenance": {
+    "audit_receipt_sha256": "825b6298900cf644b5b1e6e6b433c1e42bf3e791af8f0d89d90fd2ebc977d4bc",
+    "experiment": "EXP-514",
+    "generator": "scripts/render_exp514_grazing_mechanism.py",
+    "generator_sha256": "5d8a752ff3483a59cf226a0277741675a542bf52772584d6ab87626f1e96dfab",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-514-grazing-mechanism.pdf": "94ee806f7fec439b5fdc89dac23e4cd21349f33d248b60da8c9827513d2bec25",
+      "EXP-514-grazing-mechanism.png": "2f557066b33801db846b34da9aa51be676f1b59b1ce47b6d1c3b3134a57f6f26",
+      "EXP-514-grazing-mechanism.svg": "e49b31b13b334c25523cc11b1565f1ec2f1acd82ebdbf2e21a49add499e1cd51"
+    },
+    "source_commit": "c1fdf14749a28d5c907b4263c1a9dac935a69c3a"
+  },
+  "title": "Section-grazing birth and death of crossings"
+}

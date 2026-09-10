@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp514-candidate-grazing-boundaries.md`](2026-09-10-exp514-candidate-grazing-boundaries.md)
+  - All 120 target IVPs pass raw audit. Every candidate qualifies as a local
+  section-grazing boundary with two-sided crossing birth/death and square-root
+  scaling. This explains misleading fold brackets, not a verified Jones arrow.
 - [`2026-09-10-exp513-candidate-fold-qualification.md`](2026-09-10-exp513-candidate-fold-qualification.md)
   - All 30 IVPs pass raw audit. Every midpoint pair is regular, but all ten
   first Newton proposals leave their boxes. No fold qualifies; safeguarded

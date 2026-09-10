@@ -1,6 +1,19 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-513 bounded fold searches; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-514 grazing qualification; not a new audit of every row)
+
+**EXP-514 result:** all 120 target IVPs pass full local raw replay. All five
+EXP-513 candidate halves contain numerically qualified section-grazing
+boundaries: both solvers, all four signed offsets, complete local birth/death
+counts, square-root scaling and full-horizon paired event sequences pass.
+The upstream representations cluster at nearly the same physical state and
+are not independent discoveries. This demonstrates a mechanism that makes
+those sign-change brackets unreliable as smooth-fold evidence. It does not
+exclude additional smooth folds, restore depth-eight fold coverage, prove an
+exact-flow statement or verify/debunk Jones's symbolic chains. Next distinguish
+input-image support limits from conditioning and reconstruct event-consistent
+coverage of the depth-four reference before renewed joint contact. See the
+[complete result and figure](updates/2026-09-10-exp514-candidate-grazing-boundaries.md).
 
 **EXP-513 result:** all 30 new IVPs pass full local raw audit. All five midpoint
 pairs are regular, but both solvers' first Newton steps leave the original u
