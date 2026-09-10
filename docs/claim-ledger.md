@@ -1,13 +1,18 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (EXP-508 failure / EXP-509 replay preparation; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-509 failed-predictor raw replay; not a new audit of every row)
 
-**EXP-508/509 status:** the lower-c predictor completed raw production in 196
-IVPs, then a null contact-envelope reporting defect crashed the controller.
-No corrector or accepted step exists. The failure is preserved and a separate
-outcome-informed, no-new-IVP replay repairs reporting without weakening any
-scientific gate. Full raw audit is pending. No Jones verification or debunk
-follows from this software correction. See [the recovery record](updates/2026-09-09-exp509-failed-predictor-replay.md).
+**EXP-508/509 result:** all 196 predictor IVPs pass raw replay. Both depth-8
+representations converge to equation roots with near-collapsed input curves,
+not qualified folds (gain 1.40e-12–2.39e-11 versus the unchanged 1e-4 minimum).
+Their neighboring slopes have the same sign. The two depth-4 folds qualify
+numerically but miss contact proximity at 0.000139565. All eight boundaries
+qualify; their target distance shrinks 6.735% to 0.0111383, still 111.38 times
+tolerance. Only 128/256 joint variants exist. The null-envelope controller
+failure remains preserved; a separate replay safely reconstructs rejection,
+not successful completion. No corrector, accepted step or Jones chain exists.
+Next test smaller-step fold-branch transport without relaxing any threshold.
+See [the complete forensic record](updates/2026-09-09-exp509-failed-predictor-replay.md).
 
 **EXP-507 update:** all 158 integrations pass full raw audit. The unique
 fixed-c a correction restores worst full-state fold distance to 0.00000385436,

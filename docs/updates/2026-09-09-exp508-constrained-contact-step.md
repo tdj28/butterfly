@@ -11,7 +11,10 @@ raw inventory are retained and hash-verified. This is not an accepted step.
 
 The separate [EXP-509 forensic replay](2026-09-09-exp509-failed-predictor-replay.md)
 repairs reporting prospectively without changing any EXP-508 frozen source,
-raw evidence, consumed marker or tolerance. Its full raw audit is pending.
+raw evidence, consumed marker or tolerance. Its full 196-IVP raw replay now
+passes: depth-8 input-curve collapse caused a legitimate fold rejection. Both
+short-history folds miss contact tolerance, despite a 6.735% boundary-gap
+reduction. EXP-508 remains failed and no step is accepted.
 The pre-target text below is the historical checkpoint, not current status.
 
 ## Pre-target checkpoint

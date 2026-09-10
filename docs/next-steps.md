@@ -256,10 +256,15 @@ inputs; historical result reproduction is a separate requirement.
   119 times too far away. EXP-508 then produced one lower-c predictor (196 IVPs)
   but its controller crashed on an incomplete contact envelope. No corrector ran.
   [EXP-509](updates/2026-09-09-exp509-failed-predictor-replay.md) prospectively
-  repairs unqualified-point reporting and audits the complete retained predictor
-  without new integrations. Diagnose its two unqualified depth-8 folds before
-  selecting the next scientific target. Preserve all failures, original/adjacent
-  identities and numerical thresholds; never resume a consumed attempt.
+  repairs unqualified-point reporting and passes the complete 196-IVP raw audit
+  without new integrations. Both depth-8 equation roots have near-collapsed
+  input curves and same-sign neighboring slopes; the depth-4 folds qualify but
+  miss contact tolerance. The 6.735% boundary-gap reduction does not license
+  acceptance. Next test four smaller fold-only continuation substeps from
+  qualified EXP-507 to the same predictor parameters, retaining all four
+  representations and both solvers with cross-history full-state agreement.
+  Do not warm-start from the collapsed roots or lower the gain threshold.
+  Preserve all failures and never resume a consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting
