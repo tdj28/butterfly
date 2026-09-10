@@ -1,0 +1,337 @@
+{
+  "experiment_id": "EXP-520",
+  "observations": [
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325596,
+      "method": "DOP853",
+      "point": "coarse--1",
+      "raw_path": "coarse--1/coarse--1--DOP853--observation.npz",
+      "sha256": "77d41d184790086f6dfef1803c6dd7a965d2faf43398dcfdfdc71a438125983e"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72137,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72137,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72138
+          ]
+        }
+      },
+      "bytes": 8779635,
+      "method": "Radau",
+      "point": "coarse--1",
+      "raw_path": "coarse--1/coarse--1--Radau--observation.npz",
+      "sha256": "984e8a39ad31a171d75a6457f69eefcb945697eaab846be0aeec5725a99623c7"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325634,
+      "method": "DOP853",
+      "point": "coarse-+1",
+      "raw_path": "coarse-+1/coarse-+1--DOP853--observation.npz",
+      "sha256": "30f434c68d56abc7f56d03dda499d652a5188df6f6e360a501181de6a0c51df5"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72566,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72566,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72567
+          ]
+        }
+      },
+      "bytes": 8830457,
+      "method": "Radau",
+      "point": "coarse-+1",
+      "raw_path": "coarse-+1/coarse-+1--Radau--observation.npz",
+      "sha256": "105fab1ab252e64970daeda9b59f6ca13988f9a5d267ac0b9067ee1d9afa2197"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325770,
+      "method": "DOP853",
+      "point": "fine--1",
+      "raw_path": "fine--1/fine--1--DOP853--observation.npz",
+      "sha256": "fc1eeb79cbb874451d72204f874a3fc2117e9213477fcd800c8abcaf5dc9c478"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72339,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72339,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72340
+          ]
+        }
+      },
+      "bytes": 8805143,
+      "method": "Radau",
+      "point": "fine--1",
+      "raw_path": "fine--1/fine--1--Radau--observation.npz",
+      "sha256": "f0cb97337cc415b82df43f705942f4bc4a6d48a0460216f57cf2e50674c683df"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325452,
+      "method": "DOP853",
+      "point": "fine-+1",
+      "raw_path": "fine-+1/fine-+1--DOP853--observation.npz",
+      "sha256": "d5a890dd9ba913d269248f170b4f1ce6a24084aad0c0412bfdbc3234cce8a7c9"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72374,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72374,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72375
+          ]
+        }
+      },
+      "bytes": 8809046,
+      "method": "Radau",
+      "point": "fine-+1",
+      "raw_path": "fine-+1/fine-+1--Radau--observation.npz",
+      "sha256": "b6737bc4c6c09a723ab0987558bf96124d58868fe2db75f9b77cd5c88fa867e2"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            7,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11104,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            11105
+          ]
+        }
+      },
+      "bytes": 2325765,
+      "method": "DOP853",
+      "point": "correction",
+      "raw_path": "correction/correction--DOP853--observation.npz",
+      "sha256": "7c06faf95260bb19595ec8603ad1f0da808b6076e11b231e68427585fc1904f2"
+    },
+    {
+      "arrays": {
+        "dense_coefficients.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72524,
+            3,
+            3
+          ]
+        },
+        "dense_old.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72524,
+            3
+          ]
+        },
+        "times.npy": {
+          "dtype": "float64",
+          "fortran": false,
+          "shape": [
+            72525
+          ]
+        }
+      },
+      "bytes": 8826549,
+      "method": "Radau",
+      "point": "correction",
+      "raw_path": "correction/correction--Radau--observation.npz",
+      "sha256": "dd38be6c54d26abd059529b4384e100bdbd7dec12c063a48c61ef5cba57796a3"
+    }
+  ],
+  "purpose": "shape-and-hash-only preflight",
+  "raw_summary_sha256": "6aded74665ff16d63ff3f4e2b53cea49f5aec445db7c644e98f88f6bce54aa89"
+}
