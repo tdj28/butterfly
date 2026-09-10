@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp513-candidate-fold-qualification.md`](2026-09-10-exp513-candidate-fold-qualification.md)
+  - All-five midpoint-seeded fold search passes 2,671 pre-target tests and its
+  isolated startup. Complete event-prefix and depth-four correspondence gates
+  remain mandatory; target execution is next.
 - [`2026-09-09-exp512-censored-return-extension.md`](2026-09-09-exp512-censored-return-extension.md)
   - All 28 new IVPs pass raw replay and recover every censored ninth return
   with unchanged saved prefixes. The grid now has 38/40 regular pairs and

@@ -293,6 +293,11 @@ inputs; historical result reproduction is a separate requirement.
   grazing discontinuity. Recovered fold representations may support renewed
   constrained joint-contact continuation, not an automatic symbolic claim.
   Preserve all failures and never resume a consumed attempt.
+  [EXP-513](updates/2026-09-10-exp513-candidate-fold-qualification.md) now
+  implements this all-five test: paired midpoint observations seed bounded
+  fold shootings; all nine returns at three offsets and all four full-state
+  references must agree. Pre-target validation passes; no new fold
+  or restored representation is claimed yet.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting
