@@ -303,11 +303,15 @@ inputs; historical result reproduction is a separate requirement.
   from a grazing/domain cut instead of interpreting these full-step failures
   as global absence or repeating the same unconstrained Newton seed.
   [EXP-514](updates/2026-09-10-exp514-candidate-grazing-boundaries.md) now
-  nominates a unique aligned section extremum in every remaining half from
-  the saved endpoint/midpoint evidence. Direct bounded grazing localization
-  and a complete four-dose, two-solver event-mechanism test are validated for
-  execution. This is not claimed as safeguarded bisection, a found grazing,
-  or proof that a smooth fold cannot also occur in the original interval.
+  completes all five nominated grazing localizations and the full four-dose,
+  two-solver mechanism test. All 120 IVPs pass the raw audit and all five
+  candidates qualify. These are clustered upstream representations, not five
+  independent physical objects. Reconstruct event-consistent depth-eight input
+  coverage near the depth-four fold reference; distinguish finite-image support
+  loss from numerical conditioning before another parameter step. Do not rerun
+  the now-classified grazing brackets as fold candidates, lower the gain gate,
+  or infer global absence of other smooth folds. Primitive-family membership
+  and the operational C/D dictionary remain necessary for the symbolic arrow.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting
