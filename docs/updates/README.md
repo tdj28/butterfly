@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp514-candidate-grazing-boundaries.md`](2026-09-10-exp514-candidate-grazing-boundaries.md)
+  - All five remaining halves nominate an aligned section tangency from saved
+  evidence. The combined grazing/side-census controller passes analytic
+  controls, isolated startup and 2,700 tests; new target qualification follows.
 - [`2026-09-10-exp513-candidate-fold-qualification.md`](2026-09-10-exp513-candidate-fold-qualification.md)
   - All 30 IVPs pass raw audit. Every midpoint pair is regular, but all ten
   first Newton proposals leave their boxes. No fold qualifies; safeguarded

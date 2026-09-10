@@ -302,6 +302,12 @@ inputs; historical result reproduction is a separate requirement.
   event-aware refinement of all five intervals; discriminate a smooth root
   from a grazing/domain cut instead of interpreting these full-step failures
   as global absence or repeating the same unconstrained Newton seed.
+  [EXP-514](updates/2026-09-10-exp514-candidate-grazing-boundaries.md) now
+  nominates a unique aligned section extremum in every remaining half from
+  the saved endpoint/midpoint evidence. Direct bounded grazing localization
+  and a complete four-dose, two-solver event-mechanism test are validated for
+  execution. This is not claimed as safeguarded bisection, a found grazing,
+  or proof that a smooth fold cannot also occur in the original interval.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting
