@@ -7,6 +7,29 @@ topology claims.
 
 ## Generated composites
 
+### EXP-517: the same local fold in four curve constructions
+
+`fig37-exp517-earlier-return-folds.png` is an exact copy of
+`docs/figures/EXP-517-earlier-return-folds.png`, SHA-256
+`731b44ac80328a378467a8014c3244ccce9c846b9aef1c54d1bb5ccdca26e2c4`.
+It shows all four histories/directions, both solvers, 24 local return samples,
+local fold approximations and every full-state reference comparison through
+the worst-case distances. The curves are not extra integrated data, and
+per-solver centering is not the reference test. This is local calibration,
+not a verified symbolic chain or a restored original eighth-return test.
+
+Regenerate all image formats and provenance receipts to a fresh directory:
+
+```sh
+PYTHONPATH=.:python .venv/bin/python -B scripts/render_exp517_earlier_folds.py \
+  --result docs/experiments/receipts/EXP-517-earlier-return-folds-result.json \
+  --expected-sha256 0c1233986f4ac6463d8ded47ce0a92353a98a86a889089a3f2bafe78742adf76 \
+  --output-dir /tmp/exp517-folds-regenerated
+```
+
+The figure receipt records the generator and compact verifier hashes, the
+complete plotted data, transformations, exclusions and raw-replay limits.
+
 ### EXP-483/484: support diagnosis and direct return geometry
 
 `fig34-exp483-support-diagnosis.png` shows every fixed-bin sampling comparison

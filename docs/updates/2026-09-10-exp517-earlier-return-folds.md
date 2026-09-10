@@ -1,5 +1,105 @@
 # EXP-517: test the two new fold leads in both directions
 
+## Completed result: the same local fold recovered in all four cases
+
+**All four representations qualify and restore every full-state reference.**
+Histories four and seven, each with both original initial directions, recover
+the same local scalar minimum. Both DOP853 and Radau pass every unchanged
+gain, projection, angle, curvature, finite-difference, full-prefix and
+state/time gate. All 108 target integrations pass the local raw audit.
+
+This is a useful positive result for a local ingredient of Jones's picture:
+our failed eighth-return construction did not establish absence of the fold.
+It is not a verification of the C/D dictionary, a generating partition,
+primitive-cycle membership or a symbolic-chain arrow. The original
+eighth-return representation remains failed. The four representations locate
+one physical object, not four independent discoveries.
+
+| History | Direction | Qualified / solvers | Worst scaled full-state reference distance |
+| --- | --- | --- | --- |
+| 4 | 0 | 2 / 2 | 6.94e-14 |
+| 4 | 1 | 2 / 2 | 1.33e-13 |
+| 7 | 0 | 2 / 2 | 1.62e-13 |
+| 7 | 1 | 2 / 2 | 1.64e-13 |
+
+The maximum spread among all eight input/output solver profiles is
+**1.556046957951196e-13**, against the unchanged **1e-6** threshold with
+scales `[15,15,.01]`. Input gains range from 9.65 to 29.54 (minimum 1e-4);
+normalized input-x components are about .545 (minimum .001). Curvature is
+positive, about 30.4779. These are deterministic numerical agreements,
+not rigorous error bounds or evidence of thirteen-digit accuracy.
+Matching an exposed reference is calibration, not a held-out word prediction.
+
+![All four local fold representations and complete reference comparisons](../figures/EXP-517-earlier-return-folds.png)
+
+The figure uses all 24 prescribed local samples. Lines are local fold
+approximations, not extra trajectories. Per-solver centering is only for
+display; the right panel separately compares uncentered full states against
+all four reference pairs. Raw shooting/census replay and the compact public
+replay have different scopes: the public receipt cannot replace unavailable
+raw meshes, census polynomials, control bundles or disk-inventory checks.
+
+### Immutable execution and evidence
+
+- Frozen source: `147964cb89c5ac2611b8b2ab5aa24640ad9f85ea`, preserved remotely
+  as `codex/exp517-local-execution` before execution.
+- Plan SHA-256: `ce708cfe1cb99e58599949013c74e57cb0d804855cd89e6f09de40fc0828cfe3`.
+- Exclusive marker: `artifacts/EXP-517/target-once.json`; start
+  `2026-09-10T11:58:01.677171+00:00`. No reset or repeated target run.
+- Raw directory: `artifacts/EXP-517/target-147964c`; 152 files including
+  summary, 459,379,008 bytes, 533.19 seconds, 108 / 128 allowed target IVPs.
+- Summary SHA-256: `ead1c828c64e26360b87d8649ba2606821af96f8e08239b745aa6d622123ed90`.
+- [Public audit receipt](../experiments/receipts/EXP-517-earlier-return-folds-result.json):
+  1,459,138 bytes, SHA-256
+  `0c1233986f4ac6463d8ded47ce0a92353a98a86a889089a3f2bafe78742adf76`,
+  identical to local `artifacts/EXP-517/primary-audit-01.json`.
+- No paid Pro request, GPU job, new cycle/boundary calculation or raw upload.
+
+Public replay (source checkout plus declared public inputs, no target IVPs):
+
+```sh
+PYTHONPATH=.:python .venv/bin/python -B scripts/verify_exp517_public_folds.py \
+  --result docs/experiments/receipts/EXP-517-earlier-return-folds-result.json \
+  --expected-sha256 0c1233986f4ac6463d8ded47ce0a92353a98a86a889089a3f2bafe78742adf76
+```
+
+### Next scientific step
+
+Prospectively transport the four newly qualified constructions to the two
+remaining fixed EXP-510 parameter substeps, retaining complete solver matrices,
+all event/regularity gates, cross-representation agreement and adjacent-state
+identity. This tests new representations prospectively, not a retrospective
+pass of EXP-510 or fully blind parameter validation: the final endpoint was
+already exposed in EXP-508/509 using the old representations. Only a qualified endpoint can support the subsequent fold/cycle
+contact comparison and resumed joint continuation. Operational critical
+symbols and a primitive-family chain arrow remain separate requirements.
+
+### Public release checks
+
+All **59 focused tests pass** (`artifacts/EXP-517/release-focused-02.xml`):
+the twenty frozen analytic controls, twenty-eight public replay/mutation/
+isolated-consumer tests, and eleven figure controls. The public consumer
+replays from a fresh **145-file** source/input copy with no raw `artifacts`
+directory or bytecode. Semantic mutation tests also reject nonfinite values
+before arithmetic comparisons; this post-result verifier hardening does not
+alter the frozen numerical source or target evidence.
+
+The final figure and its receipts regenerate byte-for-byte in
+`figure-03` and `figure-replay-03`. Its PNG/SVG/PDF image bytes are unchanged
+from the visually reviewed `figure-02`; the later receipt adds the final
+verifier provenance. All 128 frozen source paths still match the execution
+marker. The manuscript builds to 74 pages with 37 figures, blank author
+metadata, no LaTeX warnings, and visually checked changed result/figure/
+discussion pages. The local PDF was rebuilt, not published as a new release.
+All 25 cited keys and 24 required references pass the citation checker.
+
+The full post-result regression suite and final-head remote checks are
+additional merge gates; their completion is not inferred from these focused
+tests. The preflight full-suite result is recorded separately below.
+
+The pre-target checkpoint below is preserved as historical evidence; its
+future-tense execution instructions are superseded by the completed result.
+
 ## Prospective execution checkpoint
 
 EXP-516 was normally squash-merged through PR #82 after all four final-head

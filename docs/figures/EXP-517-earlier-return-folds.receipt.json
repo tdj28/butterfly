@@ -1,0 +1,289 @@
+{
+  "accessibility": "Distinct markers/line styles and textual failures supplement color.",
+  "alt_text": "Four local panels compare three return samples with a local fold approximation. A right-hand panel compares worst full-state reference errors with the unchanged threshold. Failed cases, if any, are explicitly labeled.",
+  "data_source": {
+    "aggregation": "Reference panel takes the maximum across both state endpoints, both solvers and all four reference states.",
+    "artifact": "docs/experiments/receipts/EXP-517-earlier-return-folds-result.json",
+    "exclusions": "No candidate excluded. Midpoint and Newton trace details remain in the receipt rather than the local-shape panels.",
+    "fields": [
+      "rows[].folds[].qualification.observations",
+      "rows[].folds[].qualification.scaled_curvature",
+      "rows[].assessment.reference_distances"
+    ],
+    "selection": "All four representations; every qualified profile uses all three prescribed offset samples; failures retained as text.",
+    "sha256": "0c1233986f4ac6463d8ded47ce0a92353a98a86a889089a3f2bafe78742adf76",
+    "transformation": "Per-solver centering of x coordinates; dimensionless local input scaled by 1e5 and output by 1e9. Lines use the measured center slope (not forced to zero) and variational fold-limit curvature only over the sampled span. At a finite root residual this is a fold approximation, not an exact Taylor coefficient of the x graph or a rigorous remainder bound. Center agreement is checked separately in full state."
+  },
+  "description": "Every history/direction case, both solvers, local computed samples and all-reference errors.",
+  "exclusions": [
+    "Not a restored original eighth-return representation",
+    "Not an independent generating partition",
+    "Not a verified Jones symbolic chain"
+  ],
+  "figure_id": "EXP-517-earlier-return-folds",
+  "guards": {
+    "computed_local_points": 24,
+    "public_replay": {
+      "candidates": 4,
+      "cross_representation": {
+        "all_references_restored": true,
+        "all_representations_qualified": true,
+        "full_state_spread": 1.556046957951196e-13,
+        "history_returns": [
+          4,
+          7
+        ],
+        "original_eighth_return_restored": false,
+        "symbolic_chains_verified": false
+      },
+      "experiment_id": "EXP-517",
+      "full_raw_audit_repeated": false,
+      "new_integrations": 0,
+      "passed": true,
+      "qualified": 4,
+      "reference_restored": 4,
+      "scope": "Compact shooting algebra, midpoint/events, qualification and full-state reference decisions replayed. Raw shooting meshes, raw census polynomials, raw control bundles and disk bytes are not independently audited here.",
+      "searched": 4,
+      "symbolic_chains_verified": false
+    },
+    "representations": 4
+  },
+  "interval_semantics": "Deterministic numerical comparisons, no statistical error bars or rigorous flow enclosure.",
+  "plotted_data": [
+    {
+      "curves": [
+        {
+          "center_slope": -6.045523613494793e-13,
+          "input_center": -6.841793180892827,
+          "method": "DOP853",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.682976406411363,
+          "scaled_curvature": 30.47788866496206,
+          "x_plot": [
+            0.7440572997433985,
+            0.0,
+            -0.7440991340719922
+          ],
+          "y_plot": [
+            0.8436393509706855,
+            0.0,
+            0.8437756567521623
+          ]
+        },
+        {
+          "center_slope": 2.294199826855594e-13,
+          "input_center": -6.841793180892395,
+          "method": "Radau",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.68297640641138,
+          "scaled_curvature": 30.477888664989717,
+          "x_plot": [
+            0.7440572987841657,
+            0.0,
+            -0.7440991396734375
+          ],
+          "y_plot": [
+            0.8436386404279498,
+            0.0,
+            0.8437756567521623
+          ]
+        }
+      ],
+      "direction": 0,
+      "failure": [],
+      "history": 4,
+      "id": "exp517-history-4-direction-0",
+      "qualified": true,
+      "restored": true,
+      "worst_reference_distance": 6.938893903907228e-14
+    },
+    {
+      "curves": [
+        {
+          "center_slope": -2.43567316151081e-13,
+          "input_center": -6.841793180892643,
+          "method": "DOP853",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.68297640641142,
+          "scaled_curvature": 30.477888664965242,
+          "x_plot": [
+            0.5261050090569578,
+            0.0,
+            -0.5261259223665604
+          ],
+          "y_plot": [
+            0.42179060244507127,
+            0.0,
+            0.42183572190879204
+          ]
+        },
+        {
+          "center_slope": 1.5687124533547363e-12,
+          "input_center": -6.841793180891771,
+          "method": "Radau",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.682976406411374,
+          "scaled_curvature": 30.477888664927455,
+          "x_plot": [
+            0.5261050025969402,
+            0.0,
+            -0.5261259293417215
+          ],
+          "y_plot": [
+            0.4217845628318173,
+            0.0,
+            0.4218350113660563
+          ]
+        }
+      ],
+      "direction": 1,
+      "failure": [],
+      "history": 4,
+      "id": "exp517-history-4-direction-1",
+      "qualified": true,
+      "restored": true,
+      "worst_reference_distance": 1.3322676295501878e-13
+    },
+    {
+      "curves": [
+        {
+          "center_slope": -9.388305145569535e-13,
+          "input_center": -6.8417931808929895,
+          "method": "DOP853",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.682976406411363,
+          "scaled_curvature": 30.477888664863155,
+          "x_plot": [
+            -1.6102313772137222,
+            0.0,
+            1.6111838864970216
+          ],
+          "y_plot": [
+            3.951412589723683,
+            0.0,
+            3.95570320203357
+          ]
+        },
+        {
+          "center_slope": 2.1312596603746157e-12,
+          "input_center": -6.841793180891487,
+          "method": "Radau",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.68297640641133,
+          "scaled_curvature": 30.47788866504884,
+          "x_plot": [
+            -1.6102313774032004,
+            0.0,
+            1.6111838913464755
+          ],
+          "y_plot": [
+            3.9514135371139982,
+            0.0,
+            3.9557079389851424
+          ]
+        }
+      ],
+      "direction": 0,
+      "failure": [],
+      "history": 7,
+      "id": "exp517-history-7-direction-0",
+      "qualified": true,
+      "restored": true,
+      "worst_reference_distance": 1.6202317265623378e-13
+    },
+    {
+      "curves": [
+        {
+          "center_slope": -2.0262270814592004e-14,
+          "input_center": -6.841793180892528,
+          "method": "DOP853",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.682976406411303,
+          "scaled_curvature": 30.477888664911223,
+          "x_plot": [
+            -1.1386448770641284,
+            0.0,
+            1.1391210945828807
+          ],
+          "y_plot": [
+            1.9758126986365219,
+            0.0,
+            1.9773301810725268
+          ]
+        },
+        {
+          "center_slope": 2.152894544259986e-12,
+          "input_center": -6.8417931808914645,
+          "method": "Radau",
+          "offsets": [
+            -1e-06,
+            0.0,
+            1e-06
+          ],
+          "output_center": -11.682976406411415,
+          "scaled_curvature": 30.477888665168035,
+          "x_plot": [
+            -1.138644875388432,
+            0.0,
+            1.1391210978454562
+          ],
+          "y_plot": [
+            1.975823238353769,
+            0.0,
+            1.9773331416672593
+          ]
+        }
+      ],
+      "direction": 1,
+      "failure": [],
+      "history": 7,
+      "id": "exp517-history-7-direction-1",
+      "qualified": true,
+      "restored": true,
+      "worst_reference_distance": 1.635844237846129e-13
+    }
+  ],
+  "provenance": {
+    "experiment": "EXP-517",
+    "generator": "scripts/render_exp517_earlier_folds.py",
+    "generator_sha256": "98f9cef0b118d101d461c5a8fb84efb144ff3c47816422f42fdf00217789b09b",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-517-earlier-return-folds.pdf": "1e5021e0a0636acff9da67a160dc0162d92676c49961f9daa95d300fbbbe95f9",
+      "EXP-517-earlier-return-folds.png": "731b44ac80328a378467a8014c3244ccce9c846b9aef1c54d1bb5ccdca26e2c4",
+      "EXP-517-earlier-return-folds.svg": "51eab72aacd6e3c65fc05677c5b9fd070ec8afa6acd42eae28c3c57c29ab0154"
+    },
+    "public_verifier": "scripts/verify_exp517_public_folds.py",
+    "public_verifier_sha256": "91bfa7d5572d44f52d6bd767dd0fd93b14ba688565f0103eabd267551458c3e0",
+    "source_commit": "147964cb89c5ac2611b8b2ab5aa24640ad9f85ea"
+  },
+  "title": "Earlier-return fold recovery and full-state calibration"
+}

@@ -34,14 +34,14 @@ record, including failed experiments and corrected interpretations.
   explains which external criticisms were accepted, qualified, or require new
   research; it does not reproduce the private review.
 
-The main article now includes eleven central figures. It uses
+The main article now includes twelve central figures. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
 The current draft's title-page author and PDF author metadata are deliberately
 blank. Historical citations still credit Jones and the other original authors.
-The current build is 72 pages: 21 pages of main article, followed by the
-technical supplement and references. The chain is Figure 2 on page 7;
-its explanation starts in Section 3 on page 5, before methods and results.
+The main article is followed by the technical supplement and references.
+The chain is Figure 2; its explanation starts in Section 3, before methods
+and results. Page numbers depend on the current build.
 The title, abstract, opening results, claims table, and conclusion all frame
 the symbolic reinjection prediction as the central test. Numeric section
 filenames retain their historical names; `manuscript.tex` sets reading order.
@@ -80,9 +80,9 @@ without requiring a reader to reconstruct the whole chronology first.
 ## Figures and references
 
 All **31 earlier scientific figures** remain. Independent-homoclinic,
-accuracy-grid, symbolic-chain, support-diagnostic and direct-return-geometry
-figures bring the total to **36**: eleven in the main article and 25 in
-the supplement. Supplementary figures use S-prefixed
+accuracy-grid, symbolic-chain, support-diagnostic, direct-return-geometry
+and earlier-return-fold figures bring the total to **37**: twelve in the
+main article and 25 in the supplement. Supplementary figures use S-prefixed
 numbers, while asset filenames and generation receipts keep their stable
 historical identifiers. No scientific image or figure receipt was changed by
 the narrative reorganization; EXP-475 and EXP-476 add separate new figures.
@@ -93,10 +93,16 @@ evidence categories; it is not a new numerical validation of those arrows.
 The EXP-483/484 additions distinguish a sampling bottleneck from local
 flow-geometry accuracy. All 80 declared points pass the direct-return checks;
 no invariant curve, critical letter or chain arrow is thereby verified. The
-new Figure 3 is on page 11; the full support comparison is Figure S25 on page
-58. These figures regenerate from their public compact receipts without raw
+direct-return comparison is Figure 3; the full support comparison is Figure S25.
+These figures regenerate from their public compact receipts without raw
 target integrations. The PDF author remains blank, and public PDF publication
 still requires separate approval.
+
+EXP-517 adds a local-fold recovery figure: all four history/direction
+constructions and both solvers recover the same full-state reference under
+unchanged numerical gates. This is a calibrated local ingredient, not a
+verified C/D dictionary or Jones chain. The failed original eighth-return
+representation remains explicitly failed.
 
 [figures/README.md](figures/README.md) lists regeneration commands and source
 hashes. [supplement/](supplement/) contains the existing animation materials.
