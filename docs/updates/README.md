@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp517-earlier-return-folds.md`](2026-09-10-exp517-earlier-return-folds.md)
+  - Four prospective fold searches cover histories four and seven in both
+  initial directions. Isolated startup, analytic controls and regression checks
+  pass; the old eighth-return failure and symbolic-chain uncertainty remain.
 - [`2026-09-10-exp516-event-ordinal-coverage.md`](2026-09-10-exp516-event-ordinal-coverage.md)
   - All 740 saved accepted events and 660 consecutive pairs audit cleanly;
   all 40 prior decisions remain unchanged. No sampled ordinal restores the
