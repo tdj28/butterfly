@@ -14,3 +14,18 @@ normally, retaining both EXP-519 and EXP-520 results, figures and narrow SVG
 whitespace exceptions. No frozen numerical source, threshold, old failure or
 execution ref changes. The new final head still requires every push/PR check
 before normal merge; success at another head is not a substitute.
+
+## Reconciliation with the EXP-521/522 releases
+
+On 2026-09-10, integrate main through `02a64bc` in a separate release
+worktree, leaving the live EXP-523 checkout on prax untouched. Retain all
+EXP-520 census findings, all four experiment-specific SVG exceptions, and
+the newer EXP-521 failure and EXP-522 refinement result. The update index
+now identifies EXP-522, rather than EXP-519, as the latest audited result.
+No later result retroactively changes the EXP-520 claim boundary.
+
+The focused census, figure, interpreter and conditional-grazing tests pass
+(64 passed; the unchanged empirical figure redraw was deselected). Paper
+reference checks pass. A separate read-only adversarial review found no
+content blocker in the four conflict resolutions. These are release checks,
+not new integrations or independent verification of Jones's chain.

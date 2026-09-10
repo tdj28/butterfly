@@ -1,0 +1,421 @@
+{
+  "accessibility": "Root uses circle/square and explicit legend, correction roots use star/plus, anchor diamond in panel B; unqualified points use open/gray markers and an explicit list. All axes/scales labeled.",
+  "alt_text": "Two panels compare the signed section gaps of both identified periodic maxima and the full-state fold/orbit distances. Every fixed-a stencil point is retained; star/plus shapes distinguish the two maxima on the step that changes a as well as c. Unqualified points have open/gray markers and are explicitly listed. Measured correction fails the local gates.",
+  "claims_excluded": [
+    "exact-flow completeness",
+    "exact critical locus",
+    "C/D dictionary",
+    "homoclinic orbit",
+    "Jones symbolic arrow"
+  ],
+  "correction_checks": {
+    "fold_prediction_maximum": 2.0574091428971366,
+    "full_state_limit": 0.0001,
+    "full_state_maximum": 1.8188176622788155e-06,
+    "gap_prediction_maximum": 0.0036980232359154945,
+    "overall_qualified": false,
+    "prediction_limit": 0.1
+  },
+  "data_source": {
+    "aggregation": "g: mean/min/max of four solver/window contexts per root; contact: min/max of all 16 variants.",
+    "fields": "result.points/correction: gaps, vectors, spec, qualified; EXP-519 correction and EXP-520 corrected census for anchor.",
+    "parent_inputs": {
+      "docs/experiments/receipts/EXP-519-fixed-c-fold-response-result.json": "92ff9159ca3de7794a481e9d682d02626b945495f3ad87e6c7d095137f0117ec",
+      "docs/experiments/receipts/EXP-520-periodic-stationarity-census-result.json": "cb0c5983e0ec2d6c0dc6e7ebf4f4569c028d84f7f6ce8b8ea67fac5465a00b23"
+    },
+    "path": "docs/experiments/receipts/EXP-521-critical-periodic-response-result.json",
+    "selection": "All four prescribed stencil points, audited parent anchor, and prescribed correction if present; none excluded.",
+    "sha256": "8bfc3ec343335af24514a4162b22e9a9d52499e49c5ee8140fa92c08697d499d",
+    "transformations": "c displacement divided by .005; g residual multiplied by 15; per-variant full-state distance is max absolute normalized component."
+  },
+  "description": "Both inner periodic maxima and full-state contact across every c-stencil point and the prescribed correction, if authorized.",
+  "figure_id": "EXP-521-critical-periodic-response",
+  "guards": [
+    "fixed source hash and freeze",
+    "complete stencil order/parameters",
+    "prescribed correction only",
+    "finite complete keyed vectors",
+    "both tracked roots"
+  ],
+  "interval_semantics": "Descriptive complete numerical-variant ranges, not confidence intervals.",
+  "plotted_data": [
+    {
+      "distance_range": {
+        "maximum": 8.822001578909222e-07,
+        "minimum": 8.821994853386306e-07
+      },
+      "full_state_distances": [
+        8.821996150959466e-07,
+        8.821995972282948e-07,
+        8.821997110261548e-07,
+        8.821994947061373e-07,
+        8.821995266250493e-07,
+        8.821995087573975e-07,
+        8.82199701658648e-07,
+        8.821994853386306e-07,
+        8.821997915173241e-07,
+        8.821997736496723e-07,
+        8.822000971756006e-07,
+        8.821998808555831e-07,
+        8.82199782496762e-07,
+        8.821997646291102e-07,
+        8.822001578909222e-07,
+        8.821999415709048e-07
+      ],
+      "gap_ranges": [
+        {
+          "maximum": -0.34480322842683575,
+          "mean": -0.34480322842773903,
+          "minimum": -0.3448032284281425
+        },
+        {
+          "maximum": -0.43648871660999355,
+          "mean": -0.4364887166104009,
+          "minimum": -0.4364887166107151
+        }
+      ],
+      "gaps": [
+        [
+          -0.3448032284281425,
+          -0.3448032284280694,
+          -0.34480322842790845,
+          -0.34480322842683575
+        ],
+        [
+          -0.43648871661047206,
+          -0.436488716610423,
+          -0.43648871660999355,
+          -0.4364887166107151
+        ]
+      ],
+      "id": "anchor",
+      "normalized_a": 0.0,
+      "normalized_c": 0.0,
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "qualified": true
+    },
+    {
+      "distance_range": {
+        "maximum": 7.143520544886095e-06,
+        "minimum": 7.14352023714615e-06
+      },
+      "full_state_distances": [
+        7.143520423975869e-06,
+        7.1435204697725685e-06,
+        7.143520491977029e-06,
+        7.143520264901726e-06,
+        7.1435204742828495e-06,
+        7.143520520079549e-06,
+        7.143520503946621e-06,
+        7.143520276871318e-06,
+        7.143520484517718e-06,
+        7.143520530314418e-06,
+        7.143520464221453e-06,
+        7.14352023714615e-06,
+        7.143520499089395e-06,
+        7.143520544886095e-06,
+        7.14352054228401e-06,
+        7.143520315208707e-06
+      ],
+      "gap_ranges": [
+        {
+          "maximum": -0.3387116062923177,
+          "mean": -0.33871160629355923,
+          "minimum": -0.3387116062944144
+        },
+        {
+          "maximum": -0.43114766749399197,
+          "mean": -0.4311476674942189,
+          "minimum": -0.43114766749433026
+        }
+      ],
+      "gaps": [
+        [
+          -0.33871160629421426,
+          -0.3387116062944144,
+          -0.3387116062932905,
+          -0.3387116062923177
+        ],
+        [
+          -0.43114766749427824,
+          -0.43114766749427513,
+          -0.43114766749433026,
+          -0.43114766749399197
+        ]
+      ],
+      "id": "c-coarse--1",
+      "normalized_a": 0.0,
+      "normalized_c": -0.9999999999999787,
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.147000000000001
+      },
+      "qualified": true
+    },
+    {
+      "distance_range": {
+        "maximum": 8.837627465604903e-06,
+        "minimum": 8.837627287101857e-06
+      },
+      "full_state_distances": [
+        8.83762743663502e-06,
+        8.837627439930995e-06,
+        8.837627303755202e-06,
+        8.837627433512518e-06,
+        8.837627445308638e-06,
+        8.837627448604612e-06,
+        8.837627335847587e-06,
+        8.837627465604903e-06,
+        8.837627338623144e-06,
+        8.837627341919119e-06,
+        8.837627303928675e-06,
+        8.83762743368599e-06,
+        8.837627296816308e-06,
+        8.837627300112283e-06,
+        8.837627287101857e-06,
+        8.837627416859173e-06
+      ],
+      "gap_ranges": [
+        {
+          "maximum": -0.35085091369321836,
+          "mean": -0.350850913693982,
+          "minimum": -0.3508509136944399
+        },
+        {
+          "maximum": -0.4418313304580518,
+          "mean": -0.4418313304583035,
+          "minimum": -0.44183133045846046
+        }
+      ],
+      "gaps": [
+        [
+          -0.3508509136944399,
+          -0.350850913694429,
+          -0.35085091369384097,
+          -0.35085091369321836
+        ],
+        [
+          -0.4418313304583613,
+          -0.44183133045834044,
+          -0.4418313304580518,
+          -0.44183133045846046
+        ]
+      ],
+      "id": "c-coarse-+1",
+      "normalized_a": 0.0,
+      "normalized_c": 0.9999999999999787,
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.157000000000001
+      },
+      "qualified": true
+    },
+    {
+      "distance_range": {
+        "maximum": 4.4444498900619855e-06,
+        "minimum": 4.4444492896741905e-06
+      },
+      "full_state_distances": [
+        4.44444939306371e-06,
+        4.444449392196348e-06,
+        4.4444496060877525e-06,
+        4.4444494119721956e-06,
+        4.444449456034172e-06,
+        4.44444945516681e-06,
+        4.4444494837897475e-06,
+        4.4444492896741905e-06,
+        4.444449487259194e-06,
+        4.444449486391833e-06,
+        4.4444498900619855e-06,
+        4.444449695946429e-06,
+        4.444449567229947e-06,
+        4.444449566362585e-06,
+        4.444449809570816e-06,
+        4.444449615455259e-06
+      ],
+      "gap_ranges": [
+        {
+          "maximum": -0.3417629494567945,
+          "mean": -0.3417629494574821,
+          "minimum": -0.3417629494578162
+        },
+        {
+          "maximum": -0.43381799434931356,
+          "mean": -0.43381799434961776,
+          "minimum": -0.4338179943498254
+        }
+      ],
+      "gaps": [
+        [
+          -0.3417629494578162,
+          -0.3417629494578043,
+          -0.3417629494575133,
+          -0.3417629494567945
+        ],
+        [
+          -0.433817994349651,
+          -0.4338179943496812,
+          -0.43381799434931356,
+          -0.4338179943498254
+        ]
+      ],
+      "id": "c-fine--1",
+      "normalized_a": 0.0,
+      "normalized_c": -0.5000000000000782,
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.149500000000001
+      },
+      "qualified": true
+    },
+    {
+      "distance_range": {
+        "maximum": 3.5447562865900673e-06,
+        "minimum": 3.5447559177878563e-06
+      },
+      "full_state_distances": [
+        3.544756183720965e-06,
+        3.5447562093948726e-06,
+        3.544756043902253e-06,
+        3.544756261610049e-06,
+        3.5447561465978827e-06,
+        3.54475617227179e-06,
+        3.544756068882271e-06,
+        3.5447562865900673e-06,
+        3.544755936696342e-06,
+        3.5447559623702496e-06,
+        3.5447559183082733e-06,
+        3.5447561360160695e-06,
+        3.5447559177878563e-06,
+        3.5447559434617637e-06,
+        3.5447559387780103e-06,
+        3.5447561564858066e-06
+      ],
+      "gap_ranges": [
+        {
+          "maximum": -0.3478325231865621,
+          "mean": -0.34783252318748026,
+          "minimum": -0.3478325231879719
+        },
+        {
+          "maximum": -0.43915983028002475,
+          "mean": -0.4391598302801618,
+          "minimum": -0.43915983028029587
+        }
+      ],
+      "gaps": [
+        [
+          -0.3478325231879719,
+          -0.34783252318786956,
+          -0.34783252318751745,
+          -0.3478325231865621
+        ],
+        [
+          -0.439159830280292,
+          -0.43915983028029587,
+          -0.4391598302800347,
+          -0.43915983028002475
+        ]
+      ],
+      "id": "c-fine-+1",
+      "normalized_a": 0.0,
+      "normalized_c": 0.5000000000000782,
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.154500000000001
+      },
+      "qualified": true
+    },
+    {
+      "distance_range": {
+        "maximum": 1.8188176622788155e-06,
+        "minimum": 1.8188171217389804e-06
+      },
+      "full_state_distances": [
+        1.8188174463057427e-06,
+        1.8188174497751897e-06,
+        1.8188171217389804e-06,
+        1.8188175451849808e-06,
+        1.8188174062336304e-06,
+        1.8188174097030774e-06,
+        1.8188171812399956e-06,
+        1.818817604685996e-06,
+        1.8188174742347907e-06,
+        1.8188174777042376e-06,
+        1.818817238832815e-06,
+        1.8188176622788155e-06,
+        1.8188174600100582e-06,
+        1.8188174634795051e-06,
+        1.818817217842661e-06,
+        1.8188176412886614e-06
+      ],
+      "gap_ranges": [
+        {
+          "maximum": -0.3386632766053384,
+          "mean": -0.3386632766066506,
+          "minimum": -0.3386632766073946
+        },
+        {
+          "maximum": -0.43117646997123227,
+          "mean": -0.4311764699714787,
+          "minimum": -0.4311764699716489
+        }
+      ],
+      "gaps": [
+        [
+          -0.3386632766069448,
+          -0.33866327660692447,
+          -0.3386632766073946,
+          -0.3386632766053384
+        ],
+        [
+          -0.4311764699715176,
+          -0.431176469971516,
+          -0.43117646997123227,
+          -0.4311764699716489
+        ]
+      ],
+      "id": "critical-step",
+      "normalized_a": 0.0370820188194676,
+      "normalized_c": -0.9999999999999787,
+      "parameters": {
+        "a": 0.21559346273240781,
+        "b": 0.2,
+        "c": 7.147000000000001
+      },
+      "qualified": true
+    }
+  ],
+  "provenance": {
+    "generator": "scripts/render_exp521_response.py",
+    "generator_sha256": "d0f4a8595ad7d1b4963d1f0819c8a1fea567e6e0ca7fae53cd955f4bb14069bb",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.1",
+    "outputs": {
+      "EXP-521-critical-periodic-response.pdf": {
+        "bytes": 29958,
+        "sha256": "11756dc43a5bae7f6977f07a25c865bee01707d759a98f05c27fe94770ad98ec"
+      },
+      "EXP-521-critical-periodic-response.png": {
+        "bytes": 346710,
+        "sha256": "4aec85a85d43bedcab38ecd973af0d4c4f021f6be79f238f38eae1eb9d0a558f"
+      },
+      "EXP-521-critical-periodic-response.svg": {
+        "bytes": 141415,
+        "sha256": "ed35b2cf3746dac33fff57790b0264443f1eb2071a96314405fa291a007614db"
+      }
+    },
+    "source_commit": "7260931511c2fc4583dbb89e7716b2d54c082005"
+  },
+  "title": "Testing a contact-preserving step toward periodic grazing",
+  "unavailable_geometry": [],
+  "unqualified_points": []
+}

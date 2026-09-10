@@ -1,10 +1,10 @@
 # Research updates
 
-Current result: [EXP-519 restores full-state fold/orbit proximity](2026-09-10-exp519-execution.md).
-All 513 IVPs pass raw audit; the prescribed correction passes all sixteen
-contact and prediction comparisons. The second critical point and symbolic
-chain remain unverified. Public replay and figure reproducibility checks pass;
-the release is being prepared.
+Latest audited result: [EXP-522 restores contact after a failed predictor](2026-09-10-exp522-nonlinear-refinement-result.md).
+All 96 new IVPs pass raw audit; every contact residual improves at least 115×.
+This does not erase EXP-521's prediction failure or verify section grazing,
+the second critical point, or Jones's flow-level symbolic chain. The earlier
+EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
 research plan, claim ledger, experiment records, and execution backlog without
@@ -28,6 +28,18 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp522-nonlinear-refinement-result.md`](2026-09-10-exp522-nonlinear-refinement-result.md)
+  - All 96 IVPs and 83406 census segments pass raw audit. Fresh fixed-c
+  refinement improves every contact residual at least 115× and passes all
+  predictions, retaining net gap progress. Failed EXP-521 verdict is unchanged.
+- [`2026-09-10-exp521-critical-response-result.md`](2026-09-10-exp521-critical-response-result.md)
+  - All 569 IVPs and 416634 periodic census segments pass raw audit. Both
+  inner gaps improve and contact proximity passes, but all sixteen linear
+  fold predictions fail. Preserve that failure; test nonlinear refinement next.
+- [`2026-09-10-exp521-critical-response-design.md`](2026-09-10-exp521-critical-response-design.md)
+  - Executable four-point c response and one conditional contact-preserving
+  periodic step; all 16 stationary points and both inner maxima tracked.
+  Design and tests, not yet a target result or a verified Jones arrow.
 - [`2026-09-10-exp520-periodic-stationarity-census.md`](2026-09-10-exp520-periodic-stationarity-census.md)
   - All 417,460 stored segments pass the exact polynomial-root audit; all
   twenty cycle windows and five nearest-object nominations qualify. The

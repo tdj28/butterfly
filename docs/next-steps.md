@@ -56,17 +56,27 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
-**Current frontier (EXP-520):** the complete saved-polynomial census passes
-on all five EXP-519 periodic orbits, both solvers and both repeat windows.
-The nearest stationary section gap remains approximately -0.344803 at the
-corrected fold-contact point. Follow the actual periodic family next,
-retaining both negative inner maxima and validating full-state identity,
-primitive-period exclusions, event completeness and solver agreement through
-any return-count change. Do not extrapolate a zero from the small existing a
-stencil or substitute the earlier transient boundary. A section tangency is
-not automatically a flow bifurcation, D or a homoclinic approach. The C/D
-dictionary and one actual word-insertion arrow remain open. See the
-[complete census and next decision](updates/2026-09-10-exp520-periodic-stationarity-census.md).
+Current frontier: EXP-522's new fixed-c nonlinear refinement passes every
+predeclared gate after EXP-521's failed linear predictor. All 96 new IVPs
+audit cleanly, every contact residual improves at least 115×, and both gap
+responses retain net progress from the original anchor. The first gap gives
+back a small amount relative to the trial; that local-progress failure remains
+explicit. See the [EXP-522 result](updates/2026-09-10-exp522-nonlinear-refinement-result.md).
+Next build/freeze a bounded multi-step predictor/corrector with explicit
+derivative refresh, full-state restoration, new-data predictions and complete
+extremum identity. Stop and investigate any crossing-count change separately;
+do not silently relax the existing 6/8 gates. Plan remote public-source-only
+execution or adequate local storage before a larger raw-retaining batch.
+The [conditional grazing derivation](theory/periodic-grazing-and-symbol-insertion.md)
+states what a one-count change can establish and the extra conditions still
+needed for Jones's particular zero insertion.
+
+The earlier [EXP-520 census](updates/2026-09-10-exp520-periodic-stationarity-census.md)
+identified the actual periodic candidate in all five EXP-519 cases, while
+showing that restored fold contact did not close the section-grazing gap.
+Its complete result, two-solver/two-window census and explicit limits remain
+part of the evidence chain; no equal-ordinal cross-parameter identity or
+homoclinic conclusion follows from that census alone.
 
 - [x] Qualify observation of both fixed EXP-479 cycles on both sections:
   [EXP-480](updates/2026-09-06-exp480-both-cycles-qualified.md) passes; six

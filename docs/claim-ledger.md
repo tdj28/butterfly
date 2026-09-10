@@ -1,6 +1,31 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-520 periodic stationarity; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-522; not a new audit of every row)
+
+**EXP-522 result:** all 96 new IVPs and 83406 periodic census segments pass
+full raw audit. At a=.21559338680106457, b=.2, c=7.147000000000001, every
+full-state contact residual improves at least 115.27 times (required tenfold),
+with maximum distance 1.57792e-8. All sixteen fold and eight gap predictions
+pass the unchanged .1 gate (worst .00966493 and .01617163). First-gap progress
+remains positive relative to the original EXP-519/520 anchor, but decreases
+slightly relative to the imperfect EXP-521 trial, as prospectively specified.
+The old local-progress diagnostic stays false and EXP-521 stays rejected.
+This is a newly validated fixed-c nonlinear refinement, not a continuous
+qualified path, grazing endpoint, exact locus, D, homoclinic result or Jones
+arrow. See the [complete result](updates/2026-09-10-exp522-nonlinear-refinement-result.md).
+
+**EXP-521 result:** all 569 IVPs and 416634 periodic census segments pass raw
+audit. All five points retain full-state stationary-root correspondence. The
+prescribed c/a step improves both inner gaps (mean reductions 1.78071% and
+1.21704%); all sixteen full-state contact distances pass 1e-4. Nevertheless all
+sixteen linear fold predictions fail the unchanged 0.1 relative-error gate
+(worst 2.05741), so the overall step is rejected. All eight gap predictions
+pass (worst .00369803). A post-run even-curvature diagnosis explains most
+of the error but is not a validated new forecast. Next prospectively test a
+fixed-c nonlinear contact refinement, preserving this failure and distinguishing
+net progress from monotonic progress. No grazing, D, exact locus, homoclinic
+connection or Jones arrow is established. See the
+[complete result and figure](updates/2026-09-10-exp521-critical-response-result.md).
 
 **EXP-520 result:** every one of 417,460 retained observation-polynomial
 segments passes the exact root-certificate audit. All ten profiles and twenty
