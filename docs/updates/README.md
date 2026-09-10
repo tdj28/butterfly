@@ -28,6 +28,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp522-nonlinear-refinement-result.md`](2026-09-10-exp522-nonlinear-refinement-result.md)
+  - All 96 IVPs and 83406 census segments pass raw audit. Fresh fixed-c
+  refinement improves every contact residual at least 115× and passes all
+  predictions, retaining net gap progress. Failed EXP-521 verdict is unchanged.
 - [`2026-09-10-exp521-critical-response-result.md`](2026-09-10-exp521-critical-response-result.md)
   - All 569 IVPs and 416634 periodic census segments pass raw audit. Both
   inner gaps improve and contact proximity passes, but all sixteen linear

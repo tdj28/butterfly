@@ -1,0 +1,194 @@
+{
+  "alt_text": "Two panels show the large drop in fold/orbit contact residual after the new correction and retained net grazing-gap progress. Rejected trial is explicitly labeled. The first gap gives back a small amount of trial progress; both gaps remain below the section.",
+  "claims_excluded": [
+    "continuous qualified path",
+    "exact contact",
+    "grazing endpoint",
+    "homoclinic connection",
+    "Jones arrow"
+  ],
+  "figure_id": "EXP-522-nonlinear-contact-refinement",
+  "fold_prediction_maximum": 0.009664929997096713,
+  "full_state_transform": "max absolute normalized component for each of 16 six-vectors",
+  "gap_prediction_maximum": 0.016171623051150892,
+  "gap_transform": "100*(1-abs(g)/abs(original g)), all four contexts per root; original signed gap retained times15",
+  "generator": "scripts/render_exp522_refinement.py",
+  "generator_sha256": "b40ac5fdf7506073402d6f18436a87d91f06c51c709f4e16bd273ee603d9a3ac",
+  "interval_semantics": "Complete numerical variant ranges, not confidence intervals",
+  "matplotlib": "3.11.1",
+  "minimum_contact_improvement_factor": 115.26693861326036,
+  "numpy": "2.5.1",
+  "outputs": {
+    "EXP-522-nonlinear-contact-refinement.pdf": {
+      "bytes": 26051,
+      "sha256": "75b4e086ff3adbfd585bfd9ff55a226b61c899d011782e509385d6f62acdc325"
+    },
+    "EXP-522-nonlinear-contact-refinement.png": {
+      "bytes": 302491,
+      "sha256": "c36c88adb368bbcb52e9d45e8557f44d4c44fca2632f765c6ea69972715da055"
+    },
+    "EXP-522-nonlinear-contact-refinement.svg": {
+      "bytes": 121460,
+      "sha256": "9f1c4cd21023c8f660d164e5e9c37944b0d7dc511734a16de6e438452e896889"
+    }
+  },
+  "parent_predictor_qualified": false,
+  "plotted_data": [
+    {
+      "full_state_distances": [
+        8.821996150959466e-07,
+        8.821995972282948e-07,
+        8.821997110261548e-07,
+        8.821994947061373e-07,
+        8.821995266250493e-07,
+        8.821995087573975e-07,
+        8.82199701658648e-07,
+        8.821994853386306e-07,
+        8.821997915173241e-07,
+        8.821997736496723e-07,
+        8.822000971756006e-07,
+        8.821998808555831e-07,
+        8.82199782496762e-07,
+        8.821997646291102e-07,
+        8.822001578909222e-07,
+        8.821999415709048e-07
+      ],
+      "geometry_qualified": true,
+      "id": "Original anchor",
+      "net_gap_improvement_percent": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "outcome": "accepted original contact",
+      "parameters": {
+        "a": 0.21559309191221962,
+        "b": 0.2,
+        "c": 7.152000000000001
+      },
+      "raw_signed_gaps": [
+        -0.3448032284281425,
+        -0.43648871661047206,
+        -0.3448032284280694,
+        -0.436488716610423,
+        -0.34480322842790845,
+        -0.43648871660999355,
+        -0.34480322842683575,
+        -0.4364887166107151
+      ]
+    },
+    {
+      "full_state_distances": [
+        1.8188174463057427e-06,
+        1.8188174497751897e-06,
+        1.8188171217389804e-06,
+        1.8188175451849808e-06,
+        1.8188174062336304e-06,
+        1.8188174097030774e-06,
+        1.8188171812399956e-06,
+        1.818817604685996e-06,
+        1.8188174742347907e-06,
+        1.8188174777042376e-06,
+        1.818817238832815e-06,
+        1.8188176622788155e-06,
+        1.8188174600100582e-06,
+        1.8188174634795051e-06,
+        1.818817217842661e-06,
+        1.8188176412886614e-06
+      ],
+      "geometry_qualified": true,
+      "id": "EXP-521 trial",
+      "net_gap_improvement_percent": [
+        1.7807118132819988,
+        1.2170409994114895,
+        1.7807118132670885,
+        1.2170409994007647,
+        1.7807118130848898,
+        1.2170409993685682,
+        1.7807118133756572,
+        1.2170409994364029
+      ],
+      "outcome": "rejected predictor",
+      "parameters": {
+        "a": 0.21559346273240781,
+        "b": 0.2,
+        "c": 7.147000000000001
+      },
+      "raw_signed_gaps": [
+        -0.3386632766069448,
+        -0.4311764699715176,
+        -0.33866327660692447,
+        -0.431176469971516,
+        -0.3386632766073946,
+        -0.43117646997123227,
+        -0.3386632766053384,
+        -0.4311764699716489
+      ]
+    },
+    {
+      "full_state_distances": [
+        1.5778875948890825e-08,
+        1.5778875948890825e-08,
+        1.577906052346867e-08,
+        1.5778937358101874e-08,
+        1.5778934409071965e-08,
+        1.5778934409071965e-08,
+        1.5779031727058968e-08,
+        1.5778908561692173e-08,
+        1.5778922786424676e-08,
+        1.5778922786424676e-08,
+        1.5778973266877827e-08,
+        1.5778850101511033e-08,
+        1.577893041920797e-08,
+        1.577893041920797e-08,
+        1.577917518869043e-08,
+        1.5779052023323636e-08
+      ],
+      "geometry_qualified": true,
+      "id": "EXP-522 refinement",
+      "net_gap_improvement_percent": [
+        1.7778424248645175,
+        1.2183916000715667,
+        1.7778424248466873,
+        1.2183916000607642,
+        1.7778424249259794,
+        1.218391600078994,
+        1.7778424247616331,
+        1.2183916001238138
+      ],
+      "outcome": "accepted refinement",
+      "parameters": {
+        "a": 0.21559338680106457,
+        "b": 0.2,
+        "c": 7.147000000000001
+      },
+      "raw_signed_gaps": [
+        -0.33867317035084443,
+        -0.43117057475202986,
+        -0.33867317035083416,
+        -0.4311705747520286,
+        -0.3386731703504026,
+        -0.43117057475152476,
+        -0.3386731703499157,
+        -0.43117057475204185
+      ]
+    }
+  ],
+  "refinement_qualified": true,
+  "selection": "Original anchor, prescribed rejected trial, sole prescribed new refinement; EXP-521 stencil shown in its separate complete figure.",
+  "source_commit": "41bb1943fdcd0756a1f8077241287272afbf8548",
+  "sources": {
+    "docs/experiments/receipts/EXP-519-fixed-c-fold-response-result.json": "92ff9159ca3de7794a481e9d682d02626b945495f3ad87e6c7d095137f0117ec",
+    "docs/experiments/receipts/EXP-520-periodic-stationarity-census-result.json": "cb0c5983e0ec2d6c0dc6e7ebf4f4569c028d84f7f6ce8b8ea67fac5465a00b23",
+    "docs/experiments/receipts/EXP-521-critical-periodic-response-result.json": "8bfc3ec343335af24514a4162b22e9a9d52499e49c5ee8140fa92c08697d499d",
+    "docs/experiments/receipts/EXP-522-nonlinear-contact-refinement-result.json": "0f942da7d44560dc57feed927263198f68e389bb53472f0f0e6028927d52c866",
+    "experiments/manifests/EXP-502-joint-contact-search.json": "20c9fc885f2eeaf8df6225e487f67ee5d531b64ccaa4e0fe2e7e32bb28091038",
+    "experiments/manifests/EXP-519-fixed-c-fold-response.json": "59b960184c36eedfa69dca805a721ddd1d9ea38b229747419bfed9492b3ce81e",
+    "experiments/manifests/EXP-521-critical-periodic-response.json": "29178f095da8a15602e8290d0d2339437f57148efad3fdc9aac0ad1471f9303b"
+  }
+}
