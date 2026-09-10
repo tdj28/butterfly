@@ -1,5 +1,19 @@
 # EXP-508: continue with the fold constraint explicit
 
+## Execution outcome: preserved controller failure
+
+The frozen source 709af03fe9a8f6c6d9b5480a886cb7d0a2c3ce5a was pushed and
+live-verified before execution. The predictor producer completed its raw point
+after 196 IVPs. The controller then raised a TypeError while reading the
+missing contact envelope of an unqualified point. No corrector ran and no
+original summary or point-comparison record exists. The failure and complete
+raw inventory are retained and hash-verified. This is not an accepted step.
+
+The separate [EXP-509 forensic replay](2026-09-09-exp509-failed-predictor-replay.md)
+repairs reporting prospectively without changing any EXP-508 frozen source,
+raw evidence, consumed marker or tolerance. Its full raw audit is pending.
+The pre-target text below is the historical checkpoint, not current status.
+
 ## Pre-target checkpoint
 
 The [two-stage protocol](../experiments/EXP-508-constrained-contact-step.md)

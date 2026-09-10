@@ -253,11 +253,13 @@ inputs; historical result reproduction is a separate requirement.
   [EXP-507 completes the fixed-c correction](updates/2026-09-09-exp507-fixed-c-fold-restoration.md):
   all 158 integrations pass raw audit, and full-state fold distance falls to
   0.00000385436 under the unchanged 0.0001 bound. The boundary remains about
-  119 times too far away. Next freeze a bounded predictor/corrector continuation
-  from this qualified point, correcting the fold explicitly before accepting
-  each new lower-c point, with both original/adjacent identities and all numerical
-  representations retained. Budget raw storage for every predictor and corrector;
-  preserve rejected predictions and do not resume any consumed attempt.
+  119 times too far away. EXP-508 then produced one lower-c predictor (196 IVPs)
+  but its controller crashed on an incomplete contact envelope. No corrector ran.
+  [EXP-509](updates/2026-09-09-exp509-failed-predictor-replay.md) prospectively
+  repairs unqualified-point reporting and audits the complete retained predictor
+  without new integrations. Diagnose its two unqualified depth-8 folds before
+  selecting the next scientific target. Preserve all failures, original/adjacent
+  identities and numerical thresholds; never resume a consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting

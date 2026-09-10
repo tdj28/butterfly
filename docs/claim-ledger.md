@@ -1,6 +1,13 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-507 fixed-c restoration; not a new audit of every row)
+Last updated: 2026-09-09 (EXP-508 failure / EXP-509 replay preparation; not a new audit of every row)
+
+**EXP-508/509 status:** the lower-c predictor completed raw production in 196
+IVPs, then a null contact-envelope reporting defect crashed the controller.
+No corrector or accepted step exists. The failure is preserved and a separate
+outcome-informed, no-new-IVP replay repairs reporting without weakening any
+scientific gate. Full raw audit is pending. No Jones verification or debunk
+follows from this software correction. See [the recovery record](updates/2026-09-09-exp509-failed-predictor-replay.md).
 
 **EXP-507 update:** all 158 integrations pass full raw audit. The unique
 fixed-c a correction restores worst full-state fold distance to 0.00000385436,

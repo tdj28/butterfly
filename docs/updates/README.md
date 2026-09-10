@@ -22,10 +22,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-09-exp509-failed-predictor-replay.md`](2026-09-09-exp509-failed-predictor-replay.md)
+  - Preserve EXP-508's failed controller and replay its completed predictor
+  without new integrations. Null-safe rejection controls pass; raw audit next.
 - [`2026-09-09-exp508-constrained-contact-step.md`](2026-09-09-exp508-constrained-contact-step.md)
-  - Bounded lower-c predictor/corrector implemented with predictor-only baseline;
-  revised controls, isolated startup and retained analytic replay pass.
-  Target and raw-audit results are recorded in the dated update.
+  - Predictor produced 196 IVPs, then a missing-envelope reporting defect
+  stopped the controller. No corrector ran; failure and raw files preserved.
 - [`2026-09-09-exp507-fixed-c-fold-restoration.md`](2026-09-09-exp507-fixed-c-fold-restoration.md)
   - All 158 integrations pass raw audit. Fixed-c correction restores fold
   proximity, but the boundary remains about 119 times tolerance. Complete
