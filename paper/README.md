@@ -34,7 +34,7 @@ record, including failed experiments and corrected interpretations.
   explains which external criticisms were accepted, qualified, or require new
   research; it does not reproduce the private review.
 
-The main article now includes twelve central figures. It uses
+The main article now includes thirteen central figures. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
 The current draft's title-page author and PDF author metadata are deliberately
@@ -81,7 +81,7 @@ without requiring a reader to reconstruct the whole chronology first.
 
 All **31 earlier scientific figures** remain. Independent-homoclinic,
 accuracy-grid, symbolic-chain, support-diagnostic, direct-return-geometry
-and earlier-return-fold figures bring the total to **37**: twelve in the
+and recovered-fold figures bring the total to **38**: thirteen in the
 main article and 25 in the supplement. Supplementary figures use S-prefixed
 numbers, while asset filenames and generation receipts keep their stable
 historical identifiers. No scientific image or figure receipt was changed by
@@ -103,6 +103,13 @@ constructions and both solvers recover the same full-state reference under
 unchanged numerical gates. This is a calibrated local ingredient, not a
 verified C/D dictionary or Jones chain. The failed original eighth-return
 representation remains explicitly failed.
+
+EXP-518 then tracks those four constructions through both remaining parameter
+steps. Figure 5 puts this successful transport beside the failed full-state
+cycle-contact test: all sixteen x projections pass, but all full-state
+comparisons fail. Neither contact nor a symbolic chain is inferred. The
+new figure is generated from the audited public receipt; it is not a fitted
+or hand-drawn interpolation of the evidence.
 
 [figures/README.md](figures/README.md) lists regeneration commands and source
 hashes. [supplement/](supplement/) contains the existing animation materials.

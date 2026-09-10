@@ -149,6 +149,42 @@ orbit family and the proposed chain arrows.
   \label{fig:earlier-return-folds}
 \end{figure}
 
+\FloatBarrier
+\paragraph{The fold can be tracked, but it does not yet meet the orbit.}
+The recovered constructions also pass both prescribed steps to $c=7.157$
+and $c=7.152$, with $a$ changing along the fixed path and $b=0.2$
+(Figure~\ref{fig:recovered-fold-transport}). All 200 integrations pass the
+raw-data audit. This removes the earlier local transport obstruction,
+without turning the failed eighth-return construction into a success.
+At the endpoint, however, the fold still misses the saved primitive cycle.
+Every one of the sixteen construction/solver/repeat-window comparisons
+passes the $x$-projection test but fails the full input/output-state test:
+the worst distances are $9.06\times10^{-5}$ and $1.40\times10^{-4}$,
+respectively, against the same $10^{-4}$ threshold. Looking only at the
+plotted coordinate would therefore give a false positive under our declared
+contact criterion. This is a remaining mismatch at a tested point, not
+evidence that contact is impossible elsewhere. The cycle is reused at exactly
+matching parameters; this fold-only calculation does not recompute a joint
+fold/boundary point or establish the second smooth critical point needed
+for a doubly critical word.
+% Evidence: EXP-518, public receipt f8a0b33c...; all 16 variants retained.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig38-exp518-recovered-fold-transport.png}
+  \caption{Successful local fold transport does not imply contact with the
+  periodic orbit. Top: the input and next-return coordinates of the fold at
+  the starting point and both new parameter points, with all four curve
+  constructions and both solvers shown. Lines join measured points only.
+  Bottom left: full-state spread and adjacent displacement, divided by their
+  separate thresholds ($10^{-6}$ and $0.01$); both pass. Bottom right: all
+  sixteen endpoint comparisons, divided by the $10^{-4}$ proximity threshold.
+  The projected distances pass, but the full-state distances fail. The same
+  scales $(15,15,0.01)$ apply throughout. These numerical comparisons do not
+  establish unique continuation, exact contact or a symbolic chain.}
+  \label{fig:recovered-fold-transport}
+\end{figure}
+
 The remaining results test ingredients needed to close that gap: where the
 windows lie, how return branches change, which orbit families connect, and
 whether a candidate global return exists near the hub. They concern separate

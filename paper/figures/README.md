@@ -7,6 +7,25 @@ topology claims.
 
 ## Generated composites
 
+### EXP-518: successful transport, failed full-state endpoint contact
+
+`fig38-exp518-recovered-fold-transport.png` is an exact copy of
+`docs/figures/EXP-518-recovered-fold-transport.png`, SHA-256
+`c47cfabef422c7c33eac858ddec4fd3fafb9b689ccce63d9230a22c3ce683e9d`.
+Its adjacent figure receipt
+and index bind the input audit, plotted values, generator, verifier and all
+SVG/PDF/PNG output hashes. Both stages, four constructions, both solvers and
+all sixteen endpoint variants are retained. Passing x projections are shown
+beside the failed full-state distances; neither is a verified symbolic chain.
+Lines join measured points, without claiming a proved continuous branch.
+
+```sh
+PYTHONPATH=.:python .venv/bin/python -B scripts/render_exp518_transport.py \
+  --result docs/experiments/receipts/EXP-518-recovered-fold-transport-result.json \
+  --expected-sha256 f8a0b33cd13ff88d924928bc5f59a811468ae5a627ca007a0541702d194c8e01 \
+  --output-dir /tmp/exp518-transport-regenerated
+```
+
 ### EXP-517: the same local fold in four curve constructions
 
 `fig37-exp517-earlier-return-folds.png` is an exact copy of

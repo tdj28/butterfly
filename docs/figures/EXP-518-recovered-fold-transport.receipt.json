@@ -1,0 +1,441 @@
+{
+  "accessibility": "Color, marker shape, line style and explicit text statuses.",
+  "alt_text": "Top panels show measured fold input and next-return x against decreasing c; all four constructions and both solvers overlap closely. Bottom left shows the separate spread and displacement gates, normalized by their own thresholds. Bottom right shows every endpoint variant: the x projection passes, but full-state proximity fails. Failures and unrun stages remain explicit.",
+  "data_source": {
+    "aggregation": "No averaging of solver/case coordinates or endpoint variants. Transport ratios use complete-matrix maxima already defined in the frozen decision.",
+    "anchor": "docs/experiments/receipts/EXP-517-earlier-return-folds-result.json",
+    "anchor_sha256": "0c1233986f4ac6463d8ded47ce0a92353a98a86a889089a3f2bafe78742adf76",
+    "artifact": "docs/experiments/receipts/EXP-518-recovered-fold-transport-result.json",
+    "fields": [
+      "result.rows[].rows[].folds[].qualification.observations",
+      "result.rows[].decision",
+      "result.progress",
+      "endpoint_comparison.contact.rows[].variants"
+    ],
+    "selection": "All four cases, both solvers, all executed stages; qualified coordinates only, with failure counts and unrun stages retained.",
+    "sha256": "f8a0b33cd13ff88d924928bc5f59a811468ae5a627ca007a0541702d194c8e01",
+    "transformation": "Measured center x coordinates; lines are visual guides only. Transport distances normalized by their distinct frozen thresholds; an exact zero ratio would be shown at the labeled 1e-14 display floor. Endpoint distances at frozen cycle index 3 normalized by 1e-4, both input/output states included."
+  },
+  "description": "All four constructions and both solvers at every executed stage, both transport criteria, and all endpoint cycle-comparison variants.",
+  "endpoint_variants": [
+    {
+      "direction": 0,
+      "history": 4,
+      "method": "DOP853",
+      "phase": 0.25,
+      "state_ratio": 1.395645433872536,
+      "x_ratio": 0.9055413336547246
+    },
+    {
+      "direction": 0,
+      "history": 4,
+      "method": "DOP853",
+      "phase": 1.25,
+      "state_ratio": 1.3956454338309026,
+      "x_ratio": 0.9055413336274871
+    },
+    {
+      "direction": 0,
+      "history": 4,
+      "method": "Radau",
+      "phase": 0.25,
+      "state_ratio": 1.3956454324951655,
+      "x_ratio": 0.9055413327772044
+    },
+    {
+      "direction": 0,
+      "history": 4,
+      "method": "Radau",
+      "phase": 1.25,
+      "state_ratio": 1.3956454341344793,
+      "x_ratio": 0.9055413338288076
+    },
+    {
+      "direction": 1,
+      "history": 4,
+      "method": "DOP853",
+      "phase": 0.25,
+      "state_ratio": 1.3956454343825446,
+      "x_ratio": 0.9055413339869034
+    },
+    {
+      "direction": 1,
+      "history": 4,
+      "method": "DOP853",
+      "phase": 1.25,
+      "state_ratio": 1.3956454343409113,
+      "x_ratio": 0.905541333959666
+    },
+    {
+      "direction": 1,
+      "history": 4,
+      "method": "Radau",
+      "phase": 0.25,
+      "state_ratio": 1.395645432587106,
+      "x_ratio": 0.9055413328429296
+    },
+    {
+      "direction": 1,
+      "history": 4,
+      "method": "Radau",
+      "phase": 1.25,
+      "state_ratio": 1.3956454342264195,
+      "x_ratio": 0.9055413338945327
+    },
+    {
+      "direction": 0,
+      "history": 7,
+      "method": "DOP853",
+      "phase": 0.25,
+      "state_ratio": 1.395645433891618,
+      "x_ratio": 0.9055413336671592
+    },
+    {
+      "direction": 0,
+      "history": 7,
+      "method": "DOP853",
+      "phase": 1.25,
+      "state_ratio": 1.3956454338499846,
+      "x_ratio": 0.9055413336399217
+    },
+    {
+      "direction": 0,
+      "history": 7,
+      "method": "Radau",
+      "phase": 0.25,
+      "state_ratio": 1.3956454320077083,
+      "x_ratio": 0.9055413324610129
+    },
+    {
+      "direction": 0,
+      "history": 7,
+      "method": "Radau",
+      "phase": 1.25,
+      "state_ratio": 1.3956454336470219,
+      "x_ratio": 0.905541333512616
+    },
+    {
+      "direction": 1,
+      "history": 7,
+      "method": "DOP853",
+      "phase": 0.25,
+      "state_ratio": 1.3956454331786465,
+      "x_ratio": 0.9055413332053064
+    },
+    {
+      "direction": 1,
+      "history": 7,
+      "method": "DOP853",
+      "phase": 1.25,
+      "state_ratio": 1.3956454331370132,
+      "x_ratio": 0.905541333178069
+    },
+    {
+      "direction": 1,
+      "history": 7,
+      "method": "Radau",
+      "phase": 0.25,
+      "state_ratio": 1.395645433508244,
+      "x_ratio": 0.90554133343268
+    },
+    {
+      "direction": 1,
+      "history": 7,
+      "method": "Radau",
+      "phase": 1.25,
+      "state_ratio": 1.3956454351475578,
+      "x_ratio": 0.9055413344842833
+    }
+  ],
+  "exclusions": [
+    "Not a restored original eighth return",
+    "Not four independent folds",
+    "Not a C/D dictionary or verified Jones chain"
+  ],
+  "figure_id": "EXP-518-recovered-fold-transport",
+  "guards": {
+    "decisions": [
+      {
+        "adjacent_displacement": 0.000935145463197215,
+        "cross_history_spread": 1.5994150448506161e-13,
+        "original_eighth_return_restored": false,
+        "qualified": true,
+        "reason": null,
+        "symbolic_chains_verified": false,
+        "transport_qualified": true
+      },
+      {
+        "adjacent_displacement": 0.0009363836632206302,
+        "cross_history_spread": 1.8509499488672532e-13,
+        "original_eighth_return_restored": false,
+        "qualified": true,
+        "reason": null,
+        "symbolic_chains_verified": false,
+        "transport_qualified": true
+      }
+    ],
+    "endpoint_fold_proximity": false,
+    "executed_substeps": 2,
+    "experiment_id": "EXP-518",
+    "full_raw_audit_repeated": false,
+    "new_integrations": 0,
+    "passed": true,
+    "scope": "Compact shooting algebra, full accepted prefixes, qualification, transport and endpoint arithmetic replayed. Raw meshes, polynomial census completeness, control bundles and disk byte totals are not independently audited here.",
+    "symbolic_chains_verified": false,
+    "target_ivps": 200,
+    "transport_completed": true
+  },
+  "interval_semantics": "No statistical interval, rigorous error bound or continuous-path guarantee.",
+  "plotted_data": [
+    {
+      "c": 7.162000000000001,
+      "id": "start (EXP-517)",
+      "points": [
+        {
+          "direction": 0,
+          "history": 4,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.841793180892827,
+              "method": "DOP853",
+              "next_state": -11.682976406411363
+            },
+            {
+              "image_state": -6.841793180892395,
+              "method": "Radau",
+              "next_state": -11.68297640641138
+            }
+          ]
+        },
+        {
+          "direction": 1,
+          "history": 4,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.841793180892643,
+              "method": "DOP853",
+              "next_state": -11.68297640641142
+            },
+            {
+              "image_state": -6.841793180891771,
+              "method": "Radau",
+              "next_state": -11.682976406411374
+            }
+          ]
+        },
+        {
+          "direction": 0,
+          "history": 7,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.8417931808929895,
+              "method": "DOP853",
+              "next_state": -11.682976406411363
+            },
+            {
+              "image_state": -6.841793180891487,
+              "method": "Radau",
+              "next_state": -11.68297640641133
+            }
+          ]
+        },
+        {
+          "direction": 1,
+          "history": 7,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.841793180892528,
+              "method": "DOP853",
+              "next_state": -11.682976406411303
+            },
+            {
+              "image_state": -6.8417931808914645,
+              "method": "Radau",
+              "next_state": -11.682976406411415
+            }
+          ]
+        }
+      ],
+      "ratios": null,
+      "transport_qualified": null
+    },
+    {
+      "c": 7.157000000000001,
+      "id": "substep-3",
+      "points": [
+        {
+          "direction": 0,
+          "history": 4,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.837697904192921,
+              "method": "DOP853",
+              "next_state": -11.675009301045325
+            },
+            {
+              "image_state": -6.837697904192531,
+              "method": "Radau",
+              "next_state": -11.675009301045293
+            }
+          ]
+        },
+        {
+          "direction": 1,
+          "history": 4,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.8376979041932024,
+              "method": "DOP853",
+              "next_state": -11.675009301045327
+            },
+            {
+              "image_state": -6.837697904192506,
+              "method": "Radau",
+              "next_state": -11.67500930104533
+            }
+          ]
+        },
+        {
+          "direction": 0,
+          "history": 7,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.837697904193067,
+              "method": "DOP853",
+              "next_state": -11.67500930104532
+            },
+            {
+              "image_state": -6.837697904192897,
+              "method": "Radau",
+              "next_state": -11.675009301045291
+            }
+          ]
+        },
+        {
+          "direction": 1,
+          "history": 7,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.837697904192495,
+              "method": "DOP853",
+              "next_state": -11.675009301045376
+            },
+            {
+              "image_state": -6.83769790419166,
+              "method": "Radau",
+              "next_state": -11.675009301045327
+            }
+          ]
+        }
+      ],
+      "ratios": {
+        "displacement": 0.0935145463197215,
+        "spread": 1.5994150448506161e-07
+      },
+      "transport_qualified": true
+    },
+    {
+      "c": 7.152000000000001,
+      "id": "substep-4",
+      "points": [
+        {
+          "direction": 0,
+          "history": 4,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.833602507714997,
+              "method": "DOP853",
+              "next_state": -11.667041824233952
+            },
+            {
+              "image_state": -6.833602507715139,
+              "method": "Radau",
+              "next_state": -11.66704182423399
+            }
+          ]
+        },
+        {
+          "direction": 1,
+          "history": 4,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.833602507715495,
+              "method": "DOP853",
+              "next_state": -11.667041824233921
+            },
+            {
+              "image_state": -6.833602507715238,
+              "method": "Radau",
+              "next_state": -11.667041824234019
+            }
+          ]
+        },
+        {
+          "direction": 0,
+          "history": 7,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.833602507715016,
+              "method": "DOP853",
+              "next_state": -11.667041824234007
+            },
+            {
+              "image_state": -6.833602507714665,
+              "method": "Radau",
+              "next_state": -11.667041824233985
+            }
+          ]
+        },
+        {
+          "direction": 1,
+          "history": 7,
+          "qualified": true,
+          "values": [
+            {
+              "image_state": -6.833602507714323,
+              "method": "DOP853",
+              "next_state": -11.667041824233953
+            },
+            {
+              "image_state": -6.833602507716122,
+              "method": "Radau",
+              "next_state": -11.667041824233957
+            }
+          ]
+        }
+      ],
+      "ratios": {
+        "displacement": 0.09363836632206302,
+        "spread": 1.8509499488672532e-07
+      },
+      "transport_qualified": true
+    }
+  ],
+  "provenance": {
+    "experiment": "EXP-518",
+    "generator": "scripts/render_exp518_transport.py",
+    "generator_sha256": "847a75212d1b595d2e145d99c04a6aa859d365c21764695906d16460a27f40af",
+    "matplotlib": "3.11.1",
+    "outputs": {
+      "EXP-518-recovered-fold-transport.pdf": "37e21ef7c402280f3ab653278cb2a27995e2248da808232d7bda9a922ee5b8b0",
+      "EXP-518-recovered-fold-transport.png": "c47cfabef422c7c33eac858ddec4fd3fafb9b689ccce63d9230a22c3ce683e9d",
+      "EXP-518-recovered-fold-transport.svg": "c8b5e0d51717ee3883115f58312e38472c8454047147e3212ce600c10d920052"
+    },
+    "public_verifier": "scripts/verify_exp518_public_transport.py",
+    "public_verifier_sha256": "6dbf5f3e35eed0266641ce9017a11b51f41d5ca8e4f9b9716df2f92154048d2d",
+    "source_commit": "bc404a33d6270070f3ee91730105d5610e0024a0"
+  },
+  "title": "Recovered fold transport and identity gates",
+  "unrun_stages": []
+}
