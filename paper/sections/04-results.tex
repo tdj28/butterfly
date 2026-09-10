@@ -150,13 +150,13 @@ orbit family and the proposed chain arrows.
 \end{figure}
 
 \FloatBarrier
-\paragraph{The fold can be tracked, but it does not yet meet the orbit.}
+\paragraph{Following a fold to the periodic orbit.}
 The recovered constructions also pass both prescribed steps to $c=7.157$
 and $c=7.152$, with $a$ changing along the fixed path and $b=0.2$
 (Figure~\ref{fig:recovered-fold-transport}). All 200 integrations pass the
 raw-data audit. This removes the earlier local transport obstruction,
 without turning the failed eighth-return construction into a success.
-At the endpoint, however, the fold still misses the saved primitive cycle.
+At that initial endpoint, however, the fold misses the saved primitive cycle.
 Every one of the sixteen construction/solver/repeat-window comparisons
 passes the $x$-projection test but fails the full input/output-state test:
 the worst distances are $9.06\times10^{-5}$ and $1.40\times10^{-4}$,
@@ -169,20 +169,43 @@ fold/boundary point or establish the second smooth critical point needed
 for a doubly critical word.
 % Evidence: EXP-518, public receipt f8a0b33c...; all 16 variants retained.
 
+One fresh correction resolves this local mismatch
+(Figure~\ref{fig:fresh-fold-response}). Keeping $b=0.2$ and $c=7.152$ fixed,
+we recompute both the fold and the periodic orbit at four prescribed nearby
+values of $a$. Coarse and fine central differences agree to within
+$0.018\%$ for the full six-component response, against a $5\%$ limit.
+Only then does the predeclared rule permit one bounded correction; it cannot
+replace that correction with a favorable stencil point.
+
+At $a\approx0.2155931$, every construction, solver and repeat window passes
+the full-state proximity test. The worst scaled separation is
+$8.82\times10^{-7}$, below $10^{-4}$, and the worst full-state prediction
+error is $0.63\%$, below $10\%$. All 513 integrations pass the raw-data audit.
+Both solvers retain the primitive orbit identity and the historical six/Barrio
+eight section counts at all five new parameter points.
+The distinction now matters in the opposite direction: the earlier failure
+was a local mismatch that could be corrected, not an obstruction to contact.
+This is numerical proximity to one scalar fold, not exact equality or a
+doubly critical center. We have not independently identified the second
+critical point or connected this orbit to a neighboring-period window.
+% Evidence: EXP-519, receipt 92ff9159...; all 16 variants, no new boundary.
+
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/fig38-exp518-recovered-fold-transport.png}
-  \caption{Successful local fold transport does not imply contact with the
-  periodic orbit. Top: the input and next-return coordinates of the fold at
-  the starting point and both new parameter points, with all four curve
-  constructions and both solvers shown. Lines join measured points only.
-  Bottom left: full-state spread and adjacent displacement, divided by their
-  separate thresholds ($10^{-6}$ and $0.01$); both pass. Bottom right: all
-  sixteen endpoint comparisons, divided by the $10^{-4}$ proximity threshold.
-  The projected distances pass, but the full-state distances fail. The same
-  scales $(15,15,0.01)$ apply throughout. These numerical comparisons do not
-  establish unique continuation, exact contact or a symbolic chain.}
-  \label{fig:recovered-fold-transport}
+  \includegraphics[width=\textwidth]{figures/fig39-exp519-fixed-c-fold-response.png}
+  \caption{A prescribed correction restores full-state fold/orbit proximity.
+  A: signed input-coordinate residual at the reused anchor (square), all four
+  new stencil points (circles) and the correction (diamond). The dashed line
+  is the fresh linear prediction, not additional integrated data.
+  B: the complete input/next-return state distance, with the acceptance limit
+  at one. C: coarse/fine derivative disagreement relative to its separate
+  limit. Each construction retains both solvers and both observation windows.
+  D: worst component distances before and after correction, using scales
+  $(15,15,0.01)$. Point ranges include all sixteen deterministic variants;
+  they are not statistical confidence intervals. The correction passes both
+  contact and prediction checks. Neither a second critical point nor a
+  symbolic chain is established.}
+  \label{fig:fresh-fold-response}
 \end{figure}
 
 The remaining results test ingredients needed to close that gap: where the

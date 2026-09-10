@@ -1,0 +1,2 @@
+# Preserve the hash-bound Matplotlib SVG bytes; no blanket whitespace exception.
+docs/figures/EXP-519-fixed-c-fold-response.svg whitespace=-blank-at-eol

@@ -2,10 +2,11 @@
 
 ## Current status
 
-**Frozen and tested; target execution is blocked before outcome access by the
-12 GiB initial disk-reserve gate.** No target attempt marker or target output
-directory was created. An explicit human decision on a narrower startup
-reserve is pending; the full regression suite is running meanwhile.
+**Completed and raw-audited: all 513 integrations pass, and the single
+prescribed correction meets full-state fold/orbit proximity in all sixteen
+variants.** The earlier disk block cleared without an amendment. The original
+reserve and scientific thresholds were unchanged. See the
+[execution and result record](2026-09-10-exp519-execution.md).
 
 EXP-518 is merged through PR84 after all four final-head
 Python 3.12/3.13 push/PR checks passed. Main advanced to `1895bfd`; the successor
@@ -38,9 +39,10 @@ not an independent team review.
 | Repeated recursive ancestry checks can dominate startup. | Hash-sensitive local input cache; actual isolated production startup is tested, not replaced by a fake receipt. |
 
 The protocol is [EXP-519](../experiments/EXP-519-fixed-c-fold-response.md).
-Implementation, tests, machine plan and raw auditor will be sealed and pushed
-before the one-shot target run. Target outcomes and any failure will be recorded
-below after the frozen audit, not inferred from unit-test success.
+Implementation, tests, machine plan and raw auditor were sealed and pushed
+before the one-shot target run. The result is recorded separately after the
+full raw audit, not inferred from unit-test success. The following sections
+preserve the pre-outcome sequence and its initially blocked status.
 
 ## Pre-outcome incident and repair
 
@@ -96,12 +98,12 @@ free space, so the unchanged retry was also correctly refused. At 15:58 UTC,
 12,432,404 KiB was reported available. This is an observation after the failed
 launches, not an invented measurement from inside their exception handlers.
 
-I requested explicit approval to prospectively lower only the initial reserve
+At that earlier checkpoint, I requested explicit approval to lower only the initial reserve
 to 11.5 GiB, while preserving the 3 GiB output cap, 8 GiB continuing floor,
 one-shot rule and every scientific threshold. **That amendment is not approved
-or implemented at this checkpoint.** Alternatively, freeing enough local disk
-permits the unchanged frozen design to run. No further identical low-disk
-launch will be attempted without an actual resource or authority change.
+or implemented at that checkpoint.** Subsequently the filesystem reported
+enough free space, and the unchanged frozen design executed successfully.
+No approval was inferred and the proposed amendment was never used.
 
 ## Why the full state matters for the next symbolic step
 
