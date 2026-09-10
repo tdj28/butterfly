@@ -23,9 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp511-direct-curve-coverage.md`](2026-09-09-exp511-direct-curve-coverage.md)
-  - Direct sampling and full dense-event replay are implemented and pass
-  analytic controls. The bounded target run will test coverage of the failed
-  depth-eight curves, without another Newton retry or relaxed thresholds.
+  - All 160 IVPs pass full dense replay. Of 40 paired samples, 31 are regular,
+  two collapse and seven lack a ninth return before the fixed horizon. No
+  sampled fold bracket qualifies; resolve time-window censoring next.
 - [`2026-09-09-exp510-four-substep-fold-transport.md`](2026-09-09-exp510-four-substep-fold-transport.md)
   - All 180 IVPs audit cleanly. The first smaller substep qualifies every
   fold; the second again loses depth-8 input regularity. The controller stops

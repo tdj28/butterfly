@@ -273,6 +273,15 @@ inputs; historical result reproduction is a separate requirement.
   a solver's wrong root from insufficient finite-curve coverage. Do not infer
   a physical bifurcation or global root absence from this finite failure.
   Do not warm-start from the collapsed roots or lower the gain threshold.
+  [EXP-511](updates/2026-09-09-exp511-direct-curve-coverage.md) now completes
+  that fixed grid: all 160 IVPs pass full dense replay; 31/40 paired samples
+  are regular, two collapse and seven lack a ninth return before the fixed
+  horizon. Neither curve supplies a qualifying sampled fold bracket. Next
+  extend the horizon for all seven censored samples, with unchanged inputs and
+  both solvers, and verify their complete saved eight-return prefixes. Do not
+  call this time-window censoring a domain hole or proof of lost physical
+  coverage. Any newly exposed bracket still needs event-sheet continuity and
+  fold qualification; the other 33 original samples and all failures remain.
   Preserve all failures and never resume a consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit

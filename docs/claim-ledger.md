@@ -1,6 +1,16 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-510 smaller-step fold transport; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-511 direct-curve coverage; not a new audit of every row)
+
+**EXP-511 result:** all 160 IVPs pass retained dense-polynomial/event replay.
+Of 40 paired samples, 31 pass regularity, two reproduce the collapsed input
+and seven record only eight of the required nine returns before the fixed
+horizon. No qualifying sampled fold bracket is found. The latter seven are
+time-window-censored observations, not demonstrated domain holes or absent
+returns. Resolve them with a bounded horizon extension and full prefix checks
+before choosing event-sheet refinement or a new curve parameterization.
+No continuous-u coverage/absence proof or Jones chain follows from the grid.
+See the [complete result and figure](updates/2026-09-09-exp511-direct-curve-coverage.md).
 
 **EXP-510 result:** all 180 IVPs pass full raw audit. One smaller substep to
 c=7.167 qualifies every fold, with 1.4988e-13 cross-history full-state spread.
