@@ -1,6 +1,17 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-506 saved-data sensitivity; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-507 fixed-c restoration; not a new audit of every row)
+
+**EXP-507 update:** all 158 integrations pass full raw audit. The unique
+fixed-c a correction restores worst full-state fold distance to 0.00000385436,
+inside the unchanged 0.0001 limit. Every fold/boundary representation and both
+original/adjacent primitive-cycle identity checks qualify. The mean signed
+fold residual falls 96.19%, but the boundary gap increases slightly to
+0.01194265 and still fails joint proximity by about 119 times. This supports
+a new bounded continuation with explicit fold correction, not a C/D assignment,
+generating partition, exact contact or Jones chain. Complete output accounting
+including the final summary passes; prior failures remain unchanged. See the
+[audited comparison and next action](updates/2026-09-09-exp507-fixed-c-fold-restoration.md).
 
 **EXP-506 legacy sensitivity:** complete replay of EXP-186's saved partitions
 and words finds no change under the added turning-geometry filter: 2,040 branch
