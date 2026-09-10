@@ -34,7 +34,7 @@ record, including failed experiments and corrected interpretations.
   explains which external criticisms were accepted, qualified, or require new
   research; it does not reproduce the private review.
 
-The main article now includes thirteen central figures. It uses
+The main article now includes fourteen central figures. It uses
 rounded coordinates where extra digits do not help interpretation; the technical
 record retains the full numerical values and acceptance criteria.
 The current draft's title-page author and PDF author metadata are deliberately
@@ -45,6 +45,16 @@ and results. Page numbers depend on the current build.
 The title, abstract, opening results, claims table, and conclusion all frame
 the symbolic reinjection prediction as the central test. Numeric section
 filenames retain their historical names; `manuscript.tex` sets reading order.
+
+The latest local mechanism checkpoint is EXP-522: a separately tested nonlinear
+correction improves every fold/orbit contact residual by more than 115× and
+passes its prediction gates. The preceding EXP-521 linear predictor remains
+failed and is shown explicitly in the new main-article figure. Neither result
+verifies a Jones arrow or a homoclinic connection. The discussion explains why
+ordinary section grazing can add a recorded return without creating a new orbit;
+the fuller [conditional derivation](../docs/theory/periodic-grazing-and-symbol-insertion.md)
+lists the extra symbolic hypotheses. The built draft has 79 pages and 40 figures
+in total at this checkpoint; those totals may change with later layout edits.
 
 ## Technical supplement
 

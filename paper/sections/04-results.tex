@@ -208,6 +208,60 @@ critical point or connected this orbit to a neighboring-period window.
   \label{fig:fresh-fold-response}
 \end{figure}
 
+\paragraph{Moving toward reinjection: a useful response, a rejected predictor.}
+Which part of the periodic orbit could supply the extra return? A complete
+census of the stored periodic interpolation polynomials identifies sixteen
+stationary points in each observation window, including two inner maxima.
+At the corrected contact their heights above the historical section are
+approximately $-0.34480$ and $-0.43649$: neither has reached the section.
+Both solvers and both repeat windows agree on their identities. Completeness
+here concerns the stored polynomials, not rigorous enclosures of the exact flow.
+
+Four new values of $c$, followed by one prescribed joint $a,c$ correction,
+test whether these maxima move toward the section while the fold remains
+close to the orbit (Figure~\ref{fig:critical-periodic-response}). All 569 new
+integrations pass raw-data replay. The correction reduces the two mean
+absolute gaps by $1.78\%$ and $1.22\%$, and every full-state contact distance
+passes the declared radius. Yet every full-vector fold prediction fails:
+the worst relative error is $2.057$, against a $0.1$ limit. The gap predictions
+pass, with worst error $0.00370$. We therefore reject this linear predictor;
+favorable endpoint geometry does not override an inaccurate prediction.
+
+A post-run diagnostic attributes most of the error to even curvature in $c$,
+which coarse/fine agreement of central first derivatives can miss. This is
+an explanation selected after the failure, not a newly validated forecast.
+A separately frozen nonlinear correction then tests whether this trial can
+be improved. At the same $c=7.147$ and $b=0.2$, it changes only $a$, to
+$0.2155933868$. All 96 new integrations pass raw replay, and every full-state
+contact residual decreases by at least a factor of 115, exceeding the required
+factor of ten. The worst separation is $1.58\times10^{-8}$; worst fold and gap
+prediction errors are $0.00966$ and $0.01617$, both below $0.1$.
+The first maximum gives back a small part of the trial's improvement, as
+predicted, but remains $1.78\%$ closer to the section than at the original
+anchor. This validates the new fixed-$c$ refinement, not the failed linear
+predictor. Both maxima remain below the section. Neither the second critical
+symbol, a grazing endpoint, nor a window-to-window arrow is established.
+% Evidence: EXP-520 census cb0c5983...; EXP-521 raw audit 8bfc3ec3...;
+% separately labeled post-run curvature diagnostic d2708ddd... .
+% EXP-522 nonlinear refinement, full raw audit 0f942da7...; net progress uses
+% original EXP-519/520 anchor, local trial-progress failure remains recorded.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig40-exp521-critical-periodic-response.png}
+  \caption{Measured progress does not rescue a failed predictor. Left: both
+  tracked inner maxima remain below the section while their heights vary
+  across all four prescribed fixed-$a$ offsets and the reused anchor. Star
+  and plus mark the correction, which also changes $a$. Right: full-state
+  contact distances for all sixteen construction/solver/window variants.
+  Every point passes proximity, but the correction fails all sixteen fold
+  prediction tests, as reported above the panels. Ranges retain all numerical
+  variants and are not confidence intervals. Zero height in the left panel
+  is a section-grazing condition, not a homoclinic criterion or a verified
+  symbolic insertion.}
+  \label{fig:critical-periodic-response}
+\end{figure}
+
 The remaining results test ingredients needed to close that gap: where the
 windows lie, how return branches change, which orbit families connect, and
 whether a candidate global return exists near the hub. They concern separate
