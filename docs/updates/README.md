@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp515-third-return-precision.md`](2026-09-10-exp515-third-return-precision.md)
+  - All twelve IVPs pass raw audit; all eighteen paired sensitivities resolve.
+  Tiny third-return derivatives persist at higher precision, while both old
+  solvers miss the center values. This does not rescue depth-eight fold coverage.
 - [`2026-09-10-exp514-candidate-grazing-boundaries.md`](2026-09-10-exp514-candidate-grazing-boundaries.md)
   - All 120 target IVPs pass raw audit. Every candidate qualifies as a local
   section-grazing boundary with two-sided crossing birth/death and square-root

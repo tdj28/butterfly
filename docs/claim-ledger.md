@@ -1,6 +1,20 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-10 (through EXP-514 grazing qualification; not a new audit of every row)
+Last updated: 2026-09-10 (through EXP-515 precision diagnostic; not a new audit of every row)
+
+**EXP-515 result:** all twelve target IVPs pass full local raw audit. Both
+decimal configurations agree on all eighteen first/second/third-return
+sensitivities across six fixed inputs. Center third-return scaled norms are
+about 1.20749e-13 and 1.94719e-13; old binary64 vector errors are 8.00–10.36
+times those norms, although old/new event times and states agree. Four distinct
+old vectors fail, each compared with two decimal profiles; all neighboring
+and earlier-return comparisons pass. Thus tiny sensitivity survives higher
+precision, but the older center estimates are inaccurate. This does not prove
+zero sensitivity, singularity of the flow, uniform neighborhood contraction,
+absence of a physical fold, or any Jones arrow. The unchanged depth-eight gain
+gate remains failed. Next reconstruct and independently qualify event-consistent
+input-image coverage; a coordinate rescaling alone cannot add missing states.
+See the [complete result and figure](updates/2026-09-10-exp515-third-return-precision.md).
 
 **EXP-514 result:** all 120 target IVPs pass full local raw replay. All five
 EXP-513 candidate halves contain numerically qualified section-grazing
