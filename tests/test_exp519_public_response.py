@@ -1,6 +1,7 @@
 """Whole-receipt authentication, semantic mutations and isolated public replay."""
 from copy import deepcopy
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -13,6 +14,38 @@ SHA = '92ff9159ca3de7794a481e9d682d02626b945495f3ad87e6c7d095137f0117ec'
 RECEIPT = public.run.ROOT/NAME
 
 
+def assert_decision_replay(actual, expected):
+    """Only norm-derived predictions get a four-ULP cross-platform allowance.
+
+    The production verifier already rederives and checks the complete result.
+    This extra test must not require bitwise BLAS reduction identity on Linux
+    and macOS. Keys, verdicts, distances and signed coordinates remain exact.
+    """
+    actual, expected = deepcopy(actual), deepcopy(expected)
+    assert len(actual['variants']) == len(expected['variants'])
+    for a, e in zip(actual['variants'], expected['variants'], strict=True):
+        x, y = a.pop('prediction_error'), e.pop('prediction_error')
+        assert math.isfinite(x) and math.isfinite(y)
+        assert abs(x-y) <= 4*max(math.ulp(x), math.ulp(y))
+    assert actual == expected
+
+
+@pytest.mark.parametrize('change', ['one-ulp', 'eight-ulps', 'verdict', 'distance', 'key'])
+def test_decision_replay_allows_only_last_bit_norm_roundoff(change):
+    expected = dict(full_state_contact=True, variants=[dict(
+        key=[4, 0, 'DOP853', .25], prediction_error=.006,
+        full_state_distance=8.8e-7, contact=True)])
+    actual = deepcopy(expected)
+    if change in ('one-ulp', 'eight-ulps'):
+        actual['variants'][0]['prediction_error'] += math.ulp(.006)*(1 if change == 'one-ulp' else 8)
+    elif change == 'verdict': actual['full_state_contact'] = False
+    elif change == 'distance': actual['variants'][0]['full_state_distance'] = math.nextafter(8.8e-7, math.inf)
+    else: actual['variants'][0]['key'][0] = 7
+    if change == 'one-ulp': assert_decision_replay(actual, expected)
+    else:
+        with pytest.raises(AssertionError): assert_decision_replay(actual, expected)
+
+
 @pytest.fixture(scope='module')
 def authenticated():
     return public.run.load(), public.run.inputs()
@@ -23,7 +56,7 @@ def test_real_complete_response_receipt():
     saved = json.loads(RECEIPT.read_bytes())
     assert result['passed'] and result['target_ivps'] == saved['target_ivps']
     assert result['points'] == 4+int(saved['result']['correction'] is not None)
-    assert result['decision'] == saved['result']['decision']
+    assert_decision_replay(result['decision'], saved['result']['decision'])
     assert not result['symbolic_chains_verified'] and not result['full_raw_audit_repeated']
     assert result['new_integrations'] == 0
 
