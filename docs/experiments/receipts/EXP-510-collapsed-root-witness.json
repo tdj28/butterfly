@@ -1,0 +1,50 @@
+{
+  "audit_sha256": "43399d794bf8c55a20e73706a4850453f43ac762a465a3a7d39b9cc7665a8fe7",
+  "new_integrations": 0,
+  "parameters": {
+    "a": 0.21559488260076548,
+    "b": 0.2,
+    "c": 7.162000000000001
+  },
+  "purpose": "Diagnostic sampling anchors only, not qualified folds or Newton warm starts.",
+  "rows": [
+    {
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--contact-03",
+      "method": "DOP853",
+      "source_path": "substep-2/local-a025-c083--region-1--depth-8--direction-0--candidate-0--contact-03--DOP853.json",
+      "source_sha256": "bd1d90fb870b93f21afb244aa6257742ee3f9385363460c5e78bc4f1dac09263",
+      "time": 52.60897859645319,
+      "u": -0.005753135883477706
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-8--direction-0",
+      "id": "local-a025-c083--region-1--depth-8--direction-0--candidate-0--contact-03",
+      "method": "Radau",
+      "source_path": "substep-2/local-a025-c083--region-1--depth-8--direction-0--candidate-0--contact-03--Radau.json",
+      "source_sha256": "57a72b97f2f8735e0c6d91a43cfd69cd8ffd2749cb40628c1b7685f1a683711f",
+      "time": 52.60897859645292,
+      "u": -0.005753135883477228
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--contact-03",
+      "method": "DOP853",
+      "source_path": "substep-2/local-a025-c083--region-1--depth-8--direction-1--candidate-0--contact-03--DOP853.json",
+      "source_sha256": "252f4830ad3cda76d4adf50e89d283a6d96f69d2fde9b4923cdea53adf765e1c",
+      "time": 52.60897854391972,
+      "u": -0.00813656972406212
+    },
+    {
+      "family_id": "local-a025-c083--region-1--depth-8--direction-1",
+      "id": "local-a025-c083--region-1--depth-8--direction-1--candidate-0--contact-03",
+      "method": "Radau",
+      "source_path": "substep-2/local-a025-c083--region-1--depth-8--direction-1--candidate-0--contact-03--Radau.json",
+      "source_sha256": "b2045c1583b4cd8e5e345db99dbfc33e5e3c9fbdd825af3387dbbbff97489e63",
+      "time": 52.60897854391945,
+      "u": -0.008136569724071311
+    }
+  ],
+  "source_experiment": "EXP-510",
+  "summary_sha256": "539cedeb5b044f97761f510a5a91b1b8026732c5089b36df173b8993e1ab5577"
+}
