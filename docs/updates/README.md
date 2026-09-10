@@ -23,8 +23,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 ## Entries
 
 - [`2026-09-09-exp506-legacy-word-adapter-continuation.md`](2026-09-09-exp506-legacy-word-adapter-continuation.md)
-  - Complete word-schema adapter and all 255 retained prefix fits pass replay
-  without new fitting; the remaining historical sensitivity is ready to execute.
+  - All 2,040 branch fits and 40 word splines reproduce; the turning filter
+  changes none of EXP-186's saved outputs. A final-summary quota overrun is
+  explicitly flagged, and a tested pre-write quota helper is added for new runs.
 - [`2026-09-09-exp505-legacy-turning-point-impact.md`](2026-09-09-exp505-legacy-turning-point-impact.md)
   - New replay adapter failed on omitted word-comparison fields after retaining
   255 branch fits. The attempt is preserved, not reset; EXP-506 continues it.

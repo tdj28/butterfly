@@ -50,6 +50,20 @@ made to the shared helper, use a separate reviewed correction commit with the
 analytic regression and an impact ledger. Do not claim the historical results
 are cleared merely because the new EXP-481 analyzer passes its controls.
 
+## EXP-506: one saved-data sensitivity is now checked
+
+The [complete EXP-186 sensitivity](../updates/2026-09-09-exp506-legacy-word-adapter-continuation.md)
+replays both profiles, x/z, all five variants and all nominal/bootstrap fits.
+The additional derivative-sign and extremum-height filter removes none of the
+510 retained-root occurrences; all robust results and eight original word
+outcomes are unchanged. Its full audit re-fits 2,040 branch cases and 40
+word-slope splines. This clears only this defect's sensitivity for those saved
+partitions/words, not EXP-186's other assumptions or the other exposure cases.
+The initial EXP-505 adapter failure is preserved. EXP-506 also has an explicitly
+reported final-summary output-cap deviation despite passing numerical replay;
+it is not labeled wholly protocol-compliant. The shared legacy helper and
+historical receipts remain byte-identical.
+
 ## 2026-09-09: exposure inventory, not numerical clearance
 
 The checked-in `scripts/inventory_legacy_turning_point_callers.py` now traces

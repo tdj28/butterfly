@@ -1,6 +1,16 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-09 (through EXP-504 contact continuation; not a new audit of every row)
+Last updated: 2026-09-09 (through EXP-506 saved-data sensitivity; not a new audit of every row)
+
+**EXP-506 legacy sensitivity:** complete replay of EXP-186's saved partitions
+and words finds no change under the added turning-geometry filter: 2,040 branch
+fits, 40 word-slope splines and all 510 retained original-root occurrences are
+checked. This clears only this helper sensitivity in one exposure case, not
+other methods, trajectories or candidate studies. EXP-186's failed parity/word
+result is unchanged and no Jones arrow is established. The initial adapter
+failure is preserved; a final-summary output-cap overrun is separately flagged,
+so the numerical replay is not labeled fully protocol-compliant. See the
+[complete scope and deviation report](updates/2026-09-09-exp506-legacy-word-adapter-continuation.md).
 
 **EXP-504 update:** all 200 new integrations audit cleanly, but the first warm
 continuation step fails fold proximity: 0.00010118864 versus the unchanged
