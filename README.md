@@ -43,7 +43,7 @@ candidate checks, with explicit limits on what is reproduced.
   now reproduces the in-scope unimodal word list and its order under a
   predeclared notation mapping. This is finite combinatorial support, not
   verification of the Rössler centers, third-branch words, or connecting arrows.
-  The latest [direct-fold experiment](docs/updates/2026-09-08-exp490-direct-folds.md)
+  The initial [direct-fold experiment](docs/updates/2026-09-08-exp490-direct-folds.md)
   tests all 26 candidate intervals with two solvers: ten searches qualify
   across eight finite-return curve families, while sixteen intervals remain
   unresolved. Section-grazing jumps and ill-conditioned input curves must
@@ -52,12 +52,17 @@ candidate checks, with explicit limits on what is reproduced.
   now reproduces all 78 sampled points but flags sixteen intervals for large
   return-time changes; the ten passing intervals match the qualified fold
   searches. Accurate points alone do not certify a continuous symbolic map.
-  The latest [contact localization](docs/updates/2026-09-09-exp497-contact-localization.md)
+  The first [contact localization](docs/updates/2026-09-09-exp497-contact-localization.md)
   now finds a primitive six-return cycle close to one measured fold in the
   full state, across all four representations and both solvers. This closes
   one numerical gap, not the second critical point, C/D labels or a chain arrow.
-  The full raw evidence for this newest stage remains local pending publication
-  approval; its audited summary and figure are public.
+  The latest [fresh-response correction](docs/updates/2026-09-10-exp519-execution.md)
+  restores that local contact after parameter transport: all 513 integrations
+  audit and all sixteen full-state contact/prediction comparisons pass. The
+  earlier projection-only match remains a failed baseline. This is numerical
+  proximity to one fold, not a second critical point or symbolic arrow.
+  Full raw evidence remains local; compact audit receipts and generated figures
+  are available in the repository.
 - The shrimp and periodic-window skeleton evolves coherently over eleven
   sampled planes, `b = 0.10, ..., 0.30`, within `a = 0.05–0.40` and `c = 1–20`.
   These are finite-time, single-initial-condition recurrence maps; unresolved

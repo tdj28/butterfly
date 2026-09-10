@@ -354,6 +354,16 @@ inputs; historical result reproduction is a separate requirement.
   and primitive identity; do not reuse old depth-eight response derivatives.
   A joint fold/grazing correction alone would not supply the missing second
   smooth critical point or verify a Jones word: retain that separate target.
+  [EXP-519](updates/2026-09-10-exp519-execution.md) now qualifies the fresh
+  fixed-c response and its single correction: all 513 IVPs audit, all sixteen
+  full-state contacts pass (worst 8.822e-7 versus 1e-4), and all prediction
+  checks pass (worst .006323 versus .1). Preserve the old failed anchor; do not
+  replace it with the favorable fine-stencil point or call numerical proximity
+  exact equality. The next scientific obstruction is the second critical
+  geometry, not another x-only root. Bind the recovered fold/orbit family,
+  distinguish grazing from a genuine second critical point of the declared
+  return curve or quotient, and qualify any fresh c/joint response before
+  transport. A boundary at old parameters is not evidence at the new correction.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting

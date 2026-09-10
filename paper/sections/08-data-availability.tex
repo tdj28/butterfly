@@ -52,6 +52,14 @@ before execution. This finite scalar calculation can be rerun with the Python
 standard library and requires no private orbit arrays or GPU. The generated
 table has a hash-bound provenance file and a byte-for-byte verification mode.
 
+The fresh fold-response result in Figure~\ref{fig:fresh-fold-response} has a
+public compact audit receipt and figure generator under EXP-519. A standalone
+checker replays its event measurements, contact distances and response
+arithmetic using tracked inputs only. The full local audit also replays the
+retained trajectory meshes; those raw arrays are not distributed in the
+compact receipt. Regenerating this figure therefore does not amount to
+independently reintegrating the experiment or repeating its full raw audit.
+
 The remaining reproducibility requirement is public dependency closure for
 all principal results, including event-transversality diagnostics and
 independent-formulation orbit checks. The available subset is a verified
