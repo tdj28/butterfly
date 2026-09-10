@@ -1,2 +1,3 @@
-# Preserve exact receipt-bound plotting-library SVG bytes.
+# Preserve the hash-bound Matplotlib SVG bytes; no blanket whitespace exception.
+docs/figures/EXP-519-fixed-c-fold-response.svg whitespace=-blank-at-eol
 docs/figures/EXP-520-periodic-stationarity-census.svg whitespace=-blank-at-eol
