@@ -244,12 +244,20 @@ inputs; historical result reproduction is a separate requirement.
   passes 200 IVPs, but the first warm step violates fold proximity by 1.19%.
   All numerical and cycle-identity checks pass and the boundary gap decreases;
   the combined model-error norm masked a wrongly predicted fold component.
-  The point is rejected and seven later slots remain unrun. Next freeze a
+  The point is rejected and seven later slots remain unrun. This motivates a
   fixed-c fold-restoration test, then a constrained continuation that corrects
   the fold condition before accepting a path point. Preserve this failure and
   every threshold; do not resume EXP-504 or count its diagnostic improvement
   as an accepted path. Then test a conditional local partition
   on held-out returns and corrected cycles, without selecting for target words.
+  [EXP-507 completes the fixed-c correction](updates/2026-09-09-exp507-fixed-c-fold-restoration.md):
+  all 158 integrations pass raw audit, and full-state fold distance falls to
+  0.00000385436 under the unchanged 0.0001 bound. The boundary remains about
+  119 times too far away. Next freeze a bounded predictor/corrector continuation
+  from this qualified point, correcting the fold explicitly before accepting
+  each new lower-c point, with both original/adjacent identities and all numerical
+  representations retained. Budget raw storage for every predictor and corrector;
+  preserve rejected predictions and do not resume any consumed attempt.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting
