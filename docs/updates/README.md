@@ -22,6 +22,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp515-third-return-precision.md`](2026-09-10-exp515-third-return-precision.md)
+  - EXP-514 merged. A twelve-IVP higher-precision test now targets the first
+  sensitivity loss at return three. Analytic controls and isolated startup
+  pass along with 2,736 regression tests. No new target result yet.
 - [`2026-09-10-exp514-candidate-grazing-boundaries.md`](2026-09-10-exp514-candidate-grazing-boundaries.md)
   - All 120 target IVPs pass raw audit. Every candidate qualifies as a local
   section-grazing boundary with two-sided crossing birth/death and square-root

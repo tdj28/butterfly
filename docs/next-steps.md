@@ -312,6 +312,11 @@ inputs; historical result reproduction is a separate requirement.
   the now-classified grazing brackets as fold candidates, lower the gain gate,
   or infer global absence of other smooth folds. Primitive-family membership
   and the operational C/D dictionary remain necessary for the symbolic arrow.
+  [EXP-515](updates/2026-09-10-exp515-third-return-precision.md) directly tests
+  the earlier sensitivity loss at return three: six realized initial inputs,
+  two high-precision configurations, all three return ordinals and both old
+  solver comparators. Preserve relative-error and root-box uncertainty failures;
+  no lowered gain gate or newly recomputed section may manufacture agreement.
   New executions must use the tested `bounded_json.py` admission for every JSON
   product, including final summaries, and compact references to large fit
   journals. EXP-506's final duplicated summary exposed an output-cap accounting
