@@ -4,8 +4,10 @@ Current result: [EXP-522's nonlinear refinement passes](2026-09-10-exp522-nonlin
 All 96 new IVPs pass raw audit; every contact residual improves at least 115×,
 with all predictions passing and net progress toward section grazing retained.
 EXP-521's failed predictor remains failed. Jones's flow-level symbolic chains
-are still unverified. EXP-523 now tests two continuation steps with fresh
-derivatives and explicitly preserved physical root identities.
+are still unverified. [EXP-523 timed out](2026-09-11-exp523-timeout.md) after
+eight calibration points and an incomplete predictor. Its raw files are
+preserved, but it has no complete scientific audit. Recovery awaits fresh
+human authorization under the research-integrity policy.
 The earlier EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
@@ -30,6 +32,10 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-11-exp523-timeout.md`](2026-09-11-exp523-timeout.md)
+  - Six-hour cap reached during the first predictor. Eight calibration points
+  completed; all 1,299 retained inventory files and 206 frozen files verify.
+  Preservation only, not a scientific audit or a Jones-chain verdict.
 - [`2026-09-10-exp523-prax-execution.md`](2026-09-10-exp523-prax-execution.md)
   - Frozen two-step computation is running on prax; worker liveness, consumed
   marker and raw writing verified. Complete audit follows automatically.

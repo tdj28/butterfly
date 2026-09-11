@@ -1,0 +1,71 @@
+{
+  "complete_raw_audit": false,
+  "complete_run_summary": false,
+  "diagnostic_sha256": {
+    "binding.json": "e743e50def0e93eceec532de7553c1c1083f1868500b20c615bf4a9711d662e7",
+    "failure.json": "3816d1351a8efc5c2fa2610118fbab1fe40989acfb7c993850be4b7b750c5116",
+    "operational.log": "76d2f6f8e9105daeca39865370ad8966f6afa3d75a50dedfcd4cd812cfc39e5b",
+    "plan": "e4c5b399f77dc8a23d069419866ff4a9787c9c7970b1e5336d6a19e3510ce4aa",
+    "target-once.json": "e743e50def0e93eceec532de7553c1c1083f1868500b20c615bf4a9711d662e7"
+  },
+  "elapsed_seconds": 21600.041341,
+  "error_type": "BudgetStop",
+  "experiment_id": "EXP-523",
+  "failure_receipt_bytes": 276312,
+  "failure_utc": "2026-09-11T04:22:18.280192+00:00",
+  "frozen_physical_files_verified": 206,
+  "inspector_sha256": "ca9abfab3e34b613e02536df174d19be8e9ce33cde1ebda84e3f60cfeadaf67e",
+  "message": "EXP-523 wall deadline",
+  "new_integrations": 0,
+  "observed_utc": "2026-09-11T04:47:29.974688+00:00",
+  "periodic_census_segments": 667500,
+  "point_progress": [
+    {
+      "id": "step-0-a-0",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-a-1",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-a-2",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-a-3",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-c-0",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-c-1",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-c-2",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-c-3",
+      "status": "completed"
+    },
+    {
+      "id": "step-0-predictor",
+      "status": "started"
+    }
+  ],
+  "retained_inventory": {
+    "bytes": 3241861585,
+    "files": 1299
+  },
+  "scope": "Byte inventory, fixed source and failure diagnostics only; no scientific outputs interpreted or replayed.",
+  "source_commit": "eae6745d124c2fa59efc4eff337929e9ff71607d",
+  "started_utc": "2026-09-10T22:22:18.238851+00:00",
+  "status": "timeout-bytes-preserved-not-scientifically-audited",
+  "symbolic_chains_verified": false,
+  "target_ivp_calls_started": 875,
+  "total_run_bytes": 3242137897
+}

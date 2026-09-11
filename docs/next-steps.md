@@ -62,12 +62,14 @@ audit cleanly, every contact residual improves at least 115×, and both gap
 responses retain net progress from the original anchor. The first gap gives
 back a small amount relative to the trial; that local-progress failure remains
 explicit. See the [EXP-522 result](updates/2026-09-10-exp522-nonlinear-refinement-result.md).
-[EXP-523 is now running on prax](updates/2026-09-10-exp523-prax-execution.md):
-the bounded two-step predictor/corrector refreshes derivatives and checks
-full-state restoration, new-data predictions and complete extremum identity.
-Next complete its automatic raw audit, then independently replay the compact
-decisions and publish all attempted points, including failures and any accepted
-prefix. Do not restart the consumed attempt or modify its frozen source.
+[EXP-523 reached its six-hour cap](updates/2026-09-11-exp523-timeout.md) after
+eight calibration points and an incomplete first predictor. Its full audit
+did not run. All retained bytes and frozen files passed a preservation check,
+which is not scientific replay. Recovery requires fresh human authority under
+the canonical Tier C policy. Proposed next: audit the complete points and
+incomplete-stage inventory, then use only qualified, explicitly bound historical
+inputs in a separately frozen one-step experiment. Do not restart the consumed
+attempt, mix old/new raw rows, fabricate a success summary, or modify its source.
 Stop and investigate any crossing-count change separately; do not silently
 relax the existing 6/8 gates. A sampled two-step path is not chain verification.
 The [conditional grazing derivation](theory/periodic-grazing-and-symbol-insertion.md)

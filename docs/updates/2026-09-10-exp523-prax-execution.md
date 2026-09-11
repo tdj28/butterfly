@@ -1,5 +1,9 @@
 # EXP-523 is executing on prax
 
+**Historical execution log:** the run subsequently reached its six-hour cap
+on 2026-09-11. See the [timeout and preservation record](2026-09-11-exp523-timeout.md)
+for current status. It is no longer running and did not reach the full audit.
+
 Operational checkpoint, 2026-09-10 22:22 UTC. **No new scientific result yet.**
 
 The two-step refreshed contact-path calculation is running on the existing
