@@ -6,8 +6,9 @@ with all predictions passing and net progress toward section grazing retained.
 EXP-521's failed predictor remains failed. Jones's flow-level symbolic chains
 are still unverified. [EXP-523 timed out](2026-09-11-exp523-timeout.md) after
 eight calibration points and an incomplete predictor. Its raw files are
-preserved, but it has no complete scientific audit. Recovery awaits fresh
-human authorization under the research-integrity policy.
+preserved, but it has no complete scientific audit. The human has now
+[approved EXP-524 recovery](2026-09-11-exp524-recovery.md); its bounded
+partial-run audit is being implemented before numerical replay.
 The earlier EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
@@ -32,6 +33,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-11-exp524-recovery.md`](2026-09-11-exp524-recovery.md)
+  - Human-approved partial-run audit, followed only if qualified by a separately
+  frozen one-step successor. No new scientific result yet.
 - [`2026-09-11-exp523-timeout.md`](2026-09-11-exp523-timeout.md)
   - Six-hour cap reached during the first predictor. Eight calibration points
   completed; all 1,299 retained inventory files and 206 frozen files verify.

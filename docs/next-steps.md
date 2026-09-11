@@ -65,8 +65,9 @@ explicit. See the [EXP-522 result](updates/2026-09-10-exp522-nonlinear-refinemen
 [EXP-523 reached its six-hour cap](updates/2026-09-11-exp523-timeout.md) after
 eight calibration points and an incomplete first predictor. Its full audit
 did not run. All retained bytes and frozen files passed a preservation check,
-which is not scientific replay. Recovery requires fresh human authority under
-the canonical Tier C policy. Proposed next: audit the complete points and
+which is not scientific replay. The human has now
+[approved recovery](updates/2026-09-11-exp524-recovery.md) under the canonical
+Tier C policy. Next: audit the complete points and
 incomplete-stage inventory, then use only qualified, explicitly bound historical
 inputs in a separately frozen one-step experiment. Do not restart the consumed
 attempt, mix old/new raw rows, fabricate a success summary, or modify its source.
