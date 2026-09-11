@@ -56,6 +56,12 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
+Latest: the [EXP-524 recovery audit completed](updates/2026-09-11-exp524-recovery.md).
+Its full receipt remains private pending payload-specific publication approval.
+Proceed with the already authorized [one-step successor](experiments/EXP-525-recovered-single-step.md),
+reading the fixed historical calibration in place on prax. No public data upload
+is required. The earlier frontier and failure context follow below.
+
 Current frontier: EXP-522's new fixed-c nonlinear refinement passes every
 predeclared gate after EXP-521's failed linear predictor. All 96 new IVPs
 audit cleanly, every contact residual improves at least 115×, and both gap
@@ -67,9 +73,9 @@ eight calibration points and an incomplete first predictor. Its full audit
 did not run. All retained bytes and frozen files passed a preservation check,
 which is not scientific replay. The human has now
 [approved recovery](updates/2026-09-11-exp524-recovery.md) under the canonical
-Tier C policy. Next: audit the complete points and
-incomplete-stage inventory, then use only qualified, explicitly bound historical
-inputs in a separately frozen one-step experiment. Do not restart the consumed
+Tier C policy. The separately completed partial audit preserves the
+incomplete-stage inventory; its qualified, explicitly bound historical
+inputs may support the separately frozen one-step experiment. Do not restart the consumed
 attempt, mix old/new raw rows, fabricate a success summary, or modify its source.
 Stop and investigate any crossing-count change separately; do not silently
 relax the existing 6/8 gates. A sampled two-step path is not chain verification.

@@ -1,7 +1,13 @@
 # Scientific claim ledger
 
-Last updated: 2026-09-11 (scientific results through EXP-522; EXP-523 timeout
-recorded; not a new audit of every row)
+Last updated: 2026-09-11 (public scientific results through EXP-522;
+EXP-523 timeout and EXP-524 audit completion recorded; not a new audit of every row)
+
+**EXP-524 publication boundary:** the recovery audit completed, but its full
+receipt remains private pending explicit payload-specific publication approval.
+Do not describe the detailed evidence as publicly reproducible. The next
+authorized calculation may read it in place on prax. This does not establish
+a Jones arrow or complete the interrupted EXP-523 run.
 
 **EXP-523 operational failure:** the six-hour cap interrupted the first
 predictor after eight calibration points. No complete continuation endpoint,
