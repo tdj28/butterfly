@@ -3,7 +3,7 @@
 Current work: [the approved recovery audit completed](2026-09-11-exp524-recovery.md).
 Its detailed receipt remains private pending payload-specific publication
 approval. The [one-step successor](2026-09-11-exp525-recovered-step-design.md)
-can read that evidence in place on prax without publishing or uploading it.
+is now running on prax, reading that evidence in place without publishing or uploading it.
 EXP-523 remains incomplete; Jones's flow-level symbolic chains remain unverified.
 The earlier EXP-520 census and its limits remain in the evidence chain below.
 
