@@ -1,10 +1,11 @@
 # Research updates
 
-Current result: [EXP-519 restores full-state fold/orbit proximity](2026-09-10-exp519-execution.md).
-All 513 IVPs pass raw audit; the prescribed correction passes all sixteen
-contact and prediction comparisons. The second critical point and symbolic
-chain remain unverified. Public replay and figure reproducibility checks pass;
-the release is being prepared.
+Current result: [EXP-522's nonlinear refinement passes](2026-09-10-exp522-nonlinear-refinement-result.md).
+All 96 new IVPs pass raw audit; every contact residual improves at least 115×,
+with all predictions passing and net progress toward section grazing retained.
+EXP-521's failed predictor remains failed. Jones's flow-level symbolic chains
+are still unverified. EXP-523 now tests two continuation steps with fresh
+derivatives and explicitly preserved physical root identities.
 
 This directory is the chronological project log. It complements the thematic
 research plan, claim ledger, experiment records, and execution backlog without
@@ -28,6 +29,14 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp523-prax-execution.md`](2026-09-10-exp523-prax-execution.md)
+  - Frozen two-step computation is running on prax; worker liveness, consumed
+  marker and raw writing verified. Complete audit follows automatically.
+  This is operational progress, not an EXP-523 scientific result yet.
+- [`2026-09-10-exp523-refreshed-path-design.md`](2026-09-10-exp523-refreshed-path-design.md)
+  - Two-step continuation with freshly measured a/c responses, a prospectively
+  tested quadratic prediction, and at most one normal correction per step.
+  Pre-execution local review caught and fixed a cyclic root-identity reset.
 - [`2026-09-10-exp522-nonlinear-refinement-result.md`](2026-09-10-exp522-nonlinear-refinement-result.md)
   - All 96 IVPs and 83406 census segments pass raw audit. Fresh fixed-c
   refinement improves every contact residual at least 115× and passes all
