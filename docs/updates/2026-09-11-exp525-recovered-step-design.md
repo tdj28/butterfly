@@ -1,6 +1,7 @@
 # The approved recovery advances to one fresh step
 
-**EXP-525 is now running on prax.** See the verified launch record below.
+**EXP-525 has completed.** See the [completion and replay-limitation record](2026-09-11-exp525-completion.md).
+The text below preserves the prospective design and launch chronology.
 
 The retained-data audit has completed. Its detailed receipt remains private
 pending explicit approval for public release; it is not being repackaged or

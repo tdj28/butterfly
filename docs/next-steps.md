@@ -56,11 +56,14 @@ inputs; historical result reproduction is a separate requirement.
 
 ## 2. Test the symbolic reinjection mechanism
 
-Latest: the [EXP-524 recovery audit completed](updates/2026-09-11-exp524-recovery.md).
-Its full receipt remains private pending payload-specific publication approval.
-Proceed with the already authorized [one-step successor](experiments/EXP-525-recovered-single-step.md),
-reading the fixed historical calibration in place on prax. No public data upload
-is required. The earlier frontier and failure context follow below.
+Latest: the [approved recovery and one-step successor completed](updates/2026-09-11-exp525-completion.md).
+Detailed evidence remains private. The original prax raw audit completed;
+local full-inventory authentication and scalar replay pass, but complete Mac
+raw replay fails at strict floating-point equality. Preserve and resolve that
+portability limitation in separately versioned analysis, without changing
+frozen source or scientific decisions. The one-step execution authority is
+consumed; any further target continuation requires a bounded prospective
+campaign. The earlier public frontier and failure context follow below.
 
 Current frontier: EXP-522's new fixed-c nonlinear refinement passes every
 predeclared gate after EXP-521's failed linear predictor. All 96 new IVPs

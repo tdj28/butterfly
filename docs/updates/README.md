@@ -1,9 +1,9 @@
 # Research updates
 
-Current work: [the approved recovery audit completed](2026-09-11-exp524-recovery.md).
-Its detailed receipt remains private pending payload-specific publication
-approval. The [one-step successor](2026-09-11-exp525-recovered-step-design.md)
-is now running on prax, reading that evidence in place without publishing or uploading it.
+Current work: [the approved recovery and one-step successor completed](2026-09-11-exp525-completion.md).
+Detailed evidence remains private. The original prax audit completed and the
+full new evidence is backed up locally; a complete Mac raw replay fails at a
+strict floating-point equality check, while byte and scalar checks pass.
 EXP-523 remains incomplete; Jones's flow-level symbolic chains remain unverified.
 The earlier EXP-520 census and its limits remain in the evidence chain below.
 
@@ -29,6 +29,9 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-11-exp525-completion.md`](2026-09-11-exp525-completion.md)
+  - Completed recovery, verified local backup, and a preserved Mac replay
+  failure. No further target execution or detailed public data release.
 - [`2026-09-11-exp525-recovered-step-design.md`](2026-09-11-exp525-recovered-step-design.md)
   - One fresh predictor and conditional correction, using private calibration
   already on prax. No detailed evidence upload or publication.
