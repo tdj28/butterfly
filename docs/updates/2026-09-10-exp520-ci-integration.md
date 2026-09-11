@@ -29,3 +29,20 @@ The focused census, figure, interpreter and conditional-grazing tests pass
 reference checks pass. A separate read-only adversarial review found no
 content blocker in the four conflict resolutions. These are release checks,
 not new integrations or independent verification of Jones's chain.
+
+## Reconciliation after the EXP-523 design release
+
+All four checks passed for EXP-520 head
+`15b9639830077d2a96613e7074fdb7b1c4aac7e9`. On 2026-09-11 at 00:30 UTC,
+PR 89 was normally squash-merged at its independently green final head,
+placing the EXP-523 design and prospective figure pipeline on main as
+`6e95f8ba0409a4b1aa7b56676879a37c9a523bcd`. Integrating that main commit
+into this release produced one conflict in the update-index introduction.
+Keep its current EXP-522 result and live EXP-523 description while retaining
+EXP-520's separate census entry and limitations. No numerical source changes.
+The revised EXP-520 head requires fresh final-head checks before merge.
+
+The remote EXP-523 worker was observed alive at 00:30 UTC, with two completed
+calibration points, 206 IVPs and 166,939 periodic census segments. No full-audit
+receipt existed yet, and no scientific outcomes were inspected. This release
+reconciliation neither restarted that run nor changed its frozen deadline.

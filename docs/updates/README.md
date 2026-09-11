@@ -1,10 +1,12 @@
 # Research updates
 
-Latest audited result: [EXP-522 restores contact after a failed predictor](2026-09-10-exp522-nonlinear-refinement-result.md).
-All 96 new IVPs pass raw audit; every contact residual improves at least 115×.
-This does not erase EXP-521's prediction failure or verify section grazing,
-the second critical point, or Jones's flow-level symbolic chain. The earlier
-EXP-520 census and its limits remain in the evidence chain below.
+Current result: [EXP-522's nonlinear refinement passes](2026-09-10-exp522-nonlinear-refinement-result.md).
+All 96 new IVPs pass raw audit; every contact residual improves at least 115×,
+with all predictions passing and net progress toward section grazing retained.
+EXP-521's failed predictor remains failed. Jones's flow-level symbolic chains
+are still unverified. EXP-523 now tests two continuation steps with fresh
+derivatives and explicitly preserved physical root identities.
+The earlier EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
 research plan, claim ledger, experiment records, and execution backlog without
@@ -28,6 +30,14 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-10-exp523-prax-execution.md`](2026-09-10-exp523-prax-execution.md)
+  - Frozen two-step computation is running on prax; worker liveness, consumed
+  marker and raw writing verified. Complete audit follows automatically.
+  This is operational progress, not an EXP-523 scientific result yet.
+- [`2026-09-10-exp523-refreshed-path-design.md`](2026-09-10-exp523-refreshed-path-design.md)
+  - Two-step continuation with freshly measured a/c responses, a prospectively
+  tested quadratic prediction, and at most one normal correction per step.
+  Pre-execution local review caught and fixed a cyclic root-identity reset.
 - [`2026-09-10-exp522-nonlinear-refinement-result.md`](2026-09-10-exp522-nonlinear-refinement-result.md)
   - All 96 IVPs and 83406 census segments pass raw audit. Fresh fixed-c
   refinement improves every contact residual at least 115× and passes all
