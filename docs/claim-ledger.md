@@ -3,6 +3,13 @@
 Last updated: 2026-09-11 (public scientific results through EXP-522;
 EXP-523 timeout and EXP-524 audit completion recorded; not a new audit of every row)
 
+**EXP-525 operational completion:** the approved one-step run and original
+prax raw audit completed. All new evidence is backed up locally and passes
+byte authentication and scalar replay. A complete Mac raw replay fails at
+strict floating-point equality; it is not a successful cross-platform
+reproduction. Detailed outcomes remain private, and no Jones arrow is
+established. See the [completion record](updates/2026-09-11-exp525-completion.md).
+
 **EXP-524 publication boundary:** the recovery audit completed, but its full
 receipt remains private pending explicit payload-specific publication approval.
 Do not describe the detailed evidence as publicly reproducible. The next
