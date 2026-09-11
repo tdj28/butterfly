@@ -27,6 +27,21 @@ net progress from monotonic progress. No grazing, D, exact locus, homoclinic
 connection or Jones arrow is established. See the
 [complete result and figure](updates/2026-09-10-exp521-critical-response-result.md).
 
+**EXP-520 result:** every one of 417,460 retained observation-polynomial
+segments passes the exact root-certificate audit. All ten profiles and twenty
+cycle windows qualify, with 16 stationary points per cycle and an unambiguous
+nearest-object nomination in each of the five EXP-519 parameter cases.
+The original event callbacks agree with the complete census on these inputs;
+this does not generally certify that callback-based observers cannot miss
+roots. At EXP-519's corrected fold-contact point, the nearest signed section
+gap is approximately -0.344803, with z displacement 15.1495 and speed 108.148.
+Permitted: a reproducibly identified actual periodic candidate and an open
+local grazing gap. Forbidden: equating restored fold contact with grazing,
+identifying D, verifying a Jones arrow, exact-flow all-roots proof, or global
+homoclinic refutation. The certificate verifier uses independent polynomial
+expansion/count logic but shares geometry code and is not another team's
+replication. See the [complete result](updates/2026-09-10-exp520-periodic-stationarity-census.md).
+
 **EXP-519 result:** all 513 target IVPs pass full local raw audit. Every fixed
 stencil point and the single prescribed correction retains all four qualified
 fold constructions, both solvers, both cycle windows and primitive 6/8 section

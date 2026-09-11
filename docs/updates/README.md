@@ -6,6 +6,7 @@ with all predictions passing and net progress toward section grazing retained.
 EXP-521's failed predictor remains failed. Jones's flow-level symbolic chains
 are still unverified. EXP-523 now tests two continuation steps with fresh
 derivatives and explicitly preserved physical root identities.
+The earlier EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
 research plan, claim ledger, experiment records, and execution backlog without
@@ -49,6 +50,11 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
   - Executable four-point c response and one conditional contact-preserving
   periodic step; all 16 stationary points and both inner maxima tracked.
   Design and tests, not yet a target result or a verified Jones arrow.
+- [`2026-09-10-exp520-periodic-stationarity-census.md`](2026-09-10-exp520-periodic-stationarity-census.md)
+  - All 417,460 stored segments pass the exact polynomial-root audit; all
+  twenty cycle windows and five nearest-object nominations qualify. The
+  actual periodic candidate remains below the section by about 0.345:
+  restored fold contact is not yet section grazing or a verified Jones arrow.
 - [`2026-09-10-exp519-execution.md`](2026-09-10-exp519-execution.md)
   - All four response points and the single correction qualify. Worst corrected
   full-state distance is 8.822e-7 versus 1e-4; the original reserve and every

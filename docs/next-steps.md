@@ -74,6 +74,13 @@ The [conditional grazing derivation](theory/periodic-grazing-and-symbol-insertio
 states what a one-count change can establish and the extra conditions still
 needed for Jones's particular zero insertion.
 
+The earlier [EXP-520 census](updates/2026-09-10-exp520-periodic-stationarity-census.md)
+identified the actual periodic candidate in all five EXP-519 cases, while
+showing that restored fold contact did not close the section-grazing gap.
+Its complete result, two-solver/two-window census and explicit limits remain
+part of the evidence chain; no equal-ordinal cross-parameter identity or
+homoclinic conclusion follows from that census alone.
+
 - [x] Qualify observation of both fixed EXP-479 cycles on both sections:
   [EXP-480](updates/2026-09-06-exp480-both-cycles-qualified.md) passes; six
   historical and eight Barrio events are not a one-to-one alphabet transport.
