@@ -1,0 +1,30 @@
+{
+  "experiment_id": "EXP-524",
+  "cycle_id": "EXP-523-timeout-recovery-01",
+  "code_lineage": "C524",
+  "experiment_lineage": "E524",
+  "freeze_lineage": "F524",
+  "attempt_id": "EXP-524-audit-01",
+  "parent_experiment": "EXP-523",
+  "parent_source_commit": "eae6745d124c2fa59efc4eff337929e9ff71607d",
+  "parent_failure_sha256": "3816d1351a8efc5c2fa2610118fbab1fe40989acfb7c993850be4b7b750c5116",
+  "parent_preservation_sha256": "0c440f75221792c55b5c83b0dcc2c7175dbd9a9057bbc32fb380ed4c3783a19a",
+  "tier": "C",
+  "prior_outcome_access": "target data computed; scientific metrics uninspected before recovery approval",
+  "human_approval": {
+    "date": "2026-09-11",
+    "request": "Audit saved results for up to 12 hours, then if they pass run one separately recorded verification step capped at six hours on existing prax. No paid API calls or GPU rental; preserve all evidence.",
+    "response": "please proceed"
+  },
+  "audit_wall_seconds": 43200,
+  "audit_attempts": 1,
+  "new_integrations": 0,
+  "new_provider_creates": 0,
+  "paid_api_calls": 0,
+  "paid_review": "not-requested-human-approval-policy",
+  "successor_collection_wall_seconds": 21600,
+  "successor_steps": 1,
+  "successor_condition": "All eight complete calibration points pass retained-raw audit; a separately frozen successor must bind them as historical inputs and pass unchanged scientific and operational gates.",
+  "failure_policy": "Preserve all outputs and stop this audit attempt at its hard deadline or any integrity failure. Never reset the consumed EXP-523 attempt or fabricate its successful summary.",
+  "raw_policy": "Existing EXP-523 raw remains read-only on prax. EXP-524 writes only into a fresh recovery namespace. Incomplete predictor bytes are separately inventoried, not promoted to an audited measurement."
+}

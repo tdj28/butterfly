@@ -1,13 +1,10 @@
 # Research updates
 
-Current result: [EXP-522's nonlinear refinement passes](2026-09-10-exp522-nonlinear-refinement-result.md).
-All 96 new IVPs pass raw audit; every contact residual improves at least 115×,
-with all predictions passing and net progress toward section grazing retained.
-EXP-521's failed predictor remains failed. Jones's flow-level symbolic chains
-are still unverified. [EXP-523 timed out](2026-09-11-exp523-timeout.md) after
-eight calibration points and an incomplete predictor. Its raw files are
-preserved, but it has no complete scientific audit. Recovery awaits fresh
-human authorization under the research-integrity policy.
+Current work: [the approved recovery audit completed](2026-09-11-exp524-recovery.md).
+Its detailed receipt remains private pending payload-specific publication
+approval. The [one-step successor](2026-09-11-exp525-recovered-step-design.md)
+is now running on prax, reading that evidence in place without publishing or uploading it.
+EXP-523 remains incomplete; Jones's flow-level symbolic chains remain unverified.
 The earlier EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
@@ -32,6 +29,12 @@ details live under `docs/experiments/` and `docs/experiments/receipts/`.
 
 ## Entries
 
+- [`2026-09-11-exp525-recovered-step-design.md`](2026-09-11-exp525-recovered-step-design.md)
+  - One fresh predictor and conditional correction, using private calibration
+  already on prax. No detailed evidence upload or publication.
+- [`2026-09-11-exp524-recovery.md`](2026-09-11-exp524-recovery.md)
+  - Human-approved partial-run audit, followed only if qualified by a separately
+  frozen one-step successor. No new scientific result yet.
 - [`2026-09-11-exp523-timeout.md`](2026-09-11-exp523-timeout.md)
   - Six-hour cap reached during the first predictor. Eight calibration points
   completed; all 1,299 retained inventory files and 206 frozen files verify.
