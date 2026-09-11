@@ -8,7 +8,7 @@ are still unverified. [EXP-523 timed out](2026-09-11-exp523-timeout.md) after
 eight calibration points and an incomplete predictor. Its raw files are
 preserved, but it has no complete scientific audit. The human has now
 [approved EXP-524 recovery](2026-09-11-exp524-recovery.md); its bounded
-partial-run audit is being implemented before numerical replay.
+partial-run audit is now running on prax. No new result is claimed yet.
 The earlier EXP-520 census and its limits remain in the evidence chain below.
 
 This directory is the chronological project log. It complements the thematic
